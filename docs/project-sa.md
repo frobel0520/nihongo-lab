@@ -7,7 +7,8 @@
 3. 用可調速度、可循環的跟讀模式練發音與語速。
 4. SRS 單字卡複習高頻詞彙與課程生字，進度存在瀏覽器。
 5. 查口語轉換表，把教科書日文對應到動畫常見的口語縮約與語氣詞。
-6. 離開後在同一瀏覽器接續進度；清除瀏覽器資料則進度歸零（無跨裝置同步）。
+6. 在手機把網站安裝成 PWA（加入主畫面），全螢幕開啟、離線可讀已快取的教材。
+7. 換裝置或換瀏覽器開啟，SRS 進度與已完成紀錄要能接續（2026-09-29 起改為需求，見下方「PWA 與跨裝置同步」）。
 
 ## 契約
 
@@ -22,6 +23,15 @@
 
 本機進度可被使用者自行修改，不是任何形式的能力認證。SRS 演算法與聽力教材只是學習輔助，不保證通過 JLPT。語音辨識或聽寫比對可能有誤判，回饋以文字對照為主，不做語音辨識自動評分。
 
+## PWA 與跨裝置同步
+
+參考 [Family](https://github.com/frobel0520/Family) 的架構，但簡化：nihongo-lab 只有 Michael 一人使用，不需要 Google OAuth、審核新登入、推播通知。
+
+- **PWA**：manifest.json + icon + service worker，快取教材文字與音檔，離線可讀已看過的課程；未快取的課程離線時顯示明確提示，不是空白或卡住。
+- **跨裝置同步**：只同步 SRS 進度與 completed 紀錄，不同步教材內容（教材本來就在 repo 裡，`git pull` 就有）。用 Cloudflare Worker 當同步端點，資料存放方式（KV 或私有 GitHub repo 當 JSON store，比照 Family 的 Family-data repo）待 project-sd.md 定案。
+- 沒有登入機制：用裝置產生、存在 localStorage 的隨機 ID 當同步識別碼，避免帳號密碼的複雜度（單人使用、非機密資料，可接受）。
+- 離線或 Worker 打不通時，先寫本機 localStorage，之後背景重試同步；本機永遠是可用的最後防線，不因同步失敗卡住學習。
+
 ## 部署與協作約束
 
-初期以 `npm run dev` 本機開發為主；GitHub Pages 公開部署與網址待第 0 階段教材與核心功能穩定後再進行，目前未部署，不得寫成已上線。
+Repository 已公開：[github.com/frobel0520/nihongo-lab](https://github.com/frobel0520/nihongo-lab)（2026-09-29 建立並推送）。GitHub Pages 公開網址與 Cloudflare Worker 同步端點都還沒部署，待核心功能穩定後再進行，目前不得寫成已上線。

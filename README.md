@@ -2,11 +2,15 @@
 
 Michael 個人使用的日文學習網站。目標是通過 JLPT N1，近期目標是不看字幕聽懂動畫與遊戲日文配音。
 
-繁體中文介面，React + TypeScript + Vite，local-first（進度存瀏覽器，離線可用）。核心教材由 Claude 直接撰寫完整內容；動畫台詞匯入是之後才考慮的選配功能。
+繁體中文介面，React + TypeScript + Vite，local-first（教材與音檔隨 repo 走，離線可用）。核心教材由 Claude 直接撰寫完整內容；動畫台詞匯入是之後才考慮的選配功能。目標是做成可安裝的 PWA，SRS 進度跨裝置同步，參考 [Family](https://github.com/frobel0520/Family) 的模式但不需要它的多人登入與推播。
 
 ## 現況
 
-剛完成專案骨架（T01），尚未有教材內容。詳細進度見 [progress.md](progress.md)。
+- Repository：[github.com/frobel0520/nihongo-lab](https://github.com/frobel0520/nihongo-lab)（public）。
+- 專案骨架（T01）與第 0 階段第 1 天教材（です／は／も，9 單字、9 種 VOICEVOX 語音、對話、練習）已完成。
+- PWA 安裝化與 SRS 跨裝置同步（T09、T10）已規劃，尚未實作。
+
+詳細進度見 [progress.md](progress.md)。
 
 ## 開發
 
