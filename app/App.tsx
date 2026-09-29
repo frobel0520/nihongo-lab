@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import { stages } from '../curriculum/lessons.mjs';
 
+const STAGE_ACCENT: Record<string, string> = {
+  'stage-0': 's0',
+  'stage-1': 's1',
+  'stage-2': 's2',
+  'stage-3': 's3',
+};
+
 function AudioLine({
   jp,
   reading,
@@ -43,17 +50,22 @@ export function App() {
   const lesson = stage0?.lessons[0];
 
   return (
-    <main>
-      <h1>日本語 Lab</h1>
-      <nav>
-        <ul>
-          {stages.map((stage) => (
-            <li key={stage.id}>
-              {stage.title}（{stage.lessons.length} 課）
-            </li>
-          ))}
-        </ul>
-      </nav>
+    <main className="wrap">
+      <header>
+        <p className="handle">Michael</p>
+        <h1>日本語 Lab</h1>
+        <p className="lede">N5 復健到 N1，聽得懂動畫與遊戲日文配音。</p>
+      </header>
+
+      <ul className="stages">
+        {stages.map((stage) => (
+          <li key={stage.id} className={`stage-card ${STAGE_ACCENT[stage.id]}`}>
+            <span className="stage-kind">{stage.id.toUpperCase()}</span>
+            <h2>{stage.title}</h2>
+            <span className="status">{stage.lessons.length} 課</span>
+          </li>
+        ))}
+      </ul>
 
       {lesson && (
         <article>
@@ -92,7 +104,7 @@ export function App() {
 
           <section>
             <h3>練習</h3>
-            <ul>
+            <ul className="vocab-list">
               {lesson.practice.map((p) => (
                 <PracticeItemView key={p.q} q={p.q} a={p.a} />
               ))}
@@ -100,6 +112,13 @@ export function App() {
           </section>
         </article>
       )}
+
+      <footer>
+        <p>
+          原始碼公開於{' '}
+          <a href="https://github.com/frobel0520/nihongo-lab">github.com/frobel0520/nihongo-lab</a>
+        </p>
+      </footer>
     </main>
   );
 }
