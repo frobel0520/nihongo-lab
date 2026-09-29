@@ -12,3 +12,58 @@ body {
   margin: 0;
   padding: 2rem;
 }
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.line {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.15rem 1rem;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #8883;
+}
+
+.line-jp {
+  font-size: 1.15rem;
+  grid-column: 1;
+}
+
+.line-reading {
+  grid-column: 1;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.line-zh {
+  grid-column: 1;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.line audio {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  height: 2rem;
+}
+
+.vocab-list {
+  list-style: none;
+  padding: 0;
+}
+
+.grammar-point {
+  margin-bottom: 1.5rem;
+}
+
+.practice-item {
+  margin-bottom: 1rem;
+}
+
+.answer {
+  color: #2a7;
+  font-weight: 600;
+}
