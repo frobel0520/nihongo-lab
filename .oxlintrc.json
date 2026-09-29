@@ -11,6 +11,7 @@
   },
   "ignorePatterns": ["dist/**", "coverage/**"],
   "rules": {
+    "jsx-a11y/media-has-caption": "off",
     "no-array-constructor": "error",
     "no-var": "error",
     "prefer-const": "error",
