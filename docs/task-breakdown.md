@@ -10,10 +10,10 @@
 | T05 | 跟讀與慢速播放 | 調速、循環 |
 | T06 | SRS 單字卡 | 間隔重複排程、進度存在瀏覽器 |
 | T07 | 口語轉換表 | 教科書日文對照動畫口語（縮約、語氣詞） |
-| T08 | 驗證與交付 | tests、typecheck、lint、build 通過；GitHub Pages 部署視需求再排 |
-| T09 | PWA 安裝化 | manifest、icon、service worker，可安裝、離線讀已快取課程 — 骨架完成，見下方 |
+| T08 | 驗證與交付 | tests、typecheck、lint、build 通過；GitHub Pages 部署 — 完成，見下方 |
+| T09 | PWA 安裝化 | manifest、icon、service worker，可安裝、離線讀已快取課程 — 完成，Android 真機安裝與播放已驗證 |
 | T10 | SRS 進度跨裝置同步 | Cloudflare Worker 同步端點，離線寫本機、上線後補同步，衝突不悄悄覆蓋 |
 
 各工作完成證據見 [release-audit.md](release-audit.md)。這份清單不代替驗證結果。
 
-Repository：[github.com/frobel0520/nihongo-lab](https://github.com/frobel0520/nihongo-lab)（public，2026-09-29 建立）。
+Repository：[github.com/frobel0520/nihongo-lab](https://github.com/frobel0520/nihongo-lab)（public，2026-09-29 建立）。上線網址：<https://frobel0520.github.io/nihongo-lab/>。

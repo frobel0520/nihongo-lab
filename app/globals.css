@@ -310,4 +310,18 @@ footer p {
   .stages {
     grid-template-columns: minmax(0, 1fr);
   }
+  .line {
+    grid-template-columns: 1fr;
+  }
+  .line-jp,
+  .line-reading,
+  .line-zh {
+    grid-column: 1;
+  }
+  .line audio {
+    grid-column: 1;
+    grid-row: auto;
+    width: 100%;
+    margin-top: 8px;
+  }
 }
