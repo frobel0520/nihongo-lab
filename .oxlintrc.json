@@ -9,7 +9,7 @@
     "browser": true,
     "node": true
   },
-  "ignorePatterns": ["dist/**", "coverage/**"],
+  "ignorePatterns": ["dist/**", "dev-dist/**", "coverage/**"],
   "rules": {
     "jsx-a11y/media-has-caption": "off",
     "no-array-constructor": "error",
