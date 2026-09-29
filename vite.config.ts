@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import { RangeRequestsPlugin } from 'workbox-range-requests';
 
 export default defineConfig({
   base: process.env.VITE_BASE_PATH || '/',
@@ -35,6 +36,7 @@ export default defineConfig({
             options: {
               cacheName: 'lesson-audio',
               expiration: { maxEntries: 500, maxAgeSeconds: 60 * 60 * 24 * 365 },
+              plugins: [new RangeRequestsPlugin()],
             },
           },
         ],
