@@ -17,8 +17,9 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 
 ## 待設計（下一輪任務）
 
-- 教材資料結構（每課的例句、單字、文法說明、音檔路徑、speaker 欄位）。
 - 聽寫練習、跟讀播放器、SRS 單字卡三個功能模組的元件與狀態設計。
 - 進度持久化格式（比照 typescript-lab 的 `lib/storage.ts`：版本化 key、輸入驗證）。
+- PWA：manifest.json、icon 集、service worker 快取策略（app shell + 已讀課程音檔，precache 或 runtime cache 待選）。
+- 跨裝置同步 Worker：端點設計、資料存放（KV vs 私有 GitHub repo JSON store）、裝置 ID 產生與衝突處理（兩裝置離線時都寫入，重新連線後怎麼合併，需要明確規則，不能悄悄覆蓋）。
 
-這些在教材資料結構定案前不展開，避免和第 0 階段教材範例互相打架。
+教材資料結構已在第 1 天教材定案，見 `curriculum/lessons.mjs`、`curriculum/voices.mjs`。
