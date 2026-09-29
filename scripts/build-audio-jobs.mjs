@@ -7,15 +7,15 @@ const jobs = [];
 for (const stage of stages) {
   for (const lesson of stage.lessons) {
     for (const item of lesson.vocab ?? []) {
-      jobs.push({ voice: item.voice, text: item.word, out: `public${item.audio}` });
+      jobs.push({ voice: item.voice, text: item.word, out: `public/${item.audio}` });
     }
     for (const point of lesson.grammar ?? []) {
       for (const ex of point.examples) {
-        jobs.push({ voice: ex.voice, text: ex.jp, out: `public${ex.audio}` });
+        jobs.push({ voice: ex.voice, text: ex.jp, out: `public/${ex.audio}` });
       }
     }
     for (const line of lesson.dialogue ?? []) {
-      jobs.push({ voice: line.voice, text: line.jp, out: `public${line.audio}` });
+      jobs.push({ voice: line.voice, text: line.jp, out: `public/${line.audio}` });
     }
   }
 }

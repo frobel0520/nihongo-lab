@@ -24,7 +24,7 @@ function AudioLine({
       <div className="line-jp">{jp}</div>
       <div className="line-reading">{reading}</div>
       <div className="line-zh">{zh}</div>
-      <audio controls src={audio} preload="none" />
+      <audio controls src={`${import.meta.env.BASE_URL}${audio}`} preload="none" />
     </div>
   );
 }

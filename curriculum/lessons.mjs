@@ -14,7 +14,8 @@
  * @typedef {{ id: string, title: string, lessons: Lesson[] }} Stage
  */
 
-const AUDIO_BASE = '/audio/stage-0/day1';
+// 不含開頭斜線：由畫面端接上 Vite 的 BASE_URL，才能在 GitHub Pages 子路徑下正確解析。
+const AUDIO_BASE = 'audio/stage-0/day1';
 
 /** @type {Lesson} */
 const day1 = {
