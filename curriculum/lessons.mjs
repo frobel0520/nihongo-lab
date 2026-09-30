@@ -7,7 +7,7 @@
  * @typedef {{
  *   id: string,
  *   title: string,
- *   audioReady?: boolean,
+ *   audioReady?: boolean, // 只有「文字寫好、音檔還沒合成」的課程才標 false；標了畫面不放播放器，聽寫與跟讀也略過這課
  *   vocab: VocabItem[],
  *   grammar: GrammarPoint[],
  *   dialogue: Line[],
@@ -90,7 +90,6 @@ const day1 = {
   ],
 };
 
-// 第 2 天的音檔還沒合成（需要有 VOICEVOX 與 ffmpeg 的機器），所以整課標 audioReady: false，見下方說明。
 // 主題對應《大家的日本語》第一冊第 2 課（指示詞、の）；單字、例句與對話都是自行撰寫，不是教科書內容。
 const DAY2_AUDIO = 'audio/stage-0/day2';
 
@@ -98,7 +97,6 @@ const DAY2_AUDIO = 'audio/stage-0/day2';
 const day2 = {
   id: 'stage0-day2',
   title: '第 2 天：これ／それ／あれ + の',
-  audioReady: false,
   vocab: [
     { word: 'これ', reading: 'これ', zh: '這個（離說話者近）', voice: 'zundamon', audio: `${DAY2_AUDIO}/vocab-kore.mp3` },
     { word: 'それ', reading: 'それ', zh: '那個（離聽話者近）', voice: 'tsumugi', audio: `${DAY2_AUDIO}/vocab-sore.mp3` },
@@ -218,16 +216,12 @@ const day2 = {
   ],
 };
 
-// audioReady: false 表示文字內容已完成、音檔尚未合成（合成需在有 VOICEVOX 與 ffmpeg 的機器上跑，
-// 見 scripts/synthesize.mjs）。音檔產生並放進 public/ 之後，把這個旗標移除或改成 true。
-// 旗標為 false 時畫面不顯示播放器，聽寫與跟讀也不會出現這些句子。
 const SPOKEN_AUDIO = 'audio/stage-2/spoken';
 
 /** @type {Lesson} */
 const spoken = {
   id: 'stage2-spoken',
   title: '口語轉換表：教科書日文 → 動畫口語',
-  audioReady: false,
   vocab: [],
   grammar: [
     {
@@ -330,7 +324,6 @@ const QUOTES_AUDIO = 'audio/stage-2/quotes';
 const quotes = {
   id: 'stage2-quotes',
   title: '動畫與遊戲名句：短句與口語重點',
-  audioReady: false,
   vocab: [],
   grammar: [],
   dialogue: [],

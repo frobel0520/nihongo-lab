@@ -163,10 +163,10 @@ test('buildCards：音檔未就緒的課程單字仍會收進來，但標成 aud
     ],
   );
 
-  // 實際教材：第 1 天音檔齊全，第 2 天還沒合成
+  // 實際教材：目前所有課程的音檔都已合成
   const real = buildCards(stages);
-  assert.ok(real.some((c) => c.audioReady));
-  assert.ok(real.some((c) => !c.audioReady));
+  assert.ok(real.length > 0);
+  assert.ok(real.every((c) => c.audioReady));
 });
 
 const cards = ['a', 'b', 'c', 'd'].map((word) => ({
@@ -179,7 +179,7 @@ const cards = ['a', 'b', 'c', 'd'].map((word) => ({
   lessonTitle: 'l',
 }));
 
-test('buildQueue：到期卡在前（越舊越前）、未到期不出現、新卡受每日額度限制', () => {
+test('buildQueue：到期卡在前（越舊越前）、未到期不出現、所有新卡接在後面且沒有每日上限', () => {
   const state = {
     'l:a': {
       ease: 2.5,
@@ -206,17 +206,26 @@ test('buildQueue：到期卡在前（越舊越前）、未到期不出現、新�
       firstSeen: '2026-09-27',
     },
   };
-  const queue = buildQueue(cards, state, TODAY, 1);
+  const queue = buildQueue(cards, state, TODAY);
   assert.deepEqual(
     queue.map((c) => c.word),
     ['c', 'a', 'd'],
   );
+
+  // 新卡數量不受限：教材有幾張沒看過的，佇列就有幾張
+  const many = Array.from({ length: 40 }, (_, i) => ({
+    ...cards[0],
+    id: `m:${i}`,
+    word: `w${i}`,
+  }));
+  assert.equal(buildQueue(many, {}, TODAY).length, 40);
+  assert.equal(summarize(many, {}, TODAY).fresh, 40);
 });
 
-test('buildQueue：今天已經新學過的卡會佔掉新卡額度，重整頁面不會多出新卡', () => {
+test('buildQueue：今天已經新學過的卡（答「還不會」，今天到期）留在佇列，重整頁面不會漏掉也不會重複', () => {
   const state = {
     'l:a': {
-      ease: 2.5,
+      ease: 2.3,
       interval: 0,
       reps: 0,
       lapses: 1,
@@ -225,12 +234,8 @@ test('buildQueue：今天已經新學過的卡會佔掉新卡額度，重整頁�
     },
   };
   assert.deepEqual(
-    buildQueue(cards, state, TODAY, 2).map((c) => c.word),
-    ['a', 'b'],
-  );
-  assert.deepEqual(
-    buildQueue(cards, state, TODAY, 1).map((c) => c.word),
-    ['a'],
+    buildQueue(cards, state, TODAY).map((c) => c.word),
+    ['a', 'b', 'c', 'd'],
   );
 });
 
@@ -245,8 +250,8 @@ test('buildQueue／summarize：教材已移除的卡片進度不會讓程式出�
       firstSeen: '2026-08-30',
     },
   };
-  assert.equal(buildQueue(cards, state, TODAY, 10).length, cards.length);
-  assert.deepEqual(summarize(cards, state, TODAY, 10), {
+  assert.equal(buildQueue(cards, state, TODAY).length, cards.length);
+  assert.deepEqual(summarize(cards, state, TODAY), {
     total: 4,
     learned: 0,
     due: 0,
