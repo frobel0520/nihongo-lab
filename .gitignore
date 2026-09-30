@@ -5,3 +5,4 @@ dev-dist/
 .env
 .env.local
 scripts/audio-jobs.json
+.cache/
