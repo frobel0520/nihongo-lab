@@ -4,6 +4,7 @@ import { existsSync } from 'node:fs';
 import { stages } from '../curriculum/lessons.mjs';
 import { voices } from '../curriculum/voices.mjs';
 import { buildSentences } from '../lib/dictation.mjs';
+import { rubyParts } from '../lib/furigana.mjs';
 
 const lessons = stages.flatMap((s) => s.lessons);
 
@@ -72,6 +73,22 @@ test('文法點的 jlpt 若有標，必須是非空字串陣列且同一課內�
       assert.ok(g.jlpt.every((id) => typeof id === 'string' && id), `${g.pattern} 的 jlpt 有非字串`);
     }
     assert.equal(new Set(ids).size, ids.length, `${lesson.id} 的 jlpt id 重複`);
+  }
+});
+
+test('每個含漢字的句子都能標出讀音（自動對齊，或用 ruby 欄位手動標）', () => {
+  for (const lesson of lessons) {
+    for (const line of linesOf(lesson)) {
+      const jp = line.jp ?? line.word;
+      if (!/[\p{Script=Han}々]/u.test(jp)) continue;
+      const parts = rubyParts({ jp, reading: line.reading, ruby: line.ruby });
+      assert.ok(
+        parts,
+        `${lesson.id}「${jp}」對不起來：讀音「${line.reading}」與原文不一致，或漢字段之間缺少邊界；請修正讀音，或加 ruby 欄位手動標`,
+      );
+      assert.equal(parts.map((p) => p.text).join(''), jp);
+      assert.ok(parts.every((p) => p.ruby === undefined || p.ruby !== ''));
+    }
   }
 });
 

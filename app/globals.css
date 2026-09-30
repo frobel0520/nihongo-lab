@@ -585,3 +585,30 @@ footer p {
     grid-row: auto;
   }
 }
+
+/* 漢字上方的讀音（ふりがな） */
+ruby {
+  ruby-position: over;
+}
+
+rt {
+  font-size: 0.6em;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ink-2);
+  letter-spacing: 0;
+}
+
+.flash-word rt {
+  font-size: 0.36em;
+}
+
+/* 有讀音時加高行距，避免讀音壓到上一行 */
+.line-jp:has(ruby),
+.flash-word:has(ruby) {
+  line-height: 2.1;
+}
+
+.furigana-toggle {
+  margin-bottom: 16px;
+}
