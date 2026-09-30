@@ -55,11 +55,10 @@ test('audioReady 不是 false 的課程，音檔都必須真的存在於 public/
   }
 });
 
-test('audioReady 為 false 的課程不會進入聽寫與跟讀句庫', () => {
+test('audioReady 為 false 的課程不會進入聽寫與跟讀句庫（目前所有課程音檔都就緒，機制另由 dictation 測試涵蓋）', () => {
   const pendingIds = new Set(
     lessons.filter((l) => l.audioReady === false).map((l) => l.id),
   );
-  assert.ok(pendingIds.size > 0);
   for (const sentence of buildSentences(stages)) {
     assert.ok(!pendingIds.has(sentence.lessonId));
   }

@@ -110,8 +110,7 @@ export function SrsView({
             : '目前沒有要複習的卡片。'}
         </p>
         <p className="muted">
-          已學 {stats.learned} / {stats.total} 張；今天還能學 {stats.fresh}{' '}
-          張新卡。
+          已學 {stats.learned} / {stats.total} 張。
         </p>
       </section>
     );
