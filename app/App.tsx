@@ -5,15 +5,17 @@ import { useSwUpdate } from './useSwUpdate';
 import { DictationView } from './views/DictationView';
 import { LessonView } from './views/LessonView';
 import { ShadowingView } from './views/ShadowingView';
+import { SettingsView } from './views/SettingsView';
 import { SrsView } from './views/SrsView';
 
-type ViewId = 'lessons' | 'srs' | 'dictation' | 'shadowing';
+type ViewId = 'lessons' | 'srs' | 'dictation' | 'shadowing' | 'settings';
 
 const TABS: { id: ViewId; label: string; hash: string }[] = [
   { id: 'lessons', label: '課程', hash: '#/' },
   { id: 'srs', label: '單字卡', hash: '#/srs' },
   { id: 'dictation', label: '聽寫', hash: '#/dictation' },
   { id: 'shadowing', label: '跟讀', hash: '#/shadowing' },
+  { id: 'settings', label: '設定', hash: '#/settings' },
 ];
 
 function viewFromHash(): ViewId {
@@ -33,6 +35,11 @@ export function App() {
   };
 
   const { updated, dismiss: dismissUpdate, reload } = useSwUpdate();
+
+  // 換分頁時回到頁首，不停在上一頁滑到一半的位置。
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [view]);
 
   useEffect(() => {
     const onHashChange = () => setView(viewFromHash());
@@ -77,15 +84,6 @@ export function App() {
           </output>
         )}
 
-        <label className="inline-field furigana-toggle">
-          <input
-            type="checkbox"
-            checked={prefs.furigana}
-            onChange={(e) => setFurigana(e.target.checked)}
-          />
-          漢字上方標讀音（ふりがな）
-        </label>
-
         {warning && (
           <div className="notice notice-row" role="alert">
             <span>{warning}</span>
@@ -105,6 +103,13 @@ export function App() {
         {view === 'shadowing' && <ShadowingView />}
         {view === 'dictation' && (
           <DictationView progress={progress} update={update} />
+        )}
+        {view === 'settings' && (
+          <SettingsView
+            progress={progress}
+            prefs={prefs}
+            setFurigana={setFurigana}
+          />
         )}
 
         <footer>

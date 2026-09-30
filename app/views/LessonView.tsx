@@ -1,8 +1,6 @@
-import { useMemo, useState } from 'react';
+import { useRef, useState } from 'react';
 import { stages } from '../../curriculum/lessons.mjs';
-import { allAudioPaths, lessonAudioPaths } from '../../lib/offline.mjs';
 import { AudioLine } from '../components/AudioLine';
-import { OfflineAudio } from '../components/OfflineAudio';
 
 const STAGE_ACCENT: Record<string, string> = {
   'stage-0': 's0',
@@ -15,7 +13,7 @@ const LESSONS = stages.flatMap((stage) =>
   stage.lessons.map((lesson) => ({ lesson, stageTitle: stage.title })),
 );
 
-const ALL_AUDIO_PATHS = allAudioPaths(stages);
+type SectionId = 'vocab' | 'grammar' | 'dialogue' | 'quotes' | 'practice';
 
 function PracticeItemView({ q, a }: { q: string; a: string }) {
   const [revealed, setRevealed] = useState(false);
@@ -35,14 +33,51 @@ function PracticeItemView({ q, a }: { q: string; a: string }) {
 
 export function LessonView() {
   const [lessonId, setLessonId] = useState(LESSONS[0]?.lesson.id);
-  const current = LESSONS.find((l) => l.lesson.id === lessonId) ?? LESSONS[0];
-  const lesson = current?.lesson;
-  const pending = lesson?.audioReady === false;
-  // 音檔還沒合成的課程沒有可下載的檔案。
-  const lessonPaths = useMemo(
-    () => (lesson && !pending ? lessonAudioPaths(lesson) : []),
-    [lesson, pending],
+  const [sectionId, setSectionId] = useState<SectionId | null>(null);
+  const articleRef = useRef<HTMLElement>(null);
+  const index = Math.max(
+    0,
+    LESSONS.findIndex((l) => l.lesson.id === lessonId),
   );
+  const lesson = LESSONS[index]?.lesson;
+  const pending = lesson?.audioReady === false;
+
+  // 一次只顯示一個區塊：一天的內容很多時，手機不用滑過整課，用上方的區塊列跳過去。
+  const sections: { id: SectionId; label: string; count: number }[] = lesson
+    ? [
+        { id: 'vocab' as const, label: '單字', count: lesson.vocab.length },
+        { id: 'grammar' as const, label: '文法', count: lesson.grammar.length },
+        {
+          id: 'dialogue' as const,
+          label: '對話',
+          count: lesson.dialogue.length,
+        },
+        {
+          id: 'quotes' as const,
+          label: '名句',
+          count: lesson.quotes?.length ?? 0,
+        },
+        {
+          id: 'practice' as const,
+          label: '練習',
+          count: lesson.practice.length,
+        },
+      ].filter((section) => section.count > 0)
+    : [];
+  const active = sections.find((s) => s.id === sectionId) ?? sections[0];
+
+  // 切換後回到這一課的開頭，不留在上一個區塊滑到一半的位置。
+  const toTop = () =>
+    articleRef.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
+  const goLesson = (nextId: string) => {
+    setLessonId(nextId);
+    setSectionId(null);
+    toTop();
+  };
+  const goSection = (id: SectionId) => {
+    setSectionId(id);
+    toTop();
+  };
 
   return (
     <>
@@ -57,20 +92,44 @@ export function LessonView() {
       </ul>
 
       {lesson && (
-        <article>
-          <label className="inline-field">
-            課程
-            <select
-              value={lesson.id}
-              onChange={(e) => setLessonId(e.target.value)}
+        <article ref={articleRef}>
+          <div className="lesson-picker">
+            <button
+              type="button"
+              className="btn"
+              aria-label="上一課"
+              disabled={index === 0}
+              onClick={() => goLesson(LESSONS[index - 1].lesson.id)}
             >
-              {LESSONS.map(({ lesson: l, stageTitle }) => (
-                <option key={l.id} value={l.id}>
-                  {stageTitle.split('：')[0]}｜{l.title}
-                </option>
-              ))}
+              ‹
+            </button>
+            <select
+              aria-label="選擇課程"
+              value={lesson.id}
+              onChange={(e) => goLesson(e.target.value)}
+            >
+              {stages
+                .filter((stage) => stage.lessons.length > 0)
+                .map((stage) => (
+                  <optgroup key={stage.id} label={stage.title}>
+                    {stage.lessons.map((l) => (
+                      <option key={l.id} value={l.id}>
+                        {l.title}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
             </select>
-          </label>
+            <button
+              type="button"
+              className="btn"
+              aria-label="下一課"
+              disabled={index === LESSONS.length - 1}
+              onClick={() => goLesson(LESSONS[index + 1].lesson.id)}
+            >
+              ›
+            </button>
+          </div>
 
           <h2>{lesson.title}</h2>
           {pending && (
@@ -80,15 +139,22 @@ export function LessonView() {
             </p>
           )}
 
-          {ALL_AUDIO_PATHS.length > 0 && (
-            <OfflineAudio
-              key={lesson.id}
-              lessonPaths={lessonPaths}
-              allPaths={ALL_AUDIO_PATHS}
-            />
-          )}
+          <div className="section-tabs" role="tablist" aria-label="課程內容">
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                type="button"
+                role="tab"
+                aria-selected={section.id === active?.id}
+                onClick={() => goSection(section.id)}
+              >
+                {section.label}
+                <small>{section.count}</small>
+              </button>
+            ))}
+          </div>
 
-          {lesson.vocab.length > 0 && (
+          {active?.id === 'vocab' && (
             <section>
               <h3>單字</h3>
               <ul className="vocab-list">
@@ -108,7 +174,7 @@ export function LessonView() {
             </section>
           )}
 
-          {lesson.grammar.length > 0 && (
+          {active?.id === 'grammar' && (
             <section>
               <h3>文法</h3>
               {lesson.grammar.map((g) => (
@@ -131,7 +197,7 @@ export function LessonView() {
             </section>
           )}
 
-          {lesson.dialogue.length > 0 && (
+          {active?.id === 'dialogue' && (
             <section>
               <h3>對話</h3>
               {lesson.dialogue.map((line) => (
@@ -148,7 +214,7 @@ export function LessonView() {
             </section>
           )}
 
-          {lesson.quotes && lesson.quotes.length > 0 && (
+          {active?.id === 'quotes' && lesson.quotes && (
             <section>
               <h3>名句</h3>
               {lesson.quotes.map((q) => (
@@ -168,7 +234,7 @@ export function LessonView() {
             </section>
           )}
 
-          {lesson.practice.length > 0 && (
+          {active?.id === 'practice' && (
             <section>
               <h3>練習</h3>
               <ul className="vocab-list">
