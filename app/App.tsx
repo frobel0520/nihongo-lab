@@ -21,7 +21,8 @@ function viewFromHash(): ViewId {
 
 export function App() {
   const [view, setView] = useState<ViewId>(viewFromHash);
-  const { progress, update, notice } = useProgress();
+  const { progress, update, warning, saveError, dismissWarning } =
+    useProgress();
   const [prefs, setPrefs] = useState(loadPrefs);
 
   const setFurigana = (furigana: boolean) => {
@@ -66,9 +67,17 @@ export function App() {
           漢字上方標讀音（ふりがな）
         </label>
 
-        {notice && (
+        {warning && (
+          <div className="notice notice-row" role="alert">
+            <span>{warning}</span>
+            <button type="button" className="btn" onClick={dismissWarning}>
+              知道了
+            </button>
+          </div>
+        )}
+        {saveError && (
           <p className="notice" role="alert">
-            {notice}
+            {saveError}
           </p>
         )}
 
