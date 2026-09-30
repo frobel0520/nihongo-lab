@@ -1,7 +1,7 @@
 /**
- * @typedef {{ jp: string, reading: string, zh: string, voice: string, audio: string }} Line
+ * @typedef {{ jp: string, reading: string, zh: string, voice: string, audio: string, ruby?: string }} Line
  * @typedef {{ pattern: string, note: string, examples: Line[], jlpt?: string[] }} GrammarPoint
- * @typedef {{ word: string, reading: string, zh: string, voice: string, audio: string }} VocabItem
+ * @typedef {{ word: string, reading: string, zh: string, voice: string, audio: string, ruby?: string }} VocabItem
  * @typedef {Line & { source: string, note: string }} Quote
  * @typedef {{ q: string, a: string }} PracticeItem
  * @typedef {{
@@ -686,6 +686,7 @@ const quotes = {
     },
     {
       jp: '40秒で支度しな！',
+      ruby: '{40秒|よんじゅうびょう}で{支度|したく}しな！',
       reading: 'よんじゅうびょうで したくしな！',
       zh: '給你四十秒準備！',
       voice: 'nana',

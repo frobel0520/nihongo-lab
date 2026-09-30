@@ -3,6 +3,7 @@ import { stages } from '../../curriculum/lessons.mjs';
 import { buildSentences } from '../../lib/dictation.mjs';
 import { DEFAULT_ROUNDS, ROUND_OPTIONS, gapMs } from '../../lib/shadowing.mjs';
 import { audioUrl } from '../components/AudioLine';
+import { JpLine } from '../components/Ruby';
 
 const SENTENCES = buildSentences(stages);
 
@@ -115,8 +116,12 @@ export function ShadowingView() {
       <div className="shadow-text" lang="ja">
         {showText ? (
           <>
-            <div className="flash-word">{sentence.jp}</div>
-            <div className="line-reading">{sentence.reading}</div>
+            <JpLine
+              jp={sentence.jp}
+              reading={sentence.reading}
+              ruby={sentence.ruby}
+              jpClass="flash-word"
+            />
             <div className="line-zh">{sentence.zh}</div>
           </>
         ) : (

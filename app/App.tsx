@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { PrefsContext, loadPrefs, savePrefs } from './prefs';
 import { useProgress } from './useProgress';
 import { DictationView } from './views/DictationView';
 import { LessonView } from './views/LessonView';
@@ -21,6 +22,13 @@ function viewFromHash(): ViewId {
 export function App() {
   const [view, setView] = useState<ViewId>(viewFromHash);
   const { progress, update, notice } = useProgress();
+  const [prefs, setPrefs] = useState(loadPrefs);
+
+  const setFurigana = (furigana: boolean) => {
+    const next = { ...prefs, furigana };
+    setPrefs(next);
+    savePrefs(next);
+  };
 
   useEffect(() => {
     const onHashChange = () => setView(viewFromHash());
@@ -29,46 +37,57 @@ export function App() {
   }, []);
 
   return (
-    <main className="wrap">
-      <header>
-        <p className="handle">Michael</p>
-        <h1>日本語 Lab</h1>
-        <p className="lede">N5 復健到 N1，聽得懂動畫與遊戲日文配音。</p>
-      </header>
+    <PrefsContext.Provider value={prefs}>
+      <main className="wrap">
+        <header>
+          <p className="handle">Michael</p>
+          <h1>日本語 Lab</h1>
+          <p className="lede">N5 復健到 N1，聽得懂動畫與遊戲日文配音。</p>
+        </header>
 
-      <nav className="tabs" aria-label="功能">
-        {TABS.map((tab) => (
-          <a
-            key={tab.id}
-            href={tab.hash}
-            aria-current={view === tab.id ? 'page' : undefined}
-          >
-            {tab.label}
-          </a>
-        ))}
-      </nav>
+        <nav className="tabs" aria-label="功能">
+          {TABS.map((tab) => (
+            <a
+              key={tab.id}
+              href={tab.hash}
+              aria-current={view === tab.id ? 'page' : undefined}
+            >
+              {tab.label}
+            </a>
+          ))}
+        </nav>
 
-      {notice && (
-        <p className="notice" role="alert">
-          {notice}
-        </p>
-      )}
+        <label className="inline-field furigana-toggle">
+          <input
+            type="checkbox"
+            checked={prefs.furigana}
+            onChange={(e) => setFurigana(e.target.checked)}
+          />
+          漢字上方標讀音（ふりがな）
+        </label>
 
-      {view === 'lessons' && <LessonView />}
-      {view === 'srs' && <SrsView progress={progress} update={update} />}
-      {view === 'shadowing' && <ShadowingView />}
-      {view === 'dictation' && (
-        <DictationView progress={progress} update={update} />
-      )}
+        {notice && (
+          <p className="notice" role="alert">
+            {notice}
+          </p>
+        )}
 
-      <footer>
-        <p>
-          原始碼公開於{' '}
-          <a href="https://github.com/frobel0520/nihongo-lab">
-            github.com/frobel0520/nihongo-lab
-          </a>
-        </p>
-      </footer>
-    </main>
+        {view === 'lessons' && <LessonView />}
+        {view === 'srs' && <SrsView progress={progress} update={update} />}
+        {view === 'shadowing' && <ShadowingView />}
+        {view === 'dictation' && (
+          <DictationView progress={progress} update={update} />
+        )}
+
+        <footer>
+          <p>
+            原始碼公開於{' '}
+            <a href="https://github.com/frobel0520/nihongo-lab">
+              github.com/frobel0520/nihongo-lab
+            </a>
+          </p>
+        </footer>
+      </main>
+    </PrefsContext.Provider>
   );
 }

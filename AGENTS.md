@@ -8,6 +8,7 @@
 - 動畫與遊戲名句（T13）是內建教材：每句只收單句短台詞、標明作品出處、解說自行撰寫；音檔一律用 VOICEVOX 自製，不使用原配音；台詞用字寫入前需確認，不確定就不收。
 - 音檔尚未合成的課程在 `curriculum/lessons.mjs` 標 `audioReady: false`；音檔放進 `public/` 後才移除旗標（測試會檢查）。
 - 寫新課時：每個文法點標 `jlpt`（OpenJLPT 文法 id，用 `npm run coverage -- --missing` 查還沒涵蓋的項目與 id），單字以每課 25～30 個為目標；寫完跑 `npm run coverage`，把數字記進 release-audit.md。OpenJLPT 資料（CC BY-SA 4.0）不得複製進 repo，`.cache/` 保持在 .gitignore。
+- 含漢字的句子，`reading` 必須與原文字面一致（假名、標點照抄，詞與詞之間用空白），畫面才能自動把讀音標在漢字上方；漢字段之間若只隔標點或空白，讀音裡也要有同樣的標點或空白。對不起來（例如含阿拉伯數字）就加 `ruby` 手動標，格式 `{原文|讀音}`；`npm test` 會檢查每一句都標得出來。
 - 只有完整型別檢查、測試與 lint 通過才記錄完成；不把未執行的驗證寫成通過，重要限制寫入 release-audit.md。
 - 修改功能需執行 npm test、npm run typecheck、npm run lint；交付前執行 npm run build。
 - 不把 generated assets 或 credentials 加入 Git。
