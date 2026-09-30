@@ -12,9 +12,9 @@ export default defineConfig({
       devOptions: { enabled: true },
       includeAssets: ['favicon.ico', 'apple-touch-icon-180x180.png'],
       manifest: {
-        name: '日本語 Lab',
-        short_name: '日本語 Lab',
-        description: 'Michael 個人使用的日文學習網站，N5 復健到 N1。',
+        name: 'かなの日本語',
+        short_name: 'かなの日本語',
+        description: '用單字卡、聽寫與跟讀練日文，從 N5 到動畫與遊戲日文。',
         lang: 'zh-Hant',
         start_url: '.',
         display: 'standalone',

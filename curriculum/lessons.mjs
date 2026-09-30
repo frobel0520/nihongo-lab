@@ -343,7 +343,7 @@ const spoken = {
 const QUOTES_AUDIO = 'audio/stage-2/quotes';
 
 // 每句只收單句短台詞，標明出處，解說為自己撰寫。音檔一律用 VOICEVOX 自製合成，不使用原配音。
-// 台詞用字已用網路搜尋交叉確認（二手來源，非原作台本）；首批只是常見名句，之後依 Michael 想聽懂的作品增補。
+// 台詞用字已用網路搜尋交叉確認（二手來源，非原作台本）；首批只是常見名句，之後依使用者想聽懂的作品增補。
 /** @type {Lesson} */
 const quotes = {
   id: 'stage2-quotes',

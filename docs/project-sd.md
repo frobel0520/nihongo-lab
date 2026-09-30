@@ -58,7 +58,7 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
   - again：今天再看，間隔與 reps 歸零、lapses +1、ease −0.2（下限 1.3）。**取捨**：兩級之後 ease 只會降、不會回升，多次答錯的卡成長會比較慢（ease 在下限時每次約 ×1.3）；先接受，觀察實際使用再決定要不要加回升機制。
   - 資料格式不變（`ease`、`interval`、`reps`、`lapses`、`due`、`firstSeen`），舊版四級評分留下的進度可直接沿用；`schedule` 遇到不認得的評分（如舊的 hard／easy）直接丟錯，不默默當成 good。
   - 畫面用圖示呈現評分（✕ 還不會、✓ 記得，`GradeIcon`），底下小字是預告的下次間隔；文字說明放在 `aria-label` 與 `title`，快捷鍵 1、2。
-  - 沒有每日新卡上限（T22，2026-09-30，Michael 要求）：佇列 = 到期的舊卡（越舊越前）+ 所有沒看過的新卡（教材順序）。已答「記得」的卡到期日在未來，重新整理不會再出現；答「還不會」的卡今天到期，仍在佇列。同一輪答「還不會」的卡排回佇列尾端。
+  - 沒有每日新卡上限（T22，2026-09-30，使用者要求）：佇列 = 到期的舊卡（越舊越前）+ 所有沒看過的新卡（教材順序）。已答「記得」的卡到期日在未來，重新整理不會再出現；答「還不會」的卡今天到期，仍在佇列。同一輪答「還不會」的卡排回佇列尾端。
 - **聽寫比對**：忽略空白與標點，片假名視同平假名，全形半形統一；可接受整句漢字原文或整句假名讀音（取較接近的一個），用最長共同子序列標出漏聽與多打的字。混合寫法目前判為有差異。`passed` 一旦為 true 不被之後答錯覆蓋。
 
 ## 設定頁與清除快取（T24）
@@ -78,4 +78,4 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 - 跨裝置同步 Worker：端點設計、資料存放（KV vs 私有 GitHub repo JSON store）、裝置 ID 產生與衝突處理（兩裝置離線時都寫入，重新連線後怎麼合併，需要明確規則，不能悄悄覆蓋）。
 - 手機上實際「加入主畫面」安裝，全螢幕開啟的真實驗收（目前只驗證到 service worker／manifest 技術條件，未做真機安裝）。
 
-教材資料結構已在第 1 天教材定案，見 `curriculum/lessons.mjs`、`curriculum/voices.mjs`。UI 視覺沿用 [learning-atlas](https://github.com/frobel0520/learning-atlas) 的設計系統（Noto Sans TC + IBM Plex Mono、卡片式排版、CSS 變數色票、`prefers-color-scheme` 自動深色模式），維持 Michael 的網站家族一致風格。
+教材資料結構已在第 1 天教材定案，見 `curriculum/lessons.mjs`、`curriculum/voices.mjs`。UI 視覺沿用既有學習網站的設計系統（Noto Sans TC + IBM Plex Mono、卡片式排版、CSS 變數色票、`prefers-color-scheme` 自動深色模式），維持 使用者 的網站家族一致風格。
