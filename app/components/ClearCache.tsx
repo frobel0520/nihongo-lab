@@ -56,7 +56,7 @@ export function ClearCache() {
   };
 
   return (
-    <section>
+    <section className="card">
       <h3>清除快取</h3>
       <p className="muted">
         清掉存在這個裝置上的離線音檔、程式檔與字型，並重新載入取得最新版（畫面不對或版本沒更新時用）。
@@ -65,7 +65,7 @@ export function ClearCache() {
       </p>
 
       {phase.kind === 'idle' && (
-        <div className="dictation-play">
+        <div className="row">
           <button
             type="button"
             className="btn"
@@ -83,7 +83,7 @@ export function ClearCache() {
       {phase.kind === 'confirm' && (
         <div className="notice notice-row" role="alert">
           <span>確定清除快取？進度會保留。</span>
-          <span className="update-banner-actions">
+          <span className="row">
             <button type="button" className="btn primary" onClick={clear}>
               確定清除
             </button>
@@ -105,7 +105,7 @@ export function ClearCache() {
           <p className="error" role="alert">
             {phase.message}
           </p>
-          <div className="dictation-play">
+          <div className="row">
             <button
               type="button"
               className="btn"
