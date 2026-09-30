@@ -90,6 +90,134 @@ const day1 = {
   ],
 };
 
+// 第 2 天的音檔還沒合成（需要有 VOICEVOX 與 ffmpeg 的機器），所以整課標 audioReady: false，見下方說明。
+// 主題對應《大家的日本語》第一冊第 2 課（指示詞、の）；單字、例句與對話都是自行撰寫，不是教科書內容。
+const DAY2_AUDIO = 'audio/stage-0/day2';
+
+/** @type {Lesson} */
+const day2 = {
+  id: 'stage0-day2',
+  title: '第 2 天：これ／それ／あれ + の',
+  audioReady: false,
+  vocab: [
+    { word: 'これ', reading: 'これ', zh: '這個（離說話者近）', voice: 'zundamon', audio: `${DAY2_AUDIO}/vocab-kore.mp3` },
+    { word: 'それ', reading: 'それ', zh: '那個（離聽話者近）', voice: 'tsumugi', audio: `${DAY2_AUDIO}/vocab-sore.mp3` },
+    { word: 'あれ', reading: 'あれ', zh: '那個（離兩人都遠）', voice: 'hau', audio: `${DAY2_AUDIO}/vocab-are.mp3` },
+    { word: 'この', reading: 'この', zh: '這〜（後面一定要接名詞）', voice: 'sayo', audio: `${DAY2_AUDIO}/vocab-kono.mp3` },
+    { word: 'その', reading: 'その', zh: '那〜（離聽話者近）', voice: 'miko', audio: `${DAY2_AUDIO}/vocab-sono.mp3` },
+    { word: 'あの', reading: 'あの', zh: '那〜（離兩人都遠）', voice: 'nana', audio: `${DAY2_AUDIO}/vocab-ano.mp3` },
+    { word: '何', reading: 'なん', zh: '什麼（單獨說時唸「なに」）', voice: 'neko-vy', audio: `${DAY2_AUDIO}/vocab-nan.mp3` },
+    { word: '本', reading: 'ほん', zh: '書', voice: 'chuugoku-usagi', audio: `${DAY2_AUDIO}/vocab-hon.mp3` },
+    { word: '辞書', reading: 'じしょ', zh: '字典', voice: 'zunko', audio: `${DAY2_AUDIO}/vocab-jisho.mp3` },
+    { word: '雑誌', reading: 'ざっし', zh: '雜誌', voice: 'zundamon', audio: `${DAY2_AUDIO}/vocab-zasshi.mp3` },
+    { word: '新聞', reading: 'しんぶん', zh: '報紙', voice: 'tsumugi', audio: `${DAY2_AUDIO}/vocab-shinbun.mp3` },
+    { word: 'ノート', reading: 'ノート', zh: '筆記本', voice: 'hau', audio: `${DAY2_AUDIO}/vocab-nooto.mp3` },
+    { word: '鉛筆', reading: 'えんぴつ', zh: '鉛筆', voice: 'sayo', audio: `${DAY2_AUDIO}/vocab-enpitsu.mp3` },
+    { word: 'ボールペン', reading: 'ボールペン', zh: '原子筆', voice: 'miko', audio: `${DAY2_AUDIO}/vocab-boorupen.mp3` },
+    { word: '時計', reading: 'とけい', zh: '鐘、錶', voice: 'nana', audio: `${DAY2_AUDIO}/vocab-tokei.mp3` },
+    { word: '傘', reading: 'かさ', zh: '雨傘', voice: 'neko-vy', audio: `${DAY2_AUDIO}/vocab-kasa.mp3` },
+    { word: 'かばん', reading: 'かばん', zh: '包包', voice: 'chuugoku-usagi', audio: `${DAY2_AUDIO}/vocab-kaban.mp3` },
+    { word: 'テレビ', reading: 'テレビ', zh: '電視', voice: 'zunko', audio: `${DAY2_AUDIO}/vocab-terebi.mp3` },
+    { word: 'ラジオ', reading: 'ラジオ', zh: '收音機', voice: 'zundamon', audio: `${DAY2_AUDIO}/vocab-rajio.mp3` },
+    { word: 'カメラ', reading: 'カメラ', zh: '相機', voice: 'tsumugi', audio: `${DAY2_AUDIO}/vocab-kamera.mp3` },
+    { word: '自動車', reading: 'じどうしゃ', zh: '汽車', voice: 'hau', audio: `${DAY2_AUDIO}/vocab-jidousha.mp3` },
+    { word: '机', reading: 'つくえ', zh: '桌子', voice: 'sayo', audio: `${DAY2_AUDIO}/vocab-tsukue.mp3` },
+    { word: 'コーヒー', reading: 'コーヒー', zh: '咖啡', voice: 'miko', audio: `${DAY2_AUDIO}/vocab-koohii.mp3` },
+    { word: 'お土産', reading: 'おみやげ', zh: '伴手禮、紀念品', voice: 'nana', audio: `${DAY2_AUDIO}/vocab-omiyage.mp3` },
+    { word: '英語', reading: 'えいご', zh: '英語', voice: 'neko-vy', audio: `${DAY2_AUDIO}/vocab-eigo.mp3` },
+    { word: '日本', reading: 'にほん', zh: '日本', voice: 'chuugoku-usagi', audio: `${DAY2_AUDIO}/vocab-nihon.mp3` },
+    { word: '日本語', reading: 'にほんご', zh: '日語', voice: 'zunko', audio: `${DAY2_AUDIO}/vocab-nihongo.mp3` },
+    { word: '人', reading: 'ひと', zh: '人', voice: 'zundamon', audio: `${DAY2_AUDIO}/vocab-hito.mp3` },
+    { word: 'どうぞ', reading: 'どうぞ', zh: '請（遞東西給對方時說）', voice: 'tsumugi', audio: `${DAY2_AUDIO}/vocab-douzo.mp3` },
+    { word: 'どうも', reading: 'どうも', zh: '謝謝（隨性的說法）', voice: 'hau', audio: `${DAY2_AUDIO}/vocab-doumo.mp3` },
+  ],
+  grammar: [
+    {
+      pattern: 'これ／それ／あれ は N です',
+      note: '三個「指示代名詞」，依東西離誰近來選：これ＝離說話者近，それ＝離聽話者近，あれ＝離兩個人都遠。它們自己就是名詞，可以直接當主詞；後面不能直接接名詞（要接名詞用「この／その／あの」）。',
+      jlpt: ['kore-sore-are-dore'],
+      examples: [
+        { jp: 'これは辞書です。', reading: 'これは じしょです。', zh: '這是字典。', voice: 'zundamon', audio: `${DAY2_AUDIO}/gram-1-1.mp3` },
+        { jp: 'あれは自動車です。', reading: 'あれは じどうしゃです。', zh: '那（遠處的）是汽車。', voice: 'zundamon', audio: `${DAY2_AUDIO}/gram-1-2.mp3` },
+      ],
+    },
+    {
+      pattern: 'この／その／あの N は 〜です',
+      note: '「この＋名詞」是「這個〜」，遠近的分法和これ／それ／あれ相同。和これ不同：この後面一定要接名詞，單獨說「この」是不完整的。',
+      jlpt: ['kono-sono-ano-dono'],
+      examples: [
+        { jp: 'このコーヒーはお土産です。', reading: 'この コーヒーは おみやげです。', zh: '這個咖啡是伴手禮。', voice: 'zundamon', audio: `${DAY2_AUDIO}/gram-2-1.mp3` },
+        { jp: 'あの人は先生です。', reading: 'あの ひとは せんせいです。', zh: '那個人是老師。', voice: 'zundamon', audio: `${DAY2_AUDIO}/gram-2-2.mp3` },
+      ],
+    },
+    {
+      pattern: 'A は 何ですか',
+      note: '問「是什麼東西」。「何」在「です」前面唸「なん」；回答時，把「何」的位置換成答案就行。',
+      jlpt: ['ka-question'],
+      examples: [
+        { jp: 'これは何ですか。', reading: 'これは なんですか。', zh: '這是什麼？', voice: 'zundamon', audio: `${DAY2_AUDIO}/gram-3-1.mp3` },
+        { jp: 'あれは何ですか。', reading: 'あれは なんですか。', zh: '那個（遠處的）是什麼？', voice: 'zundamon', audio: `${DAY2_AUDIO}/gram-3-2.mp3` },
+      ],
+    },
+    {
+      pattern: 'そうです／そうじゃありません',
+      note: '回答「〜ですか」的時候：對就說「はい、そうです」，不對就說「いいえ、そうじゃありません」（「そう」代替剛才問的內容；正式一點可以說「そうではありません」）。「そうですか」則是聽懂之後的附和，「這樣啊」，語調往下。',
+      jlpt: ['de-wa-arimasen-ja-nai'],
+      examples: [
+        { jp: 'はい、そうです。', reading: 'はい、そうです。', zh: '是的，沒錯。', voice: 'zundamon', audio: `${DAY2_AUDIO}/gram-4-1.mp3` },
+        { jp: 'いいえ、そうじゃありません。', reading: 'いいえ、そうじゃ ありません。', zh: '不，不是。', voice: 'zundamon', audio: `${DAY2_AUDIO}/gram-4-2.mp3` },
+        { jp: 'そうですか。', reading: 'そうですか。', zh: '這樣啊。', voice: 'zundamon', audio: `${DAY2_AUDIO}/gram-4-3.mp3` },
+      ],
+    },
+    {
+      pattern: 'A ですか、B ですか',
+      note: '選擇疑問句：把兩個選項各接一個「ですか」。回答不用「はい／いいえ」，直接說選到的那一個。',
+      jlpt: ['ka-or'],
+      examples: [
+        { jp: 'これは本ですか、雑誌ですか。', reading: 'これは ほんですか、ざっしですか。', zh: '這是書還是雜誌？', voice: 'zundamon', audio: `${DAY2_AUDIO}/gram-5-1.mp3` },
+        { jp: 'あれは時計ですか、カメラですか。', reading: 'あれは とけいですか、カメラですか。', zh: '那個是鐘錶還是相機？', voice: 'zundamon', audio: `${DAY2_AUDIO}/gram-5-2.mp3` },
+      ],
+    },
+    {
+      pattern: 'N1 の N2',
+      note: '「の」連接兩個名詞，N1 修飾 N2：可以表示所有（私の傘＝我的傘）、所屬，或內容、種類（日本語の辞書＝日語的字典）。',
+      jlpt: ['no'],
+      examples: [
+        { jp: 'これは私の傘です。', reading: 'これは わたしの かさです。', zh: '這是我的傘。', voice: 'zundamon', audio: `${DAY2_AUDIO}/gram-6-1.mp3` },
+        { jp: 'それは日本語の辞書です。', reading: 'それは にほんごの じしょです。', zh: '那是日語字典。', voice: 'zundamon', audio: `${DAY2_AUDIO}/gram-6-2.mp3` },
+      ],
+    },
+  ],
+  dialogue: [
+    { jp: 'あのう、それは何ですか。', reading: 'あのう、それは なんですか。', zh: '請問，那是什麼？', voice: 'hau', audio: `${DAY2_AUDIO}/dlg-1.mp3` },
+    { jp: 'これですか。これは日本語の辞書です。', reading: 'これですか。これは にほんごの じしょです。', zh: '這個嗎？這是日語字典。', voice: 'miko', audio: `${DAY2_AUDIO}/dlg-2.mp3` },
+    { jp: 'そうですか。あの本も日本語の本ですか。', reading: 'そうですか。あの ほんも にほんごの ほんですか。', zh: '這樣啊。那本書也是日語的書嗎？', voice: 'hau', audio: `${DAY2_AUDIO}/dlg-3.mp3` },
+    { jp: 'いいえ、そうじゃありません。あれは英語の本です。', reading: 'いいえ、そうじゃ ありません。あれは えいごの ほんです。', zh: '不是的。那是英語的書。', voice: 'miko', audio: `${DAY2_AUDIO}/dlg-4.mp3` },
+    { jp: 'そうですか。その時計はミコさんの時計ですか。', reading: 'そうですか。その とけいは ミコさんの とけいですか。', zh: '這樣啊。那支錶是ミコ的錶嗎？', voice: 'hau', audio: `${DAY2_AUDIO}/dlg-5.mp3` },
+    { jp: 'はい、そうです。これは私の時計です。', reading: 'はい、そうです。これは わたしの とけいです。', zh: '是的。這是我的錶。', voice: 'miko', audio: `${DAY2_AUDIO}/dlg-6.mp3` },
+    { jp: 'これ、お土産です。どうぞ。', reading: 'これ、おみやげです。どうぞ。', zh: '這個是伴手禮，請收下。', voice: 'hau', audio: `${DAY2_AUDIO}/dlg-7.mp3` },
+    { jp: 'あ、どうも。コーヒーですか。', reading: 'あ、どうも。コーヒーですか。', zh: '啊，謝謝。是咖啡嗎？', voice: 'miko', audio: `${DAY2_AUDIO}/dlg-8.mp3` },
+    { jp: 'はい、そうです。日本のコーヒーです。', reading: 'はい、そうです。にほんの コーヒーです。', zh: '是的。是日本的咖啡。', voice: 'hau', audio: `${DAY2_AUDIO}/dlg-9.mp3` },
+  ],
+  practice: [
+    { q: '「これは本です。」を疑問文にしてください。', a: 'これは本ですか。' },
+    { q: '想問「對方手邊」的東西是什麼，該用これ、それ、あれ 哪一個？', a: 'それ。これ＝離自己近，それ＝離對方近，あれ＝離兩人都遠。' },
+    { q: '填入助詞：これは日本語___辞書です。（日語的字典）', a: 'の' },
+    { q: '填入：___人は先生です。（指遠處的那個人）', a: 'あの' },
+    { q: '「あれは時計ですか。」不是的時候，怎麼回答？', a: 'いいえ、そうじゃありません。（或：いいえ、そうではありません。）' },
+    { q: '「これは本ですか、雑誌ですか。」如果是雜誌，要怎麼回答？', a: '雑誌です。（選擇疑問句不用「はい／いいえ」，直接說選到的那個。）' },
+    { q: '「この」和「これ」有什麼不一樣？', a: '「これ」自己就是名詞，可以單獨用；「この」後面一定要接名詞，例如「この本」。' },
+    { q: '「これは何ですか」的「何」怎麼唸？', a: '「なん」（接在「です」前面時唸なん）。' },
+    { q: '用日文說：「這是我的傘。」', a: 'これは私の傘です。' },
+    { q: '對話中，はう問那支錶是不是ミコ的，ミコ怎麼回答？', a: '「はい、そうです。これは私の時計です。」（是她自己的錶）' },
+    { q: '用日文問對方：「那是報紙還是雜誌？」（指對方手邊的東西）', a: 'それは新聞ですか、雑誌ですか。' },
+    { q: '用日文問：「那（遠處的）是原子筆還是鉛筆？」', a: 'あれはボールペンですか、鉛筆ですか。' },
+    { q: '有人指著遠處的電視問「あれはラジオですか」，怎麼回答？', a: 'いいえ、そうじゃありません。あれはテレビです。' },
+    { q: '用日文說：「這是我的包包，那（遠處的）是老師的桌子。」', a: 'これは私のかばんです。あれは先生の机です。' },
+    { q: '「これは私のノートです。」を否定文にしてください。', a: 'これは私のノートではありません。' },
+  ],
+};
+
 // audioReady: false 表示文字內容已完成、音檔尚未合成（合成需在有 VOICEVOX 與 ffmpeg 的機器上跑，
 // 見 scripts/synthesize.mjs）。音檔產生並放進 public/ 之後，把這個旗標移除或改成 true。
 // 旗標為 false 時畫面不顯示播放器，聽寫與跟讀也不會出現這些句子。
@@ -748,7 +876,7 @@ const quotes = {
 
 /** @type {Stage[]} */
 export const stages = [
-  { id: 'stage-0', title: '第 0 階段：N5 復健', lessons: [day1] },
+  { id: 'stage-0', title: '第 0 階段：N5 復健', lessons: [day1, day2] },
   { id: 'stage-1', title: '第 1 階段：聽力打底', lessons: [] },
   { id: 'stage-2', title: '第 2 階段：口語與動畫日文', lessons: [spoken, quotes] },
   { id: 'stage-3', title: '第 3 階段：N3 到 N1', lessons: [] },
