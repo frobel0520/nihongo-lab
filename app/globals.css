@@ -629,3 +629,17 @@ rt {
 .furigana-toggle {
   margin-bottom: 16px;
 }
+
+/* 新版本提示：文字在左、按鈕在右，窄螢幕時按鈕換到下一行 */
+.update-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.update-banner-actions {
+  display: flex;
+  gap: 8px;
+}
