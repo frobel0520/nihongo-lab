@@ -19,6 +19,7 @@
 
 import day3 from './days/day03.mjs';
 import day4 from './days/day04.mjs';
+import day5 from './days/day05.mjs';
 
 // 不含開頭斜線：由畫面端接上 Vite 的 BASE_URL，才能在 GitHub Pages 子路徑下正確解析。
 const AUDIO_BASE = 'audio/stage-0/day1';
@@ -872,7 +873,7 @@ const quotes = {
 
 /** @type {Stage[]} */
 export const stages = [
-  { id: 'stage-0', title: '第 0 階段：N5 復健', lessons: [day1, day2, day3, day4] },
+  { id: 'stage-0', title: '第 0 階段：N5 復健', lessons: [day1, day2, day3, day4, day5] },
   { id: 'stage-1', title: '第 1 階段：聽力打底', lessons: [] },
   { id: 'stage-2', title: '第 2 階段：口語與動畫日文', lessons: [spoken, quotes] },
   { id: 'stage-3', title: '第 3 階段：N3 到 N1', lessons: [] },
