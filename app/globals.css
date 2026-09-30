@@ -534,11 +534,18 @@ section > h3 {
   gap: 8px;
   font-size: 0.9rem;
   color: var(--ink-2);
+  /* 課程名稱很長時，下拉選單要跟著縮小，不能比容器寬而被切掉 */
+  max-width: 100%;
+  min-width: 0;
+  white-space: nowrap;
 }
 
 .inline-field select {
   font-family: var(--sans);
   font-size: 0.9rem;
+  min-width: 0;
+  max-width: 100%;
+  text-overflow: ellipsis;
   padding: 6px 10px;
   border: 1px solid var(--rule);
   border-radius: 8px;

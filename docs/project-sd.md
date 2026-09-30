@@ -29,6 +29,9 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
   - 只收 200 且 `content-type` 是 `audio/*`；驗證失敗會清掉該網址既有的髒資料，`has` 也驗內容類型。
   - 已存在的略過，失敗的逐一回報、不自動重試，再按一次只補抓失敗的。
   - 在 `vite.config.ts` 以 `options.rangeRequests` 開啟外掛（由 workbox-build 寫進 service worker），不在設定檔裡 import `workbox-range-requests`，避免先前在 Node 環境（`npm run dev`）匯入該套件就報錯的問題。
+- 字型快取（T20）：`fonts.googleapis.com` 用 StaleWhileRevalidate、`fonts.gstatic.com` 用 CacheFirst（`google-fonts-styles`／`google-fonts-files`），第一次連網載入後離線也顯示同一套字型；跨網域是 opaque 回應（status 0），要明說 `statuses: [0, 200]` 才會存。
+- 型別檢查（T20）：`tsconfig.json` 開啟 `checkJs`，`lib/`、`curriculum/`、`scripts/` 的 `.mjs`（JSDoc 型別）納入 `npm run typecheck`；`tests/` 不納入。
+- 單字卡快捷鍵（T20）：判斷邏輯在 `lib/keys.mjs`；空白鍵在按鈕、連結、輸入元件上讓位，數字鍵只在輸入元件讓位。
 - 驗證：`npm run build` 產出 `dist/sw.js`、`dist/manifest.webmanifest`，precache 18 項（約 206KB）；`npm run dev` 下瀏覽器確認 service worker `activated`、manifest 抓得到、4 個 icon。
 
 ## 課程資料補充（T07、T13）

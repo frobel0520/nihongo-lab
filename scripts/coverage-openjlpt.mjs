@@ -29,11 +29,17 @@ const FILES = [
 ];
 
 const args = process.argv.slice(2);
+/** @param {string} name */
 const flag = (name) => args.includes(name);
+/** @param {string} name @param {string} fallback */
 const option = (name, fallback) =>
   args.find((a) => a.startsWith(`${name}=`))?.split('=')[1] ?? fallback;
 
-/** 讀快取；沒有（或加 --refresh）才下載一次，失敗就直接報錯，不重試、不略過。 */
+/**
+ * 讀快取；沒有（或加 --refresh）才下載一次，失敗就直接報錯，不重試、不略過。
+ *
+ * @param {string} name
+ */
 async function load(name) {
   const cachePath = `${CACHE_DIR}/${name.replace('/', '-')}.json`;
   if (!flag('--refresh') && existsSync(cachePath)) {
@@ -49,6 +55,7 @@ async function load(name) {
   return data;
 }
 
+/** @param {number} part @param {number} whole */
 const pct = (part, whole) =>
   whole === 0 ? '—' : `${((part / whole) * 100).toFixed(1)}%`;
 
@@ -61,6 +68,7 @@ async function main() {
   const data = Object.fromEntries(
     await Promise.all(FILES.map(async (name) => [name, await load(name)])),
   );
+  /** @param {string} kind */
   const collect = (kind) =>
     Object.entries(data)
       .filter(([name]) => name.startsWith(`${kind}/`))
@@ -82,6 +90,7 @@ async function main() {
   const items = lessons.flatMap((l) => l.vocab);
   const matches = matchVocab(items, refVocab);
   const vocab = vocabCoverage(matches, refVocab, TARGET);
+  /** @type {Record<string, number>} */
   const byLevel = { N5: 0, N4: 0, missing: 0 };
   for (const m of matches) byLevel[m.level ?? 'missing']++;
   console.log('## 單字');
@@ -118,11 +127,13 @@ async function main() {
 
   // 步調
   console.log(`\n## 步調（預計 ${planned} 課，已有 ${lessons.length} 課）`);
-  for (const [label, total, covered] of [
+  /** @type {[string, number, number][]} */
+  const rows = [
     ['單字', vocab.total, vocab.covered],
     ['漢字', kanji.total, kanji.covered],
     ['文法', grammar.total, grammar.covered],
-  ]) {
+  ];
+  for (const [label, total, covered] of rows) {
     const p = pacing(total, covered, planned, lessons.length);
     const rest = p.remainingPerLesson === null ? '已無剩餘課數' : `剩下的課每課要補 ${p.remainingPerLesson.toFixed(1)} 個`;
     console.log(`  ${TARGET} ${label} ${total}：全部平均每課 ${p.perLesson.toFixed(1)} 個；${rest}`);
