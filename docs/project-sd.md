@@ -82,6 +82,15 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 - **視覺**：主色深青綠（`--brand`），白色圓角卡片加淡陰影，Noto Sans TC 單一字體（移除不再使用的 IBM Plex Mono）；`theme_color` 與背景色改成頁面底色，PWA 圖示改成青綠底加白色「か」。
 - **移除的舊介面**：階段卡片、課程下拉選單與上一課／下一課按鈕、原生 `<audio controls>`、輪數下拉選單、單字卡圖示評分按鈕（`GradeIcon`）。
 
+## 課程編寫（第 3 天起）
+
+- 每天一個檔案 `curriculum/days/dayNN.mjs`，用 `curriculum/author.mjs` 的 `defineLesson` 以緊湊陣列編寫：單字 `[word, reading, zh]`、文法點 `{ pattern, note, jlpt?, examples: [[jp, reading, zh]] }`、對話 `{ voices: [A, B], lines }`、練習 `[q, a]`；再由 `curriculum/lessons.mjs` 匯入並放進第 0 階段的 `lessons`，對外仍只有 lessons.mjs 一個入口。
+- 語音角色自動指定：單字依序輪替 9 個角色，同一個文法點的例句用同一個角色，對話兩個角色交替。
+- 音檔路徑由「種類＋原文＋角色」的雜湊決定（`audioPath`，64 位元 FNV-1a 取 10 個十六進位字元，純 JavaScript，因為這支檔案也會被打包進瀏覽器）：改文字或換角色會產生新檔名，`build-audio-jobs.mjs --missing` 補產新檔，不會出現文字與音檔不一致；舊檔由 `tests/audio-orphans.test.mjs` 抓出來手動刪除。
+- 例句的 `reading` 是全假名讀音；含漢字的句子由 `lib/furigana.mjs` 自動對齊讀音，對不起來（有多種解法）時用第四個元素 `{ ruby: '{私|わたし}は…' }` 手動標，`tests/lessons.test.mjs` 保證每個含漢字的句子都標得出讀音。文字裡用漢字數字，不用阿拉伯數字（阿拉伯數字對不了讀音）。
+- 每課流程：新分支 `feature/T02-dayN` → 寫課程檔並註冊 → `npm test`（讀音對不起來會指出哪一句）→ 補產音檔 → `npm run check`、`npm run build`、`npm run coverage` → commit、push、PR → CI 通過後 `gh pr merge --rebase --delete-branch`。
+- 2026-09-30 一次完成第 3～25 天（PR #15～#37）；全站 1,463 個音檔、31MB，離線下載「全部課程音檔」會下載這麼多。
+
 ## 待設計（下一輪任務）
 
 - 跨裝置同步 Worker：端點設計、資料存放（KV vs 私有 GitHub repo JSON store）、裝置 ID 產生與衝突處理（兩裝置離線時都寫入，重新連線後怎麼合併，需要明確規則，不能悄悄覆蓋）。
