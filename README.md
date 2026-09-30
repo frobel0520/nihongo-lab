@@ -8,7 +8,7 @@ Michael 個人使用的日文學習網站。目標是通過 JLPT N1，近期目�
 
 - 已上線：<https://frobel0520.github.io/nihongo-lab/>（GitHub Actions 自動部署）。
 - Repository：[github.com/frobel0520/nihongo-lab](https://github.com/frobel0520/nihongo-lab)（public）。
-- 專案骨架（T01）與第 0 階段第 1 天教材（です／は／も，9 單字、9 種 VOICEVOX 語音、對話、練習）已完成。
+- 專案骨架（T01）與第 0 階段第 1 天教材（です／は／も，9 單字、9 種 VOICEVOX 語音、對話、練習）已完成；第 2 天（これ／それ／あれ + の，30 單字、6 個文法點、對話、練習）文字完成，音檔待產生。
 - PWA（T09）完成並在 Android 手機真機驗證成功：可安裝、開啟、音檔正常播放；UI 沿用 [learning-atlas](https://github.com/frobel0520/learning-atlas) 設計系統，固定亮色模式。
 - SRS 單字卡（T06）、聽寫（T04）、跟讀（T05，循環跟讀，不含調速）已於 2026-09-30 上線。
 - 第 2 階段新增口語轉換表（T07）與動畫、遊戲名句 57 句（T13，35 部作品，動畫與電影 31、遊戲 4）的文字內容，音檔待產生。

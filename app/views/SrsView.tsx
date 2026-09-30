@@ -132,7 +132,11 @@ export function SrsView({
         <div className="flash-word" lang="ja">
           {current.word}
         </div>
-        <PlayButton audio={current.audio} />
+        {current.audioReady ? (
+          <PlayButton audio={current.audio} />
+        ) : (
+          <span className="muted pending">音檔待產生</span>
+        )}
         {revealed ? (
           <div className="flash-back">
             <div className="line-reading" lang="ja">

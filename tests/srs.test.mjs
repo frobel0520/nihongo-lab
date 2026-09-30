@@ -138,6 +138,37 @@ test('buildCards：id 含課程 id、涵蓋教材所有單字', () => {
   }
 });
 
+test('buildCards：音檔未就緒的課程單字仍會收進來，但標成 audioReady: false（畫面不放播放鈕）', () => {
+  const lesson = (id, audioReady) => ({
+    id,
+    title: id,
+    ...(audioReady === undefined ? {} : { audioReady }),
+    vocab: [{ word: 'あ', reading: 'あ', zh: 'a', audio: `${id}.mp3` }],
+  });
+  const cards = buildCards([
+    {
+      lessons: [
+        lesson('ready'),
+        lesson('explicit', true),
+        lesson('pending', false),
+      ],
+    },
+  ]);
+  assert.deepEqual(
+    cards.map((c) => [c.lessonId, c.audioReady]),
+    [
+      ['ready', true],
+      ['explicit', true],
+      ['pending', false],
+    ],
+  );
+
+  // 實際教材：第 1 天音檔齊全，第 2 天還沒合成
+  const real = buildCards(stages);
+  assert.ok(real.some((c) => c.audioReady));
+  assert.ok(real.some((c) => !c.audioReady));
+});
+
 const cards = ['a', 'b', 'c', 'd'].map((word) => ({
   id: `l:${word}`,
   word,
