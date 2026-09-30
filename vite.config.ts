@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import { AUDIO_CACHE_NAME, AUDIO_ROUTE_PATTERN } from './lib/offline.mjs';
 
 export default defineConfig({
   base: process.env.VITE_BASE_PATH || '/',
@@ -30,11 +31,15 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
         runtimeCaching: [
           {
-            urlPattern: /\/audio\/.*\.mp3$/,
+            urlPattern: AUDIO_ROUTE_PATTERN,
             handler: 'CacheFirst',
             options: {
-              cacheName: 'lesson-audio',
-              expiration: { maxEntries: 500, maxAgeSeconds: 60 * 60 * 24 * 365 },
+              // 頁面端「下載音檔供離線使用」（lib/offline.mjs）會存進同一個快取，名稱必須一致。
+              cacheName: AUDIO_CACHE_NAME,
+              // <audio> 一律送 Range 請求；快取裡是整檔（200），要由這個外掛切成 206 回給播放器。
+              rangeRequests: true,
+              // 25 課預估約 1100 個音檔，上限抓寬一點，避免下載完的音檔被淘汰。
+              expiration: { maxEntries: 3000, maxAgeSeconds: 60 * 60 * 24 * 365 },
             },
           },
         ],

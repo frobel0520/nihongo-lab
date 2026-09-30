@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { stages } from '../../curriculum/lessons.mjs';
+import { allAudioPaths, lessonAudioPaths } from '../../lib/offline.mjs';
 import { AudioLine } from '../components/AudioLine';
+import { OfflineAudio } from '../components/OfflineAudio';
 
 const STAGE_ACCENT: Record<string, string> = {
   'stage-0': 's0',
@@ -12,6 +14,8 @@ const STAGE_ACCENT: Record<string, string> = {
 const LESSONS = stages.flatMap((stage) =>
   stage.lessons.map((lesson) => ({ lesson, stageTitle: stage.title })),
 );
+
+const ALL_AUDIO_PATHS = allAudioPaths(stages);
 
 function PracticeItemView({ q, a }: { q: string; a: string }) {
   const [revealed, setRevealed] = useState(false);
@@ -34,6 +38,11 @@ export function LessonView() {
   const current = LESSONS.find((l) => l.lesson.id === lessonId) ?? LESSONS[0];
   const lesson = current?.lesson;
   const pending = lesson?.audioReady === false;
+  // 音檔還沒合成的課程沒有可下載的檔案。
+  const lessonPaths = useMemo(
+    () => (lesson && !pending ? lessonAudioPaths(lesson) : []),
+    [lesson, pending],
+  );
 
   return (
     <>
@@ -69,6 +78,14 @@ export function LessonView() {
               這一課的文字內容已完成，音檔還沒合成（需要在有 VOICEVOX
               的機器上產生），所以暫時沒有播放器，聽寫與跟讀也不會出現這課的句子。
             </p>
+          )}
+
+          {ALL_AUDIO_PATHS.length > 0 && (
+            <OfflineAudio
+              key={lesson.id}
+              lessonPaths={lessonPaths}
+              allPaths={ALL_AUDIO_PATHS}
+            />
           )}
 
           {lesson.vocab.length > 0 && (
