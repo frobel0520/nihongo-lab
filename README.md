@@ -30,6 +30,12 @@ npm run check
 npm run build
 ```
 
+教材涵蓋率（對照 OpenJLPT 的 N5 單字／漢字／文法；第一次執行會下載資料到 `.cache/`，需要網路）：
+
+```sh
+npm run coverage
+```
+
 ## 文件
 
 - [專案計畫](docs/project-plan.md)

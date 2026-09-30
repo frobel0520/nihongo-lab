@@ -1,6 +1,6 @@
 /**
  * @typedef {{ jp: string, reading: string, zh: string, voice: string, audio: string }} Line
- * @typedef {{ pattern: string, note: string, examples: Line[] }} GrammarPoint
+ * @typedef {{ pattern: string, note: string, examples: Line[], jlpt?: string[] }} GrammarPoint
  * @typedef {{ word: string, reading: string, zh: string, voice: string, audio: string }} VocabItem
  * @typedef {Line & { source: string, note: string }} Quote
  * @typedef {{ q: string, a: string }} PracticeItem
@@ -38,6 +38,7 @@ const day1 = {
   grammar: [
     {
       pattern: 'A は B です',
+      jlpt: ['wa', 'desu'],
       note: 'A 是 B。です 是禮貌的斷定語氣，句尾語調平穩下降。',
       examples: [
         { jp: '私は学生です。', reading: 'わたしは がくせいです。', zh: '我是學生。', voice: 'zundamon', audio: `${AUDIO_BASE}/gram-1-1.mp3` },
@@ -46,6 +47,7 @@ const day1 = {
     },
     {
       pattern: 'A は B ですか',
+      jlpt: ['ka-question'],
       note: '疑問句，句尾加か、語調上揚，不用加「？」也成立。',
       examples: [
         { jp: 'あなたは会社員ですか。', reading: 'あなたは かいしゃいんですか。', zh: '你是公司職員嗎？', voice: 'zundamon', audio: `${AUDIO_BASE}/gram-2-1.mp3` },
@@ -54,6 +56,7 @@ const day1 = {
     },
     {
       pattern: 'A は B では ありません',
+      jlpt: ['de-wa-arimasen-ja-nai'],
       note: '否定句。口語常說成「じゃ ありません」，兩者意思一樣。',
       examples: [
         { jp: '私は先生ではありません。', reading: 'わたしは せんせいでは ありません。', zh: '我不是老師。', voice: 'zundamon', audio: `${AUDIO_BASE}/gram-3-1.mp3` },
@@ -62,6 +65,7 @@ const day1 = {
     },
     {
       pattern: 'A も B です',
+      jlpt: ['mo'],
       note: '「也」的意思，替換掉は，提示前面已經講過同類的事。',
       examples: [
         { jp: '田中さんも学生です。', reading: 'たなかさんも がくせいです。', zh: '田中先生也是學生。', voice: 'zundamon', audio: `${AUDIO_BASE}/gram-4-1.mp3` },
