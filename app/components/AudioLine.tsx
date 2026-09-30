@@ -9,18 +9,24 @@ export function AudioLine({
   reading,
   zh,
   audio,
+  pending = false,
 }: {
   jp: string;
   reading: string;
   zh: string;
   audio: string;
+  pending?: boolean;
 }) {
   return (
     <div className="line">
       <div className="line-jp">{jp}</div>
       <div className="line-reading">{reading}</div>
       <div className="line-zh">{zh}</div>
-      <audio controls src={audioUrl(audio)} preload="none" />
+      {pending ? (
+        <span className="muted pending">音檔待產生</span>
+      ) : (
+        <audio controls src={audioUrl(audio)} preload="none" />
+      )}
     </div>
   );
 }

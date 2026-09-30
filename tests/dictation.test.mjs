@@ -49,16 +49,20 @@ test('空白輸入不算對，且整句都標為漏聽', () => {
   assert.deepEqual(wrong(result.expected), ['は', 'い']);
 });
 
-test('buildSentences：文法例句加對話，id 唯一', () => {
+test('buildSentences：只收音檔就緒課程的文法例句、對話與名句，id 唯一', () => {
   const sentences = buildSentences(stages);
-  const lessons = stages.flatMap((s) => s.lessons);
+  const lessons = stages
+    .flatMap((s) => s.lessons)
+    .filter((l) => l.audioReady !== false);
   const expected = lessons.reduce(
     (n, l) =>
       n +
       l.grammar.reduce((m, g) => m + g.examples.length, 0) +
-      l.dialogue.length,
+      l.dialogue.length +
+      (l.quotes?.length ?? 0),
     0,
   );
+  assert.ok(expected > 0);
   assert.equal(sentences.length, expected);
   assert.equal(new Set(sentences.map((s) => s.id)).size, sentences.length);
   for (const s of sentences) {
