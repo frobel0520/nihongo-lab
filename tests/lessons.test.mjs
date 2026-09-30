@@ -64,6 +64,17 @@ test('audioReady 為 false 的課程不會進入聽寫與跟讀句庫', () => {
   }
 });
 
+test('文法點的 jlpt 若有標，必須是非空字串陣列且同一課內不重複', () => {
+  for (const lesson of lessons) {
+    const ids = lesson.grammar.flatMap((g) => g.jlpt ?? []);
+    for (const g of lesson.grammar.filter((x) => x.jlpt)) {
+      assert.ok(Array.isArray(g.jlpt) && g.jlpt.length > 0, `${g.pattern} 的 jlpt 是空的`);
+      assert.ok(g.jlpt.every((id) => typeof id === 'string' && id), `${g.pattern} 的 jlpt 有非字串`);
+    }
+    assert.equal(new Set(ids).size, ids.length, `${lesson.id} 的 jlpt id 重複`);
+  }
+});
+
 test('名句必須標明出處與解說', () => {
   const withQuotes = lessons.filter((l) => l.quotes?.length);
   assert.ok(withQuotes.length > 0);
