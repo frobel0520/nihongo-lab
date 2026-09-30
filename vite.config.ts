@@ -18,8 +18,8 @@ export default defineConfig({
         lang: 'zh-Hant',
         start_url: '.',
         display: 'standalone',
-        background_color: '#2b2f77',
-        theme_color: '#2b2f77',
+        background_color: '#f5f6f3',
+        theme_color: '#f5f6f3',
         icons: [
           { src: 'pwa-64x64.png', sizes: '64x64', type: 'image/png' },
           { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },

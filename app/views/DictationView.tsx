@@ -9,6 +9,8 @@ import {
 } from '../../lib/dictation.mjs';
 import { recordDictation, type Progress } from '../../lib/progress.mjs';
 import { PlayButton } from '../components/AudioLine';
+import { CheckIcon, CloseIcon, NextIcon, PrevIcon } from '../components/Icons';
+import { ProgressBar } from '../components/ProgressBar';
 import { Ruby, useRuby } from '../components/Ruby';
 
 const SENTENCES = buildSentences(stages);
@@ -61,8 +63,7 @@ export function DictationView({
   const sentence = SENTENCES[index];
   if (!sentence) {
     return (
-      <section>
-        <h3>聽寫</h3>
+      <section className="card empty">
         <p>教材還沒有可聽寫的句子。</p>
       </section>
     );
@@ -103,32 +104,63 @@ export function DictationView({
   };
 
   return (
-    <section>
-      <h3>聽寫</h3>
-      <p className="muted">
-        第 {index + 1} / {SENTENCES.length} 句 · 已通過 {passedCount} 句
-        {record
-          ? ` · 這句試過 ${record.attempts} 次${record.passed ? '，已通過' : ''}`
-          : ''}
-      </p>
+    <div className="dictation-screen">
+      <div className="progress-head">
+        <ProgressBar
+          value={passedCount}
+          max={SENTENCES.length}
+          label="聽寫已通過的句數"
+        />
+        <span className="muted">
+          已通過 {passedCount} / {SENTENCES.length}
+        </span>
+      </div>
 
-      <div className="dictation-source muted">{sentence.lessonTitle}</div>
+      <div className="stepper">
+        <button
+          type="button"
+          className="icon-btn"
+          aria-label="上一句"
+          onClick={() => go(index - 1)}
+        >
+          <PrevIcon />
+        </button>
+        <span className="stepper-label">
+          <strong>
+            第 {index + 1} / {SENTENCES.length} 句
+          </strong>
+          <span className="muted">
+            {sentence.lessonTitle}
+            {record
+              ? ` · 試過 ${record.attempts} 次${record.passed ? '，已通過' : ''}`
+              : ''}
+          </span>
+        </span>
+        <button
+          type="button"
+          className="icon-btn"
+          aria-label="跳過這句"
+          onClick={() => go(index + 1)}
+        >
+          <NextIcon />
+        </button>
+      </div>
 
-      <div className="dictation-play">
-        <PlayButton audio={sentence.audio} label="播放這句" />
+      <div className="listen">
+        <PlayButton audio={sentence.audio} label="播放這句" caption />
         {!showHint && !result && (
           <button
             type="button"
-            className="btn"
+            className="btn ghost"
             onClick={() => setShowHint(true)}
           >
             看中文提示
           </button>
         )}
+        {showHint && !result && <p className="line-zh">{sentence.zh}</p>}
       </div>
-      {showHint && !result && <p className="line-zh">{sentence.zh}</p>}
 
-      <form className="dictation-form" onSubmit={submit}>
+      <form className="dictation-form" id="dictation-form" onSubmit={submit}>
         <label htmlFor="dictation-input">
           聽到什麼就打什麼（漢字或假名都可以）
         </label>
@@ -144,19 +176,15 @@ export function DictationView({
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={guardComposition}
         />
-        <button
-          type="submit"
-          className="btn primary"
-          disabled={input.trim() === '' || result?.correct === true}
-        >
-          檢查
-        </button>
       </form>
 
-      {result && (
-        <output className="dictation-result">
-          <p className={result.correct ? 'answer' : 'error'}>
-            {result.correct ? '全對！' : '有地方不一樣，標色的是差異：'}
+      {result ? (
+        <output
+          className={`actions feedback ${result.correct ? 'ok' : 'bad'}`}
+        >
+          <p className="feedback-title">
+            {result.correct ? <CheckIcon /> : <CloseIcon />}
+            {result.correct ? '全對！' : '有地方不一樣，標色的是差異'}
           </p>
           {!result.correct && (
             <>
@@ -172,7 +200,7 @@ export function DictationView({
           )}
           <Answer sentence={sentence} />
           <p className="line-zh">{sentence.zh}</p>
-          <div className="dictation-play">
+          <div className="row">
             {!result.correct && (
               <button
                 type="button"
@@ -184,25 +212,25 @@ export function DictationView({
             )}
             <button
               type="button"
-              className="btn primary"
+              className="btn primary grow"
               onClick={() => go(index + 1)}
             >
               下一句
             </button>
           </div>
         </output>
-      )}
-
-      {!result && (
-        <div className="dictation-play">
-          <button type="button" className="btn" onClick={() => go(index - 1)}>
-            上一句
-          </button>
-          <button type="button" className="btn" onClick={() => go(index + 1)}>
-            跳過
+      ) : (
+        <div className="actions">
+          <button
+            type="submit"
+            form="dictation-form"
+            className="btn primary big block"
+            disabled={input.trim() === ''}
+          >
+            檢查
           </button>
         </div>
       )}
-    </section>
+    </div>
   );
 }

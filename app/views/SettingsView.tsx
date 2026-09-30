@@ -51,15 +51,19 @@ export function SettingsView({
         </output>
       )}
 
-      <section>
+      <section className="card">
         <h3>顯示</h3>
-        <label className="inline-field">
+        <label className="switch-row">
+          <span>
+            漢字上方標讀音（ふりがな）
+            <small className="muted">課文、跟讀、聽寫答案都會標在漢字上方</small>
+          </span>
           <input
             type="checkbox"
+            className="switch"
             checked={prefs.furigana}
             onChange={(e) => setFurigana(e.target.checked)}
           />
-          漢字上方標讀音（ふりがな）
         </label>
       </section>
 
