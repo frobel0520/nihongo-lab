@@ -51,8 +51,7 @@ export function App() {
     <PrefsContext.Provider value={prefs}>
       <main className="wrap">
         <header>
-          <p className="handle">Michael</p>
-          <h1>日本語 Lab</h1>
+          <h1>かなの日本語</h1>
           <p className="lede">N5 復健到 N1，聽得懂動畫與遊戲日文配音。</p>
         </header>
 
@@ -111,15 +110,6 @@ export function App() {
             setFurigana={setFurigana}
           />
         )}
-
-        <footer>
-          <p>
-            原始碼公開於{' '}
-            <a href="https://github.com/frobel0520/nihongo-lab">
-              github.com/frobel0520/nihongo-lab
-            </a>
-          </p>
-        </footer>
       </main>
     </PrefsContext.Provider>
   );

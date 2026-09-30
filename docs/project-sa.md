@@ -27,13 +27,13 @@
 
 ## PWA 與跨裝置同步
 
-參考 [Family](https://github.com/frobel0520/Family) 的架構，但簡化：nihongo-lab 只有 Michael 一人使用，不需要 Google OAuth、審核新登入、推播通知。
+參考另一個既有的 PWA 專案的架構，但簡化：nihongo-lab 只有一位使用者，不需要 Google OAuth、審核新登入、推播通知。
 
 - **PWA**：manifest.json + icon + service worker，快取教材文字，離線可讀課程；音檔需要使用者事先在課程頁按「下載音檔」才會存進快取（播放不會自動存檔，見 project-sd.md「離線音檔」）；沒下載的音檔離線時顯示明確錯誤，不是空白或卡住。
-- **跨裝置同步**：只同步 SRS 進度與 completed 紀錄，不同步教材內容（教材本來就在 repo 裡，`git pull` 就有）。用 Cloudflare Worker 當同步端點，資料存放方式（KV 或私有 GitHub repo 當 JSON store，比照 Family 的 Family-data repo）待 project-sd.md 定案。
+- **跨裝置同步**：只同步 SRS 進度與 completed 紀錄，不同步教材內容（教材本來就在 repo 裡，`git pull` 就有）。用 Cloudflare Worker 當同步端點，資料存放方式（KV 或私有 GitHub repo 當 JSON store，比照既有 PWA 專案的做法）待 project-sd.md 定案。
 - 沒有登入機制：用裝置產生、存在 localStorage 的隨機 ID 當同步識別碼，避免帳號密碼的複雜度（單人使用、非機密資料，可接受）。
 - 離線或 Worker 打不通時，先寫本機 localStorage，之後背景重試同步；本機永遠是可用的最後防線，不因同步失敗卡住學習。
 
 ## 部署與協作約束
 
-Repository 已公開：[github.com/frobel0520/nihongo-lab](https://github.com/frobel0520/nihongo-lab)（2026-09-29 建立並推送）。GitHub Pages 公開網址與 Cloudflare Worker 同步端點都還沒部署，待核心功能穩定後再進行，目前不得寫成已上線。
+Repository 已公開：GitHub repository（2026-09-29 建立並推送）。GitHub Pages 公開網址與 Cloudflare Worker 同步端點都還沒部署，待核心功能穩定後再進行，目前不得寫成已上線。
