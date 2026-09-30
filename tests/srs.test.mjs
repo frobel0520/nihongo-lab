@@ -1,0 +1,168 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { stages } from '../curriculum/lessons.mjs';
+import {
+  addDays,
+  buildCards,
+  buildQueue,
+  isDateString,
+  schedule,
+  summarize,
+  toDateString,
+} from '../lib/srs.mjs';
+
+const TODAY = '2026-09-30';
+
+test('日期工具：本機日期字串、跨月加天數、格式驗證', () => {
+  assert.equal(toDateString(new Date(2026, 8, 5)), '2026-09-05');
+  assert.equal(addDays('2026-09-30', 1), '2026-10-01');
+  assert.equal(addDays('2026-12-31', 1), '2027-01-01');
+  assert.equal(addDays('2026-03-01', -1), '2026-02-28');
+  assert.ok(isDateString('2026-09-30'));
+  assert.ok(!isDateString('2026-02-30'));
+  assert.ok(!isDateString('2026-9-30'));
+  assert.ok(!isDateString(20260930));
+});
+
+test('schedule：新卡 good 隔 1 天，之後 3 天，再依 ease 拉長', () => {
+  const first = schedule(undefined, 'good', TODAY);
+  assert.equal(first.interval, 1);
+  assert.equal(first.due, '2026-10-01');
+  assert.equal(first.firstSeen, TODAY);
+  assert.equal(first.reps, 1);
+
+  const second = schedule(first, 'good', '2026-10-01');
+  assert.equal(second.interval, 3);
+  assert.equal(second.due, '2026-10-04');
+
+  const third = schedule(second, 'good', '2026-10-04');
+  assert.equal(third.interval, Math.round(3 * 2.5));
+  assert.equal(third.firstSeen, TODAY);
+});
+
+test('schedule：again 今天再看、清 reps、記 lapses、ease 有下限', () => {
+  let card = schedule(undefined, 'good', TODAY);
+  card = schedule(card, 'good', TODAY);
+  const lapsed = schedule(card, 'again', TODAY);
+  assert.equal(lapsed.due, TODAY);
+  assert.equal(lapsed.interval, 0);
+  assert.equal(lapsed.reps, 0);
+  assert.equal(lapsed.lapses, 1);
+  assert.ok(lapsed.ease < card.ease);
+
+  let low = schedule(undefined, 'again', TODAY);
+  for (let i = 0; i < 20; i++) low = schedule(low, 'again', TODAY);
+  assert.equal(low.ease, 1.3);
+});
+
+test('schedule：easy 比 good 隔得久，hard 至少隔 1 天，且不改動傳入的舊狀態', () => {
+  const good = schedule(undefined, 'good', TODAY);
+  const easy = schedule(undefined, 'easy', TODAY);
+  const hard = schedule(undefined, 'hard', TODAY);
+  assert.ok(easy.interval > good.interval);
+  assert.ok(easy.ease > good.ease);
+  assert.ok(hard.interval >= 1);
+  assert.ok(hard.ease < good.ease);
+
+  const before = structuredClone(good);
+  schedule(good, 'again', TODAY);
+  assert.deepEqual(good, before);
+});
+
+test('buildCards：id 含課程 id、涵蓋教材所有單字', () => {
+  const cards = buildCards(stages);
+  const vocabCount = stages
+    .flatMap((s) => s.lessons)
+    .reduce((n, l) => n + l.vocab.length, 0);
+  assert.equal(cards.length, vocabCount);
+  assert.equal(new Set(cards.map((c) => c.id)).size, cards.length);
+  for (const card of cards) {
+    assert.ok(card.id.startsWith(`${card.lessonId}:`));
+    assert.ok(card.audio && card.reading && card.zh);
+  }
+});
+
+const cards = ['a', 'b', 'c', 'd'].map((word) => ({
+  id: `l:${word}`,
+  word,
+  reading: word,
+  zh: word,
+  audio: `${word}.mp3`,
+  lessonId: 'l',
+  lessonTitle: 'l',
+}));
+
+test('buildQueue：到期卡在前（越舊越前）、未到期不出現、新卡受每日額度限制', () => {
+  const state = {
+    'l:a': {
+      ease: 2.5,
+      interval: 1,
+      reps: 1,
+      lapses: 0,
+      due: '2026-09-29',
+      firstSeen: '2026-09-28',
+    },
+    'l:b': {
+      ease: 2.5,
+      interval: 3,
+      reps: 2,
+      lapses: 0,
+      due: '2026-10-05',
+      firstSeen: '2026-09-28',
+    },
+    'l:c': {
+      ease: 2.5,
+      interval: 1,
+      reps: 1,
+      lapses: 0,
+      due: '2026-09-28',
+      firstSeen: '2026-09-27',
+    },
+  };
+  const queue = buildQueue(cards, state, TODAY, 1);
+  assert.deepEqual(
+    queue.map((c) => c.word),
+    ['c', 'a', 'd'],
+  );
+});
+
+test('buildQueue：今天已經新學過的卡會佔掉新卡額度，重整頁面不會多出新卡', () => {
+  const state = {
+    'l:a': {
+      ease: 2.5,
+      interval: 0,
+      reps: 0,
+      lapses: 1,
+      due: TODAY,
+      firstSeen: TODAY,
+    },
+  };
+  assert.deepEqual(
+    buildQueue(cards, state, TODAY, 2).map((c) => c.word),
+    ['a', 'b'],
+  );
+  assert.deepEqual(
+    buildQueue(cards, state, TODAY, 1).map((c) => c.word),
+    ['a'],
+  );
+});
+
+test('buildQueue／summarize：教材已移除的卡片進度不會讓程式出錯', () => {
+  const state = {
+    'gone:x': {
+      ease: 2.5,
+      interval: 1,
+      reps: 1,
+      lapses: 0,
+      due: '2026-09-01',
+      firstSeen: '2026-08-30',
+    },
+  };
+  assert.equal(buildQueue(cards, state, TODAY, 10).length, cards.length);
+  assert.deepEqual(summarize(cards, state, TODAY, 10), {
+    total: 4,
+    learned: 0,
+    due: 0,
+    fresh: 4,
+  });
+});
