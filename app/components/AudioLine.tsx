@@ -33,7 +33,10 @@ export function AudioLine({
   );
 }
 
-/** 單顆播放鈕；音檔載入或播放失敗時顯示明確錯誤，而不是沒反應。 */
+/**
+ * 單顆播放鈕；音檔載入或播放失敗時顯示明確錯誤，而不是沒反應。
+ * 錯誤記的是「哪一個音檔」失敗，所以換到下一句（同一個元件、不同音檔）時，上一句的錯誤不會殘留。
+ */
 export function PlayButton({
   audio,
   label = '播放',
@@ -42,14 +45,15 @@ export function PlayButton({
   label?: string;
 }) {
   const ref = useRef<HTMLAudioElement>(null);
-  const [failed, setFailed] = useState(false);
+  const [failedAudio, setFailedAudio] = useState<string | null>(null);
+  const failed = failedAudio === audio;
 
   const play = () => {
     const el = ref.current;
     if (!el) return;
-    setFailed(false);
+    setFailedAudio(null);
     el.currentTime = 0;
-    el.play().catch(() => setFailed(true));
+    el.play().catch(() => setFailedAudio(audio));
   };
 
   return (
@@ -61,11 +65,11 @@ export function PlayButton({
         ref={ref}
         src={audioUrl(audio)}
         preload="auto"
-        onError={() => setFailed(true)}
+        onError={() => setFailedAudio(audio)}
       />
       {failed && (
         <span className="error" role="alert">
-          音檔無法播放（找不到檔案，或離線且尚未快取）。
+          音檔無法播放（找不到檔案，或離線且尚未下載；可到課程頁下載音檔供離線使用）。
         </span>
       )}
     </span>

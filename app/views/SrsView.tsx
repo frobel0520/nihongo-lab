@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { stages } from '../../curriculum/lessons.mjs';
+import { isInteractive, isTextEntry, type KeyTarget } from '../../lib/keys.mjs';
 import type { Progress } from '../../lib/progress.mjs';
 import {
   buildCards,
@@ -22,6 +23,16 @@ const GRADE_LABEL: Record<Grade, string> = {
 };
 const GRADES: Grade[] = ['again', 'good'];
 
+/** 把事件目標轉成 lib/keys.mjs 判斷用的形狀。 */
+function keyTargetOf(target: EventTarget | null): KeyTarget | null {
+  if (!(target instanceof HTMLElement)) return null;
+  return {
+    tagName: target.tagName,
+    isContentEditable: target.isContentEditable,
+    role: target.getAttribute('role'),
+  };
+}
+
 function intervalText(days: number) {
   return days === 0 ? '今天再看' : `${days} 天後`;
 }
@@ -33,10 +44,11 @@ export function SrsView({
   progress: Progress;
   update: (change: (prev: Progress) => Progress) => void;
 }) {
-  const [today] = useState(() => toDateString());
+  // 日期每次渲染都重算：畫面停在單字卡過了午夜，評分與預告仍用「現在」的日期，不會排出偏一天的到期日。
+  const today = toDateString();
   // 佇列只在進入畫面時排一次；答「還不會」的卡會排回佇列尾端，同一輪再看。
   const [queue, setQueue] = useState<Card[]>(() =>
-    buildQueue(CARDS, progress.srs, today),
+    buildQueue(CARDS, progress.srs, toDateString()),
   );
   const [revealed, setRevealed] = useState(false);
   const [reviewed, setReviewed] = useState(0);
@@ -44,11 +56,13 @@ export function SrsView({
 
   const grade = (g: Grade) => {
     if (!current) return;
+    // 評分當下才取日期，畫面放了一夜再按也不會用到昨天的日期。
+    const now = toDateString();
     update((prev) => ({
       ...prev,
       srs: {
         ...prev.srs,
-        [current.id]: schedule(prev.srs[current.id], g, today),
+        [current.id]: schedule(prev.srs[current.id], g, now),
       },
     }));
     setQueue((q) => (g === 'again' ? [...q.slice(1), q[0]] : q.slice(1)));
@@ -60,10 +74,14 @@ export function SrsView({
     if (!current) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
+      const target = keyTargetOf(e.target);
       if (!revealed && e.key === ' ') {
+        // 焦點在按鈕或連結上時，空白鍵是「按下去」，不能搶來翻卡。
+        if (isInteractive(target)) return;
         e.preventDefault();
         setRevealed(true);
       } else if (revealed && ['1', '2'].includes(e.key)) {
+        if (isTextEntry(target)) return;
         grade(GRADES[Number(e.key) - 1]);
       }
     };

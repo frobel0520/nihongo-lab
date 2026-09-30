@@ -19,6 +19,7 @@ export const voices = [
   { key: 'zunko', name: '東北ずん子', speakerId: 107, style: 'ノーマル', note: '經典萌系少女聲' },
 ];
 
+/** @param {string} key */
 export function getVoice(key) {
   const voice = voices.find((v) => v.key === key);
   if (!voice) {
