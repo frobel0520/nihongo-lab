@@ -3,6 +3,7 @@ import { stages } from '../../curriculum/lessons.mjs';
 import { buildSentences } from '../../lib/dictation.mjs';
 import { DEFAULT_ROUNDS, ROUND_OPTIONS, gapMs } from '../../lib/shadowing.mjs';
 import { audioUrl } from '../components/AudioLine';
+import { NextIcon, PlayIcon, PrevIcon, StopIcon } from '../components/Icons';
 import { JpLine } from '../components/Ruby';
 
 const SENTENCES = buildSentences(stages);
@@ -97,8 +98,7 @@ export function ShadowingView() {
 
   if (!sentence) {
     return (
-      <section>
-        <h3>跟讀</h3>
+      <section className="card empty">
         <p>教材還沒有可跟讀的句子。</p>
       </section>
     );
@@ -107,13 +107,33 @@ export function ShadowingView() {
   const running = phase !== 'idle';
 
   return (
-    <section>
-      <h3>跟讀</h3>
-      <p className="muted">
-        第 {index + 1} / {SENTENCES.length} 句 · {sentence.lessonTitle}
-      </p>
+    <div className="shadow-screen">
+      <div className="stepper">
+        <button
+          type="button"
+          className="icon-btn"
+          aria-label="上一句"
+          onClick={() => go(index - 1)}
+        >
+          <PrevIcon />
+        </button>
+        <span className="stepper-label">
+          <strong>
+            第 {index + 1} / {SENTENCES.length} 句
+          </strong>
+          <span className="muted">{sentence.lessonTitle}</span>
+        </span>
+        <button
+          type="button"
+          className="icon-btn"
+          aria-label="下一句"
+          onClick={() => go(index + 1)}
+        >
+          <NextIcon />
+        </button>
+      </div>
 
-      <div className="shadow-text" lang="ja">
+      <div className="card shadow-text" lang="ja">
         {showText ? (
           <>
             <JpLine
@@ -140,33 +160,10 @@ export function ShadowingView() {
         }}
       />
 
-      <div className="dictation-play">
-        {running ? (
-          <button type="button" className="btn primary" onClick={stop}>
-            ■ 停止
-          </button>
-        ) : (
-          <>
-            <button type="button" className="btn primary" onClick={start}>
-              ▶ 開始跟讀（{rounds} 輪）
-            </button>
-            <button
-              type="button"
-              className="btn"
-              onClick={() => {
-                runRef.current.running = false;
-                playClip();
-              }}
-            >
-              只聽一次
-            </button>
-          </>
-        )}
-      </div>
-
-      <output className="muted status-line">
-        {phase === 'playing' && `第 ${round} / ${rounds} 輪：聽`}
-        {phase === 'gap' && `第 ${round} / ${rounds} 輪：換你念`}
+      <output className={`phase-pill${running ? ' active' : ''}`} data-phase={phase}>
+        {phase === 'playing' && `第 ${round} / ${rounds} 輪 · 聽`}
+        {phase === 'gap' && `第 ${round} / ${rounds} 輪 · 換你念`}
+        {phase === 'idle' && '按下播放，聽完換你念'}
       </output>
       {failed && (
         <p className="error" role="alert">
@@ -174,38 +171,60 @@ export function ShadowingView() {
         </p>
       )}
 
-      <div className="dictation-play">
-        <label className="inline-field">
-          輪數
-          <select
-            value={rounds}
-            disabled={running}
-            onChange={(e) => setRounds(Number(e.target.value))}
-          >
-            {ROUND_OPTIONS.map((n) => (
-              <option key={n} value={n}>
-                {n}
-              </option>
-            ))}
-          </select>
+      <div className="row options">
+        <fieldset className="segmented" disabled={running}>
+          <legend className="sr-only">輪數</legend>
+          {ROUND_OPTIONS.map((n) => (
+            <label key={n}>
+              <input
+                type="radio"
+                name="rounds"
+                checked={rounds === n}
+                onChange={() => setRounds(n)}
+              />
+              <span>{n} 輪</span>
+            </label>
+          ))}
+        </fieldset>
+        <label className="chip-toggle">
+          <input
+            type="checkbox"
+            checked={showText}
+            onChange={(e) => setShowText(e.target.checked)}
+          />
+          <span>顯示原文</span>
         </label>
-        <button
-          type="button"
-          className="btn"
-          onClick={() => setShowText((v) => !v)}
-        >
-          {showText ? '隱藏原文' : '顯示原文'}
-        </button>
       </div>
 
-      <div className="dictation-play">
-        <button type="button" className="btn" onClick={() => go(index - 1)}>
-          上一句
-        </button>
-        <button type="button" className="btn" onClick={() => go(index + 1)}>
-          下一句
-        </button>
+      <div className="actions">
+        {running ? (
+          <button type="button" className="btn primary big block" onClick={stop}>
+            <StopIcon />
+            停止
+          </button>
+        ) : (
+          <div className="row">
+            <button
+              type="button"
+              className="btn primary big grow"
+              onClick={start}
+            >
+              <PlayIcon />
+              開始跟讀
+            </button>
+            <button
+              type="button"
+              className="btn big"
+              onClick={() => {
+                runRef.current.running = false;
+                playClip();
+              }}
+            >
+              聽一次
+            </button>
+          </div>
+        )}
       </div>
-    </section>
+    </div>
   );
 }

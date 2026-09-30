@@ -81,7 +81,7 @@ export function OfflineAudio({
 
   if (!supported) {
     return (
-      <section className="offline-audio">
+      <section className="card">
         <h3>離線音檔</h3>
         <p className="muted">
           這個瀏覽器不支援離線快取（需要 HTTPS 或
@@ -96,14 +96,14 @@ export function OfflineAudio({
   const allDone = counts !== null && counts.all >= allPaths.length;
 
   return (
-    <section className="offline-audio">
+    <section className="card">
       <h3>離線音檔</h3>
       <p className="muted">
         播放不會自動存檔；要在沒有網路時聽音檔，請先在有網路時下載。文字內容本來就能離線閱讀。
         {counts &&
           `　已存：${lessonPaths.length > 0 ? `本課 ${counts.lesson} / ${lessonPaths.length}，` : ''}全部課程 ${counts.all} / ${allPaths.length}。`}
       </p>
-      <div className="dictation-play">
+      <div className="row">
         {lessonPaths.length > 0 && (
           <button
             type="button"
