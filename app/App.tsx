@@ -2,14 +2,16 @@ import { useEffect, useState } from 'react';
 import { useProgress } from './useProgress';
 import { DictationView } from './views/DictationView';
 import { LessonView } from './views/LessonView';
+import { ShadowingView } from './views/ShadowingView';
 import { SrsView } from './views/SrsView';
 
-type ViewId = 'lessons' | 'srs' | 'dictation';
+type ViewId = 'lessons' | 'srs' | 'dictation' | 'shadowing';
 
 const TABS: { id: ViewId; label: string; hash: string }[] = [
   { id: 'lessons', label: '課程', hash: '#/' },
   { id: 'srs', label: '單字卡', hash: '#/srs' },
   { id: 'dictation', label: '聽寫', hash: '#/dictation' },
+  { id: 'shadowing', label: '跟讀', hash: '#/shadowing' },
 ];
 
 function viewFromHash(): ViewId {
@@ -54,6 +56,7 @@ export function App() {
 
       {view === 'lessons' && <LessonView />}
       {view === 'srs' && <SrsView progress={progress} update={update} />}
+      {view === 'shadowing' && <ShadowingView />}
       {view === 'dictation' && (
         <DictationView progress={progress} update={update} />
       )}

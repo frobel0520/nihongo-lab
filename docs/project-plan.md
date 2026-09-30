@@ -8,6 +8,8 @@
 
 不包含：動畫台詞匯入（.srt/.ass 或手動貼上）、多使用者帳號、真實外部 API。這些列為之後才考慮的選配功能，不影響核心學習迴圈。
 
+2026-09-30 更新：動畫這一塊改用「內建名句包」（T13）處理，而不是讓使用者匯入字幕：由 Claude 寫好單句短台詞、出處與口語解說，音檔自製，所以聽寫、跟讀、SRS 都能直接沿用。字幕檔匯入維持不做。跟讀（T05）也調整範圍：只做循環跟讀，不做調速。
+
 2026-09-29 更新：目標包含「做成應用程式」——參考 [Family](https://github.com/frobel0520/Family) 的模式：React PWA（可安裝、離線可用）+ Cloudflare Worker 做 SRS 進度跨裝置同步。不需要 Family 的 Google OAuth 多人登入與推播，因為 nihongo-lab 只有 Michael 一人用。細節見 project-sa.md、project-sd.md「PWA 與跨裝置同步」。
 
 ## 第 0 階段路線圖（N5 復健）

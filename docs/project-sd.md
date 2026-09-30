@@ -6,7 +6,8 @@ Vite / React + TypeScript，本機瀏覽器執行，local-first。目前無後�
 
 - `app/main.tsx`：React 掛載點。
 - `app/App.tsx`：頁首、三個分頁（課程／單字卡／聽寫，用 `#/`、`#/srs`、`#/dictation` hash 切換，不加路由套件）與進度存取提示。分頁內容在 `app/views/`（`LessonView`、`SrsView`、`DictationView`），共用的音檔元件在 `app/components/AudioLine.tsx`（`PlayButton` 音檔載入或播放失敗時顯示明確錯誤）。
-- `lib/`：無 DOM 的純邏輯，用 `.mjs` + JSDoc 型別，讓 `node --test` 直接測、TypeScript 也能匯入。`srs.mjs`（SM-2 簡化版排程、單字卡與每日佇列）、`dictation.mjs`（聽寫句子清單、逐字比對）、`progress.mjs`（進度資料形狀、解析驗證、聽寫紀錄）。
+- `app/views/ShadowingView.tsx`：跟讀。每輪播放一次、留白（見 `lib/shadowing.mjs`）讓使用者念、再播，可選 3／5／10 輪，可隱藏原文；音檔播放失敗顯示明確錯誤；按停止造成的 `AbortError` 不當成錯誤。不含調速。
+- `lib/`：無 DOM 的純邏輯，用 `.mjs` + JSDoc 型別，讓 `node --test` 直接測、TypeScript 也能匯入。`srs.mjs`（SM-2 簡化版排程、單字卡與每日佇列）、`dictation.mjs`（聽寫句子清單、逐字比對）、`progress.mjs`（進度資料形狀、解析驗證、聽寫紀錄）、`shadowing.mjs`（跟讀留白長度與輪數選項）。
 - `app/lib/storage.ts`、`app/useProgress.ts`：`localStorage` 讀寫（key `nihongo-lab:progress:v1`）與 React 狀態；存檔壞掉時原文備份到 `…:backup` 並提示，寫入失敗時畫面顯示訊息但仍可繼續學習。
 - `curriculum/lessons.mjs`：學習階段與課程資料的單一來源，目前四個階段皆為空殼（`lessons: []`），內容待第 0 階段教材產出後填入。
 - `curriculum/voices.mjs`：教材語音角色陣容，對應本機 VOICEVOX 引擎（127.0.0.1:50021）的 speaker id。2026-09-29 定案 9 個角色：ずんだもん、春日部つむぎ、雨晴はう、小夜/SAYO、櫻歌ミコ、春歌ナナ、猫使ビィ、中国うさぎ、東北ずん子。
@@ -25,6 +26,13 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 - `vite.config.ts` 的 `VitePWA()`：manifest（name、icons、standalone、theme/background color）+ `runtimeCaching` 把 `/audio/*.mp3` 設成 CacheFirst（聽過的課程音檔離線也能播）。`devOptions.enabled: true` 讓 `npm run dev` 也能測 service worker。
 - 驗證：`npm run build` 產出 `dist/sw.js`、`dist/manifest.webmanifest`，precache 18 項（約 206KB）；`npm run dev` 下瀏覽器確認 service worker `activated`、manifest 抓得到、4 個 icon。
 
+## 課程資料補充（T07、T13）
+
+- `Lesson.audioReady`：預設 true。設為 false 表示文字完成、音檔未合成；畫面顯示「音檔待產生」且不放播放器，`buildSentences`（聽寫、跟讀）整課略過。`tests/lessons.test.mjs` 檢查 `audioReady` 不是 false 的課程音檔都存在。
+- `Lesson.quotes`：動畫名句，每筆是一般句子加 `source`（作品與角色）與 `note`（口語重點解說）。音檔就緒後自動進入聽寫與跟讀。
+- 補產音檔流程（在有 VOICEVOX 與 ffmpeg 的機器上）：`node scripts/build-audio-jobs.mjs --missing` 只列出還沒有音檔的項目，再 `node scripts/synthesize.mjs --batch scripts/audio-jobs.json`，最後把課程的 `audioReady: false` 移除。
+- `LessonView` 用下拉選單切換所有階段的課程，有內容的區塊才顯示。
+
 ## SRS 與聽寫設計（T06、T04）
 
 - **進度格式**（版本 1）：`{ version, srs: { [cardId]: { ease, interval, reps, lapses, due, firstSeen } }, dictation: { [audio 路徑]: { attempts, passed, lastAt } } }`。日期一律本機時區 `YYYY-MM-DD`。單筆格式不對只丟那一筆，整份壞掉或版本未知才退回空進度（並備份原文）。未來 T10 同步若要合併，需要升版並加更新時間欄位。
@@ -34,7 +42,6 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 
 ## 待設計（下一輪任務）
 
-- 跟讀播放器（T05）的元件與狀態設計。
 - 跨裝置同步 Worker：端點設計、資料存放（KV vs 私有 GitHub repo JSON store）、裝置 ID 產生與衝突處理（兩裝置離線時都寫入，重新連線後怎麼合併，需要明確規則，不能悄悄覆蓋）。
 - 手機上實際「加入主畫面」安裝，全螢幕開啟的真實驗收（目前只驗證到 service worker／manifest 技術條件，未做真機安裝）。
 
