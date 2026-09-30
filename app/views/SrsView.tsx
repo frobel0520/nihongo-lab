@@ -11,16 +11,16 @@ import {
   type Grade,
 } from '../../lib/srs.mjs';
 import { PlayButton } from '../components/AudioLine';
+import { GradeIcon } from '../components/GradeIcon';
 
 const CARDS = buildCards(stages);
 
+// 評分以圖示呈現（✕／✓），文字只用在提示與螢幕閱讀器；快捷鍵 1、2 依序對應。
 const GRADE_LABEL: Record<Grade, string> = {
   again: '還不會',
-  hard: '有點難',
   good: '記得',
-  easy: '很簡單',
 };
-const GRADES: Grade[] = ['again', 'hard', 'good', 'easy'];
+const GRADES: Grade[] = ['again', 'good'];
 
 function intervalText(days: number) {
   return days === 0 ? '今天再看' : `${days} 天後`;
@@ -63,7 +63,7 @@ export function SrsView({
       if (!revealed && e.key === ' ') {
         e.preventDefault();
         setRevealed(true);
-      } else if (revealed && ['1', '2', '3', '4'].includes(e.key)) {
+      } else if (revealed && ['1', '2'].includes(e.key)) {
         grade(GRADES[Number(e.key) - 1]);
       }
     };
@@ -142,11 +142,11 @@ export function SrsView({
               key={g}
               type="button"
               className={`btn grade-${g}`}
+              aria-label={`${GRADE_LABEL[g]}，${preview(g)}（按 ${i + 1}）`}
+              title={`${GRADE_LABEL[g]}（按 ${i + 1}）`}
               onClick={() => grade(g)}
             >
-              <span>
-                {i + 1}. {GRADE_LABEL[g]}
-              </span>
+              <GradeIcon grade={g} />
               <small>{preview(g)}</small>
             </button>
           ))}

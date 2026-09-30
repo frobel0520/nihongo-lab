@@ -420,29 +420,31 @@ section > h3 {
   padding: 0;
   min-width: 0;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
 }
 
 .grades .btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   border-radius: 12px;
-  padding: 10px 6px;
+  padding: 14px 8px;
 }
 
 .grades small {
   color: var(--ink-2);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 
 .grade-again {
   border-color: #d9a29d;
+  color: #b3261e;
 }
-.grade-easy {
+.grade-good {
   border-color: #9cc9bd;
+  color: var(--link);
 }
 
 .dictation-play {
