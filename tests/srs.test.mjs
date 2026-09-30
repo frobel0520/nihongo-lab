@@ -2,6 +2,9 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { stages } from '../curriculum/lessons.mjs';
 import {
+  GRADES,
+  MAX_INTERVAL_DAYS,
+  MIN_EASE,
   addDays,
   buildCards,
   buildQueue,
@@ -55,18 +58,71 @@ test('schedule：again 今天再看、清 reps、記 lapses、ease 有下限', (
   assert.equal(low.ease, 1.3);
 });
 
-test('schedule：easy 比 good 隔得久，hard 至少隔 1 天，且不改動傳入的舊狀態', () => {
-  const good = schedule(undefined, 'good', TODAY);
-  const easy = schedule(undefined, 'easy', TODAY);
-  const hard = schedule(undefined, 'hard', TODAY);
-  assert.ok(easy.interval > good.interval);
-  assert.ok(easy.ease > good.ease);
-  assert.ok(hard.interval >= 1);
-  assert.ok(hard.ease < good.ease);
+test('只有兩級評分：還不會（again）與記得（good）', () => {
+  assert.deepEqual([...GRADES], ['again', 'good']);
+});
 
-  const before = structuredClone(good);
-  schedule(good, 'again', TODAY);
-  assert.deepEqual(good, before);
+test('schedule：不認得的評分（舊版的 hard／easy）會丟錯，不默默當成 good', () => {
+  assert.throws(() => schedule(undefined, 'hard', TODAY), /未知的評分/);
+  assert.throws(() => schedule(undefined, 'easy', TODAY), /未知的評分/);
+  assert.throws(() => schedule(undefined, undefined, TODAY), /未知的評分/);
+});
+
+test('schedule：good 不改 ease，again 之後 good 的間隔從頭算，且不改動傳入的舊狀態', () => {
+  const first = schedule(undefined, 'good', TODAY);
+  const second = schedule(first, 'good', '2026-10-01');
+  assert.equal(second.ease, first.ease);
+
+  const before = structuredClone(second);
+  const lapsed = schedule(second, 'again', TODAY);
+  assert.deepEqual(second, before);
+  assert.equal(schedule(lapsed, 'good', TODAY).interval, 1);
+});
+
+test('schedule：連續答「記得」間隔只會變長、不超過上限，日期永遠是合法格式', () => {
+  let card = undefined;
+  let day = TODAY;
+  let previous = 0;
+  for (let i = 0; i < 40; i++) {
+    card = schedule(card, 'good', day);
+    assert.ok(card.interval >= previous, `第 ${i + 1} 次間隔變短了`);
+    assert.ok(card.interval <= MAX_INTERVAL_DAYS);
+    assert.ok(
+      isDateString(card.due),
+      `第 ${i + 1} 次到期日格式不合法：${card.due}`,
+    );
+    previous = card.interval;
+    day = card.due;
+  }
+  assert.equal(card.interval, MAX_INTERVAL_DAYS);
+});
+
+test('schedule：ease 降到下限（多次答錯後）的卡，答「記得」間隔仍會成長', () => {
+  let card = schedule(undefined, 'good', TODAY);
+  for (let i = 0; i < 10; i++) card = schedule(card, 'again', TODAY);
+  assert.equal(card.ease, MIN_EASE);
+  let previous = 0;
+  for (let i = 0; i < 6; i++) {
+    card = schedule(card, 'good', TODAY);
+    assert.ok(card.interval > previous || i === 0);
+    previous = card.interval;
+  }
+  assert.ok(previous >= 4);
+});
+
+test('schedule：舊版四級評分留下的進度（ease 較高、reps 1 但間隔 3）仍能正常往下排', () => {
+  // 舊版第一次答 easy 會得到 reps 1、interval 3、ease 2.65；現在再答「記得」不應比 3 天短。
+  const legacy = {
+    ease: 2.65,
+    interval: 3,
+    reps: 1,
+    lapses: 0,
+    due: '2026-10-03',
+    firstSeen: TODAY,
+  };
+  const next = schedule(legacy, 'good', '2026-10-03');
+  assert.equal(next.interval, Math.round(3 * 2.65));
+  assert.equal(next.ease, 2.65);
 });
 
 test('buildCards：id 含課程 id、涵蓋教材所有單字', () => {
