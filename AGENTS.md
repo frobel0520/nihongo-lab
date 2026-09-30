@@ -13,4 +13,5 @@
 - 修改功能需執行 npm test、npm run typecheck、npm run lint；交付前執行 npm run build。
 - 不把 generated assets 或 credentials 加入 Git。
 - 個人句庫與匯入的台詞只存在使用者瀏覽器或私人檔案，不放進公開 repo（見 draft 第 8 節版權原則）。
-- 尚未決定公開部署與 repository 位置；GitHub Pages 相關設定待第 0 階段教材完成後再補。
+- 已公開部署：repository 是 [frobel0520/nihongo-lab](https://github.com/frobel0520/nihongo-lab)（public），push 到 main 由 GitHub Actions 跑 `npm run check` 與 `npm run build` 後部署到 GitHub Pages；PR 上也會跑同一個 check，合併前要等它通過。
+- 教材（含名句解說）裡不要用「前面的例句」「上一句」這種相對位置的說法，順序調整就會失效；要對照別句時直接寫作品與台詞。事實性的說明（獎項、年份、出處）只寫查證過的內容，並把出處記進 release-audit.md；查不到就不寫。
