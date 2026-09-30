@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { PrefsContext, loadPrefs, savePrefs } from './prefs';
 import { useProgress } from './useProgress';
+import { useSwUpdate } from './useSwUpdate';
 import { DictationView } from './views/DictationView';
 import { LessonView } from './views/LessonView';
 import { ShadowingView } from './views/ShadowingView';
@@ -31,6 +32,8 @@ export function App() {
     savePrefs(next);
   };
 
+  const { updated, dismiss: dismissUpdate, reload } = useSwUpdate();
+
   useEffect(() => {
     const onHashChange = () => setView(viewFromHash());
     window.addEventListener('hashchange', onHashChange);
@@ -57,6 +60,22 @@ export function App() {
             </a>
           ))}
         </nav>
+
+        {updated && (
+          <output className="notice update-banner">
+            <span>
+              已更新到新版本，重新載入即可使用（目前的進度都已存好，不會遺失）。
+            </span>
+            <span className="update-banner-actions">
+              <button type="button" className="btn primary" onClick={reload}>
+                重新載入
+              </button>
+              <button type="button" className="btn" onClick={dismissUpdate}>
+                稍後
+              </button>
+            </span>
+          </output>
+        )}
 
         <label className="inline-field furigana-toggle">
           <input
