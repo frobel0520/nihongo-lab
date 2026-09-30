@@ -60,7 +60,7 @@ export function JpLine({
       <div className={jpClass} lang="ja">
         {parts ? <Ruby parts={parts} /> : jp}
       </div>
-      {!parts && (
+      {!parts && reading !== jp && (
         <div className="line-reading" lang="ja">
           {reading}
         </div>
