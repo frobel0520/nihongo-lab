@@ -5,9 +5,11 @@ import {
   compareDictation,
   type DictationResult,
   type Mark,
+  type Sentence,
 } from '../../lib/dictation.mjs';
 import { recordDictation, type Progress } from '../../lib/progress.mjs';
 import { PlayButton } from '../components/AudioLine';
+import { Ruby, useRuby } from '../components/Ruby';
 
 const SENTENCES = buildSentences(stages);
 
@@ -23,6 +25,20 @@ function Marks({ marks }: { marks: Mark[] }) {
         </span>
       ))}
     </span>
+  );
+}
+
+/** 答案揭曉後的標準答案：讀音標在漢字上方，關掉偏好時維持「原文（讀音）」。 */
+function Answer({ sentence }: { sentence: Sentence }) {
+  const parts = useRuby(sentence);
+  return parts ? (
+    <p className="line-jp" lang="ja">
+      <Ruby parts={parts} />
+    </p>
+  ) : (
+    <p className="line-reading" lang="ja">
+      {sentence.jp}（{sentence.reading}）
+    </p>
   );
 }
 
@@ -154,9 +170,7 @@ export function DictationView({
               </p>
             </>
           )}
-          <p className="line-reading" lang="ja">
-            {sentence.jp}（{sentence.reading}）
-          </p>
+          <Answer sentence={sentence} />
           <p className="line-zh">{sentence.zh}</p>
           <div className="dictation-play">
             {!result.correct && (

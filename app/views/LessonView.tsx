@@ -80,6 +80,7 @@ export function LessonView() {
                     <AudioLine
                       jp={v.word}
                       reading={v.reading}
+                      ruby={v.ruby}
                       zh={v.zh}
                       audio={v.audio}
                       pending={pending}
@@ -102,6 +103,7 @@ export function LessonView() {
                       key={ex.audio}
                       jp={ex.jp}
                       reading={ex.reading}
+                      ruby={ex.ruby}
                       zh={ex.zh}
                       audio={ex.audio}
                       pending={pending}
@@ -120,6 +122,7 @@ export function LessonView() {
                   key={line.audio}
                   jp={line.jp}
                   reading={line.reading}
+                  ruby={line.ruby}
                   zh={line.zh}
                   audio={line.audio}
                   pending={pending}
@@ -136,6 +139,7 @@ export function LessonView() {
                   <AudioLine
                     jp={q.jp}
                     reading={q.reading}
+                    ruby={q.ruby}
                     zh={q.zh}
                     audio={q.audio}
                     pending={pending}
