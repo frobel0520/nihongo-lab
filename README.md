@@ -2,7 +2,7 @@
 
 Michael 個人使用的日文學習網站。目標是通過 JLPT N1，近期目標是不看字幕聽懂動畫與遊戲日文配音。
 
-繁體中文介面，React + TypeScript + Vite，local-first（教材與音檔隨 repo 走，離線可用）。核心教材由 Claude 直接撰寫完整內容；動畫台詞匯入是之後才考慮的選配功能。目標是做成可安裝的 PWA，SRS 進度跨裝置同步，參考 [Family](https://github.com/frobel0520/Family) 的模式但不需要它的多人登入與推播。
+繁體中文介面，React + TypeScript + Vite，local-first（教材與音檔隨 repo 走；教材文字離線可讀，音檔要先在課程頁下載才能離線播放）。核心教材由 Claude 直接撰寫完整內容；動畫台詞匯入是之後才考慮的選配功能。目標是做成可安裝的 PWA，SRS 進度跨裝置同步，參考 [Family](https://github.com/frobel0520/Family) 的模式但不需要它的多人登入與推播。
 
 ## 現況
 
