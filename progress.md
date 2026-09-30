@@ -14,6 +14,7 @@ Repository：[github.com/frobel0520/nihongo-lab](https://github.com/frobel0520/n
 - **PWA**：`vite-plugin-pwa` 產生 service worker（precache 18 項）與 manifest，圖示用 `@vite-pwa/assets-generator` 從自製 SVG 產生；`/audio/*.mp3` 另設 CacheFirst 離線快取。**已在 Android 手機上安裝並確認可開啟、音檔正常播放、手機版排版正常。**
 - **UI**：套用 [learning-atlas](https://github.com/frobel0520/learning-atlas) 的設計系統（卡片排版、CSS 變數色票、Noto Sans TC + IBM Plex Mono），跟 Michael 其他網站視覺一致；固定亮色模式，不隨系統深色設定切換；手機寬度下單字／例句改成文字在上、音檔播放器獨立一行在下。
 - **部署**：GitHub Pages（GitHub Actions 自動化），網址見上方。
+- **SRS 單字卡（T06）與聽寫（T04）**（2026-09-30，在 `feature/T06-T04` 分支，尚未接回 main、部署）：畫面分成課程／單字卡／聽寫三個分頁。單字卡用第 1 天 9 個單字，SM-2 簡化版四級評分，進度存 `localStorage`；聽寫用第 1 天 14 句（文法例句 + 對話），逐字比對並標出漏聽與多打的字，答對紀錄不被之後答錯洗掉。存檔壞掉或寫入失敗時畫面明確提示。純邏輯在 `lib/`，新增 19 項測試；桌面與 375px 寬度已在瀏覽器實測，真機與日文輸入法未測（見 release-audit.md）。
 
 ## 上線後修的幾個 bug（記錄給下次類似狀況參考）
 
@@ -23,6 +24,6 @@ Repository：[github.com/frobel0520/nihongo-lab](https://github.com/frobel0520/n
 
 ## 下一步
 
-1. 排出第 0 階段第 2 天以後的教材，逐天累積到 25 課。
-2. 規劃並實作 SRS 進度跨裝置同步（Cloudflare Worker，T10）。
-3. 依 task-breakdown.md 依序做聽寫練習、跟讀播放、SRS 單字卡功能。
+1. 排出第 0 階段第 2 天以後的教材，逐天累積到 25 課（新音檔需在有 VOICEVOX 與 ffmpeg 的機器上產生；目前這台 Mac 沒有）。
+2. 跟讀與慢速播放（T05）。
+3. SRS 進度跨裝置同步（Cloudflare Worker，T10）：進度格式要先升版並加更新時間欄位，才能明確處理兩台裝置的衝突。
