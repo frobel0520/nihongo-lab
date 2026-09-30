@@ -69,8 +69,14 @@ test('文法點的 jlpt 若有標，必須是非空字串陣列且同一課內�
   for (const lesson of lessons) {
     const ids = lesson.grammar.flatMap((g) => g.jlpt ?? []);
     for (const g of lesson.grammar.filter((x) => x.jlpt)) {
-      assert.ok(Array.isArray(g.jlpt) && g.jlpt.length > 0, `${g.pattern} 的 jlpt 是空的`);
-      assert.ok(g.jlpt.every((id) => typeof id === 'string' && id), `${g.pattern} 的 jlpt 有非字串`);
+      assert.ok(
+        Array.isArray(g.jlpt) && g.jlpt.length > 0,
+        `${g.pattern} 的 jlpt 是空的`,
+      );
+      assert.ok(
+        g.jlpt.every((id) => typeof id === 'string' && id),
+        `${g.pattern} 的 jlpt 有非字串`,
+      );
     }
     assert.equal(new Set(ids).size, ids.length, `${lesson.id} 的 jlpt id 重複`);
   }
@@ -99,6 +105,19 @@ test('名句必須標明出處與解說', () => {
     for (const quote of lesson.quotes) {
       assert.ok(quote.source, `${quote.jp} 缺出處`);
       assert.ok(quote.note, `${quote.jp} 缺解說`);
+    }
+  }
+});
+
+test('名句解說不用「前面的例句」這種相對位置的說法（順序一調整就失效），要對照別句就直接寫作品與台詞', () => {
+  const relative =
+    /(前面|後面|上面|下面|前一|後一|上一|下一)(的)?(例句|句子|一句|名句|台詞)/;
+  for (const lesson of lessons) {
+    for (const quote of lesson.quotes ?? []) {
+      assert.ok(
+        !relative.test(quote.note),
+        `${quote.source}「${quote.jp}」的解說用了相對位置的說法：${quote.note}`,
+      );
     }
   }
 });
