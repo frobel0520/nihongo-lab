@@ -131,6 +131,14 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 - **作答**：點選項或按數字鍵 1～4；選完立刻顯示對錯（答對綠色、答錯紅色並標出正確答案，其他變淡）與中文，按「下一句」或 Enter／右方向鍵繼續。選項在換題時抽好、存在元件狀態裡，作答前後不會變。回饋面板跟在選項下面（不是固定在底部，避免蓋住選項），作答後自動捲進畫面。
 - **紀錄**：與輸入模式用同一份 `recordDictation`：次數 +1，答對則 `passed` 為 true（之後答錯不會洗掉），所以進度條與課程清單的聽寫進度兩種模式共用。**限制**：4 選 1 有 25% 猜中的機會，選擇題答對也算「通過」，通過標準比輸入寬鬆。
 
+## 納管到 Harbor（T36）
+
+- **做法**：Harbor（個人專案主控台）對 GitHub Pages 這類靜態站用前端腳本接入。`index.html` 的 `<head>` 加一行 `<script src="https://harbor-1wk.pages.dev/embed/maintenance.js" data-project="nihongo-lab">`，**不加 `async` 或 `defer`**（要在第一次繪製前先隱藏頁面）；`tests/harbor-embed.test.mjs` 守住 slug、位置與沒有 `async`／`defer`。專案本身在 Harbor 以 `POST /api/v1/projects` 登錄（slug 建立後不可變更）。
+- **行為**：載入時先隱藏頁面，最多等 800ms 讀 `runtime-config?project=nihongo-lab`；維護中顯示全螢幕維護畫面，有公告就在底部顯示可關閉的橫幅；讀不到設定、逾時、格式不符或 slug 對不上一律立即顯示頁面，不論發生什麼事最慢 1.5 秒後一定顯示。Harbor 掛掉或離線都不會讓這個 App 打不開。
+- **隱私**：腳本只向 Harbor 要這個專案的設定（網址只帶 slug），不送任何學習進度、登入資訊或使用者資料；同步 Worker 與 Harbor 沒有關係。
+- **不是安全邊界**：維護畫面只是蓋在頁面上，停用 JavaScript 或讀原始檔仍看得到內容（這個站台本來就是公開靜態站，沒有需要擋的內容）。
+- **service worker**：腳本是跨網域子資源，不在 precache 裡、也沒有 runtime 快取；離線時載入失敗會立刻放行。
+
 ## 待設計（下一輪任務）
 
 - 手機上實際「加入主畫面」安裝，全螢幕開啟的真實驗收（目前只驗證到 service worker／manifest 技術條件，未做真機安裝）。
