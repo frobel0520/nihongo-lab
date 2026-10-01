@@ -90,7 +90,7 @@ export function LessonView({ lesson }: { lesson: Lesson }) {
         <section className="card">
           {lesson.grammar.map((g) => (
             <div key={g.pattern} className="grammar-point">
-              <h4>{g.pattern}</h4>
+              <h4 lang="ja">{g.pattern}</h4>
               <p>{g.note}</p>
               {g.examples.map((ex) => (
                 <AudioLine

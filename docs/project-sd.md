@@ -29,7 +29,7 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
   - 只收 200 且 `content-type` 是 `audio/*`；驗證失敗會清掉該網址既有的髒資料，`has` 也驗內容類型。
   - 已存在的略過，失敗的逐一回報、不自動重試，再按一次只補抓失敗的。
   - 在 `vite.config.ts` 以 `options.rangeRequests` 開啟外掛（由 workbox-build 寫進 service worker），不在設定檔裡 import `workbox-range-requests`，避免先前在 Node 環境（`npm run dev`）匯入該套件就報錯的問題。
-- 字型快取（T20）：`fonts.googleapis.com` 用 StaleWhileRevalidate、`fonts.gstatic.com` 用 CacheFirst（`google-fonts-styles`／`google-fonts-files`），第一次連網載入後離線也顯示同一套字型；跨網域是 opaque 回應（status 0），要明說 `statuses: [0, 200]` 才會存。
+- 字型（T20 → T31）：T20 曾替 Google Fonts 加離線快取；T31 起**不再載入任何網頁字型**，快取路由一併移除（已安裝的裝置上遺留的 `google-fonts-styles`／`google-fonts-files` 快取不會自動清掉，按設定頁的「清除快取」就會清）。理由見「介面設計」的「視覺」。
 - 型別檢查（T20）：`tsconfig.json` 開啟 `checkJs`，`lib/`、`curriculum/`、`scripts/` 的 `.mjs`（JSDoc 型別）納入 `npm run typecheck`；`tests/` 不納入。
 - 單字卡快捷鍵（T20）：判斷邏輯在 `lib/keys.mjs`；空白鍵在按鈕、連結、輸入元件上讓位，數字鍵只在輸入元件讓位。
 - 新版本提示（T21）：service worker 維持 `autoUpdate`（新版立刻接管），頁面用 `controllerchange`（且事件前已被控制）偵測「更新已生效」並顯示橫幅，由使用者決定何時重載；回到前景時 `registration.update()`，10 分鐘節流（`lib/sw-update.mjs`）。不自動重載，因為聽寫輸入與進行中的單字卡會被打斷。
@@ -82,7 +82,7 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 - **跟讀**（`ShadowingView`，T34 起沒有輪數設定，按「開始跟讀」會一直重複並顯示第 N 遍，按停止結束）：顯示原文是開關膠囊；狀態膠囊在輪到你念時變成琥珀色；開始／停止是固定在底部的大按鈕。
 - **設定**：分組卡片，讀音開關改成 iOS 風格的開關。
 - **觸控細節**：可點的目標至少 44px；底部區塊考慮 `safe-area-inset-bottom`（`index.html` 的 viewport 加 `viewport-fit=cover`）；按鈕按下有縮放回饋；`overscroll-behavior-y: contain` 避免安裝成 App 後下拉整頁重新整理；`touch-action: manipulation` 去掉點擊延遲。
-- **視覺**：主色深青綠（`--brand`），白色圓角卡片加淡陰影，Noto Sans TC 單一字體（移除不再使用的 IBM Plex Mono）；`theme_color` 與背景色改成頁面底色，PWA 圖示改成青綠底加白色「か」。
+- **視覺**：主色深青綠（`--brand`），白色圓角卡片加淡陰影，**字型用裝置自己的系統字型**（T31）：中文 `--sans`（`system-ui`、`-apple-system`、`Segoe UI`、`Microsoft JhengHei`），日文內容（元素標 `lang="ja"`）用 `--sans-ja`（`system-ui`、`-apple-system`、`Yu Gothic UI`、`Meiryo`），再靠 `lang` 讓瀏覽器挑對語言的版本。原本的 Noto Sans TC 網頁字型被 Google Fonts 切成上百個片段（每個粗細各一組）按需下載，沒載好或離線時有些字會暫時換成系統字型，同一行字的粗細就不一致（使用者回報「同一行字有的粗有的細」）；教材用到的 1,539 個非 ASCII 字元都在 Noto Sans TC 涵蓋範圍內，所以不是缺字。系統字型整行出自同一套字型、不用下載、離線不受影響，日文漢字也會是日本的字形。代價是各平台外觀不同（Android 是 Noto Sans CJK、macOS／iOS 是 PingFang 與 Hiragino、Windows 是 Microsoft JhengHei 與 Yu Gothic）。教材文字裡中日混寫的說明文字仍以繁中字型顯示；`theme_color` 與背景色改成頁面底色，PWA 圖示改成青綠底加白色「か」。
 - **移除的舊介面**：階段卡片、課程下拉選單與上一課／下一課按鈕、原生 `<audio controls>`、輪數下拉選單、單字卡圖示評分按鈕（`GradeIcon`）。
 
 ## 課程編寫（第 3 天起）
