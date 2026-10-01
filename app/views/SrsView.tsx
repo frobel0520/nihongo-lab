@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type PointerEvent } from 'react';
 import { stages } from '../../curriculum/lessons.mjs';
 import { isInteractive, isTextEntry, type KeyTarget } from '../../lib/keys.mjs';
-import type { Progress } from '../../lib/progress.mjs';
+import { recordReview, type Progress } from '../../lib/progress.mjs';
 import { viewHash } from '../../lib/route.mjs';
 import {
   buildCards,
@@ -79,14 +79,9 @@ export function SrsView({
   const grade = (g: Grade) => {
     if (!current) return;
     // 評分當下才取日期，畫面放了一夜再按也不會用到昨天的日期。
-    const now = toDateString();
-    update((prev) => ({
-      ...prev,
-      srs: {
-        ...prev.srs,
-        [current.id]: schedule(prev.srs[current.id], g, now),
-      },
-    }));
+    const day = toDateString();
+    const stamp = new Date().toISOString();
+    update((prev) => recordReview(prev, current.id, g, day, stamp));
     setQueue((q) => (g === 'again' ? [...q.slice(1), q[0]] : q.slice(1)));
     setReviewed((n) => n + 1);
     setRevealed(false);
