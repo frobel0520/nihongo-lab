@@ -1,19 +1,32 @@
 import { useEffect, useRef, useState, type PointerEvent } from 'react';
 import { stages } from '../../curriculum/lessons.mjs';
 import { isInteractive, isTextEntry, type KeyTarget } from '../../lib/keys.mjs';
-import { recordReview, type Progress } from '../../lib/progress.mjs';
+import { recordReviewFrom, type Progress } from '../../lib/progress.mjs';
 import { viewHash } from '../../lib/route.mjs';
+import {
+  applyGrade,
+  baseState,
+  createSession,
+  currentCard,
+  resolvedCount,
+  step,
+  type Session,
+} from '../../lib/srs-session.mjs';
 import {
   buildCards,
   buildQueue,
   schedule,
   summarize,
   toDateString,
-  type Card,
   type Grade,
 } from '../../lib/srs.mjs';
 import { PlayButton } from '../components/AudioLine';
-import { CheckIcon, CloseIcon } from '../components/Icons';
+import {
+  BackIcon,
+  CheckIcon,
+  ChevronRightIcon,
+  CloseIcon,
+} from '../components/Icons';
 import { ProgressBar } from '../components/ProgressBar';
 
 const CARDS = buildCards(stages);
@@ -62,30 +75,40 @@ export function SrsView({
 }) {
   // 日期每次渲染都重算：畫面停在單字卡過了午夜，評分與預告仍用「現在」的日期，不會排出偏一天的到期日。
   const today = toDateString();
-  // 佇列只在進入畫面時排一次；答「還不會」的卡會排回佇列尾端，同一輪再看。
-  const [initialQueue] = useState<Card[]>(() =>
-    buildQueue(CARDS, progress.srs, toDateString()),
+  // 牌組只在進入畫面時排一次；一輪的流程（上一張／下一張、評分後跳到哪一張）見 lib/srs-session.mjs。
+  const [session, setSession] = useState<Session>(() =>
+    createSession(buildQueue(CARDS, progress.srs, toDateString())),
   );
-  const [queue, setQueue] = useState<Card[]>(initialQueue);
   const [revealed, setRevealed] = useState(false);
   const [reviewed, setReviewed] = useState(0);
   const [drag, setDrag] = useState(0);
   const dragStart = useRef<number | null>(null);
-  const current = queue[0];
-  const total = initialQueue.length;
-  // 佇列長度就是「還沒答對的不重複卡片數」（答錯的卡排回尾端，長度不變），所以進度不會因為答錯倒退。
-  const done = total - queue.length;
+  const current = currentCard(session);
+  const total = session.deck.length;
+  // 進度 = 這一輪已評「記得」的張數，答「還不會」不會讓進度倒退。
+  const done = resolvedCount(session);
+  const currentGrade = current ? session.grades[current.id] : undefined;
+  // 這張卡排程要用的狀態：這一輪第一次評分之前的（回頭改評分才不會把間隔推進兩次）。
+  const baseOf = current
+    ? baseState(session, current, progress.srs[current.id])
+    : undefined;
+
+  /** 換到另一張（或結束）：這一輪評過的卡直接顯示答案面，方便回頭看與改評分。 */
+  const moveTo = (next: Session) => {
+    setSession(next);
+    const card = currentCard(next);
+    setRevealed(card !== null && next.grades[card.id] !== undefined);
+    setDrag(0);
+  };
 
   const grade = (g: Grade) => {
     if (!current) return;
     // 評分當下才取日期，畫面放了一夜再按也不會用到昨天的日期。
     const day = toDateString();
     const stamp = new Date().toISOString();
-    update((prev) => recordReview(prev, current.id, g, day, stamp));
-    setQueue((q) => (g === 'again' ? [...q.slice(1), q[0]] : q.slice(1)));
+    update((prev) => recordReviewFrom(prev, current.id, baseOf, g, day, stamp));
     setReviewed((n) => n + 1);
-    setRevealed(false);
-    setDrag(0);
+    moveTo(applyGrade(session, g, progress.srs[current.id]));
     buzz();
   };
 
@@ -102,6 +125,9 @@ export function SrsView({
       } else if (revealed && ['1', '2'].includes(e.key)) {
         if (isTextEntry(target)) return;
         grade(GRADES[Number(e.key) - 1]);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        if (isTextEntry(target)) return;
+        moveTo(step(session, e.key === 'ArrowLeft' ? -1 : 1));
       }
     };
     window.addEventListener('keydown', onKey);
@@ -149,6 +175,15 @@ export function SrsView({
             ? `已學 ${stats.learned} / ${stats.total} 張。`
             : '有新的單字或到期的卡片時，會出現在這裡。'}
         </p>
+        {total > 0 && (
+          <button
+            type="button"
+            className="btn big block"
+            onClick={() => moveTo(step(session, -1))}
+          >
+            回到最後一張
+          </button>
+        )}
         <a className="btn primary big block" href={viewHash('lessons')}>
           回課程
         </a>
@@ -157,7 +192,7 @@ export function SrsView({
   }
 
   const preview = (g: Grade) =>
-    intervalText(schedule(progress.srs[current.id], g, today).interval);
+    intervalText(schedule(baseOf, g, today).interval);
 
   const hint =
     drag > SWIPE_HINT_DISTANCE
@@ -173,6 +208,35 @@ export function SrsView({
         <span className="muted">
           {done} / {total}
         </span>
+      </div>
+
+      <div className="stepper">
+        <button
+          type="button"
+          className="icon-btn"
+          aria-label="上一張"
+          disabled={session.index === 0}
+          onClick={() => moveTo(step(session, -1))}
+        >
+          <BackIcon />
+        </button>
+        <span className="stepper-label">
+          <strong>
+            第 {session.index + 1} / {total} 張
+          </strong>
+          {currentGrade && (
+            <span className="muted">這一輪已評：{GRADE_LABEL[currentGrade]}</span>
+          )}
+        </span>
+        <button
+          type="button"
+          className="icon-btn"
+          aria-label="下一張"
+          disabled={session.index >= total - 1}
+          onClick={() => moveTo(step(session, 1))}
+        >
+          <ChevronRightIcon />
+        </button>
       </div>
 
       <div className="flashcard-area">
