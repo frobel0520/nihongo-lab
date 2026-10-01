@@ -47,6 +47,8 @@ export function useProgress() {
   }, []);
 
   const dismissWarning = useCallback(() => setWarning(null), []);
+  /** 目前最新的進度（包含這一輪渲染之前剛寫入的），給同步這種在渲染之外讀取的地方用。 */
+  const getProgress = useCallback(() => latest.current, []);
 
-  return { progress, update, warning, saveError, dismissWarning };
+  return { progress, getProgress, update, warning, saveError, dismissWarning };
 }
