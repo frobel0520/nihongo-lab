@@ -263,6 +263,11 @@ a {
   gap: 8px 16px;
 }
 
+.google-button {
+  display: flex;
+  min-height: 44px;
+}
+
 .status-line {
   display: block;
   min-height: 1.65em;

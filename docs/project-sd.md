@@ -107,9 +107,23 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 - **設定與 secret**：`worker/wrangler.toml` 只放公開值（Google Client ID、允許的網頁來源、KV 綁定）。白名單 email（`ALLOWED_EMAIL`）與 session 簽名金鑰（`SESSION_SECRET`）是 secret，用 `wrangler secret put` 設定，**不進公開 repo**。部署：`wrangler deploy -c worker/wrangler.toml`（用全域安裝的 wrangler，不加成專案相依套件）。目前部署在 `https://nihongo-sync.curio-lab.workers.dev`（2026-10-01）。
 - **Google Cloud 端**：專案 `nihongo-sync`（已停用計費，不依賴免費試用帳戶）、OAuth 同意畫面為「外部、測試中」，只有加進「測試使用者」的帳號能登入；網頁用戶端的授權 JavaScript 來源是正式站與兩個本機開發網址。不使用重新導向 URI（用 Google 登入按鈕取得身分憑證）。
 
+## 跨裝置同步的前端（T30）
+
+純邏輯在 `lib/sync.mjs`（請求、登入狀態儲存、狀態文字）與 `lib/sync-controller.mjs`（流程控制），網路、儲存空間、計時器、進度的讀取與套用都由呼叫端注入，用 `node --test` 驗證；畫面端是 `app/useSync.ts`（接事件）、`app/lib/googleSignIn.ts`（載入 Google 登入）、`app/components/SyncPanel.tsx`（設定頁面板），App 最上方另有「登入已過期」的提示。
+
+- **登入**：Google 的腳本（Google Identity Services）只在使用者按「用 Google 登入」才載入，載入後畫出 Google 官方的按鈕，再按一次完成登入（彈出視窗）；拿到身分憑證後送 `POST /auth` 換 session。沒登入時完全不連 Google 或同步伺服器（開發版實測網路請求確認）。
+- **登入狀態**存在 `localStorage` 的 `nihongo-lab:sync:v1`（`{ token, email, lastSyncAt }`），與學習進度分開，匯出進度時不會帶出去。注意 GitHub Pages 的 `帳號.github.io` 是同一個來源，同帳號底下其他網站的頁面讀得到這個來源的 `localStorage`；這個 session 只能存取學習進度，風險有限，但要知道。
+- **一次同步**：把整份本機進度送 `POST /sync`，拿回與雲端合併後的整份，再用 `mergeProgress` 併進本機（不是覆蓋，所以同步途中答的題不會被蓋掉）。回應的進度會再驗證一次格式，有任何問題就不套用。
+- **同步時機**：已登入時開啟 App；回到前景（距離上次嘗試 2 分鐘以上）；離開前景或 `pagehide` 時有未上傳的變更就立刻送；網路恢復；進度變動後延遲 8 秒（連續答題只送一次）；設定頁的「立即同步」。
+- **不會無限同步**：「有沒有未上傳的變更」用內容指紋判斷（`fingerprintProgress`：鍵排序後的內容，與物件鍵的順序無關）——比對「現在的進度」與「上次雲端回傳的進度」。併回雲端內容後兩者相同，就不會再排下一次。測試與實測都用「雲端回傳時鍵順序故意倒過來」確認過。
+- **同時只跑一個**：同步中又被要求同步，在這一輪結束後補一輪；同步途中又有新變更，結束後排延遲上傳，不遞迴、不平行送。請求有 20 秒逾時（逾時視為連不上）。
+- **失敗**：連不上、逾時、5xx 都保持登入並顯示說明，本機照常運作，下次觸發再試（不自動重試迴圈）；`401`（session 過期）清掉登入狀態、停止排程並提示重新登入，**本機進度不動**；雲端存檔異常（`stored_corrupt`）顯示說明、不套用；`403` 說明帳號沒有權限或網址不在允許名單。
+- **登出**只停止同步並清掉登入狀態：這個裝置的進度與雲端的備份都保留。
+- **多個分頁**：另一個分頁登入或登出（`storage` 事件）時這一頁跟著變；兩個分頁同時同步是安全的（合併滿足交換律／結合律／冪等）。
+- 端點的設定值（`SYNC_URL`、`GOOGLE_CLIENT_ID`）寫在 `lib/sync.mjs`，都是公開值。
+
 ## 待設計（下一輪任務）
 
-- 跨裝置同步的前端（T10 第 3 步）：設定頁登入、同步狀態、開啟與回到前景時同步、答完後延遲推送。端點已寫好（見下一節），前端尚未實作。
 - 手機上實際「加入主畫面」安裝，全螢幕開啟的真實驗收（目前只驗證到 service worker／manifest 技術條件，未做真機安裝）。
 
 教材資料結構已在第 1 天教材定案，見 `curriculum/lessons.mjs`、`curriculum/voices.mjs`。UI 的最新設計見上方「介面設計（T25、T27）」；下面是最初版本的說明（已過時）：沿用既有學習網站的設計系統（Noto Sans TC + IBM Plex Mono、卡片式排版、CSS 變數色票、`prefers-color-scheme` 自動深色模式），維持 使用者 的網站家族一致風格。
