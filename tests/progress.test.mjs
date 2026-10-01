@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   PROGRESS_VERSION,
   emptyProgress,
+  fingerprintProgress,
   isTimestamp,
   parseProgress,
   recordDictation,
@@ -186,4 +187,24 @@ test('recordReview：排程結果加上評分時刻，沒碰到其他卡', () =>
   progress = recordReview(progress, 'a', 'again', '2026-10-01', '2026-10-01T09:30:00.000Z');
   assert.equal(progress.srs.a.updatedAt, '2026-10-01T09:30:00.000Z');
   assert.equal(progress.srs.a.lapses, 1);
+});
+
+test('fingerprintProgress：內容相同就相同（與鍵順序無關），任何一個欄位不同就不同', () => {
+  const a = { ...emptyProgress(), srs: { x: card, y: { ...card, interval: 3 } }, dictation: { s: { attempts: 1, passed: true, lastAt: 't' }, u: { attempts: 2, passed: false, lastAt: 't' } } };
+  const reordered = {
+    ...emptyProgress(),
+    srs: { y: { updatedAt: card.updatedAt, firstSeen: card.firstSeen, due: card.due, lapses: 0, reps: 1, interval: 3, ease: 2.5 }, x: card },
+    dictation: { u: { lastAt: 't', passed: false, attempts: 2 }, s: { lastAt: 't', passed: true, attempts: 1 } },
+  };
+  assert.equal(fingerprintProgress(a), fingerprintProgress(reordered));
+  assert.equal(fingerprintProgress(emptyProgress()), fingerprintProgress(emptyProgress()));
+
+  const changed = [
+    { ...a, srs: { ...a.srs, x: { ...card, ease: 2.3 } } },
+    { ...a, srs: { ...a.srs, x: { ...card, updatedAt: '2026-09-30T09:00:00.000Z' } } },
+    { ...a, srs: { x: card } },
+    { ...a, dictation: { ...a.dictation, s: { attempts: 1, passed: false, lastAt: 't' } } },
+    { ...a, dictation: { s: a.dictation.s } },
+  ];
+  for (const other of changed) assert.notEqual(fingerprintProgress(a), fingerprintProgress(other));
 });

@@ -12,6 +12,7 @@ import {
 import { PrefsContext, loadPrefs, savePrefs } from './prefs';
 import { useProgress } from './useProgress';
 import { useSwUpdate } from './useSwUpdate';
+import { useSync } from './useSync';
 import { DictationView } from './views/DictationView';
 import { LessonListView } from './views/LessonListView';
 import { LessonView } from './views/LessonView';
@@ -33,8 +34,9 @@ const LESSONS = stages.flatMap((stage) => stage.lessons);
 
 export function App() {
   const [route, setRoute] = useState(() => parseRoute(window.location.hash));
-  const { progress, update, warning, saveError, dismissWarning } =
+  const { progress, getProgress, update, warning, saveError, dismissWarning } =
     useProgress();
+  const sync = useSync({ progress, getProgress, update });
   const [prefs, setPrefs] = useState(loadPrefs);
   const { updated, dismiss: dismissUpdate, reload } = useSwUpdate();
   // 有沒有在 App 裡換過頁：沒有的話（直接開單一課程的網址），返回鍵不能用 history.back()，否則會離開 App。
@@ -117,6 +119,23 @@ export function App() {
             </button>
           </div>
         )}
+        {sync.status.attention && (
+          <div className="notice notice-row" role="alert">
+            <span>{sync.status.attention}</span>
+            <span className="row">
+              <a className="btn primary" href={viewHash('settings')}>
+                到設定
+              </a>
+              <button
+                type="button"
+                className="btn"
+                onClick={sync.dismissAttention}
+              >
+                知道了
+              </button>
+            </span>
+          </div>
+        )}
         {saveError && (
           <p className="notice" role="alert">
             {saveError}
@@ -138,6 +157,7 @@ export function App() {
           <SettingsView
             progress={progress}
             update={update}
+            sync={sync}
             prefs={prefs}
             setFurigana={setFurigana}
           />
