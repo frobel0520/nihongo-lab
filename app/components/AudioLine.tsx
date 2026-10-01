@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { PlayIcon, SpeakerIcon, StopIcon } from './Icons';
-import { JpLine } from './Ruby';
+import { JpLine, RubyText } from './Ruby';
 
 export function audioUrl(audio: string) {
   return `${import.meta.env.BASE_URL}${audio}`;
@@ -81,7 +81,9 @@ export function AudioLine({
   return (
     <div className="line">
       <JpLine jp={jp} reading={reading} ruby={ruby} jpClass="line-jp" />
-      <div className="line-zh">{zh}</div>
+      <div className="line-zh">
+        <RubyText text={zh} />
+      </div>
       {pending ? (
         <span className="muted pending">音檔待產生</span>
       ) : (

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Lesson } from '../../curriculum/lessons.mjs';
 import { AudioLine } from '../components/AudioLine';
+import { RubyText } from '../components/Ruby';
 
 type SectionId = 'vocab' | 'grammar' | 'dialogue' | 'quotes' | 'practice';
 
@@ -8,9 +9,13 @@ function PracticeItemView({ q, a }: { q: string; a: string }) {
   const [revealed, setRevealed] = useState(false);
   return (
     <li className="practice-item">
-      <p>{q}</p>
+      <p>
+        <RubyText text={q} />
+      </p>
       {revealed ? (
-        <p className="answer">{a}</p>
+        <p className="answer">
+          <RubyText text={a} />
+        </p>
       ) : (
         <button type="button" className="btn" onClick={() => setRevealed(true)}>
           看答案
@@ -90,8 +95,12 @@ export function LessonView({ lesson }: { lesson: Lesson }) {
         <section className="card">
           {lesson.grammar.map((g) => (
             <div key={g.pattern} className="grammar-point">
-              <h4 lang="ja">{g.pattern}</h4>
-              <p>{g.note}</p>
+              <h4 lang="ja">
+                <RubyText text={g.pattern} />
+              </h4>
+              <p>
+                <RubyText text={g.note} />
+              </p>
               {g.examples.map((ex) => (
                 <AudioLine
                   key={ex.audio}
@@ -136,8 +145,12 @@ export function LessonView({ lesson }: { lesson: Lesson }) {
                 audio={q.audio}
                 pending={pending}
               />
-              <p className="muted">出處：{q.source}</p>
-              <p>{q.note}</p>
+              <p className="muted">
+                出處：<RubyText text={q.source} />
+              </p>
+              <p>
+                <RubyText text={q.note} />
+              </p>
             </div>
           ))}
         </section>

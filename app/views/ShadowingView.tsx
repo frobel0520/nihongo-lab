@@ -4,7 +4,7 @@ import { buildSentences } from '../../lib/dictation.mjs';
 import { gapMs } from '../../lib/shadowing.mjs';
 import { audioUrl } from '../components/AudioLine';
 import { NextIcon, PlayIcon, PrevIcon, StopIcon } from '../components/Icons';
-import { JpLine } from '../components/Ruby';
+import { JpLine, RubyText } from '../components/Ruby';
 
 const SENTENCES = buildSentences(stages);
 
@@ -116,7 +116,9 @@ export function ShadowingView() {
           <strong>
             第 {index + 1} / {SENTENCES.length} 句
           </strong>
-          <span className="muted">{sentence.lessonTitle}</span>
+          <span className="muted">
+            <RubyText text={sentence.lessonTitle} />
+          </span>
         </span>
         <button
           type="button"
@@ -137,7 +139,9 @@ export function ShadowingView() {
               ruby={sentence.ruby}
               jpClass="flash-word"
             />
-            <div className="line-zh">{sentence.zh}</div>
+            <div className="line-zh">
+              <RubyText text={sentence.zh} />
+            </div>
           </>
         ) : (
           <div className="muted">原文已隱藏，先靠耳朵聽。</div>

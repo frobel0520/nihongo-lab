@@ -20,7 +20,7 @@ import { recordDictation, type Progress } from '../../lib/progress.mjs';
 import { PlayButton } from '../components/AudioLine';
 import { CheckIcon, CloseIcon, NextIcon, PrevIcon } from '../components/Icons';
 import { ProgressBar } from '../components/ProgressBar';
-import { Ruby, useRuby } from '../components/Ruby';
+import { Ruby, RubyText, useRuby } from '../components/Ruby';
 
 const SENTENCES = buildSentences(stages);
 
@@ -227,7 +227,7 @@ export function DictationView({
             第 {index + 1} / {SENTENCES.length} 句
           </strong>
           <span className="muted">
-            {sentence.lessonTitle}
+            <RubyText text={sentence.lessonTitle} />
             {record
               ? ` · 試過 ${record.attempts} 次${record.passed ? '，已通過' : ''}`
               : ''}
@@ -270,7 +270,9 @@ export function DictationView({
           </button>
         )}
         {showHint && !result && !answered && (
-          <p className="line-zh">{sentence.zh}</p>
+          <p className="line-zh">
+            <RubyText text={sentence.zh} />
+          </p>
         )}
       </div>
 
@@ -315,7 +317,9 @@ export function DictationView({
                 {correct ? <CheckIcon /> : <CloseIcon />}
                 {correct ? '答對了！' : '不對，綠色的是正確答案'}
               </p>
-              <p className="line-zh">{sentence.zh}</p>
+              <p className="line-zh">
+                <RubyText text={sentence.zh} />
+              </p>
               <button
                 type="button"
                 className="btn primary big block"
@@ -377,7 +381,9 @@ export function DictationView({
                 </>
               )}
               <Answer sentence={sentence} />
-              <p className="line-zh">{sentence.zh}</p>
+              <p className="line-zh">
+                <RubyText text={sentence.zh} />
+              </p>
               <div className="row">
                 {!result.correct && (
                   <button
