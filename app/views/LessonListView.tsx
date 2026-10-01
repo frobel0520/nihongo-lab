@@ -5,6 +5,7 @@ import { lessonHash, viewHash } from '../../lib/route.mjs';
 import { buildCards, summarize, toDateString } from '../../lib/srs.mjs';
 import { ChevronRightIcon } from '../components/Icons';
 import { ProgressBar } from '../components/ProgressBar';
+import { RubyText } from '../components/Ruby';
 
 const CARDS = buildCards(stages);
 
@@ -76,7 +77,9 @@ export function LessonListView({ progress }: { progress: Progress }) {
                   <li key={lesson.id}>
                     <a className="card lesson-card" href={lessonHash(lesson.id)}>
                       <span className="lesson-card-body">
-                        <span className="lesson-title">{lesson.title}</span>
+                        <span className="lesson-title">
+                          <RubyText text={lesson.title} />
+                        </span>
                         <span className="muted">{meta.join(' · ')}</span>
                         <ProgressBar
                           value={percent}

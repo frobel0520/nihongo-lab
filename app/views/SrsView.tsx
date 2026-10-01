@@ -28,6 +28,7 @@ import {
   CloseIcon,
 } from '../components/Icons';
 import { ProgressBar } from '../components/ProgressBar';
+import { RubyText } from '../components/Ruby';
 
 const CARDS = buildCards(stages);
 
@@ -268,8 +269,12 @@ export function SrsView({
               <div className="flash-reading" lang="ja">
                 {current.reading}
               </div>
-              <div className="flash-zh">{current.zh}</div>
-              <span className="chip">{current.lessonTitle}</span>
+              <div className="flash-zh">
+                <RubyText text={current.zh} />
+              </div>
+              <span className="chip">
+                <RubyText text={current.lessonTitle} />
+              </span>
             </div>
           )}
         </div>
