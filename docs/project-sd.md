@@ -6,8 +6,8 @@ Vite / React + TypeScript，本機瀏覽器執行，local-first。目前無後�
 
 - `app/main.tsx`：React 掛載點。
 - `app/App.tsx`：頁首、三個分頁（課程／單字卡／聽寫，用 `#/`、`#/srs`、`#/dictation` hash 切換，不加路由套件）與進度存取提示。分頁內容在 `app/views/`（`LessonView`、`SrsView`、`DictationView`），共用的音檔元件在 `app/components/AudioLine.tsx`（`PlayButton` 音檔載入或播放失敗時顯示明確錯誤）。
-- `app/views/ShadowingView.tsx`：跟讀。每輪播放一次、留白（見 `lib/shadowing.mjs`）讓使用者念、再播，可選 3／5／10 輪，可隱藏原文；音檔播放失敗顯示明確錯誤；按停止造成的 `AbortError` 不當成錯誤。不含調速。
-- `lib/`：無 DOM 的純邏輯，用 `.mjs` + JSDoc 型別，讓 `node --test` 直接測、TypeScript 也能匯入。`srs.mjs`（SM-2 簡化版排程、單字卡與每日佇列）、`dictation.mjs`（聽寫句子清單、逐字比對）、`progress.mjs`（進度資料形狀、解析驗證、聽寫紀錄）、`shadowing.mjs`（跟讀留白長度與輪數選項）。
+- `app/views/ShadowingView.tsx`：跟讀。播放一次、留白（見 `lib/shadowing.mjs`）讓使用者念、再播，一直重複到按停止（沒有輪數上限，T34），也可以只「聽一次」，可隱藏原文；音檔播放失敗顯示明確錯誤；按停止造成的 `AbortError` 不當成錯誤。不含調速。
+- `lib/`：無 DOM 的純邏輯，用 `.mjs` + JSDoc 型別，讓 `node --test` 直接測、TypeScript 也能匯入。`srs.mjs`（SM-2 簡化版排程、單字卡與每日佇列）、`dictation.mjs`（聽寫句子清單、逐字比對）、`progress.mjs`（進度資料形狀、解析驗證、聽寫紀錄）、`shadowing.mjs`（跟讀留白長度）。
 - `app/lib/storage.ts`、`app/useProgress.ts`：`localStorage` 讀寫（key `nihongo-lab:progress:v1`）與 React 狀態；存檔壞掉時原文備份到 `…:backup` 並提示，寫入失敗時畫面顯示訊息但仍可繼續學習。
 - `curriculum/lessons.mjs`：學習階段與課程資料的單一來源，目前第 0 階段有 2 課（第 1、2 天）、第 2 階段有 2 課（口語轉換表、動畫與遊戲名句），第 1、3 階段仍是空的（`lessons: []`）。
 - `curriculum/voices.mjs`：教材語音角色陣容，對應本機 VOICEVOX 引擎（127.0.0.1:50021）的 speaker id。2026-09-29 定案 9 個角色：ずんだもん、春日部つむぎ、雨晴はう、小夜/SAYO、櫻歌ミコ、春歌ナナ、猫使ビィ、中国うさぎ、東北ずん子。
@@ -79,7 +79,7 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 - **課程清單（首頁）**（`LessonListView`）：最上面是「今天的單字卡 N 張」大卡片與「開始複習」按鈕（沒有要複習時改成「去練聽寫」）；下面依階段列出課程卡片，每張顯示單字與聽寫進度條。進度由 `lib/lesson-progress.mjs`（有測試）從現有的單字卡與聽寫紀錄算出，不另存資料；沒有課的階段顯示「即將推出」。
 - **單字卡**（`SrsView`）：上方進度條（本輪已答對／總數，答「還不會」不會讓進度倒退）；大卡片；操作區固定在畫面底部（主選單上方，拇指最好按）：翻開前是「顯示答案」大按鈕，翻開後是「還不會／記得」兩顆大按鈕（附預告間隔）。翻開後也可以**左右滑卡片**評分（往右記得、往左還不會，超過 90px 才算，滑到 30px 開始顯示顏色提示），評分時 Android 會震動一下（`navigator.vibrate`，不支援就略過）。快捷鍵 1、2、空白鍵保留。
 - **聽寫**（`DictationView`）：大圓形播放鈕、上一句／跳過在兩側；「檢查」是固定在底部的大按鈕；答完從底部升起回饋面板（綠色答對、紅色有差異，含你打的、標準答案的差異標色、讀音、中文與「再試一次／下一句」）。
-- **跟讀**（`ShadowingView`）：輪數改成分段控制（3／5／10 輪），顯示原文改成開關膠囊；狀態膠囊在輪到你念時變成琥珀色；開始／停止是固定在底部的大按鈕。
+- **跟讀**（`ShadowingView`，T34 起沒有輪數設定，按「開始跟讀」會一直重複並顯示第 N 遍，按停止結束）：顯示原文是開關膠囊；狀態膠囊在輪到你念時變成琥珀色；開始／停止是固定在底部的大按鈕。
 - **設定**：分組卡片，讀音開關改成 iOS 風格的開關。
 - **觸控細節**：可點的目標至少 44px；底部區塊考慮 `safe-area-inset-bottom`（`index.html` 的 viewport 加 `viewport-fit=cover`）；按鈕按下有縮放回饋；`overscroll-behavior-y: contain` 避免安裝成 App 後下拉整頁重新整理；`touch-action: manipulation` 去掉點擊延遲。
 - **視覺**：主色深青綠（`--brand`），白色圓角卡片加淡陰影，Noto Sans TC 單一字體（移除不再使用的 IBM Plex Mono）；`theme_color` 與背景色改成頁面底色，PWA 圖示改成青綠底加白色「か」。
