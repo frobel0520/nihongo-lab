@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { stages } from '../curriculum/lessons.mjs';
+import type { DictationMode } from '../lib/prefs.mjs';
 import { parseRoute, viewHash, type ViewId } from '../lib/route.mjs';
 import {
   BackIcon,
@@ -44,6 +45,11 @@ export function App() {
 
   const setFurigana = (furigana: boolean) => {
     const next = { ...prefs, furigana };
+    setPrefs(next);
+    savePrefs(next);
+  };
+  const setDictationMode = (dictationMode: DictationMode) => {
+    const next = { ...prefs, dictationMode };
     setPrefs(next);
     savePrefs(next);
   };
@@ -151,7 +157,12 @@ export function App() {
         {route.view === 'srs' && <SrsView progress={progress} update={update} />}
         {route.view === 'shadowing' && <ShadowingView />}
         {route.view === 'dictation' && (
-          <DictationView progress={progress} update={update} />
+          <DictationView
+            progress={progress}
+            update={update}
+            mode={prefs.dictationMode}
+            setMode={setDictationMode}
+          />
         )}
         {route.view === 'settings' && (
           <SettingsView
