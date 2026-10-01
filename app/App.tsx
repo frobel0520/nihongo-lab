@@ -11,6 +11,7 @@ import {
   SlidersIcon,
 } from './components/Icons';
 import { PrefsContext, loadPrefs, savePrefs } from './prefs';
+import { RubyText } from './components/Ruby';
 import { useProgress } from './useProgress';
 import { useSwUpdate } from './useSwUpdate';
 import { useSync } from './useSync';
@@ -98,7 +99,9 @@ export function App() {
             <BackIcon />
           </button>
         )}
-        <h1 className="appbar-title">{title}</h1>
+        <h1 className="appbar-title">
+          <RubyText text={title ?? ''} />
+        </h1>
       </header>
 
       <main className="screen" key={routeKey}>

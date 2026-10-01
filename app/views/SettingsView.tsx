@@ -63,7 +63,7 @@ export function SettingsView({
         <label className="switch-row">
           <span>
             漢字上方標讀音（ふりがな）
-            <small className="muted">課文、跟讀、聽寫答案都會標在漢字上方</small>
+            <small className="muted">課文、文法說明、練習題、跟讀、聽寫答案都會標在漢字上方</small>
           </span>
           <input
             type="checkbox"
