@@ -94,9 +94,22 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 - 每課流程：新分支 `feature/T02-dayN` → 寫課程檔並註冊 → `npm test`（讀音對不起來會指出哪一句）→ 補產音檔 → `npm run check`、`npm run build`、`npm run coverage` → commit、push、PR → CI 通過後 `gh pr merge --rebase --delete-branch`。
 - 2026-09-30 一次完成第 3～25 天（PR #15～#37）；全站 1,463 個音檔、31MB，離線下載「全部課程音檔」會下載這麼多。
 
+## 跨裝置同步 Worker（T29）
+
+方向（2026-10-01 定案）：Google 登入只放行本人 + Cloudflare Worker + KV。程式在 `worker/`，純邏輯在 `handler.mjs`、`google-token.mjs`、`session.mjs`（KV、時間、Google 簽章金鑰都由呼叫端注入，用 `node --test` 驗證），`index.mjs` 只負責接線與 Google 金鑰快取。
+
+- **端點**：`POST /auth { idToken }`（Google 憑證通過驗證且 email 在白名單，換發同步用 session）、`POST /sync { progress }`（與雲端合併後存回，把合併結果整份還給裝置；`Authorization: Bearer <session>`）、`GET /health`。一次 `/sync` 同時是上傳與下載；沒有新內容時不寫 KV。
+- **Google 憑證驗證**（`google-token.mjs`）：RS256 簽名（金鑰來自 Google 的 JWKS，找不到 `kid` 時重抓一次，5 分鐘內最多強制重抓一次）、`iss`、`aud` 必須是本 App 的 Client ID、`exp`、`iat` 不在未來、`email_verified` 必須是布林 `true`，最後 email 比對白名單（不分大小寫）。不在白名單回 403，其他一律 401，兩者的訊息不洩漏白名單內容。
+- **Session**（`session.mjs`）：Google 憑證一小時就過期，所以驗證過一次後由 Worker 自己發 HMAC-SHA256 簽名的憑證，有效 30 天，剩不到 15 天時在 `/sync` 的回應裡換發新的（常用的裝置不用重新登入）。簽名金鑰是 Worker secret。
+- **資料**：每個 Google 帳號（`sub`）一筆 KV：`progress:<sub>`，內容是版本 2 的進度 JSON。送上來的進度先用 `parseProgress` 驗證（版本 1 也收，自動轉換），格式不對 400，超過 2MB 413。**雲端的存檔讀不懂時不覆蓋，回 500**，寧可這次同步失敗也不蓋壞唯一的雲端副本。
+- **一致性**：KV 是最終一致，兩台裝置幾乎同時同步時，後寫的可能基於舊的讀取結果。因為每次同步都是整份上傳、整份取回，且合併滿足交換律／結合律／冪等（T28），下一次同步就會補回，不會永久遺失。
+- **CORS**：只放行 `ALLOWED_ORIGINS` 裡的網頁來源（正式站與本機開發網址）；帶 `Origin` 但不在名單內直接 403。沒有 `Origin`（curl）不帶 CORS 標頭，沒有 session 一樣進不來。
+- **設定與 secret**：`worker/wrangler.toml` 只放公開值（Google Client ID、允許的網頁來源、KV 綁定）。白名單 email（`ALLOWED_EMAIL`）與 session 簽名金鑰（`SESSION_SECRET`）是 secret，用 `wrangler secret put` 設定，**不進公開 repo**。部署：`wrangler deploy -c worker/wrangler.toml`（用全域安裝的 wrangler，不加成專案相依套件）。目前部署在 `https://nihongo-sync.curio-lab.workers.dev`（2026-10-01）。
+- **Google Cloud 端**：專案 `nihongo-sync`（已停用計費，不依賴免費試用帳戶）、OAuth 同意畫面為「外部、測試中」，只有加進「測試使用者」的帳號能登入；網頁用戶端的授權 JavaScript 來源是正式站與兩個本機開發網址。不使用重新導向 URI（用 Google 登入按鈕取得身分憑證）。
+
 ## 待設計（下一輪任務）
 
-- 跨裝置同步（T10，2026-10-01 定案方向）：Google 登入 + Cloudflare Worker + KV。進度格式與合併規則已在 T28 完成；接下來是 Worker（驗證 Google 憑證、只放行指定帳號、讀寫 KV、CORS，帳號 email 放 Worker secret、不進公開 repo）與前端同步（設定頁登入、同步狀態、開啟與回到前景時同步、答完後延遲推送）。Worker 要自己發長效 session，因為 Google 憑證一小時就過期。
+- 跨裝置同步的前端（T10 第 3 步）：設定頁登入、同步狀態、開啟與回到前景時同步、答完後延遲推送。端點已寫好（見下一節），前端尚未實作。
 - 手機上實際「加入主畫面」安裝，全螢幕開啟的真實驗收（目前只驗證到 service worker／manifest 技術條件，未做真機安裝）。
 
 教材資料結構已在第 1 天教材定案，見 `curriculum/lessons.mjs`、`curriculum/voices.mjs`。UI 的最新設計見上方「介面設計（T25、T27）」；下面是最初版本的說明（已過時）：沿用既有學習網站的設計系統（Noto Sans TC + IBM Plex Mono、卡片式排版、CSS 變數色票、`prefers-color-scheme` 自動深色模式），維持 使用者 的網站家族一致風格。

@@ -37,4 +37,4 @@
 
 ## 部署與協作約束
 
-Repository 已公開：GitHub repository（2026-09-29 建立並推送）。GitHub Pages 公開網址已上線；Cloudflare Worker 同步端點還沒部署，不得寫成已上線。
+Repository 已公開：GitHub repository（2026-09-29 建立並推送）。GitHub Pages 公開網址已上線；Cloudflare Worker 同步端點已部署（2026-10-01，T29），但前端同步（登入、自動同步）尚未實作，不得寫成「跨裝置同步已可用」。
