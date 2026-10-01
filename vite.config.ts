@@ -42,28 +42,6 @@ export default defineConfig({
               expiration: { maxEntries: 3000, maxAgeSeconds: 60 * 60 * 24 * 365 },
             },
           },
-          // Google Fonts：第一次連網載入後存起來，離線時仍顯示同一套字型（否則會退回系統字）。
-          // 樣式表偶爾更新，用 StaleWhileRevalidate；字型檔內容固定，用 CacheFirst。
-          // 跨網域的請求是 opaque 回應（status 0），要明說才會存。
-          {
-            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/,
-            handler: 'StaleWhileRevalidate',
-            options: {
-              cacheName: 'google-fonts-styles',
-              cacheableResponse: { statuses: [0, 200] },
-              expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 365 },
-            },
-          },
-          {
-            urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'google-fonts-files',
-              cacheableResponse: { statuses: [0, 200] },
-              // Noto Sans TC 依字元範圍切成很多小檔，只會載入實際用到的幾個
-              expiration: { maxEntries: 200, maxAgeSeconds: 60 * 60 * 24 * 365 },
-            },
-          },
         ],
       },
     }),

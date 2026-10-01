@@ -20,8 +20,11 @@
   --appbar-h: 56px;
   --tabbar-h: 64px;
   --stack-top: calc(var(--appbar-h) + env(safe-area-inset-top));
-  --sans:
-    'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', system-ui, sans-serif;
+  /* 字型：用裝置自己的系統字型，不載入網頁字型。網頁字型（原本的 Noto Sans TC）被切成上百個片段按需下載，
+     沒載好或離線時有些字會暫時換成系統字型，同一行字的粗細就不一致。系統字型整行都是同一套；
+     再靠 lang 屬性讓瀏覽器挑對語言的版本（中文用繁中字型、日文標 lang="ja" 用日文字型，漢字字形才是日本的寫法）。 */
+  --sans: system-ui, -apple-system, 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+  --sans-ja: system-ui, -apple-system, 'Yu Gothic UI', 'Meiryo', sans-serif;
   color-scheme: light;
 }
 
@@ -56,6 +59,11 @@ button,
 input,
 select {
   font: inherit;
+}
+
+/* 日文內容（元素標了 lang="ja"）用日文字型：漢字字形是日本的寫法，假名與漢字的粗細一致。 */
+:lang(ja) {
+  font-family: var(--sans-ja);
 }
 
 button,
