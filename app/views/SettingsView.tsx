@@ -5,6 +5,7 @@ import type { Progress } from '../../lib/progress.mjs';
 import type { Prefs } from '../../lib/prefs.mjs';
 import { CACHE_CLEARED_FLAG, ClearCache } from '../components/ClearCache';
 import { OfflineAudio } from '../components/OfflineAudio';
+import { ProgressTransfer } from '../components/ProgressTransfer';
 
 const ALL_AUDIO_PATHS = allAudioPaths(stages);
 /** 設定頁只提供「全部課程」下載；模組層級的固定陣列，避免每次渲染都換新參考而重跑下載計數。 */
@@ -23,10 +24,12 @@ function readClearedFlag() {
 
 export function SettingsView({
   progress,
+  update,
   prefs,
   setFurigana,
 }: {
   progress: Progress;
+  update: (change: (prev: Progress) => Progress) => void;
   prefs: Prefs;
   setFurigana: (furigana: boolean) => void;
 }) {
@@ -66,6 +69,8 @@ export function SettingsView({
           />
         </label>
       </section>
+
+      <ProgressTransfer progress={progress} update={update} />
 
       {ALL_AUDIO_PATHS.length > 0 && (
         <OfflineAudio

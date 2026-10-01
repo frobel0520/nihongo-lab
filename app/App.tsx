@@ -137,6 +137,7 @@ export function App() {
         {route.view === 'settings' && (
           <SettingsView
             progress={progress}
+            update={update}
             prefs={prefs}
             setFurigana={setFurigana}
           />
