@@ -25,7 +25,8 @@
     "**/*.mts",
     "lib/**/*.mjs",
     "curriculum/**/*.mjs",
-    "scripts/**/*.mjs"
+    "scripts/**/*.mjs",
+    "worker/**/*.mjs"
   ],
   "exclude": ["node_modules", "dist"]
 }
