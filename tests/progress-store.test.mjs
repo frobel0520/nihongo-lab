@@ -1,6 +1,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { recordDictation, emptyProgress } from '../lib/progress.mjs';
+import {
+  emptyProgress,
+  recordDictation,
+  recordReview,
+} from '../lib/progress.mjs';
 import {
   BACKUP_KEY,
   PROGRESS_KEY,
@@ -9,7 +13,6 @@ import {
   saveProgress,
   updateProgress,
 } from '../lib/progress-store.mjs';
-import { schedule } from '../lib/srs.mjs';
 
 /** 假的儲存空間：可指定讀或寫會丟錯。 */
 function fakeStorage(initial = {}, { failGet = false, failSet = false } = {}) {
@@ -28,10 +31,8 @@ function fakeStorage(initial = {}, { failGet = false, failSet = false } = {}) {
 }
 
 const TODAY = '2026-09-30';
-const withCard = (id) => ({
-  ...emptyProgress(),
-  srs: { [id]: schedule(undefined, 'good', TODAY) },
-});
+const NOW = '2026-09-30T01:00:00.000Z';
+const withCard = (id) => recordReview(emptyProgress(), id, 'good', TODAY, NOW);
 const stored = (progress) => JSON.stringify(progress);
 
 test('loadProgress：沒存過就是空進度、沒有警告', () => {
@@ -97,17 +98,15 @@ test('updateProgress：兩個分頁各改不同的卡，後存的不會蓋掉先
   const tabAMemory = emptyProgress();
   const tabBMemory = emptyProgress();
 
-  const b = updateProgress(storage, tabBMemory, (prev) => ({
-    ...prev,
-    srs: { ...prev.srs, 'l:b': schedule(prev.srs['l:b'], 'good', TODAY) },
-  }));
+  const b = updateProgress(storage, tabBMemory, (prev) =>
+    recordReview(prev, 'l:b', 'good', TODAY, NOW),
+  );
   assert.equal(b.saveError, null);
 
   // 分頁 A 的記憶體裡沒有 l:b，但更新時會先重讀儲存空間
-  const a = updateProgress(storage, tabAMemory, (prev) => ({
-    ...prev,
-    srs: { ...prev.srs, 'l:a': schedule(prev.srs['l:a'], 'good', TODAY) },
-  }));
+  const a = updateProgress(storage, tabAMemory, (prev) =>
+    recordReview(prev, 'l:a', 'good', TODAY, NOW),
+  );
   assert.deepEqual(Object.keys(a.progress.srs).sort(), ['l:a', 'l:b']);
   assert.deepEqual(
     Object.keys(JSON.parse(storage.data.get(PROGRESS_KEY)).srs).sort(),

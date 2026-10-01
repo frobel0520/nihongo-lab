@@ -50,7 +50,10 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 
 ## SRS 與聽寫設計（T06、T04）
 
-- **進度格式**（版本 1）：`{ version, srs: { [cardId]: { ease, interval, reps, lapses, due, firstSeen } }, dictation: { [audio 路徑]: { attempts, passed, lastAt } } }`。日期一律本機時區 `YYYY-MM-DD`。單筆格式不對只丟那一筆，整份壞掉或版本未知才退回空進度（並備份原文）。未來 T10 同步若要合併，需要升版並加更新時間欄位。
+- **進度格式**（版本 2，T28）：`{ version: 2, srs: { [cardId]: { ease, interval, reps, lapses, due, firstSeen, updatedAt } }, dictation: { [audio 路徑]: { attempts, passed, lastAt } } }`。`due`、`firstSeen` 是本機時區 `YYYY-MM-DD`；`updatedAt` 是最後一次評分的 ISO 時間（`Date#toISOString` 格式，`isTimestamp` 驗證，同格式字串的字典序就是時間先後）。單筆格式不對只丟那一筆，整份壞掉或版本未知才退回空進度（並備份原文）。`localStorage` 的 key 仍是 `nihongo-lab:progress:v1`（key 不改，版本在資料裡）。
+- **版本 1 → 2 的自動轉換**：讀到版本 1 的存檔時，每張卡補 `updatedAt`，用排程狀態倒推最後評分的日期（評分當天 `due = 當天 + interval`，答「還不會」時 interval 為 0，所以 `due − interval` 就是那一天），只精確到日。轉換不寫回，等下一次更新才存成版本 2。**限制**：版本 2 的存檔舊版程式讀不了（會當成「來自較新的版本」並警告），所以升級後還開著舊頁面的分頁要先重新載入（T21 的更新提示就是為這個）。
+- **合併**（`lib/progress-merge.mjs`，T28）：兩份進度合成一份，匯入檔案與之後的跨裝置同步都用它。單字卡逐張比 `updatedAt`，較晚的整張取代；時間完全相同時比 JSON 字串決定，所以結果與傳入順序無關。聽寫逐句取聯集：`passed` 取 OR（通過過就算通過）、`attempts` 取較大者（兩邊次數都含同步前的歷史，相加會重複算）、`lastAt` 取較晚者。測試包含固定種子的 200 組隨機資料，驗證交換律、結合律、冪等（各裝置以任意順序重複合併都收斂到同一份）。**限制**：兩台裝置在互相同步前答了同一張卡，只留較晚的那一次；裝置時鐘差太多時「較晚」也會不準；沒有刪除的同步（教材移除的卡本來就保留）。
+- **匯出／匯入**（`lib/progress-transfer.mjs`、`app/components/ProgressTransfer.tsx`，設定頁「學習進度備份」）：匯出成 `nihongo-progress-YYYY-MM-DD.json`（外層 `format: 'nihongo-lab-progress'`、`exportedAt`、`progress`）。匯入先驗證（不是 JSON、不是本 App 的檔、版本太新、內容損毀都不動現有進度並說明原因；超過 5MB 直接拒絕），通過後用 `mergeProgress` 併進現有進度，不是覆蓋，所以匯入舊備份不會洗掉新進度；單筆格式不對只略過並報告筆數。匯入後顯示實際新增或更新的筆數。
 - **進度讀寫**（T18）：純邏輯在 `lib/progress-store.mjs`，儲存空間由呼叫端注入（瀏覽器傳 localStorage，測試傳假的）。更新一律「先重讀儲存空間裡最新的進度、再套用變更、再存」；讀不到最新的（不可用、損毀、還沒存過）就退回這個分頁記憶體裡的。另一個分頁存檔時（`storage` 事件）採用它的進度，格式異常則忽略並警告。載入時的問題（存檔損毀、版本未知、單筆被略過）都會把原存檔備份到 `nihongo-lab:progress:v1:backup`，並用警告顯示到使用者按掉；寫入失敗的錯誤另外顯示，下次寫入成功就消失。同一張卡兩個分頁都改時後存的贏。
 - **單字卡 id**：`課程 id:單字`，教材增補不會讓舊進度錯位；教材移除的卡片進度保留但不出現。
 - **排程**：兩級評分（T17，2026-09-30 由四級簡化）：「還不會」（again）與「記得」（good）。難度不是系統算的，是使用者翻卡後自己按的；只分兩級，是因為每天練習的阻力比排程的細緻度更重要，而且四級曾造成間隔順序不一致的 bug（第一次答「很簡單」後，「有點難」的間隔反而比「記得」長）。
@@ -93,7 +96,7 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 
 ## 待設計（下一輪任務）
 
-- 跨裝置同步 Worker：端點設計、資料存放（KV vs 私有 GitHub repo JSON store）、裝置 ID 產生與衝突處理（兩裝置離線時都寫入，重新連線後怎麼合併，需要明確規則，不能悄悄覆蓋）。
+- 跨裝置同步（T10，2026-10-01 定案方向）：Google 登入 + Cloudflare Worker + KV。進度格式與合併規則已在 T28 完成；接下來是 Worker（驗證 Google 憑證、只放行指定帳號、讀寫 KV、CORS，帳號 email 放 Worker secret、不進公開 repo）與前端同步（設定頁登入、同步狀態、開啟與回到前景時同步、答完後延遲推送）。Worker 要自己發長效 session，因為 Google 憑證一小時就過期。
 - 手機上實際「加入主畫面」安裝，全螢幕開啟的真實驗收（目前只驗證到 service worker／manifest 技術條件，未做真機安裝）。
 
 教材資料結構已在第 1 天教材定案，見 `curriculum/lessons.mjs`、`curriculum/voices.mjs`。UI 的最新設計見上方「介面設計（T25、T27）」；下面是最初版本的說明（已過時）：沿用既有學習網站的設計系統（Noto Sans TC + IBM Plex Mono、卡片式排版、CSS 變數色票、`prefers-color-scheme` 自動深色模式），維持 使用者 的網站家族一致風格。
