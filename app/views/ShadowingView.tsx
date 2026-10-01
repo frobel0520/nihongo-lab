@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { stages } from '../../curriculum/lessons.mjs';
 import { buildSentences } from '../../lib/dictation.mjs';
-import { DEFAULT_ROUNDS, ROUND_OPTIONS, gapMs } from '../../lib/shadowing.mjs';
+import { gapMs } from '../../lib/shadowing.mjs';
 import { audioUrl } from '../components/AudioLine';
 import { NextIcon, PlayIcon, PrevIcon, StopIcon } from '../components/Icons';
 import { JpLine } from '../components/Ruby';
@@ -12,7 +12,6 @@ type Phase = 'idle' | 'playing' | 'gap';
 
 export function ShadowingView() {
   const [index, setIndex] = useState(0);
-  const [rounds, setRounds] = useState(DEFAULT_ROUNDS);
   const [showText, setShowText] = useState(true);
   const [phase, setPhase] = useState<Phase>('idle');
   const [round, setRound] = useState(0);
@@ -21,8 +20,7 @@ export function ShadowingView() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   // 事件處理器要讀最新狀態，用 ref 避免閉包抓到舊值。
-  const runRef = useRef({ running: false, round: 0, rounds });
-  runRef.current.rounds = rounds;
+  const runRef = useRef({ running: false, round: 0 });
 
   const sentence = SENTENCES[index];
 
@@ -67,10 +65,7 @@ export function ShadowingView() {
       setPhase('idle');
       return;
     }
-    if (run.round >= run.rounds) {
-      stop();
-      return;
-    }
+    // 沒有輪數上限：留白一段時間讓使用者念，然後再播，直到使用者按停止。
     setPhase('gap');
     timerRef.current = setTimeout(
       () => {
@@ -161,9 +156,9 @@ export function ShadowingView() {
       />
 
       <output className={`phase-pill${running ? ' active' : ''}`} data-phase={phase}>
-        {phase === 'playing' && `第 ${round} / ${rounds} 輪 · 聽`}
-        {phase === 'gap' && `第 ${round} / ${rounds} 輪 · 換你念`}
-        {phase === 'idle' && '按下播放，聽完換你念'}
+        {phase === 'playing' && `第 ${round} 遍 · 聽`}
+        {phase === 'gap' && `第 ${round} 遍 · 換你念`}
+        {phase === 'idle' && '按「開始跟讀」會一直重複，按停止結束'}
       </output>
       {failed && (
         <p className="error" role="alert">
@@ -172,20 +167,6 @@ export function ShadowingView() {
       )}
 
       <div className="row options">
-        <fieldset className="segmented" disabled={running}>
-          <legend className="sr-only">輪數</legend>
-          {ROUND_OPTIONS.map((n) => (
-            <label key={n}>
-              <input
-                type="radio"
-                name="rounds"
-                checked={rounds === n}
-                onChange={() => setRounds(n)}
-              />
-              <span>{n} 輪</span>
-            </label>
-          ))}
-        </fieldset>
         <label className="chip-toggle">
           <input
             type="checkbox"
