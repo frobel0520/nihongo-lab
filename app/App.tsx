@@ -104,7 +104,7 @@ export function App() {
         </h1>
       </header>
 
-      <main className="screen" key={routeKey}>
+      <main className={`screen${route.view === 'dictation' ? ' dictation-page' : ''}`} key={routeKey}>
         {updated && (
           <output className="notice notice-row">
             <span>
@@ -153,11 +153,13 @@ export function App() {
 
         {route.view === 'lessons' &&
           (lesson ? (
-            <LessonView lesson={lesson} />
+            <LessonView lesson={lesson} update={update} />
           ) : (
             <LessonListView progress={progress} />
           ))}
-        {route.view === 'srs' && <SrsView progress={progress} update={update} />}
+        {route.view === 'srs' && (
+          <SrsView progress={progress} update={update} />
+        )}
         {route.view === 'shadowing' && <ShadowingView />}
         {route.view === 'dictation' && (
           <DictationView

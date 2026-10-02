@@ -2,8 +2,16 @@ import { useState } from 'react';
 import type { Lesson } from '../../curriculum/lessons.mjs';
 import { AudioLine } from '../components/AudioLine';
 import { RubyText } from '../components/Ruby';
+import { AnimeTraining } from '../components/AnimeTraining';
+import type { Progress } from '../../lib/progress.mjs';
 
-type SectionId = 'vocab' | 'grammar' | 'dialogue' | 'quotes' | 'practice';
+type SectionId =
+  | 'training'
+  | 'vocab'
+  | 'grammar'
+  | 'dialogue'
+  | 'quotes'
+  | 'practice';
 
 function PracticeItemView({ q, a }: { q: string; a: string }) {
   const [revealed, setRevealed] = useState(false);
@@ -29,11 +37,24 @@ function PracticeItemView({ q, a }: { q: string; a: string }) {
  * 單一課程。一次只顯示一個區塊（單字／文法／對話／名句／練習），區塊列貼在畫面上緣：
  * 一天的內容很多時，手機不用滑過整課，點區塊列就跳過去。課程本身的切換與返回在 App 的上方列與網址 hash。
  */
-export function LessonView({ lesson }: { lesson: Lesson }) {
+export function LessonView({
+  lesson,
+  update,
+}: {
+  lesson: Lesson;
+  update: (change: (prev: Progress) => Progress) => void;
+}) {
   const [sectionId, setSectionId] = useState<SectionId | null>(null);
   const pending = lesson.audioReady === false;
 
   const sections: { id: SectionId; label: string; count: number }[] = [
+    {
+      id: 'training' as const,
+      label: '特訓',
+      count: lesson.training
+        ? lesson.training.clips.length + lesson.training.review.length
+        : 0,
+    },
     { id: 'vocab' as const, label: '單字', count: lesson.vocab.length },
     { id: 'grammar' as const, label: '文法', count: lesson.grammar.length },
     { id: 'dialogue' as const, label: '對話', count: lesson.dialogue.length },
@@ -71,6 +92,14 @@ export function LessonView({ lesson }: { lesson: Lesson }) {
           </button>
         ))}
       </div>
+
+      {active?.id === 'training' && lesson.training && (
+        <AnimeTraining
+          training={lesson.training}
+          lessonId={lesson.id}
+          update={update}
+        />
+      )}
 
       {active?.id === 'vocab' && (
         <section className="card">
@@ -146,7 +175,8 @@ export function LessonView({ lesson }: { lesson: Lesson }) {
                 pending={pending}
               />
               <p className="muted">
-                出處：<RubyText text={q.source} />
+                出處：
+                <RubyText text={q.source} />
               </p>
               <p>
                 <RubyText text={q.note} />

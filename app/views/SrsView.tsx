@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type PointerEvent } from 'react';
+import { useEffect, useState } from 'react';
 import { stages } from '../../curriculum/lessons.mjs';
 import { isInteractive, isTextEntry, type KeyTarget } from '../../lib/keys.mjs';
 import { recordReviewFrom, type Progress } from '../../lib/progress.mjs';
@@ -29,20 +29,16 @@ import {
 } from '../components/Icons';
 import { ProgressBar } from '../components/ProgressBar';
 import { RubyText } from '../components/Ruby';
+import { useSwipeNavigation } from '../lib/useSwipeNavigation';
 
 const CARDS = buildCards(stages);
 
-// 評分：✕／✓ 圖示加文字；快捷鍵 1、2 依序對應，卡片翻開後也可以左右滑。
+// 評分：✕／✓ 圖示加文字；快捷鍵 1、2 依序對應。滑動只換卡。
 const GRADE_LABEL: Record<Grade, string> = {
   again: '還不會',
   good: '記得',
 };
 const GRADES: Grade[] = ['again', 'good'];
-
-/** 滑動超過這個距離（px）就當成評分。 */
-const SWIPE_DISTANCE = 90;
-/** 滑到這個距離開始顯示「往哪邊評分」的顏色提示。 */
-const SWIPE_HINT_DISTANCE = 30;
 
 /** 把事件目標轉成 lib/keys.mjs 判斷用的形狀。 */
 function keyTargetOf(target: EventTarget | null): KeyTarget | null {
@@ -82,8 +78,6 @@ export function SrsView({
   );
   const [revealed, setRevealed] = useState(false);
   const [reviewed, setReviewed] = useState(0);
-  const [drag, setDrag] = useState(0);
-  const dragStart = useRef<number | null>(null);
   const current = currentCard(session);
   const total = session.deck.length;
   // 進度 = 這一輪已評「記得」的張數，答「還不會」不會讓進度倒退。
@@ -96,11 +90,15 @@ export function SrsView({
 
   /** 換到另一張（或結束）：這一輪評過的卡直接顯示答案面，方便回頭看與改評分。 */
   const moveTo = (next: Session) => {
+    if (next === session) return;
     setSession(next);
     const card = currentCard(next);
     setRevealed(card !== null && next.grades[card.id] !== undefined);
-    setDrag(0);
   };
+  const swipe = useSwipeNavigation(
+    () => moveTo(step(session, -1)),
+    () => moveTo(step(session, 1)),
+  );
 
   const grade = (g: Grade) => {
     if (!current) return;
@@ -135,24 +133,6 @@ export function SrsView({
     return () => window.removeEventListener('keydown', onKey);
   });
 
-  // 翻開後左右滑：往右「記得」、往左「還不會」。翻開前不處理，避免誤觸；按鈕上的按下不算滑動起點。
-  const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
-    if (!revealed || (e.target as HTMLElement).closest('button')) return;
-    dragStart.current = e.clientX;
-    e.currentTarget.setPointerCapture(e.pointerId);
-  };
-  const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
-    if (dragStart.current === null) return;
-    setDrag(e.clientX - dragStart.current);
-  };
-  const onPointerEnd = () => {
-    if (dragStart.current === null) return;
-    dragStart.current = null;
-    if (drag > SWIPE_DISTANCE) grade('good');
-    else if (drag < -SWIPE_DISTANCE) grade('again');
-    else setDrag(0);
-  };
-
   const stats = summarize(CARDS, progress.srs, today);
 
   if (CARDS.length === 0) {
@@ -166,7 +146,9 @@ export function SrsView({
   if (!current) {
     return (
       <section className="card hero">
-        <p className="hero-label">{reviewed > 0 ? '完成！' : '目前沒有要複習的卡片'}</p>
+        <p className="hero-label">
+          {reviewed > 0 ? '完成！' : '目前沒有要複習的卡片'}
+        </p>
         <p className="hero-number">
           {reviewed > 0 ? reviewed : stats.learned}
           <small>{reviewed > 0 ? '次複習' : `/ ${stats.total} 張已學`}</small>
@@ -195,15 +177,8 @@ export function SrsView({
   const preview = (g: Grade) =>
     intervalText(schedule(baseOf, g, today).interval);
 
-  const hint =
-    drag > SWIPE_HINT_DISTANCE
-      ? 'good'
-      : drag < -SWIPE_HINT_DISTANCE
-        ? 'again'
-        : undefined;
-
   return (
-    <div className="srs-screen">
+    <div className="srs-screen" {...swipe}>
       <div className="progress-head">
         <ProgressBar value={done} max={total} label="這一輪的進度" />
         <span className="muted">
@@ -211,7 +186,7 @@ export function SrsView({
         </span>
       </div>
 
-      <div className="stepper">
+      <div className="stepper" data-no-swipe>
         <button
           type="button"
           className="icon-btn"
@@ -226,7 +201,9 @@ export function SrsView({
             第 {session.index + 1} / {total} 張
           </strong>
           {currentGrade && (
-            <span className="muted">這一輪已評：{GRADE_LABEL[currentGrade]}</span>
+            <span className="muted">
+              這一輪已評：{GRADE_LABEL[currentGrade]}
+            </span>
           )}
         </span>
         <button
@@ -241,26 +218,12 @@ export function SrsView({
       </div>
 
       <div className="flashcard-area">
-        <div
-          className="flashcard"
-          aria-live="polite"
-          data-hint={hint}
-          data-dragging={dragStart.current !== null || undefined}
-          style={{
-            transform: drag
-              ? `translateX(${drag}px) rotate(${drag / 25}deg)`
-              : undefined,
-          }}
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={onPointerEnd}
-          onPointerCancel={onPointerEnd}
-        >
+        <div className="flashcard" aria-live="polite">
           <div className="flash-word" lang="ja">
             {current.word}
           </div>
           {current.audioReady ? (
-            <PlayButton audio={current.audio} label="播放" />
+            <PlayButton key={current.id} audio={current.audio} label="播放" />
           ) : (
             <span className="muted">音檔製作中</span>
           )}
@@ -278,12 +241,10 @@ export function SrsView({
             </div>
           )}
         </div>
-        {revealed && (
-          <p className="muted swipe-hint">← 還不會　記得 →（也可以左右滑動卡片）</p>
-        )}
+        <p className="muted swipe-hint">左滑下一張 · 右滑上一張</p>
       </div>
 
-      <div className="actions">
+      <div className="actions" data-no-swipe>
         {revealed ? (
           <fieldset className="grades">
             <legend className="sr-only">評分</legend>
