@@ -21,6 +21,7 @@ import { PlayButton } from '../components/AudioLine';
 import { CheckIcon, CloseIcon, NextIcon, PrevIcon } from '../components/Icons';
 import { ProgressBar } from '../components/ProgressBar';
 import { Ruby, RubyText, useRuby } from '../components/Ruby';
+import { useSwipeNavigation } from '../lib/useSwipeNavigation';
 
 const SENTENCES = buildSentences(stages);
 
@@ -99,6 +100,30 @@ export function DictationView({
   );
   const [picked, setPicked] = useState<string | null>(null);
   const feedbackRef = useRef<HTMLOutputElement>(null);
+  const workspaceRef = useRef<HTMLDivElement>(null);
+  const controlsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const controls = controlsRef.current;
+    const page = controls?.closest('main');
+    const tabs = document.querySelector('.tabs');
+    if (!controls || !page || !tabs) return;
+    const measure = () => {
+      page.style.setProperty(
+        '--dictation-nav-height',
+        `${tabs.getBoundingClientRect().height}px`,
+      );
+      page.style.setProperty(
+        '--dictation-controls-height',
+        `${controls.getBoundingClientRect().height}px`,
+      );
+    };
+    const observer = new ResizeObserver(measure);
+    observer.observe(controls);
+    observer.observe(tabs);
+    measure();
+    return () => observer.disconnect();
+  }, []);
 
   const sentence: Sentence | undefined = SENTENCES[index];
 
@@ -110,7 +135,12 @@ export function DictationView({
     setResult(null);
     setShowHint(false);
     setPicked(null);
+    workspaceRef.current?.scrollTo({ top: 0 });
   };
+  const swipe = useSwipeNavigation(
+    () => go(index - 1),
+    () => go(index + 1),
+  );
 
   const pick = (option: Sentence) => {
     if (!sentence || picked !== null) return;
@@ -125,15 +155,23 @@ export function DictationView({
     );
   };
 
-  // 作答後把回饋與「下一句」帶進畫面（選項很多、螢幕很矮時它在選項下面）。
+  // 長題目只捲動作答區；手機的播放和切題按鈕始終留在底部。
   useEffect(() => {
-    if (picked !== null) {
-      feedbackRef.current?.scrollIntoView({
-        block: 'nearest',
-        behavior: 'smooth',
-      });
+    if (picked !== null || result !== null) {
+      if (window.matchMedia('(max-width: 640px)').matches) {
+        const workspace = workspaceRef.current;
+        workspace?.scrollTo({
+          top: workspace.scrollHeight,
+          behavior: 'smooth',
+        });
+      } else {
+        feedbackRef.current?.scrollIntoView({
+          block: 'nearest',
+          behavior: 'smooth',
+        });
+      }
     }
-  }, [picked]);
+  }, [picked, result]);
 
   // 選擇題的鍵盤：數字鍵 1～4 選答案，作答後 Enter 或右方向鍵到下一句。
   useEffect(() => {
@@ -201,7 +239,7 @@ export function DictationView({
   };
 
   return (
-    <div className="dictation-screen">
+    <div className="dictation-screen" {...swipe}>
       <div className="progress-head">
         <ProgressBar
           value={passedCount}
@@ -213,7 +251,7 @@ export function DictationView({
         </span>
       </div>
 
-      <div className="stepper">
+      <div className="stepper" data-no-swipe>
         <button
           type="button"
           className="icon-btn"
@@ -243,7 +281,7 @@ export function DictationView({
         </button>
       </div>
 
-      <fieldset className="segmented">
+      <fieldset className="segmented" data-no-swipe>
         <legend className="sr-only">作答方式</legend>
         {(['choice', 'type'] as const).map((m) => (
           <label key={m}>
@@ -258,165 +296,175 @@ export function DictationView({
         ))}
       </fieldset>
 
-      <div className="listen">
-        <PlayButton audio={sentence.audio} label="播放這句" caption />
-        {!showHint && !result && !answered && (
-          <button
-            type="button"
-            className="btn ghost"
-            onClick={() => setShowHint(true)}
-          >
-            看中文提示
-          </button>
-        )}
+      <div className="dictation-workspace" ref={workspaceRef}>
         {showHint && !result && !answered && (
           <p className="line-zh">
             <RubyText text={sentence.zh} />
           </p>
         )}
+
+        {mode === 'choice' && (
+          <>
+            <fieldset className="choices">
+              <legend className="sr-only">選出聽到的句子</legend>
+              {options.map((option, i) => {
+                const state = !answered
+                  ? undefined
+                  : option.id === sentence.id
+                    ? 'correct'
+                    : option.id === picked
+                      ? 'wrong'
+                      : 'dim';
+                return (
+                  <button
+                    key={option.id}
+                    type="button"
+                    className="choice"
+                    data-state={state}
+                    disabled={answered}
+                    onClick={() => pick(option)}
+                  >
+                    <span className="choice-num" aria-hidden="true">
+                      {i + 1}
+                    </span>
+                    <ChoiceText sentence={option} />
+                    {state === 'correct' && <CheckIcon />}
+                    {state === 'wrong' && <CloseIcon />}
+                  </button>
+                );
+              })}
+            </fieldset>
+
+            {answered ? (
+              <output
+                ref={feedbackRef}
+                className={`feedback ${correct ? 'ok' : 'bad'}`}
+              >
+                <p className="feedback-title">
+                  {correct ? <CheckIcon /> : <CloseIcon />}
+                  {correct ? '答對了！' : '不對，綠色的是正確答案'}
+                </p>
+                <p className="line-zh">
+                  <RubyText text={sentence.zh} />
+                </p>
+              </output>
+            ) : (
+              <p className="muted choice-hint">
+                聽完選一個（鍵盤按 1～4）；聽不出來可以再播放。
+              </p>
+            )}
+          </>
+        )}
+
+        {mode === 'type' && (
+          <>
+            <form
+              className="dictation-form"
+              id="dictation-form"
+              onSubmit={submit}
+            >
+              <label htmlFor="dictation-input">
+                聽到什麼就打什麼（漢字或假名都可以）
+              </label>
+              <input
+                id="dictation-input"
+                type="text"
+                lang="ja"
+                autoComplete="off"
+                autoCapitalize="off"
+                spellCheck={false}
+                value={input}
+                readOnly={result?.correct === true}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={guardComposition}
+              />
+            </form>
+
+            {result ? (
+              <output
+                ref={feedbackRef}
+                className={`feedback ${result.correct ? 'ok' : 'bad'}`}
+              >
+                <p className="feedback-title">
+                  {result.correct ? <CheckIcon /> : <CloseIcon />}
+                  {result.correct ? '全對！' : '有地方不一樣，標色的是差異'}
+                </p>
+                {!result.correct && (
+                  <>
+                    <p className="muted">你打的</p>
+                    <p className="dictation-line">
+                      <Marks marks={result.actual} />
+                    </p>
+                    <p className="muted">標準答案</p>
+                    <p className="dictation-line">
+                      <Marks marks={result.expected} />
+                    </p>
+                  </>
+                )}
+                <Answer sentence={sentence} />
+                <p className="line-zh">
+                  <RubyText text={sentence.zh} />
+                </p>
+                <div className="row">
+                  {!result.correct && (
+                    <button
+                      type="button"
+                      className="btn"
+                      onClick={() => setResult(null)}
+                    >
+                      再試一次
+                    </button>
+                  )}
+                </div>
+              </output>
+            ) : null}
+          </>
+        )}
       </div>
 
-      {mode === 'choice' && (
-        <>
-          <fieldset className="choices">
-            <legend className="sr-only">選出聽到的句子</legend>
-            {options.map((option, i) => {
-              const state = !answered
-                ? undefined
-                : option.id === sentence.id
-                  ? 'correct'
-                  : option.id === picked
-                    ? 'wrong'
-                    : 'dim';
-              return (
-                <button
-                  key={option.id}
-                  type="button"
-                  className="choice"
-                  data-state={state}
-                  disabled={answered}
-                  onClick={() => pick(option)}
-                >
-                  <span className="choice-num" aria-hidden="true">
-                    {i + 1}
-                  </span>
-                  <ChoiceText sentence={option} />
-                  {state === 'correct' && <CheckIcon />}
-                  {state === 'wrong' && <CloseIcon />}
-                </button>
-              );
-            })}
-          </fieldset>
-
-          {answered ? (
-            <output
-              ref={feedbackRef}
-              className={`feedback ${correct ? 'ok' : 'bad'}`}
+      <div
+        className="dictation-controls"
+        ref={controlsRef}
+        aria-label="播放與作答操作"
+        data-no-swipe
+      >
+        <PlayButton
+          key={sentence.audio}
+          audio={sentence.audio}
+          label="播放這句"
+          caption
+        />
+        <div className="dictation-controls-actions">
+          {!result && !answered && (
+            <button
+              type="button"
+              className="btn ghost"
+              aria-pressed={showHint}
+              onClick={() => setShowHint(!showHint)}
             >
-              <p className="feedback-title">
-                {correct ? <CheckIcon /> : <CloseIcon />}
-                {correct ? '答對了！' : '不對，綠色的是正確答案'}
-              </p>
-              <p className="line-zh">
-                <RubyText text={sentence.zh} />
-              </p>
-              <button
-                type="button"
-                className="btn primary big block"
-                onClick={() => go(index + 1)}
-              >
-                下一句
-              </button>
-            </output>
-          ) : (
-            <p className="muted choice-hint">
-              聽完選一個（鍵盤按 1～4）；聽不出來可以再播放。
-            </p>
+              {showHint ? '收起中文提示' : '看中文提示'}
+            </button>
           )}
-        </>
-      )}
-
-      {mode === 'type' && (
-        <>
-          <form
-            className="dictation-form"
-            id="dictation-form"
-            onSubmit={submit}
-          >
-            <label htmlFor="dictation-input">
-              聽到什麼就打什麼（漢字或假名都可以）
-            </label>
-            <input
-              id="dictation-input"
-              type="text"
-              lang="ja"
-              autoComplete="off"
-              autoCapitalize="off"
-              spellCheck={false}
-              value={input}
-              readOnly={result?.correct === true}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={guardComposition}
-            />
-          </form>
-
-          {result ? (
-            <output
-              className={`actions feedback ${result.correct ? 'ok' : 'bad'}`}
+          {(mode === 'choice' && answered) || (mode === 'type' && result) ? (
+            <button
+              type="button"
+              className="btn primary"
+              onClick={() => go(index + 1)}
             >
-              <p className="feedback-title">
-                {result.correct ? <CheckIcon /> : <CloseIcon />}
-                {result.correct ? '全對！' : '有地方不一樣，標色的是差異'}
-              </p>
-              {!result.correct && (
-                <>
-                  <p className="muted">你打的</p>
-                  <p className="dictation-line">
-                    <Marks marks={result.actual} />
-                  </p>
-                  <p className="muted">標準答案</p>
-                  <p className="dictation-line">
-                    <Marks marks={result.expected} />
-                  </p>
-                </>
-              )}
-              <Answer sentence={sentence} />
-              <p className="line-zh">
-                <RubyText text={sentence.zh} />
-              </p>
-              <div className="row">
-                {!result.correct && (
-                  <button
-                    type="button"
-                    className="btn"
-                    onClick={() => setResult(null)}
-                  >
-                    再試一次
-                  </button>
-                )}
-                <button
-                  type="button"
-                  className="btn primary grow"
-                  onClick={() => go(index + 1)}
-                >
-                  下一句
-                </button>
-              </div>
-            </output>
-          ) : (
-            <div className="actions">
-              <button
-                type="submit"
-                form="dictation-form"
-                className="btn primary big block"
-                disabled={input.trim() === ''}
-              >
-                檢查
-              </button>
-            </div>
-          )}
-        </>
-      )}
+              下一句
+            </button>
+          ) : mode === 'type' ? (
+            <button
+              type="submit"
+              form="dictation-form"
+              className="btn primary"
+              disabled={input.trim() === ''}
+            >
+              檢查
+            </button>
+          ) : null}
+        </div>
+      </div>
     </div>
   );
 }

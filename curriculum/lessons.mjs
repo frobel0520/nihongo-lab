@@ -13,6 +13,7 @@
  *   dialogue: Line[],
  *   quotes?: Quote[],
  *   practice: PracticeItem[],
+ *   training?: import('../lib/anime-training.mjs').AnimeTraining,
  * }} Lesson
  * @typedef {{ id: string, title: string, lessons: Lesson[] }} Stage
  */
@@ -40,6 +41,7 @@ import day22 from './days/day22.mjs';
 import day23 from './days/day23.mjs';
 import day24 from './days/day24.mjs';
 import day25 from './days/day25.mjs';
+import { buildAnimeLessons } from './anime-training.mjs';
 
 // 不含開頭斜線：由畫面端接上 Vite 的 BASE_URL，才能在 GitHub Pages 子路徑下正確解析。
 const AUDIO_BASE = 'audio/stage-0/day1';
@@ -55,7 +57,7 @@ const day1 = {
     { word: '学生', reading: 'がくせい', zh: '學生', voice: 'sayo', audio: `${AUDIO_BASE}/vocab-gakusei.mp3` },
     { word: '先生', reading: 'せんせい', zh: '老師', voice: 'miko', audio: `${AUDIO_BASE}/vocab-sensei.mp3` },
     { word: '会社員', reading: 'かいしゃいん', zh: '公司職員', voice: 'nana', audio: `${AUDIO_BASE}/vocab-kaishain.mp3` },
-    { word: '何人', reading: 'なにじん', zh: '哪國人', voice: 'neko-vy', audio: `${AUDIO_BASE}/vocab-nanijin.mp3` },
+    { word: '何人', reading: 'なにじん', zh: '哪國人（なにじん；問「幾個人」時讀なんにん）', voice: 'neko-vy', audio: `${AUDIO_BASE}/vocab-nanijin.mp3` },
     { word: '名前', reading: 'なまえ', zh: '名字', voice: 'chuugoku-usagi', audio: `${AUDIO_BASE}/vocab-namae.mp3` },
     { word: '国', reading: 'くに', zh: '國家', voice: 'zunko', audio: `${AUDIO_BASE}/vocab-kuni.mp3` },
   ],
@@ -128,7 +130,7 @@ const day2 = {
     { word: 'この', reading: 'この', zh: '這〜（後面一定要接名詞）', voice: 'sayo', audio: `${DAY2_AUDIO}/vocab-kono.mp3` },
     { word: 'その', reading: 'その', zh: '那〜（離聽話者近）', voice: 'miko', audio: `${DAY2_AUDIO}/vocab-sono.mp3` },
     { word: 'あの', reading: 'あの', zh: '那〜（離兩人都遠）', voice: 'nana', audio: `${DAY2_AUDIO}/vocab-ano.mp3` },
-    { word: '何', reading: 'なん', zh: '什麼（單獨說時唸「なに」）', voice: 'neko-vy', audio: `${DAY2_AUDIO}/vocab-nan.mp3` },
+    { word: '何', reading: 'なに', zh: '什麼（單獨讀なに；在「何ですか」中讀なん）', voice: 'neko-vy', audio: `${DAY2_AUDIO}/vocab-nan.mp3` },
     { word: '本', reading: 'ほん', zh: '書', voice: 'chuugoku-usagi', audio: `${DAY2_AUDIO}/vocab-hon.mp3` },
     { word: '辞書', reading: 'じしょ', zh: '字典', voice: 'zunko', audio: `${DAY2_AUDIO}/vocab-jisho.mp3` },
     { word: '雑誌', reading: 'ざっし', zh: '雜誌', voice: 'zundamon', audio: `${DAY2_AUDIO}/vocab-zasshi.mp3` },
@@ -895,6 +897,6 @@ const quotes = {
 export const stages = [
   { id: 'stage-0', title: '第 0 階段：N5 復健', lessons: [day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11, day12, day13, day14, day15, day16, day17, day18, day19, day20, day21, day22, day23, day24, day25] },
   { id: 'stage-1', title: '第 1 階段：聽力打底', lessons: [] },
-  { id: 'stage-2', title: '第 2 階段：口語與動畫日文', lessons: [spoken, quotes] },
+  { id: 'stage-2', title: '第 2 階段：口語與動畫日文', lessons: [...buildAnimeLessons(quotes.quotes ?? []), spoken, quotes] },
   { id: 'stage-3', title: '第 3 階段：N3 到 N1', lessons: [] },
 ];

@@ -790,20 +790,6 @@ a {
     border-color 0.15s;
 }
 
-.flashcard[data-dragging] {
-  transition: none;
-}
-
-.flashcard[data-hint='good'] {
-  border-color: var(--brand);
-  background: var(--brand-soft);
-}
-
-.flashcard[data-hint='again'] {
-  border-color: var(--danger);
-  background: var(--danger-soft);
-}
-
 .flash-word {
   font-size: clamp(2.4rem, 12vw, 3.4rem);
   line-height: 1.3;
@@ -1038,6 +1024,132 @@ a {
 
 .choice-hint {
   text-align: center;
+}
+
+.dictation-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dictation-screen,
+.dictation-workspace,
+.srs-screen {
+  touch-action: pan-y pinch-zoom;
+}
+
+.dictation-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: auto;
+}
+
+.dictation-controls-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (max-width: 640px) {
+  .screen.dictation-page {
+    flex: none;
+    height: calc(100dvh - var(--stack-top));
+    min-height: 0;
+    padding: 6px 12px calc(var(--dictation-nav-height, calc(var(--tabbar-h) + env(safe-area-inset-bottom))) + var(--dictation-controls-height, 102px) + 8px);
+    gap: 8px;
+  }
+
+  .dictation-screen {
+    min-height: 0;
+    gap: 8px;
+  }
+
+  .dictation-screen > .progress-head {
+    font-size: 0.75rem;
+  }
+
+  .dictation-screen > .stepper .muted {
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .dictation-screen > .segmented span {
+    padding-block: 4px;
+  }
+
+  .dictation-workspace {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-width: thin;
+  }
+
+  .dictation-workspace .choices {
+    gap: 6px;
+  }
+
+  .dictation-workspace .choice {
+    min-height: 52px;
+    padding: 6px 10px;
+    gap: 8px;
+    border-radius: 12px;
+  }
+
+  .dictation-workspace .choice-jp {
+    font-size: 1rem;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+  }
+
+  /* 揭曉後留下所選與正確選項，讓回饋仍能放在一個畫面裡。 */
+  .dictation-workspace .choice[data-state='dim'],
+  .dictation-workspace .choice-hint {
+    display: none;
+  }
+
+  .dictation-workspace .feedback {
+    padding: 10px 12px;
+    gap: 4px;
+    border-radius: 12px;
+  }
+
+  .dictation-workspace > .line-zh {
+    margin: 0;
+  }
+
+  .dictation-controls {
+    position: fixed;
+    z-index: 20;
+    bottom: var(--dictation-nav-height, calc(var(--tabbar-h) + env(safe-area-inset-bottom)));
+    left: 0;
+    right: 0;
+    min-height: 102px;
+    padding: 8px 16px;
+    border-top: 1px solid var(--rule);
+    background: var(--surface);
+  }
+
+  .dictation-controls .play-big {
+    width: 60px;
+    height: 60px;
+  }
+
+  .dictation-controls .play > .muted {
+    font-size: 0.75rem;
+  }
+
+  .dictation-controls .play .error {
+    position: absolute;
+    bottom: 100%;
+    left: 12px;
+    right: 12px;
+    padding: 8px;
+    background: var(--surface);
+    border: 1px solid var(--danger);
+  }
 }
 
 .mark-bad {
@@ -1339,4 +1451,22 @@ rt {
     animation: none !important;
     transition: none !important;
   }
+}
+/* 動畫盲聽：選項縱排，出處在作答後才顯示。 */
+.anime-options {
+  display: grid;
+  gap: 10px;
+  margin-block: 12px;
+}
+
+.anime-options .btn {
+  white-space: normal;
+  text-align: left;
+}
+
+.anime-familiar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-block: 12px;
 }
