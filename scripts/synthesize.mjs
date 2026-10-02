@@ -1,14 +1,30 @@
 // 呼叫本機 VOICEVOX 引擎產生教材語音，轉成 mp3。
 // 用法：
-//   node scripts/synthesize.mjs --voice zundamon --text "こんにちは" --out public/audio/sample.mp3
+//   node scripts/synthesize.mjs --voice zundamon --text "こんにちは" --reading "こんにちは" --out public/audio/sample.mp3
 //   node scripts/synthesize.mjs --batch scripts/audio-jobs.json   （由 scripts/build-audio-jobs.mjs 產生）
 //
-// 執行前需先開啟 VOICEVOX.exe（或 vv-engine/run.exe），監聽 127.0.0.1:50021；另外需要 ffmpeg。
+// 執行前需啟動雲端 adapter（含 reading_reference），監聽 127.0.0.1:50021；另外需要 ffmpeg。
+// 官方 Engine 沒有 reading_reference；使用它時提供經語義核對的 --pronunciation／job.pronunciation。
 
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
-import { dirname } from 'node:path';
+import {
+  mkdir,
+  mkdtemp,
+  readFile,
+  rename,
+  rm,
+  writeFile,
+} from 'node:fs/promises';
+import { dirname, join, resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { getVoice } from '../curriculum/voices.mjs';
 import { encodeMp3 } from './ffmpeg.mjs';
+import {
+  assertPronunciation,
+  readingParts,
+  readingText,
+} from './pronunciation.mjs';
+
+/** @typedef {{ voice: string, text: string, out: string, reading?: string, ruby?: string, kind?: string, pronunciation?: string }} AudioJob */
 
 const ENGINE_URL = 'http://127.0.0.1:50021';
 
@@ -20,7 +36,10 @@ const ENGINE_URL = 'http://127.0.0.1:50021';
  */
 async function callEngine(path, init) {
   try {
-    return await fetch(`${ENGINE_URL}${path}`, init);
+    return await fetch(`${ENGINE_URL}${path}`, {
+      ...init,
+      signal: AbortSignal.timeout(120_000),
+    });
   } catch (error) {
     throw new Error(
       `連不到 VOICEVOX 引擎（${ENGINE_URL}），請先開啟 VOICEVOX：${error instanceof Error ? error.message : error}`,
@@ -29,23 +48,60 @@ async function callEngine(path, init) {
 }
 
 /**
- * @param {string} voiceKey
- * @param {string} text
- * @param {string} outPath
+ * @param {AudioJob} job
  */
-async function synthesizeOne(voiceKey, text, outPath) {
-  const voice = getVoice(voiceKey);
+export async function synthesizeOne(job) {
+  const { text, out: outPath } = job;
+  const voice = getVoice(job.voice);
 
-  const queryRes = await callEngine(
-    `/audio_query?speaker=${voice.speakerId}&text=${encodeURIComponent(text)}`,
-    { method: 'POST' },
-  );
-  if (!queryRes.ok) {
-    throw new Error(
-      `audio_query failed (${queryRes.status}): ${await queryRes.text()}`,
-    );
+  let pronunciation = job.pronunciation;
+  if (!pronunciation && job.reading) {
+    const referenceRes = await callEngine('/reading_reference', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...job,
+        parts: readingParts({ ...job, reading: job.reading }),
+      }),
+    });
+    if (!referenceRes.ok)
+      throw new Error(
+        '引擎未提供 reading_reference；請在 job 填入經核對的 pronunciation（實際發音假名，助詞用わ／え／お），再合成。',
+      );
+    pronunciation = (await referenceRes.json()).pronunciation;
+    if (typeof pronunciation !== 'string')
+      throw new Error('引擎沒有回傳有效的發音參考');
   }
-  const query = await queryRes.json();
+  if (!pronunciation)
+    throw new Error(
+      `缺少讀音核對資料：${text}；請提供 --reading 或 --pronunciation`,
+    );
+
+  /** @param {string} input */
+  const audioQuery = async (input) => {
+    const response = await callEngine(
+      `/audio_query?speaker=${voice.speakerId}&text=${encodeURIComponent(input)}`,
+      { method: 'POST' },
+    );
+    if (!response.ok)
+      throw new Error(
+        `audio_query failed (${response.status}): ${await response.text()}`,
+      );
+    return response.json();
+  };
+
+  let query = await audioQuery(text);
+  try {
+    assertPronunciation(query, pronunciation);
+  } catch {
+    const controlledText = job.reading
+      ? readingText({ ...job, reading: job.reading })
+      : pronunciation;
+    query = await audioQuery(controlledText);
+    // A second mismatch is a failure, never an unchecked replacement.
+    assertPronunciation(query, pronunciation);
+    console.log(`READING ${text} → ${pronunciation}`);
+  }
 
   const synthRes = await callEngine(`/synthesis?speaker=${voice.speakerId}`, {
     method: 'POST',
@@ -58,15 +114,24 @@ async function synthesizeOne(voiceKey, text, outPath) {
     );
   }
   const wavBuffer = Buffer.from(await synthRes.arrayBuffer());
+  if (
+    wavBuffer.length <= 44 ||
+    wavBuffer.toString('ascii', 0, 4) !== 'RIFF' ||
+    wavBuffer.toString('ascii', 8, 12) !== 'WAVE'
+  ) {
+    throw new Error(`引擎未輸出有效 WAV：${text}`);
+  }
 
   await mkdir(dirname(outPath), { recursive: true });
-  const tmpWav = `${outPath}.tmp.wav`;
-  await writeFile(tmpWav, wavBuffer);
+  const temporary = await mkdtemp(join(dirname(outPath), '.synthesis-'));
+  const tmpWav = join(temporary, 'clip.wav');
+  const tmpMp3 = join(temporary, 'clip.mp3');
   try {
-    await encodeMp3(tmpWav, outPath);
+    await writeFile(tmpWav, wavBuffer);
+    await encodeMp3(tmpWav, tmpMp3);
+    await rename(tmpMp3, outPath);
   } finally {
-    // 轉檔失敗也要清掉暫存的 wav，不留半成品在 public/ 底下
-    await rm(tmpWav, { force: true });
+    await rm(temporary, { recursive: true, force: true });
   }
   return outPath;
 }
@@ -91,7 +156,7 @@ async function main() {
   if (args.batch) {
     const jobs = JSON.parse(await readFile(args.batch, 'utf8'));
     for (const job of jobs) {
-      const out = await synthesizeOne(job.voice, job.text, job.out);
+      const out = await synthesizeOne(job);
       console.log(`OK ${out}`);
     }
     return;
@@ -99,17 +164,28 @@ async function main() {
 
   if (!args.voice || !args.text || !args.out) {
     console.error(
-      'usage: node scripts/synthesize.mjs --voice <key> --text "..." --out <path.mp3>',
+      'usage: node scripts/synthesize.mjs --voice <key> --text "..." --reading "..." --out <path.mp3>',
     );
     console.error('   or: node scripts/synthesize.mjs --batch <jobs.json>');
     process.exit(1);
   }
 
-  const out = await synthesizeOne(args.voice, args.text, args.out);
+  const out = await synthesizeOne({
+    voice: args.voice,
+    text: args.text,
+    out: args.out,
+    reading: args.reading,
+    pronunciation: args.pronunciation,
+    kind: args.kind,
+  });
   console.log(`OK ${out}`);
 }
 
-main().catch((err) => {
-  console.error(err.message);
-  process.exit(1);
-});
+if (
+  process.argv[1] &&
+  import.meta.url === pathToFileURL(resolve(process.argv[1])).href
+)
+  main().catch((err) => {
+    console.error(err.message);
+    process.exit(1);
+  });

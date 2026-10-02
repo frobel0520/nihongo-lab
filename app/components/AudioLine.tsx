@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { PlayIcon, SpeakerIcon, StopIcon } from './Icons';
 import { JpLine, RubyText } from './Ruby';
 
@@ -103,15 +103,23 @@ export function PlayButton({
   audio,
   label = '播放',
   caption = false,
+  onPlayed,
 }: {
   audio: string;
   label?: string;
   caption?: boolean;
+  onPlayed?: () => void;
 }) {
   const ref = useRef<HTMLAudioElement>(null);
   const [failedAudio, setFailedAudio] = useState<string | null>(null);
   const [playing, setPlaying] = useState(false);
+  const counted = useRef(false);
   const failed = failedAudio === audio;
+
+  useEffect(() => {
+    const element = ref.current;
+    return () => element?.pause();
+  }, [audio]);
 
   const toggle = () => {
     const el = ref.current;
@@ -125,6 +133,7 @@ export function PlayButton({
       if (other !== el) other.pause();
     }
     setFailedAudio(null);
+    counted.current = false;
     el.currentTime = 0;
     el.play().catch(() => setFailedAudio(audio));
   };
@@ -145,6 +154,12 @@ export function PlayButton({
         src={audioUrl(audio)}
         preload="auto"
         onPlay={() => setPlaying(true)}
+        onPlaying={() => {
+          if (!counted.current) {
+            counted.current = true;
+            onPlayed?.();
+          }
+        }}
         onPause={() => setPlaying(false)}
         onEnded={() => setPlaying(false)}
         onError={() => setFailedAudio(audio)}

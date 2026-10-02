@@ -70,12 +70,17 @@ export function LessonListView({ progress }: { progress: Progress }) {
                   p.vocab.total > 0 && `單字 ${p.vocab.done}/${p.vocab.total}`,
                   p.dictation.total > 0 &&
                     `聽寫 ${p.dictation.done}/${p.dictation.total}`,
+                  p.listening.total > 0 &&
+                    `理解 ${p.listening.done}/${p.listening.total}`,
                   lesson.audioReady === false && '音檔製作中',
                 ].filter(Boolean);
                 const percent = Math.round(p.ratio * 100);
                 return (
                   <li key={lesson.id}>
-                    <a className="card lesson-card" href={lessonHash(lesson.id)}>
+                    <a
+                      className="card lesson-card"
+                      href={lessonHash(lesson.id)}
+                    >
                       <span className="lesson-card-body">
                         <span className="lesson-title">
                           <RubyText text={lesson.title} />
