@@ -145,3 +145,26 @@ OpenJLPT 單字讀音比對出現的私／何／一日／毎月／毎年／年�
 使用者指定成振宇的雙眼發光版本。自行生成深色背景、藍紫發光雙眼的角色插畫，以 1024px PNG 作為來源，再用既有 PWA assets generator 輸出 64／192／512、maskable 512、Apple touch 180 與 favicon；不使用作品截圖。圖示沒有預先畫圓角，512px 成品人工檢視，臉與双眼保持在 Android maskable 中央安全區。Manifest 與 HTML 使用 jinwoo-* 新檔名，保留舊檔供舊版本相容，原始大圖不納入離線預快取。圖示來源與必要安裝資產依本次使用者要求納入版本控制；生成工具仍為既有 assets-generator，沒有新增依賴。
 
 npm run check 通過（typecheck、198 tests 全數通過、lint）；VITE_BASE_PATH=/nihongo-lab/ npm run build 通過。另核對 build manifest 的四個圖示尺寸、scope、新檔名、HTML 三個圖示連結的子路徑，確認 service worker 沒有預快取原始大圖。Android 真機的桌面裁切、Samsung Internet 更新既有安裝圖示的時機尚未驗證，不能保證重新整理網頁立即更新桌面圖示。
+
+## T43 擴充動畫句庫（2026-10-02）
+
+使用者要求擴充，並明確確認 Claude 與 GPT 均可編寫教材；AGENTS.md 與當前課程規劃已移除作者限制。新增 10 個短句，完整句庫由 57 增至 67；原有八課各由兩句示範／一句對照改為三句示範／兩句對照，共 40 次引用、35 句不同台詞。新增作品為もののけ姫、ひぐらしのなく頃に、天元突破グレンラガン、交響詩篇エウレカセブン；也增加 SLAM DUNK、エヴァンゲリオン與まどか☆マギカ的句子。新資料經 lessons.mjs 唯一入口匯出，不讓特訓與名句各存一份台詞。
+
+查證紀錄：公開 [anime_meigen 台詞紀錄](https://github.com/holland505/anime_meigen/blob/11cfa5d5e492411ef40cb137ddff314b4e6ade92/tweets.csv)，實際 git clone 讀取，固定 commit 11cfa5d5e492411ef40cb137ddff314b4e6ade92；新句原文合計 90 個字元，僅收短句。保留原標點與假名；較長紀錄只節錄完整短句，不補寫其餘對話。翻譯、句型與語氣解說自行撰寫，畫面加上來源連結與「二手台詞紀錄／節錄」說明。沒有核對動畫原配音、集數或時間碼，沒有聲稱這份紀錄是官方台本。其他無法確認角色或用字的候選資料集沒有使用。新聞與動畫官方網站的 HTTPS 連線仍被雲端 egress 403 阻擋；已存允許來源網域的設定草稿，未宣稱草稿已解除限制。GitHub 原始 repository 可以正常讀取；大檔 blob 頁面嘗試回 503，不因此改稱查過原作。
+
+| 新句 id | 作品 | 紀錄行 |
+|---|---|---|
+| slamdunk-tensai | SLAM DUNK | 18 |
+| eva-niku | エヴァンゲリオン | 64 |
+| mononoke-ikirya | もののけ姫 | 13 |
+| slamdunk-weapon | SLAM DUNK | 214 |
+| higurashi-uso | ひぐらしのなく頃に | 113 |
+| gurren-abayo | 天元突破グレンラガン | 136 |
+| madoka-anything | まどか☆マギカ | 7 |
+| madoka-rescue | まどか☆マギカ | 54 |
+| eureka-win | 交響詩篇エウレカセブン | 138 |
+| madoka-promise | まどか☆マギカ | 54 |
+
+10 個新 MP3 均以原先九位 VOICEVOX 角色合成，通過 synthesis 前的目標 mora 核對與 ffmpeg 完整解碼。新音檔以文字＋角色的雜湊命名；沒有改寫既有音檔，不必再升版音檔快取。原有 24 次課程引用的 listeningRecordId 與更新前完全一致，既有通過紀錄沿用；新題目追加，總題數增加。新翻譯、角色／作品、解說與來源標籤的讀音標註已檢查並加入 ruby-notes。
+
+npm run check 通過（typecheck、198 tests 全數通過、lint）；VITE_BASE_PATH=/nihongo-lab/ npm run build 通過。Chromium 375×667 實測：八課各有五個台詞區塊；新句播放前不能作答，播放成功後可答、顯示來源與二手紀錄標籤；名句區共 67 個條目、10 個新來源連結，ruby 正常，pageerror 為 0。仍未 Android 真機驗證或逐句人耳審聽；本次不代表 T38 完整詞彙包、語氣辨識或跨句教材已完成。

@@ -177,7 +177,21 @@ export function LessonView({
               <p className="muted">
                 出處：
                 <RubyText text={q.source} />
+                {q.referenceUrl && (
+                  <>
+                    {' '}
+                    ·{' '}
+                    <a href={q.referenceUrl} target="_blank" rel="noreferrer">
+                      台詞查證來源
+                    </a>
+                  </>
+                )}
               </p>
+              {q.referenceNote && (
+                <p className="muted">
+                  <RubyText text={q.referenceNote} />
+                </p>
+              )}
               <p>
                 <RubyText text={q.note} />
               </p>

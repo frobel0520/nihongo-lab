@@ -20,7 +20,7 @@ import { lessonAudioPaths, allAudioPaths } from '../lib/offline.mjs';
 const courses = stages.flatMap((s) => s.lessons).filter((l) => l.training);
 const bank = stages.flatMap((s) => s.lessons).flatMap((l) => l.quotes ?? []);
 
-test('八課使用有來源的既有動畫台詞與實際音檔，對照台詞不與同課示範重複', () => {
+test('八課使用有來源的共用動畫台詞與實際音檔，對照台詞不與同課示範重複', () => {
   assert.equal(courses.length, 8);
   for (const lesson of courses) {
     const { training } = lesson;
@@ -30,7 +30,7 @@ test('八課使用有來源的既有動畫台詞與實際音檔，對照台詞�
     for (const clip of trainingClips(training)) {
       assert.ok(
         bank.includes(clip.quote),
-        '直接沿用已查證台詞，不能另造作品台詞',
+        '直接引用共用句庫，不能另造作品台詞',
       );
       assert.match(clip.referenceUrl, /^https:\/\//);
       assert.ok(clip.quote.source && clip.quote.note);
@@ -80,8 +80,9 @@ test('特訓進度與聽寫分離；題目改版後舊的通過紀錄不計入�
   assert.equal(lessonProgress(stages, progress)[lesson.id].listening.done, 0);
   progress = recordDictation(progress, id, true, '2026-10-02T00:01:00.000Z');
   const summary = lessonProgress(stages, progress)[lesson.id];
-  assert.deepEqual(summary.listening, { done: 1, total: 3 });
-  assert.equal(summary.ratio, 1 / 3);
+  const total = trainingClips(lesson.training).length;
+  assert.deepEqual(summary.listening, { done: 1, total });
+  assert.equal(summary.ratio, 1 / total);
   assert.equal(summary.dictation.done, 0);
   const loaded = parseProgress(serializeProgress(progress));
   assert.equal(loaded.problem, null);
