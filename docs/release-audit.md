@@ -139,3 +139,9 @@ OpenJLPT 單字讀音比對出現的私／何／一日／毎月／毎年／年�
 校正後 npm run check 通過（typecheck、198 tests 全數通過、lint），VITE_BASE_PATH=/nihongo-lab/ npm run build 通過。音檔讀音核對針對合成 query，並非對所有既有 MP3 進行語音辨識；完整解碼也不證明聲音的重音、語調與情緒正確。仍未人耳逐句複核，不能保證所有語音與教材完全無誤。
 
 後續部署驗收：修正版本 ee75043 已推送 main，[GitHub Actions 36989198625](https://github.com/frobel0520/nihongo-lab/actions/runs/36989198625) 顯示 Success，Pages 更新成功。環境網路規則隨後允許正式站連線，使用 curl 並保持 TLS 憑證驗證：正式站 HTML、index-3F3Bz8u-.js、sw.js 和何人音檔的實際下載 bytes 均與本次 production build／public 檔案完全一致（何人 10,700 bytes）。因此先前的 egress 限制已解除；仍未完成正式站瀏覽器操作，原因是雲端 Chromium 經代理連線報 ERR_CERT_AUTHORITY_INVALID。沒有略過憑證驗證，本機觸控驗證與正式站 HTTP／內容驗證分開記錄。
+
+## T42 成振宇發光眼睛 App 圖示（2026-10-02）
+
+使用者指定成振宇的雙眼發光版本。自行生成深色背景、藍紫發光雙眼的角色插畫，以 1024px PNG 作為來源，再用既有 PWA assets generator 輸出 64／192／512、maskable 512、Apple touch 180 與 favicon；不使用作品截圖。圖示沒有預先畫圓角，512px 成品人工檢視，臉與双眼保持在 Android maskable 中央安全區。Manifest 與 HTML 使用 jinwoo-* 新檔名，保留舊檔供舊版本相容，原始大圖不納入離線預快取。圖示來源與必要安裝資產依本次使用者要求納入版本控制；生成工具仍為既有 assets-generator，沒有新增依賴。
+
+npm run check 通過（typecheck、198 tests 全數通過、lint）；VITE_BASE_PATH=/nihongo-lab/ npm run build 通過。另核對 build manifest 的四個圖示尺寸、scope、新檔名、HTML 三個圖示連結的子路徑，確認 service worker 沒有預快取原始大圖。Android 真機的桌面裁切、Samsung Internet 更新既有安裝圖示的時機尚未驗證，不能保證重新整理網頁立即更新桌面圖示。
