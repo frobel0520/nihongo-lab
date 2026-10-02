@@ -146,7 +146,7 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 教材資料結構已在第 1 天教材定案，見 `curriculum/lessons.mjs`、`curriculum/voices.mjs`。UI 的最新設計見上方「介面設計（T25、T27）」；下面是最初版本的說明（已過時）：沿用既有學習網站的設計系統（Noto Sans TC + IBM Plex Mono、卡片式排版、CSS 變數色票、`prefers-color-scheme` 自動深色模式），維持 使用者 的網站家族一致風格。
 ## 動畫特訓（T37，2026-10-02）
 
-`curriculum/anime-training.mjs` 接收 T13 的台詞庫，產生八課，每課兩句示範與一句對照；`lessons.mjs` 是唯一入口。`Lesson.training` 存目標、引用台詞、查證連結與理解題。引用共享既有音檔，不重複生成教材音檔或修改 T13 的句子。新的獨立詞彙及音檔尚未加入。
+`curriculum/anime-training.mjs` 接收 T13 的台詞庫，產生八課，每課五句示範與四句對照（第六課五句對照）；`lessons.mjs` 是唯一入口。`Lesson.training` 存目標、引用台詞、查證連結與理解題。引用共享既有音檔，不重複生成教材音檔或修改 T13 的句子。新的獨立詞彙及音檔尚未加入。
 
 `AnimeTraining.tsx` 負責盲聽與揭示：播放器名稱是「播放台詞」，原文、讀音、角色與來源只在作答後掛載；`PlayButton.onPlayed` 在音訊真正開始播放時通知，每次重播只計一次，下載／播放失敗不能解鎖作答。答案只提交一次，揭示後需重新進入課程再盲聽。
 
