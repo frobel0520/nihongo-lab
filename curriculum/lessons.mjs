@@ -43,6 +43,7 @@ import day24 from './days/day24.mjs';
 import day25 from './days/day25.mjs';
 import { buildAnimeLessons } from './anime-training.mjs';
 import { expandedAnimeQuotes } from './anime-quotes-expansion.mjs';
+import { animeQuotes100 } from './anime-quotes-100.mjs';
 
 // 不含開頭斜線：由畫面端接上 Vite 的 BASE_URL，才能在 GitHub Pages 子路徑下正確解析。
 const AUDIO_BASE = 'audio/stage-0/day1';
@@ -870,6 +871,7 @@ const quotes = {
       note: '遊戲以烏賊（イカ）為主角，所以連打招呼都要加上「イカ」。「よろしく」是「よろしくお願いします」的省略說法，拖長的「ー」是唱歌般的語氣。',
     },
     ...expandedAnimeQuotes,
+    ...animeQuotes100,
   ],
   practice: [
     { q: '「逃げちゃダメだ」還原成教科書形是什麼？', a: '逃げてはダメだ（逃げてはいけない）。' },
