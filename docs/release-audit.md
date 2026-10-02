@@ -137,3 +137,5 @@ Chromium 的原生觸控事件驗證（CDP dispatchTouchEvent）：在選項上�
 OpenJLPT 單字讀音比對出現的私／何／一日／毎月／毎年／年／一月差異，均需依上下文處理，沒有把合法多讀法當成錯誤批次替換。字典資料保持在 ignored .cache/。外部文法網站及 GitHub Pages 的連線受到雲端 egress 403 限制，本次沒有聲稱完成外部來源逐條查證或正式站瀏覽器驗收；已將 Pages 網域加入環境設定草稿，草稿不代表現行網路規則已生效。先前的本機原生觸控驗證紀錄仍見 T40。
 
 校正後 npm run check 通過（typecheck、198 tests 全數通過、lint），VITE_BASE_PATH=/nihongo-lab/ npm run build 通過。音檔讀音核對針對合成 query，並非對所有既有 MP3 進行語音辨識；完整解碼也不證明聲音的重音、語調與情緒正確。仍未人耳逐句複核，不能保證所有語音與教材完全無誤。
+
+後續部署驗收：修正版本 ee75043 已推送 main，[GitHub Actions 36989198625](https://github.com/frobel0520/nihongo-lab/actions/runs/36989198625) 顯示 Success，Pages 更新成功。環境網路規則隨後允許正式站連線，使用 curl 並保持 TLS 憑證驗證：正式站 HTML、index-3F3Bz8u-.js、sw.js 和何人音檔的實際下載 bytes 均與本次 production build／public 檔案完全一致（何人 10,700 bytes）。因此先前的 egress 限制已解除；仍未完成正式站瀏覽器操作，原因是雲端 Chromium 經代理連線報 ERR_CERT_AUTHORITY_INVALID。沒有略過憑證驗證，本機觸控驗證與正式站 HTTP／內容驗證分開記錄。
