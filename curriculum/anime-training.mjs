@@ -1,5 +1,5 @@
 /**
- * T37：按課編排的動畫聽力。只重組已有查證紀錄、解說與音檔的動畫短台詞。
+ * T37／T43：按課編排的動畫聽力，沿用共用句庫的查證紀錄、解說與音檔。
  * 沒有複製台詞、另造作品對話或宣稱學習者沒看過作品。
  * @typedef {import('./lessons.mjs').Lesson} Lesson
  * @typedef {import('./lessons.mjs').Quote} Quote
@@ -38,56 +38,59 @@ const references = {
     'https://square.unext.jp/article/kusuriyanohitorigoto-review-2024-01',
   'mha-allmight': 'https://news.mynavi.jp/article/20220608-2356306/',
   'mha-deku': 'https://news.mynavi.jp/article/20220608-2356306/',
+  'violet-know':
+    'https://www.animatetimes.com/news/details.php?id=1628807288',
+  'frieren-himmel': 'https://news.mynavi.jp/article/20240409-2921510/',
 };
 
 const coursePlan = [
   {
     title: '第 1 課：切分句子與抓住關鍵詞',
     goal: '先聽出主題與核心動作，再確認狀態與時間；不要求逐字翻譯。',
-    clips: ['hokuto', 'mha-allmight'],
-    review: ['slamdunk'],
+    clips: ['hokuto', 'mha-allmight', 'slamdunk-tensai'],
+    review: ['slamdunk', 'violet-know'],
   },
   {
     title: '第 2 課：口語縮約與省略',
     goal: '在短台詞中辨認縮約與省略，對照既有解說還原句子結構。',
-    clips: ['eva', 'violet-gilbert'],
-    review: ['hanako-kiwotsukete'],
+    clips: ['eva', 'violet-gilbert', 'mononoke-ikirya'],
+    review: ['hanako-kiwotsukete', 'eva-niku'],
   },
   {
     title: '第 3 課：命令、催促與求助',
     goal: '聽出對方要求的動作，辨認命令、催促與求助的差別。',
-    clips: ['kimetsu-kokoro', 'laputa-dora'],
-    review: ['mha-deku'],
+    clips: ['kimetsu-kokoro', 'laputa-dora', 'eureka-win'],
+    review: ['mha-deku', 'madoka-rescue'],
   },
   {
     title: '第 4 課：情緒、拒絕與理由',
     goal: '結合句尾與句子意思，辨認拒絕、自信與帶理由的回應。',
-    clips: ['jojo-rohan', 'jjk-gojo'],
-    review: ['gundam-bouya'],
+    clips: ['jojo-rohan', 'jjk-gojo', 'higurashi-uso'],
+    review: ['gundam-bouya', 'gurren-abayo'],
   },
   {
     title: '第 5 課：戰鬥宣言與行動',
     goal: '抓住戰鬥宣言中的動作與決心；先練已有來源的行動台詞。',
-    clips: ['aot-eren', 'aot-erwin'],
-    review: ['kimetsu-mune'],
+    clips: ['aot-eren', 'aot-erwin', 'slamdunk-weapon'],
+    review: ['kimetsu-mune', 'mha-deku'],
   },
   {
     title: '第 6 課：魔法與契約',
     goal: '在魔法題材台詞中辨認主題、契約對象、請求與說明。',
-    clips: ['frieren-magic', 'madoka-kyubey'],
-    review: ['oshinoko-ai'],
+    clips: ['frieren-magic', 'madoka-kyubey', 'madoka-anything'],
+    review: ['oshinoko-ai', 'madoka-promise'],
   },
   {
     title: '第 7 課：條件、推理與態度',
     goal: '聽出條件、請求與人物態度，區分句子說了什麼和自己的劇情推測。',
-    clips: ['slamdunk', 'kusuriya-poison'],
-    review: ['gundam-mitometakunai'],
+    clips: ['slamdunk', 'kusuriya-poison', 'frieren-himmel'],
+    review: ['gundam-mitometakunai', 'slamdunk-tensai'],
   },
   {
     title: '第 8 課：綜合理解與對照',
     goal: '交替聽不同作品的短台詞，練習抓大意與結構；熟悉作品也能參與。',
-    clips: ['laputa-muska', 'kusuriya-air'],
-    review: ['jojo-dio'],
+    clips: ['laputa-muska', 'kusuriya-air', 'violet-know'],
+    review: ['jojo-dio', 'eva-niku'],
   },
 ];
 
@@ -95,8 +98,11 @@ const coursePlan = [
 export function buildAnimeLessons(bank) {
   /** @param {string} key @returns {ListeningClip} */
   const clipFor = (key) => {
-    const quote = bank.find((q) => q.audio.endsWith(`/${key}.mp3`));
+    const quote = bank.find(
+      (q) => q.id === key || q.audio.endsWith(`/${key}.mp3`),
+    );
     const referenceUrl =
+      quote?.referenceUrl ??
       references[/** @type {keyof typeof references} */ (key)];
     if (!quote || !referenceUrl) throw new Error(`動畫教材來源缺失：${key}`);
     // 選項沿用已查證教材的翻譯，不新增假台詞；三個意思必須不同。

@@ -109,6 +109,11 @@ function ListeningClipView({
               台詞查證來源
             </a>
           </p>
+          {clip.quote.referenceNote && (
+            <p className="muted">
+              <RubyText text={clip.quote.referenceNote} />
+            </p>
+          )}
           {clip.questions.map((q) => (
             <p key={q.id}>
               <strong>
