@@ -2,7 +2,7 @@
  * @typedef {{ jp: string, reading: string, zh: string, voice: string, audio: string, ruby?: string }} Line
  * @typedef {{ pattern: string, note: string, examples: Line[], jlpt?: string[] }} GrammarPoint
  * @typedef {{ word: string, reading: string, zh: string, voice: string, audio: string, ruby?: string }} VocabItem
- * @typedef {Line & { source: string, note: string }} Quote
+ * @typedef {Line & { source: string, note: string, id?: string, referenceUrl?: string, referenceNote?: string }} Quote
  * @typedef {{ q: string, a: string }} PracticeItem
  * @typedef {{
  *   id: string,
@@ -42,6 +42,7 @@ import day23 from './days/day23.mjs';
 import day24 from './days/day24.mjs';
 import day25 from './days/day25.mjs';
 import { buildAnimeLessons } from './anime-training.mjs';
+import { expandedAnimeQuotes } from './anime-quotes-expansion.mjs';
 
 // 不含開頭斜線：由畫面端接上 Vite 的 BASE_URL，才能在 GitHub Pages 子路徑下正確解析。
 const AUDIO_BASE = 'audio/stage-0/day1';
@@ -868,6 +869,7 @@ const quotes = {
       source: 'スプラトゥーン（シオカラーズ）',
       note: '遊戲以烏賊（イカ）為主角，所以連打招呼都要加上「イカ」。「よろしく」是「よろしくお願いします」的省略說法，拖長的「ー」是唱歌般的語氣。',
     },
+    ...expandedAnimeQuotes,
   ],
   practice: [
     { q: '「逃げちゃダメだ」還原成教科書形是什麼？', a: '逃げてはダメだ（逃げてはいけない）。' },

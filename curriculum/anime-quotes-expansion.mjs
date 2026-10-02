@@ -1,0 +1,126 @@
+/**
+ * T43：已讀取二手台詞紀錄的小批量擴充；翻譯與解說自行撰寫。
+ * 來源固定在查證時的 commit，行號對應原紀錄，不臆造集數或原配音。
+ * @typedef {import('./lessons.mjs').Quote} Quote
+ */
+import { contentHash } from './author.mjs';
+
+const archive =
+  'https://github.com/holland505/anime_meigen/blob/11cfa5d5e492411ef40cb137ddff314b4e6ade92/tweets.csv';
+
+/** @type {Quote[]} */
+export const expandedAnimeQuotes = [
+  {
+    id: 'slamdunk-tensai',
+    jp: '天才ですから',
+    reading: 'てんさいですから',
+    zh: '因為我是天才嘛。',
+    voice: 'tsumugi',
+    source: 'SLAM DUNK（桜木花道）',
+    note: '「ですから」以理由收尾，省略聽者可推知的結果；這裡表現自信。聽到「から」不一定還會接完整的後半句。',
+    referenceUrl: `${archive}#L18`,
+    referenceNote: '二手台詞紀錄；未核對動畫集數。',
+  },
+  {
+    id: 'eva-niku',
+    jp: '肉、嫌いだもの。',
+    reading: 'にく、きらいだもの。',
+    zh: '因為我不喜歡肉嘛。',
+    voice: 'miko',
+    source: '新世紀エヴァンゲリオン（綾波レイ）',
+    note: '「肉」後面省略表示對象的助詞；句尾「だもの」帶出理由或自己的感受，不能只把「もの」聽成「東西」。',
+    referenceUrl: `${archive}#L64`,
+    referenceNote: '二手台詞紀錄；未核對動畫集數。',
+  },
+  {
+    id: 'mononoke-ikirya',
+    jp: '生きてりゃなんとかなる！',
+    reading: 'いきてりゃ なんとかなる！',
+    zh: '只要還活著，總會有辦法！',
+    voice: 'nana',
+    source: 'もののけ姫（トキ）',
+    note: '「生きてりゃ」是「生きていれば」的口語縮約；「なんとかなる」表示總會有辦法。先聽出條件，再抓住樂觀的結論。',
+    referenceUrl: `${archive}#L13`,
+    referenceNote: '二手台詞紀錄；電影台詞。',
+  },
+  {
+    id: 'slamdunk-weapon',
+    jp: 'キミは秘密兵器だから',
+    reading: 'キミは ひみつへいきだから',
+    zh: '因為你是秘密武器啊。',
+    voice: 'sayo',
+    source: 'SLAM DUNK（安西先生）',
+    note: '「秘密兵器」字面是秘密武器，也能比喻還未亮相的王牌；這裡指人，不能只憑「兵器」就推斷場景在打仗。「だから」引出理由。',
+    referenceUrl: `${archive}#L214`,
+    referenceNote: '二手台詞紀錄；未核對動畫集數。',
+  },
+  {
+    id: 'higurashi-uso',
+    jp: '嘘だッ！！！',
+    reading: 'うそだッ！！！',
+    voice: 'hau',
+    zh: '騙人！！！',
+    source: 'ひぐらしのなく頃に（竜宮レナ）',
+    note: '「嘘だ」直接否定對方的話；小「ッ」和感嘆號標出急促強烈的語氣，不是多出一個詞。翻譯要保留指責或震驚的力道。',
+    referenceUrl: `${archive}#L113`,
+    referenceNote: '二手台詞紀錄；未核對動畫集數。',
+  },
+  {
+    id: 'gurren-abayo',
+    jp: 'あばよ、ダチ公。',
+    reading: 'あばよ、ダチこう。',
+    zh: '再見了，兄弟。',
+    voice: 'zundamon',
+    source: '天元突破グレンラガン（カミナ）',
+    note: '「あばよ」是隨性而粗獷的道別；「ダチ公」指朋友、哥兒們，語氣不等同正式的朋友稱呼。這句只表達道別，不靠台詞之外的劇情猜測作答。',
+    referenceUrl: `${archive}#L136`,
+    referenceNote: '二手台詞紀錄；未核對動畫集數。',
+  },
+  {
+    id: 'madoka-anything',
+    jp: '何だってかまわない。',
+    reading: 'なんだって かまわない。',
+    voice: 'chuugoku-usagi',
+    zh: '不管什麼都可以。',
+    source: '魔法少女まどか☆マギカ（インキュベーター）',
+    note: '「何だって」在這裡表示「不管什麼」，不是轉述別人說了什麼；「かまわない」表示不介意、可以接受。要把兩部分連起來理解。',
+    referenceUrl: `${archive}#L7`,
+    referenceNote: '節錄其中一個完整短句；二手台詞紀錄。',
+  },
+  {
+    id: 'madoka-rescue',
+    jp: '絶対にあなたを救ってみせる。',
+    reading: 'ぜったいに あなたを すくって みせる。',
+    zh: '我一定會救你，證明給你看。',
+    voice: 'zunko',
+    source: '魔法少女まどか☆マギカ（暁美ほむら）',
+    note: '「〜てみせる」表示要做到、證明給人看，帶強烈決心；不是單純把某個東西拿出來展示。「絶対に」加強一定要成功的承諾。',
+    referenceUrl: `${archive}#L54`,
+    referenceNote: '節錄其中一個完整短句；二手台詞紀錄。',
+  },
+  {
+    id: 'eureka-win',
+    jp: 'ねだるな、勝ち取れ！',
+    reading: 'ねだるな、かちとれ！',
+    zh: '別求著別人給你，自己爭取！',
+    voice: 'nana',
+    source: '交響詩篇エウレカセブン（レントン・サーストン）',
+    note: '動詞辭書形加「な」表示禁止；「勝ち取れ」是「勝ち取る」的命令形。這句把禁止與命令並排，聽懂兩種語尾才能掌握行動要求。',
+    referenceUrl: `${archive}#L138`,
+    referenceNote: '節錄第一個短句；二手台詞紀錄。',
+  },
+  {
+    id: 'madoka-promise',
+    jp: '約束するわ。',
+    reading: 'やくそくするわ。',
+    zh: '我向你保證。',
+    voice: 'miko',
+    source: '魔法少女まどか☆マギカ（暁美ほむら）',
+    note: '「約束する」是承諾、約定；句尾「わ」增添說話者的語氣，不是主題助詞「は」。角色語尾要與整句的承諾意思一起理解。',
+    referenceUrl: `${archive}#L54`,
+    referenceNote: '節錄其中一個完整短句；二手台詞紀錄。',
+  },
+].map((quote) => ({
+  ...quote,
+  audio: `audio/stage-2/quotes/quote-${contentHash(`quote|${quote.jp}|${quote.voice}`)}.mp3`,
+}));
