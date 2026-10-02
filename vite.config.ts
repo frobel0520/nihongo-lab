@@ -10,7 +10,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       devOptions: { enabled: true },
-      includeAssets: ['favicon.ico', 'apple-touch-icon-180x180.png'],
+      includeAssets: ['jinwoo-favicon.ico', 'jinwoo-apple-touch-icon-180x180.png'],
       manifest: {
         name: 'かなの日本語',
         short_name: 'かなの日本語',
@@ -21,14 +21,16 @@ export default defineConfig({
         background_color: '#f5f6f3',
         theme_color: '#f5f6f3',
         icons: [
-          { src: 'pwa-64x64.png', sizes: '64x64', type: 'image/png' },
-          { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },
-          { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png' },
-          { src: 'maskable-icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+          { src: 'jinwoo-pwa-64x64.png', sizes: '64x64', type: 'image/png' },
+          { src: 'jinwoo-pwa-192x192.png', sizes: '192x192', type: 'image/png' },
+          { src: 'jinwoo-pwa-512x512.png', sizes: '512x512', type: 'image/png' },
+          { src: 'jinwoo-maskable-icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        // 原始插畫只供圖示產生器使用，離線只需快取縮小後的圖示。
+        globIgnores: ['**/icon-source-jinwoo.png'],
         runtimeCaching: [
           {
             urlPattern: AUDIO_ROUTE_PATTERN,
