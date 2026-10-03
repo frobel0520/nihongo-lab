@@ -194,3 +194,23 @@ npm run check 通過（typecheck、198 tests 全數通過、lint）；VITE_BASE_
 npm run check 通過（typecheck、198 tests 全數通過、lint）；VITE_BASE_PATH=/nihongo-lab/ npm run build 通過（保留既有大型 chunk 警告）。Chromium 375×667 驗證八課共 73 個台詞區塊；新句播放前禁止作答，實際播放後可回答，顯示來源與二手整理標籤；名句頁 100 個條目、43 個來源連結，振假名顯示，pageerror 為 0。
 
 限制：二手名句整理不能等同官方台本；未核對原動畫配音、所有集數或時間碼，也沒有逐句人耳複核重音、情緒與語調。讀音 query 比對與 MP3 解碼不代表已能保證所有發音完全正確。Android 真機未測；T38 完整武器／技能詞彙包、語氣辨識題與跨句場景教材仍待完成。
+
+## 2026-10-03 正式站驗證（補驗 T22～T44 的未驗證項目）
+
+環境：正式站 https://frobel0520.github.io/nihongo-lab/（main 的 446e533，最近一次 Validate and deploy 成功）；內建瀏覽器 Chromium 模擬 375×812（Windows，不是 Android 真機，滑動用滑鼠拖曳，不是真實觸控事件）；全新瀏覽器設定檔，未登入 Google；本機同步到 446e533 後 `npm run check` 通過（198 tests 全過、lint 通過），沒有重跑 build，build 結果沿用 T44 紀錄。
+
+**正式站手機尺寸操作**：課程清單 35 課，第 1、3 階段顯示「即將推出」；單字卡「第 1 / 711 張」，滑鼠左拖下一張、右拖上一張，滑動不寫進度，顯示答案後按「記得」寫入 1 張（`nihongo-lab:progress:v1` 版本 2）；聽寫 795 句，選擇題模式，播放鍵固定在底部導覽列上方，按播放後 `gram-1-1.mp3` 實際播出（paused=false、currentTime 前進、無 error），選對顯示「答對了！」與中文，進度 1／795；名句頁 100 句、43 個來源連結、481 處振假名，設定頁正常；所有檢查過的頁面 `scrollWidth` 等於視窗寬 375，沒有橫向溢出。字型：`document.fonts` 為 0、沒有字型請求、沒有字型 `<link>`、字型堆疊 `system-ui, -apple-system, "Segoe UI", "Microsoft JhengHei", sans-serif`、字距 normal、課程標題粗細 600 一致。
+
+**清除快取（正式站、子路徑 `/nihongo-lab/`）**：設定頁「下載全部課程音檔」1,506／1,506 全部存入 `lesson-audio-v2`（約 2 分鐘，回應 200、`audio/mp3`）；按「清除快取並重新載入」→「確定清除」後：`lesson-audio-v2` 為 0 筆、`workbox-precache` 重建 18 筆、service worker 在 `https://frobel0520.github.io/nihongo-lab/` 重新註冊、active 並接管頁面；進度（單字卡 1、聽寫 1、版本 2）保留，畫面顯示「已清除快取並重新載入。學習進度都還在：單字卡 1 張、聽寫 1 句的紀錄。」。這補上 T22～T25 限制（1）「正式站子路徑下重新註冊 service worker 沒測」；離線時按鈕停用與清除失敗的路徑仍只有單元測試。
+
+**音檔機器檢查**（腳本：課程資料取出所有引用音檔，逐檔 ffmpeg 解碼並跑 volumedetect，再用 ffprobe 取時長）：引用 1,506＝磁碟上 1,506，缺檔 0、孤兒 0；解碼錯誤 0；平均音量低於 −45 dB 的靜音檔 0；最大音量達 0 dB 的爆音檔 0；小於 2KB 的檔 0；時長 0.36～5.88 秒；每個讀音字元 0.211±0.061 秒，超過 3 個標準差的 10 個為單一假名單字（し、ご、と、て、き、は、せ、に、え）與「うん、行く。」（1.6 秒，含標點停頓），沒有截斷或拖長的跡象。**這是機器檢查，不是人耳審聽**：重音、語調、情緒、斷句的自然度都沒有聽過，不能代替 progress.md 的「人耳審聽」待辦。
+
+**同步 Worker（正式 `https://nihongo-sync.curio-lab.workers.dev`，curl，TLS 驗證開啟）**：`GET /health` 200；沒有 session 的 `POST /sync` 401 `unauthorized`；垃圾憑證 `POST /auth`（`{"idToken":"x.y.z"}`）401 `invalid_token`；`Origin: https://evil.example` 403 `origin_not_allowed`；白名單來源的預檢 204，`Access-Control-Allow-Origin` 只有 `https://frobel0520.github.io`。**沒有驗證**：Google 登入端到端與已安裝 PWA 的登入彈窗（要本人操作，我不代為輸入帳密）；雲端 KV 的測試紀錄沒有清理（本機沒有 wrangler，且需要 Cloudflare 登入）。
+
+**PWA 資產**：`manifest.webmanifest`、64／192／512 圖示、maskable、Apple touch、favicon、`sw.js` 都回 200。512 與 maskable 的檔案大小相同（98,715 bytes），疑似同一張圖；Android 桌面圖示的實際裁切沒有驗證。
+
+**缺陷：動畫理解題的錯誤選項固定。** 重現：正式站 `#/lesson/anime-lesson-01`，連續幾題的選項都包含「一旦放棄，比賽就在那裡結束了。」與「你已經死了。」。資料確認：載入 `curriculum/lessons.mjs` 後，8 課共 73 題，錯誤選項組合只有 3 種，其中「一旦放棄，比賽就在那裡結束了。／你已經死了。」佔 70 題。原因：`curriculum/anime-training.mjs` 的 `clipFor` 用 `bank.filter(q => q.zh !== quote.zh)` 取題庫前兩句當干擾項（題庫前兩句剛好是這兩句），只有正確答案隨台詞變。影響：不聽音檔也能靠「每題都會變的那個選項」答對，「先盲聽」的設計失效，「理解 N/9」進度虛高。T37／T43／T44 的驗證只涵蓋「播放成功才能作答」，沒有檢查選項品質。**未修**；修法與重置通過紀錄的取捨見 progress.md「下一步」第 1 項。
+
+**其他發現**：設定頁清除快取的說明仍寫「清掉…字型」，T31 之後已沒有字型快取。
+
+**仍未驗證**：Android／iOS 真機（真實觸控滑動、已安裝 PWA、桌面圖示更新、軟鍵盤、邊緣返回手勢）；音檔人耳審聽；Google 登入同步端到端；「手機上同一行字粗細不一」是否已解決（從來沒重現過）；第 1、3 階段與 T38 尚未開發（第 1、3 階段頁面確認只有「即將推出」，8 堂特訓的 73 題只有「意思」一種題型）。
