@@ -152,6 +152,67 @@ const coursePlan = [
   },
 ];
 
+/** 台詞所屬作品（source 括號前的部分）。 @param {Quote} quote */
+const workOf = (quote) => quote.source.split('（')[0];
+
+/**
+ * 兩句中文意思太像時不放在同一題當選項（雙字組 Dice 係數）。
+ * @param {string} a
+ * @param {string} b
+ */
+function similar(a, b) {
+  /** @param {string} text */
+  const grams = (text) => {
+    const clean = text.replace(/[\s，。！？、「」『』…～]/g, '');
+    const set = new Set();
+    for (let i = 0; i < clean.length - 1; i++) set.add(clean.slice(i, i + 2));
+    return set;
+  };
+  const left = grams(a);
+  const right = grams(b);
+  if (!left.size || !right.size) return false;
+  let common = 0;
+  for (const gram of left) if (right.has(gram)) common++;
+  return (2 * common) / (left.size + right.size) >= 0.4;
+}
+
+/**
+ * 錯誤選項沿用已查證教材的翻譯，不新增假台詞。
+ * 每題的錯誤選項依「正確台詞」的內容雜湊挑選，各題不同；不然每題都出現同樣兩個錯誤答案，
+ * 不聽音檔、只選「每題都會變的那個」就能答對。優先挑不同作品、彼此不同作品、意思不相近的台詞，
+ * 不夠才放寬作品限制。順序只由台詞內容決定，所以每次建置結果相同（作答紀錄 id 含選項內容，不能變動）。
+ * @param {Quote[]} bank
+ * @param {Quote} quote
+ * @param {number} [count]
+ * @returns {string[]}
+ */
+export function pickDistractors(bank, quote, count = 2) {
+  const ranked = bank
+    .filter((q) => q.zh !== quote.zh)
+    .map((q) => ({ q, rank: contentHash(`${quote.jp}|${q.jp}`) }))
+    .sort((a, b) => (a.rank < b.rank ? -1 : a.rank > b.rank ? 1 : 0))
+    .map(({ q }) => q);
+  /** @type {Quote[]} */
+  const picked = [];
+  /** @param {Quote} q @param {boolean} strict */
+  const acceptable = (q, strict) => {
+    if (picked.some((p) => p.zh === q.zh || similar(p.zh, q.zh))) return false;
+    if (similar(quote.zh, q.zh)) return false;
+    if (!strict) return true;
+    return (
+      workOf(q) !== workOf(quote) && !picked.some((p) => workOf(p) === workOf(q))
+    );
+  };
+  for (const strict of [true, false]) {
+    for (const q of ranked) {
+      if (picked.length === count) break;
+      if (acceptable(q, strict)) picked.push(q);
+    }
+  }
+  if (picked.length !== count) throw new Error('動畫練習缺少不同意思的選項');
+  return picked.map((q) => q.zh);
+}
+
 /** @param {Quote[]} bank @returns {Lesson[]} */
 export function buildAnimeLessons(bank) {
   /** @param {string} key @returns {ListeningClip} */
@@ -163,11 +224,7 @@ export function buildAnimeLessons(bank) {
       quote?.referenceUrl ??
       references[/** @type {keyof typeof references} */ (key)];
     if (!quote || !referenceUrl) throw new Error(`動畫教材來源缺失：${key}`);
-    // 選項沿用已查證教材的翻譯，不新增假台詞；三個意思必須不同。
-    const distractors = [
-      ...new Set(bank.filter((q) => q.zh !== quote.zh).map((q) => q.zh)),
-    ].slice(0, 2);
-    if (distractors.length !== 2) throw new Error('動畫練習缺少不同意思的選項');
+    const distractors = pickDistractors(bank, quote);
     const answer = Number.parseInt(contentHash(quote.jp).slice(0, 2), 16) % 3;
     const options = [...distractors];
     options.splice(answer, 0, quote.zh);

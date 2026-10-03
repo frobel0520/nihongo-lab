@@ -209,8 +209,16 @@ npm run check 通過（typecheck、198 tests 全數通過、lint）；VITE_BASE_
 
 **PWA 資產**：`manifest.webmanifest`、64／192／512 圖示、maskable、Apple touch、favicon、`sw.js` 都回 200。512 與 maskable 的檔案大小相同（98,715 bytes），疑似同一張圖；Android 桌面圖示的實際裁切沒有驗證。
 
-**缺陷：動畫理解題的錯誤選項固定。** 重現：正式站 `#/lesson/anime-lesson-01`，連續幾題的選項都包含「一旦放棄，比賽就在那裡結束了。」與「你已經死了。」。資料確認：載入 `curriculum/lessons.mjs` 後，8 課共 73 題，錯誤選項組合只有 3 種，其中「一旦放棄，比賽就在那裡結束了。／你已經死了。」佔 70 題。原因：`curriculum/anime-training.mjs` 的 `clipFor` 用 `bank.filter(q => q.zh !== quote.zh)` 取題庫前兩句當干擾項（題庫前兩句剛好是這兩句），只有正確答案隨台詞變。影響：不聽音檔也能靠「每題都會變的那個選項」答對，「先盲聽」的設計失效，「理解 N/9」進度虛高。T37／T43／T44 的驗證只涵蓋「播放成功才能作答」，沒有檢查選項品質。**未修**；修法與重置通過紀錄的取捨見 progress.md「下一步」第 1 項。
+**缺陷：動畫理解題的錯誤選項固定。** 重現：正式站 `#/lesson/anime-lesson-01`，連續幾題的選項都包含「一旦放棄，比賽就在那裡結束了。」與「你已經死了。」。資料確認：載入 `curriculum/lessons.mjs` 後，8 課共 73 題，錯誤選項組合只有 3 種，其中「一旦放棄，比賽就在那裡結束了。／你已經死了。」佔 70 題。原因：`curriculum/anime-training.mjs` 的 `clipFor` 用 `bank.filter(q => q.zh !== quote.zh)` 取題庫前兩句當干擾項（題庫前兩句剛好是這兩句），只有正確答案隨台詞變。影響：不聽音檔也能靠「每題都會變的那個選項」答對，「先盲聽」的設計失效，「理解 N/9」進度虛高。T37／T43／T44 的驗證只涵蓋「播放成功才能作答」，沒有檢查選項品質。**已在同日修正（未部署）**：`curriculum/anime-training.mjs` 新增 `pickDistractors`，錯誤選項依正確台詞的內容雜湊挑選、各題不同，優先不同作品且彼此不同作品、中文意思不相近（雙字組 Dice < 0.4），不夠才放寬作品限制。修正後 73 題的錯誤選項有 67 種組合、同一錯誤選項最多出現 5 題（修前 3 種、70 題）、正確答案位置 24／20／29。`tests/anime-training.test.mjs` 新增 2 項（組合夠多且不集中、`pickDistractors` 結果固定且優先不同作品）；`npm run check` 通過（208 tests）、build 通過；本機開發版：作答前選項鎖住、播放後解鎖、選錯顯示「這次沒有答對」與原文解說。**取捨**：`listeningRecordId` 含選項內容，既有 73 題「理解」通過紀錄全部重置（舊紀錄留在存檔、不計入），因為舊的通過靠消去法也拿得到。**限制**：沒有人工逐題檢查是否有「兩個選項都像對」的歧義，只用相似度門檻擋明顯相近的。
 
 **其他發現**：設定頁清除快取的說明仍寫「清掉…字型」，T31 之後已沒有字型快取。
 
 **仍未驗證**：Android／iOS 真機（真實觸控滑動、已安裝 PWA、桌面圖示更新、軟鍵盤、邊緣返回手勢）；音檔人耳審聽；Google 登入同步端到端；「手機上同一行字粗細不一」是否已解決（從來沒重現過）；第 1、3 階段與 T38 尚未開發（第 1、3 階段頁面確認只有「即將推出」，8 堂特訓的 73 題只有「意思」一種題型）。
+
+## 2026-10-03 音檔快速切換無法播放（使用者回報）
+
+回報：Android 上音檔之間切換太快會放不出來，要重新整理才恢復。
+
+**重現（正式站，桌面 Chromium）**：課程頁連續快速點多個播放鈕，被下一次點擊打斷的 `play()` 以 `AbortError` 拒絕，舊的 `LinePlay` 把任何拒絕都當成「音檔無法播放」，前面的鈕變成 ⚠。再點一次可恢復。**沒有在桌機重現出真正卡死**：課程頁每次 27～54 次快速連點、單字卡快速換張 300 次、聽寫快速換句 40 次，之後都能正常播放；音檔在快取裡與不在快取裡都試過。Android 的確切卡法沒有確認，推測路徑是「載入失敗過的 `<audio>` 之後每次 `play()` 都被拒絕，直到 `load()`」加上上述誤判；另實測換 `src` 時瀏覽器只送 `play,abort,emptied,loadstart`、不送 `pause`，React 狀態可能與元素實際狀態不同。
+
+**修正（未部署）**：`lib/playback.mjs`（`playFromStart`、`isPlayInterruption`）、`app/lib/playback.ts`、`app/components/AudioLine.tsx`（`LinePlay`、`PlayButton`）：被打斷不算失敗；元素帶著錯誤或第一次播放失敗時 `load()` 後重試一次；已有更新的播放請求時不重試；以 `el.paused` 判斷播放或停止；`emptied` 事件重設播放狀態。`tests/playback.test.mjs` 8 項。`npm run check` 通過（typecheck、206 tests 全過、lint）。本機開發版：同樣的連點不再出現假 ⚠；模擬 `play()` 第一次失敗會 `load()` 後重試成功、持續失敗才顯示 ⚠、恢復後按一次就能播；單字卡與聽寫的快速換張、連按播放／停止／播放都正常。**限制**：Android 上沒有驗證；`ShadowingView` 有自己的播放邏輯（已忽略 `AbortError`），沒有改。`VITE_BASE_PATH=/nihongo-lab/ npm run build` 通過（PWA precache 24 項）。
