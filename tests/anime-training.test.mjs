@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
 import { stages } from '../curriculum/lessons.mjs';
+import { pickDistractors } from '../curriculum/anime-training.mjs';
 import {
   checkListeningChoice,
   listeningRecordId,
@@ -58,6 +59,50 @@ test('八課使用有來源的共用動畫台詞與實際音檔，對照台詞�
     for (const clip of training.review)
       assert.ok(!taught.has(clip.quote.audio));
   }
+});
+
+const questions = courses
+  .flatMap((lesson) => trainingClips(lesson.training))
+  .flatMap((clip) => clip.questions.map((question) => ({ clip, question })));
+const wrongOptions = (question) =>
+  question.options.filter((_, i) => i !== question.answer);
+const workOf = (quote) => quote.source.split('（')[0];
+
+test('錯誤選項依台詞而異：不是每題都出現同樣的兩個，不聽音檔無法靠消去法答對', () => {
+  assert.ok(questions.length >= 60);
+  const pairs = new Set(
+    questions.map(({ question }) => wrongOptions(question).sort().join('／')),
+  );
+  assert.ok(
+    pairs.size >= questions.length * 0.9,
+    `錯誤選項組合只有 ${pairs.size} 種（共 ${questions.length} 題）`,
+  );
+  const counts = new Map();
+  for (const { question } of questions)
+    for (const option of wrongOptions(question))
+      counts.set(option, (counts.get(option) ?? 0) + 1);
+  const [mostUsed, times] = [...counts.entries()].sort((a, b) => b[1] - a[1])[0];
+  assert.ok(
+    times <= questions.length * 0.15,
+    `「${mostUsed}」在 ${times}／${questions.length} 題都是錯誤選項`,
+  );
+});
+
+test('pickDistractors：結果固定、兩個錯誤選項意思不同且不是正確答案，優先挑不同作品', () => {
+  let sameWork = 0;
+  for (const { clip, question } of questions) {
+    const wrong = wrongOptions(question);
+    assert.equal(wrong.length, 2);
+    assert.notEqual(wrong[0], wrong[1]);
+    assert.ok(!wrong.includes(clip.quote.zh));
+    assert.deepEqual(pickDistractors(bank, clip.quote), wrong);
+    for (const zh of wrong) {
+      const owners = bank.filter((q) => q.zh === zh);
+      assert.ok(owners.length >= 1, '錯誤選項必須是共用句庫裡已有的翻譯');
+      if (owners.every((q) => workOf(q) === workOf(clip.quote))) sameWork++;
+    }
+  }
+  assert.equal(sameWork, 0, '句庫夠大時，錯誤選項不該和正確台詞同一部作品');
 });
 
 test('特訓進度與聽寫分離；題目改版後舊的通過紀錄不計入新題目', () => {
