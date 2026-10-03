@@ -1,0 +1,100 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #24312c;
+  background: #f5f6f3;
+  line-height: 1.6;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 24px 18px 40px;
+}
+a {
+  color: #176854;
+}
+h1 {
+  margin-bottom: 8px;
+  font-size: 1.8rem;
+}
+h2 {
+  font-size: 1.3rem;
+}
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+section {
+  scroll-margin-top: 16px;
+}
+.sample-panel,
+.voice {
+  background: white;
+  border: 1px solid #dce3dd;
+  border-radius: 14px;
+  padding: 16px;
+}
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+select {
+  width: 100%;
+  min-height: 44px;
+  font: inherit;
+  border: 1px solid #bac9c1;
+  border-radius: 8px;
+  background: white;
+  padding: 8px;
+}
+#sentence {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+#reading,
+#focus,
+#source {
+  margin: 6px 0;
+}
+.muted,
+footer {
+  color: #52675c;
+  font-size: 0.9rem;
+}
+.voices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(270px, 100%), 1fr));
+  gap: 12px;
+}
+.voice h3 {
+  font-size: 1.1rem;
+  margin: 0 0 4px;
+}
+.voice p {
+  margin: 4px 0 10px;
+}
+audio {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+}
+.credit {
+  font-size: 0.8rem;
+  color: #52675c;
+  margin-top: 10px !important;
+}
+footer {
+  margin-top: 28px;
+}
+#status:empty {
+  display: none;
+}
