@@ -897,6 +897,77 @@ const quotes = {
   ],
 };
 
+// T47：歷史音檔 URL 也是進度 id，換聲線時沿用 URL 並升版音檔快取。
+// 原始課程槽位維持穩定；只有這個公開入口輸出使用者保留的七位聲線。
+const voiceReplacements = {
+  zundamon: 'tsumugi',
+  miko: 'hau',
+  nana: 'zunko',
+  'chuugoku-usagi': 'sayo',
+};
+/** @param {Line | VocabItem | Quote} line */
+function selectVoice(line) {
+  line.voice =
+    voiceReplacements[
+      /** @type {keyof typeof voiceReplacements} */ (line.voice)
+    ] ?? line.voice;
+}
+for (const lesson of [
+  day1,
+  day2,
+  day3,
+  day4,
+  day5,
+  day6,
+  day7,
+  day8,
+  day9,
+  day10,
+  day11,
+  day12,
+  day13,
+  day14,
+  day15,
+  day16,
+  day17,
+  day18,
+  day19,
+  day20,
+  day21,
+  day22,
+  day23,
+  day24,
+  day25,
+  spoken,
+  quotes,
+]) {
+  const dialogueVoices = lesson.dialogue.map(line => line.voice);
+  for (const line of [
+    ...lesson.vocab,
+    ...lesson.grammar.flatMap((g) => g.examples),
+    ...lesson.dialogue,
+    ...(lesson.quotes ?? []),
+  ])
+    selectVoice(line);
+  // 被淘汰的聲線若原本與其替代聲線同場，保留兩位不同說話者。
+  if (new Set(dialogueVoices).size > 1 && new Set(lesson.dialogue.map(line => line.voice)).size === 1) {
+    lesson.dialogue.forEach((line, i) => {
+      if (dialogueVoices[i] in voiceReplacements) line.voice = 'neko-vy';
+    });
+  }
+}
+// 男聲僅用於名句；幼年、吉祥物、多人與未指定說話者的句子保留女聲。
+const maleCharacters =
+  /安西先生|ケンシロウ|碇シンジ|ルフィ|夜神月|うずまきナルト|煉獄杏寿郎|岸辺露伴|空条承太郎|DIO|羽山秋人|キョン|ギルベルト|花子くん|水篠旬|エルヴィン|エレン|五条悟|オールマイト|緑谷出久|シャア|孫悟空|ムスカ|王様|桜木花道|カミナ|レントン|アイゼン|ザイン|デンケン|リヴァイ|ミケ|ナイトアイ|相澤消太|トゥワイス|エンデヴァー|ランバ・ラル|ジオン兵|ブチャラティ|スピードワゴン|ラオウ/;
+const commandingCharacters =
+  /安西先生|ケンシロウ|煉獄杏寿郎|空条承太郎|DIO|エルヴィン|オールマイト|シャア|ムスカ|王様|カミナ|アイゼン|デンケン|相澤消太|エンデヴァー|ランバ・ラル|ラオウ/;
+for (const quote of quotes.quotes ?? []) {
+  if (maleCharacters.test(quote.source))
+    quote.voice = commandingCharacters.test(quote.source)
+      ? 'ryusei'
+      : 'takehiro';
+}
+
 /** @type {Stage[]} */
 export const stages = [
   { id: 'stage-0', title: '第 0 階段：N5 復健', lessons: [day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11, day12, day13, day14, day15, day16, day17, day18, day19, day20, day21, day22, day23, day24, day25] },
