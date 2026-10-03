@@ -1,0 +1,28 @@
+[
+  {
+    "id": "rain",
+    "text": "明日は雨が降ります。",
+    "reading": "あしたは あめが ふります。",
+    "note": "保留「雨」的 1 型重音，避免整句改成假名後變平板。",
+    "before": "comparisons/rain-before.mp3",
+    "after": "comparisons/rain-after.mp3"
+  },
+  {
+    "id": "ototoshi",
+    "text": "一昨年",
+    "reading": "おととし",
+    "note": "不再拆成「オト／トシ」，採用おととし 2 型。",
+    "before": "comparisons/ototoshi-before.mp3",
+    "after": "comparisons/ototoshi-after.mp3"
+  },
+  {
+    "id": "time",
+    "text": "時よ止まれ!",
+    "reading": "ときよ とまれ!",
+    "note": "指定とき的讀音與 2 型重音，保留止まれ的原文解析。",
+    "before": "comparisons/time-before.mp3",
+    "after": "comparisons/time-after.mp3",
+    "source": "ジョジョの奇妙な冒険（DIO）",
+    "referenceUrl": "https://news.mynavi.jp/article/20220512-2339271/"
+  }
+]

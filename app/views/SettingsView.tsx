@@ -63,7 +63,9 @@ export function SettingsView({
         <label className="switch-row">
           <span>
             漢字上方標讀音（ふりがな）
-            <small className="muted">課文、文法說明、練習題、跟讀、聽寫答案都會標在漢字上方</small>
+            <small className="muted">
+              課文、文法說明、練習題、跟讀、聽寫答案都會標在漢字上方
+            </small>
           </span>
           <input
             type="checkbox"
@@ -75,6 +77,26 @@ export function SettingsView({
       </section>
 
       <SyncPanel sync={sync} />
+
+      <section className="card">
+        <h3>配音與語調</h3>
+        <p>
+          <a href={`${import.meta.env.BASE_URL}voice-preview/index.html`}>
+            比較重音修正前後、九種聲音與三個男聲候選
+          </a>
+        </p>
+        <p className="muted">
+          單字重音參考{' '}
+          <a
+            href="https://github.com/mifunetoshiro/kanjium"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Kanjium（Uros O.）
+          </a>
+          ，重音資料依 CC BY-SA 4.0 提供。
+        </p>
+      </section>
 
       <ProgressTransfer progress={progress} update={update} />
 

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>配音與語調比較｜かなの日本語</title>
+    <link rel="stylesheet" href="preview.css" />
+    <script src="preview.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <a href="../">← 回到教材</a>
+      <h1>配音與語調比較</h1>
+      <p>
+        同一句，換不同角色。先聽重音下降的位置、句子停頓與句尾，再決定要保留哪些聲音。
+      </p>
+      <p class="muted">
+        九種現役聲線與三個男聲候選。這裡的試聽不會變更教材配音；清晰度尚待你的聽感確認。
+      </p>
+      <nav aria-label="比較分組">
+        <a href="#corrections">重音修正前後</a
+        ><a href="#current">九種現役聲音</a><a href="#male">三個男聲候選</a>
+      </nav>
+      <section id="corrections">
+        <h2>重音修正前後</h2>
+        <p>
+          同一角色、同一句子。先聽兩版的差別；修正以標準重音為參考，並非模仿動畫原配音。
+        </p>
+        <div id="comparison-cards" class="voices"></div>
+      </section>
+      <section class="sample-panel" aria-label="比較用句子">
+        <label for="sample">比較句子</label>
+        <select id="sample" disabled></select>
+        <p id="sentence" lang="ja"></p>
+        <p id="reading" lang="ja" class="muted"></p>
+        <p id="focus"></p>
+        <p id="source" class="muted"></p>
+      </section>
+      <p id="status" role="status">載入試聽資料中…</p>
+      <section id="current">
+        <h2>九種現役聲音</h2>
+        <p>建議用同一副耳機、固定音量比較。聽不清楚時，記下角色與句子。</p>
+        <div id="current-voices" class="voices"></div>
+      </section>
+      <section id="male">
+        <h2>三個男聲候選</h2>
+        <p>先以一般語氣試聽；角色用途是選角建議，請依實際聲音決定。</p>
+        <div id="male-voices" class="voices"></div>
+      </section>
+      <footer>
+        <p>
+          單字重音參考
+          <a href="https://github.com/mifunetoshiro/kanjium"
+            >Kanjium（Uros O.）</a
+          >，重音資料依
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >CC BY-SA 4.0</a
+          >
+          提供。
+        </p>
+        <p>
+          前三句是自撰比較句，並非動畫台詞；第四句附二手整理來源。試聽需連線，各角色使用原有預設語速。
+        </p>
+        <p>VOICEVOX 自製音檔；每張卡片附角色署名。</p>
+      </footer>
+    </main>
+  </body>
+</html>
