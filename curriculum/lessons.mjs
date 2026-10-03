@@ -898,7 +898,7 @@ const quotes = {
 };
 
 // T47：歷史音檔 URL 也是進度 id，換聲線時沿用 URL 並升版音檔快取。
-// 原始課程槽位維持穩定；只有這個公開入口輸出使用者保留的七位聲線。
+// 原始課程槽位維持穩定；只有這個公開入口輸出使用者保留的八位聲線。
 const voiceReplacements = {
   zundamon: 'tsumugi',
   miko: 'hau',
@@ -961,11 +961,15 @@ const maleCharacters =
   /安西先生|ケンシロウ|碇シンジ|ルフィ|夜神月|うずまきナルト|煉獄杏寿郎|岸辺露伴|空条承太郎|DIO|羽山秋人|キョン|ギルベルト|花子くん|水篠旬|エルヴィン|エレン|五条悟|オールマイト|緑谷出久|シャア|孫悟空|ムスカ|王様|桜木花道|カミナ|レントン|アイゼン|ザイン|デンケン|リヴァイ|ミケ|ナイトアイ|相澤消太|トゥワイス|エンデヴァー|ランバ・ラル|ジオン兵|ブチャラティ|スピードワゴン|ラオウ/;
 const commandingCharacters =
   /安西先生|ケンシロウ|煉獄杏寿郎|空条承太郎|DIO|エルヴィン|オールマイト|シャア|ムスカ|王様|カミナ|アイゼン|デンケン|相澤消太|エンデヴァー|ランバ・ラル|ラオウ/;
+// T48：同一角色固定同一位配音；這是教學編排，不模仿原作表演。
+const reflectiveCharacters = /夜神月|羽山秋人|キョン|ギルベルト|水篠旬|五条悟|リヴァイ/;
 for (const quote of quotes.quotes ?? []) {
   if (maleCharacters.test(quote.source))
     quote.voice = commandingCharacters.test(quote.source)
       ? 'ryusei'
-      : 'takehiro';
+      : reflectiveCharacters.test(quote.source)
+        ? 'saehaku'
+        : 'nemo2';
 }
 
 /** @type {Stage[]} */

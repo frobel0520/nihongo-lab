@@ -80,7 +80,7 @@ async function init() {
       });
       const credit = document.createElement('p');
       credit.className = 'credit';
-      credit.textContent = 'VOICEVOX:' + voice.name;
+      credit.textContent = voice.credit ?? 'VOICEVOX:' + voice.name;
       card.append(title, detail, audio, error, credit);
       document
         .getElementById(voice.candidate ? 'male-voices' : 'current-voices')
