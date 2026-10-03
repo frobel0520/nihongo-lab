@@ -82,11 +82,13 @@ export function SettingsView({
       <section className="card">
         <h3>配音與語調</h3>
         <p className="muted" lang="ja">
-          {voices.map((voice) => `VOICEVOX:${voice.name}`).join('、')}
+          {voices
+            .map((voice) => voice.credit ?? `VOICEVOX:${voice.name}`)
+            .join('、')}
         </p>
         <p>
           <a href={`${import.meta.env.BASE_URL}voice-preview/index.html`}>
-            試聽五位原有角色、兩位男聲與重音修正比較
+            試聽五位原有角色、三位男聲與重音修正比較
           </a>
         </p>
         <p className="muted">

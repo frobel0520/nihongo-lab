@@ -4,7 +4,7 @@
  * 產生教材語音前，VOICEVOX.exe 或 vv-engine/run.exe 需在本機跑在 127.0.0.1:50021。
  */
 
-/** @typedef {{ key: string, name: string, speakerId: number, style: string, note: string }} Voice */
+/** @typedef {{ key: string, name: string, speakerId: number, style: string, note: string, credit?: string }} Voice */
 
 /** @type {Voice[]} */
 export const voices = [
@@ -44,18 +44,26 @@ export const voices = [
     note: '經典萌系少女聲',
   },
   {
-    key: 'takehiro',
-    name: '玄野武宏',
-    speakerId: 11,
-    style: 'ノーマル',
-    note: '動畫男性角色、一般對話',
-  },
-  {
     key: 'ryusei',
     name: '青山龍星',
     speakerId: 13,
     style: 'ノーマル',
     note: '動畫男性角色、戰鬥宣言',
+  },
+  {
+    key: 'saehaku',
+    name: '黒沢冴白',
+    speakerId: 100,
+    style: 'ノーマル',
+    note: '動畫冷靜角色、說明與思考',
+  },
+  {
+    key: 'nemo2',
+    name: 'Nemo 男声2',
+    speakerId: 10000,
+    style: 'ノーマル',
+    note: '動畫少年角色、一般對話',
+    credit: 'VOICEVOX Nemo',
   },
 ];
 

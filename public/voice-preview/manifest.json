@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "date": "2026-10-03",
   "samples": [
     {
@@ -241,48 +241,6 @@
       ]
     },
     {
-      "key": "takehiro",
-      "name": "玄野武宏",
-      "speakerId": 11,
-      "style": "ノーマル",
-      "note": "已採用・主角對話、一般台詞",
-      "candidate": true,
-      "recordings": [
-        {
-          "sample": "sibilants",
-          "audio": "samples/takehiro-sibilants-eb2eae0f4bf2.mp3",
-          "moras": 18,
-          "articulationSeconds": 2.0279081910000003,
-          "morasPerSecond": 8.876141474197535,
-          "querySha256": "246f197464ec42cf6367a136cc52ce4f679c1b1b055e930f0dd119b000e11649"
-        },
-        {
-          "sample": "gemination",
-          "audio": "samples/takehiro-gemination-1e3d12b20552.mp3",
-          "moras": 18,
-          "articulationSeconds": 1.9802000120000003,
-          "morasPerSecond": 9.0899908549238,
-          "querySha256": "92d62509cd67f92d5289fc30806fcd624957c01e382e02433a214d0a783c3bc9"
-        },
-        {
-          "sample": "battle",
-          "audio": "samples/takehiro-battle-4eb881998575.mp3",
-          "moras": 20,
-          "articulationSeconds": 2.220149716,
-          "morasPerSecond": 9.008401485659087,
-          "querySha256": "88ed17ec32e7e122b869b52e493eaf16e30c9f50db08190247a2c4519f7323da"
-        },
-        {
-          "sample": "quote",
-          "audio": "samples/takehiro-quote-3c488856823e.mp3",
-          "moras": 3,
-          "articulationSeconds": 0.42035774800000003,
-          "morasPerSecond": 7.136778171149589,
-          "querySha256": "4b022380edb5bd738d736181ad9570aa0d844d4f9d189651ce4acc2f53b68640"
-        }
-      ]
-    },
-    {
       "key": "ryusei",
       "name": "青山龍星",
       "speakerId": 13,
@@ -321,6 +279,91 @@
           "articulationSeconds": 0.536874788,
           "morasPerSecond": 5.587895105254971,
           "querySha256": "050ac12b78616295c7dcfbc998ae99ff19870719b372367bb2a3d591d9d3a164"
+        }
+      ]
+    },
+    {
+      "key": "saehaku",
+      "name": "黒沢冴白",
+      "speakerId": 100,
+      "style": "ノーマル",
+      "note": "已採用・動畫冷靜角色、說明與思考",
+      "candidate": true,
+      "recordings": [
+        {
+          "sample": "sibilants",
+          "audio": "samples/saehaku-sibilants-61e59224fd59.mp3",
+          "moras": 18,
+          "articulationSeconds": 2.536435525,
+          "morasPerSecond": 7.096573054030222,
+          "querySha256": "61e59224fd591a3ab52ff3126822bc86a70e8791b805afd59af43513bb41747b"
+        },
+        {
+          "sample": "gemination",
+          "audio": "samples/saehaku-gemination-a65133b1694c.mp3",
+          "moras": 18,
+          "articulationSeconds": 2.6187313660000004,
+          "morasPerSecond": 6.873557262765072,
+          "querySha256": "a65133b1694c57110aa000746f5a060f543335cfb99d652b03f209f23c998c85"
+        },
+        {
+          "sample": "battle",
+          "audio": "samples/saehaku-battle-332092573b61.mp3",
+          "moras": 20,
+          "articulationSeconds": 2.893045398,
+          "morasPerSecond": 6.9131303690658505,
+          "querySha256": "332092573b616e49e64857ef8c6a75ceb42797ea62f1412a78fdae136d762d30"
+        },
+        {
+          "sample": "quote",
+          "audio": "samples/saehaku-quote-f3fd29d19fe0.mp3",
+          "moras": 3,
+          "articulationSeconds": 0.609515892,
+          "morasPerSecond": 4.921938934448653,
+          "querySha256": "f3fd29d19fe051a3dea978f348702527395e31de9c40c3e4c67574cfbce4c63e"
+        }
+      ]
+    },
+    {
+      "key": "nemo2",
+      "name": "Nemo 男声2",
+      "speakerId": 10000,
+      "style": "ノーマル",
+      "note": "已採用・動畫少年角色、一般對話",
+      "credit": "VOICEVOX Nemo",
+      "candidate": true,
+      "recordings": [
+        {
+          "sample": "sibilants",
+          "audio": "samples/nemo2-sibilants-c0b0d868e98a.mp3",
+          "moras": 18,
+          "articulationSeconds": 2.294544677,
+          "morasPerSecond": 7.84469362502633,
+          "querySha256": "c0b0d868e98a86a75be1b73dbddc38548152f7d32d9eb830ca56be8f8ed9f4cb"
+        },
+        {
+          "sample": "gemination",
+          "audio": "samples/nemo2-gemination-7957ea14d9f5.mp3",
+          "moras": 18,
+          "articulationSeconds": 2.0248012629999996,
+          "morasPerSecond": 8.889761345432351,
+          "querySha256": "7957ea14d9f5b2a49e96fc8c241e4170788772ae2a9e650d41b2687c3ded5788"
+        },
+        {
+          "sample": "battle",
+          "audio": "samples/nemo2-battle-e2e21a6c8ea9.mp3",
+          "moras": 20,
+          "articulationSeconds": 2.2995844150000004,
+          "morasPerSecond": 8.697223667694754,
+          "querySha256": "e2e21a6c8ea9cdf8b46b23aa94af410be2609d2a30782c178fcc48cdd35441e2"
+        },
+        {
+          "sample": "quote",
+          "audio": "samples/nemo2-quote-f819ce5071f2.mp3",
+          "moras": 3,
+          "articulationSeconds": 0.503667236,
+          "morasPerSecond": 5.956313584789145,
+          "querySha256": "f819ce5071f28ed323f0fb92b00cc7fa44e98d7ead3ca7622006b73082536d7d"
         }
       ]
     }

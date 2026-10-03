@@ -10,7 +10,7 @@ Vite / React + TypeScript，本機瀏覽器執行，local-first。目前無後�
 - `lib/`：無 DOM 的純邏輯，用 `.mjs` + JSDoc 型別，讓 `node --test` 直接測、TypeScript 也能匯入。`srs.mjs`（SM-2 簡化版排程、單字卡與每日佇列）、`srs-session.mjs`（一輪複習的流程：上一張／下一張、評分後跳到哪一張、回頭改評分）、`dictation.mjs`（聽寫句子清單、逐字比對）、`progress.mjs`（進度資料形狀、解析驗證、聽寫紀錄）、`shadowing.mjs`（跟讀留白長度）。
 - `app/lib/storage.ts`、`app/useProgress.ts`：`localStorage` 讀寫（key `nihongo-lab:progress:v1`）與 React 狀態；存檔壞掉時原文備份到 `…:backup` 並提示，寫入失敗時畫面顯示訊息但仍可繼續學習。
 - `curriculum/lessons.mjs`：學習階段與課程資料的單一來源，目前第 0 階段有 25 課、第 2 階段有 10 課（八課動畫特訓、口語轉換表、動畫與遊戲名句），第 1、3 階段仍是空的（`lessons: []`）。
-- `curriculum/voices.mjs`：教材語音角色陣容，對應本機 VOICEVOX 引擎（127.0.0.1:50021）的 speaker id。2026-10-03 選角後保留 7 個角色：春日部つむぎ、雨晴はう、小夜/SAYO、猫使ビィ、東北ずん子、玄野武宏、青山龍星。
+- `curriculum/voices.mjs`：教材語音角色陣容，對應本機 VOICEVOX 引擎（127.0.0.1:50021）的 speaker id。2026-10-03 最終選角後保留 8 個角色：春日部つむぎ、雨晴はう、小夜/SAYO、猫使ビィ、東北ずん子、青山龍星、黒沢冴白、VOICEVOX Nemo 男声2。
 - `scripts/synthesize.mjs`：呼叫 VOICEVOX 引擎產生 wav、再用 ffmpeg 轉 96kbps mp3 的教材語音產生腳本；只在本機產生教材時用，不是網站執行期依賴。已用 ずんだもん 實測一句，輸出 50KB mp3，音質正常。
 - `tests/curriculum.test.mjs`：驗證 curriculum 資料結構契約。
 
@@ -175,3 +175,6 @@ T46 首次試聽版本：教材 MP3 路徑保持不變，離線快取更新為 `
 ## 配音選角與穩定進度（T47）
 
 `voices.mjs` 的可合成陣容為五位原有角色與兩位男聲。`lessonVoiceKeys` 是歷史九槽位，供 author 與既有句庫編排維持原始內容雜湊；它不代表可合成角色，CLI 的 getVoice 只允許現役七聲線。公開入口 lessons.mjs 在建立動畫特訓前將淘汰聲線映射至保留角色，再將 60 句明確男性角色台詞分配給玄野武宏／青山龍星。由此保留既有音檔 URL、SRS／聽寫／理解題紀錄；這次同 URL 改配音必須升版音檔快取至 lesson-audio-v4。既有 81 筆重音覆寫仍綁定相同 URL。試聽頁改列七位保留角色；三組修正前後音檔屬歷史記錄，可能使用已淘汰聲線，不是教材配音。
+
+
+2026-10-03 T48：使用者依試聽檔名定案動畫名句三男聲為青山龍星、黒沢冴白、VOICEVOX Nemo 男声2。原有教材與女性角色配音維持，32 句男聲名句重製，同一角色固定聲線；教材與學習進度 URL 保留，離線音檔快取升至 lesson-audio-v5，需重新下載。三男聲已採用的名句數為 28／12／20。機械檢查與使用者選角不代表全句人工抑揚驗收，驗證見 release-audit.md。
