@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { playAudioFromStart } from '../lib/playback';
 import { PlayIcon, SpeakerIcon, StopIcon } from './Icons';
 import { JpLine, RubyText } from './Ruby';
 
@@ -16,20 +17,19 @@ function LinePlay({ audio, label }: { audio: string; label: string }) {
   const [playing, setPlaying] = useState(false);
   const [failed, setFailed] = useState(false);
 
-  const toggle = () => {
+  // 以元素本身的 paused 為準，不看 React 狀態：換來源或重新載入時瀏覽器不會送 pause 事件，狀態可能是舊的。
+  const toggle = async () => {
     const el = ref.current;
     if (!el) return;
-    if (playing) {
+    if (!el.paused) {
       el.pause();
       el.currentTime = 0;
       return;
     }
-    for (const other of document.querySelectorAll('audio')) {
-      if (other !== el) other.pause();
-    }
     setFailed(false);
-    el.currentTime = 0;
-    el.play().catch(() => setFailed(true));
+    const result = await playAudioFromStart(el);
+    if (result === 'failed') setFailed(true);
+    else if (result === 'started') setFailed(false);
   };
 
   return (
@@ -56,6 +56,7 @@ function LinePlay({ audio, label }: { audio: string; label: string }) {
         preload="none"
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
+        onEmptied={() => setPlaying(false)}
         onEnded={() => setPlaying(false)}
         onError={() => setFailed(true)}
       />
@@ -121,21 +122,19 @@ export function PlayButton({
     return () => element?.pause();
   }, [audio]);
 
-  const toggle = () => {
+  const toggle = async () => {
     const el = ref.current;
     if (!el) return;
-    if (playing) {
+    if (!el.paused) {
       el.pause();
       el.currentTime = 0;
       return;
     }
-    for (const other of document.querySelectorAll('audio')) {
-      if (other !== el) other.pause();
-    }
     setFailedAudio(null);
     counted.current = false;
-    el.currentTime = 0;
-    el.play().catch(() => setFailedAudio(audio));
+    const result = await playAudioFromStart(el);
+    if (result === 'failed') setFailedAudio(audio);
+    else if (result === 'started') setFailedAudio(null);
   };
 
   return (
@@ -161,6 +160,7 @@ export function PlayButton({
           }
         }}
         onPause={() => setPlaying(false)}
+        onEmptied={() => setPlaying(false)}
         onEnded={() => setPlaying(false)}
         onError={() => setFailedAudio(audio)}
       />
