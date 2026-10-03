@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { audioPath, contentHash, defineLesson } from '../curriculum/author.mjs';
-import { voices } from '../curriculum/voices.mjs';
+import { lessonVoiceKeys } from '../curriculum/voices.mjs';
 
 const spec = {
   id: 't-day',
@@ -34,7 +34,10 @@ const spec = {
 };
 
 test('contentHash：同樣輸入同樣輸出，長度 10 的十六進位；演算法改動會被這個固定值抓到', () => {
-  assert.equal(contentHash('vocab|あ|zundamon'), contentHash('vocab|あ|zundamon'));
+  assert.equal(
+    contentHash('vocab|あ|zundamon'),
+    contentHash('vocab|あ|zundamon'),
+  );
   assert.match(contentHash('x'), /^[0-9a-f]{10}$/);
   assert.equal(contentHash('a'), 'af63dc4c86');
 });
@@ -51,7 +54,7 @@ test('defineLesson：單字角色依序輪替、對話兩個角色交替、文�
   const lesson = defineLesson(spec);
   assert.deepEqual(
     lesson.vocab.map((v) => v.voice),
-    [voices[0].key, voices[1].key],
+    [lessonVoiceKeys[0], lessonVoiceKeys[1]],
   );
   assert.deepEqual(
     lesson.dialogue.map((d) => d.voice),
@@ -80,7 +83,11 @@ test('defineLesson：空欄位與未知角色直接丟錯，不默默產生壞�
     /空欄位/,
   );
   assert.throws(
-    () => defineLesson({ ...spec, dialogue: { voices: ['hau', 'nobody'], lines: [] } }),
+    () =>
+      defineLesson({
+        ...spec,
+        dialogue: { voices: ['hau', 'nobody'], lines: [] },
+      }),
     /未知角色/,
   );
 });
