@@ -1,7 +1,7 @@
 /**
  * 課程編寫工具：用緊湊的陣列寫課程，自動補上語音角色與音檔路徑，輸出與 curriculum/lessons.mjs 相同的 Lesson 物件。
  *
- * 音檔路徑由「種類＋原文＋語音角色」的雜湊決定（內容定址）：改了原文或換了角色，路徑就跟著變，
+ * 音檔路徑由「種類＋原文＋語音角色」的雜湊決定（內容定址）：改了原文或編排槽位，路徑就跟著變，
  * `node scripts/build-audio-jobs.mjs --missing` 會補產新檔，不會出現「文字改了、音檔還是舊的」。
  * 被改掉而不再使用的舊檔由 tests/audio-orphans.test.mjs 抓出來，要手動刪除。
  * 雜湊只用純 JavaScript（BigInt），因為這支檔案也會被打包進瀏覽器，不能用 node:crypto。
@@ -21,9 +21,10 @@
  *   practice: [q: string, a: string][],
  * }} LessonSpec
  */
-import { voices } from './voices.mjs';
+// 已淘汰角色的槽位僅保留歷史 URL；公開入口 lessons.mjs 會套用現役選角。
+import { lessonVoiceKeys } from './voices.mjs';
 
-const VOICE_KEYS = voices.map((v) => v.key);
+const VOICE_KEYS = lessonVoiceKeys;
 const FNV_OFFSET = BigInt('0xcbf29ce484222325');
 const FNV_PRIME = BigInt('0x100000001b3');
 const MASK_64 = BigInt('0xffffffffffffffff');
@@ -99,7 +100,11 @@ export function defineLesson(spec) {
         note: point.note,
         ...(point.jlpt ? { jlpt: point.jlpt } : {}),
         examples: point.examples.map(([jp, reading, zh, options], j) => {
-          requireFilled(`${id} 文法 #${i + 1} 例句 #${j + 1}`, [jp, reading, zh]);
+          requireFilled(`${id} 文法 #${i + 1} 例句 #${j + 1}`, [
+            jp,
+            reading,
+            zh,
+          ]);
           return {
             jp,
             reading,

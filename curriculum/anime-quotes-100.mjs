@@ -1,6 +1,6 @@
 /** T44：實際讀取二手名句整理的 33 個短句；翻譯與解說自行撰寫。 */
 import { contentHash } from './author.mjs';
-import { voices } from './voices.mjs';
+import { lessonVoiceKeys } from './voices.mjs';
 
 const references = {
   jjk: ['呪術廻戦', 'https://news.mynavi.jp/article/20240513-2944756/'],
@@ -345,7 +345,7 @@ const rows = [
 /** @type {import('./lessons.mjs').Quote[]} */
 export const animeQuotes100 = rows.map(
   ([id, jp, reading, zh, key, character, note, excerpt], i) => {
-    const voice = voices[i % voices.length].key;
+    const voice = lessonVoiceKeys[i % lessonVoiceKeys.length];
     const [work, referenceUrl] = references[key];
     return {
       id,

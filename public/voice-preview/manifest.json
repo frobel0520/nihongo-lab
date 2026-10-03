@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "date": "2026-10-03",
   "samples": [
     {
@@ -30,48 +30,6 @@
     }
   ],
   "voices": [
-    {
-      "key": "zundamon",
-      "name": "ずんだもん",
-      "speakerId": 3,
-      "style": "ノーマル",
-      "note": "入門、吉祥物感",
-      "candidate": false,
-      "recordings": [
-        {
-          "sample": "sibilants",
-          "audio": "samples/zundamon-sibilants-430c17d2f5f9.mp3",
-          "moras": 18,
-          "articulationSeconds": 2.6259481529999995,
-          "morasPerSecond": 6.854666943608922,
-          "querySha256": "90d64a0b5cedfd604353a02251075bd7cc9e263de46d5dec22ff9cb432bb930c"
-        },
-        {
-          "sample": "gemination",
-          "audio": "samples/zundamon-gemination-45922f892fb8.mp3",
-          "moras": 18,
-          "articulationSeconds": 2.655749527,
-          "morasPerSecond": 6.7777476064669555,
-          "querySha256": "52ce06671eb64df7c2563fea5c88ab42b05037aab69f0b7d4a381a26f2d8ac3f"
-        },
-        {
-          "sample": "battle",
-          "audio": "samples/zundamon-battle-17a72afa3680.mp3",
-          "moras": 20,
-          "articulationSeconds": 2.9138185699999997,
-          "morasPerSecond": 6.863845335435556,
-          "querySha256": "20635406e5c1e8b394e24e24c614cbfaad9d015b2a8271720a18422b533f3b9a"
-        },
-        {
-          "sample": "quote",
-          "audio": "samples/zundamon-quote-ac722e460b6f.mp3",
-          "moras": 3,
-          "articulationSeconds": 0.63535318,
-          "morasPerSecond": 4.721783245029167,
-          "querySha256": "5e056b8423332882846f2a64f17f3df4e896aa1f811fd898ca8030dc1980a2d7"
-        }
-      ]
-    },
     {
       "key": "tsumugi",
       "name": "春日部つむぎ",
@@ -199,90 +157,6 @@
       ]
     },
     {
-      "key": "miko",
-      "name": "櫻歌ミコ",
-      "speakerId": 43,
-      "style": "ノーマル",
-      "note": "少女感最重",
-      "candidate": false,
-      "recordings": [
-        {
-          "sample": "sibilants",
-          "audio": "samples/miko-sibilants-0e94fe7b6ba4.mp3",
-          "moras": 18,
-          "articulationSeconds": 2.6249631320000004,
-          "morasPerSecond": 6.857239166740418,
-          "querySha256": "9f4c08131fe98c85bb5b5da53826d89f9414c1f60b123565231f9943d9abe5d8"
-        },
-        {
-          "sample": "gemination",
-          "audio": "samples/miko-gemination-0eb74074f6c8.mp3",
-          "moras": 18,
-          "articulationSeconds": 2.675164262,
-          "morasPerSecond": 6.728558786346406,
-          "querySha256": "cdd9c1435eb24876a56785c0cb9fb7443c32fb1d05358539858a7ad613cf1ca0"
-        },
-        {
-          "sample": "battle",
-          "audio": "samples/miko-battle-812f9654bb44.mp3",
-          "moras": 20,
-          "articulationSeconds": 2.812404012,
-          "morasPerSecond": 7.1113538149795525,
-          "querySha256": "9263047ef6e991d4b22480e40f515ce08e90b631beace00bf86190561d009f3a"
-        },
-        {
-          "sample": "quote",
-          "audio": "samples/miko-quote-b3d44c32e4ef.mp3",
-          "moras": 3,
-          "articulationSeconds": 0.672222635,
-          "morasPerSecond": 4.462807176970469,
-          "querySha256": "cfa02868c5e14e76b138b88a81e0bdb16d5995bb7ea1dad62bf06acf94b2a5f4"
-        }
-      ]
-    },
-    {
-      "key": "nana",
-      "name": "春歌ナナ",
-      "speakerId": 54,
-      "style": "ノーマル",
-      "note": "有力、明亮",
-      "candidate": false,
-      "recordings": [
-        {
-          "sample": "sibilants",
-          "audio": "samples/nana-sibilants-3750ff5f299d.mp3",
-          "moras": 18,
-          "articulationSeconds": 2.4578651320000002,
-          "morasPerSecond": 7.323428680300754,
-          "querySha256": "b6b298d2fdca4308932f04796112e3b3fd55c3b3a4f5d305588449d834132f75"
-        },
-        {
-          "sample": "gemination",
-          "audio": "samples/nana-gemination-eaaea655cf16.mp3",
-          "moras": 18,
-          "articulationSeconds": 2.340608949,
-          "morasPerSecond": 7.690306408377318,
-          "querySha256": "7e51c1979b4596813ec62ff65f9775130e9879d58513e9bb4b1ffd7dacabf1bb"
-        },
-        {
-          "sample": "battle",
-          "audio": "samples/nana-battle-f00a53e31c78.mp3",
-          "moras": 20,
-          "articulationSeconds": 2.6643581519999997,
-          "morasPerSecond": 7.50649832305278,
-          "querySha256": "63067d9982e69d8e8e297c0bc6718b38993f6d15588564cc47b6026158e5ba51"
-        },
-        {
-          "sample": "quote",
-          "audio": "samples/nana-quote-ffc402eb9c8f.mp3",
-          "moras": 3,
-          "articulationSeconds": 0.529978163,
-          "morasPerSecond": 5.66061058632712,
-          "querySha256": "8fd1d4b3a80c401ab59a82e4ee84007b2ad91002c0aea6db4a47d001d6233fa2"
-        }
-      ]
-    },
-    {
       "key": "neko-vy",
       "name": "猫使ビィ",
       "speakerId": 58,
@@ -321,48 +195,6 @@
           "articulationSeconds": 0.501035288,
           "morasPerSecond": 5.987602214556992,
           "querySha256": "627b903383a4fd6e5e38f8b3b65e9c2b0a5a1281574cc22f36ddc346a8842b63"
-        }
-      ]
-    },
-    {
-      "key": "chuugoku-usagi",
-      "name": "中国うさぎ",
-      "speakerId": 61,
-      "style": "ノーマル",
-      "note": "幽玄、初々しい",
-      "candidate": false,
-      "recordings": [
-        {
-          "sample": "sibilants",
-          "audio": "samples/chuugoku-usagi-sibilants-59ba956aa091.mp3",
-          "moras": 18,
-          "articulationSeconds": 2.8477541289999992,
-          "morasPerSecond": 6.320770398222818,
-          "querySha256": "951e59ebc5bb2f424ce3b5e0ec8f7af1bb82f8d06a1e986f4b282d489fc1c3dc"
-        },
-        {
-          "sample": "gemination",
-          "audio": "samples/chuugoku-usagi-gemination-57688b776729.mp3",
-          "moras": 18,
-          "articulationSeconds": 2.801209042999999,
-          "morasPerSecond": 6.425796762644539,
-          "querySha256": "f257bdc8a44946d1224fabe1a0b256a68586cf6c28218eb6f2c330907ee5e8f3"
-        },
-        {
-          "sample": "battle",
-          "audio": "samples/chuugoku-usagi-battle-4c228d7c7178.mp3",
-          "moras": 20,
-          "articulationSeconds": 3.0812839380000003,
-          "morasPerSecond": 6.490800718930693,
-          "querySha256": "acaf2629251beb85d8e42320eab0fc4ad2579306b239849df0dc64f7c6d532d3"
-        },
-        {
-          "sample": "quote",
-          "audio": "samples/chuugoku-usagi-quote-9073e93f2079.mp3",
-          "moras": 3,
-          "articulationSeconds": 0.636935126,
-          "morasPerSecond": 4.710055824429441,
-          "querySha256": "9bd9577787febfeb5d38630696b2f3d05f1183acd4c5c75946b25ea9a87b63b7"
         }
       ]
     },
@@ -413,7 +245,7 @@
       "name": "玄野武宏",
       "speakerId": 11,
       "style": "ノーマル",
-      "note": "候選用途：主角對話、一般台詞",
+      "note": "已採用・主角對話、一般台詞",
       "candidate": true,
       "recordings": [
         {
@@ -455,7 +287,7 @@
       "name": "青山龍星",
       "speakerId": 13,
       "style": "ノーマル",
-      "note": "候選用途：威嚴角色、戰鬥宣言",
+      "note": "已採用・威嚴角色、戰鬥宣言",
       "candidate": true,
       "recordings": [
         {
@@ -489,48 +321,6 @@
           "articulationSeconds": 0.536874788,
           "morasPerSecond": 5.587895105254971,
           "querySha256": "050ac12b78616295c7dcfbc998ae99ff19870719b372367bb2a3d591d9d3a164"
-        }
-      ]
-    },
-    {
-      "key": "kotaro",
-      "name": "白上虎太郎",
-      "speakerId": 12,
-      "style": "ふつう",
-      "note": "候選用途：少年角色、日常對話",
-      "candidate": true,
-      "recordings": [
-        {
-          "sample": "sibilants",
-          "audio": "samples/kotaro-sibilants-2be096980e0b.mp3",
-          "moras": 18,
-          "articulationSeconds": 2.4277366479999998,
-          "morasPerSecond": 7.41431325132758,
-          "querySha256": "0dcb847252201d549d914544e8b221e5d489642fd8629fb294d6cac27b97e880"
-        },
-        {
-          "sample": "gemination",
-          "audio": "samples/kotaro-gemination-44c89f2e60d8.mp3",
-          "moras": 18,
-          "articulationSeconds": 2.193317596,
-          "morasPerSecond": 8.206745814116015,
-          "querySha256": "7e372e190f44ab6edf16a736265d3c696250bdccf984de5bf5576e5d70a96c4c"
-        },
-        {
-          "sample": "battle",
-          "audio": "samples/kotaro-battle-d20b86d3e9f8.mp3",
-          "moras": 20,
-          "articulationSeconds": 2.4783591809999996,
-          "morasPerSecond": 8.069855311258857,
-          "querySha256": "331f80753279986fc01a1cd395502770f5ed8d4797e87b12aa3d530698a816a6"
-        },
-        {
-          "sample": "quote",
-          "audio": "samples/kotaro-quote-829e95dd31ee.mp3",
-          "moras": 3,
-          "articulationSeconds": 0.494151426,
-          "morasPerSecond": 6.071013543933393,
-          "querySha256": "51d6ef429ba37c7f7cb60dda4779ff716f4f7cb6530d012719e019a4c32ed850"
         }
       ]
     }

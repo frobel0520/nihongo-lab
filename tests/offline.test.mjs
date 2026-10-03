@@ -40,7 +40,7 @@ const lesson = {
 };
 
 test('快取名稱要與 service worker 設定一致', () => {
-  assert.equal(AUDIO_CACHE_NAME, 'lesson-audio-v3');
+  assert.equal(AUDIO_CACHE_NAME, 'lesson-audio-v4');
 });
 
 test('下載網址不符合 service worker 的音檔路由（才會繞過它的 CacheFirst），一般播放網址則符合', () => {

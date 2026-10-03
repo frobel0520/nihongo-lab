@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { stages } from '../../curriculum/lessons.mjs';
+import { voices } from '../../curriculum/voices.mjs';
 import { allAudioPaths } from '../../lib/offline.mjs';
 import type { Progress } from '../../lib/progress.mjs';
 import type { Prefs } from '../../lib/prefs.mjs';
@@ -80,9 +81,12 @@ export function SettingsView({
 
       <section className="card">
         <h3>配音與語調</h3>
+        <p className="muted" lang="ja">
+          {voices.map((voice) => `VOICEVOX:${voice.name}`).join('、')}
+        </p>
         <p>
           <a href={`${import.meta.env.BASE_URL}voice-preview/index.html`}>
-            比較重音修正前後、九種聲音與三個男聲候選
+            試聽五位原有角色、兩位男聲與重音修正比較
           </a>
         </p>
         <p className="muted">
