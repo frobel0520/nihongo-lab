@@ -224,3 +224,35 @@ npm run check 通過（typecheck、198 tests 全數通過、lint）；VITE_BASE_
 **修正（已部署，PR #51，main 373eb0d）**：`lib/playback.mjs`（`playFromStart`、`isPlayInterruption`）、`app/lib/playback.ts`、`app/components/AudioLine.tsx`（`LinePlay`、`PlayButton`）：被打斷不算失敗；元素帶著錯誤或第一次播放失敗時 `load()` 後重試一次；已有更新的播放請求時不重試；以 `el.paused` 判斷播放或停止；`emptied` 事件重設播放狀態。`tests/playback.test.mjs` 8 項。`npm run check` 通過（typecheck、206 tests 全過、lint）。本機開發版：同樣的連點不再出現假 ⚠；模擬 `play()` 第一次失敗會 `load()` 後重試成功、持續失敗才顯示 ⚠、恢復後按一次就能播；單字卡與聽寫的快速換張、連按播放／停止／播放都正常。**限制**：Android 上沒有驗證；`ShadowingView` 有自己的播放邏輯（已忽略 `AbortError`），沒有改。`VITE_BASE_PATH=/nihongo-lab/ npm run build` 通過（PWA precache 24 項）。
 
 **部署後正式站驗證（2026-10-03，main 373eb0d，Pages 部署成功，頁面載入 `index-CClaIK-B.js`）**：先清掉 service worker 與快取再重新載入。課程頁快速連點 3 次、再連點 54 次，沒有任何播放鈕變 ⚠，之後一般點擊正常播放；動畫特訓第 1 課 9 題的選項各不相同（同一選項最多出現 2 題）。本機 `dist` 與正式站的 bundle 檔名不同（本機 `index-CZX9r92e.js`、正式站 `index-CClaIK-B.js`），沒有逐位元比對，驗證以正式站實際行為為準。仍未驗證：Android 上快速切換的實際行為（請使用者部署後在手機再試）、「兩個選項都像對」的歧義、既有「理解」紀錄重置後的使用感。
+
+
+T44 部署補記（2026-10-03）：446e533 已推送 main，[Actions 37032395275](https://github.com/frobel0520/nihongo-lab/actions/runs/37032395275) 成功；正式站 HTML、JS 與全部 33 個新增 MP3 下載內容均與建置一致，TLS 驗證保持開啟。
+
+## T45 現役配音與三個男聲候選（2026-10-03）
+
+使用者要求更新專案進度、比較九種現役聲音與提供三個動畫名句男聲候選，隨後澄清主要問題是重音與抑揚而非音色。因此沒有刪除任何角色，也沒有把語速、音高或音訊辨識的結果當成「模糊」排名。更新 progress.md、README 與計畫／SA／SD／任務拆解，補上 100 句與既有部署證據、Samsung Internet 安裝回報、真機驗收界線、作者可用 Claude／GPT 的決定，移除過時的可調速描述。
+
+候選經官方 [VOICEVOX VVM 0.16.4 README](https://github.com/VOICEVOX/voicevox_vvm/blob/0.16.4/README.md) 與模型 metas 核對：玄野武宏ノーマル（style 11、4.vvm）、青山龍星ノーマル（style 13、原已有 15.vvm）、白上虎太郎ふつう（style 12、9.vvm）。只增加兩個官方模型檔供雲端臨時試聽，正常教材 roster 仍是原有九聲線；共享模型中的其他角色未暴露成候選。模型資料與 SHA-256 紀錄留在 checkout 外。官方角色網站目前回 403，沒有宣稱已查閱其聲線介紹或試聽；候選用途只是選角建議。
+
+設定頁新增配音與語調試聽入口，獨立頁 public/voice-preview/index.html 提供十二聲線的相同四句（48 檔），以及三組實際教材修正前／後（6 檔）。前三句是自行撰寫的音素比較句，明示不是動畫台詞；第四句沿用已查證的短句與來源。比較組中的動畫短句也附二手整理來源。保留各聲線的預設語速，不以不同句子做排名；所有試聽先核對 query mora，再以 VOICEVOX 自製，54 檔 ffmpeg 解碼通過，每聲線附 VOICEVOX 署名。沒有使用作品原配音或將候選加入課程輪替。
+
+Chromium 375px 驗證：九種現役、三個候選、三組前後比較均存在且可實際播放；開始另一聲音會停下舊聲音，切換比較句也停止現役／候選播放器，設定頁入口正確，沒有橫向溢出或 pageerror。正式 base path 的 production service worker 控制下，獨立試聽頁也可正常開啟。試聽音檔不計入 1,506 個教材音檔，也不納入「全部課程音檔」的離線下載；頁面明示需要連線。Android 真機與候選的人工聽感未驗證。
+
+## T46 全站重音、句界與韻律複查（2026-10-03）
+
+檢查範圍為全部 1,506 個教材音檔／合成設定：711 個單字、457 個文法例句、238 個對話、100 個名句。每筆重建原文 query 與目標讀音參考，必要時檢查舊的假名控制 query；核對 mora、重音位置範圍、句界、停頓與疑問標記、音素時長與有限音高數值。沒有無效設定或遺失既有問號標記。66 筆需讀音控制，其中 53 筆原文與整句片假名控制的重音／句界結構不同，這個數字不等同 53 筆全是語言錯誤，但指出先前處理的風險。
+
+全站原有 MP3 以 ffmpeg 完整解碼與 PCM 波形機械掃描：1,506 檔解碼成功、沒有空音檔或明顯削波。簡單自相關 F0 掃描只用於檢查信號與取樣限制，不拿來判定詞彙重音；單音節歯未取得可靠的 F0，沒有因此判錯。此掃描不等同人耳逐句試聽、語音辨識或精確音素對齊。
+
+網路參考：實際讀取 [Kanjium](https://github.com/mifunetoshiro/kanjium/tree/6f32ef33701e572f5485f85eda7ffb9333f8c24e) 的重音資料與 CC BY-SA 4.0／Uros O. 署名要求，以及官方 [VOICEVOX Engine kana 記法](https://github.com/VOICEVOX/voicevox_engine/blob/main/voicevox_engine/tts_pipeline/kana_converter.py)、Core 0.17.0 C API 的 create_audio_query_from_kana 與音素／音高重算流程。Kanjium 是交叉參考的公開詞典資料，不冒稱 NHK 或 OJAD 的核定結果。711 個單字中 516 個能依表記與讀音對上資料，18 個與引擎的獨立詞設定不同（含被拆開的複合詞）；本教材採用資料列出的第一個重音型，並不聲稱所有其他標準變體都錯誤。其餘 195 個未能對上字典的項目，以及活用、句中詞、固有名詞、角色語氣，不套用這個孤立詞規則。OJAD／NHK 回 403，沒有聲稱使用其內容；所需網域已加入環境設定草稿，存草稿不代表現行連線解除限制。外部完整詞典留在 checkout 外，覆寫中的派生重音資料標明 CC BY-SA 4.0，設定與試聽頁皆附署名。
+
+修正方式：只在原句局部替換錯誤漢字讀音，保留其他詞的漢字解析；確認過的 query 轉成含重音與句界的 kana，再由 Core 重新預測音素長與 pitch。雨的 1 型、辛い的からい 2 型、一昨年的おととし 2 型因此恢復；步行句不再拆開歩いて，時間十分以數字 10分解析確認數詞與助數詞連接。18 個孤立詞依字典設定重音，時（とき）呼喚句也對照 2 型；不把辭書形止まる的重音直接套在命令形止まれ上。
+
+原 public/audio 已備份在 checkout 外 audio-before-prosody-fix.tar.gz。共重製 81 檔，其中 51 檔內容有變更、30 檔與原檔一致；不是聲稱修了 81 個確定錯誤。81 組覆寫全數通過讀音、字典對照項目、實際 MP3 解碼核對。沒有改教材原文、音檔網址或角色，原有學習紀錄沿用。音檔快取升為 lesson-audio-v3：production Chromium 先寫入舊 v2 的假音檔，再取同 URL，讀到新檔並存入 v3，舊 v2 未被使用；需重新下載離線音檔，進度保留。
+
+合成工具新增重音覆寫防呆：過時的原文／讀音不得沿用；覆寫讀音不符時不回退、不合成；未覆寫的假名控制若改變重音或句界，也停止要求核對。新增三項實際失敗路徑測試，確認不呼叫 synthesis／不覆蓋現檔。npm run check 通過（typecheck、201 tests／0 fail／0 skipped、lint），正式 base path build 通過（既有大型 chunk 警告保留）。九種聲線的 kana query、指定讀音 smoke、啟動可重複執行均通過；依 cloud-environment-onboarding:setup 更新 install_script／start_skill 及來源網域草稿，未聲稱已發布新的環境 snapshot。
+
+限制：已完成全站機械預檢及可查證的詞彙／句界修正，尚未完成所有句子的人工韻律驗收。孤立詞重音、句中重音與情緒語調不能等同；並未核對動畫原配音的重音、演技、所有集數與時間碼，也不能保證整體抑揚完全自然。需要使用者對照修正前後試聽，指出仍不自然的句子，才能繼續針對句子調整。
+
+
+T45／T46 整合驗證：部署前同步 main 的 9be2393，保留已部署的播放中斷處理與動畫干擾選項修正；人工合併 README、progress 與 release-audit 的進度更新，沒有覆蓋其真機回報、正式站驗證或理解紀錄重置說明。整合後 npm run check 再次通過（typecheck、211 tests／0 fail／0 skipped、lint），正式 base path build 通過；手機試聽頁、v2→v3 音檔快取與 production service worker 下的獨立試聽頁再次驗證通過。本次沒有再次修改理解題選項或進度 id。

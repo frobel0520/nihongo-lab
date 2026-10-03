@@ -1,7 +1,7 @@
 import { rubyParts } from '../lib/furigana.mjs';
 
 /** @typedef {{ text: string, reading: string, ruby?: string, kind?: string }} ReadingJob */
-/** @typedef {{ accent_phrases: { moras: { text: string }[] }[] }} AudioQuery */
+/** @typedef {{ accent_phrases: { moras: { text: string }[], accent?: number, pause_mora?: unknown, is_interrogative?: boolean }[] }} AudioQuery */
 
 /** @param {string} text */
 const katakana = (text) =>
@@ -76,4 +76,24 @@ export function assertPronunciation(query, pronunciation) {
       `讀音不一致，停止合成：預期 ${pronunciation}；引擎 ${actual}`,
     );
   }
+}
+
+/** A reading correction needs review if it also changes accent positions or phrase boundaries.
+ * @param {AudioQuery} before @param {AudioQuery} after
+ */
+export function assertProsodyUnchanged(before, after) {
+  /** @param {AudioQuery} query */
+  const structure = (query) =>
+    JSON.stringify(
+      query.accent_phrases.map((p) => [
+        p.moras.length,
+        p.accent,
+        !!p.pause_mora,
+        !!p.is_interrogative,
+      ]),
+    );
+  if (structure(before) !== structure(after))
+    throw new Error(
+      '指定讀音也改變重音或句界，停止合成；請新增已核對的重音覆寫。',
+    );
 }

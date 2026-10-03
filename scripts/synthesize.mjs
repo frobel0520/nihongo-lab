@@ -17,16 +17,18 @@ import {
 import { dirname, join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { getVoice } from '../curriculum/voices.mjs';
+import { AUDIO_PROSODY } from '../curriculum/audio-prosody.mjs';
 import { encodeMp3 } from './ffmpeg.mjs';
 import {
   assertPronunciation,
+  assertProsodyUnchanged,
   readingParts,
   readingText,
 } from './pronunciation.mjs';
 
 /** @typedef {{ voice: string, text: string, out: string, reading?: string, ruby?: string, kind?: string, pronunciation?: string }} AudioJob */
 
-const ENGINE_URL = 'http://127.0.0.1:50021';
+const ENGINE_URL = process.env.VOICEVOX_URL ?? 'http://127.0.0.1:50021';
 
 /**
  * 呼叫引擎；連不上時給明確的提示，而不是只有 "fetch failed"。
@@ -77,10 +79,10 @@ export async function synthesizeOne(job) {
       `缺少讀音核對資料：${text}；請提供 --reading 或 --pronunciation`,
     );
 
-  /** @param {string} input */
-  const audioQuery = async (input) => {
+  /** @param {string} input @param {boolean} [isKana] */
+  const audioQuery = async (input, isKana = false) => {
     const response = await callEngine(
-      `/audio_query?speaker=${voice.speakerId}&text=${encodeURIComponent(input)}`,
+      `/audio_query?speaker=${voice.speakerId}&text=${encodeURIComponent(input)}${isKana ? '&is_kana=true' : ''}`,
       { method: 'POST' },
     );
     if (!response.ok)
@@ -90,16 +92,23 @@ export async function synthesizeOne(job) {
     return response.json();
   };
 
-  let query = await audioQuery(text);
+  const profile = AUDIO_PROSODY[outPath.replace(/^public\//, '')];
+  if (profile && (profile.text !== text || profile.reading !== job.reading))
+    throw new Error(`重音覆寫與教材不一致，請重新核對：${text}`);
+  let query = await audioQuery(profile?.kana ?? text, !!profile);
   try {
     assertPronunciation(query, pronunciation);
-  } catch {
+  } catch (error) {
+    // Reviewed accent notation must never silently fall back to a new text analysis.
+    if (profile) throw error;
+    const originalQuery = query;
     const controlledText = job.reading
       ? readingText({ ...job, reading: job.reading })
       : pronunciation;
     query = await audioQuery(controlledText);
     // A second mismatch is a failure, never an unchecked replacement.
     assertPronunciation(query, pronunciation);
+    assertProsodyUnchanged(originalQuery, query);
     console.log(`READING ${text} → ${pronunciation}`);
   }
 
