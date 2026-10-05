@@ -12,12 +12,11 @@ import {
   removeSong,
   setLineNote,
   songsExportFilename,
-  sortSongs,
   upsertSong,
   type Song,
 } from '../../lib/songs.mjs';
+import { SONG_CATALOG, catalogSong, type CatalogSong } from '../../lib/song-catalog.mjs';
 import {
-  NEW_SONG_HASH,
   songEditHash,
   songHash,
   viewHash,
@@ -36,14 +35,9 @@ import type { SongsState } from '../useSongs';
 
 type Message = { kind: 'ok' | 'error'; text: string };
 
-const newId = () =>
-  typeof crypto !== 'undefined' && 'randomUUID' in crypto
-    ? crypto.randomUUID()
-    : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
-
 /**
- * 歌曲閱讀器：使用者自己貼上歌詞，只存在這個瀏覽器（見 docs/song-reader.md）。
- * 依路由顯示清單、新增、單首歌曲或編輯畫面。
+ * 歌曲區：固定兩首歌（lib/song-catalog.mjs）。歌詞由使用者自己從歌詞網站複製貼上，
+ * 只存在這個瀏覽器（見 docs/song-reader.md）。依路由顯示清單、單首歌曲或貼歌詞畫面。
  */
 export function SongsView({
   route,
@@ -54,70 +48,63 @@ export function SongsView({
   songs: SongsState;
   goBack: () => void;
 }) {
-  const song = route.songId
-    ? songs.doc.songs.find((s) => s.id === route.songId)
-    : undefined;
+  const entry = route.songId ? catalogSong(route.songId) : undefined;
+  const song = entry ? songs.doc.songs.find((s) => s.id === entry.id) : undefined;
 
-  if (route.mode === 'new') return <SongEditor songs={songs} goBack={goBack} />;
-  if (route.songId && !song) {
+  if (route.songId && !entry) {
     return (
       <section className="card empty">
-        <p className="muted">找不到這首歌，可能已經刪除或是在另一台裝置上新增的。</p>
+        <p className="muted">找不到這首歌。</p>
         <a className="btn" href={viewHash('songs')}>
           回歌曲清單
         </a>
       </section>
     );
   }
-  if (song && route.mode === 'edit') {
-    return <SongEditor songs={songs} song={song} goBack={goBack} />;
+  if (entry && (route.mode === 'edit' || !song)) {
+    return <SongEditor songs={songs} entry={entry} song={song} goBack={goBack} />;
   }
-  if (song) return <SongDetail song={song} songs={songs} />;
+  if (entry && song) return <SongDetail entry={entry} song={song} songs={songs} />;
   return <SongList songs={songs} />;
 }
 
 function SongList({ songs }: { songs: SongsState }) {
-  const list = sortSongs(songs.doc.songs);
   return (
     <>
       <section className="card">
         <h3>歌曲學習</h3>
         <p className="muted">
-          貼上你從正版歌詞網站或歌詞本找到的歌詞，逐句寫筆記。歌詞只存在這台裝置的瀏覽器，
+          每首歌第一次要自己貼上歌詞：點歌名 → 開歌詞網站複製 → 貼上。歌詞只存在這台裝置的瀏覽器，
           不會上傳、也不會跨裝置同步；換裝置請用下方的匯出／匯入。
         </p>
-        <a className="btn primary block" href={NEW_SONG_HASH}>
-          新增歌曲
-        </a>
       </section>
 
-      {list.length === 0 ? (
-        <p className="muted song-empty">還沒有歌曲。</p>
-      ) : (
-        <ul className="lesson-list">
-          {list.map((s) => (
-            <li key={s.id}>
-              <a className="card lesson-card" href={songHash(s.id)}>
+      <ul className="lesson-list">
+        {SONG_CATALOG.map((entry) => {
+          const song = songs.doc.songs.find((s) => s.id === entry.id);
+          return (
+            <li key={entry.id}>
+              <a className="card lesson-card" href={songHash(entry.id)}>
                 <MusicIcon />
                 <span className="lesson-card-body">
                   <span className="lesson-title" lang="ja">
-                    {s.title}
+                    {entry.title}
                   </span>
                   <span className="muted">
-                    {s.artist && (
+                    {entry.artist && (
                       <>
-                        <span lang="ja">{s.artist}</span> ·{' '}
+                        <span lang="ja">{entry.artist}</span> ·{' '}
                       </>
                     )}
-                    {lineCount(s)} 句
+                    {song ? `${lineCount(song)} 句` : '還沒貼歌詞'}
                   </span>
                 </span>
                 <ChevronRightIcon />
               </a>
             </li>
-          ))}
-        </ul>
-      )}
+          );
+        })}
+      </ul>
 
       <SongsTransfer songs={songs} />
     </>
@@ -126,25 +113,25 @@ function SongList({ songs }: { songs: SongsState }) {
 
 function SongEditor({
   songs,
+  entry,
   song,
   goBack,
 }: {
   songs: SongsState;
+  entry: CatalogSong;
   song?: Song;
   goBack: () => void;
 }) {
-  const [title, setTitle] = useState(song?.title ?? '');
-  const [artist, setArtist] = useState(song?.artist ?? '');
   const [lyrics, setLyrics] = useState(song ? lyricsText(song) : '');
   const [error, setError] = useState<string | null>(null);
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
     const now = new Date().toISOString();
-    const input = { title, artist, lyrics };
+    const input = { title: entry.title, artist: entry.artist, lyrics };
     const result = song
       ? editSong(song, input, now)
-      : createSong(input, { id: newId(), now });
+      : createSong(input, { id: entry.id, now });
     if (!result.ok) {
       setError(result.message);
       return;
@@ -154,32 +141,40 @@ function SongEditor({
       setError(saveError);
       return;
     }
+    // 第一次貼完：同一個網址就會顯示歌曲頁；修改歌詞：回到歌曲頁。
     if (song) goBack();
-    // 新增後換成歌曲頁（取代掉「新增」這一頁），返回鍵回到清單而不是空白表單。
-    else window.location.replace(songHash(result.song.id));
   };
 
   return (
     <form className="card song-form" onSubmit={onSubmit}>
-      <label>
-        歌名
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          lang="ja"
-          autoComplete="off"
-          required
-        />
-      </label>
-      <label>
-        歌手（選填）
-        <input
-          value={artist}
-          onChange={(e) => setArtist(e.target.value)}
-          lang="ja"
-          autoComplete="off"
-        />
-      </label>
+      <div>
+        <p className="lesson-title" lang="ja">
+          {entry.title}
+        </p>
+        <p className="muted">
+          {entry.artist && (
+            <>
+              <span lang="ja">{entry.artist}</span> ·{' '}
+            </>
+          )}
+          <span lang="ja">{entry.from}</span>
+        </p>
+      </div>
+      {entry.lyricsLinks.length > 0 ? (
+        <p className="muted">
+          到歌詞網站複製歌詞（開新分頁）：
+          {entry.lyricsLinks.map((link, i) => (
+            <span key={link.url}>
+              {i > 0 && '、'}
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.label}
+              </a>
+            </span>
+          ))}
+        </p>
+      ) : (
+        <p className="muted">請用歌名到歌詞網站找歌詞，複製後貼到下面。</p>
+      )}
       <label>
         歌詞（一行一句，空一行代表換段）
         <textarea
@@ -307,7 +302,15 @@ function AnalysisCard({
   );
 }
 
-function SongDetail({ song, songs }: { song: Song; songs: SongsState }) {
+function SongDetail({
+  entry,
+  song,
+  songs,
+}: {
+  entry: CatalogSong;
+  song: Song;
+  songs: SongsState;
+}) {
   const [editingNote, setEditingNote] = useState<number | null>(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [selected, setSelected] = useState<WordRef | null>(null);
@@ -344,11 +347,14 @@ function SongDetail({ song, songs }: { song: Song; songs: SongsState }) {
 
   return (
     <>
-      {song.artist && (
-        <p className="muted song-artist" lang="ja">
-          {song.artist}
-        </p>
-      )}
+      <p className="muted song-artist">
+        {entry.artist && (
+          <>
+            <span lang="ja">{entry.artist}</span> ·{' '}
+          </>
+        )}
+        <span lang="ja">{entry.from}</span>
+      </p>
 
       <AnalysisCard analysis={analysis} />
 
@@ -416,19 +422,19 @@ function SongDetail({ song, songs }: { song: Song; songs: SongsState }) {
         <h3>這首歌</h3>
         <div className="row">
           <a className="btn" href={songEditHash(song.id)}>
-            編輯歌詞
+            修改歌詞
           </a>
           {!confirmDelete ? (
             <button type="button" className="btn" onClick={() => setConfirmDelete(true)}>
-              刪除
+              清除歌詞
             </button>
           ) : (
             <>
               <button type="button" className="btn danger" onClick={onDelete}>
-                確定刪除（筆記一起刪掉）
+                確定清除（筆記一起清掉）
               </button>
               <button type="button" className="btn" onClick={() => setConfirmDelete(false)}>
-                不要刪
+                不要清
               </button>
             </>
           )}
@@ -527,9 +533,14 @@ function SongsTransfer({ songs }: { songs: SongsState }) {
       setMessage({ kind: 'error', text: result.message });
       return;
     }
-    const { added, updated } = mergeSongs(songs.doc, result.songs);
-    const saveError = songs.update((prev) => mergeSongs(prev, result.songs).doc);
-    const skipped = result.dropped > 0 ? `另有 ${result.dropped} 首格式不正確，已略過。` : '';
+    // 歌曲區只有固定的兩首，其他歌不匯入。
+    const known = result.songs.filter((s) => catalogSong(s.id));
+    const ignored = result.songs.length - known.length;
+    const { added, updated } = mergeSongs(songs.doc, known);
+    const saveError = songs.update((prev) => mergeSongs(prev, known).doc);
+    const skipped =
+      (result.dropped > 0 ? `另有 ${result.dropped} 首格式不正確，已略過。` : '') +
+      (ignored > 0 ? `有 ${ignored} 首不是這裡的兩首歌，沒有匯入。` : '');
     setMessage(
       saveError
         ? { kind: 'error', text: saveError }
