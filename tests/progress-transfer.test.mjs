@@ -30,7 +30,7 @@ test('匯出檔帶 format 與匯出時間，外層可以一眼辨認', () => {
   const data = JSON.parse(exportProgress(sample(), NOW));
   assert.equal(data.format, EXPORT_FORMAT);
   assert.equal(data.exportedAt, NOW);
-  assert.equal(data.progress.version, 2);
+  assert.equal(data.progress.version, 3);
 });
 
 test('exportFilename：用本機日期', () => {
