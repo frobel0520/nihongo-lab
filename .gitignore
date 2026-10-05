@@ -6,3 +6,4 @@ dev-dist/
 .env.local
 scripts/audio-jobs.json
 .cache/
+public/song-assets/

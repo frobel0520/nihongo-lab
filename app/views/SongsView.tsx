@@ -7,6 +7,7 @@ import {
   lineCount,
   lyricsText,
   mergeSongs,
+  needsAnalysis,
   parseSongsImport,
   removeSong,
   setLineNote,
@@ -22,7 +23,14 @@ import {
   viewHash,
   type Route,
 } from '../../lib/route.mjs';
+import { applyAnalysis, setTokenReading } from '../../lib/song-tokens.mjs';
 import { ChevronRightIcon, MusicIcon } from '../components/Icons';
+import { SongLineText, WordSheet, type WordRef } from '../components/SongWords';
+import {
+  analyzeLines,
+  isDictionaryCached,
+  type AnalyzeProgress,
+} from '../lib/songAnalyzer';
 import type { SongsState } from '../useSongs';
 
 type Message = { kind: 'ok' | 'error'; text: string };
@@ -201,9 +209,122 @@ function SongEditor({
   );
 }
 
+type Analysis =
+  | { kind: 'idle' }
+  | { kind: 'ask' }
+  | { kind: 'running'; progress: AnalyzeProgress | null }
+  | { kind: 'error'; message: string };
+
+/** 分析歌詞讀音：字典已在快取就自動開始；還沒下載過先問，避免默默用掉 17MB 行動數據。 */
+function useSongAnalysis(song: Song, songs: SongsState) {
+  const [state, setState] = useState<Analysis>({ kind: 'idle' });
+  const pending = needsAnalysis(song);
+
+  const start = () => {
+    setState({ kind: 'running', progress: null });
+    const targets = song.lines.map((line) => (line.tokens === null ? line.text : ''));
+    analyzeLines(targets, (progress) => setState({ kind: 'running', progress }))
+      .then(({ lines, timings }) => {
+        // 效能量測用（只在開發版輸出）：建立斷詞器與分析的耗時，記錄見 release-audit.md「T50」。
+        if (import.meta.env.DEV) console.info('[song-analyzer]', timings);
+        const saveError = songs.update((prev) => {
+          const current = prev.songs.find((s) => s.id === song.id);
+          if (!current) return prev;
+          // 只寫這次分析的行；已有結果的行（傳空字串）沿用原本的。
+          const results = current.lines.map((line, i) =>
+            line.tokens === null ? lines[i] : { text: line.text, tokens: line.tokens },
+          );
+          return upsertSong(prev, applyAnalysis(current, results, new Date().toISOString()));
+        });
+        setState(saveError ? { kind: 'error', message: saveError } : { kind: 'idle' });
+      })
+      .catch((error: unknown) =>
+        setState({
+          kind: 'error',
+          message: `分析失敗：${error instanceof Error ? error.message : String(error)}`,
+        }),
+      );
+  };
+
+  useEffect(() => {
+    if (!pending || state.kind !== 'idle') return;
+    let cancelled = false;
+    void isDictionaryCached().then((cached) => {
+      if (cancelled) return;
+      if (cached) start();
+      else setState({ kind: 'ask' });
+    });
+    return () => {
+      cancelled = true;
+    };
+    // start 每次渲染都是新的；只在「需要分析」狀態改變時判斷一次。
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pending, state.kind]);
+
+  return { pending, state, start };
+}
+
+function AnalysisCard({
+  analysis,
+}: {
+  analysis: ReturnType<typeof useSongAnalysis>;
+}) {
+  const { pending, state, start } = analysis;
+  if (!pending && state.kind !== 'error') return null;
+  return (
+    <section className="card" aria-live="polite">
+      <h3>漢字讀音</h3>
+      {state.kind === 'ask' && (
+        <>
+          <p className="muted">
+            第一次使用要下載斷詞字典（約 17MB，只需一次，之後離線也能用），建議用 Wi-Fi。
+          </p>
+          <button type="button" className="btn primary" onClick={start}>
+            下載字典並分析讀音
+          </button>
+        </>
+      )}
+      {state.kind === 'running' && (
+        <p className="muted">
+          {state.progress && state.progress.loaded < state.progress.total
+            ? `載入字典 ${state.progress.loaded} / ${state.progress.total}…`
+            : '分析中…'}
+        </p>
+      )}
+      {state.kind === 'idle' && <p className="muted">準備分析…</p>}
+      {state.kind === 'error' && (
+        <>
+          <p className="error" role="alert">
+            {state.message}
+          </p>
+          <button type="button" className="btn" onClick={start}>
+            再試一次
+          </button>
+        </>
+      )}
+    </section>
+  );
+}
+
 function SongDetail({ song, songs }: { song: Song; songs: SongsState }) {
   const [editingNote, setEditingNote] = useState<number | null>(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const [selected, setSelected] = useState<WordRef | null>(null);
+  const analysis = useSongAnalysis(song, songs);
+  const selectedToken =
+    selected && song.lines[selected.line]?.tokens?.[selected.token];
+
+  const saveReading = (word: WordRef, reading: string) => {
+    songs.update((prev) => {
+      const current = prev.songs.find((s) => s.id === song.id);
+      return current
+        ? upsertSong(
+            prev,
+            setTokenReading(current, word.line, word.token, reading, new Date().toISOString()),
+          )
+        : prev;
+    });
+  };
 
   const saveNote = (index: number, note: string) => {
     songs.update((prev) => {
@@ -228,6 +349,8 @@ function SongDetail({ song, songs }: { song: Song; songs: SongsState }) {
         </p>
       )}
 
+      <AnalysisCard analysis={analysis} />
+
       <section className="card">
         <ol className="song-lines">
           {song.lines.map((line, index) =>
@@ -235,9 +358,18 @@ function SongDetail({ song, songs }: { song: Song; songs: SongsState }) {
               <li key={index} className="song-gap" aria-hidden="true" />
             ) : (
               <li key={index} className="song-line">
-                <div className="song-text" lang="ja">
-                  {line.text}
-                </div>
+                {line.tokens && line.tokens.length > 0 ? (
+                  <SongLineText
+                    tokens={line.tokens}
+                    lineIndex={index}
+                    selected={selected}
+                    onSelect={setSelected}
+                  />
+                ) : (
+                  <div className="song-text" lang="ja">
+                    {line.text}
+                  </div>
+                )}
                 {editingNote === index ? (
                   <NoteEditor
                     initial={line.note}
@@ -261,6 +393,18 @@ function SongDetail({ song, songs }: { song: Song; songs: SongsState }) {
           )}
         </ol>
       </section>
+
+      {selected && selectedToken && (
+        // 詞卡蓋在畫面下方：留一段空白，最後幾句才捲得到詞卡上面。
+        <div className="word-sheet-spacer" aria-hidden="true" />
+      )}
+      {selected && selectedToken && (
+        <WordSheet
+          token={selectedToken}
+          onSaveReading={(reading) => saveReading(selected, reading)}
+          onClose={() => setSelected(null)}
+        />
+      )}
 
       <section className="card">
         <h3>這首歌</h3>
