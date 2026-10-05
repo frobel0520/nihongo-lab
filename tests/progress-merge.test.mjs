@@ -4,8 +4,9 @@ import { mergeProgress } from '../lib/progress-merge.mjs';
 import { emptyProgress } from '../lib/progress.mjs';
 
 const card = (updatedAt, over = {}) => ({
-  ease: 2.5,
-  interval: 1,
+  stability: 2.3,
+  difficulty: 2.1,
+  state: 2,
   reps: 1,
   lapses: 0,
   due: '2026-10-01',
@@ -26,8 +27,8 @@ test('只有一邊有的卡與聽寫都保留（聯集），changes 只算相對
 });
 
 test('同一張卡兩邊都有：updatedAt 較晚的整張取代，不會欄位混搭', () => {
-  const older = card('2026-09-30T01:00:00.000Z', { reps: 5, interval: 20, due: '2026-10-20' });
-  const newer = card('2026-09-30T09:00:00.000Z', { reps: 0, interval: 0, lapses: 1, due: '2026-09-30' });
+  const older = card('2026-09-30T01:00:00.000Z', { reps: 5, stability: 20, due: '2026-10-20' });
+  const newer = card('2026-09-30T09:00:00.000Z', { reps: 0, stability: 0.2, lapses: 1, due: '2026-09-30' });
 
   const a = mergeProgress(withCards({ c: older }), withCards({ c: newer }));
   assert.deepEqual(a.progress.srs.c, newer);
@@ -65,8 +66,8 @@ test('不修改傳入的進度（回傳新物件）', () => {
 
 test('updatedAt 完全相同時結果與傳入順序無關', () => {
   const same = '2026-09-30T01:00:00.000Z';
-  const x = withCards({ c: card(same, { reps: 2, interval: 3 }) }, { s: rec(2, false, 't') });
-  const y = withCards({ c: card(same, { reps: 4, interval: 9 }) }, { s: rec(2, false, 't') });
+  const x = withCards({ c: card(same, { reps: 2, stability: 3 }) }, { s: rec(2, false, 't') });
+  const y = withCards({ c: card(same, { reps: 4, stability: 9 }) }, { s: rec(2, false, 't') });
   assert.deepEqual(mergeProgress(x, y).progress, mergeProgress(y, x).progress);
 });
 
@@ -86,7 +87,7 @@ function randomProgress(rand) {
       const minute = Math.floor(rand() * 4); // 故意讓時間常常撞在一起
       progress.srs[id] = card(`2026-09-30T00:0${minute}:00.000Z`, {
         reps: Math.floor(rand() * 4),
-        interval: Math.floor(rand() * 10),
+        stability: 1 + Math.floor(rand() * 10),
       });
     }
     if (rand() < 0.6) {

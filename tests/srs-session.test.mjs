@@ -1,15 +1,23 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { emptyProgress, recordReview, recordReviewFrom } from '../lib/progress.mjs';
+import {
+  emptyProgress,
+  recordReview,
+  recordReviewFrom,
+  recordReviewSequence,
+} from '../lib/progress.mjs';
 import {
   applyGrade,
   baseState,
   createSession,
   currentCard,
   isFinished,
+  isRevisit,
+  nextHistory,
   resolvedCount,
   step,
 } from '../lib/srs-session.mjs';
+import { daysBetween } from '../lib/srs.mjs';
 
 const card = (id) => ({ id, word: id, reading: id, zh: id, audio: `${id}.mp3`, audioReady: true, lessonId: 'l', lessonTitle: 'L' });
 const deck = (...ids) => ids.map(card);
@@ -75,8 +83,8 @@ test('結束的畫面往回翻會回到最後一張；牌組是空的時什麼�
 });
 
 test('回頭改評分：第一次評分前的狀態只記一次，之後固定用它', () => {
-  const original = { ease: 2.5, interval: 3, reps: 2, lapses: 0, due: '2026-10-05', firstSeen: '2026-09-20', updatedAt: '2026-10-02T00:00:00.000Z' };
-  const changedByFirstGrade = { ...original, interval: 8, reps: 3 };
+  const original = { stability: 3, difficulty: 2.1, state: 2, reps: 2, lapses: 0, due: '2026-10-05', firstSeen: '2026-09-20', updatedAt: '2026-10-02T00:00:00.000Z' };
+  const changedByFirstGrade = { ...original, stability: 9, reps: 3 };
 
   let s = createSession(deck('a', 'b'));
   assert.equal(baseState(s, card('a'), original), original, '還沒評過：用進度裡現在的');
@@ -100,20 +108,66 @@ test('改評分不會把間隔推進兩次：從第一次評分前的狀態重�
   const day = '2026-10-01';
   const progress = emptyProgress();
   const first = recordReview(progress, 'x', 'good', day, '2026-10-01T01:00:00.000Z'); // 新卡評記得
-  assert.equal(first.srs.x.interval, 1);
+  const firstGap = daysBetween(day, first.srs.x.due);
 
-  // 直接再評一次記得（舊做法）：間隔被推進成第二階段
+  // 直接再評一次記得（舊做法）：被當成第二次複習
   const stacked = recordReview(first, 'x', 'good', day, '2026-10-01T01:01:00.000Z');
   assert.equal(stacked.srs.x.reps, 2);
 
   // 新做法：從評分前（沒有這張卡）重算
   const redone = recordReviewFrom(first, 'x', undefined, 'good', day, '2026-10-01T01:01:00.000Z');
   assert.equal(redone.srs.x.reps, 1);
-  assert.equal(redone.srs.x.interval, 1);
+  assert.equal(daysBetween(day, redone.srs.x.due), firstGap);
   assert.equal(redone.srs.x.updatedAt, '2026-10-01T01:01:00.000Z');
 
   const lapsed = recordReviewFrom(first, 'x', undefined, 'again', day, '2026-10-01T01:02:00.000Z');
-  assert.equal(lapsed.srs.x.reps, 0);
-  assert.equal(lapsed.srs.x.lapses, 1);
+  assert.equal(lapsed.srs.x.due, day);
   assert.equal(ids({ deck: deck('x') })[0], 'x');
+});
+
+test('這一輪的評分紀錄：還不會之後一輪繞回來是再考一次（接在後面、答案先蓋住），手動翻回去是改評分（換掉最後一個）', () => {
+  // a 還不會 → b 記得 → 自動繞回 a
+  let s = createSession(deck('a', 'b'));
+  assert.deepEqual(nextHistory(s, card('a'), 'again'), ['again']);
+  s = applyGrade(s, 'again', undefined);
+  assert.equal(at(s), 'b');
+  s = applyGrade(s, 'good', undefined);
+  assert.equal(at(s), 'a');
+  assert.equal(isRevisit(s, card('a')), true, '自動繞回來的卡');
+  assert.deepEqual(nextHistory(s, card('a'), 'good'), ['again', 'good'], '再考一次：接在後面');
+  s = applyGrade(s, 'good', undefined);
+  assert.deepEqual(s.history.a, ['again', 'good']);
+  assert.equal(isFinished(s), true);
+
+  // 手動翻回 b 改成還不會：換掉最後一個，不是接在後面
+  s = step(s, -1);
+  assert.equal(at(s), 'b');
+  assert.equal(isRevisit(s, card('b')), false);
+  assert.deepEqual(nextHistory(s, card('b'), 'again'), ['again']);
+
+  // 剛評完還不會、按上一張回去改成記得：換掉，不算忘記過
+  let t2 = createSession(deck('x', 'y'));
+  t2 = applyGrade(t2, 'again', undefined);
+  t2 = step(t2, -1);
+  assert.equal(at(t2), 'x');
+  t2 = applyGrade(t2, 'good', undefined);
+  assert.deepEqual(t2.history.x, ['good']);
+});
+
+test('只剩一張還不會的卡：自動停在它自己，也算再考一次', () => {
+  let s = createSession(deck('solo'));
+  s = applyGrade(s, 'again', undefined);
+  assert.equal(at(s), 'solo');
+  assert.equal(isRevisit(s, card('solo')), true);
+  assert.deepEqual(nextHistory(s, card('solo'), 'good'), ['again', 'good']);
+});
+
+test('recordReviewSequence：依序套用這一輪的評分；沒有評分丟錯', () => {
+  const day = '2026-10-01';
+  const now = '2026-10-01T02:00:00.000Z';
+  const recorded = recordReviewSequence(emptyProgress(), 'x', undefined, ['again', 'good'], day, now);
+  const onlyGood = recordReviewSequence(emptyProgress(), 'x', undefined, ['good'], day, now);
+  assert.ok(daysBetween(day, recorded.srs.x.due) >= 1);
+  assert.ok(recorded.srs.x.stability < onlyGood.srs.x.stability, '中間忘記過，穩定度比較低');
+  assert.throws(() => recordReviewSequence(emptyProgress(), 'x', undefined, [], day, now), /沒有評分/);
 });
