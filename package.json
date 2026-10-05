@@ -6,7 +6,9 @@
     "node": ">=22.13.0"
   },
   "scripts": {
+    "predev": "node scripts/prepare-song-assets.mjs",
     "dev": "vite",
+    "prebuild": "node scripts/prepare-song-assets.mjs",
     "build": "vite build",
     "start": "vite preview",
     "lint": "oxlint",
@@ -17,6 +19,7 @@
     "check": "npm run typecheck && npm test && npm run lint"
   },
   "dependencies": {
+    "@patdx/kuromoji": "1.0.4",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
