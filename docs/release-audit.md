@@ -314,3 +314,4 @@ T45／T46 整合驗證：部署前同步 main 的 9be2393，保留已部署的�
 
 - PR #55 以 `gh pr merge --rebase` 合併（CI 在最後一個 commit `f841a09` 通過）；main 的 [GitHub Actions 37325256163](https://github.com/frobel0520/nihongo-lab/actions/runs/37325256163) 驗證與部署成功。正式站首頁載入 `assets/index-DuYJFM7E.js`，內容含「學新卡」、`srs/new` 與 FSRS 參數 `request_retention`。
 - 同步 Worker：`wrangler deploy --dry-run` 打包成功（79.23KiB，gzip 18.40KiB）；正式部署被 Claude Code 的權限檢查擋下（正式環境部署），**尚未部署**，要使用者執行 `npx wrangler deploy -c worker/wrangler.toml`。部署前正式 Worker 仍是版本 2 的格式檢查，新版 App 上傳版本 3 會被拒絕。`/health` 回 200。
+- 2026-10-05 補記：使用者在 14:39:33（UTC）重新部署同步 Worker（`wrangler deployments list`：Author frobel0520、Source Unknown (deployment)，前一次是 10-01 的 Secret Change）。部署內容是使用者本機的程式；我沒有用真實登入驗證版本 3 的同步，要使用者按「立即同步」確認。
