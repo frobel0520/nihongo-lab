@@ -6,8 +6,11 @@ import {
   MAX_INTERVAL_DAYS,
   MIN_EASE,
   addDays,
+  SRS_MODES,
   buildCards,
-  buildQueue,
+  buildDeck,
+  buildNewQueue,
+  buildReviewQueue,
   isDateString,
   schedule,
   summarize,
@@ -179,7 +182,7 @@ const cards = ['a', 'b', 'c', 'd'].map((word) => ({
   lessonTitle: 'l',
 }));
 
-test('buildQueue：到期卡在前（越舊越前）、未到期不出現、所有新卡接在後面且沒有每日上限', () => {
+test('複習區：只有看過且到期的卡（越舊越前），未到期與沒看過的不出現；新卡區：所有沒看過的、沒有每日上限', () => {
   const state = {
     'l:a': {
       ease: 2.5,
@@ -206,10 +209,13 @@ test('buildQueue：到期卡在前（越舊越前）、未到期不出現、所�
       firstSeen: '2026-09-27',
     },
   };
-  const queue = buildQueue(cards, state, TODAY);
   assert.deepEqual(
-    queue.map((c) => c.word),
-    ['c', 'a', 'd'],
+    buildReviewQueue(cards, state, TODAY).map((c) => c.word),
+    ['c', 'a'],
+  );
+  assert.deepEqual(
+    buildNewQueue(cards, state).map((c) => c.word),
+    ['d'],
   );
 
   // 新卡數量不受限：教材有幾張沒看過的，佇列就有幾張
@@ -218,11 +224,11 @@ test('buildQueue：到期卡在前（越舊越前）、未到期不出現、所�
     id: `m:${i}`,
     word: `w${i}`,
   }));
-  assert.equal(buildQueue(many, {}, TODAY).length, 40);
+  assert.equal(buildNewQueue(many, {}).length, 40);
   assert.equal(summarize(many, {}, TODAY).fresh, 40);
 });
 
-test('buildQueue：今天已經新學過的卡（答「還不會」，今天到期）留在佇列，重整頁面不會漏掉也不會重複', () => {
+test('今天新學時答「還不會」的卡（今天到期）進複習區、離開新卡區，重整頁面不會漏掉也不會重複', () => {
   const state = {
     'l:a': {
       ease: 2.3,
@@ -234,12 +240,36 @@ test('buildQueue：今天已經新學過的卡（答「還不會」，今天到�
     },
   };
   assert.deepEqual(
-    buildQueue(cards, state, TODAY).map((c) => c.word),
-    ['a', 'b', 'c', 'd'],
+    buildReviewQueue(cards, state, TODAY).map((c) => c.word),
+    ['a'],
+  );
+  assert.deepEqual(
+    buildNewQueue(cards, state).map((c) => c.word),
+    ['b', 'c', 'd'],
   );
 });
 
-test('buildQueue／summarize：教材已移除的卡片進度不會讓程式出錯', () => {
+test('還不會的卡再多，新卡區的第一張仍是下一張沒看過的新卡（使用者回報的情境）', () => {
+  const deck = Array.from({ length: 300 }, (_, i) => ({
+    ...cards[0],
+    id: `m:${i}`,
+    word: `w${i}`,
+  }));
+  // 前 150 張都答過「還不會」，今天到期
+  const state = Object.fromEntries(
+    deck.slice(0, 150).map((c) => [
+      c.id,
+      { ease: 2.3, interval: 0, reps: 0, lapses: 1, due: TODAY, firstSeen: TODAY },
+    ]),
+  );
+  assert.equal(buildDeck('review', deck, state, TODAY).length, 150);
+  const fresh = buildDeck('new', deck, state, TODAY);
+  assert.equal(fresh.length, 150);
+  assert.equal(fresh[0].word, 'w150');
+  assert.deepEqual(SRS_MODES, ['review', 'new']);
+});
+
+test('buildReviewQueue／buildNewQueue／summarize：教材已移除的卡片進度不會讓程式出錯', () => {
   const state = {
     'gone:x': {
       ease: 2.5,
@@ -250,7 +280,8 @@ test('buildQueue／summarize：教材已移除的卡片進度不會讓程式出�
       firstSeen: '2026-08-30',
     },
   };
-  assert.equal(buildQueue(cards, state, TODAY).length, cards.length);
+  assert.equal(buildReviewQueue(cards, state, TODAY).length, 0);
+  assert.equal(buildNewQueue(cards, state).length, cards.length);
   assert.deepEqual(summarize(cards, state, TODAY), {
     total: 4,
     learned: 0,
