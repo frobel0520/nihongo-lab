@@ -25,6 +25,7 @@ import {
 } from '../../lib/route.mjs';
 import { applyAnalysis, setTokenReading } from '../../lib/song-tokens.mjs';
 import { ChevronRightIcon, MusicIcon } from '../components/Icons';
+import { GrammarChips, WordDetails } from '../components/SongInsights';
 import { SongLineText, WordSheet, type WordRef } from '../components/SongWords';
 import {
   analyzeLines,
@@ -359,12 +360,15 @@ function SongDetail({ song, songs }: { song: Song; songs: SongsState }) {
             ) : (
               <li key={index} className="song-line">
                 {line.tokens && line.tokens.length > 0 ? (
-                  <SongLineText
-                    tokens={line.tokens}
-                    lineIndex={index}
-                    selected={selected}
-                    onSelect={setSelected}
-                  />
+                  <>
+                    <SongLineText
+                      tokens={line.tokens}
+                      lineIndex={index}
+                      selected={selected}
+                      onSelect={setSelected}
+                    />
+                    <GrammarChips tokens={line.tokens} />
+                  </>
                 ) : (
                   <div className="song-text" lang="ja">
                     {line.text}
@@ -403,7 +407,9 @@ function SongDetail({ song, songs }: { song: Song; songs: SongsState }) {
           token={selectedToken}
           onSaveReading={(reading) => saveReading(selected, reading)}
           onClose={() => setSelected(null)}
-        />
+        >
+          <WordDetails token={selectedToken} />
+        </WordSheet>
       )}
 
       <section className="card">
