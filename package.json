@@ -8,7 +8,7 @@
   "scripts": {
     "predev": "node scripts/prepare-song-assets.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/prepare-song-assets.mjs",
+    "prebuild": "node scripts/prepare-song-assets.mjs --require-jmdict",
     "build": "vite build",
     "start": "vite preview",
     "lint": "oxlint",

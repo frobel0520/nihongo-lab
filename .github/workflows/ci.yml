@@ -20,6 +20,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
+      # 歌曲閱讀器的 JMdict（固定版本，約 1.4MB）：快取下載檔，避免每次建置都向 GitHub releases 下載
+      - uses: actions/cache@v4
+        with:
+          path: .cache/jmdict
+          key: jmdict-3.6.2+20260928191014
       - run: npm run build
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/

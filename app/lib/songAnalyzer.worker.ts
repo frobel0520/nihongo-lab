@@ -6,9 +6,15 @@
  */
 import * as kuromoji from '@patdx/kuromoji';
 import {
+  JMDICT_FILE,
+  lookupJmdict,
+  type JmdictIndex,
+} from '../../lib/song-lookup.mjs';
+import {
   KUROMOJI_FILES,
   KUROMOJI_PATH,
   SONG_ASSETS_CACHE,
+  SONG_ASSETS_PATH,
   analyzeLine,
   gunzipIfNeeded,
 } from '../../lib/song-tokens.mjs';
@@ -19,6 +25,7 @@ declare const self: DedicatedWorkerGlobalScope;
 type Tokenizer = Awaited<ReturnType<kuromoji.TokenizerBuilder['build']>>;
 
 let tokenizer: Promise<Tokenizer> | null = null;
+let jmdict: Promise<JmdictIndex> | null = null;
 let buildMs: number | null = null;
 
 const post = (message: WorkerResponse) => self.postMessage(message);
@@ -69,8 +76,34 @@ function getTokenizer(base: string, id: number): Promise<Tokenizer> {
   return tokenizer;
 }
 
+/** JMdict 英文釋義索引（約 2.5MB JSON），第一次查詞時載入，同樣存進 song-assets-v1。 */
+function getJmdict(base: string): Promise<JmdictIndex> {
+  if (jmdict) return jmdict;
+  jmdict = fetchDictFile(`${base}${SONG_ASSETS_PATH}${JMDICT_FILE}`)
+    .then((buffer) => JSON.parse(new TextDecoder().decode(buffer)) as JmdictIndex)
+    .catch((error: unknown) => {
+      jmdict = null;
+      throw error;
+    });
+  return jmdict;
+}
+
 self.onmessage = async (event: MessageEvent<WorkerRequest>) => {
-  const { id, base, lines } = event.data;
+  const request = event.data;
+  if (request.kind === 'lookup') {
+    try {
+      const index = await getJmdict(request.base);
+      post({ type: 'lookup', id: request.id, hits: lookupJmdict(index, request.token) });
+    } catch (error) {
+      post({
+        type: 'error',
+        id: request.id,
+        message: error instanceof Error ? error.message : String(error),
+      });
+    }
+    return;
+  }
+  const { id, base, lines } = request;
   try {
     const firstBuild = tokenizer === null;
     const built = await getTokenizer(base, id);
