@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { stages } from '../../curriculum/lessons.mjs';
 import { isInteractive, isTextEntry, type KeyTarget } from '../../lib/keys.mjs';
 import { recordReviewFrom, type Progress } from '../../lib/progress.mjs';
-import { viewHash } from '../../lib/route.mjs';
+import { srsHash, viewHash } from '../../lib/route.mjs';
 import {
   applyGrade,
   baseState,
@@ -14,11 +14,12 @@ import {
 } from '../../lib/srs-session.mjs';
 import {
   buildCards,
-  buildQueue,
+  buildDeck,
   schedule,
   summarize,
   toDateString,
   type Grade,
+  type SrsMode,
 } from '../../lib/srs.mjs';
 import { PlayButton } from '../components/AudioLine';
 import {
@@ -63,18 +64,50 @@ function buzz() {
   }
 }
 
+/**
+ * 單字卡分成兩區（T52）：複習（今天到期，含答「還不會」的）與新卡（還沒看過的），各自一輪。
+ * 「還不會」的卡再多，也能直接切到新卡區，不會被擋住。
+ */
+function ModeSwitch({ mode, due, fresh }: { mode: SrsMode; due: number; fresh: number }) {
+  const options: { id: SrsMode; label: string; count: number }[] = [
+    { id: 'review', label: '複習', count: due },
+    { id: 'new', label: '新卡', count: fresh },
+  ];
+  return (
+    <fieldset className="segmented srs-modes" data-no-swipe>
+      <legend className="sr-only">單字卡分區</legend>
+      {options.map((option) => (
+        <label key={option.id}>
+          <input
+            type="radio"
+            name="srs-mode"
+            checked={mode === option.id}
+            // 用 replace 換區：切換分區不該在返回鍵的歷史裡留一堆紀錄。
+            onChange={() => window.location.replace(srsHash(option.id))}
+          />
+          <span>
+            {option.label} {option.count}
+          </span>
+        </label>
+      ))}
+    </fieldset>
+  );
+}
+
 export function SrsView({
   progress,
   update,
+  mode,
 }: {
   progress: Progress;
   update: (change: (prev: Progress) => Progress) => void;
+  mode: SrsMode;
 }) {
   // 日期每次渲染都重算：畫面停在單字卡過了午夜，評分與預告仍用「現在」的日期，不會排出偏一天的到期日。
   const today = toDateString();
-  // 牌組只在進入畫面時排一次；一輪的流程（上一張／下一張、評分後跳到哪一張）見 lib/srs-session.mjs。
+  // 牌組只在進入畫面（或換區）時排一次；一輪的流程（上一張／下一張、評分後跳到哪一張）見 lib/srs-session.mjs。
   const [session, setSession] = useState<Session>(() =>
-    createSession(buildQueue(CARDS, progress.srs, toDateString())),
+    createSession(buildDeck(mode, CARDS, progress.srs, toDateString())),
   );
   const [revealed, setRevealed] = useState(false);
   const [reviewed, setReviewed] = useState(0);
@@ -143,21 +176,33 @@ export function SrsView({
     );
   }
 
+  const modeSwitch = <ModeSwitch mode={mode} due={stats.due} fresh={stats.fresh} />;
+
   if (!current) {
+    const other: SrsMode = mode === 'review' ? 'new' : 'review';
+    const otherCount = other === 'new' ? stats.fresh : stats.due;
+    const emptyLabel = mode === 'review' ? '目前沒有要複習的卡片' : '新卡都看過了';
     return (
+      <>
+        {modeSwitch}
       <section className="card hero">
-        <p className="hero-label">
-          {reviewed > 0 ? '完成！' : '目前沒有要複習的卡片'}
-        </p>
+        <p className="hero-label">{reviewed > 0 ? '完成！' : emptyLabel}</p>
         <p className="hero-number">
           {reviewed > 0 ? reviewed : stats.learned}
-          <small>{reviewed > 0 ? '次複習' : `/ ${stats.total} 張已學`}</small>
+          <small>{reviewed > 0 ? '次評分' : `/ ${stats.total} 張已學`}</small>
         </p>
         <p className="muted">
           {reviewed > 0
             ? `已學 ${stats.learned} / ${stats.total} 張。`
-            : '有新的單字或到期的卡片時，會出現在這裡。'}
+            : mode === 'review'
+              ? '答「記得」的卡會在幾天後到期回到這裡；答「還不會」的今天就會出現在這裡。'
+              : '教材新增單字時，會出現在這裡。'}
         </p>
+        {otherCount > 0 && (
+          <a className="btn primary big block" href={srsHash(other)}>
+            {other === 'new' ? `去學新卡（${otherCount} 張）` : `去複習（${otherCount} 張到期）`}
+          </a>
+        )}
         {total > 0 && (
           <button
             type="button"
@@ -167,10 +212,11 @@ export function SrsView({
             回到最後一張
           </button>
         )}
-        <a className="btn primary big block" href={viewHash('lessons')}>
+        <a className="btn big block" href={viewHash('lessons')}>
           回課程
         </a>
       </section>
+      </>
     );
   }
 
@@ -179,6 +225,7 @@ export function SrsView({
 
   return (
     <div className="srs-screen" {...swipe}>
+      {modeSwitch}
       <div className="progress-head">
         <ProgressBar value={done} max={total} label="這一輪的進度" />
         <span className="muted">

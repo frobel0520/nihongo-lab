@@ -1,7 +1,7 @@
 import { stages } from '../../curriculum/lessons.mjs';
 import { lessonProgress } from '../../lib/lesson-progress.mjs';
 import type { Progress } from '../../lib/progress.mjs';
-import { lessonHash, viewHash } from '../../lib/route.mjs';
+import { lessonHash, srsHash, viewHash } from '../../lib/route.mjs';
 import { buildCards, summarize, toDateString } from '../../lib/srs.mjs';
 import { ChevronRightIcon } from '../components/Icons';
 import { ProgressBar } from '../components/ProgressBar';
@@ -38,9 +38,22 @@ export function LessonListView({ progress }: { progress: Progress }) {
             <p className="muted">
               到期 {stats.due} 張 · 新卡 {stats.fresh} 張
             </p>
-            <a className="btn primary big block" href={viewHash('srs')}>
-              開始複習
-            </a>
+            {/* 複習與新卡分開進（T52）：還不會的卡再多，也能直接學新卡。 */}
+            <div className="hero-actions">
+              {stats.due > 0 && (
+                <a className="btn primary big" href={srsHash('review')}>
+                  複習 {stats.due} 張
+                </a>
+              )}
+              {stats.fresh > 0 && (
+                <a
+                  className={`btn big${stats.due > 0 ? '' : ' primary'}`}
+                  href={srsHash('new')}
+                >
+                  學新卡 {stats.fresh} 張
+                </a>
+              )}
+            </div>
           </>
         ) : (
           <>

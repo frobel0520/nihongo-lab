@@ -68,7 +68,7 @@ export function App() {
     route.view === 'lessons' && route.lessonId
       ? LESSONS.find((l) => l.id === route.lessonId)
       : undefined;
-  const routeKey = `${route.view}/${lesson?.id ?? ''}`;
+  const routeKey = `${route.view}/${lesson?.id ?? ''}/${route.srsMode ?? ''}`;
 
   // 換頁時回到頁首，不停在上一頁滑到一半的位置。
   useEffect(() => {
@@ -158,7 +158,7 @@ export function App() {
             <LessonListView progress={progress} />
           ))}
         {route.view === 'srs' && (
-          <SrsView progress={progress} update={update} />
+          <SrsView progress={progress} update={update} mode={route.srsMode ?? 'review'} />
         )}
         {route.view === 'shadowing' && <ShadowingView />}
         {route.view === 'dictation' && (
