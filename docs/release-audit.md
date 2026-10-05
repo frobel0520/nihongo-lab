@@ -309,3 +309,8 @@ T45／T46 整合驗證：部署前同步 main 的 9be2393，保留已部署的�
 - **瀏覽器（本機開發版、Chromium、375×812，暫時寫入版本 2 測試進度後還原）**：5 張正在還不會、3 張今天到期、5 張未到期的版本 2 進度載入後沒有任何警告，首頁「複習 8 張／學新卡 698 張」與轉換前的到期數一致；正在還不會的卡按鈕顯示「還不會 今天再看／記得 2 天後」，今天到期、上次間隔 3 天的卡顯示「記得 15 天後」；第一張答還不會、其他 7 張答記得後自動繞回第一張且答案蓋住、評分鈕不顯示；再答記得後存檔變成版本 3，那張卡 lapses 2、穩定度 0.10、到期 2 天後。
 - **效能**（Node v24.14.1、Windows 10 桌機）：一次評分的排程計算平均 0.0042ms（20,000 次）；711 張版本 2 進度轉換 p50 1.43ms、p95 1.69ms（20 次）。主程式 JS 655.57KB → 678.55KB（gzip 206.74KB → 214.01KB，+7.3KB），precache 910.05 → 932.50KiB。手機實機未量測。
 - **限制與待辦**：FSRS 參數用預設值，沒有用使用者自己的作答紀錄最佳化（目前沒有存逐次作答紀錄）；舊進度轉換是估計（沒有歷史）；「少約 20～30% 複習量」是 FSRS 社群常引用的說法，這個專案沒有量測。**合併部署後要重新部署同步 Worker**（`npx wrangler deploy -c worker/wrangler.toml`），否則新版 App 的同步會被舊 Worker 拒絕（本機進度不受影響）；正式站同步與 Android 真機未驗證。
+
+## T52／T53 部署（2026-10-05）
+
+- PR #55 以 `gh pr merge --rebase` 合併（CI 在最後一個 commit `f841a09` 通過）；main 的 [GitHub Actions 37325256163](https://github.com/frobel0520/nihongo-lab/actions/runs/37325256163) 驗證與部署成功。正式站首頁載入 `assets/index-DuYJFM7E.js`，內容含「學新卡」、`srs/new` 與 FSRS 參數 `request_retention`。
+- 同步 Worker：`wrangler deploy --dry-run` 打包成功（79.23KiB，gzip 18.40KiB）；正式部署被 Claude Code 的權限檢查擋下（正式環境部署），**尚未部署**，要使用者執行 `npx wrangler deploy -c worker/wrangler.toml`。部署前正式 Worker 仍是版本 2 的格式檢查，新版 App 上傳版本 3 會被拒絕。`/health` 回 200。
