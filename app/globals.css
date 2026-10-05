@@ -177,6 +177,7 @@ a {
 
 .tabs a {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,6 +196,13 @@ a {
   padding: 4px 18px;
   border-radius: 999px;
   transition: background 0.15s;
+}
+
+/* 六個分頁在 320px 寬的手機也要放得下（每個約 53px） */
+@media (max-width: 380px) {
+  .tabs a svg {
+    padding-inline: 12px;
+  }
 }
 
 .tabs a[aria-current='page'] {
@@ -1469,4 +1477,118 @@ rt {
   align-items: center;
   gap: 8px;
   margin-block: 12px;
+}
+
+/* ───────── 歌曲閱讀器（T49） ───────── */
+
+.btn.danger {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.link-btn {
+  min-height: 44px;
+  padding: 0 4px;
+  border: none;
+  background: none;
+  color: var(--brand);
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.song-empty {
+  text-align: center;
+}
+
+.song-artist {
+  margin-top: -4px;
+}
+
+.song-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--ink-2);
+  font-size: 0.88rem;
+}
+
+.song-form input,
+.song-form textarea,
+.song-note-editor textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--rule);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+}
+
+.song-form textarea {
+  min-height: 240px;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+.song-form input:focus,
+.song-form textarea:focus,
+.song-note-editor textarea:focus {
+  border-color: var(--brand);
+  outline: none;
+}
+
+.song-lines {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.song-line {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.song-line:last-child {
+  border-bottom: none;
+}
+
+/* 段落之間的空行：只留空白，上一句的分隔線已經畫過 */
+.song-gap {
+  height: 20px;
+}
+
+.song-text {
+  font-size: 1.15rem;
+  line-height: 2;
+  overflow-wrap: anywhere;
+}
+
+.song-note-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 8px;
+}
+
+.song-note {
+  flex: 1 1 12rem;
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 0.92rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.song-note-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }

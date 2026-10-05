@@ -8,17 +8,20 @@ import {
   CardsIcon,
   HeadphonesIcon,
   MicIcon,
+  MusicIcon,
   SlidersIcon,
 } from './components/Icons';
 import { PrefsContext, loadPrefs, savePrefs } from './prefs';
 import { RubyText } from './components/Ruby';
 import { useProgress } from './useProgress';
+import { useSongs } from './useSongs';
 import { useSwUpdate } from './useSwUpdate';
 import { useSync } from './useSync';
 import { DictationView } from './views/DictationView';
 import { LessonListView } from './views/LessonListView';
 import { LessonView } from './views/LessonView';
 import { SettingsView } from './views/SettingsView';
+import { SongsView } from './views/SongsView';
 import { ShadowingView } from './views/ShadowingView';
 import { SrsView } from './views/SrsView';
 
@@ -29,6 +32,7 @@ const TABS: { id: ViewId; label: string; icon: ReactNode }[] = [
   { id: 'srs', label: '單字卡', icon: <CardsIcon /> },
   { id: 'dictation', label: '聽寫', icon: <HeadphonesIcon /> },
   { id: 'shadowing', label: '跟讀', icon: <MicIcon /> },
+  { id: 'songs', label: '歌曲', icon: <MusicIcon /> },
   { id: 'settings', label: '設定', icon: <SlidersIcon /> },
 ];
 
@@ -39,6 +43,7 @@ export function App() {
   const { progress, getProgress, update, warning, saveError, dismissWarning } =
     useProgress();
   const sync = useSync({ progress, getProgress, update });
+  const songs = useSongs();
   const [prefs, setPrefs] = useState(loadPrefs);
   const { updated, dismiss: dismissUpdate, reload } = useSwUpdate();
   // 有沒有在 App 裡換過頁：沒有的話（直接開單一課程的網址），返回鍵不能用 history.back()，否則會離開 App。
@@ -68,7 +73,13 @@ export function App() {
     route.view === 'lessons' && route.lessonId
       ? LESSONS.find((l) => l.id === route.lessonId)
       : undefined;
-  const routeKey = `${route.view}/${lesson?.id ?? ''}`;
+  const song =
+    route.view === 'songs' && route.songId
+      ? songs.doc.songs.find((s) => s.id === route.songId)
+      : undefined;
+  // 歌曲頁的第二層（單首、新增、編輯）也要返回鍵。
+  const inSongPage = route.view === 'songs' && Boolean(route.songId || route.mode);
+  const routeKey = `${route.view}/${lesson?.id ?? ''}/${route.songId ?? ''}/${route.mode ?? ''}`;
 
   // 換頁時回到頁首，不停在上一頁滑到一半的位置。
   useEffect(() => {
@@ -77,11 +88,20 @@ export function App() {
 
   const goBack = () => {
     if (navigated.current) window.history.back();
-    else window.location.replace(viewHash('lessons'));
+    else window.location.replace(viewHash(route.view === 'songs' ? 'songs' : 'lessons'));
   };
 
+  const songTitle =
+    route.view === 'songs'
+      ? route.mode === 'new'
+        ? '新增歌曲'
+        : route.mode === 'edit'
+          ? '編輯歌曲'
+          : song?.title
+      : undefined;
   const title =
     lesson?.title ??
+    songTitle ??
     (route.view === 'lessons'
       ? APP_NAME
       : TABS.find((t) => t.id === route.view)?.label);
@@ -89,11 +109,11 @@ export function App() {
   return (
     <PrefsContext.Provider value={prefs}>
       <header className="appbar">
-        {lesson && (
+        {(lesson || inSongPage) && (
           <button
             type="button"
             className="icon-btn"
-            aria-label="返回課程清單"
+            aria-label={lesson ? '返回課程清單' : '返回'}
             onClick={goBack}
           >
             <BackIcon />
@@ -161,6 +181,24 @@ export function App() {
           <SrsView progress={progress} update={update} />
         )}
         {route.view === 'shadowing' && <ShadowingView />}
+        {route.view === 'songs' && (
+          <>
+            {songs.warning && (
+              <div className="notice notice-row" role="alert">
+                <span>{songs.warning}</span>
+                <button type="button" className="btn" onClick={songs.dismissWarning}>
+                  知道了
+                </button>
+              </div>
+            )}
+            {songs.saveError && (
+              <p className="notice" role="alert">
+                {songs.saveError}
+              </p>
+            )}
+            <SongsView route={route} songs={songs} goBack={goBack} />
+          </>
+        )}
         {route.view === 'dictation' && (
           <DictationView
             progress={progress}

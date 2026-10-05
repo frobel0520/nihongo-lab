@@ -63,6 +63,14 @@ export const SlidersIcon = () => (
   </Icon>
 );
 
+export const MusicIcon = () => (
+  <Icon>
+    <path d="M9 18V5l11-2v13" />
+    <circle cx="6" cy="18" r="3" />
+    <circle cx="17" cy="16" r="3" />
+  </Icon>
+);
+
 export const BackIcon = () => (
   <Icon>
     <path d="M15 5l-7 7 7 7" />
