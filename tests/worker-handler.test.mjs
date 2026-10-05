@@ -195,7 +195,7 @@ test('/sync：沒有新東西時不寫 KV；不同使用者的進度分開存', 
   assert.deepEqual(result.progress.srs, {});
 });
 
-test('/sync：版本 1 的進度（舊版 App 匯出）也收，自動轉成版本 2；格式不對 400，太大 413', async () => {
+test('/sync：版本 1 的進度（舊版 App 匯出）也收，自動轉成目前的版本 3（FSRS）；格式不對 400，太大 413', async () => {
   const env = makeEnv();
   const token = await session();
   const v1 = {
@@ -204,7 +204,9 @@ test('/sync：版本 1 的進度（舊版 App 匯出）也收，自動轉成版�
     dictation: {},
   };
   const ok = await (await call(env, '/sync', { token, body: { progress: v1 } })).json();
-  assert.equal(ok.progress.version, 2);
+  assert.equal(ok.progress.version, 3);
+  assert.equal(ok.progress.srs['l:a'].due, '2026-10-02', '轉換後到期日不變');
+  assert.equal(typeof ok.progress.srs['l:a'].stability, 'number');
   assert.equal(ok.dropped, 1);
   assert.equal(ok.progress.srs['l:a'].updatedAt, '2026-10-01T00:00:00.000Z');
 

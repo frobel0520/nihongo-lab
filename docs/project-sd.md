@@ -7,7 +7,7 @@ Vite / React + TypeScript，本機瀏覽器執行，local-first。目前無後�
 - `app/main.tsx`：React 掛載點。
 - `app/App.tsx`：頁首、三個分頁（課程／單字卡／聽寫，用 `#/`、`#/srs`、`#/dictation` hash 切換，不加路由套件）與進度存取提示。分頁內容在 `app/views/`（`LessonView`、`SrsView`、`DictationView`），共用的音檔元件在 `app/components/AudioLine.tsx`（`PlayButton` 音檔載入或播放失敗時顯示明確錯誤）。
 - `app/views/ShadowingView.tsx`：跟讀。播放一次、留白（見 `lib/shadowing.mjs`）讓使用者念、再播，一直重複到按停止（沒有輪數上限，T34），也可以只「聽一次」，可隱藏原文；音檔播放失敗顯示明確錯誤；按停止造成的 `AbortError` 不當成錯誤。不含調速。
-- `lib/`：無 DOM 的純邏輯，用 `.mjs` + JSDoc 型別，讓 `node --test` 直接測、TypeScript 也能匯入。`srs.mjs`（SM-2 簡化版排程、單字卡與每日佇列）、`srs-session.mjs`（一輪複習的流程：上一張／下一張、評分後跳到哪一張、回頭改評分）、`dictation.mjs`（聽寫句子清單、逐字比對）、`progress.mjs`（進度資料形狀、解析驗證、聽寫紀錄）、`shadowing.mjs`（跟讀留白長度）。
+- `lib/`：無 DOM 的純邏輯，用 `.mjs` + JSDoc 型別，讓 `node --test` 直接測、TypeScript 也能匯入。`srs.mjs`（FSRS 排程〔T53，原為 SM-2 簡化版〕、單字卡、複習／新卡兩區的牌組）、`srs-session.mjs`（一輪複習的流程：上一張／下一張、評分後跳到哪一張、回頭改評分）、`dictation.mjs`（聽寫句子清單、逐字比對）、`progress.mjs`（進度資料形狀、解析驗證、聽寫紀錄）、`shadowing.mjs`（跟讀留白長度）。
 - `app/lib/storage.ts`、`app/useProgress.ts`：`localStorage` 讀寫（key `nihongo-lab:progress:v1`）與 React 狀態；存檔壞掉時原文備份到 `…:backup` 並提示，寫入失敗時畫面顯示訊息但仍可繼續學習。
 - `curriculum/lessons.mjs`：學習階段與課程資料的單一來源，目前第 0 階段有 25 課、第 2 階段有 10 課（八課動畫特訓、口語轉換表、動畫與遊戲名句），第 1、3 階段仍是空的（`lessons: []`）。
 - `curriculum/voices.mjs`：教材語音角色陣容，對應本機 VOICEVOX 引擎（127.0.0.1:50021）的 speaker id。2026-10-03 最終選角後保留 8 個角色：春日部つむぎ、雨晴はう、小夜/SAYO、猫使ビィ、東北ずん子、青山龍星、黒沢冴白、VOICEVOX Nemo 男声2。
@@ -178,3 +178,11 @@ T46 首次試聽版本：教材 MP3 路徑保持不變，離線快取更新為 `
 
 
 2026-10-03 T48：使用者依試聽檔名定案動畫名句三男聲為青山龍星、黒沢冴白、VOICEVOX Nemo 男声2。原有教材與女性角色配音維持，32 句男聲名句重製，同一角色固定聲線；教材與學習進度 URL 保留，離線音檔快取升至 lesson-audio-v5，需重新下載。三男聲已採用的名句數為 28／12／20。機械檢查與使用者選角不代表全句人工抑揚驗收，驗證見 release-audit.md。
+
+## 單字卡排程改用 FSRS（T53，2026-10-05）
+
+- **演算法**：`lib/srs.mjs` 用 [ts-fsrs](https://github.com/open-spaced-repetition/ts-fsrs) 5.4.2（MIT）的 FSRS-6 預設參數。每張卡存穩定度（記得的機率從剛複習完降到 90% 要幾天）、難度（1～10）、狀態；答「記得」排到預估記得的機率降到 `DESIRED_RETENTION`（0.9）那天，至少 1 天、最多 365 天（ts-fsrs 在上限 365 時仍可能給 366，自己再夾一次）。不打亂到期日（`enable_fuzz: false`），不設分鐘級學習步驟；「還不會」照舊今天再看（到期日設今天），由一輪流程處理。
+- **兩級評分**：還不會＝Again、記得＝Good；Hard／Easy 不用。
+- **同一輪的評分紀錄**（`lib/srs-session.mjs` 的 `history`、`revisit`）：答還不會後一輪自動繞回來是「再考一次」，評分接在後面，記錄時從這一輪之前的狀態依序套用（`recordReviewSequence`：先記一次忘記，再記同一天答對）；用上一張／下一張回頭改是「改掉按錯的」，換掉最後一個。自動繞回來的卡先蓋住答案。
+- **進度格式版本 3**：`srs: { [id]: { stability, difficulty, state, reps, lapses, due, firstSeen, updatedAt } }`。`updatedAt` 同時是 FSRS 算「距離上次複習幾天」的依據。版本 1、2（SM-2 的 ease、interval）讀進來時用 `fromLegacyCard` 轉換：到期日、首次日期、評分時刻不變；正在還不會的卡用新卡第一次答還不會後的穩定度與難度，答過記得的卡穩定度取舊間隔（至少 1 天），難度看有沒有答錯過。沒有逐次作答紀錄，所以這是估計。
+- **跨裝置同步**：Worker 共用 `lib/progress.mjs`，要重新部署才會收版本 3；部署前，新版 App 上傳版本 3 會被舊 Worker 拒絕（同步失敗、本機進度不受影響）。還沒更新的舊版 App 從雲端拿到版本 3 會當成「較新的版本」不合併，更新 App 後恢復。

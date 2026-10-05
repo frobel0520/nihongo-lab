@@ -4,128 +4,131 @@ import { stages } from '../curriculum/lessons.mjs';
 import {
   GRADES,
   MAX_INTERVAL_DAYS,
-  MIN_EASE,
   addDays,
   SRS_MODES,
   buildCards,
   buildDeck,
   buildNewQueue,
   buildReviewQueue,
+  daysBetween,
+  daysUntilDue,
+  fromLegacyCard,
   isDateString,
   schedule,
+  scheduleSequence,
   summarize,
   toDateString,
 } from '../lib/srs.mjs';
 
 const TODAY = '2026-09-30';
+/** 某一天早上 8 點（UTC）的評分時刻 */
+const at = (day) => `${day}T08:00:00.000Z`;
+/** 依序在到期日答「記得」n 次，回傳每次的間隔 */
+function goodChain(n, start = TODAY) {
+  let card = undefined;
+  let day = start;
+  const intervals = [];
+  for (let i = 0; i < n; i++) {
+    card = schedule(card, 'good', day, at(day));
+    intervals.push(daysBetween(day, card.due));
+    day = card.due;
+  }
+  return { card, intervals };
+}
 
-test('日期工具：本機日期字串、跨月加天數、格式驗證', () => {
+test('日期工具：本機日期字串、跨月加天數、相差天數、格式驗證', () => {
   assert.equal(toDateString(new Date(2026, 8, 5)), '2026-09-05');
   assert.equal(addDays('2026-09-30', 1), '2026-10-01');
   assert.equal(addDays('2026-12-31', 1), '2027-01-01');
   assert.equal(addDays('2026-03-01', -1), '2026-02-28');
+  assert.equal(daysBetween('2026-09-30', '2026-10-03'), 3);
+  assert.equal(daysBetween('2026-12-31', '2027-01-01'), 1);
   assert.ok(isDateString('2026-09-30'));
   assert.ok(!isDateString('2026-02-30'));
   assert.ok(!isDateString('2026-9-30'));
   assert.ok(!isDateString(20260930));
 });
 
-test('schedule：新卡 good 隔 1 天，之後 3 天，再依 ease 拉長', () => {
-  const first = schedule(undefined, 'good', TODAY);
-  assert.equal(first.interval, 1);
-  assert.equal(first.due, '2026-10-01');
+test('schedule（FSRS）：新卡答記得至少明天以後，記下首次日期、評分時刻，穩定度與難度在合理範圍', () => {
+  const first = schedule(undefined, 'good', TODAY, at(TODAY));
+  assert.ok(daysBetween(TODAY, first.due) >= 1);
   assert.equal(first.firstSeen, TODAY);
+  assert.equal(first.updatedAt, at(TODAY));
   assert.equal(first.reps, 1);
-
-  const second = schedule(first, 'good', '2026-10-01');
-  assert.equal(second.interval, 3);
-  assert.equal(second.due, '2026-10-04');
-
-  const third = schedule(second, 'good', '2026-10-04');
-  assert.equal(third.interval, Math.round(3 * 2.5));
-  assert.equal(third.firstSeen, TODAY);
+  assert.equal(first.lapses, 0);
+  assert.ok(first.stability > 0);
+  assert.ok(first.difficulty >= 1 && first.difficulty <= 10);
 });
 
-test('schedule：again 今天再看、清 reps、記 lapses、ease 有下限', () => {
-  let card = schedule(undefined, 'good', TODAY);
-  card = schedule(card, 'good', TODAY);
-  const lapsed = schedule(card, 'again', TODAY);
-  assert.equal(lapsed.due, TODAY);
-  assert.equal(lapsed.interval, 0);
-  assert.equal(lapsed.reps, 0);
-  assert.equal(lapsed.lapses, 1);
-  assert.ok(lapsed.ease < card.ease);
-
-  let low = schedule(undefined, 'again', TODAY);
-  for (let i = 0; i < 20; i++) low = schedule(low, 'again', TODAY);
-  assert.equal(low.ease, 1.3);
+test('schedule（FSRS）：到期時連續答記得，間隔一次比一次長、不超過上限，日期永遠合法', () => {
+  const { card, intervals } = goodChain(12);
+  for (let i = 1; i < intervals.length; i++) {
+    assert.ok(intervals[i] >= intervals[i - 1], `第 ${i + 1} 次間隔變短了：${intervals}`);
+    assert.ok(intervals[i] <= MAX_INTERVAL_DAYS);
+  }
+  assert.ok(intervals[2] > intervals[1] && intervals[1] > intervals[0], '前幾次確實變長');
+  assert.equal(intervals.at(-1), MAX_INTERVAL_DAYS);
+  assert.ok(isDateString(card.due));
 });
 
-test('只有兩級評分：還不會（again）與記得（good）', () => {
-  assert.deepEqual([...GRADES], ['again', 'good']);
+test('schedule（FSRS）：答還不會今天再看，穩定度下降、難度上升、記一次忘記，不改動傳入的舊狀態', () => {
+  const { card } = goodChain(2);
+  const before = structuredClone(card);
+  const lapsed = schedule(card, 'again', card.due, at(card.due));
+  assert.deepEqual(card, before);
+  assert.equal(lapsed.due, card.due);
+  assert.equal(daysUntilDue(lapsed, card.due), 0);
+  assert.ok(lapsed.stability < card.stability);
+  assert.ok(lapsed.difficulty > card.difficulty);
+  assert.equal(lapsed.lapses, card.lapses + 1);
 });
 
-test('schedule：不認得的評分（舊版的 hard／easy）會丟錯，不默默當成 good', () => {
-  assert.throws(() => schedule(undefined, 'hard', TODAY), /未知的評分/);
-  assert.throws(() => schedule(undefined, 'easy', TODAY), /未知的評分/);
-  assert.throws(() => schedule(undefined, undefined, TODAY), /未知的評分/);
+test('schedule（FSRS）：拖越久才複習（記得的機率越低）還答對，穩定度長得越多', () => {
+  const { card } = goodChain(2);
+  const onTime = schedule(card, 'good', card.due, at(card.due));
+  const late = addDays(card.due, 20);
+  const overdue = schedule(card, 'good', late, at(late));
+  assert.ok(overdue.stability > onTime.stability);
 });
 
-test('schedule：good 不改 ease，again 之後 good 的間隔從頭算，且不改動傳入的舊狀態', () => {
-  const first = schedule(undefined, 'good', TODAY);
-  const second = schedule(first, 'good', '2026-10-01');
-  assert.equal(second.ease, first.ease);
-
-  const before = structuredClone(second);
-  const lapsed = schedule(second, 'again', TODAY);
-  assert.deepEqual(second, before);
-  assert.equal(schedule(lapsed, 'good', TODAY).interval, 1);
-});
-
-test('schedule：連續答「記得」間隔只會變長、不超過上限，日期永遠是合法格式', () => {
-  let card = undefined;
+test('schedule（FSRS）：答錯過好幾次的卡，答記得之後的間隔比一路答對的短', () => {
+  const easy = goodChain(3);
+  let hard = undefined;
   let day = TODAY;
-  let previous = 0;
-  for (let i = 0; i < 40; i++) {
-    card = schedule(card, 'good', day);
-    assert.ok(card.interval >= previous, `第 ${i + 1} 次間隔變短了`);
-    assert.ok(card.interval <= MAX_INTERVAL_DAYS);
-    assert.ok(
-      isDateString(card.due),
-      `第 ${i + 1} 次到期日格式不合法：${card.due}`,
-    );
-    previous = card.interval;
-    day = card.due;
+  for (const grade of ['again', 'good', 'again', 'good', 'again', 'good']) {
+    hard = schedule(hard, grade, day, at(day));
+    day = hard.due;
   }
-  assert.equal(card.interval, MAX_INTERVAL_DAYS);
+  assert.ok(hard.difficulty > easy.card.difficulty);
+  assert.ok(daysBetween(day, hard.due) <= easy.intervals.at(-1));
 });
 
-test('schedule：ease 降到下限（多次答錯後）的卡，答「記得」間隔仍會成長', () => {
-  let card = schedule(undefined, 'good', TODAY);
-  for (let i = 0; i < 10; i++) card = schedule(card, 'again', TODAY);
-  assert.equal(card.ease, MIN_EASE);
-  let previous = 0;
-  for (let i = 0; i < 6; i++) {
-    card = schedule(card, 'good', TODAY);
-    assert.ok(card.interval > previous || i === 0);
-    previous = card.interval;
+test('只有兩級評分：還不會（again）與記得（good），不認得的評分丟錯', () => {
+  assert.deepEqual([...GRADES], ['again', 'good']);
+  for (const bad of ['hard', 'easy', undefined]) {
+    assert.throws(() => schedule(undefined, bad, TODAY, at(TODAY)), /未知的評分/);
   }
-  assert.ok(previous >= 4);
 });
 
-test('schedule：舊版四級評分留下的進度（ease 較高、reps 1 但間隔 3）仍能正常往下排', () => {
-  // 舊版第一次答 easy 會得到 reps 1、interval 3、ease 2.65；現在再答「記得」不應比 3 天短。
-  const legacy = {
-    ease: 2.65,
-    interval: 3,
-    reps: 1,
-    lapses: 0,
-    due: '2026-10-03',
-    firstSeen: TODAY,
-  };
-  const next = schedule(legacy, 'good', '2026-10-03');
-  assert.equal(next.interval, Math.round(3 * 2.65));
-  assert.equal(next.ease, 2.65);
+test('scheduleSequence：同一天先還不會再記得 = 依序套用；沒有評分就是原狀態', () => {
+  const { card } = goodChain(2);
+  const day = card.due;
+  const both = scheduleSequence(card, ['again', 'good'], day, at(day));
+  const step = schedule(schedule(card, 'again', day, at(day)), 'good', day, at(day));
+  assert.deepEqual(both, step);
+  assert.ok(daysBetween(day, both.due) >= 1, '最後答記得：不會停在今天');
+  const onlyGood = schedule(card, 'good', day, at(day));
+  assert.ok(both.stability < onlyGood.stability, '中間忘記過，穩定度比直接答對低');
+  assert.equal(scheduleSequence(card, [], day, at(day)), card);
+});
+
+test('fromLegacyCard：舊版 SM-2 進度轉換後到期日不變，接著用 FSRS 往下排', () => {
+  const legacy = { ease: 2.5, interval: 8, reps: 3, lapses: 0, due: '2026-10-08', firstSeen: '2026-09-20', updatedAt: at('2026-09-30') };
+  const converted = fromLegacyCard(legacy);
+  assert.equal(converted.due, legacy.due);
+  assert.equal(converted.stability, 8);
+  const next = schedule(converted, 'good', converted.due, at(converted.due));
+  assert.ok(daysBetween(converted.due, next.due) > 8, '答記得：比舊間隔更長');
 });
 
 test('buildCards：id 含課程 id、涵蓋教材所有單字', () => {

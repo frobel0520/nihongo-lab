@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import { stages } from '../../curriculum/lessons.mjs';
 import { isInteractive, isTextEntry, type KeyTarget } from '../../lib/keys.mjs';
-import { recordReviewFrom, type Progress } from '../../lib/progress.mjs';
+import { recordReviewSequence, type Progress } from '../../lib/progress.mjs';
 import { srsHash, viewHash } from '../../lib/route.mjs';
 import {
   applyGrade,
   baseState,
   createSession,
   currentCard,
+  isRevisit,
+  nextHistory,
   resolvedCount,
   step,
   type Session,
@@ -15,7 +17,8 @@ import {
 import {
   buildCards,
   buildDeck,
-  schedule,
+  daysUntilDue,
+  scheduleSequence,
   summarize,
   toDateString,
   type Grade,
@@ -121,12 +124,17 @@ export function SrsView({
     ? baseState(session, current, progress.srs[current.id])
     : undefined;
 
-  /** 換到另一張（或結束）：這一輪評過的卡直接顯示答案面，方便回頭看與改評分。 */
+  /**
+   * 換到另一張（或結束）：手動翻回評過的卡直接顯示答案面，方便回頭看與改評分；
+   * 答過「還不會」、一輪後自動繞回來的卡先蓋住答案，再考一次。
+   */
   const moveTo = (next: Session) => {
     if (next === session) return;
     setSession(next);
     const card = currentCard(next);
-    setRevealed(card !== null && next.grades[card.id] !== undefined);
+    setRevealed(
+      card !== null && next.grades[card.id] !== undefined && !isRevisit(next, card),
+    );
   };
   const swipe = useSwipeNavigation(
     () => moveTo(step(session, -1)),
@@ -138,7 +146,9 @@ export function SrsView({
     // 評分當下才取日期，畫面放了一夜再按也不會用到昨天的日期。
     const day = toDateString();
     const stamp = new Date().toISOString();
-    update((prev) => recordReviewFrom(prev, current.id, baseOf, g, day, stamp));
+    // 這一輪這張卡依序的評分（繞回來再考是接在後面，回頭改是換掉最後一個），從這一輪之前的狀態依序排程。
+    const grades = nextHistory(session, current, g);
+    update((prev) => recordReviewSequence(prev, current.id, baseOf, grades, day, stamp));
     setReviewed((n) => n + 1);
     moveTo(applyGrade(session, g, progress.srs[current.id]));
     buzz();
@@ -220,8 +230,15 @@ export function SrsView({
     );
   }
 
-  const preview = (g: Grade) =>
-    intervalText(schedule(baseOf, g, today).interval);
+  const preview = (g: Grade) => {
+    const next = scheduleSequence(
+      baseOf,
+      nextHistory(session, current, g),
+      today,
+      new Date().toISOString(),
+    );
+    return intervalText(next ? daysUntilDue(next, today) : 0);
+  };
 
   return (
     <div className="srs-screen" {...swipe}>

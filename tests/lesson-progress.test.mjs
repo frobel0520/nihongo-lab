@@ -37,8 +37,9 @@ const stages = [
 ];
 
 const state = (due = '2026-10-01') => ({
-  ease: 2.5,
-  interval: 1,
+  stability: 2.3,
+  difficulty: 2.1,
+  state: 2,
   reps: 1,
   lapses: 0,
   due,
