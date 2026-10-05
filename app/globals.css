@@ -1470,3 +1470,19 @@ rt {
   gap: 8px;
   margin-block: 12px;
 }
+
+/* ───────── 單字卡複習／新卡分區（T52） ───────── */
+
+.hero-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+}
+
+.hero-actions .btn {
+  margin-top: 0;
+}
+
+.srs-modes {
+  align-self: center;
+}
