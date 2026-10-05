@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { stages } from '../curriculum/lessons.mjs';
 import type { DictationMode } from '../lib/prefs.mjs';
 import { parseRoute, viewHash, type ViewId } from '../lib/route.mjs';
+import { catalogSong } from '../lib/song-catalog.mjs';
 import {
   BackIcon,
   BookIcon,
@@ -73,10 +74,6 @@ export function App() {
     route.view === 'lessons' && route.lessonId
       ? LESSONS.find((l) => l.id === route.lessonId)
       : undefined;
-  const song =
-    route.view === 'songs' && route.songId
-      ? songs.doc.songs.find((s) => s.id === route.songId)
-      : undefined;
   // 歌曲頁的第二層（單首、新增、編輯）也要返回鍵。
   const inSongPage = route.view === 'songs' && Boolean(route.songId || route.mode);
   const routeKey = `${route.view}/${lesson?.id ?? ''}/${route.songId ?? ''}/${route.mode ?? ''}`;
@@ -93,11 +90,11 @@ export function App() {
 
   const songTitle =
     route.view === 'songs'
-      ? route.mode === 'new'
-        ? '新增歌曲'
-        : route.mode === 'edit'
-          ? '編輯歌曲'
-          : song?.title
+      ? route.mode === 'edit'
+        ? '貼上歌詞'
+        : route.songId
+          ? catalogSong(route.songId)?.title
+          : undefined
       : undefined;
   const title =
     lesson?.title ??

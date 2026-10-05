@@ -1,7 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  NEW_SONG_HASH,
   VIEWS,
   lessonHash,
   parseRoute,
@@ -34,9 +33,10 @@ test('parseRoute：課程 id 為空或百分比編碼壞掉時退回課程清單
   assert.deepEqual(parseRoute('#/lesson/%E0%A4%A'), { view: 'lessons' });
 });
 
-test('歌曲路由：清單、新增、單首、編輯來回轉換，id 需要編碼也可以', () => {
+test('歌曲路由：清單、單首、編輯來回轉換，id 需要編碼也可以', () => {
   assert.deepEqual(parseRoute(viewHash('songs')), { view: 'songs' });
-  assert.deepEqual(parseRoute(NEW_SONG_HASH), { view: 'songs', mode: 'new' });
+  // 歌曲固定兩首，沒有「新增歌曲」頁
+  assert.deepEqual(parseRoute('#/songs/new'), { view: 'lessons' });
   for (const id of ['abc-123', '歌/1?#x', 'end/edit']) {
     assert.deepEqual(parseRoute(songHash(id)), { view: 'songs', songId: id });
     assert.deepEqual(parseRoute(songEditHash(id)), {
