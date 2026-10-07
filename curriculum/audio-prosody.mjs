@@ -8,6 +8,20 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox'}>} */
 export const AUDIO_PROSODY = {
+  'audio/stage-2/anime-lesson-05/core/vocab-639a6c4c7b.mp3': {
+    text: '弓',
+    reading: 'ゆみ',
+    kana: "ユミ'",
+    reason: 'T54：獨立單字採用 Kanjium 的弓（ゆみ）2 型，修正引擎的 1 型。',
+    reference: 'kanjium',
+  },
+  'audio/stage-2/anime-lesson-05/core/vocab-0d5975e9c4.mp3': {
+    text: '避ける',
+    reading: 'よける',
+    kana: "ヨケ'ル",
+    reason: 'T54：戰鬥詞彙取よける，採用 Kanjium 的 2 型；不沿用引擎的さける讀音。',
+    reference: 'kanjium',
+  },
   'audio/stage-0/day1/vocab-nanijin.mp3': {
     text: '何人',
     reading: 'なにじん',

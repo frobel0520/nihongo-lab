@@ -315,3 +315,27 @@ T45／T46 整合驗證：部署前同步 main 的 9be2393，保留已部署的�
 - PR #55 以 `gh pr merge --rebase` 合併（CI 在最後一個 commit `f841a09` 通過）；main 的 [GitHub Actions 37325256163](https://github.com/frobel0520/nihongo-lab/actions/runs/37325256163) 驗證與部署成功。正式站首頁載入 `assets/index-DuYJFM7E.js`，內容含「學新卡」、`srs/new` 與 FSRS 參數 `request_retention`。
 - 同步 Worker：`wrangler deploy --dry-run` 打包成功（79.23KiB，gzip 18.40KiB）；正式部署被 Claude Code 的權限檢查擋下（正式環境部署），**尚未部署**，要使用者執行 `npx wrangler deploy -c worker/wrangler.toml`。部署前正式 Worker 仍是版本 2 的格式檢查，新版 App 上傳版本 3 會被拒絕。`/health` 回 200。
 - 2026-10-05 補記：使用者在 14:39:33（UTC）重新部署同步 Worker（`wrangler deployments list`：Author frobel0520、Source Unknown (deployment)，前一次是 10-01 的 Secret Change）。部署內容是使用者本機的程式；我沒有用真實登入驗證版本 3 的同步，要使用者按「立即同步」確認。
+
+
+## T54 動畫特訓四課核心教材（2026-10-07）
+
+**使用者決定與範圍**：補齊戰鬥／武器、魔法／技能、人物語氣／推理三部分。直接在第 4～7 課各增加 10 詞、4 文法重點、6 練習及 4 道聽力題，共 40 詞、16 重點、24 練習、16 新題；課數仍為 35，名句庫仍為 100 句。全站現有 751 個單字卡項目、1,561 個音檔、89 道動畫聽力題。
+
+**來源查證**：
+
+- 40 詞使用 [JMdict 2026-10-05 發行版](https://github.com/scriptin/jmdict-simplified/releases/tag/3.6.2%2B20261005200550)，對每個詞條序號、指定假名讀音與詞義核對。特別區分剣的けん／つるぎ、避ける的よける／さける、仲間與能力的同字異讀；教材列本課採用的讀音及搭配。詞典正文沒有複製進 repo，中文解說自行撰寫。結界不把宗教本義直接當成所有作品的固定魔法設定，槍指長柄兵器而非槍械。
+- 文法參考 [Tae Kim 教學指南的社群 Markdown 鏡像](https://github.com/AmeRaino/taekim-grammar-md/tree/3375f5eaff269714cf0eba3fd826fd447e1092aa/taekim-md)；命令／禁止、解釋の、使役、しか、わけ、條件、可能、語尾、推測、ということ等章節已閱讀，相應章節連結在文法區。補充核對 OpenJLPT [N4](https://github.com/evanclan/OpenJLPT/blob/88eaef9c589f787194903e733c7f7b6df9d6ebc0/data/json/grammar/n4.json) 的とき／ことができる、[N3](https://github.com/evanclan/OpenJLPT/blob/88eaef9c589f787194903e733c7f7b6df9d6ebc0/data/json/grammar/n3.json) 的わけではない／わけにはいかない／ということ／からといって；不複製清單、教學原文或例句進 repo。解說與 15 句補充例句自行編寫，畫面明示非作品台詞。
+- 14 個文法作品用例直接引用原共用句庫，查證強度沿用 T13／T43／T44（含二手來源與節錄，未臆造集數或時間碼）。詞彙備註的盾比喻用例核對 [MyNavi 鬼滅之刃文章](https://news.mynavi.jp/article/20240527-2953528/) 的「柱ならば後輩の盾となるのは当然だ」；結界／封印用例出自 [MyNavi 咒術迴戰文章](https://news.mynavi.jp/article/20240513-2944756/) 的介紹文字，不冒充角色台詞。其餘武器／技能補充詞以詞典與主題搭配教學，不宣稱全部出現在這 68 句台詞裡。
+
+**語音**：55 個新 MP3（40 詞＋15 補充句）由保留的五位原有聲線自製。全部新 query 的讀音、重音索引、句界及 mora 數值核對通過，55 檔完整 ffmpeg 解碼成功。40 個獨立詞重音均與 Kanjium `6f32ef33701e572f5485f85eda7ffb9333f8c24e` 交叉比對；引擎的弓是 1 型，改用字典 2 型；避ける預設讀さける，改用よける 2 型。只新增兩筆 AUDIO_PROSODY，原 81 筆不動。重音資料延用該檔的 CC BY-SA 4.0 標示，不由孤立詞重音推算整句抑揚。
+
+**整合與回歸**：14 個作品例句以 quoteExamples 引用原物件；普通 examples 才進聽寫／跟讀，保留原名句的聽寫課程歸屬。單課音檔清單含兩者，下載去重。新音檔有新 URL，快取 v5 不升版。全部原 1,506 個音檔路徑保留；原 73 個大意題識別碼的排序 SHA-256 仍為 `c8ba78c426b3462a5e034ec141939b35127a9613078321bc6ed55ce0d02cf202`。新題另存，不洗掉舊通過紀錄。40 詞直接進入現有 FSRS，Worker 與進度格式不改。
+
+**驗證**：
+
+- `npm run check`：typecheck、226 tests／0 fail／0 skipped、lint 通過。新測試涵蓋來源／句庫引用、舊 id 保留、40 詞進 FSRS、原聽寫歸屬與跨課引用音檔離線清單。`VITE_BASE_PATH=/nihongo-lab/ npm run build` 通過，27 個 precache（974.31 KiB）；原有主程式 chunk 超過 500 KB 的提示仍在。
+- `npm run coverage -- --all-stages`：N5 單字 670／674、漢字 84／84、文法 81／81；全部階段詞彙去重 750 項，711＋40＝751 是卡片項目數，不能混作不同詞彙數。第 0 階段未改。
+- Chromium 375×812：四課特訓／單字／文法／練習頁籤，原文在完成該台詞所有盲聽題前不揭示，連續兩題作答與答案揭示成功；各課 10 詞、4 重點、6 練習及實際播放正常，弓／避ける新檔另驗播放；來源連結及自編例句標示存在；751 張新卡可進入，無橫向溢出／頁面錯誤。
+- 正式路徑 preview＋production service worker：先放入 1,506 個真實原音檔快取，按設定頁「下載全部課程音檔」只抓 55 個新檔，完成後 v5 共 1,561 個。離線重載第 4 課、詞彙及跨課文法名句實際播放正常。預載版本 2 合法進度後，原到期日及大意題通過紀錄仍保留；測試未登入，未寫真實雲端 KV。
+
+**限制與待辦**：詞彙重音採社群資料交叉參考，不等於逐句人耳演技驗收；新句的抑揚以引擎解析與結構檢查為基礎。Android 真機、真實新版跨裝置同步、較長原聲片段與跨句場景未測；第 1～3／8 課的完整核心教材與 T38 整體尚未完成。正式部署結果另補。

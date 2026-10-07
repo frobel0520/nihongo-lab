@@ -6,6 +6,8 @@
  * @typedef {import('../lib/anime-training.mjs').ListeningClip} ListeningClip
  */
 import { contentHash } from './author.mjs';
+import { animeCoreFor } from './anime-core.mjs';
+import { extraListeningQuestions } from './anime-core-questions.mjs';
 
 // 對應 docs/release-audit.md 的查證紀錄；二手整理不是原作台本或原配音。
 const references = {
@@ -200,7 +202,8 @@ export function pickDistractors(bank, quote, count = 2) {
     if (similar(quote.zh, q.zh)) return false;
     if (!strict) return true;
     return (
-      workOf(q) !== workOf(quote) && !picked.some((p) => workOf(p) === workOf(q))
+      workOf(q) !== workOf(quote) &&
+      !picked.some((p) => workOf(p) === workOf(q))
     );
   };
   for (const strict of [true, false]) {
@@ -215,8 +218,8 @@ export function pickDistractors(bank, quote, count = 2) {
 
 /** @param {Quote[]} bank @returns {Lesson[]} */
 export function buildAnimeLessons(bank) {
-  /** @param {string} key @returns {ListeningClip} */
-  const clipFor = (key) => {
+  /** @param {string} key @param {string} lessonId @returns {ListeningClip} */
+  const clipFor = (key, lessonId) => {
     const quote = bank.find(
       (q) => q.id === key || q.audio.endsWith(`/${key}.mp3`),
     );
@@ -239,6 +242,7 @@ export function buildAnimeLessons(bank) {
           answer,
           explanation: quote.note,
         },
+        ...(extraListeningQuestions[`${lessonId}:${key}`] ?? []),
       ],
     };
   };
@@ -249,10 +253,19 @@ export function buildAnimeLessons(bank) {
     grammar: [],
     dialogue: [],
     practice: [],
+    ...animeCoreFor(
+      `anime-lesson-${String(i + 1).padStart(2, '0')}`,
+      bank,
+      references,
+    ),
     training: {
       goal: spec.goal,
-      clips: spec.clips.map(clipFor),
-      review: spec.review.map(clipFor),
+      clips: spec.clips.map((key) =>
+        clipFor(key, `anime-lesson-${String(i + 1).padStart(2, '0')}`),
+      ),
+      review: spec.review.map((key) =>
+        clipFor(key, `anime-lesson-${String(i + 1).padStart(2, '0')}`),
+      ),
     },
   }));
 }
