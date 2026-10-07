@@ -78,6 +78,27 @@ export function LessonView({
         </p>
       )}
 
+      {lesson.references && (
+        <details className="card">
+          <summary>教材來源與用例說明</summary>
+          <p className="muted">
+            動畫台詞標明作品；詞彙與句型補充另列教學來源，自編例句會明確標示。
+          </p>
+          <ul className="list">
+            {lesson.references.map((ref) => (
+              <li key={ref.url}>
+                <a href={ref.url} target="_blank" rel="noreferrer">
+                  {ref.title}
+                </a>
+                <p className="muted">
+                  <RubyText text={ref.note} />
+                </p>
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
+
       <div className="section-tabs" role="tablist" aria-label="課程內容">
         {sections.map((section) => (
           <button
@@ -114,6 +135,24 @@ export function LessonView({
                   audio={v.audio}
                   pending={pending}
                 />
+                {v.note && (
+                  <p>
+                    <RubyText text={v.note} />
+                  </p>
+                )}
+                {v.referenceUrl && (
+                  <p className="muted">
+                    <a href={v.referenceUrl} target="_blank" rel="noreferrer">
+                      詞彙查證來源
+                    </a>
+                    {v.referenceNote && (
+                      <>
+                        {' '}
+                        · <RubyText text={v.referenceNote} />
+                      </>
+                    )}
+                  </p>
+                )}
               </li>
             ))}
           </ul>
@@ -130,16 +169,55 @@ export function LessonView({
               <p>
                 <RubyText text={g.note} />
               </p>
+              {g.referenceUrl && (
+                <p className="muted">
+                  <a href={g.referenceUrl} target="_blank" rel="noreferrer">
+                    句型教學參考
+                  </a>
+                  {g.referenceUrls?.map((url, i) => (
+                    <span key={url}>
+                      {' '}
+                      ·{' '}
+                      <a href={url} target="_blank" rel="noreferrer">
+                        補充參考 {i + 1}
+                      </a>
+                    </span>
+                  ))}
+                </p>
+              )}
+              {g.quoteExamples?.map(({ quote, referenceUrl }) => (
+                <div key={quote.audio}>
+                  <AudioLine {...quote} pending={pending} />
+                  <p className="muted">
+                    作品用例：
+                    <RubyText text={quote.source} /> ·{' '}
+                    <a href={referenceUrl} target="_blank" rel="noreferrer">
+                      台詞查證來源
+                    </a>
+                  </p>
+                  {quote.referenceNote && (
+                    <p className="muted">
+                      <RubyText text={quote.referenceNote} />
+                    </p>
+                  )}
+                </div>
+              ))}
               {g.examples.map((ex) => (
-                <AudioLine
-                  key={ex.audio}
-                  jp={ex.jp}
-                  reading={ex.reading}
-                  ruby={ex.ruby}
-                  zh={ex.zh}
-                  audio={ex.audio}
-                  pending={pending}
-                />
+                <div key={ex.audio}>
+                  {ex.source && (
+                    <p className="muted">
+                      <RubyText text={ex.source} />
+                    </p>
+                  )}
+                  <AudioLine
+                    jp={ex.jp}
+                    reading={ex.reading}
+                    ruby={ex.ruby}
+                    zh={ex.zh}
+                    audio={ex.audio}
+                    pending={pending}
+                  />
+                </div>
               ))}
             </div>
           ))}

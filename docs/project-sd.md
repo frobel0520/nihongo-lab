@@ -186,3 +186,11 @@ T46 首次試聽版本：教材 MP3 路徑保持不變，離線快取更新為 `
 - **同一輪的評分紀錄**（`lib/srs-session.mjs` 的 `history`、`revisit`）：答還不會後一輪自動繞回來是「再考一次」，評分接在後面，記錄時從這一輪之前的狀態依序套用（`recordReviewSequence`：先記一次忘記，再記同一天答對）；用上一張／下一張回頭改是「改掉按錯的」，換掉最後一個。自動繞回來的卡先蓋住答案。
 - **進度格式版本 3**：`srs: { [id]: { stability, difficulty, state, reps, lapses, due, firstSeen, updatedAt } }`。`updatedAt` 同時是 FSRS 算「距離上次複習幾天」的依據。版本 1、2（SM-2 的 ease、interval）讀進來時用 `fromLegacyCard` 轉換：到期日、首次日期、評分時刻不變；正在還不會的卡用新卡第一次答還不會後的穩定度與難度，答過記得的卡穩定度取舊間隔（至少 1 天），難度看有沒有答錯過。沒有逐次作答紀錄，所以這是估計。
 - **跨裝置同步**：Worker 共用 `lib/progress.mjs`，要重新部署才會收版本 3；部署前，新版 App 上傳版本 3 會被舊 Worker 拒絕（同步失敗、本機進度不受影響）。還沒更新的舊版 App 從雲端拿到版本 3 會當成「較新的版本」不合併，更新 App 後恢復。
+
+## T54 動畫特訓教材資料與來源（2026-10-07）
+
+`anime-core.mjs` 由 `buildAnimeLessons` 在公開入口 `lessons.mjs` 建立第 4～7 課時注入，`anime-core-questions.mjs` 依課程 id＋台詞 key 加題。既有 meaning 題物件不改動，`listeningRecordId` 的 73 個值保留。各課 `references` 顯示於可展開來源區；單字 `note`／`referenceUrl`／`referenceNote` 顯示搭配及核對來源；文法 `referenceUrl` 指向教學章節。
+
+`GrammarPoint.quoteExamples` 保存 `{quote, referenceUrl}`，quote 直接引用共用句庫物件，保留原配音、原音檔；文法區展示來源，`lessonAudioPaths` 亦收錄這些跨課引用。它不重複加入 `buildSentences`，避免原名句的聽寫歸屬改變或重複 id。普通 `examples` 為自行編寫的補充句，用 `source` 明確標示。新增詞／句的路徑仍用 `audioPath` 內容雜湊，只使用五位保留的原有聲線；原男聲名句不重編。
+
+新增 55 個音檔皆有新 URL，快取維持 v5；下載全站或該課可補齊。40 詞進既有 FSRS，進度格式與 Worker 不改。兩個獨立詞的 Kanjium 重音覆寫加進既有 `AUDIO_PROSODY`，原 81 筆不改動。

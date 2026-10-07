@@ -156,7 +156,7 @@ export function AnimeTraining({
         <RubyText text={training.goal} />
       </p>
       <p className="muted">
-        先聽 → 選意思 → 看原文與口語解說 → 跟讀 →
+        先聽 → 判斷大意、句型或人物態度 → 看原文與解說 → 跟讀 →
         對照練習。音檔是自製語音，不是作品原配音。
       </p>
       {training.clips.map((clip) => (
