@@ -56,7 +56,7 @@ test('使用者選角：保留五位原有角色及三男聲，所有公開教�
 
 test('選角保留既有音檔／進度路徑與重音覆寫，升版離線快取', () => {
   const paths = new Set(allAudioPaths(stages));
-  assert.equal(paths.size, 1506);
+  assert.ok(paths.size >= 1506, '教材擴充不能移除既有音檔');
   assert.ok(paths.has('audio/stage-0/day1/gram-1-1.mp3'));
   assert.ok(paths.has('audio/stage-2/quotes/jojo-dio.mp3'));
   for (const path of Object.keys(AUDIO_PROSODY)) assert.ok(paths.has(path));

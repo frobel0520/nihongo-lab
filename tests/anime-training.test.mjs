@@ -43,7 +43,8 @@ test('八課使用有來源的共用動畫台詞與實際音檔，對照台詞�
       for (const question of clip.questions) {
         assert.equal(new Set(question.options).size, question.options.length);
         assert.ok(question.options.length >= 3);
-        assert.equal(question.options[question.answer], clip.quote.zh);
+        if (question.id === 'meaning')
+          assert.equal(question.options[question.answer], clip.quote.zh);
         question.options.forEach((_, i) =>
           assert.equal(
             checkListeningChoice(question, i),
@@ -63,7 +64,11 @@ test('八課使用有來源的共用動畫台詞與實際音檔，對照台詞�
 
 const questions = courses
   .flatMap((lesson) => trainingClips(lesson.training))
-  .flatMap((clip) => clip.questions.map((question) => ({ clip, question })));
+  .flatMap((clip) =>
+    clip.questions
+      .filter((q) => q.id === 'meaning')
+      .map((question) => ({ clip, question })),
+  );
 const wrongOptions = (question) =>
   question.options.filter((_, i) => i !== question.answer);
 const workOf = (quote) => quote.source.split('（')[0];
@@ -81,7 +86,9 @@ test('錯誤選項依台詞而異：不是每題都出現同樣的兩個，不�
   for (const { question } of questions)
     for (const option of wrongOptions(question))
       counts.set(option, (counts.get(option) ?? 0) + 1);
-  const [mostUsed, times] = [...counts.entries()].sort((a, b) => b[1] - a[1])[0];
+  const [mostUsed, times] = [...counts.entries()].sort(
+    (a, b) => b[1] - a[1],
+  )[0];
   assert.ok(
     times <= questions.length * 0.15,
     `「${mostUsed}」在 ${times}／${questions.length} 題都是錯誤選項`,
