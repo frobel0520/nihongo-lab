@@ -194,3 +194,9 @@ T46 首次試聽版本：教材 MP3 路徑保持不變，離線快取更新為 `
 `GrammarPoint.quoteExamples` 保存 `{quote, referenceUrl}`，quote 直接引用共用句庫物件，保留原配音、原音檔；文法區展示來源，`lessonAudioPaths` 亦收錄這些跨課引用。它不重複加入 `buildSentences`，避免原名句的聽寫歸屬改變或重複 id。普通 `examples` 為自行編寫的補充句，用 `source` 明確標示。新增詞／句的路徑仍用 `audioPath` 內容雜湊，只使用五位保留的原有聲線；原男聲名句不重編。
 
 新增 55 個音檔皆有新 URL，快取維持 v5；下載全站或該課可補齊。40 詞進既有 FSRS，進度格式與 Worker 不改。兩個獨立詞的 Kanjium 重音覆寫加進既有 `AUDIO_PROSODY`，原 81 筆不改動。
+
+## T55 四課核心教材與發音參考（2026-10-08）
+
+`anime-core-foundation.mjs` 保存第 1～3、8 課資料，由 `anime-core.mjs` 注入；新聽力題放在 `anime-core-foundation-questions.mjs` 並由原題庫模組合併，對外入口仍為 `lessons.mjs`。既有八十九題物件及音檔 URL 不改，新增 40 張 FSRS 卡、16 句聽寫／跟讀與 56 個音檔；音檔快取維持 v5，已有快取只補下載新增檔案。
+
+`VocabItem.pronunciation` 是選用的實際發音假名，由 `build-audio-jobs.mjs` 轉交既有合成器；它不取代供顯示／ruby 用的 `reading`。「気を付ける」顯示讀音保留きをつける，實際核對用きおつける，避免把助詞を誤當字面讀音。獨立詞「燃やす」新增 Kanjium 0 型、もやす覆寫；引擎原來多讀え，假名重試又切碎詞界，因此採經核對的完整詞覆寫，原 83 筆保留。

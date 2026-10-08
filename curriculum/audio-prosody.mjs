@@ -8,6 +8,14 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox'}>} */
 export const AUDIO_PROSODY = {
+  'audio/stage-2/anime-lesson-03/core/vocab-e9ed37f232.mp3': {
+    text: '燃やす',
+    reading: 'もやす',
+    kana: "モヤス'",
+    reason:
+      'T55：讀音採もやす、獨立詞採 Kanjium 的 0 型；修正引擎多讀え及假名重試切碎句界。',
+    reference: 'kanjium',
+  },
   'audio/stage-2/anime-lesson-05/core/vocab-639a6c4c7b.mp3': {
     text: '弓',
     reading: 'ゆみ',
@@ -19,7 +27,8 @@ export const AUDIO_PROSODY = {
     text: '避ける',
     reading: 'よける',
     kana: "ヨケ'ル",
-    reason: 'T54：戰鬥詞彙取よける，採用 Kanjium 的 2 型；不沿用引擎的さける讀音。',
+    reason:
+      'T54：戰鬥詞彙取よける，採用 Kanjium 的 2 型；不沿用引擎的さける讀音。',
     reference: 'kanjium',
   },
   'audio/stage-0/day1/vocab-nanijin.mp3': {

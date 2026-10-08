@@ -14,6 +14,7 @@ for (const stage of stages) {
         voice: item.voice,
         text: item.word,
         reading: item.reading,
+        pronunciation: item.pronunciation,
         ruby: item.ruby,
         kind: 'vocab',
         out: `public/${item.audio}`,

@@ -1,20 +1,46 @@
 /**
- * T54：第 4～7 課的主題教材。台詞仍從共用句庫注入；補充例句自行編寫並明確標示。
+ * T54／T55：八課的主題教材。台詞仍從共用句庫注入；補充例句自行編寫並明確標示。
  * JMdict 僅用於核對讀音／詞義，不複製詞典正文。來源版本與核對紀錄見 release-audit.md。
  * @typedef {import('./lessons.mjs').Lesson} Lesson
  * @typedef {import('./lessons.mjs').Quote} Quote
- * @typedef {[string, string, string, number, string]} WordRow
+ * @typedef {[string, string, string, number, string, string?]} WordRow
  * @typedef {[string, string, string]} ExampleRow
  * @typedef {{ pattern: string, note: string, reference: string, also?: string[], jlpt?: string[], quotes?: string[], examples?: ExampleRow[] }} Point
  * @typedef {{ vocab: WordRow[], grammar: Point[], practice: [string, string][] }} Core
  */
 import { audioPath } from './author.mjs';
+import { foundationCores } from './anime-core-foundation.mjs';
 
 const dictionary =
   'https://github.com/scriptin/jmdict-simplified/releases/tag/3.6.2%2B20261005200550';
 const guideRoot =
   'https://github.com/AmeRaino/taekim-grammar-md/blob/3375f5eaff269714cf0eba3fd826fd447e1092aa/taekim-md/';
 const guide = {
+  topic:
+    'basic-grammatical-structures/introduction-to-particles/024-the-topic-particle.md',
+  state:
+    'essential-grammar/other-uses-of-the-form/083-enduring-state-of-being-vs-enduring-state-of-action.md',
+  past: 'basic-grammatical-structures/past-tense/036-past-tense-for-verbs.md',
+  reason:
+    'essential-grammar/compound-sentences/077-expressing-reason-or-causation-using-and.md',
+  shortcuts:
+    'essential-grammar/expressing-must-or-have-to/104-various-short-cuts-for-the-lazy.md',
+  enduring:
+    'essential-grammar/other-uses-of-the-form/082-using-for-enduring-states.md',
+  slang:
+    'essential-grammar/casual-patterns-and-slang/138-basic-principles-of-slang.md',
+  define:
+    'essential-grammar/defining-and-describing/115-the-various-uses-of.md',
+  nasai:
+    'essential-grammar/making-requests/132-using-to-make-firm-but-polite-requests.md',
+  similarity:
+    'special-expressions/similarity-or-hearsay/174-expressing-similarity-with.md',
+  motion:
+    'essential-grammar/other-uses-of-the-form/086-using-motion-verbs-with-the-form.md',
+  desire:
+    'essential-grammar/desire-and-suggestions/107-verbs-you-want-to-do-with.md',
+  even: 'advanced-topics/the-minimum-expectation/208-older-version-of.md',
+
   requests:
     'essential-grammar/making-requests/129-politely-and-not-so-politely-making-requests.md',
   commands: 'essential-grammar/making-requests/133-the-command-form.md',
@@ -43,6 +69,7 @@ const guide = {
 
 /** @type {Record<string, Core>} */
 const cores = {
+  ...foundationCores,
   'anime-lesson-04': {
     vocab: [
       [
@@ -659,19 +686,22 @@ export function animeCoreFor(lessonId, bank, references) {
   if (!core) return null;
   const base = `audio/stage-2/${lessonId}/core`;
   const voices = ['tsumugi', 'hau', 'sayo', 'neko-vy', 'zunko'];
-  const vocab = core.vocab.map(([word, reading, zh, sequence, note], i) => {
-    const voice = voices[i % voices.length];
-    return {
-      word,
-      reading,
-      zh,
-      voice,
-      audio: audioPath(base, 'vocab', word, voice),
-      note,
-      referenceUrl: dictionary,
-      referenceNote: `JMdict 詞條 ${sequence}；核對讀音與詞義，搭配及中文解說自行撰寫。`,
-    };
-  });
+  const vocab = core.vocab.map(
+    ([word, reading, zh, sequence, note, pronunciation], i) => {
+      const voice = voices[i % voices.length];
+      return {
+        word,
+        reading,
+        ...(pronunciation ? { pronunciation } : {}),
+        zh,
+        voice,
+        audio: audioPath(base, 'vocab', word, voice),
+        note,
+        referenceUrl: dictionary,
+        referenceNote: `JMdict 詞條 ${sequence}；核對讀音與詞義，搭配及中文解說自行撰寫。`,
+      };
+    },
+  );
   const grammar = core.grammar.map((point, i) => {
     const voice = voices[(i + 2) % voices.length];
     const quoteExamples = (point.quotes ?? []).map((key) => {
@@ -733,6 +763,6 @@ export function animeCoreFor(lessonId, bank, references) {
         url: 'https://news.mynavi.jp/article/20240513-2944756/',
         note: '二手查證文章；介紹文字使用結界、封印，不把介紹文字當成角色台詞。',
       },
-    ],
+    ].filter((_, i) => !foundationCores[lessonId] || i < 2),
   };
 }

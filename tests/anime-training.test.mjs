@@ -132,9 +132,15 @@ test('特訓進度與聽寫分離；題目改版後舊的通過紀錄不計入�
   assert.equal(lessonProgress(stages, progress)[lesson.id].listening.done, 0);
   progress = recordDictation(progress, id, true, '2026-10-02T00:01:00.000Z');
   const summary = lessonProgress(stages, progress)[lesson.id];
-  const total = trainingClips(lesson.training).length;
+  const total = trainingClips(lesson.training).reduce(
+    (n, clip) => n + clip.questions.length,
+    0,
+  );
   assert.deepEqual(summary.listening, { done: 1, total });
-  assert.equal(summary.ratio, 1 / total);
+  assert.equal(
+    summary.ratio,
+    1 / (summary.vocab.total + summary.dictation.total + total),
+  );
   assert.equal(summary.dictation.done, 0);
   const loaded = parseProgress(serializeProgress(progress));
   assert.equal(loaded.problem, null);
@@ -150,10 +156,12 @@ test('特訓進度與聽寫分離；題目改版後舊的通過紀錄不計入�
 
 test('特訓引用音檔可供離線下載；所有課程的清單去重', () => {
   const lesson = courses[0];
-  assert.deepEqual(
-    lessonAudioPaths(lesson),
-    trainingClips(lesson.training).map((clip) => clip.quote.audio),
-  );
+  const paths = new Set(lessonAudioPaths(lesson));
+  for (const clip of trainingClips(lesson.training))
+    assert.ok(paths.has(clip.quote.audio));
+  for (const word of lesson.vocab) assert.ok(paths.has(word.audio));
+  for (const point of lesson.grammar)
+    for (const ex of point.examples) assert.ok(paths.has(ex.audio));
   const all = allAudioPaths(stages);
   assert.equal(all.length, new Set(all).size);
   for (const path of lessonAudioPaths(lesson)) assert.ok(all.includes(path));
