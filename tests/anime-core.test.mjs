@@ -127,3 +127,87 @@ test('各課離線清單包含補充語音及跨課引用的名句', () => {
         assert.ok(paths.has(quote.audio), '單課下載也要帶入文法作品用例');
   }
 });
+
+const foundation = lessons.filter((l) => /^anime-lesson-0[1238]$/.test(l.id));
+
+test('辨音、縮約、命令與綜合理解四課具備完整教材及來源', () => {
+  assert.equal(foundation.length, 4);
+  for (const lesson of foundation) {
+    assert.equal(lesson.vocab.length, 10);
+    assert.equal(lesson.grammar.length, 4);
+    assert.equal(lesson.practice.length, 6);
+    for (const word of lesson.vocab) {
+      assert.match(word.referenceNote, /JMdict 詞條 \d+/);
+      assert.match(word.referenceUrl, /^https:\/\//);
+      assert.ok(existsSync(`public/${word.audio}`));
+    }
+    for (const point of lesson.grammar) {
+      assert.match(point.referenceUrl, /^https:\/\//);
+      assert.ok(point.examples.length > 0);
+      assert.ok(point.quoteExamples.length > 0);
+      for (const ex of point.examples) {
+        assert.match(ex.source, /自行編寫.*非作品台詞/);
+        assert.ok(existsSync(`public/${ex.audio}`));
+      }
+      for (const ex of point.quoteExamples) {
+        assert.ok(bank.includes(ex.quote));
+        assert.match(ex.referenceUrl, /^https:\/\//);
+        assert.ok(lessonAudioPaths(lesson).includes(ex.quote.audio));
+      }
+    }
+  }
+});
+
+test('既有 89 個理解題 id 保留，四課新增題另存且答案有效', () => {
+  const original = [];
+  const newIds = [];
+  for (const lesson of lessons.filter((l) => l.training)) {
+    for (const clip of trainingClips(lesson.training)) {
+      for (const question of clip.questions) {
+        const id = listeningRecordId(lesson.id, clip, question);
+        if (foundation.includes(lesson) && question.id !== 'meaning') {
+          newIds.push(id);
+          assert.equal(new Set(question.options).size, question.options.length);
+          assert.ok(question.options[question.answer]);
+          assert.ok(question.explanation);
+        } else original.push(id);
+      }
+    }
+  }
+  assert.equal(original.length, 89);
+  assert.equal(
+    createHash('sha256').update(original.sort().join('\n')).digest('hex'),
+    'd6ebf31e9d0b0d372208d06bebe2e641ac135a677bf3dfbf2a980cdaf82c46e7',
+  );
+  assert.equal(newIds.length, 16);
+  assert.equal(new Set([...original, ...newIds]).size, 105);
+  for (const lesson of foundation) {
+    assert.equal(
+      trainingClips(lesson.training).flatMap((c) =>
+        c.questions.filter((q) => q.id !== 'meaning'),
+      ).length,
+      4,
+    );
+  }
+});
+
+test('四課新增 40 張 FSRS 卡與 16 句聽寫／跟讀，不改名句歸屬', () => {
+  const cards = buildCards(stages).filter((c) =>
+    foundation.some((l) => l.id === c.lessonId),
+  );
+  assert.equal(cards.length, 40);
+  assert.equal(new Set(cards.map((c) => c.id)).size, 40);
+  const sentences = buildSentences(stages);
+  assert.equal(
+    sentences.filter((s) => foundation.some((l) => l.id === s.lessonId)).length,
+    16,
+  );
+  assert.equal(new Set(sentences.map((s) => s.id)).size, sentences.length);
+  for (const lesson of foundation)
+    for (const point of lesson.grammar)
+      for (const { quote } of point.quoteExamples)
+        assert.equal(
+          sentences.find((s) => s.id === quote.audio).lessonId,
+          'stage2-quotes',
+        );
+});

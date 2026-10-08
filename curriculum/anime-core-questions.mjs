@@ -1,7 +1,10 @@
+import { foundationQuestions } from './anime-core-foundation-questions.mjs';
+
 /** T54：只測短台詞能支持的句型／態度，不拿劇情記憶當答案。既有 meaning 題原樣保留。
  * @type {Record<string, import('../lib/anime-training.mjs').ListeningQuestion[]>}
  */
 export const extraListeningQuestions = {
+  ...foundationQuestions,
   'anime-lesson-04:jojo-rohan': [
     {
       id: 'intent-refusal',
