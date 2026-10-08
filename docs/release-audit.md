@@ -369,4 +369,6 @@ T45／T46 整合驗證：部署前同步 main 的 9be2393，保留已部署的�
 - 正式路徑建置版：先快取舊版全部 1,561 個有效 MP3，按下載全部僅請求新增 56 個，合計 1,617；離線重載、詞彙與文法共用名句實際播放通過。版本 2 假資料的舊卡到期日及理解通過紀錄保留；沒有登入或改動雲端同步資料。
 - 提交前檢查變更內容、檔名、部署產物及 56 檔 metadata；未發現個人／公司 Email、私有機器路徑、內部網路或憑證，MP3 只有 encoder 標籤。Git 作者／提交者使用公開暱稱與 noreply。以清理後 main 為基底，未合併回清理前的歷史。
 
-正式部署：功能 commit `3da994e`，[GitHub Actions 37713962513](https://github.com/frobel0520/nihongo-lab/actions/runs/37713962513) 成功。正式站 `index-D4qdizMR.js` 及全部 56 個新增 MP3 與本機產物逐位元組一致（音檔共 703,456 bytes），service worker 使用 v5，HTTPS 檢查保留 TLS 驗證。
+首批正式部署：功能 commit `3da994e`，[GitHub Actions 37713962513](https://github.com/frobel0520/nihongo-lab/actions/runs/37713962513) 成功。正式站 `index-D4qdizMR.js` 及全部 56 個新增 MP3 與當次建置產物逐位元組一致（音檔共 703,456 bytes），service worker 使用 v5，HTTPS 檢查保留 TLS 驗證。
+
+T55 文字讀音追加複查：修正「口に出す」中的出す為だす；中文譯文「正在死」「因為是天才」移除誤加的日文讀音；補齊推しの子、救け及来た的日文片段標記。實際 MP3 不受這次顯示標記修正影響。重新執行 typecheck、229 tests、lint 及正式路徑 build 均通過；新增建置 `index-B82dKNbV.js`，27 項 precache／1011.13 KiB。
