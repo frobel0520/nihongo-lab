@@ -531,4 +531,4 @@ T62 已部署：功能 commit `11fd156`，[GitHub Actions 38229322774](https://g
 
 - 正式路徑下載全部144個遊戲MP3後離線，重測215張頭像、124個原神角色頁、全部12句實際播放／作答、118個待收錄頁，零頁面錯誤通過。Android真機及本次七檔人耳重音／語氣仍待使用者驗收。
 
-部署尚待確認，確認後補記功能commit、Actions結果與正式站核對。
+T63 已部署：功能 commit `822cbd9`，[GitHub Actions 38237596256](https://github.com/frobel0520/nihongo-lab/actions/runs/38237596256) Success。正式站 `index-2SS2xG0Q.js`、七個本次MP3與124個原神頭像逐位元組核對一致，共12,829,681 bytes；TLS驗證保留。252項測試、手機與離線驗證、指定公開Git身分、變更／建置產物隱私格式檢查及三個privacy-guard hook通過。原神118筆仍待收錄，人耳重音／語氣與Android真機更新由使用者驗收。
