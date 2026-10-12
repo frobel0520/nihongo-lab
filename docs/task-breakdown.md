@@ -78,3 +78,27 @@ Repository：GitHub repository（public，2026-09-29 建立）。上線網址：
 | T62 | ER 剩餘82位資料教材 | 每位武器詞彙＋資料可能形句型，共164項／120新音檔；91位皆有教材，reference類型明示非角色台詞。249 tests、全部82頁手機及離線播放作答、來源和讀音檢查通過；部署證據見 release-audit.md |
 
 | T63 | 移除 LoL、原神名冊與短台詞、語尾及假名 | 原神124筆名冊／215個全區頭像，六位12句短台詞與118筆待補；新增六音檔與燃えろ重製，語音優先／進度保持。驗證與部署見 release-audit.md |
+
+## T64 雪的本機原語音試作（2026-10-12）
+
+- Task ID：T64。Goal：從已安裝遊戲定位雪實際日文音檔，以使用者提供的「少し集中を」試作逐字稿、讀音、繁中、文法／語氣及 VOICEVOX。
+- Input contract：本機遊戲 catalog.bin／Unity bundle，雪預設造型 S000、ja；以完整資產鍵核對，不能只靠 AudioClip 名稱。使用者已確認完整台詞；實際情境名稱未提供則待確認。
+- Output artifact：scripts/extract-er-yuki.py（唯讀提取工具）及 .cache/er-yuki-s000/ 的本機原音、manifest、pilot.json、自製待審試音。原配音不公開、不放 public、不提交 Git。
+- depends_on：T63 既有主線；T62 僅資料教材，不視為原語音補齊。Out of scope：全角色／全造型語音、改既有教材或進度 id、原音部署、付費 API、遊戲檔案修改。
+- Acceptance checks：catalog 與 container 鍵逐一一致、輸出不覆蓋、原音 SHA-256／全檔解碼、未知逐字稿／情境／語氣保留 pending、VOICEVOX 發音閘門及全檔解碼。人工／語氣與正式教材整合另列待確認。
+- Fixture or test data：本機真實遊戲 build 25617366 的 Yuki/S000/ja 資產；不是 fixture。Evidence path：.cache/er-yuki-s000/、.cache/er-yuki-repro/，皆被 Git 忽略。
+- 效能門檻：本機單一已快取 bundle 的 192 檔提取（含讀檔、解碼與雜湊）≤10 秒；192 檔 ffmpeg 完整解碼≤15 秒。不是手機／正式站延遲，正式 UI 未變更。本機零付費、無原音上傳及外部推論服務。
+- Change Request：本次依使用者更正，角色資料／武器詞彙、社群介紹文字與實際遊戲原語音分開計數；T62 的 91 位有教材不改寫為 91 位原語音完成。既有教材保持，不以新資料練習替代原台詞。
+
+T64追加範圍（2026-10-12，使用者要求）：雪全192檔語詞／非語詞初篩與Hisui本機語音盤點。交付改為增加.cache/er-yuki-s000/selection/（187台詞候選、1非語詞候選、4待確認，含m3u8）與.cache/er-hisui-original/manifest.json（427日文檔、420唯一WAV）。Acceptance增catalog/container1282鍵一致、427日文檔全解碼及192分類拷貝雜湊一致；全部通過。逐字稿／實際觸發／語氣的人耳Gate未通過，不把機器初篩記成正式教材完成。沒有擴充全角色台詞或發布原配音。
+
+## T65 ER 全角色選角語音課程（2026-10-12，進行中）
+
+- **Task ID**：T65。**Goal**：將永恆輪迴 91 位角色可核對的日文選角語音整理進既有遊戲課程，涵蓋安裝版本可取得的角色／造型語音路徑與 `selected`、`selected2` 候選。
+- **Input contract**：本機遊戲 build 25617366 的 Addressables catalog／bundle；角色造型與日文／繁中選角欄位採固定資料版本 `ea359154465075aa61a668efde014db076820a03`。資產全鍵匹配角色、語音路徑與造型；ASR 僅機器草稿。只有固定版 `Skin/OnSelectVO` 對應原音或使用者已確認的逐字稿可成為已核實課程句，其餘逐字稿、造型／事件映射及細部觸發維持 pending。
+- **Output artifact**：已核對短句、讀音、繁中翻譯、句型／語氣與自製 VOICEVOX 音檔納入 `curriculum/lessons.mjs` 匯出的遊戲教材；未核對音檔以明確待確認狀態列入角色課程索引，不產生猜測逐字稿。原始遊戲音檔只留在被忽略的 `.cache/er-selection-all/`。
+- **depends_on**：T64 本機原語音與翡翠造型查證。**Out of scope**：劇情／戰鬥／技能等其他事件，原配音公開或提交，改動既有 T62 reference 句、學習紀錄識別碼或選角聲線，付費雲端辨識。
+- **Acceptance checks**：catalog 候選與 bundle container 一對一；91 位角色皆有覆蓋狀態；每一個入課日文都附來源／人確認、讀音、繁中、文法與語氣；無法確認者可見 pending 且不假稱完成；公開音檔全為 VOICEVOX 自製；所有教材音檔可完整解碼；遊戲原音不在 Git 或 production build。
+- **Fixture or test data**：本機實際遊戲資料（非 fixture）。**Evidence path**：`.cache/er-selection-all/`、`docs/er-yuki-voice-pilot.md`。
+- **成本與效能**：離線提取／辨識與本機 VOICEVOX，零月費、無原音上傳。已量得 316 個候選自 91 個 bundle 提取 10.927 秒、全檔解碼 15.507 秒；這是單次本機批次基線，尚未設定冷啟動／跨硬體門檻，也不代表瀏覽器或正式站延遲。課程新增音檔數與 production bundle 影響待整合後量測。
+- **Change Request**：使用者將 T64「單角色本機試作、全角色排除」擴大為全 91 位角色的所有選角語音。影響：新增全角色／造型資產盤點、逐字稿核實、待確認狀態及課程呈現；T62 的武器／資料句仍不算原語音，且不把 316 個資產檔直接當成 316 個不同句子。

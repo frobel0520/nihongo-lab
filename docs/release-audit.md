@@ -532,3 +532,24 @@ T62 已部署：功能 commit `11fd156`，[GitHub Actions 38229322774](https://g
 - 正式路徑下載全部144個遊戲MP3後離線，重測215張頭像、124個原神角色頁、全部12句實際播放／作答、118個待收錄頁，零頁面錯誤通過。Android真機及本次七檔人耳重音／語氣仍待使用者驗收。
 
 T63 已部署：功能 commit `822cbd9`，[GitHub Actions 38237596256](https://github.com/frobel0520/nihongo-lab/actions/runs/38237596256) Success。正式站 `index-2SS2xG0Q.js`、七個本次MP3與124個原神頭像逐位元組核對一致，共12,829,681 bytes；TLS驗證保留。252項測試、手機與離線驗證、指定公開Git身分、變更／建置產物隱私格式檢查及三個privacy-guard hook通過。原神118筆仍待收錄，人耳重音／語氣與Android真機更新由使用者驗收。
+
+## 2026-10-12 T64 雪的遊戲原語音本機試作
+
+- 已讀最新 main 的 AGENTS.md、progress.md 與 release-audit.md；任務分支 `feature/T64-yuki-original-voice` 基於 `631a177`。T62 武器詞彙與資料句型仍是 reference 教材，不能計入角色原語音完成。
+- 本機遊戲 build 25617366 的完整 `Yuki/S000/ja` 路徑對應192個原音，SHA-256／完整 ffmpeg 解碼全部通過；可重跑工具及匿名化證據見 [雪原語音試作](er-yuki-voice-pilot.md)。不同造型同名 AudioClip 已分開，不沿用初次同名搜尋輸出。
+- 「少し集中を」定位到 `Yuki_PlaySkill1011300seq0_1_ja.wav`（1.621655秒），使用者確認完整台詞，本機無提示詞 small ASR 一致。讀音／繁中草稿／文法分析已存本機 pilot.json；PlaySkill 只當技能播放的檔名線索，具體技能／按鍵／觸發及原作語氣待確認。其餘191檔逐字稿未完成，同組不可靠 ASR 不收正式台詞。
+- 產生黒沢冴白 VOICEVOX 0.25.2 本機待審 MP3（1.418667秒），既有發音／句界閘門及全檔解碼通過，只有 encoder metadata。此引擎無 Nemo 男声2；未替換雪的正式聲線，未使用原配音作公開播放。
+- Windows／i7-12700KF／Python3.14.4、單一暖快取 bundle：192檔提取1.027秒（門檻10秒），192檔全解碼8.887秒（門檻15秒），單樣本，非正式站／手機效能。重現192個資產雜湊完全一致；既有目錄／.cache外輸出拒絕實測通過。
+- npm run check：252 tests、typecheck、lint通過，零失敗／略過；正式 base path build通過，242 precache entries，既有500KB chunk提示仍在。無公開UI變更，未把測試當人耳或觸發驗收；原作語氣 not_scored，真機未測。
+- 原音、辨識模型、查證草稿及试音都在 .cache，git check-ignore確認不入Git，未上传原音、未使用付費服務，遊戲安裝保持唯讀。新增文件／工具僅相對路徑與環境變數，不存本機使用者、帳號或公司資訊。
+- 尚未提交／推送／部署：本機提交Email不符合AGENTS.md指定值，且未偵測到有效privacy-guard hook（hooksPath未設定，repo hooks只有sample）；沒有自行改身分、安裝／修改hook或繞過。此項只影響提交，不影響本機查證。
+
+T64追加複查：192個原WAV及統一16kHz單聲道PCM的雜湊皆不同，無完全相同音檔；是否同句不同演法未確認。全量不指定語言模型判189檔ja、3檔en候選，進一步辨識未取得可靠英文句子；setting6的草稿只有重複ha（笑聲候選），其他兩檔也不可靠，均保留非語詞／語言待確認。setting1～6／VictoryCutscene可列閒聊或演出候選，尚無劇情／觸發證據；不當作背景故事。詳見雪原語音試作文件，未改公開教材。
+
+T64使用者追加雪台詞篩選／翡翠份數盤點：雪192檔全量ASR完成，原音分組187台詞候選（含1句使用者確認）、1笑聲候選、4待確認；其餘候選逐字稿／情境／語氣仍未驗收。清單、m3u8與真實分組拷貝在.cache，192個拷貝雜湊一致；兩組ASR同句候選不冒充已核對去重。翡翠Hisui完整catalog/container鍵核對1282個，日文S000220／S002207，共427檔全解碼成功；WAV雜湊去重216／204、共420份，不等於台詞句數。7組完全相同檔案已記錄，沒有公開原音／完整機器稿。詳見既有雪原語音試作文件。沒有前端／教材功能改動，本次未重跑前次check/build，未提交部署。
+
+T64選角追加：獨立整理雪S000、翡翠S000／S002各selected_1與selected2_1，共6個日文候選原音，拷貝雜湊全一致；.cache/er-character-selection/有manifest與兩組m3u8。雪短音1.367秒、翡翠預設短音2.425秒；selected2較長且雪辨識不可靠。事件映射未取得，不把檔名冒充點頭像／鎖定／動畫階段已確認；逐字稿與觸發仍pending，未改教材部署。
+
+T64使用者確認追加：雪selected_1逐字稿「では僕の番ですね」與選角大類已確認，細部觸發待確認。本機選角manifest補讀音、繁中與文法，自製黒沢冴白待審試音通過既有發音核對與ffmpeg全解碼；正式聲線未改。Hisui的S000／S002音檔不同可確認版本差異，但同一目錄也有selected／selected2，不能將事件鍵差異當造型差異。原音、完整機器稿及新試音未提交／部署。
+
+T64翡翠造型已查證：固定版本CharacterSkin明確1078000 Hisui index0→Hisui/S000，1078001 Street Fiend Hisui→共用Hisui/S000，1078002 Ghost Hunter Hisui index2→Hisui/S002。本機完整音檔鍵一致；日／繁中Skin/Name與官方3158／造型介紹頁核對幽靈獵人名稱。Japanese Skin/OnSelectVO/1078002原文「斬り落とすべき悪は、この剣で裁く。」已與S002 selected_1機器音讀對應，據來源修正先前ASR砂漠；S000逐字稿仍待核對，細部選角UI觸發未實測。來源及限制已記既有試作文件，原音與完整資料仍僅.cache，未提交部署。

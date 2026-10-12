@@ -30,7 +30,9 @@ type Props = {
 const ALL_AUDIO = [
   ...new Set(
     gameCharacterStudy.flatMap((g) =>
-      g.characters.flatMap((c) => c.lines.map((l) => l.audio)),
+      g.characters.flatMap((c) =>
+        c.lines.filter((line) => line.audioReady !== false).map((l) => l.audio),
+      ),
     ),
   ),
 ];
@@ -60,9 +62,11 @@ function StudyLine({
   const submitted = useRef(false);
   const [baseline, setBaseline] = useState(plays);
   const heard = Math.max(0, plays - baseline);
-  const question = gameListeningQuestion(line);
+  const isSelectionLine = line.category === '角色選擇';
+  const canListen = line.audioReady !== false;
+  const question = isSelectionLine ? null : gameListeningQuestion(line);
   const choose = (answer: number) => {
-    if (!heard || peeked || submitted.current) return;
+    if (!question || !heard || peeked || submitted.current) return;
     submitted.current = true;
     setChoice(answer);
     setRevealed(true);
@@ -77,27 +81,55 @@ function StudyLine({
           : line.kind === 'reference'
             ? '查證資料教材（非角色台詞）'
             : '自編主題練習（非遊戲台詞）'}
+        {line.variant ? ` · ${line.variant}` : ''}
       </p>
+      {!canListen && (
+        <output className="notice">
+          VOICEVOX 音檔待合成；此頁不播放遊戲原音。
+        </output>
+      )}
       {!revealed && (
         <>
-          <p>先聽 → 判斷大意 → 看原文與解說 → 跟讀</p>
-          <p className="muted">
-            播放 {heard} 次{heard ? '' : ' · 先播放，再選答案。'}
+          <p>
+            {isSelectionLine
+              ? '先盲聽 → 顯示逐字稿、讀音、翻譯與解說'
+              : '先聽 → 判斷大意 → 看原文與解說 → 跟讀'}
           </p>
-          <h3>{question.prompt}</h3>
-          <div className="anime-options">
-            {question.options.map((option, i) => (
-              <button
-                type="button"
-                className="btn block"
-                key={option}
-                disabled={!heard}
-                onClick={() => choose(i)}
-              >
-                <RubyText text={option} />
-              </button>
-            ))}
-          </div>
+          <p className="muted">
+            播放 {heard} 次
+            {canListen && !heard
+              ? isSelectionLine
+                ? ' · 先播放，再顯示台詞。'
+                : ' · 先播放，再選答案。'
+              : ''}
+          </p>
+          {question ? (
+            <>
+              <h3>{question.prompt}</h3>
+              <div className="anime-options">
+                {question.options.map((option, i) => (
+                  <button
+                    type="button"
+                    className="btn block"
+                    key={option}
+                    disabled={!heard}
+                    onClick={() => choose(i)}
+                  >
+                    <RubyText text={option} />
+                  </button>
+                ))}
+              </div>
+            </>
+          ) : (
+            <button
+              type="button"
+              className="btn"
+              disabled={!canListen || !heard}
+              onClick={() => setRevealed(true)}
+            >
+              顯示逐字稿與解說
+            </button>
+          )}
           <button
             type="button"
             className="btn"
@@ -110,14 +142,14 @@ function StudyLine({
           </button>
         </>
       )}
-      {choice !== null && (
+      {choice !== null && question && (
         <output className={choice === question.answer ? 'answer' : 'notice'}>
           {choice === question.answer ? '答對了' : '這次沒有答對'} · 正確大意：
           <RubyText text={question.options[question.answer]} />
         </output>
       )}
       {peeked && <p className="muted">已先看原文，這次不記盲聽成績。</p>}
-      {listening && revealed && (
+      {listening && revealed && canListen && (
         <button
           type="button"
           className="btn"
@@ -222,13 +254,19 @@ export function GameStudyView({
         </section>
         {gameCharacterStudy.map((g) => {
           const lines = g.characters.flatMap((c) => c.lines);
+          const selectionLines = lines.filter(
+            (line) => line.category === '角色選擇',
+          );
           return (
             <section className="card" key={g.id}>
               <h2>{g.title}</h2>
               <p>{g.scope}</p>
               <p className="muted">
                 已收錄 {g.characters.length} 位角色 · 作品短句{' '}
-                {lines.filter((l) => l.kind === 'quote').length} 句 · 主題練習{' '}
+                {lines.filter(
+                  (line) => line.kind === 'quote' && line.category !== '角色選擇',
+                ).length}{' '}
+                句 · 角色選擇 {selectionLines.length} 句 · 主題練習{' '}
                 {lines.filter((l) => l.kind === 'practice').length} 句 ·
                 資料教材 {lines.filter((l) => l.kind === 'reference').length} 項
                 · 已學 {gameDone(lines, progress)}/{lines.length}
@@ -353,8 +391,11 @@ export function GameStudyView({
       </section>
     );
   const lines = character.lines;
+  const listeningLines = lines.filter((line) => line.category !== '角色選擇');
   const categories = [...new Set(lines.map((l) => l.category))];
-  const audio = lines.map((l) => l.audio);
+  const audio = lines
+    .filter((line) => line.audioReady !== false)
+    .map((l) => l.audio);
   return (
     <div className="game-study" {...swipe}>
       <section className="card">
@@ -367,7 +408,7 @@ export function GameStudyView({
         </h2>
         <p className="muted">
           已學 {gameDone(lines, progress)}/{lines.length} · 理解{' '}
-          {gameListeningDone(lines, progress)}/{lines.length} · {at + 1}/
+          {gameListeningDone(lines, progress)}/{listeningLines.length} · {at + 1}/
           {items.length} 句
         </p>
         <div className="row" data-no-swipe>
@@ -456,7 +497,7 @@ export function GameStudyView({
         >
           上一句
         </button>
-        {listening && current && (
+        {listening && current && current.line.audioReady !== false ? (
           <PlayButton
             key={`${current.line.audio}:${attempt}`}
             audio={current.line.audio}
@@ -469,7 +510,9 @@ export function GameStudyView({
             }
             caption={false}
           />
-        )}
+        ) : listening && current ? (
+          <span className="muted">VOICEVOX 待合成</span>
+        ) : null}
         <button
           type="button"
           className="btn"

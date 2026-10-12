@@ -15,16 +15,16 @@ test('82 位資料教材逐角色對應來源 code 與可用武器，不冒充�
   for (const row of erReferenceRows) {
     const c = er.characters.find((c) => c.id === row.id);
     assert.equal(c.code, row.code);
-    assert.equal(c.lines.length, 2);
-    const [words, example] = c.lines;
+    const referenceLines = c.lines.filter((l) => l.kind === 'reference');
+    assert.equal(referenceLines.length, 2);
+    const [words, example] = referenceLines;
     const weapons = row.weaponTypes.map((t) => erWeapons[t]);
     assert.ok(weapons.length && weapons.every(Boolean));
     assert.equal(words.jp, weapons.map((w) => w.jp).join('・'));
     assert.equal(words.zh, weapons.map((w) => w.zh).join('、'));
     assert.equal(example.jp, `${c.nameJa}は${weapons[0].jp}を使えます。`);
     assert.equal(example.zh, `${c.name}可以使用${weapons[0].zh}。`);
-    for (const l of c.lines) {
-      assert.equal(l.kind, 'reference');
+    for (const l of referenceLines) {
       assert.match(l.referenceNote, /非角色原台詞/);
       assert.match(
         l.referenceUrl,
