@@ -1,6 +1,6 @@
 /**
- * T57：角色短句與原創主題練習。作品短句僅選少量核對用例；不宣稱完整台詞庫。
- * 永恆輪迴只提供明示非作品台詞的練習，來源指向角色名稱資料，不當作台詞證據。
+ * 角色短句與原創主題練習。作品短句僅選少量核對用例；不宣稱完整台詞庫。
+ * ER 原創練習與社群角色介紹短句分開，不把介紹短句當成已核對的選角語音。
  * @typedef {import('./lessons.mjs').Line & { id: string, category: string, kind: 'quote' | 'practice', note: string, referenceUrl: string, referenceNote: string, pronunciation?: string }} GameLine
  * @typedef {{ id: string, name: string, nameJa: string, voice?: string, referenceUrl: string, portrait?: string, portraitReferenceUrl?: string, lines: GameLine[] }} GameCharacter
  * @typedef {{ id: string, title: string, scope: string, characters: GameCharacter[] }} GameStudy
@@ -35,6 +35,8 @@ function character(game, id, name, nameJa, voice, url, rows, kind = 'quote') {
             ? '自行編寫的主題練習，非遊戲台詞；連結僅核對角色名稱。'
             : game === 'lol'
               ? 'LoLJPWiki 日文台詞表；是社群紀錄，未聲稱逐句比對現行遊戲版本。'
+              : game === 'er'
+                ? '官網連結的日文社群攻略站角色介紹短句；已核對文字，未比對原配音或選角情境。'
               : '固定版本日文角色語音表；依原表的語音情境分類。',
         ...(pronunciation ? { pronunciation } : {}),
       }),
@@ -319,6 +321,41 @@ export const gameCharacterStudy = [
 // 以角色名冊補齊頭像；只有已有核對教材的角色保留 lines，其他明示待收錄。
 const er = gameCharacterStudy.find((game) => game.id === 'er');
 if (!er) throw new Error('Missing Eternal Return section');
+const erProfileSource = 'https://asatamin-eternalreturn.com/characterlist/';
+er.characters.push(
+  character('er', 'magnus', '馬格努斯', 'マグヌス', 'ryusei', `${erProfileSource}#Magnus`, [
+    [
+      'profile',
+      '角色介紹短句',
+      '伝説のバイカーマグヌスとはこの俺様のことだ。',
+      'でんせつの バイカーマグヌスとは この おれさまの ことだ。',
+      '傳說中的摩托車騎士馬格努斯，說的就是本大爺。',
+      '名詞＋とは在此提出要解釋的稱號；この俺様のことだ指出那就是自己。俺様是自大的自稱，帶誇耀語氣。バイカー指騎摩托車的人。',
+      'でんせつのバイカーマグヌストワこのおれさまのことだ。',
+    ],
+  ]),
+  character('er', 'fiora', '菲歐拉', 'フィオラ', 'tsumugi', `${erProfileSource}#Fiora`, [
+    [
+      'profile',
+      '角色介紹短句',
+      '首！ 腰！ 姿勢がなってないわよ！',
+      'くび！ こし！ しせいが なってないわよ！',
+      '脖子！腰！你的姿勢不像樣喔！',
+      'なってない是なっていない的口語縮約；姿勢がなっていない批評姿勢不到位。わよ在此加強提醒或責備，不能只按字面理解成沒有變成某物。',
+      'くび！こし！しせいがなってないわよ！',
+    ],
+  ]),
+  character('er', 'rozzi', '洛茲', 'ロッジ', 'sayo', `${erProfileSource}#Rozzi`, [
+    [
+      'profile',
+      '角色介紹短句',
+      'おつかれ。',
+      'おつかれ。',
+      '辛苦了。',
+      'おつかれ是お疲れ様的簡短口語招呼，可用來慰勞或道別；單憑這句不能判斷遊戲中的觸發情境。對陌生人或正式場合宜使用完整禮貌說法。',
+    ],
+  ]),
+);
 const existing = new Map(
   er.characters.map((character) => [character.id, character]),
 );
@@ -330,7 +367,7 @@ er.characters = eternalReturnRoster.map((row) => ({
   lines: existing.get(row.id)?.lines ?? [],
 }));
 er.scope =
-  '角色名冊與預設造型頭像已收錄 91 位（依固定版本角色資料）。三位角色有主題練習，其餘語音待補；未收錄劇情。';
+  '角色名冊與預設造型頭像收錄 91 位（固定版本）。三位角色有原創主題練習，另三位各有一句社群角色介紹短句；85 位語音待補。介紹短句未核對原配音或選角情境，未收錄劇情。';
 for (const game of gameCharacterStudy) {
   if (game.id === 'er') continue;
   for (const character of game.characters) {

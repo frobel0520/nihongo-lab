@@ -213,3 +213,10 @@ T58 已部署：功能 commit `8d8fac2`，[GitHub Actions 38195401435](https://g
 T59 介面已部署：commit `6d42d2b`，[GitHub Actions 38210599577](https://github.com/frobel0520/nihongo-lab/actions/runs/38210599577) Success，正式站 `index-CYY8ftAZ.js` 與本次建置逐位元組一致，三個 privacy-guard hook 通過。這是介面／預設與現有 18 題部署，不是所有角色音檔完成。
 
 官方來源追加確認：能讀取 [Eternal Return 官方公告頁](https://playeternalreturn.com/posts/news/2671?hl=en-US)，頁面確實連到 https://developer.eternalreturn.io/；可確認官方開發者入口，不能因此宣稱有完整日文台詞庫。官網首頁 302 轉到 event.playeternalreturn.com/forward，此跳轉與開發者站當時遭雲端網路政策拒絕。已保留既有設定，把必要官方網域補入環境草稿，工具回傳 saved／requires_publish，尚未驗證新網域可讀；需要環境設定儲存及發布後繼續。沒有登入官方 API、申請金鑰或繞過限制，也不把同名 GitHub 帳號當成已驗證的官方來源。
+
+## 2026-10-12 T60 永恆輪迴介紹短句
+
+- 官網新角色與造型頁已能讀取：技能展示為無聲 GIF、PV 使用 YouTube，不是可直接取得的完整語音庫；背景故事依要求不加入。
+- 改用官網連結的日文攻略站，核對馬格努斯、菲歐拉、洛茲各一句介紹短句，附來源、翻譯、讀音、用法、大意題及自製 VOICEVOX 音檔。未核對原配音或選角情境的限制在教材明示。
+- 遊戲區 21 句／21 音檔；ER 六位有教材（原創練習三位、介紹短句三位），85 位待補。既有 18 句及進度保持。
+- npm run check：typecheck、247 tests（零失敗／略過）、lint 通過；正式路徑 build 通過。手機三句實際播放、作答、進度與來源驗證通過；部署結果另記 release-audit.md。

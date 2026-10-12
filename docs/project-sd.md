@@ -228,3 +228,7 @@ T46 首次試聽版本：教材 MP3 路徑保持不變，離線快取更新為 `
 `game-character-questions.mjs` 保存各句兩個大意干擾選項，由 lessons.mjs 匯出；lib/game-study.mjs 以既有翻譯作正解、既有 note 作解說，答案位置依句 id 雜湊輪替。`gameListeningRecordId` 是 game-listening 命名空間，雜湊原文／題幹／選項／答案，解說更改不重置；沿用版本 3 通用練習 map、既有備份與 Worker，不改自評 game id。
 
 StudyLine 用 submitted ref 防連點，play count 與開始本輪的 baseline 判斷新播放。先看原文設 peeked，不走成績寫入；重練清除本輪 UI、更新 baseline 與 PlayButton key，停止舊音訊，重播後才能再答。GameStudyView 預設 listening true；LessonView 沿 sections 首個可用區塊（動漫 training 優先），ShadowingView 預設 showText false。原無聲入口與文法資料仍保留，進度 schema／音檔／配音不變。
+
+## T60 介紹短句資料（2026-10-12）
+
+在 game-character-study.mjs 的名冊合併前加入 magnus／fiora／rozzi，每位一筆 profile id、介紹短句分類、社群文字查證來源；game-character-questions.mjs 加入對應干擾項。仍從 lessons.mjs 匯出。新增三個內容雜湊音檔 URL，舊音檔／進度 id／快取版本保持，沿用自評與理解兩種獨立紀錄。

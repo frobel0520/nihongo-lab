@@ -466,3 +466,21 @@ T58 已部署：功能 commit `8d8fac2`，[GitHub Actions 38195401435](https://g
 T59 介面已部署：commit `6d42d2b`，[GitHub Actions 38210599577](https://github.com/frobel0520/nihongo-lab/actions/runs/38210599577) Success，正式站 `index-CYY8ftAZ.js` 與本次建置逐位元組一致，三個 privacy-guard hook 通過。這是介面／預設與現有 18 題部署，不是所有角色音檔完成。
 
 官方來源追加確認：能讀取 [Eternal Return 官方公告頁](https://playeternalreturn.com/posts/news/2671?hl=en-US)，頁面確實連到 https://developer.eternalreturn.io/；可確認官方開發者入口，不能因此宣稱有完整日文台詞庫。官網首頁 302 轉到 event.playeternalreturn.com/forward，此跳轉與開發者站當時遭雲端網路政策拒絕。已保留既有設定，把必要官方網域補入環境草稿，工具回傳 saved／requires_publish，尚未驗證新網域可讀；需要環境設定儲存及發布後繼續。沒有登入官方 API、申請金鑰或繞過限制，也不把同名 GitHub 帳號當成已驗證的官方來源。
+
+## 2026-10-12 T60 ER 少量介紹短句
+
+### 來源與收錄界線
+
+- [日文官網](https://playeternalreturn.com/main?hl=ja-JP)的「實驗體」入口實際連到 [浅民角色清單](https://asatamin-eternalreturn.com/characterlist/)。核對 Magnus／Fiora／Rozzi 各一句介紹短句；只收這三句，未複製背景故事或整張角色台詞表。社群文字紀錄不是官方逐字稿，也未核對原配音及選角觸發。
+- [官方公告 3132](https://playeternalreturn.com/posts/news/3132?hl=ja-JP)連到 [新角色與造型介紹](https://event.playeternalreturn.com/ER/CHARACTER&SKIN?hl=ja-JP)。頁面技能預覽使用 GIF，PV 以 langSrc 對應 YouTube iframe；HTML 未找到 MP3／WAV／字幕檔，不宣稱官方完全沒有語音資源。部分舊 spotlight 公告 URL 已導向活動／路線圖，200 不代表取得原公告。
+- 新三句分類為角色介紹短句、kind quote；既有六句 ER 自編練習維持 kind practice／非遊戲台詞標示。無故事新增，未使用原配音，未嘗試繞過 YouTube 代理拒絕。
+
+### 製作與驗證
+
+- 馬格努斯使用青山龍星、菲歐拉使用春日部つむぎ、洛茲使用小夜/SAYO，都是已保留的聲線。三個新內容雜湊 MP3，時長分別 3.096／3.312／0.864 秒；全檔 ffmpeg 解碼及 encoder-only metadata 通過。合成腳本逐句實際 mora 與發音參考比對通過，無重音覆寫或舊音檔修改；不宣稱逐句人耳重音／情緒驗收。
+- 合成先因預設引擎埠無服務而停止，改用已驗證 50030 adapter 後三句完成；未產生錯誤音檔或改動其他服務。
+- npm run check：typecheck、247 tests、lint 通過，零失敗／略過。來源分類測試確認新三句不混為原創或選角；原 ruby 檢查列出三筆待標記解說，補齊後全數通過。正式路徑 build 通過，124 precache entries；既有 chunk 大小提示保留。
+- 375×667 Chromium 三個新增角色的真實播放、先播再答、答對與進度保存、來源連結及限制文字、無水平溢位／頁面錯誤通過。
+- 全遊戲 21 句，ER 六位有教材、85 位待補。完整角色／造型語音沒有完成。部署結果另補。
+
+T60 正式路徑離線驗證：先明確下載三位新增角色音檔，Service Worker 安裝完成後斷網，三個角色頁各自重載並實際播放解鎖聽力題通過。初次預覽未指定正式 base path，SW URL 回到 HTML；以相同正式 base path 啟動專用預覽後驗證通過，無專案程式修改。

@@ -18,7 +18,7 @@ const lines = gameCharacterStudy.flatMap((g) =>
   g.characters.flatMap((c) => c.lines),
 );
 
-test('18 個遊戲聽力題有唯一大意、合理不同選項、原教材解說及分散答案位置', () => {
+test('遊戲聽力題有唯一大意、合理不同選項、原教材解說及分散答案位置', () => {
   const positions = new Set();
   for (const line of lines) {
     const q = gameListeningQuestion(line);
