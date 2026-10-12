@@ -239,3 +239,5 @@ T61 已部署：功能 commit `2f7b5f5`，[GitHub Actions 38223772842](https://g
 - 91 位現在皆有教材；ER 176 項、132 個音檔，全遊戲 188 項、144 個音檔。原 24 項／音檔與進度保持。此為角色資料教材補齊，完整遊戲原台詞、造型語音與全部技能仍未完成。
 - 固定版本 CharacterMastery.json、日中語系檔核對角色可用武器；三個新內部資料模組保留來源版本與事實欄位。reference類型、武器詞彙題幹與來源標示、全部遊戲下載去重。
 - 249 tests、typecheck、lint、正式路徑 build 通過；120檔全解碼及讀音檢查、82頁全部164項手機與離線實際播放作答通過。部署另記 release-audit.md。
+
+T62 已部署：功能 commit `11fd156`，[GitHub Actions 38229322774](https://github.com/frobel0520/nihongo-lab/actions/runs/38229322774) Success。正式站 `index-ERndY1k2.js` 與120個新增MP3逐位元組核對一致，共2,872,032 bytes；保留TLS驗證。249項測試、82個角色頁全164項手機及離線播放作答、指定公開Git身分、內容／建置產物隱私格式檢查、三個privacy-guard hook通過。91位皆有教材；82位新增的是查證資料詞彙／句型，非角色原台詞。
