@@ -323,6 +323,38 @@ const er = gameCharacterStudy.find((game) => game.id === 'er');
 if (!er) throw new Error('Missing Eternal Return section');
 const erProfileSource = 'https://asatamin-eternalreturn.com/characterlist/';
 er.characters.push(
+  character('er', 'yuki', '雪', '雪', 'nemo2', `${erProfileSource}#Yuki`, [
+    [
+      'profile',
+      '角色介紹短句',
+      '何か、僕にできることはないでしょうか。',
+      'なにか、ぼくに できることは ないでしょうか。',
+      '有什麼我能做的事嗎？',
+      'できること以可能形修飾名詞，表示能做的事。ないでしょうか在此委婉詢問是否有能幫忙的事，不是斷定自己什麼都做不到。僕是男性常用的自稱。',
+      'なにか、ぼくにできることわないでしょうか。',
+    ],
+  ]),
+  character('er', 'silvia', '希爾維婭', 'シルヴィア', 'hau', `${erProfileSource}#Silvia`, [
+    [
+      'profile',
+      '角色介紹短句',
+      'ワオ、それ面白そうじゃん！！',
+      'ワオ、それ おもしろそうじゃん！！',
+      '哇，那看起來很有趣嘛！！',
+      '形容詞去い＋そう表示看起來如此；這裡的じゃん是じゃない的口語說法，用來表達發現或認同，不是否定有趣。沒有單靠此句推定遊戲觸發情境。',
+    ],
+  ]),
+  character('er', 'william', '威廉', 'ウィリアム', 'ryusei', `${erProfileSource}#William`, [
+    [
+      'profile',
+      '角色介紹短句',
+      'もう手加減はしない',
+      'もう てかげんは しない',
+      '我不會再手下留情。',
+      '手加減する表示控制力道或放水；は將手下留情作為話題，もう與否定連用表示不再這麼做。這不是要求對方手下留情。',
+      'もうてかげんわしない',
+    ],
+  ]),
   character('er', 'magnus', '馬格努斯', 'マグヌス', 'ryusei', `${erProfileSource}#Magnus`, [
     [
       'profile',
@@ -367,7 +399,7 @@ er.characters = eternalReturnRoster.map((row) => ({
   lines: existing.get(row.id)?.lines ?? [],
 }));
 er.scope =
-  '角色名冊與預設造型頭像收錄 91 位（固定版本）。三位角色有原創主題練習，另三位各有一句社群角色介紹短句；85 位語音待補。介紹短句未核對原配音或選角情境，未收錄劇情。';
+  '角色名冊與預設造型頭像收錄 91 位（固定版本）。三位角色有原創主題練習，另六位各有一句社群角色介紹短句；82 位語音待補。介紹短句未核對原配音或選角情境，未收錄劇情。';
 for (const game of gameCharacterStudy) {
   if (game.id === 'er') continue;
   for (const character of game.characters) {

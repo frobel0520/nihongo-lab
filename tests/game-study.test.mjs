@@ -26,7 +26,7 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
     gameCharacterStudy.map((g) => g.id),
     ['lol', 'er', 'genshin'],
   );
-  assert.equal(lines.length, 21);
+  assert.equal(lines.length, 24);
   assert.equal(new Set(lines.map((l) => l.id)).size, lines.length);
   assert.equal(new Set(lines.map(gameRecordId)).size, lines.length);
   for (const game of gameCharacterStudy)

@@ -22,9 +22,9 @@ test('ER 名冊收齊固定來源的 91 個可玩角色，排除隨機／NPC，�
       .filter((c) => c.lines.length)
       .map((c) => c.id)
       .sort(),
-    ['aya', 'fiora', 'hyunwoo', 'jackie', 'magnus', 'rozzi'],
+    ['aya', 'fiora', 'hyunwoo', 'jackie', 'magnus', 'rozzi', 'silvia', 'william', 'yuki'],
   );
-  assert.equal(er.characters.filter((c) => !c.lines.length).length, 85);
+  assert.equal(er.characters.filter((c) => !c.lines.length).length, 82);
 });
 
 test('三遊戲 97 個角色頭像是可讀的圖檔並有對應來源；不使用遠端圖片網址作畫面 src', () => {
@@ -51,7 +51,7 @@ test('角色清單保留已編排音檔；未收錄角色不指定配音', () =>
   const lines = gameCharacterStudy.flatMap((g) =>
     g.characters.flatMap((c) => c.lines),
   );
-  assert.equal(lines.length, 21);
+  assert.equal(lines.length, 24);
   const jackie = lines.find((l) => l.id === 'er:jackie:prepare');
   assert.equal(jackie.audio, 'audio/games/er/gram-bc1b256c23.mp3');
   for (const g of gameCharacterStudy)
@@ -62,7 +62,7 @@ test('角色清單保留已編排音檔；未收錄角色不指定配音', () =>
 test('ER 社群介紹短句有文字來源，與原創練習和選角語音分開', () => {
   const er = gameCharacterStudy.find((g) => g.id === 'er');
   const profiles = er.characters.flatMap((c) => c.lines).filter((l) => l.kind === 'quote');
-  assert.equal(profiles.length, 3);
+  assert.equal(profiles.length, 6);
   for (const line of profiles) {
     assert.equal(line.category, '角色介紹短句');
     assert.match(line.referenceUrl, /^https:\/\/asatamin-eternalreturn\.com\/characterlist\/#/);

@@ -232,3 +232,7 @@ StudyLine 用 submitted ref 防連點，play count 與開始本輪的 baseline �
 ## T60 介紹短句資料（2026-10-12）
 
 在 game-character-study.mjs 的名冊合併前加入 magnus／fiora／rozzi，每位一筆 profile id、介紹短句分類、社群文字查證來源；game-character-questions.mjs 加入對應干擾項。仍從 lessons.mjs 匯出。新增三個內容雜湊音檔 URL，舊音檔／進度 id／快取版本保持，沿用自評與理解兩種獨立紀錄。
+
+## T61 資料編排（2026-10-12）
+
+加入 yuki／silvia／william 的 profile id，各有 reading、翻譯、來源、用法與兩個干擾項。聲線分別 Nemo 男声2／雨晴はう／青山龍星。新增三個音檔 URL、不替換舊音檔或改動快取版本。既有 ruby 檢查受新增漢字字集影響，八筆中文說明逐一確認為中文並加入無標記審閱項目。

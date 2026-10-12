@@ -222,3 +222,11 @@ T59 介面已部署：commit `6d42d2b`，[GitHub Actions 38210599577](https://gi
 - npm run check：typecheck、247 tests（零失敗／略過）、lint 通過；正式路徑 build 通過。手機三句實際播放、作答、進度與來源驗證通過；部署結果另記 release-audit.md。
 
 T60 已部署：功能 commit `dc9dca8`，[GitHub Actions 38222574283](https://github.com/frobel0520/nihongo-lab/actions/runs/38222574283) Success。正式站 `index-C7CtJiWx.js` 與三個新增 MP3 逐位元組核對一致，保留 TLS 驗證。privacy-guard 的 pre-commit／commit-msg／pre-push 全通過；指定公開 Git 身分與新增內容／建置產物隱私格式檢查通過。更新 App 後可進入馬格努斯、菲歐拉、洛茲各一句介紹短句；不是全部語音完成。
+
+## 2026-10-12 T61 查證短句續增
+
+- 選收雪、希爾維婭、威廉各一句日文角色介紹短句，逐字對照官網連結的日文社群攻略站。用法解說、翻譯與干擾項自行編寫；沒有虛構角色台詞或遊戲觸發情境。
+- 三段新 VOICEVOX 音檔沿用保留聲線；遊戲區共 24 句，ER 九位有教材、82 位待補。六句介紹短句未核對原配音或選角；六句既有原創練習仍明示非遊戲台詞。
+- 三句讀音檢查、全檔解碼、手機實際播放作答及正式路徑離線重載播放通過。完整檢查及部署結果見 release-audit.md。
+
+T61 完整驗證：npm run check 的 typecheck、247 tests、lint 通過，零失敗／略過；正式 base path build 通過，124 precache entries。手機與三檔離線實際播放通過。
