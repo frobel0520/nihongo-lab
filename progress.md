@@ -209,3 +209,7 @@ T58 已部署：功能 commit `8d8fac2`，[GitHub Actions 38195401435](https://g
 這批不新增音檔，ER 88 位角色仍無語音教材。「補全部語音」的資料範圍未定：線上已有 LoL 日文台詞頁、原神角色語音表，但不可據此大量逐字重製整套未提供的台詞；ER 本次候選站點回覆 402／503／403，部分 Wiki 路徑 404，尚未取得可靠的完整日文逐字稿，不等於台詞不存在。可處理使用者提供的台詞資料，或明確同意的原創主題教材。
 
 246 tests／typecheck／lint／build 通過；375×667 全 18 題實際播放與作答、先看不記分、重練需重播、無聲切換、動漫／跟讀預設語音驗證通過；正式建置版離線播放、作答及理解進度重載通過。部署證據另補。
+
+T59 介面已部署：commit `6d42d2b`，[GitHub Actions 38210599577](https://github.com/frobel0520/nihongo-lab/actions/runs/38210599577) Success，正式站 `index-CYY8ftAZ.js` 與本次建置逐位元組一致，三個 privacy-guard hook 通過。這是介面／預設與現有 18 題部署，不是所有角色音檔完成。
+
+官方來源追加確認：能讀取 [Eternal Return 官方公告頁](https://playeternalreturn.com/posts/news/2671?hl=en-US)，頁面確實連到 https://developer.eternalreturn.io/；可確認官方開發者入口，不能因此宣稱有完整日文台詞庫。官網首頁 302 轉到 event.playeternalreturn.com/forward，此跳轉與開發者站當時遭雲端網路政策拒絕。已保留既有設定，把必要官方網域補入環境草稿，工具回傳 saved／requires_publish，尚未驗證新網域可讀；需要環境設定儲存及發布後繼續。沒有登入官方 API、申請金鑰或繞過限制，也不把同名 GitHub 帳號當成已驗證的官方來源。

@@ -462,3 +462,7 @@ T58 已部署：功能 commit `8d8fac2`，[GitHub Actions 38195401435](https://g
 - `npm run check`：typecheck、246 tests、lint 通過；新增題目正解／干擾項唯一性、位置分散、成績與舊自評隔離、儲存／合併、解說／題義改動的 id 契約檢查。正式路徑 build 通過，既有單 chunk 超過 500 kB 提示保留。
 - 375×667 Chromium 全 18 題以真實 MP3 播放解鎖、答對後揭示與保存通過；先看不寫分數、重練鎖住直到新播放、錯答／再答、閱讀模式無音訊、動漫特訓預設、跟讀原文隱藏均通過。正式建置版離線重載、真實播放作答、理解 1/2 重載保留通過。
 - 全部語音的資料範圍尚未定。已知 LoLJPWiki 日文頁與 genshin-db 日本語角色表存在；ER 候選 Fandom 402、wiki.eternalreturn.com 503、wiki.gg 403、部分 wikiwiki 路徑 404，GitHub 精確語音庫搜尋未找到可用資料。這些回應不能證明網路上不存在日文台詞，也未嘗試繞過付費／存取限制。可收少量查證短句、明確同意的原創教材或轉換使用者提供的台詞資料，未承諾整套未提供原台詞可大量逐字重製。
+
+T59 介面已部署：commit `6d42d2b`，[GitHub Actions 38210599577](https://github.com/frobel0520/nihongo-lab/actions/runs/38210599577) Success，正式站 `index-CYY8ftAZ.js` 與本次建置逐位元組一致，三個 privacy-guard hook 通過。這是介面／預設與現有 18 題部署，不是所有角色音檔完成。
+
+官方來源追加確認：能讀取 [Eternal Return 官方公告頁](https://playeternalreturn.com/posts/news/2671?hl=en-US)，頁面確實連到 https://developer.eternalreturn.io/；可確認官方開發者入口，不能因此宣稱有完整日文台詞庫。官網首頁 302 轉到 event.playeternalreturn.com/forward，此跳轉與開發者站當時遭雲端網路政策拒絕。已保留既有設定，把必要官方網域補入環境草稿，工具回傳 saved／requires_publish，尚未驗證新網域可讀；需要環境設定儲存及發布後繼續。沒有登入官方 API、申請金鑰或繞過限制，也不把同名 GitHub 帳號當成已驗證的官方來源。
