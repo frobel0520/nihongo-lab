@@ -484,3 +484,5 @@ T59 介面已部署：commit `6d42d2b`，[GitHub Actions 38210599577](https://gi
 - 全遊戲 21 句，ER 六位有教材、85 位待補。完整角色／造型語音沒有完成。部署結果另補。
 
 T60 正式路徑離線驗證：先明確下載三位新增角色音檔，Service Worker 安裝完成後斷網，三個角色頁各自重載並實際播放解鎖聽力題通過。初次預覽未指定正式 base path，SW URL 回到 HTML；以相同正式 base path 啟動專用預覽後驗證通過，無專案程式修改。
+
+T60 已部署：功能 commit `dc9dca8`，[GitHub Actions 38222574283](https://github.com/frobel0520/nihongo-lab/actions/runs/38222574283) Success。正式站 `index-C7CtJiWx.js` 與三個新增 MP3 逐位元組核對一致，保留 TLS 驗證。privacy-guard 的 pre-commit／commit-msg／pre-push 全通過；指定公開 Git 身分與新增內容／建置產物隱私格式檢查通過。更新 App 後可進入馬格努斯、菲歐拉、洛茲各一句介紹短句；不是全部語音完成。

@@ -220,3 +220,5 @@ T59 介面已部署：commit `6d42d2b`，[GitHub Actions 38210599577](https://gi
 - 改用官網連結的日文攻略站，核對馬格努斯、菲歐拉、洛茲各一句介紹短句，附來源、翻譯、讀音、用法、大意題及自製 VOICEVOX 音檔。未核對原配音或選角情境的限制在教材明示。
 - 遊戲區 21 句／21 音檔；ER 六位有教材（原創練習三位、介紹短句三位），85 位待補。既有 18 句及進度保持。
 - npm run check：typecheck、247 tests（零失敗／略過）、lint 通過；正式路徑 build 通過。手機三句實際播放、作答、進度與來源驗證通過；部署結果另記 release-audit.md。
+
+T60 已部署：功能 commit `dc9dca8`，[GitHub Actions 38222574283](https://github.com/frobel0520/nihongo-lab/actions/runs/38222574283) Success。正式站 `index-C7CtJiWx.js` 與三個新增 MP3 逐位元組核對一致，保留 TLS 驗證。privacy-guard 的 pre-commit／commit-msg／pre-push 全通過；指定公開 Git 身分與新增內容／建置產物隱私格式檢查通過。更新 App 後可進入馬格努斯、菲歐拉、洛茲各一句介紹短句；不是全部語音完成。
