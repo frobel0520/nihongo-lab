@@ -565,3 +565,7 @@ T64翡翠造型已查證：固定版本CharacterSkin明確1078000 Hisui index0�
 - **驗證**：`npm run check` 253 tests／typecheck／lint 全過；`VITE_BASE_PATH=/nihongo-lab/ npm run build` 通過（242 precache entries，既有 500KB chunk 提示仍在）。375×667 瀏覽器實測：遊戲首頁收錄數、艾比蓋爾／比安卡選角句播放與顯示逐字稿、雪的文字版直接顯示、解說讀音標記、無橫向溢位、無執行錯誤。新增 127 筆讀音標記（含因新句子帶進日文漢字集而重新列出的既有中文字串）。
 - **效能**：主程式 `index-*.js` 1,140,774 bytes（gzip 329,536），precache 16.85 MB；選角 MP3 共 13 MB／372 檔（永恆輪迴資料夾），不預先快取，播放或手動下載才載入。正式站載入時間另於部署後量測。
 - **限制**：逐字稿多數未經人耳確認；selected2 的非語詞判定也是機器加人工判讀。黛比&瑪蓮的雙人台詞未分配語者。多數角色沿用既有 VOICEVOX 選角（黒沢冴白），屬教學朗讀，不模仿原配音。點選／鎖定等細部觸發時機未實測。
+
+T65 已部署：功能 commit `3207522`（PR #60 以 rebase 接上 main），[GitHub Actions 38288868783](https://github.com/frobel0520/nihongo-lab/actions/runs/38288868783) check／deploy 皆 Success。正式站 `index-OsZLreLx.js` 與本機正確路徑建置逐位元組一致；240 個選角 MP3 與本機逐位元組一致；HTTPS 下載保留 TLS 驗證。正式站艾比蓋爾頁載入 DOMContentLoaded 1,044 ms、主程式傳輸 334,307 bytes（桌機、單次樣本，非 p50／p95）。Git 作者／提交者為指定公開身分；本機未安裝 privacy-guard hook，提交前以人工掃描變更內容與 MP3 metadata。
+
+補記：Git Bash 會把 `VITE_BASE_PATH=/nihongo-lab/` 自動轉成 Windows 路徑，本機正式路徑 build 需加 `MSYS_NO_PATHCONV=1`；本節前面記的 build 通過用的是被轉換的 base，部署前以 CI 建置為準，部署後已用正確 base 重建並比對一致。
