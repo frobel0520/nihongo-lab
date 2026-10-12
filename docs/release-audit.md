@@ -496,3 +496,5 @@ T60 已部署：功能 commit `dc9dca8`，[GitHub Actions 38222574283](https://g
 - 首次 check 的 ruby 檢查因新漢字引出八筆既有中文說明待審閱；逐筆確認只有中文漢字、加入原樣審閱項目，沒有把中文誤標成日文讀音。完整 check／build 與部署結果另補。
 
 T61 完整驗證：npm run check 的 typecheck、247 tests、lint 通過，零失敗／略過；正式 base path build 通過，124 precache entries。手機與三檔離線實際播放通過。
+
+T61 已部署：功能 commit `2f7b5f5`，[GitHub Actions 38223772842](https://github.com/frobel0520/nihongo-lab/actions/runs/38223772842) Success。正式站 `index-BpHWxl7k.js` 及三個新增 MP3 與本次建置逐位元組一致；TLS 驗證保留。指定公開 Git 身分、新增內容與建置產物隱私格式檢查、三個 privacy-guard hook 通過。更新 App 後可學習雪、希爾維婭、威廉的介紹短句；82 位角色仍待補，未宣稱全部語音完成。
