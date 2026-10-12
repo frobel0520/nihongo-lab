@@ -1,5 +1,49 @@
 # 專案進度
 
+## 2026-10-12 T65 續作（交接到雲端）：316 檔選角語音全收
+
+**使用者最新決定（2026-10-12 晚）**：316 檔選角語音全部收錄；放棄人耳確認，做完直接部署。因此每句標證據等級，只有 `user` 經人耳確認，其餘在教材來源說明寫明「尚未經人耳確認」。原音、ASR 模型與本機確認頁仍只在被忽略的 `.cache/`，雲端拿不到也不需要。
+
+- **資料入口**：`scripts/er-selection-clips.json`（316 段：角色、造型、selected／selected2、官方候選文字與相似度、kotoba-whisper v2.0 與 Whisper small 草稿；只有文字）→ `scripts/er-selection-decisions.mjs`（每段採用的字面與證據：U user／O official-asr／A asr-agreement／D asr-draft／N nonverbal）→ `node scripts/build-er-selection-transcripts.mjs` 產生 `curriculum/er-selection-transcripts.mjs`（含每角色收錄數）。目前 131 段有字面、185 段待整理。
+- **課程**：55 句 Skin/OnSelectVO 官方句（`er-selection-annotations.mjs`，依 skinId）＋逐字稿句（`er-selection-voice-annotations.mjs`，依日文字面；缺解說的句子暫不顯示，`tests/game-study.test.mjs` 會列出）。來源說明依證據自動產生。
+- **音檔**：官方 55 句已用本機 VOICEVOX 0.25.2 合成 51 句；待合成：玹雨／雪兩句（Nemo 男声2，本機引擎沒有）、青燕（玄鳥讀つばめ，已改讀音）、夏洛特（遊戯ゆうぎ）。合成：`node scripts/build-audio-jobs.mjs --missing --pending-game` 後 `node scripts/synthesize.mjs --batch scripts/audio-jobs.json`；音檔產出後從 `game-character-study.mjs` 的 `pendingSelectionAudio` 移除。お主誤讀已加 `audio-prosody.mjs` 覆寫。
+- **已修**：測試把選角句與既有計數分開；補 43 筆解說讀音標記；刪除解說中未經人耳確認的音色推論；助詞發音欄（を→お、へ→え）修正；遊戲首頁移除候選檔數等內部數字。
+- **目前測試**：250/253 通過；失敗 3 項皆為進行中狀態（遊戲總句數寫死 243、56 句缺解說、新解說缺讀音標記）。typecheck、lint 通過。
+
+## 2026-10-12 T65 session 交接：本機草稿，尚未完成／部署
+
+**使用者最新要求：所有角色的所有選角語音完成後再部署。** 公開音檔維持 VOICEVOX；遊戲原 WAV、完整 ASR 草稿及本機查證資料只留在被忽略的 `.cache/`。T62 武器詞彙／資料句型不計入原台詞完成。聽不清楚、語者／造型或觸發不明都保留待確認，不猜測。下方 T63 摘要描述正式站，不能當作這批 T65 已發布。
+
+### 工作目錄與現有變更
+
+- 目前分支 `feature/T64-yuki-original-voice`，HEAD `631a177`。本輪未提交、推送、合併或部署；接手時保留全部未提交變更，不重設工作目錄。Git 在 sandbox 使用者下曾回報 ownership 不符，唯讀查詢以單次 `git -c safe.directory=<repo>` 執行，沒有修改全域設定。
+- T64 既有文件／提取工具與 T65 契約仍在：`docs/er-yuki-voice-pilot.md`、`docs/task-breakdown.md`、`docs/release-audit.md`、`scripts/extract-er-yuki.py`、`scripts/extract-er-selection.py`、`scripts/requirements-er-voice.txt`。先讀 AGENTS.md 與這些既有證據。
+- 本輪新增 `scripts/build-er-selection-catalog.mjs`、`curriculum/er-selection-catalog-data.mjs`、`curriculum/er-selection-annotations.mjs`；另修改 `curriculum/game-character-study.mjs`、`app/views/GameStudyView.tsx`、`lib/game-study.mjs`、`scripts/build-audio-jobs.mjs`、`tests/game-study.test.mjs`。
+
+### 資料與課程目前狀態
+
+- 本機遊戲 build 25617366：91 位角色、316 個日文資產路徑的選角音檔候選，311 個不同 WAV 雜湊；`selected` 163 檔、`selected2` 153 檔。檔案數／雜湊數不等於不同台詞數。原音提取與全檔解碼證據沿用 `.cache/er-selection-all/`。
+- 316 檔 ASR 已完成，僅為機器草稿；語言判定 ja 295／en 21 不等於人耳確認語言。固定資料版本 `ea359154465075aa61a668efde014db076820a03` 的 `Skin/OnSelectVO` 有57筆、涉及49位角色，來源映射合計112個候選資產關聯；其餘204檔目前未對到這批來源文字。接手時應以本機 source-map 再核對資產關聯是否重疊，不能把關聯加總當逐句去重完成。
+- `.cache/er-selection-all/source-audio-alignment.json`：18筆來源文字與 ASR 完全相符、39筆待核對；完全相符仍是機器證據，沒有新增全量人耳驗收。42位角色沒有這批選角來源文字，仍需原音核對逐字稿。
+- 55筆單人來源文字已附讀音、指定發音、繁中翻譯及文法／語氣草稿，接入 `game-character-study.mjs`，由 `lessons.mjs` 匯出。全遊戲本機資料由188項增加為243項。**55筆全部 `audioReady: false`，沒有產生新的正式 MP3；不算選角課程完成。** 原作語氣描述也未經全量人耳確認，需審查註解中對音色／停頓的推論。
+- 黛比&瑪蓮 `1065002`、`1065003` 是含兩種色碼的分段文字，保留在 catalog 的 `segments`，尚未做語者歸屬與合成聲線，不扁平化成單人台詞。
+- 55筆含漢字句子的讀音目前都能對齊原文；已修正7筆讀音省略號與來源標點不同的問題。解說內日文讀音標記仍有44個字串待逐一處理；其中 `しなさい要求準備`、`すら配合出ない` 的候選包含中文誤判，中文不加日文假名。
+
+### 前端與語音工具
+
+- 選角句目前採先盲聽、再揭示逐字稿／漢字讀音／繁中／文法語氣的呈現；沒有新增大意選擇題，不列入既有理解題分母。資料教材、介紹短句、自編練習與選角句分開計數。
+- `audioReady: false` 的句子不顯示播放器、不列入角色／全部遊戲離線下載；仍可先看文字草稿。角色選單顯示來源文字與待對照的音檔候選數，未把候選檔當台詞數。
+- `scripts/build-audio-jobs.mjs` 現在略過尚未就緒的遊戲句。因此接手者需要建立明確的選角合成 jobs／加入僅供產製的 opt-in，不能為產生 jobs 就先移除 `audioReady: false`。MP3 合成、發音核對與全檔解碼通過後才解除旗標。
+- 本輪未偵測到 VOICEVOX 進程，127.0.0.1:50021／50030 都無法連線。前次可用引擎只有8／10／46／100／107；13（青山龍星）與10000（Nemo 男声2）未提供，現有聲線不可自行替換。玹雨 `1007005`、雪 `1011005`、馬格努斯 `1004005` 的來源句涉及上述聲線，需完整本機引擎就緒後核對。
+
+### 最後驗證結果與下一步
+
+- 最後一次 `npm run typecheck` 通過；其後只修正測試缺少 import 與 lint 的語意標籤，尚未再跑整套 check。
+- 遊戲測試曾4／5通過，失敗原因是新測試漏匯入 `gameListeningDone`；已補 import，但尚未重跑。Ruby測試6／7通過，仍有44個解說字串未加入 `ruby-notes.mjs`。Lint 曾因 `p role=status` 失敗，已改成 `output`，尚未重跑。**本輪新增前端後沒有執行完整 npm test、build、瀏覽器互動／手機／離線驗收或正式效能量測，不能記通過。**
+- 接手順序：審查55筆文字／翻譯／讀音／語氣草稿 → 完成解說 ruby notes → 核對其餘候選與兩筆多聲部 → 準備本機 VOICEVOX 完整聲線、產製並驗證全部新音檔 → 跑 test／typecheck／lint／build、瀏覽器與適用效能驗收 → 所有選角範圍完成才依既有 PR／CI／Pages 流程部署。
+- 提交前重新檢查指定公開 Git 身分與 privacy-guard 三個 hook。T64 先前紀錄是 Email 不符且沒有有效 hook，本輪沒有重新確認或改設定；不得繞過 hook、不得上傳原音或含使用者名稱的本機路徑。
+- Codex 畫面曾多次顯示「正在重新連線」；根因未診斷，不能歸因於模型切換或補丁失敗。不要把先前對重連原因的推測當查證結論。
+
 截至 2026-10-12，T63 功能版本 `822cbd9` 已通過 GitHub Actions 38237596256 並部署，正式站程式、七段音檔及124個原神頭像已核對一致。英雄聯盟學習區已移除；原神固定來源名冊補齊 124 筆（包含旅行者與人偶的不同版本），六位角色共 12 句實際短台詞與自製 VOICEVOX 音檔，另外 118 筆明示待收錄。班尼特「燃えろ」保留「もえろ」，重新合成並使用新網址；遊戲原文揭示後直接顯示漢字上方讀音。FSRS-6 與版本 3 進度同步維持既有設計。最新驗證見 release-audit.md 的 T63 紀錄。
 
 Repository：GitHub repository（public）。GitHub Actions 在 push 到 main 時自動跑 `npm run check` + `npm run build` 並部署到 GitHub Pages。
@@ -250,3 +294,22 @@ T62 已部署：功能 commit `11fd156`，[GitHub Actions 38229322774](https://g
 班尼特「燃えろ」重製為較清楚的句尾ロ／o，原文與作答進度 id 保留，音檔改新網址避開舊快取。所有遊戲原文揭示後直接顯示假名，角色日文姓名與新解說也補讀音。驗證與部署狀態見 release-audit.md。
 
 T63 已部署：功能 commit `822cbd9`，[GitHub Actions 38237596256](https://github.com/frobel0520/nihongo-lab/actions/runs/38237596256) Success。正式站 `index-2SS2xG0Q.js`、七個本次MP3與124個原神頭像逐位元組核對一致，共12,829,681 bytes；TLS驗證保留。252項測試、手機與離線驗證、指定公開Git身分、變更／建置產物隱私格式檢查及三個privacy-guard hook通過。原神118筆仍待收錄，人耳重音／語氣與Android真機更新由使用者驗收。
+
+## 2026-10-12 T64 雪：從本機原語音試作
+
+- 分支 `feature/T64-yuki-original-voice`，基於最新清理後 main `631a177`。T62 的91位有資料教材不能算原語音補齊；原有教材／進度／正式聲線保持。
+- 已定位已安裝遊戲 build25617366，精確 catalog/container 鍵提取雪 S000／ja 192個原音，雜湊／全檔解碼零錯誤；scripts/extract-er-yuki.py可重跑，依賴版本固定。原音及模型都在Git忽略的.cache，未公開。
+- 「少し集中を」對應Yuki_PlaySkill1011300seq0_1_ja.wav；使用者確認完整台詞、無提示詞本機small ASR一致。pilot.json有讀音、繁中草稿、文法及待確認欄位。使用者後續說明是由PlaySkill檔名推定技能播放；具體技能／按鍵／觸發及語氣仍待確認，不補猜。
+- 已用本機VOICEVOX0.25.2的黒沢冴白生成待審試音；本機無Nemo男声2，不改正式選角。同組另兩檔ASR與其餘191檔逐字稿未驗收。
+- [原音證據、共同檔名慣例與重跑方法](docs/er-yuki-voice-pilot.md)。252 tests／typecheck／lint／正式路徑build通過，192檔重現雜湊一致與拒絕覆蓋／公開輸出通過；本機效能達門檻。原作語氣not_scored，未部署。
+- 提交前置待處理：本機Git Email不符指定值、未偵測有效privacy-guard hook；未自行改設定或繞過，未commit／push。依既有授權可继续整理本機資料；提交需先符合規範。
+
+T64重複／語言追加核對：192檔原WAV與統一PCM均無完全相同雜湊；不代表192句不同台詞。不強制ja的全量語言篩查及3個例外複查未確認外語句子，含極短音／笑聲候選，仍待人耳判定。setting1～6與VictoryCutscene保留情境待確認，不當背景故事或劇情台詞。證據與限制已更新原試作文件，未改教材或提交。
+
+T64最新（雪初篩與翡翠盤點）：雪192檔全量ASR完成並實際分組187台詞候選、1笑聲候選、4待確認，候選中僅少し集中を經使用者確認；拷貝與原音192個雜湊一致。可播放m3u8及line-selection.json在.cache/er-yuki-s000/selection/；完整機器稿未進教材，逐字／情境／語氣仍待核對。翡翠Hisui日文S000220檔（去重216）、S002207檔（去重204），合計427檔／420份不同WAV；全檔解碼零錯誤。全部語系catalog/container1282鍵一致，造型名與翡翠台詞／非語詞分類未驗收。證據在.cache/er-hisui-original/manifest.json；原音與模型仍Git忽略，未提交部署。
+
+T64最新縮小到選角候選：.cache/er-character-selection/已整理6檔（雪S000、翡翠S000／S002各selected_1與selected2_1），複製雜湊全一致，selected／selected2分組m3u8可播放。雪selected_1機器草稿では僕の番ですね；翡翠原始草稿仍待核對，雪selected2不填文字。沒有取得選角事件映射，實際點選／鎖定／動畫階段pending，不改公開教材或部署。
+
+T64選角確認（2026-10-12）：使用者確認雪selected_1「では僕の番ですね」確為選角階段台詞，逐字稿與大類情境改為user_confirmed；點頭像／鎖定等細部時機仍未指定。已整理では ぼくの ばんですね、繁中「那麼，輪到我了呢。」、では／僕の番／です／ね解說，原作語氣pending；以本機既有黒沢冴白產生VOICEVOX待審試音，發音閘門／全檔解碼通過，不替換正式Nemo2。已確認句數增加為2，仍在本機.cache，不加入公開教材。造型差異以Hisui/S000和S002不同原音為證；同一造型內selected與selected2同時存在，因此兩事件差異不直接等同不同造型。
+
+T64翡翠造型名稱確認：1078000原造型與1078001暗巷裡共用Hisui/S000；1078002幽靈獵人用Hisui/S002，固定CharacterSkin voicePath、日繁中名稱與官方介紹均核對。本機選角manifest已補名稱。S002正式來源Skin/OnSelectVO/1078002為「斬り落とすべき悪は、この剣で裁く。」；原音ASR讀音相符，據來源更正砂漠／切字草稿，不靠猜測。S000原句、點選／鎖定细部時機及原作語氣仍待確認；未改公開教材或部署。

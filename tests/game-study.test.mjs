@@ -2,7 +2,12 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
 import { gameCharacterStudy, stages } from '../curriculum/lessons.mjs';
-import { gameDone, gameLines, gameRecordId } from '../lib/game-study.mjs';
+import {
+  gameDone,
+  gameLines,
+  gameListeningDone,
+  gameRecordId,
+} from '../lib/game-study.mjs';
 import { gameHash, parseRoute } from '../lib/route.mjs';
 import {
   emptyProgress,
@@ -15,6 +20,8 @@ import { mergeProgress } from '../lib/progress-merge.mjs';
 import { allAudioPaths } from '../lib/offline.mjs';
 import { getVoice } from '../curriculum/voices.mjs';
 import { rubyParts, plainText } from '../lib/furigana.mjs';
+import { erSelectionInventory } from '../curriculum/er-selection-catalog-data.mjs';
+import { erSelectionTranscripts } from '../curriculum/er-selection-transcripts.mjs';
 
 const lines = gameCharacterStudy.flatMap((g) =>
   g.characters.flatMap((c) => c.lines),
@@ -26,7 +33,7 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
     gameCharacterStudy.map((g) => g.id),
     ['er', 'genshin'],
   );
-  assert.equal(lines.length, 188);
+  assert.equal(lines.length, 243);
   assert.equal(new Set(lines.map((l) => l.id)).size, lines.length);
   assert.equal(new Set(lines.map(gameRecordId)).size, lines.length);
   for (const game of gameCharacterStudy)
@@ -36,7 +43,13 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
         assert.ok(getVoice(line.voice));
         assert.match(line.referenceUrl, /^https:/);
         assert.ok(line.note && line.zh);
-        assert.ok(existsSync('public/' + line.audio), line.audio);
+        if (line.audioReady === false) {
+          assert.equal(line.category, '角色選擇');
+          // 音檔放進 public/ 後就要移除旗標。
+          assert.ok(!existsSync('public/' + line.audio), line.audio);
+        } else {
+          assert.ok(existsSync('public/' + line.audio), line.audio);
+        }
         const parts = rubyParts(line);
         if (/[一-鿿]/.test(line.jp)) {
           assert.ok(parts && parts.some((p) => p.ruby), line.jp);
@@ -48,7 +61,38 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
         }
       }
     }
-  assert.equal(lines.filter((l) => l.category === '角色選擇').length, 0);
+  const selectionLines = lines.filter((l) => l.category === '角色選擇');
+  const officialSelection = selectionLines.filter((l) =>
+    l.id.includes(':selection:'),
+  );
+  assert.equal(officialSelection.length, 55);
+  const onSelectKeys = new Set(
+    erSelectionInventory.officialSelectionRows.map(
+      (row) => `Skin/OnSelectVO/${row.skinId}`,
+    ),
+  );
+  assert.equal(
+    selectionLines.length - officialSelection.length,
+    erSelectionTranscripts.filter((row) => !onSelectKeys.has(row.officialKey))
+      .length,
+  );
+  assert.ok(
+    selectionLines.every(
+      (line) => line.variant && line.selectionAssetCount > 0 && line.reading,
+    ),
+  );
+  assert.equal(erSelectionInventory.candidateRoles, 91);
+  assert.equal(erSelectionInventory.candidateAssets, 316);
+  assert.equal(erSelectionInventory.officialTextRows, 57);
+  assert.equal(erSelectionInventory.uniqueAudioHashes, 311);
+  assert.equal(
+    erSelectionInventory.officialSelectionRows.reduce(
+      (total, row) => total + row.matchingAssetCount,
+      0,
+    ),
+    112,
+  );
+  assert.equal(gameListeningDone(selectionLines, emptyProgress()), 0);
   assert.equal(lines.filter((l) => l.category === '編隊加入').length, 5);
 });
 
@@ -119,9 +163,27 @@ test('遊戲路由可深連結，保留返回路徑，壞編碼及多餘段落�
     assert.deepEqual(parseRoute(hash), { view: 'games' });
 });
 
+test('每一句選角逐字稿都寫好讀音、翻譯與解說（缺的會列出）', async () => {
+  const { erSelectionVoiceAnnotations } = await import(
+    '../curriculum/er-selection-voice-annotations.mjs'
+  );
+  const onSelect = new Set(
+    erSelectionInventory.officialSelectionRows.map(
+      (row) => `Skin/OnSelectVO/${row.skinId}`,
+    ),
+  );
+  const missing = erSelectionTranscripts
+    .filter((row) => !onSelect.has(row.officialKey))
+    .filter((row) => !erSelectionVoiceAnnotations[row.jp])
+    .map((row) => `${row.characterId}: ${row.jp}`);
+  assert.deepEqual(missing, [], `缺 ${missing.length} 句解說`);
+});
+
 test('下載全部包含遊戲音檔、去重並保留全部舊課程音檔', () => {
   const original = allAudioPaths(stages),
-    extra = lines.map((l) => l.audio);
+    extra = lines
+      .filter((line) => line.audioReady !== false)
+      .map((l) => l.audio);
   const all = allAudioPaths(stages, [...extra, extra[0]]);
   assert.equal(all.length, original.length + new Set(extra).size);
   for (const audio of [...original, ...extra]) assert.ok(all.includes(audio));

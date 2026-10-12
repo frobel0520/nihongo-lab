@@ -49,7 +49,10 @@ test('角色清單保留已編排音檔；未收錄角色不指定配音', () =>
   const lines = gameCharacterStudy.flatMap((g) =>
     g.characters.flatMap((c) => c.lines),
   );
-  assert.equal(lines.length, 188);
+  assert.equal(
+    lines.filter((l) => l.category !== '角色選擇').length,
+    188,
+  );
   const jackie = lines.find((l) => l.id === 'er:jackie:prepare');
   assert.equal(jackie.audio, 'audio/games/er/gram-bc1b256c23.mp3');
   for (const g of gameCharacterStudy)
@@ -61,7 +64,7 @@ test('ER 社群介紹短句有文字來源，與原創練習和選角語音分�
   const er = gameCharacterStudy.find((g) => g.id === 'er');
   const profiles = er.characters
     .flatMap((c) => c.lines)
-    .filter((l) => l.kind === 'quote');
+    .filter((l) => l.kind === 'quote' && l.category !== '角色選擇');
   assert.equal(profiles.length, 6);
   for (const line of profiles) {
     assert.equal(line.category, '角色介紹短句');

@@ -1,10 +1,12 @@
 // 從 curriculum/lessons.mjs 產生 scripts/synthesize.mjs --batch 用的 jobs.json
 // 加 --missing 只產生 public/ 底下還沒有音檔的項目（新增教材後補產用，不重做既有音檔）。
+// 加 --pending-game 才納入標了 audioReady: false 的遊戲句（只供產製；合成並驗證後再移除旗標）。
 import { existsSync } from 'node:fs';
 import { writeFile } from 'node:fs/promises';
 import { stages, gameCharacterStudy } from '../curriculum/lessons.mjs';
 
 const onlyMissing = process.argv.includes('--missing');
+const includePendingGame = process.argv.includes('--pending-game');
 const jobs = [];
 
 for (const stage of stages) {
@@ -58,14 +60,15 @@ for (const stage of stages) {
 for (const game of gameCharacterStudy)
   for (const character of game.characters)
     for (const line of character.lines)
-      jobs.push({
-        voice: line.voice,
-        text: line.jp,
-        reading: line.reading,
-        pronunciation: line.pronunciation,
-        kind: 'game',
-        out: `public/${line.audio}`,
-      });
+      if (line.audioReady !== false || includePendingGame)
+        jobs.push({
+          voice: line.voice,
+          text: line.jp,
+          reading: line.reading,
+          pronunciation: line.pronunciation,
+          kind: 'game',
+          out: `public/${line.audio}`,
+        });
 
 const selected = onlyMissing
   ? jobs.filter((job) => !existsSync(job.out))

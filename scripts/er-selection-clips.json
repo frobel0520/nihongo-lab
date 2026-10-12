@@ -1,0 +1,6711 @@
+{
+ "note": "Generated from local game build 25617366 selection clips. Text only: machine drafts (kotoba-whisper v2.0, Whisper small) and fixed-version official candidates; no audio.",
+ "clips": [
+  {
+   "clip": "Jackie-S000-Jackie_selected_1",
+   "sha256": "671e4c889be5416151e26969df99bcc5d2f5887983ec0ecdac8d8c7e7891ebed",
+   "characterId": "jackie",
+   "family": "selected",
+   "duration": 2.28,
+   "skinCodes": [
+    1001000,
+    1001001,
+    1001004
+   ],
+   "skinNames": [
+    "傑琪",
+    "絞殺者 傑琪",
+    "軍官候補生 傑琪"
+   ],
+   "officials": [],
+   "kotoba": "かくれんぼのはじまりはじまり",
+   "small": "かくれんぼのはじまりはじまり"
+  },
+  {
+   "clip": "Jackie-S000-Jackie_selected2_1",
+   "sha256": "ac3d2c76da9842d1433c8ddf40d928a1889b97d10898c92cc0b554cc06787614",
+   "characterId": "jackie",
+   "family": "selected2",
+   "duration": 3.16,
+   "skinCodes": [
+    1001000,
+    1001001,
+    1001004
+   ],
+   "skinNames": [
+    "傑琪",
+    "絞殺者 傑琪",
+    "軍官候補生 傑琪"
+   ],
+   "officials": [],
+   "kotoba": "はあ!",
+   "small": "はぁああああ"
+  },
+  {
+   "clip": "Jackie-S002-Jackie_selected2_S002_1",
+   "sha256": "5ff0186a4b71f707f9a1293a6eaeff48d26af9686e9c9387721ebab762715015",
+   "characterId": "jackie",
+   "family": "selected2",
+   "duration": 3.1,
+   "skinCodes": [
+    1001002
+   ],
+   "skinNames": [
+    "血宴禮服 傑琪"
+   ],
+   "officials": [],
+   "kotoba": "アハハハハ",
+   "small": "Ahahahahahahahahahahaha!"
+  },
+  {
+   "clip": "Jackie-S003-Jackie_selected_1",
+   "sha256": "0fc4f84a2c9f73666c30449fcc9317e18b0098e0de96ab0b83fe0e1ca54cc2f6",
+   "characterId": "jackie",
+   "family": "selected",
+   "duration": 4.15,
+   "skinCodes": [
+    1001003
+   ],
+   "skinNames": [
+    "系統衝擊 傑琪"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1001003",
+     "text": "システムは壊す時がいつもしびれるよね、でしょ？",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "システムは壊す時がいつもしびれるよねでしょ",
+   "small": "システムは壊す時がいつもしびれるよね?でしょ?"
+  },
+  {
+   "clip": "Jackie-S003-Jackie_selected2_1",
+   "sha256": "1dd56d9a86766a0ab5fecee03b27f13d06d9ed215b6326ebd3ec0b37d8c7653e",
+   "characterId": "jackie",
+   "family": "selected2",
+   "duration": 10.84,
+   "skinCodes": [
+    1001003
+   ],
+   "skinNames": [
+    "系統衝擊 傑琪"
+   ],
+   "officials": [],
+   "kotoba": "いつも通りにやればいいよね",
+   "small": "うっ…ふっ!うっ…ふっ…いつも通りにやればいいよね。ふっ…ふっ…"
+  },
+  {
+   "clip": "Aya-S000-Aya_selected_1",
+   "sha256": "2229b350882bc5525f33d18868894f322ef146613013fabb610c30384da8e4a8",
+   "characterId": "aya",
+   "family": "selected",
+   "duration": 1.26,
+   "skinCodes": [
+    1002000,
+    1002001,
+    1002003,
+    1002004
+   ],
+   "skinNames": [
+    "綾",
+    "警察 綾",
+    "戰鬥女僕 綾",
+    "軍官候補生 綾"
+   ],
+   "officials": [],
+   "kotoba": "悪人はどこですか?",
+   "small": "悪人はどこですか"
+  },
+  {
+   "clip": "Aya-S000-Aya_selected2_1",
+   "sha256": "66feb6c81403fce590c10607f09a55cfe72ca9fd96f4fd25fb0dedf885be1993",
+   "characterId": "aya",
+   "family": "selected2",
+   "duration": 4.89,
+   "skinCodes": [
+    1002000,
+    1002001,
+    1002003,
+    1002004
+   ],
+   "skinNames": [
+    "綾",
+    "警察 綾",
+    "戰鬥女僕 綾",
+    "軍官候補生 綾"
+   ],
+   "officials": [],
+   "kotoba": "はっふっ",
+   "small": "はっはっかっうぅ"
+  },
+  {
+   "clip": "Aya-S002-Aya_selected_1",
+   "sha256": "7fac9b4d3e97b28a707022a89fe221c7dd654912549e3d0735150f3148e38663",
+   "characterId": "aya",
+   "family": "selected",
+   "duration": 3.15,
+   "skinCodes": [
+    1002002
+   ],
+   "skinNames": [
+    "煙火慶典 綾"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1002002",
+     "text": "バンバーン！花火の始まりですよ！",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "バンバーン花火の始まりですよ",
+   "small": "バンバーン! 花火の始まりですよ!"
+  },
+  {
+   "clip": "Aya-S002-Aya_selected2_1",
+   "sha256": "e95c1917e52e1f1d5c2292e5dc37064262df24671572a3136f186a0769549fc4",
+   "characterId": "aya",
+   "family": "selected2",
+   "duration": 11.55,
+   "skinCodes": [
+    1002002
+   ],
+   "skinNames": [
+    "煙火慶典 綾"
+   ],
+   "officials": [],
+   "kotoba": "一緒に花火を見に行きましょう",
+   "small": "ふんふんふんふん…あっ…はぁ…うっ…はっ…うっ…ひひひ…一緒に花火を見に行きましょう。"
+  },
+  {
+   "clip": "Aya-S005-Aya_selected_1",
+   "sha256": "b687daa08fc790fd4fd8e5efc3cd46ca1030d7ede425138d8b1cd5f8287d82c1",
+   "characterId": "aya",
+   "family": "selected",
+   "duration": 4.01,
+   "skinCodes": [
+    1002005
+   ],
+   "skinNames": [
+    "綾（艾爾菲爾特）"
+   ],
+   "officials": [],
+   "kotoba": "鈴木彩皆さんのために歌います",
+   "small": "鈴木谷、皆さんのために歌います"
+  },
+  {
+   "clip": "Aya-S005-Aya_selected2_1",
+   "sha256": "e3a4ea23a0ec7af4c50c83580e808c134b26eaa8d481c45cba04e902668fb002",
+   "characterId": "aya",
+   "family": "selected2",
+   "duration": 7.61,
+   "skinCodes": [
+    1002005
+   ],
+   "skinNames": [
+    "綾（艾爾菲爾特）"
+   ],
+   "officials": [],
+   "kotoba": "鈴木彩 皆さんのために歌います",
+   "small": "うっ…ふっ…ふぅ…ふぅ…鈴木あや、皆さんのために歌います!"
+  },
+  {
+   "clip": "Fiora-S000-Fiora_selected_1",
+   "sha256": "84e82f906f5fd65bd633500975f193bf68b336d060fd471b5617df56decced2f",
+   "characterId": "fiora",
+   "family": "selected",
+   "duration": 1.54,
+   "skinCodes": [
+    1003000,
+    1003001,
+    1003002,
+    1003003,
+    1003005
+   ],
+   "skinNames": [
+    "菲歐拉",
+    "將校 菲歐拉",
+    "劍客 菲歐拉",
+    "藍色禮服 菲歐拉",
+    "先鋒教官 菲歐拉"
+   ],
+   "officials": [],
+   "kotoba": "私の敵はどこだ?",
+   "small": "私の敵はどこだ"
+  },
+  {
+   "clip": "Fiora-S000-Fiora_selected2_1",
+   "sha256": "dd415c492fd3a7c47b37651c5638ac51010ea385d42b07812b9dd3f7d8e02cb2",
+   "characterId": "fiora",
+   "family": "selected2",
+   "duration": 3.52,
+   "skinCodes": [
+    1003000,
+    1003001,
+    1003002,
+    1003003,
+    1003005
+   ],
+   "skinNames": [
+    "菲歐拉",
+    "將校 菲歐拉",
+    "劍客 菲歐拉",
+    "藍色禮服 菲歐拉",
+    "先鋒教官 菲歐拉"
+   ],
+   "officials": [],
+   "kotoba": "はっ",
+   "small": "はっはっ"
+  },
+  {
+   "clip": "Fiora-S004-Fiora_selected_1",
+   "sha256": "479781adff5b59b0dd32b55d9c627142211e97fcb30989816a7e98f78332b59a",
+   "characterId": "fiora",
+   "family": "selected",
+   "duration": 3.52,
+   "skinCodes": [
+    1003004
+   ],
+   "skinNames": [
+    "戰鬥女僕 菲歐拉"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1003004",
+     "text": "ご主人様からの依頼だ。任務を始めよう。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "ご主人様からの依頼だ任務を始めよう",
+   "small": "ご主人様からの依頼だ任務を始めよう"
+  },
+  {
+   "clip": "Fiora-S004-Fiora_selected2_1",
+   "sha256": "d4585d4953f67213d8e1bff316b89d9b762ab0615bb632640e0cb4f76c42bcb3",
+   "characterId": "fiora",
+   "family": "selected2",
+   "duration": 10.69,
+   "skinCodes": [
+    1003004
+   ],
+   "skinNames": [
+    "戰鬥女僕 菲歐拉"
+   ],
+   "officials": [],
+   "kotoba": "メイドならどんな時でも鋭い剣を備えておくべきだ",
+   "small": "んはっはっはっメードならどんな時でも鋭い剣を備えておくべきだ"
+  },
+  {
+   "clip": "Magnus-S000-Magnus_selected_1",
+   "sha256": "ab050a813e5d6e10ad5c9a6561fff1ffdaddeb0cf3b4d55bb1dc27a3786bd134",
+   "characterId": "magnus",
+   "family": "selected",
+   "duration": 2.59,
+   "skinCodes": [
+    1004000,
+    1004001,
+    1004002,
+    1004003,
+    1004004
+   ],
+   "skinNames": [
+    "馬格努斯",
+    "BOSS 馬格努斯",
+    "南國風情 馬格努斯",
+    "叛逆 馬格努斯",
+    "軍官候補生 馬格努斯"
+   ],
+   "officials": [],
+   "kotoba": "俺様の走りを誰も止めることはできない",
+   "small": "俺様の走りを誰も止めることはできない!"
+  },
+  {
+   "clip": "Magnus-S000-Magnus_selected2_1",
+   "sha256": "63a8f6462fccea63efab54b1f2804b2d410e25df10c18df2b93a8d0948a5726d",
+   "characterId": "magnus",
+   "family": "selected2",
+   "duration": 1.2,
+   "skinCodes": [
+    1004000,
+    1004001,
+    1004002,
+    1004003,
+    1004004
+   ],
+   "skinNames": [
+    "馬格努斯",
+    "BOSS 馬格努斯",
+    "南國風情 馬格努斯",
+    "叛逆 馬格努斯",
+    "軍官候補生 馬格努斯"
+   ],
+   "officials": [],
+   "kotoba": "うぬ!",
+   "small": "Yeah"
+  },
+  {
+   "clip": "Magnus-S005-Magnus_selected_1",
+   "sha256": "7cee6726fba1dce551db5824254aa375359b1cc1de16c663acdfc1fd1d5fa6e5",
+   "characterId": "magnus",
+   "family": "selected",
+   "duration": 4.15,
+   "skinCodes": [
+    1004005
+   ],
+   "skinNames": [
+    "Mk. VIII 毀滅者 M.A.G"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1004005",
+     "text": "よく見ておけ。誰にも止められないこの力を！",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "よく見ておけ誰にも止められないこの力を",
+   "small": "よく見ておけ!誰にも止められないこの力を!"
+  },
+  {
+   "clip": "Magnus-S005-Magnus_selected2_1",
+   "sha256": "714efb86c1a88b14ba4d2e59b496dcae1ae075b33c19fd431cb83caf889b7d87",
+   "characterId": "magnus",
+   "family": "selected2",
+   "duration": 11.34,
+   "skinCodes": [
+    1004005
+   ],
+   "skinNames": [
+    "Mk. VIII 毀滅者 M.A.G"
+   ],
+   "officials": [],
+   "kotoba": "この俺は人間の限界をも超越した",
+   "small": "このオレは、人間の限界をも超越した。"
+  },
+  {
+   "clip": "Zahir-S000-Zahir_selected_1",
+   "sha256": "4019ba709d73d5e0cf2c2dc4da74ce1624d1d6e90854300bdf955b9aa563de00",
+   "characterId": "zahir",
+   "family": "selected",
+   "duration": 4.16,
+   "skinCodes": [
+    1005000,
+    1005001
+   ],
+   "skinNames": [
+    "查希爾",
+    "死神 查希爾"
+   ],
+   "officials": [],
+   "kotoba": "神から与えられた試練なのであれば喜んで受け入れよう",
+   "small": "神から与えられた試練なのであれば、喜んで受け入れよ"
+  },
+  {
+   "clip": "Zahir-S000-Zahir_selected2_1",
+   "sha256": "244962d49518439303bf2be981848503703148aba4e4b4f991b7b56ee169b721",
+   "characterId": "zahir",
+   "family": "selected2",
+   "duration": 4.08,
+   "skinCodes": [
+    1005000,
+    1005001
+   ],
+   "skinNames": [
+    "查希爾",
+    "死神 查希爾"
+   ],
+   "officials": [],
+   "kotoba": "神から与えられた試練なのであれば喜んで受け入れよう",
+   "small": "神から与えられた試練なのであれば 喜んで受け入れよ"
+  },
+  {
+   "clip": "Zahir-S002-Zahir_selected_1",
+   "sha256": "4019ba709d73d5e0cf2c2dc4da74ce1624d1d6e90854300bdf955b9aa563de00",
+   "characterId": "zahir",
+   "family": "selected",
+   "duration": 4.16,
+   "skinCodes": [
+    1005002
+   ],
+   "skinNames": [
+    "鈷進化 查希爾"
+   ],
+   "officials": [],
+   "kotoba": "神から与えられた試練なのであれば喜んで受け入れよう",
+   "small": "神から与えられた試練なのであれば、喜んで受け入れよ"
+  },
+  {
+   "clip": "Zahir-S003-Zahir_selected_1",
+   "sha256": "8c23b81a7c7f652d8abc4872539c089a73f465df33bbc52f5f4d54d442c71efc",
+   "characterId": "zahir",
+   "family": "selected",
+   "duration": 4.18,
+   "skinCodes": [
+    1005003
+   ],
+   "skinNames": [
+    "富豪 查希爾"
+   ],
+   "officials": [],
+   "kotoba": "神から与えられた金であれば喜んで受け入れよう",
+   "small": "神から与えられた金であれば、喜んで受け入れよう"
+  },
+  {
+   "clip": "Nadine-S000-Nadine_selected_1",
+   "sha256": "4835dad17c7c5ca10156dc6503e458d95e0e43e1b995d8dbdf062dc72e6aef4e",
+   "characterId": "nadine",
+   "family": "selected",
+   "duration": 1.11,
+   "skinCodes": [
+    1006000,
+    1006001,
+    1006002,
+    1006003,
+    1006004,
+    1006005
+   ],
+   "skinNames": [
+    "娜汀",
+    "女獵 娜汀",
+    "小紅帽 娜汀",
+    "野性的呼喚  娜汀",
+    "惡靈獵手 娜汀",
+    "軍官候補生 娜汀"
+   ],
+   "officials": [],
+   "kotoba": "人狩り始めるか",
+   "small": "一狩り始めるか"
+  },
+  {
+   "clip": "Nadine-S000-Nadine_selected2_1",
+   "sha256": "5a97c218e7ea538169c75b019ee6a5e68175922effb17f32aaf6f7cfa8520fcc",
+   "characterId": "nadine",
+   "family": "selected2",
+   "duration": 1.24,
+   "skinCodes": [
+    1006000,
+    1006001,
+    1006002,
+    1006003,
+    1006004,
+    1006005
+   ],
+   "skinNames": [
+    "娜汀",
+    "女獵 娜汀",
+    "小紅帽 娜汀",
+    "野性的呼喚  娜汀",
+    "惡靈獵手 娜汀",
+    "軍官候補生 娜汀"
+   ],
+   "officials": [],
+   "kotoba": "はっ",
+   "small": "うっ…はっ!"
+  },
+  {
+   "clip": "Hyunwoo-S000-Hyunwoo_selected_1",
+   "sha256": "7404ff1c5f3f4d146d04de19d804d477b22f1777931a18f72d479fa9b7c8316f",
+   "characterId": "hyunwoo",
+   "family": "selected",
+   "duration": 2.28,
+   "skinCodes": [
+    1007000,
+    1007001,
+    1007002,
+    1007003,
+    1007004,
+    1007006
+   ],
+   "skinNames": [
+    "玹雨",
+    "暗巷裡 玹雨",
+    "惡魔之子 玹雨",
+    "軍官候補生 玹雨",
+    "軍官候補生 玹雨(永恆段位造型)",
+    "盛夏派對 玹雨"
+   ],
+   "officials": [],
+   "kotoba": "信じられるのはこの拳だけだ",
+   "small": "信じられるのはこの小節だけだ"
+  },
+  {
+   "clip": "Hyunwoo-S000-Hyunwoo_selected2_1",
+   "sha256": "8096af8fd3a84417b45096d9960809a532d7b0a718bc36d99ae0c11092a07d5f",
+   "characterId": "hyunwoo",
+   "family": "selected2",
+   "duration": 1.77,
+   "skinCodes": [
+    1007000,
+    1007001,
+    1007002,
+    1007003,
+    1007004,
+    1007006
+   ],
+   "skinNames": [
+    "玹雨",
+    "暗巷裡 玹雨",
+    "惡魔之子 玹雨",
+    "軍官候補生 玹雨",
+    "軍官候補生 玹雨(永恆段位造型)",
+    "盛夏派對 玹雨"
+   ],
+   "officials": [],
+   "kotoba": "で",
+   "small": ""
+  },
+  {
+   "clip": "Hyunwoo-S005-Hyunwoo_selected_1",
+   "sha256": "3a37e8d44496a69cb694015852f222b6f7cca29ded2e4ef2edc50b2afffdf3a6",
+   "characterId": "hyunwoo",
+   "family": "selected",
+   "duration": 2.09,
+   "skinCodes": [
+    1007005
+   ],
+   "skinNames": [
+    "傲嬌豬豬 玹雨"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1007005",
+     "text": "んじゃ、やってみるか。",
+     "vsKotoba": 0.889
+    }
+   ],
+   "kotoba": "じゃあやってみるか",
+   "small": "んーじゃあやってみるか"
+  },
+  {
+   "clip": "Hyunwoo-S005-Hyunwoo_selected2_1",
+   "sha256": "f176fa355d2ce6964d4cf927c5d6dc76608f4ca66ad4e59c982f79a12b73c744",
+   "characterId": "hyunwoo",
+   "family": "selected2",
+   "duration": 1.77,
+   "skinCodes": [
+    1007005
+   ],
+   "skinNames": [
+    "傲嬌豬豬 玹雨"
+   ],
+   "officials": [],
+   "kotoba": "でっ",
+   "small": ""
+  },
+  {
+   "clip": "Hart-S000-Hart_selected_1",
+   "sha256": "9f3f6f5d135f4ca9883d64b96670b7bcb0e16b9e7367e995b08b79d6607b9abe",
+   "characterId": "hart",
+   "family": "selected",
+   "duration": 3.31,
+   "skinCodes": [
+    1008000,
+    1008001,
+    1008003,
+    1008004,
+    1008005,
+    1008006,
+    1008007
+   ],
+   "skinNames": [
+    "哈特",
+    "樂團團長 哈特",
+    "紫心皇后 哈特",
+    "軍樂隊 哈特",
+    "軍官候補生 哈特",
+    "3rd Anniversary 哈特",
+    "3rd Anniversary 哈特 Vivace"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/8",
+     "text": "Love. Love And P..Peace",
+     "vsKotoba": 0
+    }
+   ],
+   "kotoba": "ラブ&ピース",
+   "small": "Love and Peace"
+  },
+  {
+   "clip": "Hart-S000-Hart_selected2_1",
+   "sha256": "c320b6a7bdc5f2693e5ce925ce585f48b751ca6e8f489dee665a06e6ec3ef740",
+   "characterId": "hart",
+   "family": "selected2",
+   "duration": 2.39,
+   "skinCodes": [
+    1008000,
+    1008001,
+    1008003,
+    1008004,
+    1008005,
+    1008006,
+    1008007
+   ],
+   "skinNames": [
+    "哈特",
+    "樂團團長 哈特",
+    "紫心皇后 哈特",
+    "軍樂隊 哈特",
+    "軍官候補生 哈特",
+    "3rd Anniversary 哈特",
+    "3rd Anniversary 哈特 Vivace"
+   ],
+   "officials": [],
+   "kotoba": "ふっ",
+   "small": "はっなっはぁ"
+  },
+  {
+   "clip": "Hart-S002-Hart_selected_1",
+   "sha256": "669bc3670dc9416c923edc669a252c929cb49d2b813812c10c7529452f6c08c8",
+   "characterId": "hart",
+   "family": "selected",
+   "duration": 1.23,
+   "skinCodes": [
+    1008002
+   ],
+   "skinNames": [
+    "冰雪慶典 哈特"
+   ],
+   "officials": [],
+   "kotoba": "メリークリスマス",
+   "small": "メディークリスマス!"
+  },
+  {
+   "clip": "Hart-S002-Hart_selected_2",
+   "sha256": "789a6126f0e44668ccadce48cc07f10ba05f718c79eb091fc6ceff21d0822568",
+   "characterId": "hart",
+   "family": "selected",
+   "duration": 1.26,
+   "skinCodes": [
+    1008002
+   ],
+   "skinNames": [
+    "冰雪慶典 哈特"
+   ],
+   "officials": [],
+   "kotoba": "素敵なお祭りを",
+   "small": "素敵なお祭りを!"
+  },
+  {
+   "clip": "Hart-S002-Hart_selected_3",
+   "sha256": "5f8154889cbe1e94eeff6f5d297a1f8cb2d4fe17c8efe1a3e57d28c48b27ec6d",
+   "characterId": "hart",
+   "family": "selected",
+   "duration": 1.31,
+   "skinCodes": [
+    1008002
+   ],
+   "skinNames": [
+    "冰雪慶典 哈特"
+   ],
+   "officials": [],
+   "kotoba": "祭りを楽しんで",
+   "small": "祭りを楽しんで"
+  },
+  {
+   "clip": "Hart-S002-Hart_selected2_1",
+   "sha256": "c320b6a7bdc5f2693e5ce925ce585f48b751ca6e8f489dee665a06e6ec3ef740",
+   "characterId": "hart",
+   "family": "selected2",
+   "duration": 2.39,
+   "skinCodes": [
+    1008002
+   ],
+   "skinNames": [
+    "冰雪慶典 哈特"
+   ],
+   "officials": [],
+   "kotoba": "ふっ",
+   "small": "はっなっはぁ"
+  },
+  {
+   "clip": "Isol-S000-Isol_selected_1",
+   "sha256": "d31cbed703428c9bbd1a6f4402f0920745c7fcf454b9dafe07bfb94529850223",
+   "characterId": "isol",
+   "family": "selected",
+   "duration": 1.16,
+   "skinCodes": [
+    1009000,
+    1009001,
+    1009002,
+    1009003,
+    1009004
+   ],
+   "skinNames": [
+    "伊索爾",
+    "天啟 伊索爾",
+    "幽靈獵人 伊索爾",
+    "幸運兔子 伊索爾 ",
+    "軍官候補生 伊索爾"
+   ],
+   "officials": [],
+   "kotoba": "作戦準備完了",
+   "small": "作戦準備完了"
+  },
+  {
+   "clip": "Isol-S000-Isol_selected2_1",
+   "sha256": "51d320936afbf3d981e4ddcdf3e3d0fefac1f98d48d2d62aa994334b2aab52b1",
+   "characterId": "isol",
+   "family": "selected2",
+   "duration": 3.42,
+   "skinCodes": [
+    1009000,
+    1009001,
+    1009002,
+    1009003,
+    1009004
+   ],
+   "skinNames": [
+    "伊索爾",
+    "天啟 伊索爾",
+    "幽靈獵人 伊索爾",
+    "幸運兔子 伊索爾 ",
+    "軍官候補生 伊索爾"
+   ],
+   "officials": [],
+   "kotoba": "ん",
+   "small": ""
+  },
+  {
+   "clip": "LiDailin-S000-LiDailin_selected_1",
+   "sha256": "06e5baf3b90255cf6e2ae23add129aa00ffce19ccd81d09f2f65184f6768f6b6",
+   "characterId": "lidailin",
+   "family": "selected",
+   "duration": 2.97,
+   "skinCodes": [
+    1010000,
+    1010001,
+    1010002,
+    1010003,
+    1010004
+   ],
+   "skinNames": [
+    "李黛琳",
+    "旅行者 李黛琳",
+    "叛逆 李黛琳",
+    "龍之舞 李黛琳",
+    "可愛吼吼 黛琳"
+   ],
+   "officials": [],
+   "kotoba": "私がいなきゃダメ",
+   "small": "はぁー、私がいなきゃだめー"
+  },
+  {
+   "clip": "LiDailin-S000-LiDailin_selected2_1",
+   "sha256": "3d82eafba591bfca48b8167a9709dbe39cb3536f0f2c2df75fb1ff55fc123ba4",
+   "characterId": "lidailin",
+   "family": "selected2",
+   "duration": 0.7,
+   "skinCodes": [
+    1010000,
+    1010001,
+    1010002,
+    1010003,
+    1010004
+   ],
+   "skinNames": [
+    "李黛琳",
+    "旅行者 李黛琳",
+    "叛逆 李黛琳",
+    "龍之舞 李黛琳",
+    "可愛吼吼 黛琳"
+   ],
+   "officials": [],
+   "kotoba": "えい!",
+   "small": "Hey!"
+  },
+  {
+   "clip": "LiDailin-S005-LiDailin_selected_1",
+   "sha256": "ca2dff75e53acd5b99cec675d1b1e1f356715c309f843fba00ea81e037fd6d74",
+   "characterId": "lidailin",
+   "family": "selected",
+   "duration": 5.27,
+   "skinCodes": [
+    1010005
+   ],
+   "skinNames": [
+    "仲夏微醺 李黛琳"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1010005",
+     "text": "さて...海にでも行って遊んでみよっか～",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "さて海にでも行って遊んでみよっか",
+   "small": "さて、海にでも行って遊んでみよっかー"
+  },
+  {
+   "clip": "LiDailin-S005-LiDailin_selected2_1",
+   "sha256": "be7f6f0275f6f7ae3484642d21119d96a2924670c7ef6b085a01b0bfadb955b4",
+   "characterId": "lidailin",
+   "family": "selected2",
+   "duration": 10.56,
+   "skinCodes": [
+    1010005
+   ],
+   "skinNames": [
+    "仲夏微醺 李黛琳"
+   ],
+   "officials": [],
+   "kotoba": "やっぱ飲んで遊ぶのが一番だよね",
+   "small": "ふぅ…ふっ…ふっ…どっ!う、やっぱ飲んで遊ぶのがいい一番だよねー"
+  },
+  {
+   "clip": "LiDailin-S007-LiDailin_selected_1",
+   "sha256": "3131172ce9757e2744c34f59c9292225e37d8de4f2878ec85c003e39874362e0",
+   "characterId": "lidailin",
+   "family": "selected",
+   "duration": 3.31,
+   "skinCodes": [
+    1010007
+   ],
+   "skinNames": [
+    "李黛琳（潔克・歐）"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1010007",
+     "text": "トリックオア...ドリンク～？",
+     "vsKotoba": 0.842
+    }
+   ],
+   "kotoba": "トリックはドリンク?",
+   "small": "トリックは…トリンク?"
+  },
+  {
+   "clip": "LiDailin-S007-LiDailin_selected2_1",
+   "sha256": "9254dac1b3e357426f929ef5409bfc6a5a046d41c94f146490c5061b75f7a412",
+   "characterId": "lidailin",
+   "family": "selected2",
+   "duration": 11.7,
+   "skinCodes": [
+    1010007
+   ],
+   "skinNames": [
+    "李黛琳（潔克・歐）"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1010007",
+     "text": "トリックオア...ドリンク～？",
+     "vsKotoba": 0.64
+    }
+   ],
+   "kotoba": "よっとトリックはドリンク?ティーク?",
+   "small": "やっと、トリックオーアー、トーリンク?てぃ!ぅ…ぱぁぁぁ!"
+  },
+  {
+   "clip": "Yuki-S000-Yuki_selected_1",
+   "sha256": "0bab1baa756f4e7c5bedd3cac6d411e6d6dae95712fc59ed30dcf0fad073aadf",
+   "characterId": "yuki",
+   "family": "selected",
+   "duration": 1.37,
+   "skinCodes": [
+    1011000,
+    1011001,
+    1011002,
+    1011003,
+    1011004,
+    1011006
+   ],
+   "skinNames": [
+    "雪",
+    "軍官候補生 雪",
+    "劍道家 雪",
+    "夜行忍者 雪",
+    "賣萌汪汪 雪",
+    "踏楓而行 雪"
+   ],
+   "officials": [],
+   "kotoba": "では僕の番ですね",
+   "small": "では僕の番ですね"
+  },
+  {
+   "clip": "Yuki-S000-Yuki_selected2_1",
+   "sha256": "37c83fd39401fc2ef7bda2422cb2cc6e1e1e58630a61983796d8e1e07c1682ba",
+   "characterId": "yuki",
+   "family": "selected2",
+   "duration": 3.35,
+   "skinCodes": [
+    1011000,
+    1011001,
+    1011002,
+    1011003,
+    1011004,
+    1011006
+   ],
+   "skinNames": [
+    "雪",
+    "軍官候補生 雪",
+    "劍道家 雪",
+    "夜行忍者 雪",
+    "賣萌汪汪 雪",
+    "踏楓而行 雪"
+   ],
+   "officials": [],
+   "kotoba": "アハハ",
+   "small": "I"
+  },
+  {
+   "clip": "Yuki-S005-Yuki_selected_1",
+   "sha256": "45b533612dd6e8c9e42de297ee810d8226b8988bdf23b5f2a723a559ce8635a4",
+   "characterId": "yuki",
+   "family": "selected",
+   "duration": 2.19,
+   "skinCodes": [
+    1011005
+   ],
+   "skinNames": [
+    "幽靈獵人 雪"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1011005",
+     "text": "彷徨う魂に救済を。",
+     "vsKotoba": 0.588
+    }
+   ],
+   "kotoba": "さまよう魂に救いを",
+   "small": "さまよう魂に救いを"
+  },
+  {
+   "clip": "Yuki-S005-Yuki_selected2_1",
+   "sha256": "3cf32183969ad7d4fc061b7d58200c81919fca5cd0ceae7f0a10c8351917a3bc",
+   "characterId": "yuki",
+   "family": "selected2",
+   "duration": 4.97,
+   "skinCodes": [
+    1011005
+   ],
+   "skinNames": [
+    "幽靈獵人 雪"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1011005",
+     "text": "彷徨う魂に救済を。",
+     "vsKotoba": 0.706
+    }
+   ],
+   "kotoba": "さまよう魂に救済を",
+   "small": "あ…は…は…さまよう魂に救済を…"
+  },
+  {
+   "clip": "Hyejin-S000-Hyejin_selected_1",
+   "sha256": "e22b029c32ae6670c2aef6f49de8ec8b16b3848e4a15573bb7596d58a3833b20",
+   "characterId": "hyejin",
+   "family": "selected",
+   "duration": 3.32,
+   "skinCodes": [
+    1012000,
+    1012001,
+    1012002,
+    1012003,
+    1012004
+   ],
+   "skinNames": [
+    "慧珍",
+    "木蓮花 慧珍",
+    "軍官候補生 慧珍",
+    "幽靈獵人 慧珍",
+    "高考生 慧珍"
+   ],
+   "officials": [],
+   "kotoba": "この運命神様のおぼし飯なら",
+   "small": "この運命、神様のおぼしめしがら"
+  },
+  {
+   "clip": "Hyejin-S000-Hyejin_selected_2",
+   "sha256": "84225ec6d32800167bbafc4135f90cedb9b5712e5d6cdcbf22f3295367577330",
+   "characterId": "hyejin",
+   "family": "selected",
+   "duration": 3.88,
+   "skinCodes": [
+    1012000,
+    1012001,
+    1012002,
+    1012003,
+    1012004
+   ],
+   "skinNames": [
+    "慧珍",
+    "木蓮花 慧珍",
+    "軍官候補生 慧珍",
+    "幽靈獵人 慧珍",
+    "高考生 慧珍"
+   ],
+   "officials": [],
+   "kotoba": "この運命神様のおぼし飯なら",
+   "small": "この運命、神様のおぼしめしがら"
+  },
+  {
+   "clip": "Hyejin-S000-Hyejin_selected2_1",
+   "sha256": "d58f9d5e70db457e4df35c3c89e2bead86d00522a0f841d17d47ad0510a3e531",
+   "characterId": "hyejin",
+   "family": "selected2",
+   "duration": 0.89,
+   "skinCodes": [
+    1012000,
+    1012001,
+    1012002,
+    1012003,
+    1012004
+   ],
+   "skinNames": [
+    "慧珍",
+    "木蓮花 慧珍",
+    "軍官候補生 慧珍",
+    "幽靈獵人 慧珍",
+    "高考生 慧珍"
+   ],
+   "officials": [],
+   "kotoba": "ふっ",
+   "small": "フッ!フッ!"
+  },
+  {
+   "clip": "Hyejin-S005-Hyejin_selected_1",
+   "sha256": "784fac4249d1fc8e499335c4746ec2f7297f3b2e20883b3e1d9b19124c7fa9d5",
+   "characterId": "hyejin",
+   "family": "selected",
+   "duration": 4.09,
+   "skinCodes": [
+    1012005
+   ],
+   "skinNames": [
+    "聖夜巫女 慧珍"
+   ],
+   "officials": [],
+   "kotoba": "共に行動すればもっと安全になるでしょう",
+   "small": "共に行動すれば もっと安全になるでしょう"
+  },
+  {
+   "clip": "Hyejin-S006-Hyejin_selected_1",
+   "sha256": "bf5156e457250639b0061493e4dc693c68d5c1f34f44855130075d1d9727c1d2",
+   "characterId": "hyejin",
+   "family": "selected",
+   "duration": 5.42,
+   "skinCodes": [
+    1012006
+   ],
+   "skinNames": [
+    "冒失喵喵女僕 慧珍"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1012006",
+     "text": "ご主人様の思し召しなら、従います、にゃん…",
+     "vsKotoba": 0.833
+    }
+   ],
+   "kotoba": "ご主人様のおぼし飯なら従いますにゃん",
+   "small": "ご主人様のおぼし飯なら、したがいます。にゃん。"
+  },
+  {
+   "clip": "Hyejin-S006-Hyejin_selected2_1",
+   "sha256": "64889de990821e45d8ed99cc7eaba3b577b954022a75e8d78f32f108a9273db2",
+   "characterId": "hyejin",
+   "family": "selected2",
+   "duration": 11.08,
+   "skinCodes": [
+    1012006
+   ],
+   "skinNames": [
+    "冒失喵喵女僕 慧珍"
+   ],
+   "officials": [],
+   "kotoba": "いらっしゃいませご主人あっあっよくあることです",
+   "small": "い、いらっしゃいませご主人…あっ、あっ、あっ、あっ、あっ、あっ、あっ、う…よ、よくあることです。"
+  },
+  {
+   "clip": "Xiukai-S000-Xiukai_selected_1",
+   "sha256": "8daa07f63274161ef88645ac085dac89a6105bd9c5e691b77aaa5d67004206cb",
+   "characterId": "xiukai",
+   "family": "selected",
+   "duration": 1.79,
+   "skinCodes": [
+    1013000,
+    1013001,
+    1013003
+   ],
+   "skinNames": [
+    "秀凱",
+    "壽司師傅 秀凱",
+    "熊貓大主廚 秀凱"
+   ],
+   "officials": [],
+   "kotoba": "一気に調理してやる",
+   "small": "いくに調理してやる!"
+  },
+  {
+   "clip": "Xiukai-S000-Xiukai_selected2_1",
+   "sha256": "0f50bd4cea926723fb39d9d28d0cdd2450d8feb76924a2a711c87de62a724c6d",
+   "characterId": "xiukai",
+   "family": "selected2",
+   "duration": 3.53,
+   "skinCodes": [
+    1013000,
+    1013001,
+    1013003
+   ],
+   "skinNames": [
+    "秀凱",
+    "壽司師傅 秀凱",
+    "熊貓大主廚 秀凱"
+   ],
+   "officials": [],
+   "kotoba": "なあ行った",
+   "small": "なははは!行った!"
+  },
+  {
+   "clip": "Xiukai-S000-Xiukai_selected2_2",
+   "sha256": "6743408bef701e60a73c21c7984acf8744eb020bc8d04d79540f729bdc89f510",
+   "characterId": "xiukai",
+   "family": "selected2",
+   "duration": 3.53,
+   "skinCodes": [
+    1013000,
+    1013001,
+    1013003
+   ],
+   "skinNames": [
+    "秀凱",
+    "壽司師傅 秀凱",
+    "熊貓大主廚 秀凱"
+   ],
+   "officials": [],
+   "kotoba": "イッヒッ!いった!",
+   "small": "Hee hee hee hee hee hee! YIKTA!"
+  },
+  {
+   "clip": "Xiukai-S002-Xiukai_selected_1",
+   "sha256": "8daa07f63274161ef88645ac085dac89a6105bd9c5e691b77aaa5d67004206cb",
+   "characterId": "xiukai",
+   "family": "selected",
+   "duration": 1.79,
+   "skinCodes": [
+    1013002
+   ],
+   "skinNames": [
+    "鬥球王 秀凱"
+   ],
+   "officials": [],
+   "kotoba": "一気に調理してやる",
+   "small": "いくに調理してやる!"
+  },
+  {
+   "clip": "Xiukai-S002-Xiukai_selected2_1",
+   "sha256": "0f50bd4cea926723fb39d9d28d0cdd2450d8feb76924a2a711c87de62a724c6d",
+   "characterId": "xiukai",
+   "family": "selected2",
+   "duration": 3.53,
+   "skinCodes": [
+    1013002
+   ],
+   "skinNames": [
+    "鬥球王 秀凱"
+   ],
+   "officials": [],
+   "kotoba": "なあ行った",
+   "small": "なははは!行った!"
+  },
+  {
+   "clip": "Xiukai-S002-Xiukai_selected2_2",
+   "sha256": "6743408bef701e60a73c21c7984acf8744eb020bc8d04d79540f729bdc89f510",
+   "characterId": "xiukai",
+   "family": "selected2",
+   "duration": 3.53,
+   "skinCodes": [
+    1013002
+   ],
+   "skinNames": [
+    "鬥球王 秀凱"
+   ],
+   "officials": [],
+   "kotoba": "イッヒッ!いった!",
+   "small": "Hee hee hee hee hee! YIKTA!"
+  },
+  {
+   "clip": "Xiukai-S004-Xiukai_selected_1",
+   "sha256": "95f092825ba5aa413f00f7f9c69fad2281150e744026eab57e33255b3e0a4bbc",
+   "characterId": "xiukai",
+   "family": "selected",
+   "duration": 4.33,
+   "skinCodes": [
+    1013004
+   ],
+   "skinNames": [
+    "聖誕老人 秀凱"
+   ],
+   "officials": [],
+   "kotoba": "どれどれプレゼントをもらう準備はできたかな",
+   "small": "どれどれプレゼントをもらう準備はできたかな"
+  },
+  {
+   "clip": "Xiukai-S004-Xiukai_selected2_1",
+   "sha256": "0c45538d2640febdd1e46c2c437a93f92275af55fc326ebc58aeb5d58916f2f8",
+   "characterId": "xiukai",
+   "family": "selected2",
+   "duration": 7.17,
+   "skinCodes": [
+    1013004
+   ],
+   "skinNames": [
+    "聖誕老人 秀凱"
+   ],
+   "officials": [],
+   "kotoba": "メリークリスマス",
+   "small": "Ho ho ho ho! Yesssho! Merry Christmas!"
+  },
+  {
+   "clip": "Chiara-S000-Chiara_selected_1",
+   "sha256": "07a97cb5785d6544f016ac22f678a00e8069cfc714297f1ba9d7f4877cf717a9",
+   "characterId": "chiara",
+   "family": "selected",
+   "duration": 2.67,
+   "skinCodes": [
+    1014000,
+    1014001,
+    1014003,
+    1014004,
+    1014005
+   ],
+   "skinNames": [
+    "琪婭拉",
+    "審判者 琪婭拉",
+    "魔女 琪婭拉",
+    "盛夏派對 琪婭拉",
+    "憂鬱兔女郎 琪婭拉"
+   ],
+   "officials": [],
+   "kotoba": "私には救いなんてない",
+   "small": "私には救いなんてない"
+  },
+  {
+   "clip": "Chiara-S002-Chiara_selected_1",
+   "sha256": "5f7cca575e617c30c4745f803123964a0a5c2157f9cc8699d1b0e7f5c0fa2a56",
+   "characterId": "chiara",
+   "family": "selected",
+   "duration": 2.27,
+   "skinCodes": [
+    1014002
+   ],
+   "skinNames": [
+    "幽靈獵人 琪婭拉"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1014002",
+     "text": "哀れな者たちを導きます…",
+     "vsKotoba": 0.909
+    }
+   ],
+   "kotoba": "哀れの者たちを導きます",
+   "small": "あわれの者たちを導きます"
+  },
+  {
+   "clip": "Chiara-S002-Chiara_selected2_1",
+   "sha256": "e19d8538fab484ff84f30e15432d626eccdf73080cbf592eb55c25fffed038de",
+   "characterId": "chiara",
+   "family": "selected2",
+   "duration": 5.38,
+   "skinCodes": [
+    1014002
+   ],
+   "skinNames": [
+    "幽靈獵人 琪婭拉"
+   ],
+   "officials": [],
+   "kotoba": "うっうん",
+   "small": ""
+  },
+  {
+   "clip": "Sissela-S000-Sissela_selected_1",
+   "sha256": "f0200064bd33f1ac42ff9ea4f96dd1bb921e247c7f6c06d8886df56e47905aaa",
+   "characterId": "sissela",
+   "family": "selected",
+   "duration": 2.67,
+   "skinCodes": [
+    1015000,
+    1015001,
+    1015002,
+    1015003,
+    1015006
+   ],
+   "skinNames": [
+    "希瑟拉",
+    "冬季四葉草 希瑟拉",
+    "哥德女爵 希瑟拉",
+    "冰雪慶典 希瑟拉",
+    "軍官候補生 希瑟拉"
+   ],
+   "officials": [],
+   "kotoba": "逃げられないのでしょう",
+   "small": "逃げられないのでしょう"
+  },
+  {
+   "clip": "Sissela-S000-Sissela_selected2_1",
+   "sha256": "31f18a97512a02ba2c2ebb7397dbab163801977fd9b425f00117610b45974c67",
+   "characterId": "sissela",
+   "family": "selected2",
+   "duration": 2.32,
+   "skinCodes": [
+    1015000,
+    1015001,
+    1015002,
+    1015003,
+    1015006
+   ],
+   "skinNames": [
+    "希瑟拉",
+    "冬季四葉草 希瑟拉",
+    "哥德女爵 希瑟拉",
+    "冰雪慶典 希瑟拉",
+    "軍官候補生 希瑟拉"
+   ],
+   "officials": [],
+   "kotoba": "うっ",
+   "small": "うっ…わぁっ!"
+  },
+  {
+   "clip": "Sissela-S004-Sissela_selected_1",
+   "sha256": "28c70c0a0ebeaaf5bb01c18278d4fe625ec11736a2b0563c07c16e1ce16c9c10",
+   "characterId": "sissela",
+   "family": "selected",
+   "duration": 5,
+   "skinCodes": [
+    1015004
+   ],
+   "skinNames": [
+    "小威烘焙坊 希瑟拉"
+   ],
+   "officials": [],
+   "kotoba": "甘いもので痛みを忘れたりできるのでしょうか",
+   "small": "甘いもので痛みを忘れたりできるのでしょうか"
+  },
+  {
+   "clip": "Sissela-S004-Sissela_selected2_1",
+   "sha256": "25b68935fb66924c7f2dfc2569d57e584c85227817772a3730b9d8dc911c7f32",
+   "characterId": "sissela",
+   "family": "selected2",
+   "duration": 9.85,
+   "skinCodes": [
+    1015004
+   ],
+   "skinNames": [
+    "小威烘焙坊 希瑟拉"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1015004",
+     "text": "今日はどんなお客さんが来てくれるのか、楽しみです。",
+     "vsKotoba": 0.767
+    }
+   ],
+   "kotoba": "落ち着いてくださいウィルソン今日はどんなお客さんが来てくれるのか楽しみです",
+   "small": "ん…あ、あ、落ち着いてくださいウイルソン。今日はどんなお客さんが来てくれるのか、楽しみです。"
+  },
+  {
+   "clip": "Silvia-S000-Silvia_selected_0_2",
+   "sha256": "3ed7f7153c010cc0b518fed402286ffc164d7d3cc3ac200763f2668b404f7e63",
+   "characterId": "silvia",
+   "family": "selected",
+   "duration": 1.12,
+   "skinCodes": [
+    1016000,
+    1016001,
+    1016002
+   ],
+   "skinNames": [
+    "希爾維婭",
+    "晚風 希爾維婭",
+    "GeForce Now 希爾維婭"
+   ],
+   "officials": [],
+   "kotoba": "レース開始よ",
+   "small": "レース、開始!"
+  },
+  {
+   "clip": "Silvia-S000-Silvia_selected_1",
+   "sha256": "c02b73377f4372c17ef91654b12092480543b694764df765557c30d77c17d31b",
+   "characterId": "silvia",
+   "family": "selected",
+   "duration": 1.15,
+   "skinCodes": [
+    1016000,
+    1016001,
+    1016002
+   ],
+   "skinNames": [
+    "希爾維婭",
+    "晚風 希爾維婭",
+    "GeForce Now 希爾維婭"
+   ],
+   "officials": [],
+   "kotoba": "レース開始よ!",
+   "small": "レース返しよう!"
+  },
+  {
+   "clip": "Silvia-S000-Silvia_selected2_1",
+   "sha256": "45a134624e7f130dd596ac851ca834ea8c52efcb950f8537f6c309680b56c0b5",
+   "characterId": "silvia",
+   "family": "selected2",
+   "duration": 4.13,
+   "skinCodes": [
+    1016000,
+    1016001,
+    1016002
+   ],
+   "skinNames": [
+    "希爾維婭",
+    "晚風 希爾維婭",
+    "GeForce Now 希爾維婭"
+   ],
+   "officials": [],
+   "kotoba": "しゃあ!",
+   "small": "シャアアアアア!"
+  },
+  {
+   "clip": "Silvia-S003-Silvia_selected_1",
+   "sha256": "10220b23ae76a0594955fec02e0b9acf8ace6f72bfa09de08e2478197002e078",
+   "characterId": "silvia",
+   "family": "selected",
+   "duration": 2.08,
+   "skinCodes": [
+    1016003
+   ],
+   "skinNames": [
+    "完美配送 希爾維婭"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1016003",
+     "text": "遅れたら払戻されちゃうよ！",
+     "vsKotoba": 0.96
+    }
+   ],
+   "kotoba": "遅れたら払い戻されちゃうよ",
+   "small": "遅れたら払い戻されちゃうよ"
+  },
+  {
+   "clip": "Silvia-S003-Silvia_selected2_1",
+   "sha256": "b84c9d8823c71b10c8c7f5228464205c8e984b4e5ca5ca6c110daee89360ed60",
+   "characterId": "silvia",
+   "family": "selected2",
+   "duration": 12.46,
+   "skinCodes": [
+    1016003
+   ],
+   "skinNames": [
+    "完美配送 希爾維婭"
+   ],
+   "officials": [],
+   "kotoba": "えっどこでも速やかに配達しますでも先払いですよ",
+   "small": "へっ!え!?おぉ…どこでも速やかに相達します! でも先払いですよ!"
+  },
+  {
+   "clip": "Silvia-S004-Silvia_selected2_1",
+   "sha256": "f317b32dddc8d18b32157a8446baa3866d6c691a5c0f2f0c7ef4d961a0753700",
+   "characterId": "silvia",
+   "family": "selected2",
+   "duration": 7.66,
+   "skinCodes": [
+    1016004
+   ],
+   "skinNames": [
+    "旅行者 希爾維婭"
+   ],
+   "officials": [],
+   "kotoba": "レース開始よ",
+   "small": "フッ!フフッレース開始よ!"
+  },
+  {
+   "clip": "Silvia-S005-Silvia_selected_1",
+   "sha256": "5a96ab1fc58a375a629e7544534ec16ee0debee1a6731e8bbe345562ba640a09",
+   "characterId": "silvia",
+   "family": "selected",
+   "duration": 2.49,
+   "skinCodes": [
+    1016005
+   ],
+   "skinNames": [
+    "希爾維婭 (QUEEN)"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1016005",
+     "text": "悪いやつらをやっつけに行くんだよね？",
+     "vsKotoba": 0.909
+    }
+   ],
+   "kotoba": "悪い奴らをやっつけに行くんだよね",
+   "small": "悪い奴らをやっつけに組んだよね"
+  },
+  {
+   "clip": "Silvia-S005-Silvia_selected2_1",
+   "sha256": "1d79374bd1f05862f7242a2158550ae83ded4505413be1849babcb79214fd8c3",
+   "characterId": "silvia",
+   "family": "selected2",
+   "duration": 9.34,
+   "skinCodes": [
+    1016005
+   ],
+   "skinNames": [
+    "希爾維婭 (QUEEN)"
+   ],
+   "officials": [],
+   "kotoba": "うっ正義を貫く時間だねうん",
+   "small": "……いっ……正義を貫く時間!だねっ!……いっ……"
+  },
+  {
+   "clip": "Adriana-S000-Adriana_selected_1",
+   "sha256": "45e865751dd3af5583c3e9792d9d9f5150f6c51f34951b5b9c6288f004afd708",
+   "characterId": "adriana",
+   "family": "selected",
+   "duration": 2.39,
+   "skinCodes": [
+    1017000,
+    1017001,
+    1017002,
+    1017003,
+    1017005
+   ],
+   "skinNames": [
+    "亞莉安娜",
+    "火焰兵 亞莉安娜",
+    "除蟲專家 亞莉安娜",
+    "女僕 亞莉安娜",
+    "惡役千金 亞莉安娜"
+   ],
+   "officials": [],
+   "kotoba": "私を呼んでるの?リリー",
+   "small": "私を呼んでるの?リリー"
+  },
+  {
+   "clip": "Adriana-S000-Adriana_selected2_1",
+   "sha256": "01b32fdc945227f59ebac126ff547a2ea85a28a3733d1bf8792a390c405af7ab",
+   "characterId": "adriana",
+   "family": "selected2",
+   "duration": 4.64,
+   "skinCodes": [
+    1017000,
+    1017001,
+    1017002,
+    1017003,
+    1017005
+   ],
+   "skinNames": [
+    "亞莉安娜",
+    "火焰兵 亞莉安娜",
+    "除蟲專家 亞莉安娜",
+    "女僕 亞莉安娜",
+    "惡役千金 亞莉安娜"
+   ],
+   "officials": [],
+   "kotoba": "うー",
+   "small": "ふっふっふっっ single"
+  },
+  {
+   "clip": "Adriana-S004-Adriana_selected_1",
+   "sha256": "0159442136087ad8a398bcb5484db60bd2aed3e55591123fc28c0cfceaa25d1c",
+   "characterId": "adriana",
+   "family": "selected",
+   "duration": 5.13,
+   "skinCodes": [
+    1017004
+   ],
+   "skinNames": [
+    "維莉安娜"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1017004",
+     "text": "こっちにおいで...私を...温かくして...",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "こっちにおいで私を温かくして",
+   "small": "こっちにおいで私を暖かくして"
+  },
+  {
+   "clip": "Adriana-S004-Adriana_selected2_1",
+   "sha256": "f872cfcf3bcb8fcd80b2e028c0f3d667b9f2538868c569f6ecc6dc703439198b",
+   "characterId": "adriana",
+   "family": "selected2",
+   "duration": 10.13,
+   "skinCodes": [
+    1017004
+   ],
+   "skinNames": [
+    "維莉安娜"
+   ],
+   "officials": [],
+   "kotoba": "どう?似合うでしょ?",
+   "small": "どう? 似合うでしょ?"
+  },
+  {
+   "clip": "Shoichi-S000-Shoichi_selected_1",
+   "sha256": "3dd36762a0cdab3f2f4436784be33c19c8daf1354b3ac10fe58b4f0b51d07006",
+   "characterId": "shoichi",
+   "family": "selected",
+   "duration": 3.3,
+   "skinCodes": [
+    1018000,
+    1018001,
+    1018002,
+    1018003,
+    1018005
+   ],
+   "skinNames": [
+    "彰一",
+    "職業殺手 彰一",
+    "冰雪慶典 彰一",
+    "極致服務 彰一",
+    "花間幽影 彰一"
+   ],
+   "officials": [],
+   "kotoba": "よろしくお願いいたします普通の会社員です",
+   "small": "よろしくお願いいたします普通の会社員です"
+  },
+  {
+   "clip": "Shoichi-S000-Shoichi_selected2_1",
+   "sha256": "9cfe39dea7665d998a4bacd50bef36b018d910990f56644ba395aedbefb8831b",
+   "characterId": "shoichi",
+   "family": "selected2",
+   "duration": 4.09,
+   "skinCodes": [
+    1018000,
+    1018001,
+    1018002,
+    1018003,
+    1018005
+   ],
+   "skinNames": [
+    "彰一",
+    "職業殺手 彰一",
+    "冰雪慶典 彰一",
+    "極致服務 彰一",
+    "花間幽影 彰一"
+   ],
+   "officials": [],
+   "kotoba": "フッ",
+   "small": ""
+  },
+  {
+   "clip": "Shoichi-S004-Shoichi_selected_1",
+   "sha256": "28cd3706cfaaeb3829cce2c0b76ee6fee0cc2789ce3feef81a5320be286f7365",
+   "characterId": "shoichi",
+   "family": "selected",
+   "duration": 1.81,
+   "skinCodes": [
+    1018004
+   ],
+   "skinNames": [
+    "吸血鬼 彰一"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1018004",
+     "text": "賢明な選択です。",
+     "vsKotoba": 0.714
+    }
+   ],
+   "kotoba": "懸命な選択です",
+   "small": "けんめいな選択です"
+  },
+  {
+   "clip": "Shoichi-S004-Shoichi_selected2_1",
+   "sha256": "5d50855bc0d50eca3f58c79357d8f7866dee2e3e5e3e2680c9a78a87d9341451",
+   "characterId": "shoichi",
+   "family": "selected2",
+   "duration": 10.38,
+   "skinCodes": [
+    1018004
+   ],
+   "skinNames": [
+    "吸血鬼 彰一"
+   ],
+   "officials": [],
+   "kotoba": "必要であれば何だってします",
+   "small": "必要であれば何だってします"
+  },
+  {
+   "clip": "Emma-S000-Emma_selected_1",
+   "sha256": "3bae72d9ee898307f98fc6dc1c9c71ca035c7f95cbc4e97641c18c12e7366f7f",
+   "characterId": "emma",
+   "family": "selected",
+   "duration": 5,
+   "skinCodes": [
+    1019000,
+    1019001,
+    1019002,
+    1019003,
+    1019005
+   ],
+   "skinNames": [
+    "艾瑪",
+    "女僕 艾瑪",
+    "魔女 艾瑪",
+    "森林摯友 艾瑪",
+    "魔法邦尼 艾瑪"
+   ],
+   "officials": [],
+   "kotoba": "マジシャン登場!見たことのないステージを見せてあげる!",
+   "small": "マジション登場!見たことのないステージを見せてあげる!"
+  },
+  {
+   "clip": "Emma-S000-Emma_selected2_1",
+   "sha256": "4be947ee573435f80f53b2f0e631d3c21d6b75b72f323120a79cd09014dea134",
+   "characterId": "emma",
+   "family": "selected2",
+   "duration": 3.75,
+   "skinCodes": [
+    1019000,
+    1019001,
+    1019002,
+    1019003,
+    1019005
+   ],
+   "skinNames": [
+    "艾瑪",
+    "女僕 艾瑪",
+    "魔女 艾瑪",
+    "森林摯友 艾瑪",
+    "魔法邦尼 艾瑪"
+   ],
+   "officials": [],
+   "kotoba": "じゃじゃーん",
+   "small": "へへっ、ははははじゃじゃーん"
+  },
+  {
+   "clip": "Emma-S004-Emma_selected_1",
+   "sha256": "7aef6057cc7eb136242e90d5c646a1c37b42affdf5163aafeff9417f410aea2b",
+   "characterId": "emma",
+   "family": "selected",
+   "duration": 2.73,
+   "skinCodes": [
+    1019004
+   ],
+   "skinNames": [
+    "夏日魔術師 艾瑪"
+   ],
+   "officials": [],
+   "kotoba": "今日のマジックショーは海でやるからね",
+   "small": "今日のマジックショーは海でやるからね!"
+  },
+  {
+   "clip": "Emma-S004-Emma_selected2_1",
+   "sha256": "1b5fbaf8ba74ac167c3557b620fc278aec8d7e650a6067734c0c238ea3f2bafa",
+   "characterId": "emma",
+   "family": "selected2",
+   "duration": 9.96,
+   "skinCodes": [
+    1019004
+   ],
+   "skinNames": [
+    "夏日魔術師 艾瑪"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1019004",
+     "text": "お待たせ～！夏限定マジックショー、始まるよ～！",
+     "vsKotoba": 0.872
+    }
+   ],
+   "kotoba": "じゃじゃーん!お待たせ!夏限定マジックショー始まるよ!",
+   "small": "じゃじゃーん!お待たせー!夏限定マジックショー始まるよー!"
+  },
+  {
+   "clip": "Lenox-S000-Lenox_selected_1",
+   "sha256": "21a3906b5c36dd3c60a685b495736450fb284946383a14a37227eada81eedbc6",
+   "characterId": "lenox",
+   "family": "selected",
+   "duration": 3.61,
+   "skinCodes": [
+    1020000,
+    1020001,
+    1020002,
+    1020003,
+    1020004
+   ],
+   "skinNames": [
+    "倫諾克斯",
+    "副首領 倫諾克斯",
+    "白色聖誕 倫諾克斯",
+    "海盜 倫諾克斯",
+    "未來戰士 倫諾克斯"
+   ],
+   "officials": [],
+   "kotoba": "さて今日はどんな魚にありつけるかな",
+   "small": "さて今日はどんな魚にありつけるかな"
+  },
+  {
+   "clip": "Lenox-S000-Lenox_selected2_1",
+   "sha256": "d81536d673c249b36a73a59d077085d544e9dbbcf8fafd4ced52732f72600dbd",
+   "characterId": "lenox",
+   "family": "selected2",
+   "duration": 0.63,
+   "skinCodes": [
+    1020000,
+    1020001,
+    1020002,
+    1020003,
+    1020004
+   ],
+   "skinNames": [
+    "倫諾克斯",
+    "副首領 倫諾克斯",
+    "白色聖誕 倫諾克斯",
+    "海盜 倫諾克斯",
+    "未來戰士 倫諾克斯"
+   ],
+   "officials": [],
+   "kotoba": "笑顔",
+   "small": "You"
+  },
+  {
+   "clip": "Lenox-S005-Lenox_selected_1",
+   "sha256": "14ca9b4bfcf3b8b3990153bdb85b0684e09decdaef71ef14420aa08580be9a99",
+   "characterId": "lenox",
+   "family": "selected",
+   "duration": 2.43,
+   "skinCodes": [
+    1020005
+   ],
+   "skinNames": [
+    "深淵魔王 倫諾克斯"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1020005",
+     "text": "もうあたしの出番？",
+     "vsKotoba": 0.667
+    }
+   ],
+   "kotoba": "ん?もう私の出番?",
+   "small": "うん、もう私の出番"
+  },
+  {
+   "clip": "Lenox-S005-Lenox_selected2_1",
+   "sha256": "295608d1423cb9e5a66eb6e2c1610c4a7231475686b03c667512ef5a7142896e",
+   "characterId": "lenox",
+   "family": "selected2",
+   "duration": 6.97,
+   "skinCodes": [
+    1020005
+   ],
+   "skinNames": [
+    "深淵魔王 倫諾克斯"
+   ],
+   "officials": [],
+   "kotoba": "今からでも私の手下になるのはどう?",
+   "small": "今からでも、私の手下になるのはどう?"
+  },
+  {
+   "clip": "Rozzi-S000-Rozzi_selected_1",
+   "sha256": "b87cc79140963ccf4d32cd42444df5165c071381a172409dd2085d4786d5bc9a",
+   "characterId": "rozzi",
+   "family": "selected",
+   "duration": 1.13,
+   "skinCodes": [
+    1021000,
+    1021001,
+    1021002,
+    1021004,
+    1021005
+   ],
+   "skinNames": [
+    "洛茲",
+    "黑玫瑰 洛茲",
+    "復仇女神 洛茲",
+    "甜蜜情人 洛茲",
+    "決勝終點 洛茲"
+   ],
+   "officials": [],
+   "kotoba": "準備完了",
+   "small": "準備完了"
+  },
+  {
+   "clip": "Rozzi-S000-Rozzi_selected2_1",
+   "sha256": "00a01fd90954549316971ea60a1f07aa4dec68ffa07e9813f6e604cd853ff3c1",
+   "characterId": "rozzi",
+   "family": "selected2",
+   "duration": 3.18,
+   "skinCodes": [
+    1021000,
+    1021001,
+    1021002,
+    1021004,
+    1021005
+   ],
+   "skinNames": [
+    "洛茲",
+    "黑玫瑰 洛茲",
+    "復仇女神 洛茲",
+    "甜蜜情人 洛茲",
+    "決勝終點 洛茲"
+   ],
+   "officials": [],
+   "kotoba": "たあ",
+   "small": "さあさあ"
+  },
+  {
+   "clip": "Rozzi-S003-Rozzi_selected_1",
+   "sha256": "e891296ad48d2f2f1f6a9c4b93381323f37f494f722dd9259590e985d81a4d9d",
+   "characterId": "rozzi",
+   "family": "selected",
+   "duration": 3.49,
+   "skinCodes": [
+    1021003
+   ],
+   "skinNames": [
+    "戰鬥女僕 洛茲"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1021003",
+     "text": "メイド、ロッジ。突入準備完了。",
+     "vsKotoba": 0.917
+    }
+   ],
+   "kotoba": "メイドロッチ突入準備完了",
+   "small": "メイド、ロッジ、突入準備完了"
+  },
+  {
+   "clip": "Rozzi-S003-Rozzi_selected2_1",
+   "sha256": "92b1eceea5145fe1574daaad92b8ff625d35c90c63155582369fe8ad13bb0825",
+   "characterId": "rozzi",
+   "family": "selected2",
+   "duration": 8.79,
+   "skinCodes": [
+    1021003
+   ],
+   "skinNames": [
+    "戰鬥女僕 洛茲"
+   ],
+   "officials": [],
+   "kotoba": "ロッチ、単独行動は控えめにうん、全隊員、戦闘準備",
+   "small": "ロッチ単独行動は控えめにロッチロッチ全体戦闘準備"
+  },
+  {
+   "clip": "Luke-S000-Luke_selected_1",
+   "sha256": "b89d266ef959381d0d58d97597fc7649e7d46f55059054f970b6f7897e51b410",
+   "characterId": "luke",
+   "family": "selected",
+   "duration": 2.27,
+   "skinCodes": [
+    1022000,
+    1022001,
+    1022002,
+    1022003,
+    1022004,
+    1022005
+   ],
+   "skinNames": [
+    "盧克",
+    "調酒師 盧克",
+    "暗巷裡 盧克",
+    "軍官候補生 盧克",
+    "烈日驕陽 盧克",
+    "麋盧克"
+   ],
+   "officials": [],
+   "kotoba": "さあ何を片付けましょうか",
+   "small": "さあ、何を片付けましょうか"
+  },
+  {
+   "clip": "Luke-S000-Luke_selected2_1",
+   "sha256": "e723165a3bd3496af07ea35c413cff78fe2ac81a8cf6a58c6305790e374d8b89",
+   "characterId": "luke",
+   "family": "selected2",
+   "duration": 4.19,
+   "skinCodes": [
+    1022000,
+    1022001,
+    1022002,
+    1022003,
+    1022004,
+    1022005
+   ],
+   "skinNames": [
+    "盧克",
+    "調酒師 盧克",
+    "暗巷裡 盧克",
+    "軍官候補生 盧克",
+    "烈日驕陽 盧克",
+    "麋盧克"
+   ],
+   "officials": [],
+   "kotoba": "ハークハーはあ",
+   "small": "はぁーっ!はぁーっ!はっはーっ!"
+  },
+  {
+   "clip": "Luke-S006-Luke_selected_1",
+   "sha256": "cf492fc94e35f5829a57ddb8dd3c9edabd9a90a9ac1d5cf4529c409099151618",
+   "characterId": "luke",
+   "family": "selected",
+   "duration": 2.7,
+   "skinCodes": [
+    1022006
+   ],
+   "skinNames": [
+    "死神 盧克"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1022006",
+     "text": "何を、片付けてやりましょうか？",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "何を片付けてやりましょうか",
+   "small": "何を片付けてやりましょうか"
+  },
+  {
+   "clip": "Luke-S006-Luke_selected2_1",
+   "sha256": "a4c1b8e6326a9c51f1833e74368b7e883004c571a3cc6da20f562e710ed39f0b",
+   "characterId": "luke",
+   "family": "selected2",
+   "duration": 9.91,
+   "skinCodes": [
+    1022006
+   ],
+   "skinNames": [
+    "死神 盧克"
+   ],
+   "officials": [],
+   "kotoba": "ふっどうやらお掃除の時間みたいです",
+   "small": "うーんふっとふっどうやらお掃除の時間みたいです"
+  },
+  {
+   "clip": "Cathy-S000-Cathy_selected_1",
+   "sha256": "b0c73e60d91927eca8d587f8c2d9b52b1021a4c90975fc27ee4f8aaab44d34ca",
+   "characterId": "cathy",
+   "family": "selected",
+   "duration": 2.72,
+   "skinCodes": [
+    1023000,
+    1023001,
+    1023003,
+    1023004
+   ],
+   "skinNames": [
+    "凱茜",
+    "軍醫 凱茜",
+    "老師 凱茜",
+    "越獄者 凱茜"
+   ],
+   "officials": [],
+   "kotoba": "ああ私ですか",
+   "small": "えっ ああ私ですか"
+  },
+  {
+   "clip": "Cathy-S000-Cathy_selected2_1",
+   "sha256": "62c2b3ac6f905f7425450cd56d7deb4483cade51e6b957d5fbbc171c698cdea3",
+   "characterId": "cathy",
+   "family": "selected2",
+   "duration": 5.38,
+   "skinCodes": [
+    1023000,
+    1023001,
+    1023003,
+    1023004
+   ],
+   "skinNames": [
+    "凱茜",
+    "軍醫 凱茜",
+    "老師 凱茜",
+    "越獄者 凱茜"
+   ],
+   "officials": [],
+   "kotoba": "んアッフ",
+   "small": "アッハーアッハー"
+  },
+  {
+   "clip": "Cathy-S002-Cathy_selected_1",
+   "sha256": "ba16a07f1e1c6e70a502f86337bb2c2934448cbd1b7935ad3b923dd5f8803c06",
+   "characterId": "cathy",
+   "family": "selected",
+   "duration": 3.03,
+   "skinCodes": [
+    1023002
+   ],
+   "skinNames": [
+    "迷幻醫生 凱茜"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1023002",
+     "text": "ウイルスは広がる前に排除しなければなりません。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "ウイルスは広がる前に排除しなければなりません",
+   "small": "ウイルスは広がる前に排除しなければなりません"
+  },
+  {
+   "clip": "Cathy-S002-Cathy_selected2_1",
+   "sha256": "f1a5d8f44edae80468809965dd4e5eec76564b027da5fa5bea3479ea44ddb7d7",
+   "characterId": "cathy",
+   "family": "selected2",
+   "duration": 9.67,
+   "skinCodes": [
+    1023002
+   ],
+   "skinNames": [
+    "迷幻醫生 凱茜"
+   ],
+   "officials": [],
+   "kotoba": "私がいるとこならどこでも病院なのです",
+   "small": "うん私がいるとこならどこでも病院なのです"
+  },
+  {
+   "clip": "Adela-S000-Adela_selected_1",
+   "sha256": "cb86613d3dbfb051757628b41c4d84636bd6b53556ac78bf86627a72459216d1",
+   "characterId": "adela",
+   "family": "selected",
+   "duration": 3.17,
+   "skinCodes": [
+    1024000,
+    1024001,
+    1024003
+   ],
+   "skinNames": [
+    "阿德拉",
+    "白王后 阿德拉",
+    "女僕 阿德拉"
+   ],
+   "officials": [],
+   "kotoba": "出番なのか手を読んでみよう",
+   "small": "出番なのか手を読んでみよう"
+  },
+  {
+   "clip": "Adela-S000-Adela_selected2_1",
+   "sha256": "9226282ec8c004ddb5f88b795c2419119334490766c2d6682dce13bd9066c871",
+   "characterId": "adela",
+   "family": "selected2",
+   "duration": 3.68,
+   "skinCodes": [
+    1024000,
+    1024001,
+    1024003
+   ],
+   "skinNames": [
+    "阿德拉",
+    "白王后 阿德拉",
+    "女僕 阿德拉"
+   ],
+   "officials": [],
+   "kotoba": "ふん",
+   "small": "Hup! Hup! Hmm..."
+  },
+  {
+   "clip": "Adela-S002-Adela_selected_1",
+   "sha256": "92af88c92004b91ab0e5cdf84838926f7c85299baa8cc19c430866650b3fd981",
+   "characterId": "adela",
+   "family": "selected",
+   "duration": 2.88,
+   "skinCodes": [
+    1024002
+   ],
+   "skinNames": [
+    "夢德拉"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1024002",
+     "text": "新たな夢に旅立つ時間だわ。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "新たな夢に旅立つ時間だわ",
+   "small": "新たな夢に旅立つ時間だ"
+  },
+  {
+   "clip": "Adela-S002-Adela_selected2_1",
+   "sha256": "8e2f03421abe1d27e7c57b0cb5da44f35932cfd7b6702f3df05b9988ec62c95c",
+   "characterId": "adela",
+   "family": "selected2",
+   "duration": 13.6,
+   "skinCodes": [
+    1024002
+   ],
+   "skinNames": [
+    "夢德拉"
+   ],
+   "officials": [],
+   "kotoba": "たとえ夢だとしても私はコントロールできるのよ",
+   "small": "んたとえ夢だとしても私はコントロールできるのよ"
+  },
+  {
+   "clip": "Bernice-S000-Bernice_selected_1",
+   "sha256": "e9cd85a1724a3363fc832af728b778009007ee48c2232b86362f65d99704394b",
+   "characterId": "bernice",
+   "family": "selected",
+   "duration": 2.6,
+   "skinCodes": [
+    1025000,
+    1025001,
+    1025002,
+    1025003
+   ],
+   "skinNames": [
+    "伯尼斯",
+    "天啟 伯尼斯",
+    "惡靈獵手 伯尼斯",
+    "戰鬥執事 伯尼斯"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/25",
+     "text": "人は撃たない。獣を狩るだけだ.",
+     "vsKotoba": 0.75
+    }
+   ],
+   "kotoba": "僕はただ獣を狩るだけだ",
+   "small": "僕はただ、獣を刈るだけだ"
+  },
+  {
+   "clip": "Bernice-S000-Bernice_selected2_1",
+   "sha256": "a4d4debb7ae1b4b08191d604f72a5d640494f508bb983a9729a907f882eaad8d",
+   "characterId": "bernice",
+   "family": "selected2",
+   "duration": 5.02,
+   "skinCodes": [
+    1025000,
+    1025001,
+    1025002,
+    1025003
+   ],
+   "skinNames": [
+    "伯尼斯",
+    "天啟 伯尼斯",
+    "惡靈獵手 伯尼斯",
+    "戰鬥執事 伯尼斯"
+   ],
+   "officials": [],
+   "kotoba": "くっ",
+   "small": "Pfft... Ha... Ha..."
+  },
+  {
+   "clip": "Barbara-S000-Barbara_selected_1",
+   "sha256": "53b8d7bb8f86b63a344010083f385e08faea6e9e3437c1c8c14681992bcd3fa5",
+   "characterId": "barbara",
+   "family": "selected",
+   "duration": 4.15,
+   "skinCodes": [
+    1026000,
+    1026001,
+    1026002,
+    1026003
+   ],
+   "skinNames": [
+    "芭芭拉",
+    "首席機械師 芭芭拉",
+    "太空工程師 芭芭拉",
+    "研究員 芭芭拉"
+   ],
+   "officials": [],
+   "kotoba": "私は正規の発明かよ知らないとは言わせないから",
+   "small": "私は正規の発明かよ知らないとは言わせないから"
+  },
+  {
+   "clip": "Barbara-S000-Barbara_selected2_1",
+   "sha256": "0582ffb1c7c411e6ca2da346ec21ce5304c34aabe507cbc510b9420943f67c66",
+   "characterId": "barbara",
+   "family": "selected2",
+   "duration": 2.87,
+   "skinCodes": [
+    1026000,
+    1026001,
+    1026002,
+    1026003
+   ],
+   "skinNames": [
+    "芭芭拉",
+    "首席機械師 芭芭拉",
+    "太空工程師 芭芭拉",
+    "研究員 芭芭拉"
+   ],
+   "officials": [],
+   "kotoba": "フッ",
+   "small": "Huck! Ehehe"
+  },
+  {
+   "clip": "Alex-S000-Alex_selected_1",
+   "sha256": "29810be0816cde16eec753a3b51b2f0019c3f2cb26265d715416dd3e241d6f86",
+   "characterId": "alex",
+   "family": "selected",
+   "duration": 1.11,
+   "skinCodes": [
+    1027000,
+    1027001,
+    1027002
+   ],
+   "skinNames": [
+    "亞歷克斯",
+    "特工 亞歷克斯",
+    "私家偵探 亞歷克斯"
+   ],
+   "officials": [],
+   "kotoba": "任務ですか",
+   "small": "任務ですか"
+  },
+  {
+   "clip": "Alex-S000-Alex_selected2_1",
+   "sha256": "f178c2e14d60ae921b2b10aead160b1e43444098751bcc31a91bb07287596fef",
+   "characterId": "alex",
+   "family": "selected2",
+   "duration": 4.86,
+   "skinCodes": [
+    1027000,
+    1027001,
+    1027002
+   ],
+   "skinNames": [
+    "亞歷克斯",
+    "特工 亞歷克斯",
+    "私家偵探 亞歷克斯"
+   ],
+   "officials": [],
+   "kotoba": "ターゲット確認しました",
+   "small": "ターゲット確認しました"
+  },
+  {
+   "clip": "Alex-S003-Alex_selected_1",
+   "sha256": "3b7a18a4fb1c06c95015fe8e0334dde5e1792e1e2c7a716eb616ad0306002ec1",
+   "characterId": "alex",
+   "family": "selected",
+   "duration": 1.5,
+   "skinCodes": [
+    1027003
+   ],
+   "skinNames": [
+    "亞歷克斯 (JOKER)"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1027003",
+     "text": "ショータイムですか。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "ショータイムですか",
+   "small": "ショウタイムですか"
+  },
+  {
+   "clip": "Alex-S003-Alex_selected2_1",
+   "sha256": "32a0835515964b0cbc50ce151a257ac7d0cfb14472fa9cc2c1f8d1a7ab04b2c7",
+   "characterId": "alex",
+   "family": "selected2",
+   "duration": 8.87,
+   "skinCodes": [
+    1027003
+   ],
+   "skinNames": [
+    "亞歷克斯 (JOKER)"
+   ],
+   "officials": [],
+   "kotoba": "ふっ新しい任務ですか引き受けましょう",
+   "small": "フッフッ新しい任務ですか 引き受けましょう"
+  },
+  {
+   "clip": "Sua-S000-Sua_selected_1",
+   "sha256": "1fd0a749df21465db284c4219309712888b0ecdd64c61c9ddb9afc8a6f064625",
+   "characterId": "sua",
+   "family": "selected",
+   "duration": 2.98,
+   "skinCodes": [
+    1028000,
+    1028001,
+    1028004,
+    1028005,
+    1028006
+   ],
+   "skinNames": [
+    "秀雅",
+    "軍官候補生 秀雅",
+    "咖啡店工讀生 秀雅",
+    "1st Anniversary 秀雅",
+    "1st Anniversary Dawn 秀雅"
+   ],
+   "officials": [],
+   "kotoba": "今日はどのようなお話に出会えるでしょうか",
+   "small": "今日はどのようなお話に出会えるでしょうか"
+  },
+  {
+   "clip": "Sua-S000-Sua_selected2_1",
+   "sha256": "867e796d1504d4c5f24f37000965784b5c79a136bff95d6248b1d7555eee79b5",
+   "characterId": "sua",
+   "family": "selected2",
+   "duration": 5.51,
+   "skinCodes": [
+    1028000,
+    1028001,
+    1028004,
+    1028005,
+    1028006
+   ],
+   "skinNames": [
+    "秀雅",
+    "軍官候補生 秀雅",
+    "咖啡店工讀生 秀雅",
+    "1st Anniversary 秀雅",
+    "1st Anniversary Dawn 秀雅"
+   ],
+   "officials": [],
+   "kotoba": "アフッアハハ",
+   "small": ""
+  },
+  {
+   "clip": "Sua-S002-Sua_selected2_1",
+   "sha256": "58eb6d4646c189b02519db8f24b241d1a3da9f9a150679bec4dd3cfa81721a34",
+   "characterId": "sua",
+   "family": "selected2",
+   "duration": 5.16,
+   "skinCodes": [
+    1028002
+   ],
+   "skinNames": [
+    "新年說書人 秀雅"
+   ],
+   "officials": [],
+   "kotoba": "アッヘッ",
+   "small": ""
+  },
+  {
+   "clip": "Sua-S003-Sua_selected_1",
+   "sha256": "4ccf3286d5903dec9f65d94a18d187a667d8f3e45a2862520d3ba9aeb79fec91",
+   "characterId": "sua",
+   "family": "selected",
+   "duration": 3.42,
+   "skinCodes": [
+    1028003
+   ],
+   "skinNames": [
+    "盛夏派對 秀雅"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1028003",
+     "text": "今日は本を閉じて出かけてみましょうか。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "今日は本を閉じて出かけてみましょうか",
+   "small": "今日は、本を閉じて出かけてみましょうか。"
+  },
+  {
+   "clip": "Sua-S003-Sua_selected2_1",
+   "sha256": "512975dad3f2a49231eeed4a616591c1e7689dd54bee14fca0f9b7228c8d43ce",
+   "characterId": "sua",
+   "family": "selected2",
+   "duration": 5.5,
+   "skinCodes": [
+    1028003
+   ],
+   "skinNames": [
+    "盛夏派對 秀雅"
+   ],
+   "officials": [],
+   "kotoba": "なあなあ",
+   "small": "ななな"
+  },
+  {
+   "clip": "Leon-S000-Leon_selected_1",
+   "sha256": "f77bbd488586609437c29a3add136fbcf7e8b3403ac2df2ad545f85ec3915111",
+   "characterId": "leon",
+   "family": "selected",
+   "duration": 0.94,
+   "skinCodes": [
+    1029000,
+    1029001,
+    1029002,
+    1029004,
+    1029003
+   ],
+   "skinNames": [
+    "里昂",
+    "海軍突擊隊 里昂",
+    "盛夏派對 里昂",
+    "海軍將校 里昂",
+    "雪行者 里昂"
+   ],
+   "officials": [],
+   "kotoba": "俺に任せろ",
+   "small": "俺に任せろ"
+  },
+  {
+   "clip": "Leon-S000-Leon_selected2_1",
+   "sha256": "8afeb1ce0024b13523e2210077d194a0247e83fb7ce65a835ac57742e5e5600a",
+   "characterId": "leon",
+   "family": "selected2",
+   "duration": 2.16,
+   "skinCodes": [
+    1029000,
+    1029001,
+    1029002,
+    1029004,
+    1029003
+   ],
+   "skinNames": [
+    "里昂",
+    "海軍突擊隊 里昂",
+    "盛夏派對 里昂",
+    "海軍將校 里昂",
+    "雪行者 里昂"
+   ],
+   "officials": [],
+   "kotoba": "はっ",
+   "small": ""
+  },
+  {
+   "clip": "Eleven-S000-Eleven_selected_1",
+   "sha256": "5ae62631d927cf4e76e35ef72df6185c7ed53b3574d8d5e4fa11f75ccf1fcd6f",
+   "characterId": "eleven",
+   "family": "selected",
+   "duration": 2.13,
+   "skinCodes": [
+    1030000,
+    1030001,
+    1030002,
+    1030003,
+    1030005
+   ],
+   "skinNames": [
+    "Eleven",
+    "甜心外送員 Eleven",
+    "午茶時光兔 Eleven",
+    "蜜糖水手 Eleven",
+    "軍官候補生 Eleven"
+   ],
+   "officials": [],
+   "kotoba": "今日も楽しいお食事しない?",
+   "small": "今日も楽しいお食事しない"
+  },
+  {
+   "clip": "Eleven-S000-Eleven_selected2_1",
+   "sha256": "8ff2e0b06873cb6b6018478def9de386b760d33443cea3755820bbeeb383581d",
+   "characterId": "eleven",
+   "family": "selected2",
+   "duration": 5.09,
+   "skinCodes": [
+    1030000,
+    1030001,
+    1030002,
+    1030003,
+    1030005
+   ],
+   "skinNames": [
+    "Eleven",
+    "甜心外送員 Eleven",
+    "午茶時光兔 Eleven",
+    "蜜糖水手 Eleven",
+    "軍官候補生 Eleven"
+   ],
+   "officials": [],
+   "kotoba": "はっえ",
+   "small": "はっ"
+  },
+  {
+   "clip": "Eleven-S004-Eleven_selected_1",
+   "sha256": "05c03c131e4a687d4023789d152d91a63e5ca46659e61b22104467dcadafa4b6",
+   "characterId": "eleven",
+   "family": "selected",
+   "duration": 5.62,
+   "skinCodes": [
+    1030004
+   ],
+   "skinNames": [
+    "愛的小夜曲 Eleven"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1030004",
+     "text": "配信開始だよ！今日の配信テーマは幸せな結婚式！",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "配信開始だよ!今日の配信テーマは幸せな結婚式!",
+   "small": "配信開始だよ!今日の配信テーマは幸せな結婚式!"
+  },
+  {
+   "clip": "Eleven-S004-Eleven_selected2_1",
+   "sha256": "0f9eb1479010f4a07d0b0039d2ebeba71fa7e3160fe0bb7b54a953f0876d828f",
+   "characterId": "eleven",
+   "family": "selected2",
+   "duration": 8.58,
+   "skinCodes": [
+    1030004
+   ],
+   "skinNames": [
+    "愛的小夜曲 Eleven"
+   ],
+   "officials": [],
+   "kotoba": "11の結婚式配信始まるよ",
+   "small": "ふんふんふんふんふん、イレブンの結婚式配信!始まるよー!"
+  },
+  {
+   "clip": "Rio-S000-Rio_selected_1",
+   "sha256": "85e1ef5526adeeebd3d3910085e5f71e9680877b26342a7d89c503a369036762",
+   "characterId": "rio",
+   "family": "selected",
+   "duration": 2.76,
+   "skinCodes": [
+    1031000,
+    1031001,
+    1031002,
+    1031003,
+    1031004,
+    1031005,
+    1031007,
+    1031008
+   ],
+   "skinNames": [
+    "莉央",
+    "巫女 莉央",
+    "正義的魔法少女 莉央",
+    "愛的魔法少女 莉央",
+    "盛夏派對 莉央",
+    "星夜極光 莉央",
+    "3rd Anniversary 莉央",
+    "3rd Anniversary 莉央 Dolce"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/31",
+     "text": "矢先にはどんな嘘も通じないよ。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "矢先にはどんな嘘も通じないよ",
+   "small": "やさきにはどんな嘘も通じないよ"
+  },
+  {
+   "clip": "Rio-S000-Rio_selected2_1",
+   "sha256": "bc395256470b2d89c1da0aeacba2091ebbe480800e60002a6cb44179a23f3d9f",
+   "characterId": "rio",
+   "family": "selected2",
+   "duration": 0,
+   "skinCodes": [
+    1031000,
+    1031001,
+    1031002,
+    1031003,
+    1031004,
+    1031005,
+    1031007,
+    1031008
+   ],
+   "skinNames": [
+    "莉央",
+    "巫女 莉央",
+    "正義的魔法少女 莉央",
+    "愛的魔法少女 莉央",
+    "盛夏派對 莉央",
+    "星夜極光 莉央",
+    "3rd Anniversary 莉央",
+    "3rd Anniversary 莉央 Dolce"
+   ],
+   "officials": [],
+   "kotoba": "",
+   "small": ""
+  },
+  {
+   "clip": "Rio-S006-Rio_selected_1",
+   "sha256": "b72309e0b7f50c160079c7cbe75406e4cba73cf6182f9e17755e3e74299e128a",
+   "characterId": "rio",
+   "family": "selected",
+   "duration": 4.66,
+   "skinCodes": [
+    1031006
+   ],
+   "skinNames": [
+    "害羞兔女郎 莉央"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1031006",
+     "text": "私の矢は、絶対に外さない。...ピョン...",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "私の矢は絶対に外さないピョン",
+   "small": "私の屋は絶対に外さないピョーン"
+  },
+  {
+   "clip": "Rio-S006-Rio_selected2_1",
+   "sha256": "ad3fd16a9759aa34cfda9275b5dc784119c231d759ee2d35d91b46bbca4ff13f",
+   "characterId": "rio",
+   "family": "selected2",
+   "duration": 12.26,
+   "skinCodes": [
+    1031006
+   ],
+   "skinNames": [
+    "害羞兔女郎 莉央"
+   ],
+   "officials": [],
+   "kotoba": "はだダーツはいかがですか",
+   "small": "うっはぁダーツはいかがですかかっ"
+  },
+  {
+   "clip": "William-S000-William_selected_1",
+   "sha256": "eb7a1c362765fe786966cdc3deaaa5dfd0c8dd30c8a87be82f04befa5b668855",
+   "characterId": "william",
+   "family": "selected",
+   "duration": 1.2,
+   "skinCodes": [
+    1032000,
+    1032001,
+    1032002,
+    1032003
+   ],
+   "skinNames": [
+    "威廉",
+    "聖誕嘉年華 威廉",
+    "暗巷裡 威廉",
+    "天啟 威廉"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/32",
+     "text": "もう手加減はしない。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "もう手加減はしない",
+   "small": "もう手掛けんはしない"
+  },
+  {
+   "clip": "William-S000-William_selected2_1",
+   "sha256": "66dc7637f8a645cbfc361945fd70b9d5f5ed460930169e66a665f257e06a4ee5",
+   "characterId": "william",
+   "family": "selected2",
+   "duration": 3.74,
+   "skinCodes": [
+    1032000,
+    1032001,
+    1032002,
+    1032003
+   ],
+   "skinNames": [
+    "威廉",
+    "聖誕嘉年華 威廉",
+    "暗巷裡 威廉",
+    "天啟 威廉"
+   ],
+   "officials": [],
+   "kotoba": "ふんああ",
+   "small": ""
+  },
+  {
+   "clip": "Nicky-S000-Nicky_selected_1",
+   "sha256": "3dcfe5285b8c138df2f25f0586ec18b76fe3b5c64f0b3e4b0a6be0262ce0109a",
+   "characterId": "nicky",
+   "family": "selected",
+   "duration": 4.74,
+   "skinCodes": [
+    1033000,
+    1033001,
+    1033003,
+    1033004,
+    1033005
+   ],
+   "skinNames": [
+    "妮琪",
+    "暗巷裡 妮琪",
+    "問題學生 妮琪",
+    "私家偵探 妮琪",
+    "格鬥兔女郎 妮琪"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/33",
+     "text": "なんだよ面倒だな！...一体何があったんだ？",
+     "vsKotoba": 0.938
+    }
+   ],
+   "kotoba": "なんだよ面倒だな何があったんだ?",
+   "small": "なんだよ面倒だなぁね、何があったんだ?"
+  },
+  {
+   "clip": "Nicky-S000-Nicky_selected2_1",
+   "sha256": "47b0f1775e1df1b25129e6ee657cb4fa5f60de1b6317462d56919079a144e27f",
+   "characterId": "nicky",
+   "family": "selected2",
+   "duration": 5.25,
+   "skinCodes": [
+    1033000,
+    1033001,
+    1033003,
+    1033004,
+    1033005
+   ],
+   "skinNames": [
+    "妮琪",
+    "暗巷裡 妮琪",
+    "問題學生 妮琪",
+    "私家偵探 妮琪",
+    "格鬥兔女郎 妮琪"
+   ],
+   "officials": [],
+   "kotoba": "さてとどりゃ",
+   "small": "さてと、どりゃん!"
+  },
+  {
+   "clip": "Nicky-S002-Nicky_selected_1",
+   "sha256": "1f78a5caee1f7c7fbd12f06119e32be90d9f038e257681f89c8e6c771152233a",
+   "characterId": "nicky",
+   "family": "selected",
+   "duration": 2.87,
+   "skinCodes": [
+    1033002
+   ],
+   "skinNames": [
+    "夏日海灘 妮琪"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1033002",
+     "text": "これしきの暑さは全部吹き飛ばしてやる！",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "これしきの暑さは全部吹き飛ばしてやる",
+   "small": "これ好きの暑さは全部吹き飛ばしてやる!"
+  },
+  {
+   "clip": "Nicky-S002-Nicky_selected2_1",
+   "sha256": "7e65fc6d93968da5d18d111219ac42f9a0e0c99bf1d4105a00a7750293340666",
+   "characterId": "nicky",
+   "family": "selected2",
+   "duration": 5.62,
+   "skinCodes": [
+    1033002
+   ],
+   "skinNames": [
+    "夏日海灘 妮琪"
+   ],
+   "officials": [],
+   "kotoba": "そうね",
+   "small": "はぁ…そう…ね!はぁ…"
+  },
+  {
+   "clip": "Nicky-S006-Nicky_selected_1",
+   "sha256": "9aa1a60f92b65e5973e6c46e517d77bb3621a0a2833f8b261294ec97cd2e0481",
+   "characterId": "nicky",
+   "family": "selected",
+   "duration": 4.3,
+   "skinCodes": [
+    1033006
+   ],
+   "skinNames": [
+    "應援飛拳 妮琪"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1033006",
+     "text": "勝てるよな？俺が応援するのは、お前だけなんだから！",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "勝てるよな俺が応援するのはお前だけなんだから",
+   "small": "勝てるよな!俺が応援するのはお前だけなんだから!"
+  },
+  {
+   "clip": "Nicky-S006-Nicky_selected2_1",
+   "sha256": "3623afc4e8edc79089c877d80666afcbe11c6c43fd8d6717a9729f0b0f034608",
+   "characterId": "nicky",
+   "family": "selected2",
+   "duration": 14.1,
+   "skinCodes": [
+    1033006
+   ],
+   "skinNames": [
+    "應援飛拳 妮琪"
+   ],
+   "officials": [],
+   "kotoba": "がん、つー、ワン、ツー、ワン、ツー、ワン、ツー、フレー、フレー、頑張れー、モンクでもあんのか?",
+   "small": "ふっ! じゃ、よし!1、2、1、2、3、4、フレー、フレー、頑張れ!も、もんくでもあんのか?"
+  },
+  {
+   "clip": "Nathapon-S000-Nathapon_selected_1",
+   "sha256": "3cb68786b91a07c384b99d91f2e0a04493a2dbbfc2aa424d63acc6283d21a1bd",
+   "characterId": "nathapon",
+   "family": "selected",
+   "duration": 1.65,
+   "skinCodes": [
+    1034000,
+    1034001,
+    1034002,
+    1034003
+   ],
+   "skinNames": [
+    "納塔朋",
+    "極地探險 納塔朋",
+    "探險家 納塔朋",
+    "鑑識官 納塔朋"
+   ],
+   "officials": [],
+   "kotoba": "新しい旅に出る時間だ",
+   "small": "新しい旅に出る時間だ"
+  },
+  {
+   "clip": "Nathapon-S000-Nathapon_selected2_1",
+   "sha256": "ca39966f36a28e2022025ff06771e4c727d94e08a80aac52a64f1b5e06feb9aa",
+   "characterId": "nathapon",
+   "family": "selected2",
+   "duration": 5.9,
+   "skinCodes": [
+    1034000,
+    1034001,
+    1034002,
+    1034003
+   ],
+   "skinNames": [
+    "納塔朋",
+    "極地探險 納塔朋",
+    "探險家 納塔朋",
+    "鑑識官 納塔朋"
+   ],
+   "officials": [],
+   "kotoba": "んおお",
+   "small": "ドゥン、ドゥン、ドゥンドゥンおぉぉぉぉ"
+  },
+  {
+   "clip": "Jan-S000-Jan_selected_1",
+   "sha256": "20818ba6db5c7a63ca300d61018eb11468eec4f9ffadafcd56505baa9140c2f0",
+   "characterId": "jan",
+   "family": "selected",
+   "duration": 1.42,
+   "skinCodes": [
+    1035000,
+    1035001,
+    1035002,
+    1035003
+   ],
+   "skinNames": [
+    "揚",
+    "泰拳冠軍 揚",
+    "拳擊手的挑戰 揚",
+    "副首領 揚"
+   ],
+   "officials": [],
+   "kotoba": "待ちくたびれたぜ",
+   "small": "待ちくたびれたぜ!"
+  },
+  {
+   "clip": "Jan-S000-Jan_selected2_1",
+   "sha256": "ea82f4cfadf5c139305457ad17ebaa27d54ef4bad727729cc3d14069cd6b7e7b",
+   "characterId": "jan",
+   "family": "selected2",
+   "duration": 4.13,
+   "skinCodes": [
+    1035000,
+    1035001,
+    1035002,
+    1035003
+   ],
+   "skinNames": [
+    "揚",
+    "泰拳冠軍 揚",
+    "拳擊手的挑戰 揚",
+    "副首領 揚"
+   ],
+   "officials": [],
+   "kotoba": "ハッハッシュ",
+   "small": "ふっ、はっ、しっアハハハハハハハ"
+  },
+  {
+   "clip": "Eva-S000-Eva_selected_1",
+   "sha256": "3ead739ddf64d0868c421582727df41390957cef1860feb04d801f5589a1cd49",
+   "characterId": "eva",
+   "family": "selected",
+   "duration": 9.48,
+   "skinCodes": [
+    1036000,
+    1036001,
+    1036002,
+    1036003,
+    1036005,
+    1036006
+   ],
+   "skinNames": [
+    "伊娃",
+    "觀星者 伊娃",
+    "軍官候補生 伊娃",
+    "甜蜜情人 伊娃",
+    "2nd Anniversary 伊娃",
+    "2nd Anniversary 伊娃 Blossom"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/36",
+     "text": "ただ普通に生きたかった。それがこんなに難しいことだったなんて知らなかったよ。",
+     "vsKotoba": 0.972
+    }
+   ],
+   "kotoba": "ただ普通に行きたかったそれがこんなに難しいことだったなんて知らなかったよ",
+   "small": "ただ、普通に生きたかった。それが、こんなに難しいことだったなんて、知らなかったよ。"
+  },
+  {
+   "clip": "Eva-S000-Eva_selected2_1",
+   "sha256": "e72fb11e8d3e4731ab17402fb3212696a750d9f648490c32f9a178b2e8d58f8d",
+   "characterId": "eva",
+   "family": "selected2",
+   "duration": 6.28,
+   "skinCodes": [
+    1036000,
+    1036001,
+    1036002,
+    1036003,
+    1036005,
+    1036006
+   ],
+   "skinNames": [
+    "伊娃",
+    "觀星者 伊娃",
+    "軍官候補生 伊娃",
+    "甜蜜情人 伊娃",
+    "2nd Anniversary 伊娃",
+    "2nd Anniversary 伊娃 Blossom"
+   ],
+   "officials": [],
+   "kotoba": "はっうっうっ",
+   "small": "うう…はっ…うっ…"
+  },
+  {
+   "clip": "Eva-S004-Eva_selected_1",
+   "sha256": "fd75b27f14612676117dd340534874f1e0fffbfac0397517d6b5d62e7b03e509",
+   "characterId": "eva",
+   "family": "selected",
+   "duration": 3.48,
+   "skinCodes": [
+    1036004
+   ],
+   "skinNames": [
+    "仲夏回憶 伊娃"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1036004",
+     "text": "今日は、どんな思い出を作れるかな？",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "今日はどんな思い出を作れるかな",
+   "small": "今日はどんな思い出を作れるかな"
+  },
+  {
+   "clip": "Eva-S004-Eva_selected2_1",
+   "sha256": "d2b5ea939fbdff4ff4200406e341a4fb7b1cef1e4247a00ed79dffd0244aef6b",
+   "characterId": "eva",
+   "family": "selected2",
+   "duration": 12.38,
+   "skinCodes": [
+    1036004
+   ],
+   "skinNames": [
+    "仲夏回憶 伊娃"
+   ],
+   "officials": [],
+   "kotoba": "すてきな一日になるといいね",
+   "small": "うっ…うふふ…おう!うっ…素敵な一日になるといいねうっ…"
+  },
+  {
+   "clip": "Daniel-S000-Daniel_selected_1",
+   "sha256": "fafb0a3e5ae96f0dea64f88071a77bf93f6405f036d8a0a65fb272153ba33b44",
+   "characterId": "daniel",
+   "family": "selected",
+   "duration": 4.45,
+   "skinCodes": [
+    1037000,
+    1037002,
+    1037003
+   ],
+   "skinNames": [
+    "丹尼爾",
+    "化裝舞會 丹尼爾",
+    "白色情人節 丹尼爾"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/37",
+     "text": "蝶を壁に固定するには鋭いピンが必要だ。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "蝶を壁に固定するには鋭いピンが必要だ",
+   "small": "超壁に固定するには、するどいピンが必要だ"
+  },
+  {
+   "clip": "Daniel-S000-Daniel_selected2_1",
+   "sha256": "7ac7fafd5a1d5a4faa0595c52875fb8b5ed4aaa083f6a4987b414f3cd4ea76c5",
+   "characterId": "daniel",
+   "family": "selected2",
+   "duration": 4.74,
+   "skinCodes": [
+    1037000,
+    1037002,
+    1037003
+   ],
+   "skinNames": [
+    "丹尼爾",
+    "化裝舞會 丹尼爾",
+    "白色情人節 丹尼爾"
+   ],
+   "officials": [],
+   "kotoba": "うん",
+   "small": "Hmm"
+  },
+  {
+   "clip": "Daniel-S001-Daniel_selected_1",
+   "sha256": "b4c2857620fb6afaa7aeb53a068f4308bba7522a2dea8fdb26d38275bd40e459",
+   "characterId": "daniel",
+   "family": "selected",
+   "duration": 4.24,
+   "skinCodes": [
+    1037001
+   ],
+   "skinNames": [
+    "瘟疫醫生 丹尼爾"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1037001",
+     "text": "死を与えることこそ真の治療なのかも知れない。",
+     "vsKotoba": 0.952
+    }
+   ],
+   "kotoba": "死を与えることこそ真の治療なのかもしれない",
+   "small": "死を与えることこそ 真の治療なのかもしれない"
+  },
+  {
+   "clip": "Daniel-S001-Daniel_selected2_1",
+   "sha256": "c0cad6f40c841bd718ad5a50ace561808c1c26e8c9ae6029e2ffd7f026d4cdec",
+   "characterId": "daniel",
+   "family": "selected2",
+   "duration": 4.59,
+   "skinCodes": [
+    1037001
+   ],
+   "skinNames": [
+    "瘟疫醫生 丹尼爾"
+   ],
+   "officials": [],
+   "kotoba": "うん",
+   "small": "Hmm"
+  },
+  {
+   "clip": "Jenny-S000-Jenny_selected_1",
+   "sha256": "83479a465cd0cc7dfc5f6170098a5c7c7cb4f54f16823c4e6daf90b954eb39c5",
+   "characterId": "jenny",
+   "family": "selected",
+   "duration": 3.88,
+   "skinCodes": [
+    1038000,
+    1038001,
+    1038002,
+    1038003
+   ],
+   "skinNames": [
+    "珍妮",
+    "BOSS 珍妮",
+    "化裝舞會 珍妮",
+    "紅心兔女郎 珍妮"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/38",
+     "text": "宝石はその価値を知る者にこそふさわしいものよ。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "宝石はその価値を知る者にこそふさわしいものよ",
+   "small": "宝石はその価値を知るものにこそ伏さわしいものよ"
+  },
+  {
+   "clip": "Jenny-S000-Jenny_selected2_1",
+   "sha256": "671032fed5f6c8cc7dcaf85e5f07d22e1192c8a171e117a15017e9666642aadb",
+   "characterId": "jenny",
+   "family": "selected2",
+   "duration": 6.3,
+   "skinCodes": [
+    1038000,
+    1038001,
+    1038002,
+    1038003
+   ],
+   "skinNames": [
+    "珍妮",
+    "BOSS 珍妮",
+    "化裝舞會 珍妮",
+    "紅心兔女郎 珍妮"
+   ],
+   "officials": [],
+   "kotoba": "見られてないわよね",
+   "small": "ん?ううう!見られてないわよね?"
+  },
+  {
+   "clip": "Jenny-S004-Jenny_selected_1",
+   "sha256": "b5a4148e717a55fa7981f8f451d3fef894bdee0278c7495012544c902673cf3c",
+   "characterId": "jenny",
+   "family": "selected",
+   "duration": 5.22,
+   "skinCodes": [
+    1038004
+   ],
+   "skinNames": [
+    "白日夢想家 珍妮"
+   ],
+   "officials": [],
+   "kotoba": "私だって私だって光り輝く宝石になりたい",
+   "small": "私だって私だって光輝く宝石になりたい"
+  },
+  {
+   "clip": "Jenny-S004-Jenny_selected2_1",
+   "sha256": "e5f0ec965f66505db12930be5f3ff33f674e56af9f7a052de0f299dd0b9dfa5c",
+   "characterId": "jenny",
+   "family": "selected2",
+   "duration": 8.09,
+   "skinCodes": [
+    1038004
+   ],
+   "skinNames": [
+    "白日夢想家 珍妮"
+   ],
+   "officials": [],
+   "kotoba": "うっジャージを忘れちゃったこれで準備OK",
+   "small": "うううう! じゃあじを忘れちゃった。うう… これで準備おけよ。"
+  },
+  {
+   "clip": "Camilo-S000-Camilo_selected_1",
+   "sha256": "2205ad22a982566f6d9c6f5ab87ed431fb53ada40266b18741aace688372b65d",
+   "characterId": "camilo",
+   "family": "selected",
+   "duration": 2.92,
+   "skinCodes": [
+    1039000,
+    1039001,
+    1039002
+   ],
+   "skinNames": [
+    "卡米洛",
+    "燕尾服 卡米洛",
+    "偶像 卡米洛"
+   ],
+   "officials": [],
+   "kotoba": "私の美しさに惚れてしまいましたか?",
+   "small": "私の美しさに惚れてしまいましたか"
+  },
+  {
+   "clip": "Camilo-S000-Camilo_selected2_1",
+   "sha256": "d7cd3b0ea6b338ab12c9c45cfc2809790d7d573eb96fc338ba40b7e78f42c3e4",
+   "characterId": "camilo",
+   "family": "selected2",
+   "duration": 5.14,
+   "skinCodes": [
+    1039000,
+    1039001,
+    1039002
+   ],
+   "skinNames": [
+    "卡米洛",
+    "燕尾服 卡米洛",
+    "偶像 卡米洛"
+   ],
+   "officials": [],
+   "kotoba": "ほらみあもれ",
+   "small": "うーん…ふん…オラミ…アモレ…"
+  },
+  {
+   "clip": "Camilo-S003-Camilo_selected_1",
+   "sha256": "07aaea261d012957f851f8841f2c5379fde440ffb2f52b6a38163c3f32bd7eee",
+   "characterId": "camilo",
+   "family": "selected",
+   "duration": 5.71,
+   "skinCodes": [
+    1039003
+   ],
+   "skinNames": [
+    "約米洛"
+   ],
+   "officials": [],
+   "kotoba": "これもまた私の美しい姿です",
+   "small": "これもまた…私の美しい姿です"
+  },
+  {
+   "clip": "Chloe-S000-Chloe_selected_1",
+   "sha256": "c42d132749e1337023e439a90057e4400ce9f8c287265267e418efa3ecca3e80",
+   "characterId": "chloe",
+   "family": "selected",
+   "duration": 3.67,
+   "skinCodes": [
+    1040000,
+    1040001,
+    1040002
+   ],
+   "skinNames": [
+    "克洛伊",
+    "女僕 克洛伊",
+    "幸運兔子 克洛伊"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/40",
+     "text": "人形が動くって？なんの冗談？",
+     "vsKotoba": 0.87
+    }
+   ],
+   "kotoba": "人形が動くって?何の冗談?",
+   "small": "人形が動くって なの冗談?"
+  },
+  {
+   "clip": "Chloe-S000-Chloe_selected2_1",
+   "sha256": "3e01d9d7712d64434de523e4ea1fdea03c568f4000f5630f0a5a13462d05a4cf",
+   "characterId": "chloe",
+   "family": "selected2",
+   "duration": 3.93,
+   "skinCodes": [
+    1040000,
+    1040001,
+    1040002
+   ],
+   "skinNames": [
+    "克洛伊",
+    "女僕 克洛伊",
+    "幸運兔子 克洛伊"
+   ],
+   "officials": [],
+   "kotoba": "フフフ",
+   "small": "んえっ"
+  },
+  {
+   "clip": "Chloe-S003-Chloe_selected_1",
+   "sha256": "9f3eacd08a437e9c4d5b6aaa6498cc20cf23ec0d5c537a200cc856a5b22836d4",
+   "characterId": "chloe",
+   "family": "selected",
+   "duration": 5.7,
+   "skinCodes": [
+    1040003
+   ],
+   "skinNames": [
+    "海濱傀儡師 克洛伊"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1040003",
+     "text": "今回は海の近くで人形劇をやるつもりだけど、見に来る？",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "今回は海の近くで人形劇をやるつもりだけど見に来る?",
+   "small": "今回は海の近くで人形劇をやるつもりだけど、見に来る?"
+  },
+  {
+   "clip": "Chloe-S003-Chloe_selected2_1",
+   "sha256": "88e13d8398794ffedf51954688f702505eb13b04f9dc1545cd8ce3842a19d0a4",
+   "characterId": "chloe",
+   "family": "selected2",
+   "duration": 8.9,
+   "skinCodes": [
+    1040003
+   ],
+   "skinNames": [
+    "海濱傀儡師 克洛伊"
+   ],
+   "officials": [],
+   "kotoba": "1、2、準備運動終わりオッフ、うっふうよ、後で新しいの買ってあげるから",
+   "small": "1、2、準備運動終わり!おぉ!うふふ、大丈夫よ、後で新しいの買ってあげるから。"
+  },
+  {
+   "clip": "Johann-S000-Johann_selected_1",
+   "sha256": "6b3ed6ff6bec1924242684e7f5ce668be936317b811cbc3b630fe620a20d9f59",
+   "characterId": "johann",
+   "family": "selected",
+   "duration": 3.08,
+   "skinCodes": [
+    1041000,
+    1041001,
+    1041002
+   ],
+   "skinNames": [
+    "約翰",
+    "大祭司 約翰",
+    "惡靈獵手 約翰"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/41",
+     "text": "これもまた試練であれば、承ります。",
+     "vsKotoba": 0.824
+    }
+   ],
+   "kotoba": "これもまた試練であれば受けたまわります",
+   "small": "これもまた試練であれば、受けたまわります。"
+  },
+  {
+   "clip": "Johann-S000-Johann_selected2_1",
+   "sha256": "a6f111432808257dc628da7278072dd4aad7ce02e48e9be6f57331648bdbb5cb",
+   "characterId": "johann",
+   "family": "selected2",
+   "duration": 5.89,
+   "skinCodes": [
+    1041000,
+    1041001,
+    1041002
+   ],
+   "skinNames": [
+    "約翰",
+    "大祭司 約翰",
+    "惡靈獵手 約翰"
+   ],
+   "officials": [],
+   "kotoba": "はあはあ",
+   "small": "Sigh... Sigh... Sigh..."
+  },
+  {
+   "clip": "Bianca-S000-Bianca_selected_1",
+   "sha256": "9c8266887f930ca7c8bf6ea2a33ef2d65f679d81d9174ae722b708621b090cef",
+   "characterId": "bianca",
+   "family": "selected",
+   "duration": 2.88,
+   "skinCodes": [
+    1042000,
+    1042001,
+    1042003,
+    1042004
+   ],
+   "skinNames": [
+    "比安卡",
+    "睡衣 比安卡",
+    "軍官候補生 比安卡",
+    "典獄長 比安卡"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/42",
+     "text": "お主の血はどんな味じゃ？",
+     "vsKotoba": 0.643
+    }
+   ],
+   "kotoba": "お主らの血の味はどんな味がするかの?",
+   "small": "お主らの血の味はどんな味がするかの"
+  },
+  {
+   "clip": "Bianca-S000-Bianca_selected2_1",
+   "sha256": "70d82813cb3d048adee744f3e58d3c3c9526eb8a521585cf15b6d786a5373dd2",
+   "characterId": "bianca",
+   "family": "selected2",
+   "duration": 6.44,
+   "skinCodes": [
+    1042000,
+    1042001,
+    1042003,
+    1042004
+   ],
+   "skinNames": [
+    "比安卡",
+    "睡衣 比安卡",
+    "軍官候補生 比安卡",
+    "典獄長 比安卡"
+   ],
+   "officials": [],
+   "kotoba": "んうん",
+   "small": "Hahaha. Mm-hmm. Ha!"
+  },
+  {
+   "clip": "Bianca-S002-Bianca_selected_1",
+   "sha256": "3ad841ed08c7f20c975b1336ee9f813d5ae7b4a09ee97c447e927e770bdef5db",
+   "characterId": "bianca",
+   "family": "selected",
+   "duration": 3.71,
+   "skinCodes": [
+    1042002
+   ],
+   "skinNames": [
+    "轉學生 比安卡"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1042002",
+     "text": "わらわに拝めることを、光栄に思うがよい！",
+     "vsKotoba": 0.857
+    }
+   ],
+   "kotoba": "我々に拝めることを光栄に思うがよい",
+   "small": "我々におがめることを公平に思うがよい"
+  },
+  {
+   "clip": "Bianca-S002-Bianca_selected2_1",
+   "sha256": "b939d4b04c297d3172d13280939407720d47495f94d98e130021a2f38e576c56",
+   "characterId": "bianca",
+   "family": "selected2",
+   "duration": 9.46,
+   "skinCodes": [
+    1042002
+   ],
+   "skinNames": [
+    "轉學生 比安卡"
+   ],
+   "officials": [],
+   "kotoba": "お主かわらわを英民から目覚めさせたのは",
+   "small": "うっ、うわっ! お主か、我を英明から目覚めさせたのは。ふふふ。"
+  },
+  {
+   "clip": "Bianca-S005-Bianca_selected_1",
+   "sha256": "b3629a780b04f9b0f470b4b31bb117da9c8323a0f796bc5d1dff166812502947",
+   "characterId": "bianca",
+   "family": "selected",
+   "duration": 5.08,
+   "skinCodes": [
+    1042005
+   ],
+   "skinNames": [
+    "永劫亡靈 比安卡"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1042005",
+     "text": "永劫の時を経て……わらわがここに降臨したのじゃ！",
+     "vsKotoba": 0.732
+    }
+   ],
+   "kotoba": "栄光の時を得て我々がここに降臨したのじゃ",
+   "small": "映画をのたきを得て、我々がここに降臨したのじゃ!"
+  },
+  {
+   "clip": "Bianca-S005-Bianca_selected2_1",
+   "sha256": "3ef730a8f94476331511d2529facc43f2db1ba5c9978785a824972b3305a14d2",
+   "characterId": "bianca",
+   "family": "selected2",
+   "duration": 14.27,
+   "skinCodes": [
+    1042005
+   ],
+   "skinNames": [
+    "永劫亡靈 比安卡"
+   ],
+   "officials": [],
+   "kotoba": "わあわらわの剣族になりたいのか",
+   "small": "ふぅ…ふっ…ふっ!ふっふっ…我はの堅続になりたいのか?"
+  },
+  {
+   "clip": "Celine-S000-Celine_selected_1",
+   "sha256": "a1776b41e138f1250c72da309cd62521427d7a6e9aea8312e43eb224889bcae9",
+   "characterId": "celine",
+   "family": "selected",
+   "duration": 5.56,
+   "skinCodes": [
+    1043000,
+    1043001,
+    1043002,
+    1043003,
+    1043004,
+    1043005
+   ],
+   "skinNames": [
+    "席琳",
+    "拆彈專家 席琳",
+    "萬聖南瓜 席琳",
+    "旅途 席琳",
+    "閃爆邦尼 席琳",
+    "莓果炸彈女僕 席琳"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/43",
+     "text": "大体の問題は爆発させたら解決できる。",
+     "vsKotoba": 0.839
+    }
+   ],
+   "kotoba": "大体の問題は爆発で解決できる",
+   "small": "大体の問題は爆発で解決できる"
+  },
+  {
+   "clip": "Celine-S000-Celine_selected_2",
+   "sha256": "fd8f5df67cbb268a67545aa7fbbb52ec163aec4c9aadede431a3a1d00b5171c7",
+   "characterId": "celine",
+   "family": "selected",
+   "duration": 4.46,
+   "skinCodes": [
+    1043000,
+    1043001,
+    1043002,
+    1043003,
+    1043004,
+    1043005
+   ],
+   "skinNames": [
+    "席琳",
+    "拆彈專家 席琳",
+    "萬聖南瓜 席琳",
+    "旅途 席琳",
+    "閃爆邦尼 席琳",
+    "莓果炸彈女僕 席琳"
+   ],
+   "officials": [],
+   "kotoba": "よいしょっと",
+   "small": "うっ…よっし…"
+  },
+  {
+   "clip": "Celine-S000-Celine_selected2_1",
+   "sha256": "eff9b3914ef111eb2142334df5812c8cc75b37177e1d8e0941cdaa1642e3ff60",
+   "characterId": "celine",
+   "family": "selected2",
+   "duration": 4.05,
+   "skinCodes": [
+    1043000,
+    1043001,
+    1043002,
+    1043003,
+    1043004,
+    1043005
+   ],
+   "skinNames": [
+    "席琳",
+    "拆彈專家 席琳",
+    "萬聖南瓜 席琳",
+    "旅途 席琳",
+    "閃爆邦尼 席琳",
+    "莓果炸彈女僕 席琳"
+   ],
+   "officials": [],
+   "kotoba": "よいしょっと",
+   "small": "うっ…よっし…"
+  },
+  {
+   "clip": "Echion-S000-Echion_selected_1",
+   "sha256": "ed4f8821cd1eb997785ba80762e04f165d03e5dda9a806d37bdd184c607bb989",
+   "characterId": "echion",
+   "family": "selected",
+   "duration": 4.17,
+   "skinCodes": [
+    1044000,
+    1044001,
+    1044002,
+    1044003,
+    1044004
+   ],
+   "skinNames": [
+    "厄喀翁",
+    "暗巷裡 厄喀翁",
+    "軍官候補生 厄喀翁",
+    "黑暗街頭 厄喀翁",
+    "異端審判官 厄喀翁"
+   ],
+   "officials": [],
+   "kotoba": "まとめてぶっ壊してやる早く行こうぜ",
+   "small": "まとめてぶっ壊してやる早く行こうぜ"
+  },
+  {
+   "clip": "Echion-S000-Echion_selected2_1",
+   "sha256": "351f246e19275e7efcfc1126196b2ef2908ccbed7e9196a294ec7f55be0a4136",
+   "characterId": "echion",
+   "family": "selected2",
+   "duration": 6.21,
+   "skinCodes": [
+    1044000,
+    1044001,
+    1044002,
+    1044003,
+    1044004
+   ],
+   "skinNames": [
+    "厄喀翁",
+    "暗巷裡 厄喀翁",
+    "軍官候補生 厄喀翁",
+    "黑暗街頭 厄喀翁",
+    "異端審判官 厄喀翁"
+   ],
+   "officials": [],
+   "kotoba": "うっアッアッ",
+   "small": "ぺっふーぺっふっはっ"
+  },
+  {
+   "clip": "Mai-S000-Mai_selected_1",
+   "sha256": "1eb47a288484aebebadf64b8096def403e179ca3875e6476637b118518c9f9ed",
+   "characterId": "mai",
+   "family": "selected",
+   "duration": 3.35,
+   "skinCodes": [
+    1045000,
+    1045001,
+    1045002,
+    1045003,
+    1045005
+   ],
+   "skinNames": [
+    "梅",
+    "轉學生 梅",
+    "軍官候補生 梅",
+    "夏日時尚 梅",
+    "甜心兔女郎 梅"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/45",
+     "text": "やる気出ないんですけど。",
+     "vsKotoba": 0.64
+    }
+   ],
+   "kotoba": "本当にやりたくないんですけど",
+   "small": "はぁ… 本当にやりたくないんですけど…"
+  },
+  {
+   "clip": "Mai-S000-Mai_selected2_1",
+   "sha256": "b3f73acdd43c25fde05adae2005340bf8715d512d53be9d1c4b78ea6805c2ec3",
+   "characterId": "mai",
+   "family": "selected2",
+   "duration": 6.09,
+   "skinCodes": [
+    1045000,
+    1045001,
+    1045002,
+    1045003,
+    1045005
+   ],
+   "skinNames": [
+    "梅",
+    "轉學生 梅",
+    "軍官候補生 梅",
+    "夏日時尚 梅",
+    "甜心兔女郎 梅"
+   ],
+   "officials": [],
+   "kotoba": "んアッフォー",
+   "small": "Hmm, hmm, hmm. Huh. Ah."
+  },
+  {
+   "clip": "Mai-S004-Mai_selected_1",
+   "sha256": "87ff312fc49f0d44d5c9ab1a8ae7a5938c5440446f54f555abf9d733eea1a029",
+   "characterId": "mai",
+   "family": "selected",
+   "duration": 3.14,
+   "skinCodes": [
+    1045004
+   ],
+   "skinNames": [
+    "偶像 梅"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1045004",
+     "text": "では、次のステージに向かいましょう。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "では次のステージに向かいましょう",
+   "small": "では次のステージに向かいましょう"
+  },
+  {
+   "clip": "Mai-S004-Mai_selected2_1",
+   "sha256": "9f925d1a6830a52ad99d0de1e71efb9afcad6ae01d8f563e45857110ffa33c0f",
+   "characterId": "mai",
+   "family": "selected2",
+   "duration": 9.12,
+   "skinCodes": [
+    1045004
+   ],
+   "skinNames": [
+    "偶像 梅"
+   ],
+   "officials": [],
+   "kotoba": "私のサインですか?アイドルとしてのサインならはい",
+   "small": "私のサインですか? アイドルとしてのサインなら… はい!"
+  },
+  {
+   "clip": "Aiden-S000-Aiden_selected_1",
+   "sha256": "03a30414201f412519b08413c8f4969fb62947a7a58243a5dc9ac66be24e04a3",
+   "characterId": "aiden",
+   "family": "selected",
+   "duration": 2.46,
+   "skinCodes": [
+    1046000,
+    1046001,
+    1046002,
+    1046003
+   ],
+   "skinNames": [
+    "艾登",
+    "幽靈獵人 艾登",
+    "問題終結者 艾登",
+    "午後咖啡 艾登"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/46",
+     "text": "人生はうまく行かないのが当然だ。",
+     "vsKotoba": 0.933
+    }
+   ],
+   "kotoba": "人生はうまくいかないのが当然だ",
+   "small": "人生はうまくいかないのが当然だ"
+  },
+  {
+   "clip": "Aiden-S000-Aiden_selected2_1",
+   "sha256": "803395eef7813471bd8166e040da48bdabae7b73b15d62c17192e0fc408c97e2",
+   "characterId": "aiden",
+   "family": "selected2",
+   "duration": 3.69,
+   "skinCodes": [
+    1046000,
+    1046001,
+    1046002,
+    1046003
+   ],
+   "skinNames": [
+    "艾登",
+    "幽靈獵人 艾登",
+    "問題終結者 艾登",
+    "午後咖啡 艾登"
+   ],
+   "officials": [],
+   "kotoba": "はっ",
+   "small": "あ!ふんはっ!"
+  },
+  {
+   "clip": "Aiden-S004-Aiden_selected_1",
+   "sha256": "d98d3b6f7df881a45efd57b141d0eb55fd8bc117841ede0f71352372ec4a3201",
+   "characterId": "aiden",
+   "family": "selected",
+   "duration": 2.31,
+   "skinCodes": [
+    1046004
+   ],
+   "skinNames": [
+    "艾登（凱）"
+   ],
+   "officials": [],
+   "kotoba": "人雷のゆえんを教えてやろう",
+   "small": "人来の有援を教えてやろう"
+  },
+  {
+   "clip": "Aiden-S004-Aiden_selected2_1",
+   "sha256": "cc47d0be45e12b496f6b0645b2c78fe72b02217156af398f74e75b10eefc3d34",
+   "characterId": "aiden",
+   "family": "selected2",
+   "duration": 7.5,
+   "skinCodes": [
+    1046004
+   ],
+   "skinNames": [
+    "艾登（凱）"
+   ],
+   "officials": [],
+   "kotoba": "ふん人来のゆえんを教えてやろう",
+   "small": "ん人来の誘援を教えてやろう"
+  },
+  {
+   "clip": "Laura-S000-Laura_selected_1",
+   "sha256": "d008edae12b03626472011ba327608282f369cc2dc9403f89a5f29eb2fd8eaa4",
+   "characterId": "laura",
+   "family": "selected",
+   "duration": 1.84,
+   "skinCodes": [
+    1047000,
+    1047001,
+    1047002,
+    1047003,
+    1047005
+   ],
+   "skinNames": [
+    "蘿拉",
+    "越獄者 蘿拉",
+    "黑暗街頭 蘿拉",
+    "苦澀的甜蜜 蘿拉",
+    "蘿拉 (PANTHER)"
+   ],
+   "officials": [],
+   "kotoba": "見る目があるわね",
+   "small": "見る目があるわね"
+  },
+  {
+   "clip": "Laura-S000-Laura_selected2_1",
+   "sha256": "f72f0201001d59888f8de842a147410439ab7e383e7fe9571ade7c676f92e537",
+   "characterId": "laura",
+   "family": "selected2",
+   "duration": 6.09,
+   "skinCodes": [
+    1047000,
+    1047001,
+    1047002,
+    1047003,
+    1047005
+   ],
+   "skinNames": [
+    "蘿拉",
+    "越獄者 蘿拉",
+    "黑暗街頭 蘿拉",
+    "苦澀的甜蜜 蘿拉",
+    "蘿拉 (PANTHER)"
+   ],
+   "officials": [],
+   "kotoba": "ふん",
+   "small": "フッ…ふーん…はははは!"
+  },
+  {
+   "clip": "Laura-S004-Laura_selected_1",
+   "sha256": "0fa38b9023142caa923437e16c6fffd6c9474edf52dd01db710b6e1879b6ed76",
+   "characterId": "laura",
+   "family": "selected",
+   "duration": 7.52,
+   "skinCodes": [
+    1047004
+   ],
+   "skinNames": [
+    "統御教官 蘿拉"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1047004",
+     "text": "さて、私の指導が必要な子は...どこにいるのかしら？",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "さて私の指導が必要な子はどこにいるのかしら",
+   "small": "さて私の志郎が必要な子は どこにいるのかしら"
+  },
+  {
+   "clip": "Laura-S004-Laura_selected2_1",
+   "sha256": "0c6ccf2b58577cb1cc512bc5523039265f641b622b5704db6af9d3d755d9cd61",
+   "characterId": "laura",
+   "family": "selected2",
+   "duration": 8.95,
+   "skinCodes": [
+    1047004
+   ],
+   "skinNames": [
+    "統御教官 蘿拉"
+   ],
+   "officials": [],
+   "kotoba": "2日目の戦闘で重要なのはここでは実戦の時間よ",
+   "small": "二日目の戦闘で重要なのはここフッ では実戦の時間よフフッ"
+  },
+  {
+   "clip": "Tia-S000-Tia_selected_1",
+   "sha256": "dc37fd77ea49017327c6bc9f534f6b75b631408d6a8211ce743bc2b26f8a486f",
+   "characterId": "tia",
+   "family": "selected",
+   "duration": 2.91,
+   "skinCodes": [
+    1048000,
+    1048001,
+    1048002,
+    1048004,
+    1048005
+   ],
+   "skinNames": [
+    "蒂亞",
+    "街頭畫家 蒂亞",
+    "見習魔女 蒂亞",
+    "海繪師 蒂亞",
+    "怕生松鼠女僕 蒂亞"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/48",
+     "text": "私に…描いてほしいものとか…ある？",
+     "vsKotoba": 0.929
+    }
+   ],
+   "kotoba": "私に書いてほしいものとかある?",
+   "small": "私に書いてほしいものとかある?"
+  },
+  {
+   "clip": "Tia-S000-Tia_selected2_1",
+   "sha256": "c36f2da483c487011d38e3d77eb00208bd12c784587c0ee6da678e9168780b01",
+   "characterId": "tia",
+   "family": "selected2",
+   "duration": 5.51,
+   "skinCodes": [
+    1048000,
+    1048001,
+    1048002,
+    1048004,
+    1048005
+   ],
+   "skinNames": [
+    "蒂亞",
+    "街頭畫家 蒂亞",
+    "見習魔女 蒂亞",
+    "海繪師 蒂亞",
+    "怕生松鼠女僕 蒂亞"
+   ],
+   "officials": [],
+   "kotoba": "よいしょ",
+   "small": "よいしょ!"
+  },
+  {
+   "clip": "Tia-S003-Tia_selected_1",
+   "sha256": "5aa2e8840417fd1d6f6c4495772039576b4a26e3c6b9ba1a5a389e14f91ce6a5",
+   "characterId": "tia",
+   "family": "selected",
+   "duration": 2.58,
+   "skinCodes": [
+    1048003
+   ],
+   "skinNames": [
+    "像素畫家 蒂亞"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1048003",
+     "text": "ピクセルアートは...好き...？",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "ピクセルアートは好き?",
+   "small": "ピクセルアートは…好き?"
+  },
+  {
+   "clip": "Tia-S003-Tia_selected2_1",
+   "sha256": "a1084bfa97f99af0026bbc5a6fc6f9115ed389caebf18efe1b7688e34e138393",
+   "characterId": "tia",
+   "family": "selected2",
+   "duration": 9.87,
+   "skinCodes": [
+    1048003
+   ],
+   "skinNames": [
+    "像素畫家 蒂亞"
+   ],
+   "officials": [],
+   "kotoba": "今日は他の描き方で絵を描いてみるね",
+   "small": "うふふ…きょ…今日は他の描き方で絵を描いてみるねう…"
+  },
+  {
+   "clip": "Felix-S000-Felix_selected_1",
+   "sha256": "4ec11d8cd79e8329ee864131b92a8c8caee623a42eca7bb6d9722b03742974c7",
+   "characterId": "felix",
+   "family": "selected",
+   "duration": 4.57,
+   "skinCodes": [
+    1049000,
+    1049001,
+    1049002,
+    1049003,
+    1049004,
+    1049005
+   ],
+   "skinNames": [
+    "菲利克斯",
+    "遊樂園 菲利克斯",
+    "OP.GG 菲利克斯",
+    "機動警察 菲利克斯",
+    "仲夏慶典 菲利克斯",
+    "軍官候補生 菲利克斯"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/49",
+     "text": "目標は高く、行動は素早く！よし、行こうか！",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "目標は高く行動は素早くよし行こうか",
+   "small": "目標は高く 行動は素早くよし 行こうか"
+  },
+  {
+   "clip": "Felix-S000-Felix_selected2_1",
+   "sha256": "68d36bb95c0f60aa34563a841b3e0e3b890b3d33c995cfe6bf02478c6f422f8c",
+   "characterId": "felix",
+   "family": "selected2",
+   "duration": 4.92,
+   "skinCodes": [
+    1049000,
+    1049001,
+    1049002,
+    1049003,
+    1049004,
+    1049005
+   ],
+   "skinNames": [
+    "菲利克斯",
+    "遊樂園 菲利克斯",
+    "OP.GG 菲利克斯",
+    "機動警察 菲利克斯",
+    "仲夏慶典 菲利克斯",
+    "軍官候補生 菲利克斯"
+   ],
+   "officials": [],
+   "kotoba": "うっ!",
+   "small": "うおぉ!"
+  },
+  {
+   "clip": "Elena-S000-Elena_selected_1",
+   "sha256": "b450e372ed631a0c52c15d141fb5d2aa1239d9814333bf74257e83db7ebfd828",
+   "characterId": "elena",
+   "family": "selected",
+   "duration": 4.32,
+   "skinCodes": [
+    1050000,
+    1050001,
+    1050002,
+    1050004,
+    1050005,
+    1050006
+   ],
+   "skinNames": [
+    "艾琳娜",
+    "黑天鵝 艾琳娜",
+    "寒冬 艾琳娜",
+    "軍官候補生 艾琳娜",
+    "2nd Anniversary 艾琳娜",
+    "2nd Anniversary 艾琳娜 Indigo"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/50",
+     "text": "私の番ですか？ そうなんですね。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "私の番ですか?そうなんですね",
+   "small": "私の番ですか そうなんですね"
+  },
+  {
+   "clip": "Elena-S000-Elena_selected2_1",
+   "sha256": "6c3a03266174f7cf0e4651bcf48409de186e69fe2a0e2449c800f49a1c88e7fa",
+   "characterId": "elena",
+   "family": "selected2",
+   "duration": 0.29,
+   "skinCodes": [
+    1050000,
+    1050001,
+    1050002,
+    1050004,
+    1050005,
+    1050006
+   ],
+   "skinNames": [
+    "艾琳娜",
+    "黑天鵝 艾琳娜",
+    "寒冬 艾琳娜",
+    "軍官候補生 艾琳娜",
+    "2nd Anniversary 艾琳娜",
+    "2nd Anniversary 艾琳娜 Indigo"
+   ],
+   "officials": [],
+   "kotoba": "ごめん",
+   "small": ""
+  },
+  {
+   "clip": "Elena-S003-Elena_selected_1",
+   "sha256": "2af40039857e8c5c2f642e16e4834a4d6056428870a28a7e820193bb49363b7f",
+   "characterId": "elena",
+   "family": "selected",
+   "duration": 3.67,
+   "skinCodes": [
+    1050003
+   ],
+   "skinNames": [
+    "學生會長 艾琳娜"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1050003",
+     "text": "わざわざ私から出向く必要ありますか？",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "わざわざ私から出向く必要ありますか?",
+   "small": "わざわざ私から出向く必要ありますか"
+  },
+  {
+   "clip": "Elena-S003-Elena_selected2_1",
+   "sha256": "ea522e4072eec03825b2b0eab9b7275338180a4da2c1968a3c3dbf435da2daba",
+   "characterId": "elena",
+   "family": "selected2",
+   "duration": 9.97,
+   "skinCodes": [
+    1050003
+   ],
+   "skinNames": [
+    "學生會長 艾琳娜"
+   ],
+   "officials": [],
+   "kotoba": "うん指導すべき生徒が結構いますねあっ",
+   "small": "うん…指導すべき生徒が結構いますね"
+  },
+  {
+   "clip": "Priya-S000-Priya_selected_1",
+   "sha256": "5fc5dd79ad4d975ce4a02a76d7f647b196474e7774f4383b98be8eb3ae5bd388",
+   "characterId": "priya",
+   "family": "selected",
+   "duration": 4.85,
+   "skinCodes": [
+    1051000,
+    1051001,
+    1051002,
+    1051003
+   ],
+   "skinNames": [
+    "普里亞",
+    "永生花 普里亞",
+    "創作歌手 普里亞",
+    "網球社 普里亞"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/51",
+     "text": "私の心が込められた演奏を皆に聞かせたいです。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "私の心が込められた演奏を皆に聞かせたいです",
+   "small": "私の心が込められた演奏を、皆に聞かせたいです"
+  },
+  {
+   "clip": "Priya-S000-Priya_selected2_1",
+   "sha256": "2eecbe6b93eb4f96158d24c57865b8b917f70d6e4ae00f8ad894c8d01d6da568",
+   "characterId": "priya",
+   "family": "selected2",
+   "duration": 10.73,
+   "skinCodes": [
+    1051000,
+    1051001,
+    1051002,
+    1051003
+   ],
+   "skinNames": [
+    "普里亞",
+    "永生花 普里亞",
+    "創作歌手 普里亞",
+    "網球社 普里亞"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/51",
+     "text": "私の心が込められた演奏を皆に聞かせたいです。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "私の心が込められた演奏を皆に聞かせたいです",
+   "small": "あ、ふっふっあ、ふっふっふっ私の心が込められた演奏をみなに聞かせたいです"
+  },
+  {
+   "clip": "Priya-S000-Priya_selected2_2",
+   "sha256": "1e2aa5c6d19ead8efd63beb047f3cf5aadd351389d692e4c3d28f1e06dfe5465",
+   "characterId": "priya",
+   "family": "selected2",
+   "duration": 11.87,
+   "skinCodes": [
+    1051000,
+    1051001,
+    1051002,
+    1051003
+   ],
+   "skinNames": [
+    "普里亞",
+    "永生花 普里亞",
+    "創作歌手 普里亞",
+    "網球社 普里亞"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/51",
+     "text": "私の心が込められた演奏を皆に聞かせたいです。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "私の心が込められた演奏を皆に聞かせたいです",
+   "small": "フッフッフッフッフッフッフッフッフッフッフ!私の心が込められた演奏を…みなに聞かせたいです。"
+  },
+  {
+   "clip": "Adina-S000-Adina_selected_1",
+   "sha256": "fd7e2854c620478bfe2f3ddad60f3489d2aa09886aa1c8a1be0bf9d7d0e05bcb",
+   "characterId": "adina",
+   "family": "selected",
+   "duration": 3.25,
+   "skinCodes": [
+    1052000,
+    1052001,
+    1052002,
+    1052003
+   ],
+   "skinNames": [
+    "艾迪娜",
+    "命運之翡 艾迪娜",
+    "永恆誓約 艾迪娜",
+    "海濱占星師 艾迪娜"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/52",
+     "text": "運命より大事なのは、私達の意志です。",
+     "vsKotoba": 0.848
+    }
+   ],
+   "kotoba": "運命より大事なのは私たちの意思です",
+   "small": "恩迷より大事なのは私たちの意思です"
+  },
+  {
+   "clip": "Adina-S000-Adina_selected2_1",
+   "sha256": "9a9c3ae2c8ddffa4b93bd7fa4ca6dc0a4dda967608746abd23f4ffc7ead0d7d0",
+   "characterId": "adina",
+   "family": "selected2",
+   "duration": 4.47,
+   "skinCodes": [
+    1052000,
+    1052001,
+    1052002,
+    1052003
+   ],
+   "skinNames": [
+    "艾迪娜",
+    "命運之翡 艾迪娜",
+    "永恆誓約 艾迪娜",
+    "海濱占星師 艾迪娜"
+   ],
+   "officials": [],
+   "kotoba": "それうん",
+   "small": "それ…おぉ…うふふ"
+  },
+  {
+   "clip": "Markus-S000-Markus_selected_1",
+   "sha256": "ee95b10ac0de643aeec8860a53e8123b2c75766ac5b54647f3707ee66cef3cd8",
+   "characterId": "markus",
+   "family": "selected",
+   "duration": 3.29,
+   "skinCodes": [
+    1053000,
+    1053001,
+    1053002,
+    1053003
+   ],
+   "skinNames": [
+    "馬庫斯",
+    "天啟 馬庫斯",
+    "惡靈獵手 馬庫斯",
+    "海濱戰士 馬庫斯"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/53",
+     "text": "戦いとは対等な相手にしか使わない言葉だ。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "戦いとは対等な相手にしか使わない言葉だ",
+   "small": "戦いとは、対当な相手にしか使わない言葉だ"
+  },
+  {
+   "clip": "Markus-S000-Markus_selected2_1",
+   "sha256": "e4e312c7230bed38842e9ab0837050b52a02119ddad8929a7438943c539910ff",
+   "characterId": "markus",
+   "family": "selected2",
+   "duration": 5.99,
+   "skinCodes": [
+    1053000,
+    1053001,
+    1053002,
+    1053003
+   ],
+   "skinNames": [
+    "馬庫斯",
+    "天啟 馬庫斯",
+    "惡靈獵手 馬庫斯",
+    "海濱戰士 馬庫斯"
+   ],
+   "officials": [],
+   "kotoba": "ふっ",
+   "small": ""
+  },
+  {
+   "clip": "Karla-S000-Karla_selected_1",
+   "sha256": "c07ae2c8a916a32083772f044f0e7f2e9c50e05163b344be4f23c3206502eb3b",
+   "characterId": "karla",
+   "family": "selected",
+   "duration": 4.12,
+   "skinCodes": [
+    1054000,
+    1054001,
+    1054002
+   ],
+   "skinNames": [
+    "卡爾拉",
+    "海上救生員 卡爾拉",
+    "暗巷裡 卡爾拉"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/54",
+     "text": "失せろ、あんたの言うことなんか聞いてる暇はないから。",
+     "vsKotoba": 0.898
+    }
+   ],
+   "kotoba": "うっさろ!あんたの言うことなんか聞いてる暇はないから",
+   "small": "うっそろ!あんたの言うことなんか聞いてる暇はないから"
+  },
+  {
+   "clip": "Karla-S000-Karla_selected2_1",
+   "sha256": "67aab23cda947978c5edfb2486e2caa4c300121905e8bd34b84d337422f50e78",
+   "characterId": "karla",
+   "family": "selected2",
+   "duration": 6.4,
+   "skinCodes": [
+    1054000,
+    1054001,
+    1054002
+   ],
+   "skinNames": [
+    "卡爾拉",
+    "海上救生員 卡爾拉",
+    "暗巷裡 卡爾拉"
+   ],
+   "officials": [],
+   "kotoba": "んうっ",
+   "small": ""
+  },
+  {
+   "clip": "Estelle-S000-Estelle_selected_1",
+   "sha256": "47eee46f6c0db89e623bc8be9735a338b4ba9c8c1b6eecbed49cff551bd2cd0e",
+   "characterId": "estelle",
+   "family": "selected",
+   "duration": 4.32,
+   "skinCodes": [
+    1055000,
+    1055001,
+    1055002,
+    1055004
+   ],
+   "skinNames": [
+    "艾絲黛爾",
+    "消防隊員 艾絲黛爾",
+    "見習消防員 艾絲黛爾",
+    "守護教官 艾絲黛爾"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/55",
+     "text": "火災に注意してください！後は私がなんとかしますから。",
+     "vsKotoba": 0.735
+    }
+   ],
+   "kotoba": "火災に気をつけてくださいあとは私が何とかしますから",
+   "small": "火災に気をつけてください あとは私が何とかしますから"
+  },
+  {
+   "clip": "Estelle-S000-Estelle_selected2_1",
+   "sha256": "c8d6de095667c39d5d42e01b3c2431fd02e76146503f5fcb53f8e4c0ca6985d7",
+   "characterId": "estelle",
+   "family": "selected2",
+   "duration": 11.97,
+   "skinCodes": [
+    1055000,
+    1055001,
+    1055002,
+    1055004
+   ],
+   "skinNames": [
+    "艾絲黛爾",
+    "消防隊員 艾絲黛爾",
+    "見習消防員 艾絲黛爾",
+    "守護教官 艾絲黛爾"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/55",
+     "text": "火災に注意してください！後は私がなんとかしますから。",
+     "vsKotoba": 0.706
+    }
+   ],
+   "kotoba": "はあ火災に気をつけてくださいあとは私が何とかしますから",
+   "small": "ふっはぁーはぁー火災に気をつけてください あとは私がなんとかしますから"
+  },
+  {
+   "clip": "Estelle-S003-Estelle_selected_1",
+   "sha256": "fa1961af2902ca16b7cc3d4c00776c80966868127433781d14d84f7e8ac2fbbf",
+   "characterId": "estelle",
+   "family": "selected",
+   "duration": 7.24,
+   "skinCodes": [
+    1055003
+   ],
+   "skinNames": [
+    "比安黛爾"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1055003",
+     "text": "\"お、お主らの血の味はどんな味がするかのう\"..アハハ..",
+     "vsKotoba": 0.884
+    }
+   ],
+   "kotoba": "おぬしらの血の味はどんな味がするかのアハハ",
+   "small": "お、おぬしらの血の味はどんな味がするかの?あはは"
+  },
+  {
+   "clip": "Piolo-S000-Piolo_selected_1",
+   "sha256": "4f11c32673374b8db10aef4fd7bd9aeed3581dfda52f393adb9bc3621354ea71",
+   "characterId": "piolo",
+   "family": "selected",
+   "duration": 1.85,
+   "skinCodes": [
+    1056000,
+    1056001,
+    1056002
+   ],
+   "skinNames": [
+    "皮奧洛",
+    "挑戰者 皮奧洛",
+    "街頭鬥士 皮奧洛"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/56",
+     "text": "心の隙間を埋めるべきだ。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "心の隙間を埋めるべきだ",
+   "small": "心の隙間を埋めるべきだ"
+  },
+  {
+   "clip": "Martina-S000-Martina_selected_1",
+   "sha256": "b6bb690c8db8e1cf6ca7b2aab7548cb57c785bea728f3c9ddffbca933f4f531a",
+   "characterId": "martina",
+   "family": "selected",
+   "duration": 3.02,
+   "skinCodes": [
+    1057000,
+    1057001
+   ],
+   "skinNames": [
+    "瑪蒂娜",
+    "探險記者 瑪蒂娜"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/57",
+     "text": "絶対に妥協はしない、記者だから。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "絶対に妥協はしない記者だから",
+   "small": "絶対に妥協はしない 記者だから"
+  },
+  {
+   "clip": "Martina-S000-Martina_selected2_1",
+   "sha256": "6a701c999fb77743acc6fa4a9583868d09342ca000983dd84b0e549cc3c1569a",
+   "characterId": "martina",
+   "family": "selected2",
+   "duration": 12.5,
+   "skinCodes": [
+    1057000,
+    1057001
+   ],
+   "skinNames": [
+    "瑪蒂娜",
+    "探險記者 瑪蒂娜"
+   ],
+   "officials": [],
+   "kotoba": "よしいいもの取れたよ",
+   "small": "あ!よし! 良いもの取れたよ!"
+  },
+  {
+   "clip": "Martina-S002-Martina_selected_1",
+   "sha256": "62e1b446c422fd46a20b06d7e2849d96f22d2ed582f1cdaa10cdc48d9a2aee88",
+   "characterId": "martina",
+   "family": "selected",
+   "duration": 2.72,
+   "skinCodes": [
+    1057002
+   ],
+   "skinNames": [
+    "20年前的瑪蒂娜"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/57",
+     "text": "絶対に妥協はしない、記者だから。",
+     "vsKotoba": 0.846
+    }
+   ],
+   "kotoba": "妥協はしない記者だからね",
+   "small": "妥協はしない 記者だからね"
+  },
+  {
+   "clip": "Martina-S002-Martina_selected2_1",
+   "sha256": "e5e03b2db4745c4e1c2201018760b0935d702047aa97fe30904f9e69ec851c34",
+   "characterId": "martina",
+   "family": "selected2",
+   "duration": 10.76,
+   "skinCodes": [
+    1057002
+   ],
+   "skinNames": [
+    "20年前的瑪蒂娜"
+   ],
+   "officials": [],
+   "kotoba": "うわっよかったカメラが無事で",
+   "small": "わー!よかったー!カメラが無事で!"
+  },
+  {
+   "clip": "Haze-S000-Haze_selected_1",
+   "sha256": "99d317e0666aca6c0e3d79e00e9a27d0a0ee4f07f9c9f7f7b13859e4396c857d",
+   "characterId": "haze",
+   "family": "selected",
+   "duration": 3.02,
+   "skinCodes": [
+    1058000,
+    1058001,
+    1058003,
+    1058004,
+    1058005
+   ],
+   "skinNames": [
+    "海因茨",
+    "黑暗街頭 海因茨",
+    "午後咖啡 海因茨",
+    "1st Anniversary 海因茨",
+    "1st Anniversary Blanc 海因茨"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/58",
+     "text": "どんな時でも、あたしはプロだから。",
+     "vsKotoba": 0.857
+    }
+   ],
+   "kotoba": "どんな時でも私はプロだから",
+   "small": "どんな時でも、私はプロだから"
+  },
+  {
+   "clip": "Haze-S000-Haze_selected2_1",
+   "sha256": "629a1b9b6a72fcaf99b6c7ef04e4daa0ce6365db18ae733693f2dbf5f20a58a5",
+   "characterId": "haze",
+   "family": "selected2",
+   "duration": 9.5,
+   "skinCodes": [
+    1058000,
+    1058001,
+    1058003,
+    1058004,
+    1058005
+   ],
+   "skinNames": [
+    "海因茨",
+    "黑暗街頭 海因茨",
+    "午後咖啡 海因茨",
+    "1st Anniversary 海因茨",
+    "1st Anniversary Blanc 海因茨"
+   ],
+   "officials": [],
+   "kotoba": "武器ならいくらでもある",
+   "small": "はぁ…あっ…うっ…武器ならいくらでもある"
+  },
+  {
+   "clip": "Haze-S002-Haze_selected_1",
+   "sha256": "21ec2a54fb6da88a24ddd9bc7bfd239e4903525ed07dc02fd35adce10aaa5105",
+   "characterId": "haze",
+   "family": "selected",
+   "duration": 3,
+   "skinCodes": [
+    1058002
+   ],
+   "skinNames": [
+    "嬌陽盛夏 海因茨"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/58",
+     "text": "どんな時でも、あたしはプロだから。",
+     "vsKotoba": 0.643
+    }
+   ],
+   "kotoba": "休暇の時でも私はプロだから",
+   "small": "休暇の時でも私はプロだから"
+  },
+  {
+   "clip": "Haze-S002-Haze_selected2_1",
+   "sha256": "b2efba28facc9b1bc38bd960cf8cdcb8f8794ab6a001d9c572e85768e2aa447f",
+   "characterId": "haze",
+   "family": "selected2",
+   "duration": 13.41,
+   "skinCodes": [
+    1058002
+   ],
+   "skinNames": [
+    "嬌陽盛夏 海因茨"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1058002",
+     "text": "久しぶりの休暇だ。存分に楽しんでおかないと。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "久しぶりの休暇だ存分に楽しんでおかないと",
+   "small": "あっ…あっ…久しぶりの休暇だ存分に楽しんでおかないと"
+  },
+  {
+   "clip": "Haze-S006-Haze_selected_1",
+   "sha256": "5dc2f4b333ae8b0ca3240f8bf1090987ba391e9cf0043865e74c94185f5a9bdb",
+   "characterId": "haze",
+   "family": "selected",
+   "duration": 3.55,
+   "skinCodes": [
+    1058006
+   ],
+   "skinNames": [
+    "王牌兔女郎 海因茨"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1058006",
+     "text": "もっと賭けろ。本物のプロが来たからな。",
+     "vsKotoba": 0.941
+    }
+   ],
+   "kotoba": "もっとかけろ本物のプロが来たからな",
+   "small": "もっとかけろ 本物のプロが来たからな"
+  },
+  {
+   "clip": "Haze-S006-Haze_selected2_1",
+   "sha256": "f3e9a2de4d84b0dbfefedf92cea0669456f1effc81b47b00328a4802c00dd60e",
+   "characterId": "haze",
+   "family": "selected2",
+   "duration": 11.64,
+   "skinCodes": [
+    1058006
+   ],
+   "skinNames": [
+    "王牌兔女郎 海因茨"
+   ],
+   "officials": [],
+   "kotoba": "こちら以上なし営業開始する",
+   "small": "うっ…うっ…うっ…はっ…こちら以上だし、営業開始するうっ…"
+  },
+  {
+   "clip": "Isaac-S000-Isaac_selected_1",
+   "sha256": "73ab66ac2ffc32bd0671e95204f3be209ace0ddecee434a685b01f166d4c2aa2",
+   "characterId": "isaac",
+   "family": "selected",
+   "duration": 2.81,
+   "skinCodes": [
+    1059000,
+    1059001,
+    1059002,
+    1059003
+   ],
+   "skinNames": [
+    "艾薩克",
+    "黑暗街頭 艾薩克",
+    "西部警長 艾薩克",
+    "傲慢軍團長 艾薩克"
+   ],
+   "officials": [],
+   "kotoba": "この俺に話しかけるな",
+   "small": "この俺に話しかけるな"
+  },
+  {
+   "clip": "Isaac-S000-Isaac_selected2_1",
+   "sha256": "b1d527f301e60449694a6a740dcf1cf2f26648026cedd1de727fc70980c6203c",
+   "characterId": "isaac",
+   "family": "selected2",
+   "duration": 12.81,
+   "skinCodes": [
+    1059000,
+    1059001,
+    1059002,
+    1059003
+   ],
+   "skinNames": [
+    "艾薩克",
+    "黑暗街頭 艾薩克",
+    "西部警長 艾薩克",
+    "傲慢軍團長 艾薩克"
+   ],
+   "officials": [],
+   "kotoba": "何でもやるときはこの手でやらねえとな",
+   "small": "うーんうっうっふっふっ何でもやるときはこの手でやらねえとな"
+  },
+  {
+   "clip": "Tazia-S000-Tazia_selected_1",
+   "sha256": "5ee5054406f243e355a7cc09a63706c8185d7f103238977dcc0f61512250e33d",
+   "characterId": "tazia",
+   "family": "selected",
+   "duration": 2.47,
+   "skinCodes": [
+    1060000,
+    1060001,
+    1060002,
+    1060003
+   ],
+   "skinNames": [
+    "塔齊雅",
+    "白璃幻夢 塔齊雅",
+    "甜蜜情人 塔齊雅",
+    "海洋琉光 塔齊雅"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/60",
+     "text": "ガラスは割れたらそれでおしまい。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "ガラスは割れたらそれでおしまい",
+   "small": "ガラスは割れたらそれでおしまい"
+  },
+  {
+   "clip": "Tazia-S000-Tazia_selected2_1",
+   "sha256": "81eb16e12ac53f1fda73af426c76d32de08cf24e1b1d54057c90c8138c672a9b",
+   "characterId": "tazia",
+   "family": "selected2",
+   "duration": 10.87,
+   "skinCodes": [
+    1060000,
+    1060001,
+    1060002,
+    1060003
+   ],
+   "skinNames": [
+    "塔齊雅",
+    "白璃幻夢 塔齊雅",
+    "甜蜜情人 塔齊雅",
+    "海洋琉光 塔齊雅"
+   ],
+   "officials": [],
+   "kotoba": "完璧なものだけが美しくなれるのよ",
+   "small": "フッ完璧なものだけが美しくなれるのよ"
+  },
+  {
+   "clip": "Irem-S000-Irem_selected_1",
+   "sha256": "de56fb0009d9db4186167b38e289475b81d755f7df183d62e01049436448973a",
+   "characterId": "irem",
+   "family": "selected",
+   "duration": 3.26,
+   "skinCodes": [
+    1061000,
+    1061001
+   ],
+   "skinNames": [
+    "愛琳",
+    "冬日戲雪 愛琳"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/61",
+     "text": "今のって、あたしのことが好きってことでしょ？",
+     "vsKotoba": 0.895
+    }
+   ],
+   "kotoba": "今のって私のことが好きってことでしょ?",
+   "small": "今のって私のことが好きってことでしょ"
+  },
+  {
+   "clip": "Irem-S000-Irem_selected2_1",
+   "sha256": "19f64697b851b81c716db92b828d73a94a5c2eb60acaae9acc63deadd5b67859",
+   "characterId": "irem",
+   "family": "selected2",
+   "duration": 11.26,
+   "skinCodes": [
+    1061000,
+    1061001
+   ],
+   "skinNames": [
+    "愛琳",
+    "冬日戲雪 愛琳"
+   ],
+   "officials": [],
+   "kotoba": "今度はどこに遊びに行ってみようかな",
+   "small": "んー…うやっ!んっ…んっ…はぁ…はぁ…今度はどこに遊びに行ってみようかなぁ"
+  },
+  {
+   "clip": "Irem-S003-Irem_selected_1",
+   "sha256": "e4c08ed30bf4ccebf21013ae7a1ae86f36acd3d4eb3c70450d72dc311214a222",
+   "characterId": "irem",
+   "family": "selected",
+   "duration": 3.32,
+   "skinCodes": [
+    1061003
+   ],
+   "skinNames": [
+    "貓貓遊園會 愛琳"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1061003",
+     "text": "待ってたよ！一緒に金魚すくいに行こう！",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "待ってたよ一緒に金魚すくいに行こう",
+   "small": "待ってたよ一緒に金丘匹に行こう"
+  },
+  {
+   "clip": "Irem-S003-Irem_selected2_1",
+   "sha256": "8b41b26b4352787ff69385273e3dc0e80d0f290dba099e51eaaebc47f785baa5",
+   "characterId": "irem",
+   "family": "selected2",
+   "duration": 13.35,
+   "skinCodes": [
+    1061003
+   ],
+   "skinNames": [
+    "貓貓遊園會 愛琳"
+   ],
+   "officials": [],
+   "kotoba": "ふんふんどこから遊びに行こうかな",
+   "small": "ふんふんふん…よっとっと!にゃー!うっ…うふふふふ!どこから遊びに行こうかな?うふふふふ!"
+  },
+  {
+   "clip": "Theodore-S000-Theodore_selected_1",
+   "sha256": "05f828c97c415dba86187d84fdbe66a9cc0e525d64a92f7c9f8551274c8a4e29",
+   "characterId": "theodore",
+   "family": "selected",
+   "duration": 1.44,
+   "skinCodes": [
+    1062000,
+    1062001,
+    1062002,
+    1062003
+   ],
+   "skinNames": [
+    "西奧多",
+    "機動特遣隊 西奧多",
+    "戰鬥祭司 西奧多",
+    "射擊教官 西奧多"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/62",
+     "text": "後ろはこっちに任せろ。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "後ろはこっちに任せろ",
+   "small": "後ろはこっちに任せろ"
+  },
+  {
+   "clip": "Theodore-S000-Theodore_selected2_1",
+   "sha256": "46e191ba6ec3eb3fa8d9872d871208595ec98273a1cd717628026eded738b8fa",
+   "characterId": "theodore",
+   "family": "selected2",
+   "duration": 10.84,
+   "skinCodes": [
+    1062000,
+    1062001,
+    1062002,
+    1062003
+   ],
+   "skinNames": [
+    "西奧多",
+    "機動特遣隊 西奧多",
+    "戰鬥祭司 西奧多",
+    "射擊教官 西奧多"
+   ],
+   "officials": [],
+   "kotoba": "装備の手入れは終わった行こう",
+   "small": "んっふっんっ装備の定理は終わった行こう"
+  },
+  {
+   "clip": "Lyanh-S000-Lyanh_selected_1",
+   "sha256": "16d01f0cf41156cd5205abd7f0a182db80610e191bce95230c7b920c150db179",
+   "characterId": "lyanh",
+   "family": "selected",
+   "duration": 4.86,
+   "skinCodes": [
+    1063000,
+    1063001,
+    1063002
+   ],
+   "skinNames": [
+    "伊安",
+    "禁錮者 伊安",
+    "深淵救贖 伊安"
+   ],
+   "officials": [],
+   "kotoba": "私を選ばないでください警告したはずです",
+   "small": "私を選ばないでください 警告したはずです"
+  },
+  {
+   "clip": "Lyanh-S003-Lyanh_selected_1",
+   "sha256": "b18ef51e1fa78a7fbfa068151a999ebeb1086950fcfc0f77ab8667a0a2109cf3",
+   "characterId": "lyanh",
+   "family": "selected",
+   "duration": 9.02,
+   "skinCodes": [
+    1063003
+   ],
+   "skinNames": [
+    "鬼火徊引 伊安"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1063003",
+     "text": "もうすぐ、始まります。 楽しい楽しいお祭りが、ね...",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "もうすぐ始まります楽しい楽しいお祭りがね",
+   "small": "もうすぐ始まります楽しい楽しいお祭りがね"
+  },
+  {
+   "clip": "Vanya-S000-Vanya_selected_1",
+   "sha256": "5768681e49ea82aed279270f12b621ecc7856cdf3f5c7af079f4a8ca8d07ef5f",
+   "characterId": "vanya",
+   "family": "selected",
+   "duration": 2.07,
+   "skinCodes": [
+    1064000,
+    1064001,
+    1064002,
+    1064004
+   ],
+   "skinNames": [
+    "萬尼亞",
+    "不祥之夢 萬尼亞",
+    "仲夏之夢 萬尼亞",
+    "瞌睡小鳥女僕 萬尼亞"
+   ],
+   "officials": [],
+   "kotoba": "蝶々を追いかけているの",
+   "small": "頂張を追いかけているの"
+  },
+  {
+   "clip": "Vanya-S000-Vanya_selected2_1",
+   "sha256": "e04c77f07d417051c88ccda721e8068d44f087df095d8e39d234496946fc8c6d",
+   "characterId": "vanya",
+   "family": "selected2",
+   "duration": 10.64,
+   "skinCodes": [
+    1064000,
+    1064001,
+    1064002,
+    1064004
+   ],
+   "skinNames": [
+    "萬尼亞",
+    "不祥之夢 萬尼亞",
+    "仲夏之夢 萬尼亞",
+    "瞌睡小鳥女僕 萬尼亞"
+   ],
+   "officials": [],
+   "kotoba": "道ならちょうちょたちが教えてくれるよ",
+   "small": "んっ道ならちょうちょたちが教えてくれるよ"
+  },
+  {
+   "clip": "Vanya-S003-Vanya_selected_1",
+   "sha256": "f5f20ae6dc1122866dddf81c348959fb986b01d52a23e7c0993131cdabf3a0f2",
+   "characterId": "vanya",
+   "family": "selected",
+   "duration": 4.1,
+   "skinCodes": [
+    1064003
+   ],
+   "skinNames": [
+    "全息精靈 萬尼亞"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1064003",
+     "text": "一緒に行きましょう、新たな世界へ。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "一緒に行きましょう新たな世界へ",
+   "small": "一緒に行きましょう。新たな世界へ"
+  },
+  {
+   "clip": "Vanya-S003-Vanya_selected2_1",
+   "sha256": "9a9873ac131c890914249b1a0c789ce43d90ea7d684fab34e3925d8458532fc1",
+   "characterId": "vanya",
+   "family": "selected2",
+   "duration": 12.63,
+   "skinCodes": [
+    1064003
+   ],
+   "skinNames": [
+    "全息精靈 萬尼亞"
+   ],
+   "officials": [],
+   "kotoba": "フチョウチョと一緒に夢の世界へ",
+   "small": "フッ…フッ…はぁ…頂上と一緒に夢の世界へフッ…フッ…"
+  },
+  {
+   "clip": "DebiMarlene-S000-DebiMarlene_selected_1",
+   "sha256": "9393362623471e25ee2322f94e8373c180e71af5df233b4fa68d6314db73cd35",
+   "characterId": "debimarlene",
+   "family": "selected",
+   "duration": 4.98,
+   "skinCodes": [
+    1065000,
+    1065001
+   ],
+   "skinNames": [
+    "黛比&瑪蓮",
+    "保鑣 黛比&瑪蓮"
+   ],
+   "officials": [],
+   "kotoba": "私たちは一緒にいる時強いから",
+   "small": "覚悟しとけよ!私たちは一緒にいる時、強いから"
+  },
+  {
+   "clip": "DebiMarlene-S000-DebiMarlene_selected2_1",
+   "sha256": "3c0f1b6f309fb5e38103f4a53858232fd412c9a378513f0a2fe43eb5dced1a80",
+   "characterId": "debimarlene",
+   "family": "selected2",
+   "duration": 8.3,
+   "skinCodes": [
+    1065000,
+    1065001
+   ],
+   "skinNames": [
+    "黛比&瑪蓮",
+    "保鑣 黛比&瑪蓮"
+   ],
+   "officials": [],
+   "kotoba": "グズグズしてないで早く来いよどう描いても無駄だと思うけど",
+   "small": "んグーズグーズしてないで早くよどうやっても無駄だと思うけど"
+  },
+  {
+   "clip": "DebiMarlene-S002-DebiMarlene_selected_1",
+   "sha256": "3bcb2501f8f031d09307b504529dec412002290503db97fb930bf916b0ec290d",
+   "characterId": "debimarlene",
+   "family": "selected",
+   "duration": 5.82,
+   "skinCodes": [
+    1065002
+   ],
+   "skinNames": [
+    "幻境雙生 黛比&瑪蓮"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1065002",
+     "text": "さーてと、暑気払いでもすっか～！\\nちょっとやりすぎるかもだけどね。",
+     "vsKotoba": 0.926
+    }
+   ],
+   "kotoba": "さてと初期払いでもすっかちょっとやりすぎるかもだけどね",
+   "small": "さあてと 初期払いでもすっかちょっとやりすぎるかもだけどね"
+  },
+  {
+   "clip": "DebiMarlene-S002-DebiMarlene_selected2_1",
+   "sha256": "862e30ada945b8a662b3ee433c3c4ebfa3f7887ba35097b5cdceec3bc8197dd8",
+   "characterId": "debimarlene",
+   "family": "selected2",
+   "duration": 10.17,
+   "skinCodes": [
+    1065002
+   ],
+   "skinNames": [
+    "幻境雙生 黛比&瑪蓮"
+   ],
+   "officials": [],
+   "kotoba": "ああいたかってごめんえっと後でアイス買ってあげるから",
+   "small": "あっ、あ、あ、痛かった!ごめん、えーと、後でアイス買ってあげるから。"
+  },
+  {
+   "clip": "DebiMarlene-S003-DebiMarlene_selected_1",
+   "sha256": "2f1946c5e02516021e8b4e70ff55dd8af27bd822c90e2664f360c945b893bcbf",
+   "characterId": "debimarlene",
+   "family": "selected",
+   "duration": 7.04,
+   "skinCodes": [
+    1065003
+   ],
+   "skinNames": [
+    "課餘閒時 黛比&瑪蓮"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1065003",
+     "text": "授業終わり！一緒に遊びに行く？ \\nついでに、私も行く予定だけど。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "授業終わり!一緒に遊びに行く?ついでに私も行く予定だけど",
+   "small": "従業終わり!一緒に遊びに行く!ついでに、私も行く予定だけど"
+  },
+  {
+   "clip": "DebiMarlene-S003-DebiMarlene_selected2_1",
+   "sha256": "e8c9377d167133323aa7d83cb09166f31ae2fe10830e1d4aad8bf63d5d5f64a1",
+   "characterId": "debimarlene",
+   "family": "selected2",
+   "duration": 9.89,
+   "skinCodes": [
+    1065003
+   ],
+   "skinNames": [
+    "課餘閒時 黛比&瑪蓮"
+   ],
+   "officials": [],
+   "kotoba": "起きて授業もう終わったから私寝てた",
+   "small": "うっ!お、起きて、授業もう終わったからあはは、私、寝てた?"
+  },
+  {
+   "clip": "Arda-S000-Arda_selected_1",
+   "sha256": "56e545e8220d6c8b22068a2935b6f82f84759656077c5642b6c3123fbcf61e86",
+   "characterId": "arda",
+   "family": "selected",
+   "duration": 5.28,
+   "skinCodes": [
+    1066000,
+    1066001,
+    1066002
+   ],
+   "skinNames": [
+    "阿爾達",
+    "考古學家 阿爾達",
+    "幽靈獵人 阿爾達"
+   ],
+   "officials": [],
+   "kotoba": "そなたの痕跡は後世にどう評価されるか楽しみではないか",
+   "small": "その他の痕跡は厚生にどう評価されるか 楽しみではないか"
+  },
+  {
+   "clip": "Arda-S000-Arda_selected2_1",
+   "sha256": "9abf3eb4517764c4e785a0227b4c44838962644efd4f929e35982111a56296f5",
+   "characterId": "arda",
+   "family": "selected2",
+   "duration": 11.05,
+   "skinCodes": [
+    1066000,
+    1066001,
+    1066002
+   ],
+   "skinNames": [
+    "阿爾達",
+    "考古學家 阿爾達",
+    "幽靈獵人 阿爾達"
+   ],
+   "officials": [],
+   "kotoba": "うん人はみんな自分の痕跡を残すものだ",
+   "small": "うーん 人はみんな自分の痕跡を残すものだ"
+  },
+  {
+   "clip": "Abigail-S000-Abigail_selected_1",
+   "sha256": "b1cea77cd5a4db700a30f03b859da1ea14487ccdbc8d7a6a4bec94f57d066deb",
+   "characterId": "abigail",
+   "family": "selected",
+   "duration": 5.91,
+   "skinCodes": [
+    1067000,
+    1067001
+   ],
+   "skinNames": [
+    "艾比蓋爾",
+    "典獄長 艾比蓋爾"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/67",
+     "text": "私から目を離さないでください。いつ消えても可笑しくないので。",
+     "vsKotoba": 0.929
+    }
+   ],
+   "kotoba": "私から目を離さないでくださいいつ消えてもおかしくないので",
+   "small": "私から目を離さないでください いつ消えてもおかしくないので"
+  },
+  {
+   "clip": "Abigail-S000-Abigail_selected2_1",
+   "sha256": "b3e9d65352058f9c74d87379ea55bc1b91fef795c631770e2d7b991648dfb9ad",
+   "characterId": "abigail",
+   "family": "selected2",
+   "duration": 7.06,
+   "skinCodes": [
+    1067000,
+    1067001
+   ],
+   "skinNames": [
+    "艾比蓋爾",
+    "典獄長 艾比蓋爾"
+   ],
+   "officials": [],
+   "kotoba": "私に会おうとするのはどなた様ですか",
+   "small": "あ、私に会おうとするのは、どなた様ですか?"
+  },
+  {
+   "clip": "Abigail-S002-Abigail_selected_1",
+   "sha256": "960873f89ca658d4711d50ef5197b0fd6021258482941c8b6147d224464869bd",
+   "characterId": "abigail",
+   "family": "selected",
+   "duration": 3.67,
+   "skinCodes": [
+    1067002
+   ],
+   "skinNames": [
+    "冷面兔女郎 艾比蓋爾"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1067002",
+     "text": "うさぎさんと一緒に、準備はいいですか？",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "うさぎさんと一緒に準備はいいですか?",
+   "small": "ウサギさんと一緒に準備はいいですか"
+  },
+  {
+   "clip": "Abigail-S002-Abigail_selected2_1",
+   "sha256": "3ce36fc149858b8bf84c20bbfe8b84b21efee340bbd110cd7f28b9246b76a412",
+   "characterId": "abigail",
+   "family": "selected2",
+   "duration": 7.7,
+   "skinCodes": [
+    1067002
+   ],
+   "skinNames": [
+    "冷面兔女郎 艾比蓋爾"
+   ],
+   "officials": [],
+   "kotoba": "ぴょんうさぎさん登場です",
+   "small": "ん、ぴょん、ウサギさん登場です。ん、くっ、ん、はっ。"
+  },
+  {
+   "clip": "Abigail-S003-Abigail_selected_1",
+   "sha256": "1ff2f4ce3caceac92c9fc4f495d57576e5fccfef805c0f8d4f7a0dc53fc89f70",
+   "characterId": "abigail",
+   "family": "selected",
+   "duration": 3.55,
+   "skinCodes": [
+    1067003
+   ],
+   "skinNames": [
+    "熱帶次元 艾比蓋爾"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1067003",
+     "text": "一緒に、夜の海を散歩しませんか？",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "一緒に夜の海を散歩しませんか?",
+   "small": "一緒に夜の海を散歩しませんか"
+  },
+  {
+   "clip": "Abigail-S003-Abigail_selected2_1",
+   "sha256": "a2d943ab602d57bd3b93620351707fcdd4aee82faf33618e160bc96f98cc24af",
+   "characterId": "abigail",
+   "family": "selected2",
+   "duration": 9.73,
+   "skinCodes": [
+    1067003
+   ],
+   "skinNames": [
+    "熱帶次元 艾比蓋爾"
+   ],
+   "officials": [],
+   "kotoba": "次は何を割ればいいですか",
+   "small": "次は何を終わればいいですか?"
+  },
+  {
+   "clip": "Alonso-S000-Alonso_selected_1",
+   "sha256": "c92f7bdf9e82e3dd0fb373943b2059aebf33d2286db74e511be8bbb1751152e7",
+   "characterId": "alonso",
+   "family": "selected",
+   "duration": 2.31,
+   "skinCodes": [
+    1068000,
+    1068001
+   ],
+   "skinNames": [
+    "阿隆索",
+    "紳士 阿隆索"
+   ],
+   "officials": [],
+   "kotoba": "廃品回収の時間だ",
+   "small": "配品回収の時間だ"
+  },
+  {
+   "clip": "Alonso-S000-Alonso_selected2_1",
+   "sha256": "758155c54fa0cc25b3df355d11c6839edff58b8312ba5f64ba553226692f4611",
+   "characterId": "alonso",
+   "family": "selected2",
+   "duration": 13.74,
+   "skinCodes": [
+    1068000,
+    1068001
+   ],
+   "skinNames": [
+    "阿隆索",
+    "紳士 阿隆索"
+   ],
+   "officials": [],
+   "kotoba": "よしじゃあ作業始めるか",
+   "small": "ほっほっほっ えーとたまっよしじゃあ作業始めるか"
+  },
+  {
+   "clip": "Alonso-S002-Alonso_selected2_1",
+   "sha256": "56bcc34cf676f22442c4eb15ce3ff6a34a8b80ba336f6d2ddb71146a18d462c7",
+   "characterId": "alonso",
+   "family": "selected2",
+   "duration": 13.75,
+   "skinCodes": [
+    1068002
+   ],
+   "skinNames": [
+    "地獄先鋒 阿隆索"
+   ],
+   "officials": [],
+   "kotoba": "よしじゃあ作業始めるか",
+   "small": "ほっほっほっ、あいちゃ…ううう…たま…でぇ…よし!じゃあ、作業を始めるか!"
+  },
+  {
+   "clip": "Leni-S000-Leni_selected_1",
+   "sha256": "f8f06f4232e2da9b502eaf792e541dc276771e86a93af040cef90fac1b2653f5",
+   "characterId": "leni",
+   "family": "selected",
+   "duration": 3.15,
+   "skinCodes": [
+    1069000
+   ],
+   "skinNames": [
+    "雷妮"
+   ],
+   "officials": [],
+   "kotoba": "準備はいい?じゃあ行こう!",
+   "small": "準備はいい?じゃあ行こう!"
+  },
+  {
+   "clip": "Leni-S001-Leni_selected_1",
+   "sha256": "7a19328ddebe6550050958fcd2654590e337fbdd83169eecc646fb34d0a992a9",
+   "characterId": "leni",
+   "family": "selected",
+   "duration": 4.2,
+   "skinCodes": [
+    1069001
+   ],
+   "skinNames": [
+    "軍樂隊 雷妮"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1069001",
+     "text": "ジャジャーン！レニのマーチングバンド出撃！",
+     "vsKotoba": 0.706
+    }
+   ],
+   "kotoba": "じゃじゃーんレニのマーチングバンド出撃",
+   "small": "じゃじゃーん!レニーのマーチングバンド出撃!"
+  },
+  {
+   "clip": "Leni-S003-Leni_selected_1",
+   "sha256": "02940bb4f5781c73da122697262024afc3a5e5ce838a7ddde503b801acb58808",
+   "characterId": "leni",
+   "family": "selected",
+   "duration": 5,
+   "skinCodes": [
+    1069003
+   ],
+   "skinNames": [
+    "頑皮熊熊女僕 雷妮"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1069003",
+     "text": "今日のご主人様は～そこのあ・な・た！",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "今日のご主人様はそこのあなた",
+   "small": "今日のご主人様は、そこのあなた!"
+  },
+  {
+   "clip": "Leni-S003-Leni_selected2_1",
+   "sha256": "ba05fb669ea5c98b13b16b7b166db79c4132dd6021eb1292db68b82c0f57e959",
+   "characterId": "leni",
+   "family": "selected2",
+   "duration": 10.14,
+   "skinCodes": [
+    1069003
+   ],
+   "skinNames": [
+    "頑皮熊熊女僕 雷妮"
+   ],
+   "officials": [],
+   "kotoba": "じゃーん!見てみて!レニの限定チェキ!かわいいでしょ!",
+   "small": "へへへへ…じゃーん!見て見てー!レニの限定着!可愛いでしょー!へへへ…"
+  },
+  {
+   "clip": "Tsubame-S000-Tsubame_selected_1",
+   "sha256": "fa8a17c40118a5c05cee0fa4765c8b5dfc1599099c70b9632b7fd66819a91d3f",
+   "characterId": "tsubame",
+   "family": "selected",
+   "duration": 2.27,
+   "skinCodes": [
+    1070000
+   ],
+   "skinNames": [
+    "青燕"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/70",
+     "text": "その依頼、受けてやろう。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "その依頼受けてやろう",
+   "small": "その依頼受けてやろう"
+  },
+  {
+   "clip": "Tsubame-S000-Tsubame_selected2_1",
+   "sha256": "985b1c0ab8660e058830b2264fd19418b8cd17bfd7eacaa816cdce7264555d6b",
+   "characterId": "tsubame",
+   "family": "selected2",
+   "duration": 7.11,
+   "skinCodes": [
+    1070000
+   ],
+   "skinNames": [
+    "青燕"
+   ],
+   "officials": [],
+   "kotoba": "依頼したいものは何だ",
+   "small": "ふっ ふっ依頼したいものは なんだ"
+  },
+  {
+   "clip": "Tsubame-S001-Tsubame_selected2_1",
+   "sha256": "7d650016948372b2e4c50e0a032d0f85473fa2e78714d68f7d22551dcf75aaa0",
+   "characterId": "tsubame",
+   "family": "selected2",
+   "duration": 8.04,
+   "skinCodes": [
+    1070001
+   ],
+   "skinNames": [
+    "暗香疏影 青燕"
+   ],
+   "officials": [],
+   "kotoba": "依頼したいものは何だ",
+   "small": "ふっ!うっ!ふっ!依頼したいものは…なんだ?"
+  },
+  {
+   "clip": "Tsubame-S002-Tsubame_selected_1",
+   "sha256": "e94b49bee76f2ac281c67f9ae8b64e5645fca2da9129a578001240a318318cdd",
+   "characterId": "tsubame",
+   "family": "selected",
+   "duration": 2.92,
+   "skinCodes": [
+    1070002
+   ],
+   "skinNames": [
+    "清涼一閃 青燕"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1070002",
+     "text": "海を渡る一羽の玄鳥のように。",
+     "vsKotoba": 0.815
+    }
+   ],
+   "kotoba": "海を渡る一羽のツバメのように",
+   "small": "海を渡る、一話のつばめのように"
+  },
+  {
+   "clip": "Tsubame-S002-Tsubame_selected2_1",
+   "sha256": "6fbb79661566227952eaad1c07369b099c2d39e9e8780c8386dee1b7c3bec79c",
+   "characterId": "tsubame",
+   "family": "selected2",
+   "duration": 9.01,
+   "skinCodes": [
+    1070002
+   ],
+   "skinNames": [
+    "清涼一閃 青燕"
+   ],
+   "officials": [],
+   "kotoba": "一口食べてみるか",
+   "small": "ふっ一口食べてみるか"
+  },
+  {
+   "clip": "Kenneth-S000-Kenneth_selected_1",
+   "sha256": "51bc40ac294a3a70bc39f922f43f22a226f34cea7c917287cc1a9a116e3a8ee0",
+   "characterId": "kenneth",
+   "family": "selected",
+   "duration": 4.03,
+   "skinCodes": [
+    1071000,
+    1071001,
+    1071002
+   ],
+   "skinNames": [
+    "肯尼思",
+    "戰鬥祭司 肯尼思",
+    "青之宿命契約 肯尼思"
+   ],
+   "officials": [],
+   "kotoba": "命令には従おう約束さえ守ってくれれば",
+   "small": "命令には従お、約束さえ守ってくれれば"
+  },
+  {
+   "clip": "Kenneth-S000-Kenneth_selected2_1",
+   "sha256": "4c132070b0f005fcafcebec2b33ccafbff2f571eecc280d47d0f95ddad98a404",
+   "characterId": "kenneth",
+   "family": "selected2",
+   "duration": 6.25,
+   "skinCodes": [
+    1071000,
+    1071001,
+    1071002
+   ],
+   "skinNames": [
+    "肯尼思",
+    "戰鬥祭司 肯尼思",
+    "青之宿命契約 肯尼思"
+   ],
+   "officials": [],
+   "kotoba": "面倒なのは全部燃やす",
+   "small": "え、え、え、え、めんどーなのは全部燃やす"
+  },
+  {
+   "clip": "Katja-S000-Katja_selected_1",
+   "sha256": "d91cb96f2acc6436d4729b52bb971e768411b9466bf8011138c1b0d82ec5019a",
+   "characterId": "katja",
+   "family": "selected",
+   "duration": 2,
+   "skinCodes": [
+    1072000,
+    1072001,
+    1072003
+   ],
+   "skinNames": [
+    "卡緹雅",
+    "夜鴉 卡緹雅",
+    "咖啡店工讀生 卡緹雅"
+   ],
+   "officials": [],
+   "kotoba": "いいよ合わせてあげる",
+   "small": "いいよ 合わせてあげる"
+  },
+  {
+   "clip": "Katja-S000-Katja_selected2_1",
+   "sha256": "567f9b16ed52d83b92d6f51d73382454f067bed7f2a00daec0f9c595c1fa44e6",
+   "characterId": "katja",
+   "family": "selected2",
+   "duration": 12.04,
+   "skinCodes": [
+    1072000,
+    1072001,
+    1072003
+   ],
+   "skinNames": [
+    "卡緹雅",
+    "夜鴉 卡緹雅",
+    "咖啡店工讀生 卡緹雅"
+   ],
+   "officials": [],
+   "kotoba": "うん面白そうな依頼だね引き受けるよ",
+   "small": "あっ…はぁ…あっ…面白そうな偉いだね、引き受けるよ"
+  },
+  {
+   "clip": "Katja-S002-Katja_selected_1",
+   "sha256": "f945d68b69292963c1cc20dc65bc624c69fe8f1c1b2ee576703c907c12b3c890",
+   "characterId": "katja",
+   "family": "selected",
+   "duration": 2.75,
+   "skinCodes": [
+    1072002
+   ],
+   "skinNames": [
+    "王牌教官 卡緹雅"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1072002",
+     "text": "はい、僕に注目してー。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "はい僕に注目して",
+   "small": "はい、僕に注目して"
+  },
+  {
+   "clip": "Katja-S002-Katja_selected2_1",
+   "sha256": "1a17798b9fabfc7fbe0cc1393c7c9383a96ec793a3fdb1eac24ed8068d2b4a3a",
+   "characterId": "katja",
+   "family": "selected2",
+   "duration": 10.74,
+   "skinCodes": [
+    1072002
+   ],
+   "skinNames": [
+    "王牌教官 卡緹雅"
+   ],
+   "officials": [],
+   "kotoba": "僕が直接教育してあげる",
+   "small": "……………………僕が直接教育してあげる。……………………………………"
+  },
+  {
+   "clip": "Charlotte-S000-Charlotte_selected_1",
+   "sha256": "7decf17b70163d4199fdf8f1596c983a3b02e88f5e2df57fb34d93df2662ac3b",
+   "characterId": "charlotte",
+   "family": "selected",
+   "duration": 4.01,
+   "skinCodes": [
+    1073000,
+    1073001
+   ],
+   "skinNames": [
+    "夏洛特",
+    "轉學生 夏洛特"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/73",
+     "text": "この光が、あなたの希望になりますように。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "この光があなたの希望になりますように",
+   "small": "この光があなたの希望になりますように"
+  },
+  {
+   "clip": "Charlotte-S002-Charlotte_selected_1",
+   "sha256": "ccc76401db062ccd8eb359c4d4dda419ee708b8c976a12210879db74f68e50ae",
+   "characterId": "charlotte",
+   "family": "selected",
+   "duration": 6.9,
+   "skinCodes": [
+    1073002
+   ],
+   "skinNames": [
+    "墮落天使 夏洛特"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1073002",
+     "text": "さあ、一緒に楽しみましょう。この世界の最高の遊戯を。",
+     "vsKotoba": 0.913
+    }
+   ],
+   "kotoba": "さあ一緒に楽しみましょうこの世界の最高の勇気を",
+   "small": "さあ、一緒に楽しみましょう。この世界の最高の勇気を…"
+  },
+  {
+   "clip": "Darko-S000-Darko_selected_1",
+   "sha256": "4b49984ae0aea8d7640c263be4b64700c671a907d121cd376ece62f779daea44",
+   "characterId": "darko",
+   "family": "selected",
+   "duration": 2.98,
+   "skinCodes": [
+    1074000,
+    1074001,
+    1074002
+   ],
+   "skinNames": [
+    "達爾科",
+    "荷官 達爾科",
+    "海風假日 達爾科"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/74",
+     "text": "んじゃ、金を稼ぎに行くか。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "んじゃ金を稼ぎに行くか",
+   "small": "んじゃ金を稼ぎに行くか"
+  },
+  {
+   "clip": "Darko-S000-Darko_selected2_1",
+   "sha256": "78f10a41ee719601b5389507ab538e9b1af611749f5a6a66797f579f1b6d9801",
+   "characterId": "darko",
+   "family": "selected2",
+   "duration": 8.52,
+   "skinCodes": [
+    1074000,
+    1074001,
+    1074002
+   ],
+   "skinNames": [
+    "達爾科",
+    "荷官 達爾科",
+    "海風假日 達爾科"
+   ],
+   "officials": [],
+   "kotoba": "お前のすべてを全部俺によこすんだな",
+   "small": "ふんふんふんふんふんふんねぇお前のすべてを全部俺に起こすんだね"
+  },
+  {
+   "clip": "Lenore-S000-Lenore_selected_1",
+   "sha256": "5f16f335d6d235c48901de19fd444071ca64bab9eb4ae008fa27a3339f2afe94",
+   "characterId": "lenore",
+   "family": "selected",
+   "duration": 3.75,
+   "skinCodes": [
+    1075000,
+    1075001,
+    1075002
+   ],
+   "skinNames": [
+    "莉諾爾",
+    "夜之韻 莉諾爾",
+    "‌音樂老師 莉諾爾"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/75",
+     "text": "あなたのメロディーを、私に聞かせて。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "あなたのメロディーを私に聞かせて",
+   "small": "あなたのメロディを 私に聞かせて"
+  },
+  {
+   "clip": "Lenore-S000-Lenore_selected2_1",
+   "sha256": "ccc77b3048fddc6c6667e636ac95b0a58e5f3a20baa9e06a2c88c0cf5d4b16b5",
+   "characterId": "lenore",
+   "family": "selected2",
+   "duration": 13.06,
+   "skinCodes": [
+    1075000,
+    1075001,
+    1075002
+   ],
+   "skinNames": [
+    "莉諾爾",
+    "夜之韻 莉諾爾",
+    "‌音樂老師 莉諾爾"
+   ],
+   "officials": [],
+   "kotoba": "さてあなたからはどんな音がするのか楽しみね",
+   "small": "はぁさてあなたからはどんな音がするのか楽しみね"
+  },
+  {
+   "clip": "Garnet-S000-Garnet_selected_1",
+   "sha256": "111c2f9305c4b5893df7d724e475e27321ae28a119c9906c0fb4f6abe34001e5",
+   "characterId": "garnet",
+   "family": "selected",
+   "duration": 6.94,
+   "skinCodes": [
+    1076000,
+    1076001,
+    1076003
+   ],
+   "skinNames": [
+    "蓋瑞特",
+    "禁錮者 蓋瑞特",
+    "甜蜜失控 蓋瑞特"
+   ],
+   "officials": [],
+   "kotoba": "私が必要なの?そう嬉しい",
+   "small": "私が必要なの…そう…嬉しい…"
+  },
+  {
+   "clip": "Garnet-S000-Garnet_selected2_1",
+   "sha256": "c5b509ce8ba637f9f3ae36fea99eacbc337270c356298b6f0b466b6cc4c8c979",
+   "characterId": "garnet",
+   "family": "selected2",
+   "duration": 12.53,
+   "skinCodes": [
+    1076000,
+    1076001,
+    1076003
+   ],
+   "skinNames": [
+    "蓋瑞特",
+    "禁錮者 蓋瑞特",
+    "甜蜜失控 蓋瑞特"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/76",
+     "text": "私たちをつなげてくれるのは、苦痛だけよ...",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "私たちをつなげてくれるのは苦痛だけよ",
+   "small": "…ぐうううううううううううううううううう…私たちを繋げてくれるのは…靴だけよ…"
+  },
+  {
+   "clip": "Garnet-S002-Garnet_selected_1",
+   "sha256": "0b95099ec77e28d0e61c30e630019589da374c9fcf276ada8398ec64e6a2b351",
+   "characterId": "garnet",
+   "family": "selected",
+   "duration": 4.94,
+   "skinCodes": [
+    1076002
+   ],
+   "skinNames": [
+    "赤之宿命契約 蓋瑞特"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1076002",
+     "text": "行こう。私たち二人だけのお祭りへ。",
+     "vsKotoba": 0.933
+    }
+   ],
+   "kotoba": "行こう私たち2人だけのお祭りへ",
+   "small": "行こう。私たち二人だけのお祭りへ。"
+  },
+  {
+   "clip": "Garnet-S002-Garnet_selected2_1",
+   "sha256": "d1af72b799619232594f3c1d86e1881dc2f50caaf95e476155d03d3446d162b2",
+   "characterId": "garnet",
+   "family": "selected2",
+   "duration": 9.82,
+   "skinCodes": [
+    1076002
+   ],
+   "skinNames": [
+    "赤之宿命契約 蓋瑞特"
+   ],
+   "officials": [],
+   "kotoba": "私と一緒に花火見に行く",
+   "small": "はぁ…うっ…はぁ…うっ…私と一緒に花火見に行く?"
+  },
+  {
+   "clip": "YuMin-S000-YuMin_selected_1",
+   "sha256": "adc02db667d592fb42bc4c7d99fdd8e3706adc828bb679aa404ceda0bd6ddc9e",
+   "characterId": "yumin",
+   "family": "selected",
+   "duration": 2.81,
+   "skinCodes": [
+    1077000,
+    1077001,
+    1077002
+   ],
+   "skinNames": [
+    "俞岷",
+    "雲遊道士 俞岷",
+    "踏浪引航 俞岷"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/77",
+     "text": "風と雲に乗って。では、参ろう！",
+     "vsKotoba": 0.545
+    }
+   ],
+   "kotoba": "風に乗ってさあ行こう",
+   "small": "風に乗って さあ行こう"
+  },
+  {
+   "clip": "YuMin-S000-YuMin_selected2_1",
+   "sha256": "0e3de98de880849352d9c42aa70374c56e57bc780b1e66f1bb42b01e5c67e0dc",
+   "characterId": "yumin",
+   "family": "selected2",
+   "duration": 8.02,
+   "skinCodes": [
+    1077000,
+    1077001,
+    1077002
+   ],
+   "skinNames": [
+    "俞岷",
+    "雲遊道士 俞岷",
+    "踏浪引航 俞岷"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/77",
+     "text": "風と雲に乗って。では、参ろう！",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "風と雲に乗ってでは参ろう",
+   "small": "ふーん…ふん…ふっ…ふっ…風と雲に乗って、では舞いろ!"
+  },
+  {
+   "clip": "Hisui-S000-Hisui_selected_1",
+   "sha256": "777b9104621cac0e4f2b6aea06ae5e6b6ed8286d9062574e74026b5465f8362b",
+   "characterId": "hisui",
+   "family": "selected",
+   "duration": 2.43,
+   "skinCodes": [
+    1078000,
+    1078001
+   ],
+   "skinNames": [
+    "翡翠",
+    "暗巷裡 翡翠"
+   ],
+   "officials": [],
+   "kotoba": "翡翠いつでも準備OK",
+   "small": "ひっすい!いつでも準備OK!"
+  },
+  {
+   "clip": "Hisui-S000-Hisui_selected2_1",
+   "sha256": "629a76d8eb57943ec6d96b001d79859bc9e51b8295bb564f25a7150a3a2f0ee8",
+   "characterId": "hisui",
+   "family": "selected2",
+   "duration": 9.81,
+   "skinCodes": [
+    1078000,
+    1078001
+   ],
+   "skinNames": [
+    "翡翠",
+    "暗巷裡 翡翠"
+   ],
+   "officials": [],
+   "kotoba": "バカな奴らとは刀で語り合わねえとな",
+   "small": "ふっ!ふっ!ふっ!バカな奴らとは、勝たなで勝たり合わねーとな。"
+  },
+  {
+   "clip": "Hisui-S002-Hisui_selected_1",
+   "sha256": "0d2b60fb8cde8004f0a8ef0160c3c3b02649c0f0e1b5cfba3726252c13003ff8",
+   "characterId": "hisui",
+   "family": "selected",
+   "duration": 3.17,
+   "skinCodes": [
+    1078002
+   ],
+   "skinNames": [
+    "幽靈獵人 翡翠"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1078002",
+     "text": "斬り落とすべき悪は、この剣で裁く。",
+     "vsKotoba": 0.733
+    }
+   ],
+   "kotoba": "切り落とすべき悪はこの件で砂漠",
+   "small": "切り落とすべき悪はこの件でさばく"
+  },
+  {
+   "clip": "Hisui-S002-Hisui_selected2_1",
+   "sha256": "a99b1cf21c7fafd98b7540a771604a8b087199bd0c5e48aadd95d289c84fa8d0",
+   "characterId": "hisui",
+   "family": "selected2",
+   "duration": 11.03,
+   "skinCodes": [
+    1078002
+   ],
+   "skinNames": [
+    "幽靈獵人 翡翠"
+   ],
+   "officials": [],
+   "kotoba": "形がなくてもこの剣で切れないものはない",
+   "small": "んっはっ形がなくてもこの剣で切れないものはない"
+  },
+  {
+   "clip": "Justyna-S000-Justyna_selected_1",
+   "sha256": "23d47a229e44138c01d984b13716916afc260f75daff395b243cdc8e983f66a0",
+   "characterId": "justyna",
+   "family": "selected",
+   "duration": 2.74,
+   "skinCodes": [
+    1079000,
+    1079001
+   ],
+   "skinNames": [
+    "尤斯蒂娜",
+    "風紀委員長 尤斯蒂娜"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/79",
+     "text": "今こそ、ヒーローの出番！でしょ？",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "今こそヒーローの出番でしょ",
+   "small": "今こそヒーローの出番でしょ"
+  },
+  {
+   "clip": "Justyna-S000-Justyna_selected2_1",
+   "sha256": "9c50f0859ba8232a462c3c0124ab3f47da4df462252d342a449336710397659d",
+   "characterId": "justyna",
+   "family": "selected2",
+   "duration": 7.63,
+   "skinCodes": [
+    1079000,
+    1079001
+   ],
+   "skinNames": [
+    "尤斯蒂娜",
+    "風紀委員長 尤斯蒂娜"
+   ],
+   "officials": [],
+   "kotoba": "正義のヒーローユースティナここに参上!えい!ウィッヒッ",
+   "small": "正義のヒーローゆーすてな!ここに参上!…えい!へへへへ!"
+  },
+  {
+   "clip": "Justyna-S002-Justyna_selected_1",
+   "sha256": "3f903caceaf1d355b7eb13ccb8b6fa79631d4e05157df1feb473b001088e05fc",
+   "characterId": "justyna",
+   "family": "selected",
+   "duration": 2.57,
+   "skinCodes": [
+    1079002
+   ],
+   "skinNames": [
+    "好運勇者兔女郎 尤斯蒂娜"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1079002",
+     "text": "バニーガールが、世界を救う！",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "バニーガールが世界を救う",
+   "small": "バニーガールが世界を救う!"
+  },
+  {
+   "clip": "Justyna-S002-Justyna_selected2_1",
+   "sha256": "3bc9380eb79cd1f26572b32199e3b570937678443da21d9feb7b03d7b1a9e238",
+   "characterId": "justyna",
+   "family": "selected2",
+   "duration": 12.42,
+   "skinCodes": [
+    1079002
+   ],
+   "skinNames": [
+    "好運勇者兔女郎 尤斯蒂娜"
+   ],
+   "officials": [],
+   "kotoba": "よいしょっとジャジャーンスーパーヒーロー登場あなたの夢を叶えてあげる",
+   "small": "あはは!フフフ!いぇーい!よいしょった!じゃじゃーん!スーパーヒーロー登場!あなたの夢を叶えてあげる!"
+  },
+  {
+   "clip": "Istvan-S000-Istvan_selected_1",
+   "sha256": "74174ec41473da0585fd2c99d4e6c305a87e7e8b0798d84f6313fcc47e75043b",
+   "characterId": "istvan",
+   "family": "selected",
+   "duration": 3.04,
+   "skinCodes": [
+    1080000,
+    1080001
+   ],
+   "skinNames": [
+    "伊舒特",
+    "執事 伊舒特"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/80",
+     "text": "その選択に相応しい結果をもたらそう。",
+     "vsKotoba": 0.857
+    }
+   ],
+   "kotoba": "その選択にふさわしい結果をもたらそう",
+   "small": "その選択にふさわしい結果を戻らそう"
+  },
+  {
+   "clip": "Istvan-S000-Istvan_selected2_1",
+   "sha256": "a1b9c8e2d9e16a3ab9cbad338d440ae505c69be4be932fe52fc121e9e4ae27b0",
+   "characterId": "istvan",
+   "family": "selected2",
+   "duration": 8.34,
+   "skinCodes": [
+    1080000,
+    1080001
+   ],
+   "skinNames": [
+    "伊舒特",
+    "執事 伊舒特"
+   ],
+   "officials": [],
+   "kotoba": "うん予測できないなら直接観察してみるしかない",
+   "small": "うーん予測できないなら直接観察してみるしかない"
+  },
+  {
+   "clip": "Niah-S000-Niah_selected_1",
+   "sha256": "92b7dc9318964807ba46486e46ab571c9be64e939fff295274689692abac6d45",
+   "characterId": "niah",
+   "family": "selected",
+   "duration": 2.16,
+   "skinCodes": [
+    1081000,
+    1081001
+   ],
+   "skinNames": [
+    "妮婭",
+    "運動系女僕 妮婭"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/81",
+     "text": "ゲーム、一緒にやる？",
+     "vsKotoba": 0.8
+    }
+   ],
+   "kotoba": "ゲーム一緒にやろう",
+   "small": "ゲーム一緒にやろう"
+  },
+  {
+   "clip": "Niah-S000-Niah_selected2_1",
+   "sha256": "b8bd54c3dca3aea69ae8ac9107c002cf75b6af6243f615ea5e5f8457ebe5734f",
+   "characterId": "niah",
+   "family": "selected2",
+   "duration": 10.01,
+   "skinCodes": [
+    1081000,
+    1081001
+   ],
+   "skinNames": [
+    "妮婭",
+    "運動系女僕 妮婭"
+   ],
+   "officials": [],
+   "kotoba": "ピロローンニアの体力が回復しました",
+   "small": "ん...う...あ...ピラロー、ニアの体力が回復しました。"
+  },
+  {
+   "clip": "Niah-S002-Niah_selected_1",
+   "sha256": "f489bdafcd954ef567585c9c5cae510d89c5b360ef53a1663b9bbb2a743c8a55",
+   "characterId": "niah",
+   "family": "selected",
+   "duration": 4.34,
+   "skinCodes": [
+    1081002
+   ],
+   "skinNames": [
+    "妮婭（水屬性）"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1081002",
+     "text": "全員揃った？じゃあ、出航っ！",
+     "vsKotoba": 0.727
+    }
+   ],
+   "kotoba": "全員そろった?じゃあ出港",
+   "small": "全員揃った じゃあ出航"
+  },
+  {
+   "clip": "Niah-S002-Niah_selected2_1",
+   "sha256": "d474772b878805323e889d3d5fa980dc9f7a0c43947de0b96cf0e97c3284bc17",
+   "characterId": "niah",
+   "family": "selected2",
+   "duration": 15.32,
+   "skinCodes": [
+    1081002
+   ],
+   "skinNames": [
+    "妮婭（水屬性）"
+   ],
+   "officials": [],
+   "kotoba": "夏休みの世界へレッツゴー",
+   "small": "ふぁぁうううううううううううううう…ううううううう…夏休みの世界へレッツゴー"
+  },
+  {
+   "clip": "Xuelin-S000-Xuelin_selected_1",
+   "sha256": "d6eb30a40670022a9351c279b492b5b7277e7cbe01c12e6acfaf8f2c7c381b5d",
+   "characterId": "xuelin",
+   "family": "selected",
+   "duration": 3.08,
+   "skinCodes": [
+    1082000
+   ],
+   "skinNames": [
+    "雪琳"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/82",
+     "text": "この剣で、道を切り開きましょう。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "この剣で道を切り開きましょう",
+   "small": "この剣で、道を切り開きましょう"
+  },
+  {
+   "clip": "Xuelin-S000-Xuelin_selected2_1",
+   "sha256": "c25257f1601c037526a43587b7860bdafcd60be9a3c613dbb42b952e211080f1",
+   "characterId": "xuelin",
+   "family": "selected2",
+   "duration": 7.9,
+   "skinCodes": [
+    1082000
+   ],
+   "skinNames": [
+    "雪琳"
+   ],
+   "officials": [],
+   "kotoba": "我が意思はこの件にある",
+   "small": "うっ…ふっ…うっ…我が意志はこの件にある"
+  },
+  {
+   "clip": "Xuelin-S002-Xuelin_selected_1",
+   "sha256": "2f49b90e09fdd04b06ec1f9bddde2eca4b2f6a04472a733a1caf0d5193213c3d",
+   "characterId": "xuelin",
+   "family": "selected",
+   "duration": 3.8,
+   "skinCodes": [
+    1082002
+   ],
+   "skinNames": [
+    "碧波斬浪 雪琳"
+   ],
+   "officials": [
+    {
+     "key": "Skin/OnSelectVO/1082002",
+     "text": "夏の海…一緒に見に行きませんか？",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "夏の海一緒に見に行きませんか?",
+   "small": "夏の海一緒に見に行きませんか"
+  },
+  {
+   "clip": "Xuelin-S002-Xuelin_selected2_1",
+   "sha256": "79db7ab41aae784ee9b0918f8e2366f8ec3612b65d6646548a4735671c378faf",
+   "characterId": "xuelin",
+   "family": "selected2",
+   "duration": 15.67,
+   "skinCodes": [
+    1082002
+   ],
+   "skinNames": [
+    "碧波斬浪 雪琳"
+   ],
+   "officials": [],
+   "kotoba": "ううわは私たちだけの秘密にしてください",
+   "small": "うっ。うぐー!はっ!ふっ…ふっ!い、今のは私たちだけの秘密にしてください。"
+  },
+  {
+   "clip": "Henry-S000-Henry_selected_1",
+   "sha256": "ee181eba6958851d5a71c207eab549aaf59dffed14df639c0e3fc93ebe73461c",
+   "characterId": "henry",
+   "family": "selected",
+   "duration": 3.16,
+   "skinCodes": [
+    1083000,
+    1083001
+   ],
+   "skinNames": [
+    "亨利",
+    "戰鬥祭司 亨利"
+   ],
+   "officials": [],
+   "kotoba": "止まっていた時間を動かす時だ",
+   "small": "止まっていた時間を動かす時だ"
+  },
+  {
+   "clip": "Henry-S000-Henry_selected2_1",
+   "sha256": "863929c497f7f46fe24753031f4e7f4f9a99304e544afa0d2cbbcf3b2d10d580",
+   "characterId": "henry",
+   "family": "selected2",
+   "duration": 8.65,
+   "skinCodes": [
+    1083000,
+    1083001
+   ],
+   "skinNames": [
+    "亨利",
+    "戰鬥祭司 亨利"
+   ],
+   "officials": [],
+   "kotoba": "時間は無情に過ぎていく",
+   "small": "ん 時間は無情に過ぎていくん"
+  },
+  {
+   "clip": "Blair-S000-Blair_selected_1",
+   "sha256": "992dc8c2f8e1d5f5cac6267dc9bcbdd18ded8bfbad3c290ccda9ccf6c6659cb9",
+   "characterId": "blair",
+   "family": "selected",
+   "duration": 2.62,
+   "skinCodes": [
+    1084000,
+    1084001
+   ],
+   "skinNames": [
+    "布萊爾",
+    "極速魅影 布萊爾"
+   ],
+   "officials": [],
+   "kotoba": "跡形もなく全て消してあげる",
+   "small": "あたかたもなくすべて消してあげる"
+  },
+  {
+   "clip": "Blair-S000-Blair_selected2_1",
+   "sha256": "5392eaa2e3d6b8a82db501612279469c8e62347d65751aa888eb4855045e8d6f",
+   "characterId": "blair",
+   "family": "selected2",
+   "duration": 10.43,
+   "skinCodes": [
+    1084000,
+    1084001
+   ],
+   "skinNames": [
+    "布萊爾",
+    "極速魅影 布萊爾"
+   ],
+   "officials": [],
+   "kotoba": "バケモノの相手は化け物がしないとね",
+   "small": "ふん。ふん。ふっ。ふん。化け物の相手は、化け物がしないとね。"
+  },
+  {
+   "clip": "Mirka-S000-Mirka_selected_1",
+   "sha256": "e05e9402070af1ee6a0fbf23cf71b0d3017090b3d7ab8a17404e3e71f3a12560",
+   "characterId": "mirka",
+   "family": "selected",
+   "duration": 6.02,
+   "skinCodes": [
+    1085000,
+    1085001
+   ],
+   "skinNames": [
+    "米爾卡",
+    "狂野女僕 米爾卡"
+   ],
+   "officials": [],
+   "kotoba": "お前ら準備はいいかよしじゃあ行くぞ",
+   "small": "お前ら準備はいいかよしじゃあ行くぞ"
+  },
+  {
+   "clip": "Mirka-S000-Mirka_selected2_1",
+   "sha256": "c4ed0eeaac8e30a34f5685c62b924e77c60523f5100e79d81bf002d85809c1a8",
+   "characterId": "mirka",
+   "family": "selected2",
+   "duration": 7.87,
+   "skinCodes": [
+    1085000,
+    1085001
+   ],
+   "skinNames": [
+    "米爾卡",
+    "狂野女僕 米爾卡"
+   ],
+   "officials": [],
+   "kotoba": "小さいからってなめんなよフッ",
+   "small": "うっ…うっ…小さいからって舐めんなよ!ふっ…"
+  },
+  {
+   "clip": "Fenrir-S000-Fenrir_selected_1",
+   "sha256": "095b1475647f98e33d2a8bc1cce3ab9b147bda48a13965e06ebe0f9d117ecabc",
+   "characterId": "fenrir",
+   "family": "selected",
+   "duration": 1.79,
+   "skinCodes": [
+    1086000,
+    1086001
+   ],
+   "skinNames": [
+    "芬里爾",
+    "暗夜猛獸 芬里爾"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/86",
+     "text": "前、邪魔！",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "前邪魔",
+   "small": "前、邪魔!"
+  },
+  {
+   "clip": "Fenrir-S000-Fenrir_selected2_1",
+   "sha256": "29d8b005459846185aef694ee3c6483ffb053397a5927cef1959ef413c3fe38d",
+   "characterId": "fenrir",
+   "family": "selected2",
+   "duration": 10.3,
+   "skinCodes": [
+    1086000,
+    1086001
+   ],
+   "skinNames": [
+    "芬里爾",
+    "暗夜猛獸 芬里爾"
+   ],
+   "officials": [],
+   "kotoba": "フェルを止めたいなら覚悟フェルを止めたいなら覚悟",
+   "small": "うう…あっ…フェールを止めたいなら…覚悟!フッ…"
+  },
+  {
+   "clip": "Coraline-S000-Coraline_selected_1",
+   "sha256": "9d724c771a227a836a416ae2d8be40e6613921eb50429a79c50d3c55e1591003",
+   "characterId": "coraline",
+   "family": "selected",
+   "duration": 4.21,
+   "skinCodes": [
+    1087000,
+    1087001
+   ],
+   "skinNames": [
+    "卡洛琳",
+    "怦然心動 卡洛琳"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/87",
+     "text": "白と黒、あなたはどっちなのかしら？",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "白と黒あなたはどっちなのかしら?",
+   "small": "白と黒、あなたはどっちなのかしら"
+  },
+  {
+   "clip": "Coraline-S000-Coraline_selected2_1",
+   "sha256": "c0e91cf93fde38544d61019600ffa9ca0c1c4142e38b4f967a3ffda53834bfb1",
+   "characterId": "coraline",
+   "family": "selected2",
+   "duration": 10.28,
+   "skinCodes": [
+    1087000,
+    1087001
+   ],
+   "skinNames": [
+    "卡洛琳",
+    "怦然心動 卡洛琳"
+   ],
+   "officials": [],
+   "kotoba": "真実こそ美しさなのよ",
+   "small": "うっ…うふふふ真実こそ美しさなのよ"
+  },
+  {
+   "clip": "Bihyung-S000-Bihyung_selected_1",
+   "sha256": "921cf1b797bd695c8fd67ecabf0b184472cd88ee47833240c188488d9b69577c",
+   "characterId": "bihyung",
+   "family": "selected",
+   "duration": 4.51,
+   "skinCodes": [
+    1088000,
+    1088001
+   ],
+   "skinNames": [
+    "鼻荊",
+    "青春留影 鼻荊"
+   ],
+   "officials": [],
+   "kotoba": "今宴だと言ったよねどこ?どこで?",
+   "small": "今、歌げだと言ったよね!どこ?どこで?"
+  },
+  {
+   "clip": "Bihyung-S000-Bihyung_selected2_1",
+   "sha256": "7e5c7c29ffb1cba75708e474b95ec6220a8f40e814391b3e8422aa047dd3e799",
+   "characterId": "bihyung",
+   "family": "selected2",
+   "duration": 11.8,
+   "skinCodes": [
+    1088000,
+    1088001
+   ],
+   "skinNames": [
+    "鼻荊",
+    "青春留影 鼻荊"
+   ],
+   "officials": [],
+   "kotoba": "私にシルムで買ったら一緒に食べてもいいよ",
+   "small": "へぇ…ふん…私にシルムで買ったら一緒に食べてもいいよ?"
+  },
+  {
+   "clip": "Craver-S000-Craver_selected_1",
+   "sha256": "ae6261a4877dcfaa00669bec0a0ee5cb6219a0f2d6acea938039098eb1eea936",
+   "characterId": "craver",
+   "family": "selected",
+   "duration": 2.08,
+   "skinCodes": [
+    1089000,
+    1089001
+   ],
+   "skinNames": [
+    "克雷弗",
+    "西部狂野 克雷弗"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/89",
+     "text": "銃を抜く準備はできたか？",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "銃を抜く準備はできたか?",
+   "small": "重要なく準備はできたか?"
+  },
+  {
+   "clip": "Craver-S000-Craver_selected2_1",
+   "sha256": "6092710c905a2a601f63297ce5075a4b072a86758299d555eb3ffa7f6c069020",
+   "characterId": "craver",
+   "family": "selected2",
+   "duration": 12.45,
+   "skinCodes": [
+    1089000,
+    1089001
+   ],
+   "skinNames": [
+    "克雷弗",
+    "西部狂野 克雷弗"
+   ],
+   "officials": [],
+   "kotoba": "バン!ヘッハッハッヨーケーなことすんな全部見えてるからよ",
+   "small": "うわぁはっはっはっは余計なことすんな 全部見えてるからよ"
+  },
+  {
+   "clip": "Lucia-S000-Lucia_selected_1",
+   "sha256": "e01c46360d5b04b318fd28ba349fdb049e958f8e80607bab9ae08f500d1080f4",
+   "characterId": "lucia",
+   "family": "selected",
+   "duration": 3.75,
+   "skinCodes": [
+    1090000
+   ],
+   "skinNames": [
+    "露西婭"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/90",
+     "text": "わたくしの旅路にご一緒してくださいますか？",
+     "vsKotoba": 0.865
+    }
+   ],
+   "kotoba": "私の旅路にご一緒してくださいますか?",
+   "small": "私の旅路にご一緒してくださいますか"
+  },
+  {
+   "clip": "Lucia-S000-Lucia_selected2_1",
+   "sha256": "1cc1d6c116f9ad062f437dd30757824ee106ce1efdf1d6072289c499f8e4e358",
+   "characterId": "lucia",
+   "family": "selected2",
+   "duration": 14.27,
+   "skinCodes": [
+    1090000
+   ],
+   "skinNames": [
+    "露西婭"
+   ],
+   "officials": [],
+   "kotoba": "ん?あれあれれれれあらえいえ?え?おほほ私ルチアと申しますわ",
+   "small": "う! ふっ おれ、おれれれれおらえい!!え!? おーおおっ speeches私、ルッチェアと申しますわ"
+  },
+  {
+   "clip": "Seres-S000-Seres_selected_1",
+   "sha256": "97482231aa0b257913cc91fd4c9b217d3b5e64298280edb46e266291e23547b6",
+   "characterId": "seres",
+   "family": "selected",
+   "duration": 2.09,
+   "skinCodes": [
+    1091000
+   ],
+   "skinNames": [
+    "塞莉絲"
+   ],
+   "officials": [
+    {
+     "key": "CharacterStoryTitle/91",
+     "text": "あなたを守る剣となりましょう。",
+     "vsKotoba": 1
+    }
+   ],
+   "kotoba": "あなたを守る剣となりましょう",
+   "small": "あなたを守る剣となりましょう"
+  },
+  {
+   "clip": "Seres-S000-Seres_selected2_1",
+   "sha256": "d1d437a3e016343f07499cdd97b33da6bff26cf3c9527d457d3b4caca2ee8730",
+   "characterId": "seres",
+   "family": "selected2",
+   "duration": 13.23,
+   "skinCodes": [
+    1091000
+   ],
+   "skinNames": [
+    "塞莉絲"
+   ],
+   "officials": [],
+   "kotoba": "間に合ったようですねお使いいたしますふっ",
+   "small": "うっ…ふ…間に合ったようですね、お使い致しますふっうっ"
+  }
+ ]
+}

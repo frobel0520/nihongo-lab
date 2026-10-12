@@ -14,9 +14,10 @@ import {
   serializeProgress,
 } from '../lib/progress.mjs';
 import { mergeProgress } from '../lib/progress-merge.mjs';
-const lines = gameCharacterStudy.flatMap((g) =>
-  g.characters.flatMap((c) => c.lines),
-);
+// 角色選擇句先盲聽再看逐字稿，沒有大意選擇題，也不計入理解分母。
+const lines = gameCharacterStudy
+  .flatMap((g) => g.characters.flatMap((c) => c.lines))
+  .filter((line) => line.category !== '角色選擇');
 
 test('遊戲聽力題有唯一大意、合理不同選項、原教材解說及分散答案位置', () => {
   const positions = new Set();
