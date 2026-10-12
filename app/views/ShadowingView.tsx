@@ -12,7 +12,7 @@ type Phase = 'idle' | 'playing' | 'gap';
 
 export function ShadowingView() {
   const [index, setIndex] = useState(0);
-  const [showText, setShowText] = useState(true);
+  const [showText, setShowText] = useState(false);
   const [phase, setPhase] = useState<Phase>('idle');
   const [round, setRound] = useState(0);
   const [failed, setFailed] = useState(false);
@@ -159,7 +159,10 @@ export function ShadowingView() {
         }}
       />
 
-      <output className={`phase-pill${running ? ' active' : ''}`} data-phase={phase}>
+      <output
+        className={`phase-pill${running ? ' active' : ''}`}
+        data-phase={phase}
+      >
         {phase === 'playing' && `第 ${round} 遍 · 聽`}
         {phase === 'gap' && `第 ${round} 遍 · 換你念`}
         {phase === 'idle' && '按「開始跟讀」會一直重複，按停止結束'}
@@ -183,7 +186,11 @@ export function ShadowingView() {
 
       <div className="actions">
         {running ? (
-          <button type="button" className="btn primary big block" onClick={stop}>
+          <button
+            type="button"
+            className="btn primary big block"
+            onClick={stop}
+          >
             <StopIcon />
             停止
           </button>

@@ -983,3 +983,5 @@ export const stages = [
 
 // 遊戲角色區保持獨立，既有課程／FSRS／聽寫識別碼不變。
 export { gameCharacterStudy } from "./game-character-study.mjs";
+
+export { gameMeaningDistractors } from './game-character-questions.mjs';

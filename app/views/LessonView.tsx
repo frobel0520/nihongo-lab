@@ -64,11 +64,7 @@ export function LessonView({
     { id: 'quotes' as const, label: '名句', count: lesson.quotes?.length ?? 0 },
     { id: 'practice' as const, label: '練習', count: lesson.practice.length },
   ].filter((section) => section.count > 0);
-  const active =
-    sections.find((s) => s.id === sectionId) ??
-    (lesson.training && lesson.grammar.every((p) => p.study)
-      ? sections.find((s) => s.id === 'grammar')
-      : sections[0]);
+  const active = sections.find((s) => s.id === sectionId) ?? sections[0];
 
   // 換區塊後回到內容開頭，不留在上一個區塊滑到一半的位置。
   const goSection = (id: SectionId) => {

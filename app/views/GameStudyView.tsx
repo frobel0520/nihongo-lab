@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { gameCharacterStudy } from '../../curriculum/lessons.mjs';
 import type {
   GameLine,
@@ -6,7 +6,14 @@ import type {
 } from '../../curriculum/game-character-study.mjs';
 import type { Progress } from '../../lib/progress.mjs';
 import { recordDictation } from '../../lib/progress.mjs';
-import { gameRecordId, gameDone, gameLines } from '../../lib/game-study.mjs';
+import {
+  gameRecordId,
+  gameDone,
+  gameLines,
+  gameListeningQuestion,
+  gameListeningRecordId,
+  gameListeningDone,
+} from '../../lib/game-study.mjs';
 import { gameHash } from '../../lib/route.mjs';
 import { getVoice } from '../../curriculum/voices.mjs';
 import { useSwipeNavigation } from '../lib/useSwipeNavigation';
@@ -30,15 +37,34 @@ function StudyLine({
   listening,
   done,
   onDone,
+  plays,
+  onAnswer,
+  onRestart,
 }: {
   line: GameLine;
   character: GameCharacter;
   listening: boolean;
   done: boolean;
   onDone: () => void;
+  plays: number;
+  onAnswer: (correct: boolean) => void;
+  onRestart: () => void;
 }) {
   const [revealed, setRevealed] = useState(!listening);
   const [reading, setReading] = useState(false);
+  const [choice, setChoice] = useState<number | null>(null);
+  const [peeked, setPeeked] = useState(false);
+  const submitted = useRef(false);
+  const [baseline, setBaseline] = useState(plays);
+  const heard = Math.max(0, plays - baseline);
+  const question = gameListeningQuestion(line);
+  const choose = (answer: number) => {
+    if (!heard || peeked || submitted.current) return;
+    submitted.current = true;
+    setChoice(answer);
+    setRevealed(true);
+    onAnswer(answer === question.answer);
+  };
   return (
     <section className="card game-line">
       <p className="muted">
@@ -47,15 +73,58 @@ function StudyLine({
       </p>
       {!revealed && (
         <>
-          <p>先播放，試著抓出關鍵詞與意思。</p>
+          <p>先聽 → 判斷大意 → 看原文與解說 → 跟讀</p>
+          <p className="muted">
+            播放 {heard} 次{heard ? '' : ' · 先播放，再選答案。'}
+          </p>
+          <h3>{question.prompt}</h3>
+          <div className="anime-options">
+            {question.options.map((option, i) => (
+              <button
+                type="button"
+                className="btn block"
+                key={option}
+                disabled={!heard}
+                onClick={() => choose(i)}
+              >
+                <RubyText text={option} />
+              </button>
+            ))}
+          </div>
           <button
             type="button"
             className="btn"
-            onClick={() => setRevealed(true)}
+            onClick={() => {
+              setPeeked(true);
+              setRevealed(true);
+            }}
           >
-            顯示原文與解說
+            先看原文（不記聽力成績）
           </button>
         </>
+      )}
+      {choice !== null && (
+        <output className={choice === question.answer ? 'answer' : 'notice'}>
+          {choice === question.answer ? '答對了' : '這次沒有答對'} · 正確大意：
+          <RubyText text={question.options[question.answer]} />
+        </output>
+      )}
+      {peeked && <p className="muted">已先看原文，這次不記盲聽成績。</p>}
+      {listening && revealed && (
+        <button
+          type="button"
+          className="btn"
+          onClick={() => {
+            submitted.current = false;
+            setBaseline(plays);
+            setChoice(null);
+            setPeeked(false);
+            setRevealed(false);
+            onRestart();
+          }}
+        >
+          重新聽這句
+        </button>
       )}
       {revealed && (
         <>
@@ -118,7 +187,9 @@ export function GameStudyView({
   const game = gameCharacterStudy.find((g) => g.id === gameId);
   const [category, setCategory] = useState('');
   const [index, setIndex] = useState(0);
-  const [listening, setListening] = useState(false);
+  const [listening, setListening] = useState(true);
+  const [plays, setPlays] = useState<Record<string, number>>({});
+  const [attempt, setAttempt] = useState(0);
   const character = game?.characters.find((c) => c.id === characterId);
   const items = game
     ? gameLines(gameCharacterStudy, game.id, character?.id, category)
@@ -285,7 +356,8 @@ export function GameStudyView({
           </small>
         </h2>
         <p className="muted">
-          已學 {gameDone(lines, progress)}/{lines.length} · {at + 1}/
+          已學 {gameDone(lines, progress)}/{lines.length} · 理解{' '}
+          {gameListeningDone(lines, progress)}/{lines.length} · {at + 1}/
           {items.length} 句
         </p>
         <div className="row" data-no-swipe>
@@ -303,7 +375,7 @@ export function GameStudyView({
             aria-pressed={listening}
             onClick={() => setListening(true)}
           >
-            聽力與跟讀
+            聽力特訓
           </button>
         </div>
         <label data-no-swipe>
@@ -331,6 +403,18 @@ export function GameStudyView({
           character={character}
           listening={listening}
           done={!!progress.dictation[gameRecordId(current.line)]?.passed}
+          plays={plays[current.line.id] ?? 0}
+          onRestart={() => setAttempt((n) => n + 1)}
+          onAnswer={(correct) =>
+            update((prev) =>
+              recordDictation(
+                prev,
+                gameListeningRecordId(current.line),
+                correct,
+                new Date().toISOString(),
+              ),
+            )
+          }
           onDone={() =>
             update((prevProgress) =>
               recordDictation(
@@ -364,9 +448,15 @@ export function GameStudyView({
         </button>
         {listening && current && (
           <PlayButton
-            key={current.line.audio}
+            key={`${current.line.audio}:${attempt}`}
             audio={current.line.audio}
             label="播放這句"
+            onPlayed={() =>
+              setPlays((prev) => ({
+                ...prev,
+                [current.line.id]: (prev[current.line.id] ?? 0) + 1,
+              }))
+            }
             caption={false}
           />
         )}
