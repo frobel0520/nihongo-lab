@@ -28,7 +28,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,jpg,svg}'],
         // 原始插畫只供圖示產生器使用，離線只需快取縮小後的圖示。
         globIgnores: ['**/icon-source-jinwoo.png'],
         runtimeCaching: [

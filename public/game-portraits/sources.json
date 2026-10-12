@@ -1,0 +1,490 @@
+{
+  "sources": [
+    {
+      "file": "er-1.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/1/CharProfile/1001000.png",
+      "bytes": 49959
+    },
+    {
+      "file": "er-2.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/2/CharProfile/1002000.png",
+      "bytes": 36543
+    },
+    {
+      "file": "er-3.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/3/CharProfile/1003000.png",
+      "bytes": 55062
+    },
+    {
+      "file": "er-4.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/4/CharProfile/1004000.png",
+      "bytes": 51782
+    },
+    {
+      "file": "er-5.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/5/CharProfile/1005000.png",
+      "bytes": 38715
+    },
+    {
+      "file": "er-6.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/6/CharProfile/1006000.png",
+      "bytes": 48025
+    },
+    {
+      "file": "er-7.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/7/CharProfile/1007000.png",
+      "bytes": 40478
+    },
+    {
+      "file": "er-8.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/8/CharProfile/1008000.png",
+      "bytes": 47808
+    },
+    {
+      "file": "er-9.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/9/CharProfile/1009000.png",
+      "bytes": 45928
+    },
+    {
+      "file": "er-10.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/10/CharProfile/1010000.png",
+      "bytes": 41971
+    },
+    {
+      "file": "er-11.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/11/CharProfile/1011000.png",
+      "bytes": 36029
+    },
+    {
+      "file": "er-12.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/12/CharProfile/1012000.png",
+      "bytes": 35653
+    },
+    {
+      "file": "er-13.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/13/CharProfile/1013000.png",
+      "bytes": 40026
+    },
+    {
+      "file": "er-14.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/14/CharProfile/1014000.png",
+      "bytes": 44256
+    },
+    {
+      "file": "er-15.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/15/CharProfile/1015000.png",
+      "bytes": 36833
+    },
+    {
+      "file": "er-16.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/16/CharProfile/1016000.png",
+      "bytes": 40307
+    },
+    {
+      "file": "er-17.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/17/CharProfile/1017000.png",
+      "bytes": 46424
+    },
+    {
+      "file": "er-18.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/18/CharProfile/1018000.png",
+      "bytes": 37102
+    },
+    {
+      "file": "er-19.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/19/CharProfile/1019000.png",
+      "bytes": 54411
+    },
+    {
+      "file": "er-20.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/20/CharProfile/1020000.png",
+      "bytes": 36752
+    },
+    {
+      "file": "er-21.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/21/CharProfile/1021000.png",
+      "bytes": 35112
+    },
+    {
+      "file": "er-22.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/22/CharProfile/1022000.png",
+      "bytes": 45755
+    },
+    {
+      "file": "er-23.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/23/CharProfile/1023000.png",
+      "bytes": 37547
+    },
+    {
+      "file": "er-24.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/24/CharProfile/1024000.png",
+      "bytes": 33189
+    },
+    {
+      "file": "er-25.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/25/CharProfile/1025000.png",
+      "bytes": 47275
+    },
+    {
+      "file": "er-26.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/26/CharProfile/1026000.png",
+      "bytes": 45164
+    },
+    {
+      "file": "er-27.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/27/CharProfile/1027000.png",
+      "bytes": 41710
+    },
+    {
+      "file": "er-28.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/28/CharProfile/1028000.png",
+      "bytes": 41451
+    },
+    {
+      "file": "er-29.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/29/CharProfile/1029000.png",
+      "bytes": 41405
+    },
+    {
+      "file": "er-30.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/30/CharProfile/1030000.png",
+      "bytes": 47035
+    },
+    {
+      "file": "er-31.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/31/CharProfile/1031000.png",
+      "bytes": 37660
+    },
+    {
+      "file": "er-32.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/32/CharProfile/1032000.png",
+      "bytes": 31041
+    },
+    {
+      "file": "er-33.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/33/CharProfile/1033000.png",
+      "bytes": 46938
+    },
+    {
+      "file": "er-34.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/34/CharProfile/1034000.png",
+      "bytes": 37271
+    },
+    {
+      "file": "er-35.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/35/CharProfile/1035000.png",
+      "bytes": 36574
+    },
+    {
+      "file": "er-36.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/36/CharProfile/1036000.png",
+      "bytes": 43142
+    },
+    {
+      "file": "er-37.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/37/CharProfile/1037000.png",
+      "bytes": 35057
+    },
+    {
+      "file": "er-38.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/38/CharProfile/1038000.png",
+      "bytes": 48022
+    },
+    {
+      "file": "er-39.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/39/CharProfile/1039000.png",
+      "bytes": 38225
+    },
+    {
+      "file": "er-40.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/40/CharProfile/1040000.png",
+      "bytes": 39265
+    },
+    {
+      "file": "er-41.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/41/CharProfile/1041000.png",
+      "bytes": 32644
+    },
+    {
+      "file": "er-42.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/42/CharProfile/1042000.png",
+      "bytes": 39729
+    },
+    {
+      "file": "er-43.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/43/CharProfile/1043000.png",
+      "bytes": 38876
+    },
+    {
+      "file": "er-44.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/44/CharProfile/1044000.png",
+      "bytes": 48803
+    },
+    {
+      "file": "er-45.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/45/CharProfile/1045000.png",
+      "bytes": 44693
+    },
+    {
+      "file": "er-46.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/46/CharProfile/1046000.png",
+      "bytes": 47592
+    },
+    {
+      "file": "er-47.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/47/CharProfile/1047000.png",
+      "bytes": 60274
+    },
+    {
+      "file": "er-48.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/48/CharProfile/1048000.png",
+      "bytes": 50061
+    },
+    {
+      "file": "er-49.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/49/CharProfile/1049000.png",
+      "bytes": 46493
+    },
+    {
+      "file": "er-50.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/50/CharProfile/1050000.png",
+      "bytes": 52962
+    },
+    {
+      "file": "er-51.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/51/CharProfile/1051000.png",
+      "bytes": 49704
+    },
+    {
+      "file": "er-52.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/52/CharProfile/1052000.png",
+      "bytes": 40125
+    },
+    {
+      "file": "er-53.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/53/CharProfile/1053000.png",
+      "bytes": 35985
+    },
+    {
+      "file": "er-54.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/54/CharProfile/1054000.png",
+      "bytes": 50184
+    },
+    {
+      "file": "er-55.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/55/CharProfile/1055000.png",
+      "bytes": 42016
+    },
+    {
+      "file": "er-56.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/56/CharProfile/1056000.png",
+      "bytes": 45642
+    },
+    {
+      "file": "er-57.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/57/CharProfile/1057000.png",
+      "bytes": 44592
+    },
+    {
+      "file": "er-58.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/58/CharProfile/1058000.png",
+      "bytes": 33334
+    },
+    {
+      "file": "er-59.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/59/CharProfile/1059000.png",
+      "bytes": 39457
+    },
+    {
+      "file": "er-60.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/60/CharProfile/1060000.png",
+      "bytes": 39011
+    },
+    {
+      "file": "er-61.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/61/CharProfile/1061000.png",
+      "bytes": 44512
+    },
+    {
+      "file": "er-62.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/62/CharProfile/1062000.png",
+      "bytes": 44526
+    },
+    {
+      "file": "er-63.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/63/CharProfile/1063000.png",
+      "bytes": 46684
+    },
+    {
+      "file": "er-64.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/64/CharProfile/1064000.png",
+      "bytes": 53164
+    },
+    {
+      "file": "er-65.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/65/CharProfile/1065000.png",
+      "bytes": 50520
+    },
+    {
+      "file": "er-66.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/66/CharProfile/1066000.png",
+      "bytes": 43100
+    },
+    {
+      "file": "er-67.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/67/CharProfile/1067000.png",
+      "bytes": 41615
+    },
+    {
+      "file": "er-68.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/68/CharProfile/1068000.png",
+      "bytes": 60073
+    },
+    {
+      "file": "er-69.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/69/CharProfile/1069000.png",
+      "bytes": 50744
+    },
+    {
+      "file": "er-70.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/70/CharProfile/1070000.png",
+      "bytes": 48163
+    },
+    {
+      "file": "er-71.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/71/CharProfile/1071000.png",
+      "bytes": 52115
+    },
+    {
+      "file": "er-72.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/72/CharProfile/1072000.png",
+      "bytes": 47219
+    },
+    {
+      "file": "er-73.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/73/CharProfile/1073000.png",
+      "bytes": 53383
+    },
+    {
+      "file": "er-74.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/74/CharProfile/1074000.png",
+      "bytes": 53292
+    },
+    {
+      "file": "er-75.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/75/CharProfile/1075000.png",
+      "bytes": 46072
+    },
+    {
+      "file": "er-76.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/76/CharProfile/1076000.png",
+      "bytes": 54084
+    },
+    {
+      "file": "er-77.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/77/CharProfile/1077000.png",
+      "bytes": 36315
+    },
+    {
+      "file": "er-78.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/78/CharProfile/1078000.png",
+      "bytes": 54558
+    },
+    {
+      "file": "er-79.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/79/CharProfile/1079000.png",
+      "bytes": 55134
+    },
+    {
+      "file": "er-80.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/80/CharProfile/1080000.png",
+      "bytes": 49176
+    },
+    {
+      "file": "er-81.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/81/CharProfile/1081000.png",
+      "bytes": 43201
+    },
+    {
+      "file": "er-82.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/82/CharProfile/1082000.png",
+      "bytes": 44902
+    },
+    {
+      "file": "er-83.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/83/CharProfile/1083000.png",
+      "bytes": 42942
+    },
+    {
+      "file": "er-84.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/84/CharProfile/1084000.png",
+      "bytes": 40509
+    },
+    {
+      "file": "er-85.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/85/CharProfile/1085000.png",
+      "bytes": 55092
+    },
+    {
+      "file": "er-86.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/86/CharProfile/1086000.png",
+      "bytes": 39796
+    },
+    {
+      "file": "er-87.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/87/CharProfile/1087000.png",
+      "bytes": 47091
+    },
+    {
+      "file": "er-88.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/88/CharProfile/1088000.png",
+      "bytes": 55169
+    },
+    {
+      "file": "er-89.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/89/CharProfile/1089000.png",
+      "bytes": 47152
+    },
+    {
+      "file": "er-90.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/90/CharProfile/1090000.png",
+      "bytes": 50287
+    },
+    {
+      "file": "er-91.png",
+      "url": "https://raw.githubusercontent.com/LuoRenMu/EternalReturnResource/e5fde16bae66cd53db919ba4725fc8159fa3ba1d/resources/images/character/91/CharProfile/1091000.png",
+      "bytes": 46582
+    },
+    {
+      "file": "lol-ahri.jpg",
+      "url": "https://www.loljp-wiki.jp/wiki/image/champ/80/ico_Ahri.jpg",
+      "bytes": 2994
+    },
+    {
+      "file": "lol-yasuo.jpg",
+      "url": "https://www.loljp-wiki.jp/wiki/image/champ/80/ico_Yasuo.jpg",
+      "bytes": 3350
+    },
+    {
+      "file": "lol-lux.jpg",
+      "url": "https://www.loljp-wiki.jp/wiki/image/champ/80/ico_Lux.jpg",
+      "bytes": 2697
+    },
+    {
+      "file": "genshin-amber.png",
+      "url": "https://raw.githubusercontent.com/kgirtxd/Genshin-Assets/acfdf5d1676a7034b0bbdb1177015950833837e3/CharacterIcon/ambor_icon.png",
+      "bytes": 78265
+    },
+    {
+      "file": "genshin-bennett.png",
+      "url": "https://raw.githubusercontent.com/kgirtxd/Genshin-Assets/acfdf5d1676a7034b0bbdb1177015950833837e3/CharacterIcon/bennett_icon.png",
+      "bytes": 87024
+    },
+    {
+      "file": "genshin-raiden.png",
+      "url": "https://raw.githubusercontent.com/kgirtxd/Genshin-Assets/acfdf5d1676a7034b0bbdb1177015950833837e3/CharacterIcon/shougun_icon.png",
+      "bytes": 103158
+    }
+  ],
+  "rights": "角色圖像權利屬於各遊戲權利人。永恆輪迴圖像使用 EternalReturnResource 的預設 CharProfile；其程式與 README 明示 DAK.GG 圖像編排。LoL 使用 LoLJPWiki；原神使用 Genshin-Assets 的原始角色圖像。來源連結不等於可任意重用的授權聲明。"
+}

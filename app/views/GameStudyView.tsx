@@ -116,7 +116,6 @@ export function GameStudyView({
   update,
 }: Props) {
   const game = gameCharacterStudy.find((g) => g.id === gameId);
-  const [search, setSearch] = useState('');
   const [category, setCategory] = useState('');
   const [index, setIndex] = useState(0);
   const [listening, setListening] = useState(false);
@@ -184,47 +183,93 @@ export function GameStudyView({
           <a href={gameHash()}>所有遊戲</a>
           <h2>{game.title}</h2>
           <p>{game.scope}</p>
-          <label>
-            搜尋角色
-            <input
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="中文／日文角色名"
-            />
-          </label>
+          <p className="muted">
+            點角色頭像進入學習 · {game.characters.length} 位角色
+          </p>
         </section>
-        {game.characters
-          .filter((c) =>
-            `${c.name} ${c.nameJa}`
-              .toLowerCase()
-              .includes(search.trim().toLowerCase()),
-          )
-          .map((c) => (
-            <section className="card" key={c.id}>
-              <h3>
-                {c.name}{' '}
-                <small lang="ja">
-                  <RubyText text={c.nameJa} />
-                </small>
-              </h3>
-              <p className="muted">
-                {c.lines.length} 句 · 已學 {gameDone(c.lines, progress)}/
-                {c.lines.length}
-                {c.lines.every((l) => l.kind === 'practice')
-                  ? ' · 原作台詞待查證'
-                  : ''}
-              </p>
-              <a className="btn" href={gameHash(game.id, c.id)}>
-                學習{c.name}
-              </a>
-            </section>
+        <div className="character-grid" aria-label={`${game.title}角色頭像`}>
+          {game.characters.map((c) => (
+            <a
+              className="character-tile"
+              key={c.id}
+              href={gameHash(game.id, c.id)}
+              aria-label={`學習${c.name}`}
+            >
+              <span className="character-portrait">
+                <img
+                  src={`${import.meta.env.BASE_URL}${c.portrait}`}
+                  alt={`${c.name}頭像`}
+                  width="160"
+                  height="160"
+                  loading="lazy"
+                />
+              </span>
+              <strong>{c.name}</strong>
+              <small lang="ja">
+                <RubyText text={c.nameJa} />
+              </small>
+              <small className="muted">
+                {c.lines.length
+                  ? `${c.lines.length} 句 · 已學 ${gameDone(c.lines, progress)}/${c.lines.length}`
+                  : '語音待補'}
+              </small>
+            </a>
           ))}
-        {!game.characters.some((c) =>
-          `${c.name} ${c.nameJa}`
-            .toLowerCase()
-            .includes(search.trim().toLowerCase()),
-        ) && <p className="notice">目前收錄的角色沒有符合項目。</p>}
+        </div>
+        <details className="card">
+          <summary>頭像來源</summary>
+          <p className="muted">
+            頭像為遊戲角色圖像；僅作學習選單識別。作品權利屬於各遊戲權利人。
+          </p>
+          {game.characters.map((c) => (
+            <a
+              key={c.id}
+              className="portrait-source"
+              href={c.portraitReferenceUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {c.name}頭像來源
+            </a>
+          ))}
+        </details>
       </>
+    );
+  if (!character.lines.length)
+    return (
+      <section className="card empty-character">
+        <a href={gameHash(game.id)}>返回{game.title}角色清單</a>
+        <img
+          className="empty-character-portrait"
+          src={`${import.meta.env.BASE_URL}${character.portrait}`}
+          alt={`${character.name}頭像`}
+          width="160"
+          height="160"
+        />
+        <h2>
+          {character.name}{' '}
+          <small lang="ja">
+            <RubyText text={character.nameJa} />
+          </small>
+        </h2>
+        <p>此角色語音尚未收錄。</p>
+        <p className="muted">
+          角色與頭像已加入選單；核對日文台詞並製作音檔後，會在這裡提供學習內容。
+        </p>
+        <p>
+          <a href={character.referenceUrl} target="_blank" rel="noreferrer">
+            角色資料來源
+          </a>{' '}
+          ·{' '}
+          <a
+            href={character.portraitReferenceUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            頭像來源
+          </a>
+        </p>
+      </section>
     );
   const lines = character.lines;
   const categories = [...new Set(lines.map((l) => l.category))];

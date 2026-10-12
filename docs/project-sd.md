@@ -216,3 +216,9 @@ T46 首次試聽版本：教材 MP3 路徑保持不變，離線快取更新為 `
 `#/games`、`#/games/<gameId>`、`#/games/<gameId>/<characterId>` 支援深連結與返回；未知角色顯示同遊戲清單、未知遊戲回入口，壞編碼／多餘段落安全回清單。App routeKey 包含遊戲／角色，換角色不保留其他角色的索引或模式。`GameStudyView` 預設無聲閱讀，聽力才掛載既有 PlayButton，切句／切回閱讀的 cleanup 停止播放；touch-action pan-y 保留垂直捲動。
 
 `gameRecordId` 是 `game:句id:原文雜湊`，使用版本 3 通用練習 map 儲存自評已學，不變更 Worker。解說修改不重置，原文修改另存。`allAudioPaths` 可接額外音檔陣列，設定頁加入 18 檔；遊戲頁可單角色或全遊戲下載。OfflineAudio 允許自訂本課／全部名稱，原課程預設標籤不變。合成 jobs 與 orphan／ruby／配音陣容測試一併涵蓋獨立資料；快取沿用 v5。
+
+## T58 角色名冊與頭像（2026-10-12）
+
+`game-character-roster.mjs` 保存固定來源的 91 筆 ER 角色 code、id、中文／日文名、預設頭像與來源，由 `game-character-study.mjs` 合併既有三位角色的教材。其餘 lines 為空、不指定合成聲線。GameCharacter 的 portrait／portraitReferenceUrl 用於頭像清單，既有路由與 GameLine 不變。
+
+`GameStudyView` 移除搜尋 state／input，使用帶完整可點擊範圍與 aria-label 的角色連結格。固定寬高、方形容器、object-fit 保持版面，圖片 lazy-load，中文／日文標籤補充識別。空角色頁在句數／播放控制之前返回，避免 1/0 與空音訊。所有頭像存於 `public/game-portraits`，sources.json 記來源；Workbox glob 納入 jpg，png 與 jpg 共 97 檔預快取，不依賴遠端圖片在執行時可用。來源資料入口仍為 lessons.mjs。

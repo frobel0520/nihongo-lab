@@ -191,3 +191,11 @@ T57 另提供獨立 HTML 驗收檔，內嵌全部 18 個 MP3，無需同步帳�
 功能 commit `63c7893` 已推送 main，[GitHub Actions 38193204025](https://github.com/frobel0520/nihongo-lab/actions/runs/38193204025) 顯示 Success。提交／推送的三個 privacy-guard hook 全部通過，author 與 committer 皆為指定公開身分；241 tests／typecheck／lint 與正式路徑 build 通過，未發現新增私人路徑、非虛構 Email、內網 IP 或憑證格式，18 檔 MP3 只有 encoder metadata，既有音檔沒有改動。自動格式檢查不等同能辨識所有任意個資，人工審查仍保留。
 
 正式站 `index-9JWE-1i3.js` 與本次建置逐位元組一致，全部 18 個遊戲 MP3 與本機檔案一致；service worker 仍使用音檔快取 v5。HTTPS 查證保留 TLS 驗證。更新 App 後，首頁遊戲入口可使用；已有離線音檔只需補下載新增檔案，不清除學習進度。首版仍是 9 位角色、12 句作品短句及 6 句明示自編練習，永恆輪迴原作選角語音與全角色擴充尚未完成。
+
+## 2026-10-12 T58 角色頭像選單與永恆輪迴全名冊
+
+角色搜尋欄與文字卡片改成可點擊頭像格；三款遊戲共 97 個角色頭像，永恆輪迴依固定版本 Character.json 收齊 91 位可玩角色。三位角色的既有六句練習、路由 id 與進度保留；其他 88 位點開明示語音尚未收錄，不顯示 1/0、播放器或假台詞。沒有新增語音／劇情。
+
+頭像全部存於本專案，永恆輪迴採 EternalReturnResource 的預設 CharProfile（該資源庫使用 DAK.GG 編排），LoL 用 LoLJPWiki，原神用 Genshin-Assets；頁面可展開來源。97 檔皆成功讀取並通過圖檔檢查，隨 PWA 預快取。244 tests／typecheck／lint／正式路徑 build 通過；375×667 全 97 頭像、點擊學習、原音檔／進度與空角色頁驗證通過，離線結果見 release-audit.md。部署結果另補。
+
+T58 正式建置版離線驗證：SW 安裝完成後斷網重載，91 張 ER 頭像逐張顯示、LoL JPEG 頭像與角色學習路由均正常，沒有自動播放。既有音檔／進度保持不變。

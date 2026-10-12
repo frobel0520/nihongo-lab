@@ -432,3 +432,22 @@ T57 另提供獨立 HTML 驗收檔，內嵌全部 18 個 MP3，無需同步帳�
 功能 commit `63c7893` 已推送 main，[GitHub Actions 38193204025](https://github.com/frobel0520/nihongo-lab/actions/runs/38193204025) 顯示 Success。提交／推送的三個 privacy-guard hook 全部通過，author 與 committer 皆為指定公開身分；241 tests／typecheck／lint 與正式路徑 build 通過，未發現新增私人路徑、非虛構 Email、內網 IP 或憑證格式，18 檔 MP3 只有 encoder metadata，既有音檔沒有改動。自動格式檢查不等同能辨識所有任意個資，人工審查仍保留。
 
 正式站 `index-9JWE-1i3.js` 與本次建置逐位元組一致，全部 18 個遊戲 MP3 與本機檔案一致；service worker 仍使用音檔快取 v5。HTTPS 查證保留 TLS 驗證。更新 App 後，首頁遊戲入口可使用；已有離線音檔只需補下載新增檔案，不清除學習進度。首版仍是 9 位角色、12 句作品短句及 6 句明示自編練習，永恆輪迴原作選角語音與全角色擴充尚未完成。
+
+## 2026-10-12 T58 頭像選單與 ER 角色名冊
+
+### 資料來源與範圍
+
+- 永恆輪迴角色名冊採 [er-gamedata 固定版本 Character.json](https://github.com/pypy-vrc/er-gamedata/blob/ea359154465075aa61a668efde014db076820a03/data/Character.json)，91 筆 code 1～91；中文／日文名取同版本 ChineseTraditional.txt／Japanese.txt。沒有收隨機選項、Dr. NPC，也未宣稱包含該版本以後新增角色。
+- 頭像採 [EternalReturnResource](https://github.com/LuoRenMu/EternalReturnResource/tree/e5fde16bae66cd53db919ba4725fc8159fa3ba1d) 的 Character 圖像映射及預設 CharProfile；README／程式明示 DAK.GG 圖像類別。91 張與資料 code 一一對應，預設造型 id 為 1000000＋code×1000。直接 DAK.GG 網域原先遭網路限制，所以使用可讀的固定版本資源庫，不宣稱已直接讀取 DAK.GG 最新角色頁。
+- LoL 三張取 LoLJPWiki image/champ/80 的 Ahri／Yasuo／Lux；原神三張取 [Genshin-Assets 固定版本](https://github.com/kgirtxd/Genshin-Assets/tree/acfdf5d1676a7034b0bbdb1177015950833837e3/CharacterIcon) ambor／bennett／shougun。共 97 張原圖，權利屬於遊戲權利人；頁面來源區與 sources.json 提供來源，不將社群鏡像稱作官方授權素材庫。
+- 只擴充角色名冊／頭像，不新增語音。ER 三位角色仍六句明示自編練習；其他 88 位 lines 空陣列，沒有虛構選角台詞或指定新聲線。整站既有 18 句遊戲教材及學習識別碼不變。日文名雪／彰一／莉央對照 Yuki／Shoichi／Rio，補讀音ゆき／しょういち／りお。
+
+### 功能與驗證
+
+- 角色搜尋 input 改成可點擊頭像格，每格有可讀名稱、學習狀態與鍵盤焦點。點圖或文字均進入同角色頁；無教材頁明示尚未收錄，沒有 1/0、播放按鈕或音訊請求。既有角色仍直接開閱讀頁，再由使用者手動切聽力／播放。
+- 所有 97 頭像已下載並確認實際 PNG／JPEG 格式，總 4,329,739 bytes；圖像文字 metadata 未發現個人機器路徑。沒有新語音、舊 MP3 或憑證變更。
+- `npm run check`：typecheck、244 tests（零失敗／略過）、lint 通過。新增三項名冊完整性、頭像來源／簽名及舊教材保持檢查；不新增只驗證 CSS 的測試。
+- `VITE_BASE_PATH=/nihongo-lab/ npm run build` 通過，124 項 precache（原 27＋97 張頭像）、5329.88 KiB；既有單 chunk 超過 500 kB 提示保留。PNG 原已收錄，新增 jpg glob 使 LoL 頭像亦可離線顯示。
+- 375×667 Chromium：三遊戲所有 97 張圖逐張完成解碼，無搜尋輸入欄、無橫向溢位；點選既有角色、實際播放原音檔、學習標記保留、點無教材角色／重載、來源連結與頁面零錯誤通過。離線測試及部署結果另補。
+
+T58 正式建置版離線驗證：SW 安裝完成後斷網重載，91 張 ER 頭像逐張顯示、LoL JPEG 頭像與角色學習路由均正常，沒有自動播放。既有音檔／進度保持不變。

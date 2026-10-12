@@ -2,11 +2,12 @@
  * T57：角色短句與原創主題練習。作品短句僅選少量核對用例；不宣稱完整台詞庫。
  * 永恆輪迴只提供明示非作品台詞的練習，來源指向角色名稱資料，不當作台詞證據。
  * @typedef {import('./lessons.mjs').Line & { id: string, category: string, kind: 'quote' | 'practice', note: string, referenceUrl: string, referenceNote: string, pronunciation?: string }} GameLine
- * @typedef {{ id: string, name: string, nameJa: string, voice: string, referenceUrl: string, lines: GameLine[] }} GameCharacter
+ * @typedef {{ id: string, name: string, nameJa: string, voice?: string, referenceUrl: string, portrait?: string, portraitReferenceUrl?: string, lines: GameLine[] }} GameCharacter
  * @typedef {{ id: string, title: string, scope: string, characters: GameCharacter[] }} GameStudy
  * @typedef {[string, string, string, string, string, string, string?]} LineSpec id/category/jp/reading/zh/note/pronunciation
  */
 import { audioPath } from './author.mjs';
+import { eternalReturnRoster } from './game-character-roster.mjs';
 const genshinVersion = '49a6544a6c6ae36089cb42fa591fc46f01de8bcf';
 const erVersion = 'ea359154465075aa61a668efde014db076820a03';
 /** @param {string} game @param {string} id @param {string} name @param {string} nameJa @param {string} voice @param {string} url @param {LineSpec[]} rows @param {'quote'|'practice'} [kind] @returns {GameCharacter} */
@@ -314,3 +315,40 @@ export const gameCharacterStudy = [
     ],
   },
 ];
+
+// 以角色名冊補齊頭像；只有已有核對教材的角色保留 lines，其他明示待收錄。
+const er = gameCharacterStudy.find((game) => game.id === 'er');
+if (!er) throw new Error('Missing Eternal Return section');
+const existing = new Map(
+  er.characters.map((character) => [character.id, character]),
+);
+er.characters = eternalReturnRoster.map((row) => ({
+  ...row,
+  ...existing.get(row.id),
+  portrait: row.portrait,
+  portraitReferenceUrl: row.portraitReferenceUrl,
+  lines: existing.get(row.id)?.lines ?? [],
+}));
+er.scope =
+  '角色名冊與預設造型頭像已收錄 91 位（依固定版本角色資料）。三位角色有主題練習，其餘語音待補；未收錄劇情。';
+for (const game of gameCharacterStudy) {
+  if (game.id === 'er') continue;
+  for (const character of game.characters) {
+    character.portrait = `game-portraits/${game.id}-${character.id}.${game.id === 'lol' ? 'jpg' : 'png'}`;
+    if (game.id === 'lol') {
+      const champion = /** @type {Record<string, string>} */ ({
+        ahri: 'Ahri',
+        yasuo: 'Yasuo',
+        lux: 'Lux',
+      })[character.id];
+      character.portraitReferenceUrl = `https://www.loljp-wiki.jp/wiki/image/champ/80/ico_${champion}.jpg`;
+    } else {
+      const key = /** @type {Record<string, string>} */ ({
+        amber: 'ambor',
+        bennett: 'bennett',
+        raiden: 'shougun',
+      })[character.id];
+      character.portraitReferenceUrl = `https://github.com/kgirtxd/Genshin-Assets/blob/acfdf5d1676a7034b0bbdb1177015950833837e3/CharacterIcon/${key}_icon.png`;
+    }
+  }
+}
