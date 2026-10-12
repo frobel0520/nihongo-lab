@@ -10,6 +10,7 @@
  */
 import { audioPath } from './author.mjs';
 import { foundationCores } from './anime-core-foundation.mjs';
+import { grammarStudyFor } from './anime-grammar-study.mjs';
 
 const dictionary =
   'https://github.com/scriptin/jmdict-simplified/releases/tag/3.6.2%2B20261005200550';
@@ -716,6 +717,7 @@ export function animeCoreFor(lessonId, bank, references) {
     });
     return {
       pattern: point.pattern,
+      study: grammarStudyFor(lessonId, i),
       note: point.note,
       ...(point.jlpt ? { jlpt: point.jlpt } : {}),
       referenceUrl:

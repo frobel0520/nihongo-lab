@@ -139,7 +139,11 @@ test('特訓進度與聽寫分離；題目改版後舊的通過紀錄不計入�
   assert.deepEqual(summary.listening, { done: 1, total });
   assert.equal(
     summary.ratio,
-    1 / (summary.vocab.total + summary.dictation.total + total),
+    1 /
+      (summary.vocab.total +
+        summary.dictation.total +
+        total +
+        summary.grammar.total),
   );
   assert.equal(summary.dictation.done, 0);
   const loaded = parseProgress(serializeProgress(progress));

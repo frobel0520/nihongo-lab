@@ -1,6 +1,6 @@
 /**
  * @typedef {{ jp: string, reading: string, zh: string, voice: string, audio: string, ruby?: string, source?: string, referenceUrl?: string }} Line
- * @typedef {{ pattern: string, note: string, examples: Line[], jlpt?: string[], referenceUrl?: string, referenceUrls?: string[], quoteExamples?: { quote: Quote, referenceUrl: string }[] }} GrammarPoint
+ * @typedef {{ pattern: string, note: string, study?: import("./anime-grammar-study.mjs").GrammarStudy, examples: Line[], jlpt?: string[], referenceUrl?: string, referenceUrls?: string[], quoteExamples?: { quote: Quote, referenceUrl: string }[] }} GrammarPoint
  * @typedef {{ word: string, reading: string, pronunciation?: string, zh: string, voice: string, audio: string, ruby?: string, note?: string, referenceUrl?: string, referenceNote?: string }} VocabItem
  * @typedef {Line & { source: string, note: string, id?: string, referenceUrl?: string, referenceNote?: string }} Quote
  * @typedef {{ q: string, a: string }} PracticeItem
@@ -980,3 +980,6 @@ export const stages = [
   { id: 'stage-2', title: '第 2 階段：口語與動畫日文', lessons: [...buildAnimeLessons(quotes.quotes ?? []), spoken, quotes] },
   { id: 'stage-3', title: '第 3 階段：N3 到 N1', lessons: [] },
 ];
+
+// 遊戲角色區保持獨立，既有課程／FSRS／聽寫識別碼不變。
+export { gameCharacterStudy } from "./game-character-study.mjs";

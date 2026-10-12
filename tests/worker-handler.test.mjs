@@ -244,3 +244,23 @@ test('/sync：session 剩不到 15 天時換發新的，剩得多就不換', asy
   const again = await call(env, '/sync', { token: renewed.token, now: later, body: { progress: emptyProgress() } });
   assert.equal(again.status, 200);
 });
+
+test('/sync：沿用版本 3，文法答錯／訂正跨裝置合併不影響舊卡', async () => {
+  const { recordGrammarAnswer, grammarStatus } = await import('../lib/grammar-study.mjs');
+  const id = 'grammar:anime-lesson-01:topic:q1:sample';
+  const stamp = n => new Date(NOW + n * 1000).toISOString();
+  const original = review(emptyProgress(), 'stage0-day1:私', stamp(0));
+  const wrong = recordGrammarAnswer(original, id, false, stamp(1));
+  const env = makeEnv();
+  const token = await session();
+  const first = await call(env, '/sync', {token, body:{progress:wrong}});
+  assert.equal(first.status,200);
+  const firstData = await first.json();
+  assert.equal(grammarStatus(firstData.progress,id).review,true);
+  const corrected = recordGrammarAnswer(firstData.progress,id,true,stamp(2));
+  assert.equal((await call(env,'/sync',{token,body:{progress:corrected}})).status,200);
+  const stale = await call(env,'/sync',{token,body:{progress:wrong}});
+  const result = await stale.json();
+  assert.equal(grammarStatus(result.progress,id).review,false);
+  assert.deepEqual(result.progress.srs,original.srs);
+});

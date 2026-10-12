@@ -20,6 +20,7 @@ import { LessonListView } from './views/LessonListView';
 import { LessonView } from './views/LessonView';
 import { SettingsView } from './views/SettingsView';
 import { ShadowingView } from './views/ShadowingView';
+import { GameStudyView } from './views/GameStudyView';
 import { SrsView } from './views/SrsView';
 
 const APP_NAME = 'かなの日本語';
@@ -68,7 +69,7 @@ export function App() {
     route.view === 'lessons' && route.lessonId
       ? LESSONS.find((l) => l.id === route.lessonId)
       : undefined;
-  const routeKey = `${route.view}/${lesson?.id ?? ''}/${route.srsMode ?? ''}`;
+  const routeKey = `${route.view}/${lesson?.id ?? ''}/${route.srsMode ?? ''}/${route.gameId ?? ''}/${route.characterId ?? ''}`;
 
   // 換頁時回到頁首，不停在上一頁滑到一半的位置。
   useEffect(() => {
@@ -81,7 +82,7 @@ export function App() {
   };
 
   const title =
-    lesson?.title ??
+    (route.view === 'games' ? '遊戲角色語音' : lesson?.title) ??
     (route.view === 'lessons'
       ? APP_NAME
       : TABS.find((t) => t.id === route.view)?.label);
@@ -104,7 +105,10 @@ export function App() {
         </h1>
       </header>
 
-      <main className={`screen${route.view === 'dictation' ? ' dictation-page' : ''}`} key={routeKey}>
+      <main
+        className={`screen${route.view === 'dictation' ? ' dictation-page' : ''}`}
+        key={routeKey}
+      >
         {updated && (
           <output className="notice notice-row">
             <span>
@@ -153,12 +157,24 @@ export function App() {
 
         {route.view === 'lessons' &&
           (lesson ? (
-            <LessonView lesson={lesson} update={update} />
+            <LessonView lesson={lesson} progress={progress} update={update} />
           ) : (
             <LessonListView progress={progress} />
           ))}
+        {route.view === 'games' && (
+          <GameStudyView
+            gameId={route.gameId}
+            characterId={route.characterId}
+            progress={progress}
+            update={update}
+          />
+        )}
         {route.view === 'srs' && (
-          <SrsView progress={progress} update={update} mode={route.srsMode ?? 'review'} />
+          <SrsView
+            progress={progress}
+            update={update}
+            mode={route.srsMode ?? 'review'}
+          />
         )}
         {route.view === 'shadowing' && <ShadowingView />}
         {route.view === 'dictation' && (
@@ -185,7 +201,12 @@ export function App() {
           <a
             key={tab.id}
             href={viewHash(tab.id)}
-            aria-current={route.view === tab.id ? 'page' : undefined}
+            aria-current={
+              route.view === tab.id ||
+              (route.view === 'games' && tab.id === 'lessons')
+                ? 'page'
+                : undefined
+            }
           >
             {tab.icon}
             <span>{tab.label}</span>

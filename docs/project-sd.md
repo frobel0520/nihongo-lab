@@ -200,3 +200,19 @@ T46 首次試聽版本：教材 MP3 路徑保持不變，離線快取更新為 `
 `anime-core-foundation.mjs` 保存第 1～3、8 課資料，由 `anime-core.mjs` 注入；新聽力題放在 `anime-core-foundation-questions.mjs` 並由原題庫模組合併，對外入口仍為 `lessons.mjs`。既有八十九題物件及音檔 URL 不改，新增 40 張 FSRS 卡、16 句聽寫／跟讀與 56 個音檔；音檔快取維持 v5，已有快取只補下載新增檔案。
 
 `VocabItem.pronunciation` 是選用的實際發音假名，由 `build-audio-jobs.mjs` 轉交既有合成器；它不取代供顯示／ruby 用的 `reading`。「気を付ける」顯示讀音保留きをつける，實際核對用きおつける，避免把助詞を誤當字面讀音。獨立詞「燃やす」新增 Kanjium 0 型、もやす覆寫；引擎原來多讀え，假名重試又切碎詞界，因此採經核對的完整詞覆寫，原 83 筆保留。
+
+## T56 文法資料、進度與畫面（2026-10-08）
+
+`anime-grammar-study.mjs` 保存 32 組接續提示及 64 題，由 `anime-core.mjs` 注入 `GrammarPoint.study`，對外仍由 `lessons.mjs` 提供。題目依序為固定 q1／q2，選項位置跨重點輪替。`AnimeGrammarStudy` 提供重點清單、解說與單題畫面；例句只顯示文字，不掛載音訊元件。既有一般文法畫面沿用；首頁由 `lesson-progress.mjs` 增加文法摘要。
+
+`lib/grammar-study.mjs` 沿用版本 3 通用練習 map：`grammar:課程:語義點id:題id:內容雜湊` 保存主紀錄，`:wrong` 輔助紀錄保存最後答錯時刻，每題最多兩筆。主紀錄保存曾答對，若錯誤時間不早於最後作答則列入待重練；同裝置時間回退／同毫秒重答會使時間單調增加。沿用既有 Worker 的通用紀錄合併（passed OR、attempts 最大值、lastAt 最大值），不升 schema、不需重部署 Worker。相同時間的跨裝置作答採保守待重練，跨裝置時鐘偏差仍可能影響最新狀態。題序重排、說明修改不重置紀錄；題幹／選項／答案修改會取得新雜湊。輔助紀錄不另算備份／設定頁題數。
+
+`nihongo-lab:grammar-location:v1` 保存各課語義點與 learn／q1／q2 閱讀位置，驗證後再恢復，損毀或無法儲存不阻止學習；此書籤不加入雲端／匯出。重練使用開始時的錯題佇列，避免答對後縮短佇列造成跳題。滑動重用 `useSwipeNavigation`，不攔截控制元件及垂直捲動；手機 footer 固定在全域頁籤上方。
+
+## T57 遊戲資料與路由（2026-10-11）
+
+`game-character-study.mjs` 保存 GameStudy／GameCharacter／GameLine，由 `lessons.mjs` 匯出 `gameCharacterStudy`，不注入既有四階段課程。每句含穩定 id、category、kind、reading、note、來源及音檔；kind 分 quote／practice，自編句情境為主題練習。同角色固定現役聲線，音檔由原文／voice 內容雜湊定址。
+
+`#/games`、`#/games/<gameId>`、`#/games/<gameId>/<characterId>` 支援深連結與返回；未知角色顯示同遊戲清單、未知遊戲回入口，壞編碼／多餘段落安全回清單。App routeKey 包含遊戲／角色，換角色不保留其他角色的索引或模式。`GameStudyView` 預設無聲閱讀，聽力才掛載既有 PlayButton，切句／切回閱讀的 cleanup 停止播放；touch-action pan-y 保留垂直捲動。
+
+`gameRecordId` 是 `game:句id:原文雜湊`，使用版本 3 通用練習 map 儲存自評已學，不變更 Worker。解說修改不重置，原文修改另存。`allAudioPaths` 可接額外音檔陣列，設定頁加入 18 檔；遊戲頁可單角色或全遊戲下載。OfflineAudio 允許自訂本課／全部名稱，原課程預設標籤不變。合成 jobs 與 orphan／ruby／配音陣容測試一併涵蓋獨立資料；快取沿用 v5。

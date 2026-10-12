@@ -1,5 +1,6 @@
+import { practiceRecordCount } from '../../lib/grammar-study.mjs';
 import { useState } from 'react';
-import { stages } from '../../curriculum/lessons.mjs';
+import { stages, gameCharacterStudy } from '../../curriculum/lessons.mjs';
 import { voices } from '../../curriculum/voices.mjs';
 import { allAudioPaths } from '../../lib/offline.mjs';
 import type { Progress } from '../../lib/progress.mjs';
@@ -10,7 +11,12 @@ import { ProgressTransfer } from '../components/ProgressTransfer';
 import { SyncPanel } from '../components/SyncPanel';
 import type { SyncApi } from '../useSync';
 
-const ALL_AUDIO_PATHS = allAudioPaths(stages);
+const ALL_AUDIO_PATHS = allAudioPaths(
+  stages,
+  gameCharacterStudy.flatMap((g) =>
+    g.characters.flatMap((c) => c.lines.map((l) => l.audio)),
+  ),
+);
 /** 設定頁只提供「全部課程」下載；模組層級的固定陣列，避免每次渲染都換新參考而重跑下載計數。 */
 const NO_LESSON_PATHS: string[] = [];
 
@@ -46,8 +52,8 @@ export function SettingsView({
         <output className="notice notice-row">
           <span>
             已清除快取並重新載入。學習進度都還在：單字卡{' '}
-            {Object.keys(progress.srs).length} 張、聽寫{' '}
-            {Object.keys(progress.dictation).length} 句的紀錄。
+            {Object.keys(progress.srs).length} 張、練習{' '}
+            {practiceRecordCount(progress)} 筆的紀錄。
           </span>
           <button
             type="button"

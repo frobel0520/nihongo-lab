@@ -68,6 +68,14 @@ export function LessonListView({ progress }: { progress: Progress }) {
         )}
       </section>
 
+      <section className="card">
+        <h2>遊戲角色語音</h2>
+        <p>英雄聯盟、永恆輪迴、原神：角色短句與主題練習，附自製音檔。</p>
+        <a className="btn primary" href={viewHash('games')}>
+          進入遊戲學習區
+        </a>
+      </section>
+
       {stages.map((stage) => (
         <section key={stage.id} className="stage">
           <h2 className={`stage-title ${STAGE_ACCENT[stage.id] ?? ''}`}>
@@ -85,6 +93,9 @@ export function LessonListView({ progress }: { progress: Progress }) {
                     `聽寫 ${p.dictation.done}/${p.dictation.total}`,
                   p.listening.total > 0 &&
                     `理解 ${p.listening.done}/${p.listening.total}`,
+                  p.grammar.total > 0 &&
+                    `文法 ${p.grammar.done}/${p.grammar.total}`,
+                  p.grammar.review > 0 && `文法待重練 ${p.grammar.review}`,
                   lesson.audioReady === false && '音檔製作中',
                 ].filter(Boolean);
                 const percent = Math.round(p.ratio * 100);

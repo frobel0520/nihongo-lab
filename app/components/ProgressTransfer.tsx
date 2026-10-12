@@ -1,5 +1,6 @@
 import { useRef, useState, type ChangeEvent } from 'react';
 import { mergeProgress } from '../../lib/progress-merge.mjs';
+import { practiceRecordCount, practiceChangeCount } from '../../lib/grammar-study.mjs';
 import {
   MAX_IMPORT_BYTES,
   exportFilename,
@@ -35,7 +36,7 @@ export function ProgressTransfer({
   const fileInput = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState<Message | null>(null);
   const cards = Object.keys(progress.srs).length;
-  const sentences = Object.keys(progress.dictation).length;
+  const sentences = practiceRecordCount(progress);
 
   const onExport = () => {
     try {
@@ -44,7 +45,7 @@ export function ProgressTransfer({
       download(exportProgress(progress, now.toISOString()), filename);
       setMessage({
         kind: 'ok',
-        text: `已產生 ${filename}（單字卡 ${cards} 張、聽寫 ${sentences} 句）。請確認瀏覽器有把檔案存下來。`,
+        text: `已產生 ${filename}（單字卡 ${cards} 張、練習 ${sentences} 筆）。請確認瀏覽器有把檔案存下來。`,
       });
     } catch (error) {
       setMessage({
@@ -78,17 +79,19 @@ export function ProgressTransfer({
       return;
     }
 
-    const { changes } = mergeProgress(progress, result.progress);
+    const merged = mergeProgress(progress, result.progress);
+    const { changes } = merged;
+    const practiceChanges = practiceChangeCount(progress, merged.progress);
     update((prev) => mergeProgress(prev, result.progress).progress);
     const skipped =
       result.dropped > 0 ? `另有 ${result.dropped} 筆格式不正確，已略過。` : '';
-    const inFile = `檔案內共單字卡 ${Object.keys(result.progress.srs).length} 張、聽寫 ${Object.keys(result.progress.dictation).length} 句`;
+    const inFile = `檔案內共單字卡 ${Object.keys(result.progress.srs).length} 張、練習 ${practiceRecordCount(result.progress)} 筆`;
     setMessage({
       kind: 'ok',
       text:
         changes.srs + changes.dictation === 0
           ? `${inFile}，跟目前一樣或比較舊，沒有任何變動。${skipped}`
-          : `已匯入，新增或更新單字卡 ${changes.srs} 張、聽寫 ${changes.dictation} 句（${inFile}；比現有紀錄舊的不會蓋掉現有的）。${skipped}`,
+          : `已匯入，新增或更新單字卡 ${changes.srs} 張、練習 ${practiceChanges} 筆（${inFile}；比現有紀錄舊的不會蓋掉現有的）。${skipped}`,
     });
   };
 
@@ -96,7 +99,7 @@ export function ProgressTransfer({
     <section className="card">
       <h3>學習進度備份</h3>
       <p className="muted">
-        目前單字卡 {cards} 張、聽寫 {sentences} 句的紀錄，只存在這個瀏覽器裡；
+        目前單字卡 {cards} 張、練習 {sentences} 筆的紀錄，只存在這個瀏覽器裡；
         清除網站資料或換裝置就沒有了。匯出成檔案可以當備份，也可以拿到另一台裝置匯入。
         匯入會跟現有進度合併，逐筆保留較新的。
       </p>

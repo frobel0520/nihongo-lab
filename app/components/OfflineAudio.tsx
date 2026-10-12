@@ -18,9 +18,13 @@ const errorText = (error: unknown) =>
 export function OfflineAudio({
   lessonPaths,
   allPaths,
+  lessonLabel = '本課',
+  allLabel = '全部課程',
 }: {
   lessonPaths: string[];
   allPaths: string[];
+  lessonLabel?: string;
+  allLabel?: string;
 }) {
   const supported = offlineSupported();
   const [counts, setCounts] = useState<{ lesson: number; all: number } | null>(
@@ -101,7 +105,7 @@ export function OfflineAudio({
       <p className="muted">
         播放不會自動存檔；要在沒有網路時聽音檔，請先在有網路時下載。文字內容本來就能離線閱讀。
         {counts &&
-          `　已存：${lessonPaths.length > 0 ? `本課 ${counts.lesson} / ${lessonPaths.length}，` : ''}全部課程 ${counts.all} / ${allPaths.length}。`}
+          `　已存：${lessonPaths.length > 0 ? `${lessonLabel} ${counts.lesson} / ${lessonPaths.length}，` : ''}${allLabel} ${counts.all} / ${allPaths.length}。`}
       </p>
       <div className="row">
         {lessonPaths.length > 0 && (
@@ -111,7 +115,9 @@ export function OfflineAudio({
             disabled={busy || lessonDone}
             onClick={() => run(lessonPaths)}
           >
-            {lessonDone ? '本課音檔已全部存好' : '下載本課音檔'}
+            {lessonDone
+              ? `${lessonLabel}音檔已全部存好`
+              : `下載${lessonLabel}音檔`}
           </button>
         )}
         <button
@@ -120,7 +126,7 @@ export function OfflineAudio({
           disabled={busy || allDone}
           onClick={() => run(allPaths)}
         >
-          {allDone ? '全部課程音檔已存好' : '下載全部課程音檔'}
+          {allDone ? `${allLabel}音檔已存好` : `下載${allLabel}音檔`}
         </button>
       </div>
       <output className="muted status-line">

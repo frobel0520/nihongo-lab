@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readdirSync } from 'node:fs';
 import { sep } from 'node:path';
-import { stages } from '../curriculum/lessons.mjs';
+import { stages, gameCharacterStudy } from '../curriculum/lessons.mjs';
 
 /** 課程資料引用的所有音檔（單字、文法例句、對話、名句）。 */
 function referencedAudio() {
@@ -19,6 +19,7 @@ function referencedAudio() {
       }
     }
   }
+  for (const game of gameCharacterStudy) for (const character of game.characters) for (const line of character.lines) paths.add(line.audio);
   return paths;
 }
 

@@ -113,7 +113,7 @@ export function SyncPanel({ sync }: { sync: SyncApi }) {
     <section className="card">
       <h3>跨裝置同步</h3>
       <p className="muted">
-        用 Google 登入後，手機與電腦的單字卡、聽寫進度會自動同步（逐筆保留較新的）。只有指定的帳號能使用。
+        用 Google 登入後，手機與電腦的單字卡、聽寫、動畫聽力與文法進度會自動同步（逐筆保留較新的）。只有指定的帳號能使用。
         沒登入時完全不會連到 Google 或同步伺服器。
       </p>
       {phase === 'idle' && (

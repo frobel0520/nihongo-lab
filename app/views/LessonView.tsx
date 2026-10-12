@@ -3,6 +3,7 @@ import type { Lesson } from '../../curriculum/lessons.mjs';
 import { AudioLine } from '../components/AudioLine';
 import { RubyText } from '../components/Ruby';
 import { AnimeTraining } from '../components/AnimeTraining';
+import { AnimeGrammarStudy } from '../components/AnimeGrammarStudy';
 import type { Progress } from '../../lib/progress.mjs';
 
 type SectionId =
@@ -39,9 +40,11 @@ function PracticeItemView({ q, a }: { q: string; a: string }) {
  */
 export function LessonView({
   lesson,
+  progress,
   update,
 }: {
   lesson: Lesson;
+  progress: Progress;
   update: (change: (prev: Progress) => Progress) => void;
 }) {
   const [sectionId, setSectionId] = useState<SectionId | null>(null);
@@ -61,7 +64,11 @@ export function LessonView({
     { id: 'quotes' as const, label: '名句', count: lesson.quotes?.length ?? 0 },
     { id: 'practice' as const, label: '練習', count: lesson.practice.length },
   ].filter((section) => section.count > 0);
-  const active = sections.find((s) => s.id === sectionId) ?? sections[0];
+  const active =
+    sections.find((s) => s.id === sectionId) ??
+    (lesson.training && lesson.grammar.every((p) => p.study)
+      ? sections.find((s) => s.id === 'grammar')
+      : sections[0]);
 
   // 換區塊後回到內容開頭，不留在上一個區塊滑到一半的位置。
   const goSection = (id: SectionId) => {
@@ -159,70 +166,82 @@ export function LessonView({
         </section>
       )}
 
-      {active?.id === 'grammar' && (
-        <section className="card">
-          {lesson.grammar.map((g) => (
-            <div key={g.pattern} className="grammar-point">
-              <h4 lang="ja">
-                <RubyText text={g.pattern} />
-              </h4>
-              <p>
-                <RubyText text={g.note} />
-              </p>
-              {g.referenceUrl && (
-                <p className="muted">
-                  <a href={g.referenceUrl} target="_blank" rel="noreferrer">
-                    句型教學參考
-                  </a>
-                  {g.referenceUrls?.map((url, i) => (
-                    <span key={url}>
-                      {' '}
-                      ·{' '}
-                      <a href={url} target="_blank" rel="noreferrer">
-                        補充參考 {i + 1}
-                      </a>
-                    </span>
-                  ))}
+      {active?.id === 'grammar' &&
+        lesson.training &&
+        lesson.grammar.every((p) => p.study) && (
+          <AnimeGrammarStudy
+            lesson={lesson}
+            progress={progress}
+            update={update}
+            onListening={() => goSection('training')}
+          />
+        )}
+
+      {active?.id === 'grammar' &&
+        !(lesson.training && lesson.grammar.every((p) => p.study)) && (
+          <section className="card">
+            {lesson.grammar.map((g) => (
+              <div key={g.pattern} className="grammar-point">
+                <h4 lang="ja">
+                  <RubyText text={g.pattern} />
+                </h4>
+                <p>
+                  <RubyText text={g.note} />
                 </p>
-              )}
-              {g.quoteExamples?.map(({ quote, referenceUrl }) => (
-                <div key={quote.audio}>
-                  <AudioLine {...quote} pending={pending} />
+                {g.referenceUrl && (
                   <p className="muted">
-                    作品用例：
-                    <RubyText text={quote.source} /> ·{' '}
-                    <a href={referenceUrl} target="_blank" rel="noreferrer">
-                      台詞查證來源
+                    <a href={g.referenceUrl} target="_blank" rel="noreferrer">
+                      句型教學參考
                     </a>
+                    {g.referenceUrls?.map((url, i) => (
+                      <span key={url}>
+                        {' '}
+                        ·{' '}
+                        <a href={url} target="_blank" rel="noreferrer">
+                          補充參考 {i + 1}
+                        </a>
+                      </span>
+                    ))}
                   </p>
-                  {quote.referenceNote && (
+                )}
+                {g.quoteExamples?.map(({ quote, referenceUrl }) => (
+                  <div key={quote.audio}>
+                    <AudioLine {...quote} pending={pending} />
                     <p className="muted">
-                      <RubyText text={quote.referenceNote} />
+                      作品用例：
+                      <RubyText text={quote.source} /> ·{' '}
+                      <a href={referenceUrl} target="_blank" rel="noreferrer">
+                        台詞查證來源
+                      </a>
                     </p>
-                  )}
-                </div>
-              ))}
-              {g.examples.map((ex) => (
-                <div key={ex.audio}>
-                  {ex.source && (
-                    <p className="muted">
-                      <RubyText text={ex.source} />
-                    </p>
-                  )}
-                  <AudioLine
-                    jp={ex.jp}
-                    reading={ex.reading}
-                    ruby={ex.ruby}
-                    zh={ex.zh}
-                    audio={ex.audio}
-                    pending={pending}
-                  />
-                </div>
-              ))}
-            </div>
-          ))}
-        </section>
-      )}
+                    {quote.referenceNote && (
+                      <p className="muted">
+                        <RubyText text={quote.referenceNote} />
+                      </p>
+                    )}
+                  </div>
+                ))}
+                {g.examples.map((ex) => (
+                  <div key={ex.audio}>
+                    {ex.source && (
+                      <p className="muted">
+                        <RubyText text={ex.source} />
+                      </p>
+                    )}
+                    <AudioLine
+                      jp={ex.jp}
+                      reading={ex.reading}
+                      ruby={ex.ruby}
+                      zh={ex.zh}
+                      audio={ex.audio}
+                      pending={pending}
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </section>
+        )}
 
       {active?.id === 'dialogue' && (
         <section className="card">

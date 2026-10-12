@@ -1486,3 +1486,28 @@ rt {
 .srs-modes {
   align-self: center;
 }
+
+/* T56：無聲文法，一頁一重點／一題。 */
+.grammar-study { touch-action: pan-y; padding-bottom: 16px; }
+.grammar-example { border-top: 1px solid var(--rule); padding: 12px 0; }
+.grammar-question h3 { font-size: 1.05rem; }
+.grammar-point-list > li { padding-block: 12px; }
+.grammar-controls { display: flex; gap: 8px; padding: 12px 0; }
+.grammar-controls .btn { flex: 1; min-height: 44px; padding-inline: 8px; }
+@media (max-width: 640px) {
+  .grammar-study { padding-bottom: 92px; }
+  .grammar-controls {
+    position: fixed; left: 0; right: 0; bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom));
+    z-index: 25; padding: 10px 12px; background: var(--surface); border-top: 1px solid var(--rule);
+  }
+}
+
+/* T57：角色語音一次一句，底部播放不遮住文字。 */
+.game-study { touch-action: pan-y; padding-bottom: 20px; }
+.game-study select { width: 100%; min-height: 44px; }
+.game-controls { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 12px; }
+.game-controls > .btn { flex: 1; min-height: 44px; }
+@media (max-width: 640px) {
+  .game-study { padding-bottom: 110px; }
+  .game-controls { position: fixed; bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom)); left: 0; right: 0; z-index: 25; background: var(--surface); border-top: 1px solid var(--rule); }
+}

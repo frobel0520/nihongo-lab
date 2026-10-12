@@ -598,4 +598,25 @@ export const AUDIO_PROSODY = {
     reason: '獨立單字採用 Kanjium 收錄的第一個重音型',
     reference: 'kanjium',
   },
+"audio/games/lol/gram-7e04173fe9.mp3": {
+  "text": "戦場に瞬く光！ それが私よ",
+  "reading": "せんじょうに またたく ひかり！ それが わたしよ",
+  "kana": "センジョオニ'/マタタ'_ク/ヒカリ'、ソレガ'/ワタシヨ'",
+  "reason": "T57：瞬く採表示閃耀的またたく、Kanjium 3 型；修正引擎的しばたく，其他句界及重音保留原解析。",
+  "reference": "kanjium"
+},
+"audio/games/genshin/gram-b827d36828.mp3": {
+  "text": "稲光、すなわち永遠なり。",
+  "reading": "いなびかり、すなわち えいえん なり。",
+  "kana": "イナビ'カリ、スナ'ワチ/エエエンナ'リ",
+  "reason": "T57：沿用同原文已核對的稲光いなびかり讀音與句界覆寫，不沿用引擎的いねみつ。",
+  "reference": "voicevox"
+},
+"audio/games/lol/gram-b42d540a0d.mp3": {
+  "text": "私を捕まえられる？",
+  "reading": "あたしを つかまえられる？",
+  "kana": "アタシオ'/_ツカマエラレル'？",
+  "reason": "T57：依 LoLJPWiki 現行日文區塊的明示讀音，私取あたし；只改第一個 mora，其他重音及句界保留引擎解析。",
+  "reference": "voicevox"
+},
 };
