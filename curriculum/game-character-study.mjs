@@ -1,11 +1,13 @@
 /**
  * 角色短句與原創主題練習。作品短句僅選少量核對用例；不宣稱完整台詞庫。
  * ER 原創練習與社群角色介紹短句分開，不把介紹短句當成已核對的選角語音。
- * @typedef {import('./lessons.mjs').Line & { id: string, category: string, kind: 'quote' | 'practice' | 'reference', note: string, referenceUrl: string, referenceNote: string, pronunciation?: string }} GameLine
- * @typedef {{ id: string, name: string, nameJa: string, voice?: string, referenceUrl: string, portrait?: string, portraitReferenceUrl?: string, lines: GameLine[] }} GameCharacter
+ * @typedef {import('./lessons.mjs').Line & { id: string, category: string, kind: 'quote' | 'practice' | 'reference', note: string, referenceUrl: string, referenceNote: string, voicelineId?: number, sourceTitle?: string, voicefile?: string, variant?: string, pronunciation?: string }} GameLine
+ * @typedef {{ id: string, name: string, nameJa: string, voice?: string, referenceUrl: string, portrait?: string, portraitReferenceUrl?: string, voiceReferenceUrl?: string, lines: GameLine[] }} GameCharacter
  * @typedef {{ id: string, title: string, scope: string, characters: GameCharacter[] }} GameStudy
  * @typedef {[string, string, string, string, string, string, string?]} LineSpec id/category/jp/reading/zh/note/pronunciation
  */
+import { genshinRoster } from './genshin-character-roster.mjs';
+import { genshinQuoteSources } from './genshin-quote-sources.mjs';
 import { audioPath } from './author.mjs';
 import { eternalReturnRoster } from './game-character-roster.mjs';
 import { createErReferenceCharacter } from './game-character-reference.mjs';
@@ -29,15 +31,17 @@ function character(game, id, name, nameJa, voice, url, rows, kind = 'quote') {
         zh,
         note,
         voice,
-        audio: audioPath(`audio/games/${game}`, 'gram', jp, voice),
+        audio: audioPath(`audio/games/${game}`, 'gram', jp, voice).replace(
+          /\.mp3$/,
+          `${game === 'genshin' && id === 'bennett' && key === 'skill' ? '-ro-v1' : ''}.mp3`,
+        ),
+        ...genshinQuoteSources[`${game}:${id}:${key}`],
         referenceUrl: url,
         referenceNote:
           kind === 'practice'
             ? '自行編寫的主題練習，非遊戲台詞；連結僅核對角色名稱。'
-            : game === 'lol'
-              ? 'LoLJPWiki 日文台詞表；是社群紀錄，未聲稱逐句比對現行遊戲版本。'
-              : game === 'er'
-                ? '官網連結的日文社群攻略站角色介紹短句；已核對文字，未比對原配音或選角情境。'
+            : game === 'er'
+              ? '官網連結的日文社群攻略站角色介紹短句；已核對文字，未比對原配音或選角情境。'
               : '固定版本日文角色語音表；依原表的語音情境分類。',
         ...(pronunciation ? { pronunciation } : {}),
       }),
@@ -46,96 +50,6 @@ function character(game, id, name, nameJa, voice, url, rows, kind = 'quote') {
 }
 /** @type {GameStudy[]} */
 export const gameCharacterStudy = [
-  {
-    id: 'lol',
-    title: '英雄聯盟',
-    scope:
-      '首批三位角色的選擇與攻擊短句，預設造型；其他角色、造型與互動待擴充。',
-    characters: [
-      character(
-        'lol',
-        'ahri',
-        '阿璃',
-        'アーリ',
-        'hau',
-        'https://www.loljp-wiki.jp/wiki/?Champion/Ahri',
-        [
-          [
-            'select',
-            '角色選擇',
-            '私を捕まえられる？',
-            'あたしを つかまえられる？',
-            '你抓得到我嗎？',
-            'られる在這裡是可能形，以問句挑戰對方能否做到；不是被動描述。私依來源讀あたし。',
-            'あたしおつかまえられる？',
-          ],
-          [
-            'attack',
-            '攻擊',
-            'もう逃がさない',
-            'もう にがさない',
-            '不會再讓你逃走。',
-            'ない否定放走的行動；もう與否定連用可表示不再做某事，不是禁止形。',
-            'もうにがさない',
-          ],
-        ],
-      ),
-      character(
-        'lol',
-        'yasuo',
-        '犽宿',
-        'ヤスオ',
-        'saehaku',
-        'https://www.loljp-wiki.jp/wiki/?Champion/Yasuo',
-        [
-          [
-            'select',
-            '角色選擇',
-            '死は風の如し……いつも傍らにあるものよ……',
-            'しは かぜの ごとし……いつも かたわらに あるものよ……',
-            '死亡如風……總在身旁……',
-            '如し是文語的比喻，近似現代的ようだ；不是角色已經死亡的陳述。',
-            'しわかぜのごとし……いつもかたわらにあるものよ……',
-          ],
-          [
-            'attack',
-            '攻擊',
-            '逃がさん',
-            'にがさん',
-            '休想逃走。',
-            '逃がす表示放走；此處さん是さない的較古風否定，不是稱呼人的敬稱。',
-          ],
-        ],
-      ),
-      character(
-        'lol',
-        'lux',
-        '拉克絲',
-        'ラックス',
-        'tsumugi',
-        'https://www.loljp-wiki.jp/wiki/?Champion/Lux',
-        [
-          [
-            'select',
-            '角色選擇',
-            '戦場に瞬く光！ それが私よ',
-            'せんじょうに またたく ひかり！ それが わたしよ',
-            '戰場上閃耀的光！那就是我。',
-            '瞬く光由動詞修飾名詞；それが私よ用が指出那個身分就是自己。',
-          ],
-          [
-            'attack',
-            '攻擊',
-            '闇を焼き払え！',
-            'やみを やきはらえ！',
-            '燒盡黑暗！',
-            '焼き払え是焼き払う的命令形；複合動詞表示把目標燒除，不只是一般燃燒。',
-            'やみおやきはらえ！',
-          ],
-        ],
-      ),
-    ],
-  },
   {
     id: 'er',
     title: '永恆輪迴',
@@ -234,7 +148,7 @@ export const gameCharacterStudy = [
     id: 'genshin',
     title: '原神',
     scope:
-      '首批三位角色的編隊加入與技能短句；編隊加入和英雄聯盟的選角情境分開，其他角色待擴充。',
+      '收錄少量已核對的編隊加入、元素技能與元素爆發實際短句；以 VOICEVOX 自製教材音檔，未加入劇情。',
     characters: [
       character(
         'genshin',
@@ -315,6 +229,86 @@ export const gameCharacterStudy = [
           ],
         ],
       ),
+      character(
+        'genshin',
+        'kaeya',
+        '凱亞',
+        'ガイア',
+        'saehaku',
+        `https://github.com/theBowja/genshin-db/blob/${genshinVersion}/src/data/Japanese/voiceovers/kaeya.json`,
+        [
+          [
+            'skill',
+            '元素技能',
+            'おとなしくしやがれ！',
+            'おとなしくしやがれ！',
+            '給我老實點！',
+            'しやがれ是する加上やがる的命令形，帶粗魯、挑釁語氣；おとなしく表示老實、安分地。',
+          ],
+          [
+            'burst',
+            '元素爆發',
+            '風邪ひくなよ。',
+            'かぜひくなよ。',
+            '小心別著涼喔。',
+            '風邪ひく省略了風邪をひく的を；動詞辭書形加な表示禁止，よ在此加強提醒。',
+          ],
+        ],
+      ),
+      character(
+        'genshin',
+        'diluc',
+        '迪盧克',
+        'ディルック',
+        'ryusei',
+        `https://github.com/theBowja/genshin-db/blob/${genshinVersion}/src/data/Japanese/voiceovers/diluc.json`,
+        [
+          [
+            'join',
+            '編隊加入',
+            '行こうか。',
+            'いこうか。',
+            '走吧。',
+            '行こう是行く的意志形，加か提出邀請或商量，不是過去式。',
+          ],
+          [
+            'burst',
+            '元素爆發',
+            '判決を、下す！',
+            'はんけつを、くだす！',
+            '下達判決！',
+            '下す是動詞辭書形，在此宣告將採取的行動；下せ才是命令形。',
+            'はんけつお、くだす！',
+          ],
+        ],
+      ),
+      character(
+        'genshin',
+        'keqing',
+        '刻晴',
+        '刻晴',
+        'hau',
+        `https://github.com/theBowja/genshin-db/blob/${genshinVersion}/src/data/Japanese/voiceovers/keqing.json`,
+        [
+          [
+            'join',
+            '編隊加入',
+            '行こう、時間は有限よ。',
+            'いこう、じかんは ゆうげんよ。',
+            '走吧，時間有限喔。',
+            '行こう提出行動邀請；時間は以は提示話題，句尾よ提醒對方時間有限。',
+            'いこう、じかんわゆうげんよ。',
+          ],
+          [
+            'skill',
+            '元素技能',
+            '行けっ！',
+            'いけっ！',
+            '去吧！',
+            '行け是行く的命令形；句尾っ表現短促、強烈的語勢，不改成辭書形行く。',
+          ],
+        ],
+      ),
     ],
   },
 ];
@@ -335,59 +329,99 @@ er.characters.push(
       'なにか、ぼくにできることわないでしょうか。',
     ],
   ]),
-  character('er', 'silvia', '希爾維婭', 'シルヴィア', 'hau', `${erProfileSource}#Silvia`, [
+  character(
+    'er',
+    'silvia',
+    '希爾維婭',
+    'シルヴィア',
+    'hau',
+    `${erProfileSource}#Silvia`,
     [
-      'profile',
-      '角色介紹短句',
-      'ワオ、それ面白そうじゃん！！',
-      'ワオ、それ おもしろそうじゃん！！',
-      '哇，那看起來很有趣嘛！！',
-      '形容詞去い＋そう表示看起來如此；這裡的じゃん是じゃない的口語說法，用來表達發現或認同，不是否定有趣。沒有單靠此句推定遊戲觸發情境。',
+      [
+        'profile',
+        '角色介紹短句',
+        'ワオ、それ面白そうじゃん！！',
+        'ワオ、それ おもしろそうじゃん！！',
+        '哇，那看起來很有趣嘛！！',
+        '形容詞去い＋そう表示看起來如此；這裡的じゃん是じゃない的口語說法，用來表達發現或認同，不是否定有趣。沒有單靠此句推定遊戲觸發情境。',
+      ],
     ],
-  ]),
-  character('er', 'william', '威廉', 'ウィリアム', 'ryusei', `${erProfileSource}#William`, [
+  ),
+  character(
+    'er',
+    'william',
+    '威廉',
+    'ウィリアム',
+    'ryusei',
+    `${erProfileSource}#William`,
     [
-      'profile',
-      '角色介紹短句',
-      'もう手加減はしない',
-      'もう てかげんは しない',
-      '我不會再手下留情。',
-      '手加減する表示控制力道或放水；は將手下留情作為話題，もう與否定連用表示不再這麼做。這不是要求對方手下留情。',
-      'もうてかげんわしない',
+      [
+        'profile',
+        '角色介紹短句',
+        'もう手加減はしない',
+        'もう てかげんは しない',
+        '我不會再手下留情。',
+        '手加減する表示控制力道或放水；は將手下留情作為話題，もう與否定連用表示不再這麼做。這不是要求對方手下留情。',
+        'もうてかげんわしない',
+      ],
     ],
-  ]),
-  character('er', 'magnus', '馬格努斯', 'マグヌス', 'ryusei', `${erProfileSource}#Magnus`, [
+  ),
+  character(
+    'er',
+    'magnus',
+    '馬格努斯',
+    'マグヌス',
+    'ryusei',
+    `${erProfileSource}#Magnus`,
     [
-      'profile',
-      '角色介紹短句',
-      '伝説のバイカーマグヌスとはこの俺様のことだ。',
-      'でんせつの バイカーマグヌスとは この おれさまの ことだ。',
-      '傳說中的摩托車騎士馬格努斯，說的就是本大爺。',
-      '名詞＋とは在此提出要解釋的稱號；この俺様のことだ指出那就是自己。俺様是自大的自稱，帶誇耀語氣。バイカー指騎摩托車的人。',
-      'でんせつのバイカーマグヌストワこのおれさまのことだ。',
+      [
+        'profile',
+        '角色介紹短句',
+        '伝説のバイカーマグヌスとはこの俺様のことだ。',
+        'でんせつの バイカーマグヌスとは この おれさまの ことだ。',
+        '傳說中的摩托車騎士馬格努斯，說的就是本大爺。',
+        '名詞＋とは在此提出要解釋的稱號；この俺様のことだ指出那就是自己。俺様是自大的自稱，帶誇耀語氣。バイカー指騎摩托車的人。',
+        'でんせつのバイカーマグヌストワこのおれさまのことだ。',
+      ],
     ],
-  ]),
-  character('er', 'fiora', '菲歐拉', 'フィオラ', 'tsumugi', `${erProfileSource}#Fiora`, [
+  ),
+  character(
+    'er',
+    'fiora',
+    '菲歐拉',
+    'フィオラ',
+    'tsumugi',
+    `${erProfileSource}#Fiora`,
     [
-      'profile',
-      '角色介紹短句',
-      '首！ 腰！ 姿勢がなってないわよ！',
-      'くび！ こし！ しせいが なってないわよ！',
-      '脖子！腰！你的姿勢不像樣喔！',
-      'なってない是なっていない的口語縮約；姿勢がなっていない批評姿勢不到位。わよ在此加強提醒或責備，不能只按字面理解成沒有變成某物。',
-      'くび！こし！しせいがなってないわよ！',
+      [
+        'profile',
+        '角色介紹短句',
+        '首！ 腰！ 姿勢がなってないわよ！',
+        'くび！ こし！ しせいが なってないわよ！',
+        '脖子！腰！你的姿勢不像樣喔！',
+        'なってない是なっていない的口語縮約；姿勢がなっていない批評姿勢不到位。わよ在此加強提醒或責備，不能只按字面理解成沒有變成某物。',
+        'くび！こし！しせいがなってないわよ！',
+      ],
     ],
-  ]),
-  character('er', 'rozzi', '洛茲', 'ロッジ', 'sayo', `${erProfileSource}#Rozzi`, [
+  ),
+  character(
+    'er',
+    'rozzi',
+    '洛茲',
+    'ロッジ',
+    'sayo',
+    `${erProfileSource}#Rozzi`,
     [
-      'profile',
-      '角色介紹短句',
-      'おつかれ。',
-      'おつかれ。',
-      '辛苦了。',
-      'おつかれ是お疲れ様的簡短口語招呼，可用來慰勞或道別；單憑這句不能判斷遊戲中的觸發情境。對陌生人或正式場合宜使用完整禮貌說法。',
+      [
+        'profile',
+        '角色介紹短句',
+        'おつかれ。',
+        'おつかれ。',
+        '辛苦了。',
+        'おつかれ是お疲れ様的簡短口語招呼，可用來慰勞或道別；單憑這句不能判斷遊戲中的觸發情境。對陌生人或正式場合宜使用完整禮貌說法。',
+      ],
     ],
-  ]),
+  ),
 );
 const existing = new Map(
   er.characters.map((character) => [character.id, character]),
@@ -400,24 +434,14 @@ er.characters = eternalReturnRoster.map((row) => ({
 }));
 er.scope =
   '91 位角色都有教材。82 位各有武器詞彙與資料句型，依固定版本遊戲資料編寫，非角色原台詞；另保留六位介紹短句與三位原創練習。完整遊戲語音仍未收齊，未加入劇情。';
-for (const game of gameCharacterStudy) {
-  if (game.id === 'er') continue;
-  for (const character of game.characters) {
-    character.portrait = `game-portraits/${game.id}-${character.id}.${game.id === 'lol' ? 'jpg' : 'png'}`;
-    if (game.id === 'lol') {
-      const champion = /** @type {Record<string, string>} */ ({
-        ahri: 'Ahri',
-        yasuo: 'Yasuo',
-        lux: 'Lux',
-      })[character.id];
-      character.portraitReferenceUrl = `https://www.loljp-wiki.jp/wiki/image/champ/80/ico_${champion}.jpg`;
-    } else {
-      const key = /** @type {Record<string, string>} */ ({
-        amber: 'ambor',
-        bennett: 'bennett',
-        raiden: 'shougun',
-      })[character.id];
-      character.portraitReferenceUrl = `https://github.com/kgirtxd/Genshin-Assets/blob/acfdf5d1676a7034b0bbdb1177015950833837e3/CharacterIcon/${key}_icon.png`;
-    }
-  }
-}
+const genshin = gameCharacterStudy.find((game) => game.id === 'genshin');
+if (!genshin) throw new Error('Missing Genshin section');
+const knownGenshin = new Map(genshin.characters.map((c) => [c.id, c]));
+genshin.characters = genshinRoster.map((row) => ({
+  ...row,
+  ...(knownGenshin.get(row.id) ?? { lines: [] }),
+  portrait: row.portrait,
+  portraitReferenceUrl: row.portraitReferenceUrl,
+}));
+genshin.scope =
+  '固定來源名冊共 124 筆角色條目，包含旅行者與人偶的不同版本。六位角色收錄 12 句已核對短台詞與自製 VOICEVOX 音檔；其餘角色尚待收錄，未加入劇情。';

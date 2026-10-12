@@ -456,21 +456,6 @@
       "bytes": 46582
     },
     {
-      "file": "lol-ahri.jpg",
-      "url": "https://www.loljp-wiki.jp/wiki/image/champ/80/ico_Ahri.jpg",
-      "bytes": 2994
-    },
-    {
-      "file": "lol-yasuo.jpg",
-      "url": "https://www.loljp-wiki.jp/wiki/image/champ/80/ico_Yasuo.jpg",
-      "bytes": 3350
-    },
-    {
-      "file": "lol-lux.jpg",
-      "url": "https://www.loljp-wiki.jp/wiki/image/champ/80/ico_Lux.jpg",
-      "bytes": 2697
-    },
-    {
       "file": "genshin-amber.png",
       "url": "https://raw.githubusercontent.com/kgirtxd/Genshin-Assets/acfdf5d1676a7034b0bbdb1177015950833837e3/CharacterIcon/ambor_icon.png",
       "bytes": 78265
@@ -484,7 +469,612 @@
       "file": "genshin-raiden.png",
       "url": "https://raw.githubusercontent.com/kgirtxd/Genshin-Assets/acfdf5d1676a7034b0bbdb1177015950833837e3/CharacterIcon/shougun_icon.png",
       "bytes": 103158
+    },
+    {
+      "file": "genshin-aether.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_PlayerBoy.png",
+      "bytes": 81578
+    },
+    {
+      "file": "genshin-aino.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/09/09/4e58c851d6c947865026faa168db83bd_3944254802105067377.png",
+      "bytes": 92961
+    },
+    {
+      "file": "genshin-albedo.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Albedo.png",
+      "bytes": 94151
+    },
+    {
+      "file": "genshin-alhaitham.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Alhatham.png",
+      "bytes": 95332
+    },
+    {
+      "file": "genshin-aloy.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Aloy.png",
+      "bytes": 89515
+    },
+    {
+      "file": "genshin-alyosha.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/07/b866d5fd9adbd2f66874e54208db1107_7133689933484329253.png",
+      "bytes": 92907
+    },
+    {
+      "file": "genshin-aratakiitto.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Itto.png",
+      "bytes": 106328
+    },
+    {
+      "file": "genshin-arlecchino.png",
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/04/22/35428890/672e65470bfd14b664596c2a7f7eaaf8_7046130387894981792.png",
+      "bytes": 138238
+    },
+    {
+      "file": "genshin-baizhu.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Baizhuer.png",
+      "bytes": 93986
+    },
+    {
+      "file": "genshin-barbara.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Barbara.png",
+      "bytes": 97491
+    },
+    {
+      "file": "genshin-beidou.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Beidou.png",
+      "bytes": 97629
+    },
+    {
+      "file": "genshin-candace.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Candace.png",
+      "bytes": 90298
+    },
+    {
+      "file": "genshin-charlotte.png",
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/06/35428890/7bbbff3f35661a93b5091b1f17fae6c0_6927814687713967999.png",
+      "bytes": 91544
+    },
+    {
+      "file": "genshin-chasca.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/11/18/abe1192cc7aad45f6b273478dd5fa88a_4799372826012752249.png",
+      "bytes": 126521
+    },
+    {
+      "file": "genshin-chevreuse.png",
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/01/09/35428890/a846729f31f16a987a8696466ebabcc0_6857330048220230431.png",
+      "bytes": 101222
+    },
+    {
+      "file": "genshin-chiori.png",
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/03/11/35428890/5470f90694af13476e49be7b8346e2b1_5366587928381003654.png",
+      "bytes": 91250
+    },
+    {
+      "file": "genshin-chongyun.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Chongyun.png",
+      "bytes": 78484
+    },
+    {
+      "file": "genshin-citlali.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/12/27/c4ab2530bb8bbe3c0e811684f97ec124_6688582217610741079.png",
+      "bytes": 100722
+    },
+    {
+      "file": "genshin-clorinde.png",
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/06/04/35428890/770a66030815971c697ab81bc5436329_1296341861352728851.png",
+      "bytes": 102162
+    },
+    {
+      "file": "genshin-collei.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Collei.png",
+      "bytes": 90957
+    },
+    {
+      "file": "genshin-columbina.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/01/13/80fa97679c8d1828fdd96c6aa9638632_4327573591148809640.png",
+      "bytes": 98670
+    },
+    {
+      "file": "genshin-cyno.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Cyno.png",
+      "bytes": 91429
+    },
+    {
+      "file": "genshin-dahlia.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/06/16/255dedc5048565aec2c5af510c6f74a5_7726536808309970424.png",
+      "bytes": 76296
+    },
+    {
+      "file": "genshin-dehya.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Dehya.png",
+      "bytes": 98262
+    },
+    {
+      "file": "genshin-diluc.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Diluc.png",
+      "bytes": 92811
+    },
+    {
+      "file": "genshin-diona.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Diona.png",
+      "bytes": 88931
+    },
+    {
+      "file": "genshin-dori.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Dori.png",
+      "bytes": 94646
+    },
+    {
+      "file": "genshin-durin.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/11/28/e3e2b8fcbff2f2f3cdcec6bbf04efa84_3327367670955368711.png",
+      "bytes": 95723
+    },
+    {
+      "file": "genshin-emilie.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/07/31/87ad30965e0c1b45364fdccc51b3429d_6108610286145583716.png",
+      "bytes": 110429
+    },
+    {
+      "file": "genshin-escoffier.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/04/30/ddbc128157d69479f61747f0918f9e72_2470321636402108639.png",
+      "bytes": 95532
+    },
+    {
+      "file": "genshin-eula.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Eula.png",
+      "bytes": 108386
+    },
+    {
+      "file": "genshin-faruzan.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Faruzan.png",
+      "bytes": 101334
+    },
+    {
+      "file": "genshin-fischl.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Fischl.png",
+      "bytes": 92207
+    },
+    {
+      "file": "genshin-flins.png",
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/09/29/35428890/f6feccecc61d2bf772461f057dfb41cd_5944664216414192017.png",
+      "bytes": 65901
+    },
+    {
+      "file": "genshin-freminet.png",
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/09/03/35428890/8e44111a378f4e5379b8e7444e8c2daa_4713775899437074849.png",
+      "bytes": 87627
+    },
+    {
+      "file": "genshin-furina.png",
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/06/35428890/263e5ea0784d182b393f67a7e24146a5_2961704185113948066.png",
+      "bytes": 105330
+    },
+    {
+      "file": "genshin-gaming.png",
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/01/29/35428890/b041ad23a9d6245efac952a9379c5114_8939761424130236195.png",
+      "bytes": 87300
+    },
+    {
+      "file": "genshin-ganyu.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Ganyu.png",
+      "bytes": 93862
+    },
+    {
+      "file": "genshin-gorou.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Gorou.png",
+      "bytes": 104340
+    },
+    {
+      "file": "genshin-hutao.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Hutao.png",
+      "bytes": 103845
+    },
+    {
+      "file": "genshin-iansan.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/03/25/dd9a200a86b792fb1b73ef1ee7de0911_2097378734184941134.png",
+      "bytes": 87930
+    },
+    {
+      "file": "genshin-ifa.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/04/30/ce693d1e36aef5936b2d2db006605fc4_9036718103340803450.png",
+      "bytes": 96437
+    },
+    {
+      "file": "genshin-illuga.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/01/29/d585407867aa47b4d925613cea9f00c2_5864597966579326880.png",
+      "bytes": 79170
+    },
+    {
+      "file": "genshin-ineffa.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/07/28/7c221918444852e9a3c2ad609ccacea2_8687518447126752117.png",
+      "bytes": 86409
+    },
+    {
+      "file": "genshin-jahoda.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/12/01/19708bac6eba4779a70908bf0bee70b1_1653339605275422455.png",
+      "bytes": 90901
+    },
+    {
+      "file": "genshin-jean.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Qin.png",
+      "bytes": 82384
+    },
+    {
+      "file": "genshin-kachina.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/08/23/26925adb1092d29c8afdf46d92fad8bd_343637410022641529.png",
+      "bytes": 101778
+    },
+    {
+      "file": "genshin-kaedeharakazuha.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Kazuha.png",
+      "bytes": 86036
+    },
+    {
+      "file": "genshin-kaeya.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Kaeya.png",
+      "bytes": 86282
+    },
+    {
+      "file": "genshin-kamisatoayaka.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Ayaka.png",
+      "bytes": 71738
+    },
+    {
+      "file": "genshin-kamisatoayato.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Ayato.png",
+      "bytes": 94933
+    },
+    {
+      "file": "genshin-kaveh.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Kaveh.png",
+      "bytes": 96344
+    },
+    {
+      "file": "genshin-keqing.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Keqing.png",
+      "bytes": 91882
+    },
+    {
+      "file": "genshin-kinich.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/09/12/0099e74b4d0c919f6feab4bade3ab748_5795733017114624391.png",
+      "bytes": 86424
+    },
+    {
+      "file": "genshin-kirara.png",
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/05/23/35428890/d1699810632f8c3bc8c1e8c8beb8250f_3141235252861584883.png",
+      "bytes": 101819
+    },
+    {
+      "file": "genshin-klee.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Klee.png",
+      "bytes": 97968
+    },
+    {
+      "file": "genshin-kujousara.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Sara.png",
+      "bytes": 86146
+    },
+    {
+      "file": "genshin-kukishinobu.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Shinobu.png",
+      "bytes": 104103
+    },
+    {
+      "file": "genshin-lanyan.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/01/17/02a299cec38b4ef4f21952c37a624258_5744396397316809821.png",
+      "bytes": 92230
+    },
+    {
+      "file": "genshin-lauma.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/09/08/b06e9ff48d57de4856f1a05b1199aae1_8565150401481594895.png",
+      "bytes": 90284
+    },
+    {
+      "file": "genshin-layla.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Layla.png",
+      "bytes": 89304
+    },
+    {
+      "file": "genshin-linnea.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/04/03/b73622caa3750012312c72437295ace3_6973976776946504804.png",
+      "bytes": 105426
+    },
+    {
+      "file": "genshin-lisa.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Lisa.png",
+      "bytes": 106305
+    },
+    {
+      "file": "genshin-lohen.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/06/05/7fced903c930ab16fd333755c1aef7e9_9169127423158726160.png",
+      "bytes": 91322
+    },
+    {
+      "file": "genshin-lumine.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_PlayerGirl.png",
+      "bytes": 83354
+    },
+    {
+      "file": "genshin-lynette.png",
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/14/35428890/436e6f2b9b9006bfe511a98093259daf_7192025380861185061.png",
+      "bytes": 88083
+    },
+    {
+      "file": "genshin-lyney.png",
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/11/35428890/e343d4442cc3b8e243f0d528bb715f75_1232011243947476013.png",
+      "bytes": 81399
+    },
+    {
+      "file": "genshin-manekin.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/10/28/dce3192b30cf478dfe123a28416cb451_6891113533276891360.png",
+      "bytes": 62237
+    },
+    {
+      "file": "genshin-manekina.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/10/28/e45a556519d524e2b14aaaff4104ebe1_558967600629726716.png",
+      "bytes": 65723
+    },
+    {
+      "file": "genshin-mavuika.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/12/30/2f098b1f15854fd9dafc54998795a59e_864981592196815761.png",
+      "bytes": 113188
+    },
+    {
+      "file": "genshin-mika.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Mika.png",
+      "bytes": 90818
+    },
+    {
+      "file": "genshin-mona.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Mona.png",
+      "bytes": 106199
+    },
+    {
+      "file": "genshin-mualani.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/08/26/f4c75caad42923eb91ee760aa2eb473a_7439123622315070718.png",
+      "bytes": 86995
+    },
+    {
+      "file": "genshin-nahida.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Nahida.png",
+      "bytes": 117770
+    },
+    {
+      "file": "genshin-navia.png",
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2023/12/18/35428890/3fc7580c01a9e622692402889706c4db_8301615651200775487.png",
+      "bytes": 123962
+    },
+    {
+      "file": "genshin-nefer.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/10/21/7557acebcb72b4d9912bcb0e6c92306a_3655566527985254987.png",
+      "bytes": 92825
+    },
+    {
+      "file": "genshin-neuvillette.png",
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/09/26/35428890/0513aa7f482dbb4778545d02f94956fe_7540616405773975535.png",
+      "bytes": 96903
+    },
+    {
+      "file": "genshin-nicole.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/05/18/5e875ee63bca70ebeda64e6fa409d31b_5921156294699298125.png",
+      "bytes": 94024
+    },
+    {
+      "file": "genshin-nilou.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Nilou.png",
+      "bytes": 101508
+    },
+    {
+      "file": "genshin-ningguang.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Ningguang.png",
+      "bytes": 94193
+    },
+    {
+      "file": "genshin-noelle.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Noel.png",
+      "bytes": 103984
+    },
+    {
+      "file": "genshin-odette.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/07/963982ad49601f7de6a5ab1a364989f7_3689152522029267720.png",
+      "bytes": 89512
+    },
+    {
+      "file": "genshin-ororon.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/11/18/e4830690f8b6a1ebb02cfbc8ce955671_8091252479018770784.png",
+      "bytes": 115283
+    },
+    {
+      "file": "genshin-prune.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/05/19/51e83d3537b37acc3f422910fe5bef82_3083259311239382441.png",
+      "bytes": 96251
+    },
+    {
+      "file": "genshin-qiqi.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Qiqi.png",
+      "bytes": 87588
+    },
+    {
+      "file": "genshin-razor.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Razor.png",
+      "bytes": 77623
+    },
+    {
+      "file": "genshin-rosaria.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Rosaria.png",
+      "bytes": 87347
+    },
+    {
+      "file": "genshin-sandrone.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/06/29/4ee285b198b7bb8dba2a0a63aa9ffc9f_7866102664638374858.png",
+      "bytes": 89731
+    },
+    {
+      "file": "genshin-sangonomiyakokomi.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Kokomi.png",
+      "bytes": 82880
+    },
+    {
+      "file": "genshin-sayu.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Sayu.png",
+      "bytes": 94335
+    },
+    {
+      "file": "genshin-sethos.png",
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/06/04/35428890/cdb7abfcb86138e5b618946a5466d442_6414132746291261116.png",
+      "bytes": 93205
+    },
+    {
+      "file": "genshin-shenhe.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Shenhe.png",
+      "bytes": 88452
+    },
+    {
+      "file": "genshin-shikanoinheizou.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Heizo.png",
+      "bytes": 76284
+    },
+    {
+      "file": "genshin-sigewinne.png",
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/06/26/35428890/2d607aa4d729030ea04f79919257e311_1172370997840232141.png",
+      "bytes": 101157
+    },
+    {
+      "file": "genshin-skirk.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/06/16/48dba0c10560a3ef573f17d97408b5a0_2527001828446746987.png",
+      "bytes": 96254
+    },
+    {
+      "file": "genshin-sucrose.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Sucrose.png",
+      "bytes": 101631
+    },
+    {
+      "file": "genshin-tartaglia.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Tartaglia.png",
+      "bytes": 101255
+    },
+    {
+      "file": "genshin-thoma.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Tohma.png",
+      "bytes": 81855
+    },
+    {
+      "file": "genshin-tighnari.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Tighnari.png",
+      "bytes": 92193
+    },
+    {
+      "file": "genshin-varesa.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/03/25/a54efe1bb7e82a589b9af44683a696ca_8635138146175164187.png",
+      "bytes": 115278
+    },
+    {
+      "file": "genshin-varka.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/02/21/553feb81c3bbc5e3bc69a765e157c33f_8250978205515428490.png",
+      "bytes": 97667
+    },
+    {
+      "file": "genshin-venti.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Venti.png",
+      "bytes": 82380
+    },
+    {
+      "file": "genshin-vesna.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/17/623ff6a96cc1c9ebe8c5fcc57eabaf9c_8414553061614722407.png",
+      "bytes": 222247
+    },
+    {
+      "file": "genshin-vodyanitsa.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/08/18/e106be431d7c8ebbb9607b032fc66e3d_2965794852318237555.png",
+      "bytes": 102033
+    },
+    {
+      "file": "genshin-wanderer.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Wanderer.png",
+      "bytes": 88179
+    },
+    {
+      "file": "genshin-wriothesley.png",
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/10/15/35428890/31a0eb2dec5d69ca8dd7616572136b8b_8886987124386670150.png",
+      "bytes": 90527
+    },
+    {
+      "file": "genshin-xiangling.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Xiangling.png",
+      "bytes": 74617
+    },
+    {
+      "file": "genshin-xianyun.png",
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/01/29/35428890/2c2be27f8876e9435ab8c8b933b8408c_7973851751945394462.png",
+      "bytes": 91963
+    },
+    {
+      "file": "genshin-xiao.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Xiao.png",
+      "bytes": 88989
+    },
+    {
+      "file": "genshin-xilonen.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/09/25/b07074c2b9040516fd240b6b8d65c011_2487211347344319683.png",
+      "bytes": 117269
+    },
+    {
+      "file": "genshin-xingqiu.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Xingqiu.png",
+      "bytes": 70737
+    },
+    {
+      "file": "genshin-xinyan.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Xinyan.png",
+      "bytes": 103667
+    },
+    {
+      "file": "genshin-yaemiko.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Yae.png",
+      "bytes": 100345
+    },
+    {
+      "file": "genshin-yanfei.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Feiyan.png",
+      "bytes": 114601
+    },
+    {
+      "file": "genshin-yaoyao.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Yaoyao.png",
+      "bytes": 96452
+    },
+    {
+      "file": "genshin-yelan.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Yelan.png",
+      "bytes": 79985
+    },
+    {
+      "file": "genshin-yoimiya.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Yoimiya.png",
+      "bytes": 99296
+    },
+    {
+      "file": "genshin-yumemizukimizuki.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/02/08/11662c12fb353d88bd2b20a2726c9f1c_8013472600677983943.png",
+      "bytes": 110439
+    },
+    {
+      "file": "genshin-yunjin.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Yunjin.png",
+      "bytes": 86843
+    },
+    {
+      "file": "genshin-zhongli.png",
+      "url": "https://upload-os-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_Zhongli.png",
+      "bytes": 82680
+    },
+    {
+      "file": "genshin-zibai.png",
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/01/29/72161f01ff431c9f099710f92c811454_1654176825175164246.png",
+      "bytes": 93581
     }
   ],
-  "rights": "角色圖像權利屬於各遊戲權利人。永恆輪迴圖像使用 EternalReturnResource 的預設 CharProfile；其程式與 README 明示 DAK.GG 圖像編排。LoL 使用 LoLJPWiki；原神使用 Genshin-Assets 的原始角色圖像。來源連結不等於可任意重用的授權聲明。"
+  "rights": "角色圖像權利屬於各遊戲權利人。永恆輪迴圖像使用 EternalReturnResource 的預設 CharProfile；其程式與 README 明示 DAK.GG 圖像編排。原神原有三圖保留 Genshin-Assets 鏡像，其餘圖像依固定 genshin-db 圖片表下載自 HoYoLAB／HoYoverse 公開圖像端點。來源連結不等於可任意重用的授權聲明。"
 }

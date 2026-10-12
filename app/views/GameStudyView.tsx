@@ -55,7 +55,6 @@ function StudyLine({
   onRestart: () => void;
 }) {
   const [revealed, setRevealed] = useState(!listening);
-  const [reading, setReading] = useState(false);
   const [choice, setChoice] = useState<number | null>(null);
   const [peeked, setPeeked] = useState(false);
   const submitted = useRef(false);
@@ -136,25 +135,12 @@ function StudyLine({
       )}
       {revealed && (
         <>
-          <h3 className="line-jp" lang="ja">
-            {line.jp}
-          </h3>
-          <button
-            type="button"
-            className="btn"
-            aria-expanded={reading}
-            onClick={() => setReading(!reading)}
-          >
-            {reading ? '收起讀音' : '顯示讀音'}
-          </button>
-          {reading && (
-            <JpLine
-              jpClass="line-jp"
-              jp={line.jp}
-              reading={line.reading}
-              ruby={line.ruby}
-            />
-          )}
+          <JpLine
+            jpClass="line-jp"
+            jp={line.jp}
+            reading={line.reading}
+            ruby={line.ruby}
+          />
           <p className="line-zh">
             <RubyText text={line.zh} />
           </p>
@@ -337,6 +323,17 @@ export function GameStudyView({
           </small>
         </h2>
         <p>此角色語音尚未收錄。</p>
+        {character.voiceReferenceUrl && (
+          <p>
+            <a
+              href={character.voiceReferenceUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              日文語音文字來源
+            </a>
+          </p>
+        )}
         <p className="muted">
           角色與頭像已加入選單；核對日文台詞並製作音檔後，會在這裡提供學習內容。
         </p>

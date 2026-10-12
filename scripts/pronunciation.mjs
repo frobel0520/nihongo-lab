@@ -1,7 +1,28 @@
 import { rubyParts } from '../lib/furigana.mjs';
 
 /** @typedef {{ text: string, reading: string, ruby?: string, kind?: string }} ReadingJob */
-/** @typedef {{ accent_phrases: { moras: { text: string }[], accent?: number, pause_mora?: unknown, is_interrogative?: boolean }[] }} AudioQuery */
+/** @typedef {{ accent_phrases: { moras: { text: string, vowel?: string, vowel_length?: number }[], accent?: number, pause_mora?: unknown, is_interrogative?: boolean }[], speedScale?: number }} AudioQuery */
+/** @typedef {{ finalMora: string, vowel: string, vowelLength: number, speedScale: number }} Articulation */
+
+/** Clarify a reviewed final vowel without changing its reading or pitch.
+ * @param {AudioQuery} query @param {Articulation} rule
+ */
+export function applyArticulation(query, rule) {
+  const last = query.accent_phrases.at(-1)?.moras.at(-1);
+  if (!last || last.text !== rule.finalMora || last.vowel !== rule.vowel)
+    throw new Error('語尾音素不一致，停止合成');
+  if (
+    !Number.isFinite(rule.vowelLength) ||
+    rule.vowelLength < 0.05 ||
+    rule.vowelLength > 0.3 ||
+    !Number.isFinite(rule.speedScale) ||
+    rule.speedScale < 0.8 ||
+    rule.speedScale > 1.2
+  )
+    throw new Error('語尾清晰度參數超出範圍，停止合成');
+  last.vowel_length = rule.vowelLength;
+  query.speedScale = rule.speedScale;
+}
 
 /** @param {string} text */
 const katakana = (text) =>

@@ -24,7 +24,7 @@ const stamp = '2026-10-11T00:00:00.000Z';
 test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全；原創句不得偽裝選角台詞', () => {
   assert.deepEqual(
     gameCharacterStudy.map((g) => g.id),
-    ['lol', 'er', 'genshin'],
+    ['er', 'genshin'],
   );
   assert.equal(lines.length, 188);
   assert.equal(new Set(lines.map((l) => l.id)).size, lines.length);
@@ -48,13 +48,13 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
         }
       }
     }
-  assert.equal(lines.filter((l) => l.category === '角色選擇').length, 3);
-  assert.equal(lines.filter((l) => l.category === '編隊加入').length, 3);
+  assert.equal(lines.filter((l) => l.category === '角色選擇').length, 0);
+  assert.equal(lines.filter((l) => l.category === '編隊加入').length, 5);
 });
 
 test('角色及情境篩選不混遊戲，未知分類安全回空；選角與編隊分離', () => {
   const selection = gameLines(gameCharacterStudy, 'lol', '', '角色選擇');
-  assert.equal(selection.length, 3);
+  assert.equal(selection.length, 0);
   assert.ok(selection.every((row) => row.line.kind === 'quote'));
   assert.equal(
     gameLines(gameCharacterStudy, 'genshin', '', '角色選擇').length,
@@ -100,10 +100,10 @@ test('遊戲學習進度獨立、可合併及序列化，不變動既有 FSRS �
 
 test('遊戲路由可深連結，保留返回路徑，壞編碼及多餘段落回遊戲清單', () => {
   assert.deepEqual(parseRoute(gameHash()), { view: 'games' });
-  assert.deepEqual(parseRoute(gameHash('lol', 'ahri')), {
+  assert.deepEqual(parseRoute(gameHash('genshin', 'kaeya')), {
     view: 'games',
-    gameId: 'lol',
-    characterId: 'ahri',
+    gameId: 'genshin',
+    characterId: 'kaeya',
   });
   assert.deepEqual(parseRoute(gameHash('a/b', '角色')), {
     view: 'games',

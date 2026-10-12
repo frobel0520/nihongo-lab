@@ -25,13 +25,13 @@ test('ER 名冊收齊固定來源的 91 個可玩角色，排除隨機／NPC，�
   );
 });
 
-test('三遊戲 97 個角色頭像是可讀的圖檔並有對應來源；不使用遠端圖片網址作畫面 src', () => {
+test('兩遊戲 215 個角色頭像是可讀的圖檔並有對應來源；不使用遠端圖片網址作畫面 src', () => {
   const chars = gameCharacterStudy.flatMap((g) => g.characters);
   const manifest = JSON.parse(
     readFileSync('public/game-portraits/sources.json', 'utf8'),
   );
-  assert.equal(chars.length, 97);
-  assert.equal(manifest.sources.length, 97);
+  assert.equal(chars.length, 215);
+  assert.equal(manifest.sources.length, 215);
   for (const c of chars) {
     assert.match(c.portrait, /^game-portraits\/[^/]+\.(png|jpg)$/);
     assert.match(c.portraitReferenceUrl, /^https:/);

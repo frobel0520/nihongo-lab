@@ -242,3 +242,7 @@ StudyLine 用 submitted ref 防連點，play count 與開始本輪的 baseline �
 game-character-reference-data.mjs 僅保存 82 位角色 code／id／weaponTypes 與來源 SHA-256，對照固定版本 CharacterMastery.json；game-character-weapons.mjs 保存 23 種日中武器名稱及讀音。game-character-reference.mjs 生成兩項教材與大意題干擾項；由 game-character-study.mjs 補進原空角色，公開資料入口仍是 lessons.mjs。
 
 單角色的教材 id 包含角色 id，重複武器詞彙可以共用內容雜湊音檔但理解紀錄獨立。GameStudyView 的 ALL_AUDIO 去重，使下載顯示與實際 144 個檔案相符。新增 20 筆經讀音核對的 AquesTalk 控制片語；原 24 項教材／音檔與進度 id 不改，不升快取版本。
+
+## T63 原神資料與語尾清晰度（2026-10-12）
+
+genshin-character-roster.mjs保存124筆名稱、來源及頭像，genshin-quote-sources.mjs只存12筆來源識別，不複製完整語音庫；仍由lessons.mjs匯出。既有角色id保留，空角色不指定聲線。Bennett專用-ro-v1音檔網址避開舊快取，不改作答id；applyArticulation只在最末モーラ與母音匹配時調整時長／速度，讀音閘門前後均檢查，失敗停止合成。GameStudyView原文揭示後用JpLine直接顯示讀音，遵循全域假名偏好。

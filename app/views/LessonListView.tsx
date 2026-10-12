@@ -70,7 +70,7 @@ export function LessonListView({ progress }: { progress: Progress }) {
 
       <section className="card">
         <h2>遊戲角色語音</h2>
-        <p>英雄聯盟、永恆輪迴、原神：角色短句與主題練習，附自製音檔。</p>
+        <p>永恆輪迴與原神：角色台詞與學習教材，附自製音檔。</p>
         <a className="btn primary" href={viewHash('games')}>
           進入遊戲學習區
         </a>

@@ -20,6 +20,7 @@ import { getVoice } from '../curriculum/voices.mjs';
 import { AUDIO_PROSODY } from '../curriculum/audio-prosody.mjs';
 import { encodeMp3 } from './ffmpeg.mjs';
 import {
+  applyArticulation,
   assertPronunciation,
   assertProsodyUnchanged,
   readingParts,
@@ -112,6 +113,10 @@ export async function synthesizeOne(job) {
     console.log(`READING ${text} → ${pronunciation}`);
   }
 
+  if (profile?.articulation) {
+    applyArticulation(query, profile.articulation);
+    assertPronunciation(query, pronunciation);
+  }
   const synthRes = await callEngine(`/synthesis?speaker=${voice.speakerId}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

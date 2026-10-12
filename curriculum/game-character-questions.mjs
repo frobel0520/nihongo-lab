@@ -3,12 +3,6 @@ import { erReferenceDistractors } from './game-character-reference.mjs';
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
   ...erReferenceDistractors,
-  'lol:ahri:select': ['你已經把我抓住了。', '請你不要相信我。'],
-  'lol:ahri:attack': ['你可以再逃走一次。', '我已經離開了。'],
-  'lol:yasuo:select': ['死亡已經離我們很遠。', '命令對方立刻死亡。'],
-  'lol:yasuo:attack': ['我會放你離開。', '你已經逃走了。'],
-  'lol:lux:select': ['要求對方把光關掉。', '說自己不在戰場上。'],
-  'lol:lux:attack': ['讓黑暗留下來。', '黑暗已經燒盡了。'],
   'er:jackie:prepare': ['刀刃已經不需要磨了。', '禁止任何人磨刀。'],
   'er:jackie:pursue': ['讓敵人安全離開。', '敵人已經投降了。'],
   'er:aya:aim': ['已經放棄瞄準。', '請不要瞄準。'],
@@ -30,4 +24,10 @@ export const gameMeaningDistractors = {
   'genshin:bennett:skill': ['燃燒已經停止了。', '不要燃燒。'],
   'genshin:raiden:join': ['請先離開我。', '你已經跟著我回來了。'],
   'genshin:raiden:burst': ['閃電即將停止。', '向對方詢問永恆是什麼。'],
+  'genshin:kaeya:skill': ['請對方自由活動。', '說對方已經很安分。'],
+  'genshin:kaeya:burst': ['希望對方感冒。', '自己已經感冒了。'],
+  'genshin:diluc:join': ['不准對方離開。', '已經出發了。'],
+  'genshin:diluc:burst': ['判決已被撤銷。', '請對方替自己下判決。'],
+  'genshin:keqing:join': ['時間多得用不完。', '邀請對方繼續等待。'],
+  'genshin:keqing:skill': ['禁止對方前進。', '對方已經回來了。'],
 };

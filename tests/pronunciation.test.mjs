@@ -202,3 +202,41 @@ test('未核對的假名讀音修正若改變重音，停止且不覆蓋音檔',
     await rm(directory, { recursive: true, force: true });
   }
 });
+
+test('命令形燃えろ不能通過燃える讀音；語尾清晰度不得更換音素或重音', async () => {
+  const { applyArticulation } = await import('../scripts/pronunciation.mjs');
+  const rule = {
+    finalMora: 'ロ',
+    vowel: 'o',
+    vowelLength: 0.22,
+    speedScale: 0.95,
+  };
+  const q = {
+    accent_phrases: [
+      {
+        accent: 3,
+        moras: [
+          { text: 'モ', vowel: 'o', pitch: 4.5 },
+          { text: 'エ', vowel: 'e', pitch: 4.8 },
+          { text: 'ロ', vowel: 'o', vowel_length: 0.14, pitch: 4.6 },
+        ],
+      },
+    ],
+    speedScale: 1,
+  };
+  assertPronunciation(q, 'もえろ');
+  assert.throws(() => assertPronunciation(q, 'もえる'), /讀音不一致/);
+  applyArticulation(q, rule);
+  assert.equal(q.accent_phrases[0].moras[2].vowel_length, 0.22);
+  assert.equal(q.accent_phrases[0].moras[2].pitch, 4.6);
+  assert.equal(q.accent_phrases[0].accent, 3);
+  assert.equal(q.speedScale, 0.95);
+  assertPronunciation(q, 'もえろ');
+  const wrong = structuredClone(q);
+  Object.assign(wrong.accent_phrases[0].moras[2], { text: 'ル', vowel: 'u' });
+  assert.throws(() => applyArticulation(wrong, rule), /音素不一致/);
+  assert.throws(
+    () => applyArticulation(q, { ...rule, vowelLength: NaN }),
+    /超出範圍/,
+  );
+});
