@@ -26,7 +26,7 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
     gameCharacterStudy.map((g) => g.id),
     ['lol', 'er', 'genshin'],
   );
-  assert.equal(lines.length, 24);
+  assert.equal(lines.length, 188);
   assert.equal(new Set(lines.map((l) => l.id)).size, lines.length);
   assert.equal(new Set(lines.map(gameRecordId)).size, lines.length);
   for (const game of gameCharacterStudy)
@@ -123,6 +123,6 @@ test('下載全部包含遊戲音檔、去重並保留全部舊課程音檔', ()
   const original = allAudioPaths(stages),
     extra = lines.map((l) => l.audio);
   const all = allAudioPaths(stages, [...extra, extra[0]]);
-  assert.equal(all.length, original.length + extra.length);
+  assert.equal(all.length, original.length + new Set(extra).size);
   for (const audio of [...original, ...extra]) assert.ok(all.includes(audio));
 });

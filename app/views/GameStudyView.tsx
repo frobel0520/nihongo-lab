@@ -27,9 +27,13 @@ type Props = {
   progress: Progress;
   update: (change: (prev: Progress) => Progress) => void;
 };
-const ALL_AUDIO = gameCharacterStudy.flatMap((g) =>
-  g.characters.flatMap((c) => c.lines.map((l) => l.audio)),
-);
+const ALL_AUDIO = [
+  ...new Set(
+    gameCharacterStudy.flatMap((g) =>
+      g.characters.flatMap((c) => c.lines.map((l) => l.audio)),
+    ),
+  ),
+];
 
 function StudyLine({
   line,
@@ -69,7 +73,11 @@ function StudyLine({
     <section className="card game-line">
       <p className="muted">
         {character.name} · {line.category} ·{' '}
-        {line.kind === 'quote' ? '作品短句' : '自編主題練習（非遊戲台詞）'}
+        {line.kind === 'quote'
+          ? '作品短句'
+          : line.kind === 'reference'
+            ? '查證資料教材（非角色台詞）'
+            : '自編主題練習（非遊戲台詞）'}
       </p>
       {!revealed && (
         <>
@@ -166,7 +174,11 @@ function StudyLine({
       )}
       <p className="muted">
         <a href={line.referenceUrl} target="_blank" rel="noreferrer">
-          {line.kind === 'quote' ? '台詞查證來源' : '角色名稱來源'}
+          {line.kind === 'quote'
+            ? '台詞查證來源'
+            : line.kind === 'reference'
+              ? '角色／武器資料來源'
+              : '角色名稱來源'}
         </a>{' '}
         · {line.referenceNote}
       </p>
@@ -231,8 +243,9 @@ export function GameStudyView({
               <p className="muted">
                 已收錄 {g.characters.length} 位角色 · 作品短句{' '}
                 {lines.filter((l) => l.kind === 'quote').length} 句 · 主題練習{' '}
-                {lines.filter((l) => l.kind === 'practice').length} 句 · 已學{' '}
-                {gameDone(lines, progress)}/{lines.length}
+                {lines.filter((l) => l.kind === 'practice').length} 句 ·
+                資料教材 {lines.filter((l) => l.kind === 'reference').length} 項
+                · 已學 {gameDone(lines, progress)}/{lines.length}
               </p>
               <a className="btn primary" href={gameHash(g.id)}>
                 進入{g.title}

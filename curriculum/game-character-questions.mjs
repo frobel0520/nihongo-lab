@@ -1,6 +1,8 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
+import { erReferenceDistractors } from './game-character-reference.mjs';
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+  ...erReferenceDistractors,
   'lol:ahri:select': ['你已經把我抓住了。', '請你不要相信我。'],
   'lol:ahri:attack': ['你可以再逃走一次。', '我已經離開了。'],
   'lol:yasuo:select': ['死亡已經離我們很遠。', '命令對方立刻死亡。'],
@@ -13,7 +15,10 @@ export const gameMeaningDistractors = {
   'er:aya:protect': ['我已經保護過同伴。', '我不會保護同伴。'],
   'er:hyunwoo:resolve': ['我必須立刻倒下。', '我想休息，已經不在乎了。'],
   'er:hyunwoo:stand': ['再也不站起來了。', '命令對方保持坐著。'],
-  'er:magnus:profile': ['詢問馬格努斯是不是別人。', '說自己從來沒有騎過摩托車。'],
+  'er:magnus:profile': [
+    '詢問馬格努斯是不是別人。',
+    '說自己從來沒有騎過摩托車。',
+  ],
   'er:fiora:profile': ['稱讚對方姿勢很標準。', '說自己的腰已經不痛了。'],
   'er:rozzi:profile': ['請立刻開始工作。', '我完全不累。'],
   'er:yuki:profile': ['我確定自己什麼都做不到。', '請你把所有工作都交給別人。'],

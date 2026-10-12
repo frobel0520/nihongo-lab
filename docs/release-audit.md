@@ -498,3 +498,20 @@ T60 已部署：功能 commit `dc9dca8`，[GitHub Actions 38222574283](https://g
 T61 完整驗證：npm run check 的 typecheck、247 tests、lint 通過，零失敗／略過；正式 base path build 通過，124 precache entries。手機與三檔離線實際播放通過。
 
 T61 已部署：功能 commit `2f7b5f5`，[GitHub Actions 38223772842](https://github.com/frobel0520/nihongo-lab/actions/runs/38223772842) Success。正式站 `index-BpHWxl7k.js` 及三個新增 MP3 與本次建置逐位元組一致；TLS 驗證保留。指定公開 Git 身分、新增內容與建置產物隱私格式檢查、三個 privacy-guard hook 通過。更新 App 後可學習雪、希爾維婭、威廉的介紹短句；82 位角色仍待補，未宣稱全部語音完成。
+
+## 2026-10-12 T62 剩餘82位角色資料教材
+
+### 來源與範圍
+
+- [CharacterMastery.json](https://github.com/pypy-vrc/er-gamedata/blob/ea359154465075aa61a668efde014db076820a03/data/CharacterMastery.json) 共91筆，逐一以 code 核對原空角色的82筆與 weapon1～weapon4，排除 None；23種武器類別與 WeaponTypeInfo.json／[Japanese.txt](https://github.com/pypy-vrc/er-gamedata/blob/ea359154465075aa61a668efde014db076820a03/l10n/Japanese.txt)／ChineseTraditional.txt 的 WeaponType 欄位對照。固定鏡像版本，不稱為已核對官方最新資料。只存角色／可用武器事實及名稱，不收完整語系檔或故事。來源檔 SHA-256 記在 reference-data 模組。
+- 各角色一項武器詞彙、一項「某角色可以使用某武器」的教材說明句，共164項、120個去重MP3。說明句依事實自行撰寫、reference類型明示非角色原台詞。沒有大量複製作品台詞，沒有虛構角色說過的話或選角情境；技能名稱未逐一核對讀音，這批不納入。
+- 保留全部舊24項與舊音檔；ER九位既有教材保持（六位介紹短句、三位原創練習）。91位角色皆有教材，ER176項／132檔，全遊戲188項／144檔；這不是完整原作語音庫。
+
+### 讀音與驗證
+
+- 朗讀使用已保留的黒沢冴白，作為資料教材講解聲線，不代表角色原聲。對照既有讀音：彰一しょういち、莉央りお；Eleven採イレブン，&在教材讀と並註明。雙節棍依 [Kanjium固定版本](https://github.com/mifunetoshiro/kanjium/blob/6f32ef33701e572f5485f85eda7ffb9333f8c24e/data/source_files/raw/accents.txt) 採ぬんちゃく。
+- 首輪讀音／句界檢查阻止23檔：暗器被讀成くらき、人名分詞或外來音不符、双節棍讀音需修正。核對後改武器讀音，新增20筆VOICEVOX控制片語，保留其餘原查詢片語與使えます的完整接續，不以拆成つか／えます的假名重試替代。長音依AquesTalk語法展成母音，三筆語法拒絕後修正再生成；全部120檔通過發音參考比對。既有重音覆寫值保持；不宣稱逐句人耳重音／情緒驗收。
+- 120檔逐一ffmpeg全檔解碼、正時長（0.720～4.224秒）、encoder-only metadata通過；所有188項正式建置MP3與public逐位元組一致。初次建置與最後三檔合成重疊造成一檔缺失，發現後在合成完成後重新建置並核對全量，未部署缺失版本。
+- npm run check：typecheck、249 tests、lint通過，零失敗／略過。新增來源分類／武器對照、共用音檔的獨立理解紀錄與複合姓名讀音檢查；離線路徑測試採唯一音檔數，未移除斷言。四筆新增文法解說補日文讀音註記。正式路徑build通過，124 precache entries；既有chunk大小提示保留。
+- 375×667 Chromium全82頁／164項：每項實際播放、播放前答案鎖住、答對、理解2/2保存、來源與非角色台詞限制、無水平溢位及零頁面錯誤通過。初次測試在onPlaying同一瞬間檢查currentTime造成時序失敗，改等待實際播放時間前進後全量通過，沒有放寬播放條件。
+- 正式路徑下載全部144檔後離線：82個角色頁各自重載、164項實際播放與作答、理解2/2保存、零頁面錯誤通過。武器詞彙共用音檔但角色理解紀錄分開；全遊戲下載列表去重。

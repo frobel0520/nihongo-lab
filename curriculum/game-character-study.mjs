@@ -1,13 +1,14 @@
 /**
  * 角色短句與原創主題練習。作品短句僅選少量核對用例；不宣稱完整台詞庫。
  * ER 原創練習與社群角色介紹短句分開，不把介紹短句當成已核對的選角語音。
- * @typedef {import('./lessons.mjs').Line & { id: string, category: string, kind: 'quote' | 'practice', note: string, referenceUrl: string, referenceNote: string, pronunciation?: string }} GameLine
+ * @typedef {import('./lessons.mjs').Line & { id: string, category: string, kind: 'quote' | 'practice' | 'reference', note: string, referenceUrl: string, referenceNote: string, pronunciation?: string }} GameLine
  * @typedef {{ id: string, name: string, nameJa: string, voice?: string, referenceUrl: string, portrait?: string, portraitReferenceUrl?: string, lines: GameLine[] }} GameCharacter
  * @typedef {{ id: string, title: string, scope: string, characters: GameCharacter[] }} GameStudy
  * @typedef {[string, string, string, string, string, string, string?]} LineSpec id/category/jp/reading/zh/note/pronunciation
  */
 import { audioPath } from './author.mjs';
 import { eternalReturnRoster } from './game-character-roster.mjs';
+import { createErReferenceCharacter } from './game-character-reference.mjs';
 const genshinVersion = '49a6544a6c6ae36089cb42fa591fc46f01de8bcf';
 const erVersion = 'ea359154465075aa61a668efde014db076820a03';
 /** @param {string} game @param {string} id @param {string} name @param {string} nameJa @param {string} voice @param {string} url @param {LineSpec[]} rows @param {'quote'|'practice'} [kind] @returns {GameCharacter} */
@@ -318,7 +319,7 @@ export const gameCharacterStudy = [
   },
 ];
 
-// 以角色名冊補齊頭像；只有已有核對教材的角色保留 lines，其他明示待收錄。
+// 合併角色名冊與既有教材；其餘82位使用已核對的角色／武器資料教材。
 const er = gameCharacterStudy.find((game) => game.id === 'er');
 if (!er) throw new Error('Missing Eternal Return section');
 const erProfileSource = 'https://asatamin-eternalreturn.com/characterlist/';
@@ -393,13 +394,12 @@ const existing = new Map(
 );
 er.characters = eternalReturnRoster.map((row) => ({
   ...row,
-  ...existing.get(row.id),
+  ...(existing.get(row.id) ?? createErReferenceCharacter(row)),
   portrait: row.portrait,
   portraitReferenceUrl: row.portraitReferenceUrl,
-  lines: existing.get(row.id)?.lines ?? [],
 }));
 er.scope =
-  '角色名冊與預設造型頭像收錄 91 位（固定版本）。三位角色有原創主題練習，另六位各有一句社群角色介紹短句；82 位語音待補。介紹短句未核對原配音或選角情境，未收錄劇情。';
+  '91 位角色都有教材。82 位各有武器詞彙與資料句型，依固定版本遊戲資料編寫，非角色原台詞；另保留六位介紹短句與三位原創練習。完整遊戲語音仍未收齊，未加入劇情。';
 for (const game of gameCharacterStudy) {
   if (game.id === 'er') continue;
   for (const character of game.characters) {

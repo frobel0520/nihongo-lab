@@ -232,3 +232,10 @@ T60 已部署：功能 commit `dc9dca8`，[GitHub Actions 38222574283](https://g
 T61 完整驗證：npm run check 的 typecheck、247 tests、lint 通過，零失敗／略過；正式 base path build 通過，124 precache entries。手機與三檔離線實際播放通過。
 
 T61 已部署：功能 commit `2f7b5f5`，[GitHub Actions 38223772842](https://github.com/frobel0520/nihongo-lab/actions/runs/38223772842) Success。正式站 `index-BpHWxl7k.js` 及三個新增 MP3 與本次建置逐位元組一致；TLS 驗證保留。指定公開 Git 身分、新增內容與建置產物隱私格式檢查、三個 privacy-guard hook 通過。更新 App 後可學習雪、希爾維婭、威廉的介紹短句；82 位角色仍待補，未宣稱全部語音完成。
+
+## 2026-10-12 T62 剩餘82位角色教材
+
+- 82 位各補兩項：可用武器詞彙與依武器對照資料撰寫的可能形說明句，164 項教材／聽力題，120 個去重 VOICEVOX 新音檔。新教材不是角色台詞，沒有虛構角色對話或觸發情境。
+- 91 位現在皆有教材；ER 176 項、132 個音檔，全遊戲 188 項、144 個音檔。原 24 項／音檔與進度保持。此為角色資料教材補齊，完整遊戲原台詞、造型語音與全部技能仍未完成。
+- 固定版本 CharacterMastery.json、日中語系檔核對角色可用武器；三個新內部資料模組保留來源版本與事實欄位。reference類型、武器詞彙題幹與來源標示、全部遊戲下載去重。
+- 249 tests、typecheck、lint、正式路徑 build 通過；120檔全解碼及讀音檢查、82頁全部164項手機與離線實際播放作答通過。部署另記 release-audit.md。

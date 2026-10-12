@@ -236,3 +236,9 @@ StudyLine 用 submitted ref 防連點，play count 與開始本輪的 baseline �
 ## T61 資料編排（2026-10-12）
 
 加入 yuki／silvia／william 的 profile id，各有 reading、翻譯、來源、用法與兩個干擾項。聲線分別 Nemo 男声2／雨晴はう／青山龍星。新增三個音檔 URL、不替換舊音檔或改動快取版本。既有 ruby 檢查受新增漢字字集影響，八筆中文說明逐一確認為中文並加入無標記審閱項目。
+
+## T62 來源事實、教材與共用音檔（2026-10-12）
+
+game-character-reference-data.mjs 僅保存 82 位角色 code／id／weaponTypes 與來源 SHA-256，對照固定版本 CharacterMastery.json；game-character-weapons.mjs 保存 23 種日中武器名稱及讀音。game-character-reference.mjs 生成兩項教材與大意題干擾項；由 game-character-study.mjs 補進原空角色，公開資料入口仍是 lessons.mjs。
+
+單角色的教材 id 包含角色 id，重複武器詞彙可以共用內容雜湊音檔但理解紀錄獨立。GameStudyView 的 ALL_AUDIO 去重，使下載顯示與實際 144 個檔案相符。新增 20 筆經讀音核對的 AquesTalk 控制片語；原 24 項教材／音檔與進度 id 不改，不升快取版本。
