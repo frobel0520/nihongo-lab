@@ -196,6 +196,8 @@ T57 另提供獨立 HTML 驗收檔，內嵌全部 18 個 MP3，無需同步帳�
 
 角色搜尋欄與文字卡片改成可點擊頭像格；三款遊戲共 97 個角色頭像，永恆輪迴依固定版本 Character.json 收齊 91 位可玩角色。三位角色的既有六句練習、路由 id 與進度保留；其他 88 位點開明示語音尚未收錄，不顯示 1/0、播放器或假台詞。沒有新增語音／劇情。
 
-頭像全部存於本專案，永恆輪迴採 EternalReturnResource 的預設 CharProfile（該資源庫使用 DAK.GG 編排），LoL 用 LoLJPWiki，原神用 Genshin-Assets；頁面可展開來源。97 檔皆成功讀取並通過圖檔檢查，隨 PWA 預快取。244 tests／typecheck／lint／正式路徑 build 通過；375×667 全 97 頭像、點擊學習、原音檔／進度與空角色頁驗證通過，離線結果見 release-audit.md。部署結果另補。
+頭像全部存於本專案，永恆輪迴採 EternalReturnResource 的預設 CharProfile（該資源庫使用 DAK.GG 編排），LoL 用 LoLJPWiki，原神用 Genshin-Assets；頁面可展開來源。97 檔皆成功讀取並通過圖檔檢查，隨 PWA 預快取。244 tests／typecheck／lint／正式路徑 build 通過；375×667 全 97 頭像、點擊學習、原音檔／進度與空角色頁驗證通過，離線結果見 release-audit.md。2026-10-12 已部署，證據見下方。
 
 T58 正式建置版離線驗證：SW 安裝完成後斷網重載，91 張 ER 頭像逐張顯示、LoL JPEG 頭像與角色學習路由均正常，沒有自動播放。既有音檔／進度保持不變。
+
+T58 已部署：功能 commit `8d8fac2`，[GitHub Actions 38195401435](https://github.com/frobel0520/nihongo-lab/actions/runs/38195401435) Success。正式站 `index-BZ-MFxVC.js` 與全部 97 頭像逐位元組核對一致，SW 預快取含 ER PNG 與 LoL JPEG；HTTPS 核對保留 TLS 驗證。三個 privacy-guard hook 全部通過，作者／提交者為指定公開身分，新增內容與部署產物隱私格式檢查通過。更新 App 即可使用頭像選單；91 位 ER 名冊完成，仍有 88 位語音待補，學習進度與既有音檔不需重設。
