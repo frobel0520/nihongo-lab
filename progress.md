@@ -1,6 +1,6 @@
 # 專案進度
 
-## 2026-10-12 T65 永恆輪迴選角語音 316 檔全收（本機完成，部署結果見下）
+## 2026-10-12 T65 永恆輪迴選角語音 316 檔全收（已部署）
 
 **使用者決定（2026-10-12 晚）**：316 檔選角原音全部收錄；放棄人耳確認，完成直接部署。每句標證據等級，只有 user 經人耳確認，畫面「台詞查證來源」逐句說明。原音、ASR 模型、本機確認頁只在被忽略的 `.cache/`。
 
@@ -9,6 +9,7 @@
 - **資料入口**：改字面或證據只動 `scripts/er-selection-decisions.mjs`，再跑 `node scripts/build-er-selection-transcripts.mjs`；新句子要在 `curriculum/er-selection-voice-annotations.mjs` 補讀音／翻譯／解說（缺的會被測試列出）。本機若有 `.cache/er-selection-all/review-decisions.json`（確認頁的人耳紀錄）會優先採用並升為 user。
 - **修正**：`scripts/synthesize.mjs` 的假名覆寫改走 `/accent_phrases?is_kana=true`（本機官方引擎的 audio_query 不解析 is_kana，曾讓覆寫音檔拖長約 3 倍）；16 句誤讀加覆寫。
 - **驗證**：check 253 tests／typecheck／lint 全過、正式路徑 build 通過、240 檔解碼與時長檢查、375×667 瀏覽器實測。詳見 release-audit.md。
+- **部署**：功能 commit `3207522`，Actions 38288868783 Success；正式站主程式與 240 個選角 MP3 逐位元組一致。本機正式路徑 build 要加 `MSYS_NO_PATHCONV=1`，否則 Git Bash 會改寫 base path。
 - **之後可做**：用本機確認頁（`.cache/er-selection-all/review.html`，preview 名稱 nihongo-er-voice-review）逐句聽原音，把 asr-draft 升為 user；補 Nemo 聲線音檔。
 
 ## 2026-10-12 T65 session 交接：本機草稿，尚未完成／部署
