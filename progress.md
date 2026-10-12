@@ -1,14 +1,15 @@
 # 專案進度
 
-## 2026-10-12 T65 續作（交接到雲端）：316 檔選角語音全收
+## 2026-10-12 T65 永恆輪迴選角語音 316 檔全收（本機完成，部署結果見下）
 
-**使用者最新決定（2026-10-12 晚）**：316 檔選角語音全部收錄；放棄人耳確認，做完直接部署。因此每句標證據等級，只有 `user` 經人耳確認，其餘在教材來源說明寫明「尚未經人耳確認」。原音、ASR 模型與本機確認頁仍只在被忽略的 `.cache/`，雲端拿不到也不需要。
+**使用者決定（2026-10-12 晚）**：316 檔選角原音全部收錄；放棄人耳確認，完成直接部署。每句標證據等級，只有 user 經人耳確認，畫面「台詞查證來源」逐句說明。原音、ASR 模型、本機確認頁只在被忽略的 `.cache/`。
 
-- **資料入口**：`scripts/er-selection-clips.json`（316 段：角色、造型、selected／selected2、官方候選文字與相似度、kotoba-whisper v2.0 與 Whisper small 草稿；只有文字）→ `scripts/er-selection-decisions.mjs`（每段採用的字面與證據：U user／O official-asr／A asr-agreement／D asr-draft／N nonverbal）→ `node scripts/build-er-selection-transcripts.mjs` 產生 `curriculum/er-selection-transcripts.mjs`（含每角色收錄數）。目前 131 段有字面、185 段待整理。
-- **課程**：55 句 Skin/OnSelectVO 官方句（`er-selection-annotations.mjs`，依 skinId）＋逐字稿句（`er-selection-voice-annotations.mjs`，依日文字面；缺解說的句子暫不顯示，`tests/game-study.test.mjs` 會列出）。來源說明依證據自動產生。
-- **音檔**：官方 55 句已用本機 VOICEVOX 0.25.2 合成 51 句；待合成：玹雨／雪兩句（Nemo 男声2，本機引擎沒有）、青燕（玄鳥讀つばめ，已改讀音）、夏洛特（遊戯ゆうぎ）。合成：`node scripts/build-audio-jobs.mjs --missing --pending-game` 後 `node scripts/synthesize.mjs --batch scripts/audio-jobs.json`；音檔產出後從 `game-character-study.mjs` 的 `pendingSelectionAudio` 移除。お主誤讀已加 `audio-prosody.mjs` 覆寫。
-- **已修**：測試把選角句與既有計數分開；補 43 筆解說讀音標記；刪除解說中未經人耳確認的音色推論；助詞發音欄（を→お、へ→え）修正；遊戲首頁移除候選檔數等內部數字。
-- **目前測試**：250/253 通過；失敗 3 項皆為進行中狀態（遊戲總句數寫死 243、56 句缺解說、新解說缺讀音標記）。typecheck、lint 通過。
+- **結果**：316 段全部有處置（261 段台詞、55 段非語詞、待定 0）；246 句角色選擇台詞，91 位角色都有。證據：官方 OnSelectVO 55 句、official-asr 37、asr-agreement 55、asr-draft 98、user 1。
+- **音檔**：本機 VOICEVOX 0.25.2 產製 240 個選角 MP3；玹雨、雪 5 句是 Nemo 男声2，本機沒有此引擎，先提供文字版（`pendingSelectionVoices`）。裝好 Nemo 引擎後跑 `node scripts/build-audio-jobs.mjs --missing --pending-game` 與 `node scripts/synthesize.mjs --batch scripts/audio-jobs.json`，再把 nemo2 從集合移除。
+- **資料入口**：改字面或證據只動 `scripts/er-selection-decisions.mjs`，再跑 `node scripts/build-er-selection-transcripts.mjs`；新句子要在 `curriculum/er-selection-voice-annotations.mjs` 補讀音／翻譯／解說（缺的會被測試列出）。本機若有 `.cache/er-selection-all/review-decisions.json`（確認頁的人耳紀錄）會優先採用並升為 user。
+- **修正**：`scripts/synthesize.mjs` 的假名覆寫改走 `/accent_phrases?is_kana=true`（本機官方引擎的 audio_query 不解析 is_kana，曾讓覆寫音檔拖長約 3 倍）；16 句誤讀加覆寫。
+- **驗證**：check 253 tests／typecheck／lint 全過、正式路徑 build 通過、240 檔解碼與時長檢查、375×667 瀏覽器實測。詳見 release-audit.md。
+- **之後可做**：用本機確認頁（`.cache/er-selection-all/review.html`，preview 名稱 nihongo-er-voice-review）逐句聽原音，把 asr-draft 升為 user；補 Nemo 聲線音檔。
 
 ## 2026-10-12 T65 session 交接：本機草稿，尚未完成／部署
 

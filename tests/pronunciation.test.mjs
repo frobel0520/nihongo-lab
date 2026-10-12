@@ -138,7 +138,10 @@ test('已核對重音覆寫讀音不符時，不重新解析原文或呼叫合�
   const calls = [];
   t.mock.method(globalThis, 'fetch', async (url) => {
     calls.push(String(url));
-    return new Response(JSON.stringify(query('ジヨトマレ')));
+    const q = query('ジヨトマレ');
+    return new Response(
+      JSON.stringify(String(url).includes('/accent_phrases') ? q.accent_phrases : q),
+    );
   });
   await assert.rejects(
     synthesizeOne({
@@ -150,8 +153,10 @@ test('已核對重音覆寫讀音不符時，不重新解析原文或呼叫合�
     }),
     /讀音不一致/,
   );
-  assert.equal(calls.length, 1);
-  assert.ok(calls[0].includes('is_kana=true'));
+  // 覆寫的句節只從假名建立；第二次查詢只取全域參數，且不會呼叫合成。
+  assert.equal(calls.length, 2);
+  assert.ok(calls[0].includes('/accent_phrases') && calls[0].includes('is_kana=true'));
+  assert.ok(calls.every((url) => !url.includes('/synthesis')));
 });
 
 test('教材變更後必須重核重音覆寫，不能沿用過時設定', async (t) => {

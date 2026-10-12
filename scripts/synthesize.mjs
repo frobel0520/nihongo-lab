@@ -80,10 +80,26 @@ export async function synthesizeOne(job) {
       `缺少讀音核對資料：${text}；請提供 --reading 或 --pronunciation`,
     );
 
-  /** @param {string} input @param {boolean} [isKana] */
+  /** @param {string} input @param {boolean} [isKana] @returns {Promise<import('./pronunciation.mjs').AudioQuery>} */
   const audioQuery = async (input, isKana = false) => {
+    if (isKana) {
+      // audio_query does not parse AquesTalk kana on every engine (the official 0.25 engine treats it as
+      // plain text and inserts pauses), so build the accent phrases from the kana explicitly.
+      const phrases = await callEngine(
+        `/accent_phrases?speaker=${voice.speakerId}&text=${encodeURIComponent(input)}&is_kana=true`,
+        { method: 'POST' },
+      );
+      if (!phrases.ok)
+        throw new Error(
+          `accent_phrases failed (${phrases.status}): ${await phrases.text()}`,
+        );
+      // Only the global synthesis parameters are taken from this query, never its reading.
+      /** @type {import('./pronunciation.mjs').AudioQuery} */
+      const base = await audioQuery(input);
+      return { ...base, accent_phrases: await phrases.json() };
+    }
     const response = await callEngine(
-      `/audio_query?speaker=${voice.speakerId}&text=${encodeURIComponent(input)}${isKana ? '&is_kana=true' : ''}`,
+      `/audio_query?speaker=${voice.speakerId}&text=${encodeURIComponent(input)}`,
       { method: 'POST' },
     );
     if (!response.ok)
