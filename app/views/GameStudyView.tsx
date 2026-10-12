@@ -1,5 +1,9 @@
 import { useRef, useState } from 'react';
 import { gameCharacterStudy } from '../../curriculum/lessons.mjs';
+import {
+  erSelectionCoverage,
+  erSelectionTotals,
+} from '../../curriculum/er-selection-transcripts.mjs';
 import type {
   GameLine,
   GameCharacter,
@@ -85,7 +89,7 @@ function StudyLine({
       </p>
       {!canListen && (
         <output className="notice">
-          VOICEVOX 音檔待合成；此頁不播放遊戲原音。
+          這句的 VOICEVOX 音檔還沒產製，可先直接看逐字稿；此頁不播放遊戲原音。
         </output>
       )}
       {!revealed && (
@@ -124,7 +128,7 @@ function StudyLine({
             <button
               type="button"
               className="btn"
-              disabled={!canListen || !heard}
+              disabled={canListen && !heard}
               onClick={() => setRevealed(true)}
             >
               顯示逐字稿與解說
@@ -261,6 +265,13 @@ export function GameStudyView({
             <section className="card" key={g.id}>
               <h2>{g.title}</h2>
               <p>{g.scope}</p>
+              {g.id === 'er' && (
+                <p className="muted">
+                  選角原音 {erSelectionTotals.clips} 段全數收錄：有台詞{' '}
+                  {erSelectionTotals.withText} 段、笑聲／喘氣{' '}
+                  {erSelectionTotals.nonverbal} 段。多數字面由語音辨識取得，未經人耳確認。
+                </p>
+              )}
               <p className="muted">
                 已收錄 {g.characters.length} 位角色 · 作品短句{' '}
                 {lines.filter(
@@ -411,6 +422,13 @@ export function GameStudyView({
           {gameListeningDone(lines, progress)}/{listeningLines.length} · {at + 1}/
           {items.length} 句
         </p>
+        {game.id === 'er' && erSelectionCoverage[character.id] && (
+          <p className="muted">
+            選角原音 {erSelectionCoverage[character.id].clips} 段：有台詞{' '}
+            {erSelectionCoverage[character.id].withText} 段、笑聲／喘氣{' '}
+            {erSelectionCoverage[character.id].nonverbal} 段
+          </p>
+        )}
         <div className="row" data-no-swipe>
           <button
             type="button"

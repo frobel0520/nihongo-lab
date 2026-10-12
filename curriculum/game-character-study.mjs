@@ -447,15 +447,12 @@ function selectionEvidenceNote(row) {
       : `逐字稿由使用者聽本機遊戲選角原音確認；${tail}`;
   if (row.evidence === 'official-asr')
     return `字面採固定版本遊戲文字 ${row.officialKey}，並以語音辨識比對本機選角原音一致；尚未經人耳確認，${tail}`;
-  return `逐字稿由兩個語音辨識模型（kotoba-whisper、Whisper small）判讀本機選角原音一致，尚未經人耳確認，可能與原音有出入；${tail}`;
+  if (row.evidence === 'asr-agreement')
+    return `逐字稿由兩個語音辨識模型（kotoba-whisper、Whisper small）判讀本機選角原音一致，尚未經人耳確認，可能與原音有出入；${tail}`;
+  return `逐字稿是選角原音的語音辨識草稿；兩個模型結果不同，經人工依日文語意整理，尚未經人耳確認，可能與原音有出入；${tail}`;
 }
-/** 選角句中 VOICEVOX 音檔尚未產製者：本機引擎沒有 Nemo 男声2，或讀音仍待原音核對。 */
-const pendingSelectionAudio = new Set([
-  'er:hyunwoo:selection:1007005',
-  'er:yuki:selection:1011005',
-  'er:tsubame:selection:1070002',
-  'er:charlotte:selection:1073002',
-]);
+/** 本機 VOICEVOX 引擎沒有的聲線：這些角色的選角句先提供文字，音檔待有 Nemo 引擎時再產製。 */
+const pendingSelectionVoices = new Set(['nemo2']);
 /** @type {SelectionSourceRow[]} */
 const selectionRows = erSelectionInventory.officialSelectionRows;
 /** @type {SelectionCandidateCount[]} */
@@ -514,7 +511,7 @@ for (const character of er.characters) {
         : '固定版本遊戲資料將此句列為 Skin/OnSelectVO，機器辨識對應本機選角原音，人耳確認待完成；細部時機未指定。原配音不公開，教材音檔為 VOICEVOX 自製朗讀。',
       pronunciation: annotation.pronunciation,
       selectionAssetCount: row.matchingAssetCount,
-      ...(pendingSelectionAudio.has(id) ? { audioReady: false } : {}),
+      ...(pendingSelectionVoices.has(voice) ? { audioReady: false } : {}),
     });
   }
   const official = new Set(rows.map((row) => `Skin/OnSelectVO/${row.skinId}`));
@@ -544,7 +541,7 @@ for (const character of er.characters) {
       ...(annotation.ruby ? { ruby: annotation.ruby } : {}),
       pronunciation: annotation.pronunciation,
       selectionAssetCount: row.clipCount,
-      ...(pendingSelectionAudio.has(id) ? { audioReady: false } : {}),
+      ...(pendingSelectionVoices.has(voice) ? { audioReady: false } : {}),
     });
   }
 }
@@ -552,7 +549,7 @@ const selectionLineCount = er.characters.reduce(
   (total, c) => total + c.lines.filter((l) => l.category === '角色選擇').length,
   0,
 );
-er.scope = `91 位角色都有教材。82 位各有武器詞彙與資料句型，依固定版本遊戲資料編寫，非角色原台詞；另有六位介紹短句、三位原創練習，以及 ${selectionLineCount} 句角色選擇台詞（字面取自遊戲文字或聽原音確認，教材音檔為 VOICEVOX 自製朗讀）。未加入劇情。`;
+er.scope = `91 位角色都有教材。82 位各有武器詞彙與資料句型，依固定版本遊戲資料編寫，非角色原台詞；另有六位介紹短句、三位原創練習，以及 ${selectionLineCount} 句角色選擇台詞（字面取自遊戲文字或選角原音的語音辨識，每句標明依據；教材音檔為 VOICEVOX 自製朗讀）。未加入劇情。`;
 const genshin = gameCharacterStudy.find((game) => game.id === 'genshin');
 if (!genshin) throw new Error('Missing Genshin section');
 const knownGenshin = new Map(genshin.characters.map((c) => [c.id, c]));

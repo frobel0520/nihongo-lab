@@ -5,308 +5,308 @@
 /** @typedef {{ characterId: string, jp: string, evidence: 'user' | 'official-asr' | 'asr-agreement' | 'asr-draft', families: string[], skinCodes: number[], skinNames: string[], officialKey: string | null, clipCount: number }} SelectionTranscript */
 /** @typedef {{ clips: number, withText: number, nonverbal: number, pending: number }} SelectionCoverage */
 /** @type {Readonly<SelectionCoverage>} */
-export const erSelectionTotals = Object.freeze({"clips":316,"withText":131,"nonverbal":0,"pending":185});
+export const erSelectionTotals = Object.freeze({"clips":316,"withText":261,"nonverbal":55,"pending":0});
 /** @type {Readonly<Record<string, SelectionCoverage>>} */
 export const erSelectionCoverage = Object.freeze({
  "jackie": {
   "clips": 5,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 3
+  "withText": 3,
+  "nonverbal": 2,
+  "pending": 0
  },
  "aya": {
   "clips": 6,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 4
+  "withText": 5,
+  "nonverbal": 1,
+  "pending": 0
  },
  "fiora": {
   "clips": 4,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "magnus": {
   "clips": 4,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "zahir": {
   "clips": 4,
-  "withText": 1,
+  "withText": 4,
   "nonverbal": 0,
-  "pending": 3
+  "pending": 0
  },
  "nadine": {
   "clips": 2,
-  "withText": 0,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 1,
+  "nonverbal": 1,
+  "pending": 0
  },
  "hyunwoo": {
   "clips": 4,
-  "withText": 0,
-  "nonverbal": 0,
-  "pending": 4
+  "withText": 2,
+  "nonverbal": 2,
+  "pending": 0
  },
  "hart": {
   "clips": 6,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 4
+  "withText": 4,
+  "nonverbal": 2,
+  "pending": 0
  },
  "isol": {
   "clips": 2,
   "withText": 1,
-  "nonverbal": 0,
-  "pending": 1
+  "nonverbal": 1,
+  "pending": 0
  },
  "lidailin": {
   "clips": 6,
-  "withText": 1,
-  "nonverbal": 0,
-  "pending": 5
+  "withText": 5,
+  "nonverbal": 1,
+  "pending": 0
  },
  "yuki": {
   "clips": 4,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "hyejin": {
   "clips": 6,
-  "withText": 1,
-  "nonverbal": 0,
-  "pending": 5
+  "withText": 5,
+  "nonverbal": 1,
+  "pending": 0
  },
  "xiukai": {
   "clips": 8,
-  "withText": 1,
-  "nonverbal": 0,
-  "pending": 7
+  "withText": 4,
+  "nonverbal": 4,
+  "pending": 0
  },
  "chiara": {
   "clips": 3,
   "withText": 2,
-  "nonverbal": 0,
-  "pending": 1
+  "nonverbal": 1,
+  "pending": 0
  },
  "sissela": {
   "clips": 4,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "silvia": {
   "clips": 8,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 6
+  "withText": 7,
+  "nonverbal": 1,
+  "pending": 0
  },
  "adriana": {
   "clips": 4,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "shoichi": {
   "clips": 4,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "emma": {
   "clips": 4,
-  "withText": 1,
-  "nonverbal": 0,
-  "pending": 3
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "lenox": {
   "clips": 4,
-  "withText": 1,
-  "nonverbal": 0,
-  "pending": 3
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "rozzi": {
   "clips": 4,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "luke": {
   "clips": 4,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "cathy": {
   "clips": 4,
-  "withText": 1,
-  "nonverbal": 0,
-  "pending": 3
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "adela": {
   "clips": 4,
   "withText": 3,
-  "nonverbal": 0,
-  "pending": 1
+  "nonverbal": 1,
+  "pending": 0
  },
  "bernice": {
   "clips": 2,
-  "withText": 0,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 1,
+  "nonverbal": 1,
+  "pending": 0
  },
  "barbara": {
   "clips": 2,
-  "withText": 0,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 1,
+  "nonverbal": 1,
+  "pending": 0
  },
  "alex": {
   "clips": 4,
-  "withText": 3,
+  "withText": 4,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "sua": {
   "clips": 5,
   "withText": 2,
-  "nonverbal": 0,
-  "pending": 3
+  "nonverbal": 3,
+  "pending": 0
  },
  "leon": {
   "clips": 2,
   "withText": 1,
-  "nonverbal": 0,
-  "pending": 1
+  "nonverbal": 1,
+  "pending": 0
  },
  "eleven": {
   "clips": 4,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "rio": {
   "clips": 4,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "william": {
   "clips": 2,
   "withText": 1,
-  "nonverbal": 0,
-  "pending": 1
+  "nonverbal": 1,
+  "pending": 0
  },
  "nicky": {
   "clips": 6,
-  "withText": 2,
+  "withText": 6,
   "nonverbal": 0,
-  "pending": 4
+  "pending": 0
  },
  "nathapon": {
   "clips": 2,
   "withText": 1,
-  "nonverbal": 0,
-  "pending": 1
+  "nonverbal": 1,
+  "pending": 0
  },
  "jan": {
   "clips": 2,
   "withText": 1,
-  "nonverbal": 0,
-  "pending": 1
+  "nonverbal": 1,
+  "pending": 0
  },
  "eva": {
   "clips": 4,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "daniel": {
   "clips": 4,
   "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "nonverbal": 2,
+  "pending": 0
  },
  "jenny": {
   "clips": 4,
-  "withText": 2,
+  "withText": 4,
   "nonverbal": 0,
-  "pending": 2
+  "pending": 0
  },
  "camilo": {
   "clips": 3,
-  "withText": 2,
+  "withText": 3,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "chloe": {
   "clips": 4,
-  "withText": 1,
-  "nonverbal": 0,
-  "pending": 3
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "johann": {
   "clips": 2,
   "withText": 1,
-  "nonverbal": 0,
-  "pending": 1
+  "nonverbal": 1,
+  "pending": 0
  },
  "bianca": {
   "clips": 6,
-  "withText": 1,
-  "nonverbal": 0,
-  "pending": 5
+  "withText": 5,
+  "nonverbal": 1,
+  "pending": 0
  },
  "celine": {
   "clips": 3,
-  "withText": 1,
+  "withText": 3,
   "nonverbal": 0,
-  "pending": 2
+  "pending": 0
  },
  "echion": {
   "clips": 2,
   "withText": 1,
-  "nonverbal": 0,
-  "pending": 1
+  "nonverbal": 1,
+  "pending": 0
  },
  "mai": {
   "clips": 4,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "aiden": {
   "clips": 4,
-  "withText": 1,
-  "nonverbal": 0,
-  "pending": 3
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "laura": {
   "clips": 4,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "tia": {
   "clips": 4,
-  "withText": 3,
+  "withText": 4,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "felix": {
   "clips": 2,
   "withText": 1,
-  "nonverbal": 0,
-  "pending": 1
+  "nonverbal": 1,
+  "pending": 0
  },
  "elena": {
   "clips": 4,
-  "withText": 2,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 3,
+  "nonverbal": 1,
+  "pending": 0
  },
  "priya": {
   "clips": 3,
@@ -316,27 +316,27 @@ export const erSelectionCoverage = Object.freeze({
  },
  "adina": {
   "clips": 2,
-  "withText": 0,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 1,
+  "nonverbal": 1,
+  "pending": 0
  },
  "markus": {
   "clips": 2,
   "withText": 1,
-  "nonverbal": 0,
-  "pending": 1
+  "nonverbal": 1,
+  "pending": 0
  },
  "karla": {
   "clips": 2,
-  "withText": 0,
-  "nonverbal": 0,
-  "pending": 2
+  "withText": 1,
+  "nonverbal": 1,
+  "pending": 0
  },
  "estelle": {
   "clips": 3,
-  "withText": 1,
+  "withText": 3,
   "nonverbal": 0,
-  "pending": 2
+  "pending": 0
  },
  "piolo": {
   "clips": 1,
@@ -346,39 +346,39 @@ export const erSelectionCoverage = Object.freeze({
  },
  "martina": {
   "clips": 4,
-  "withText": 2,
+  "withText": 4,
   "nonverbal": 0,
-  "pending": 2
+  "pending": 0
  },
  "haze": {
   "clips": 6,
-  "withText": 3,
+  "withText": 6,
   "nonverbal": 0,
-  "pending": 3
+  "pending": 0
  },
  "isaac": {
   "clips": 2,
-  "withText": 1,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "tazia": {
   "clips": 2,
-  "withText": 1,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "irem": {
   "clips": 4,
-  "withText": 2,
+  "withText": 4,
   "nonverbal": 0,
-  "pending": 2
+  "pending": 0
  },
  "theodore": {
   "clips": 2,
-  "withText": 1,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "lyanh": {
   "clips": 2,
@@ -388,57 +388,57 @@ export const erSelectionCoverage = Object.freeze({
  },
  "vanya": {
   "clips": 4,
-  "withText": 1,
+  "withText": 4,
   "nonverbal": 0,
-  "pending": 3
+  "pending": 0
  },
  "debimarlene": {
   "clips": 6,
-  "withText": 2,
+  "withText": 6,
   "nonverbal": 0,
-  "pending": 4
+  "pending": 0
  },
  "arda": {
   "clips": 2,
-  "withText": 1,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "abigail": {
   "clips": 6,
-  "withText": 4,
+  "withText": 6,
   "nonverbal": 0,
-  "pending": 2
+  "pending": 0
  },
  "alonso": {
   "clips": 3,
-  "withText": 0,
+  "withText": 3,
   "nonverbal": 0,
-  "pending": 3
+  "pending": 0
  },
  "leni": {
   "clips": 4,
-  "withText": 2,
+  "withText": 4,
   "nonverbal": 0,
-  "pending": 2
+  "pending": 0
  },
  "tsubame": {
   "clips": 5,
-  "withText": 1,
+  "withText": 5,
   "nonverbal": 0,
-  "pending": 4
+  "pending": 0
  },
  "kenneth": {
   "clips": 2,
-  "withText": 0,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 2
+  "pending": 0
  },
  "katja": {
   "clips": 4,
-  "withText": 3,
+  "withText": 4,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "charlotte": {
   "clips": 2,
@@ -448,9 +448,9 @@ export const erSelectionCoverage = Object.freeze({
  },
  "darko": {
   "clips": 2,
-  "withText": 1,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "lenore": {
   "clips": 2,
@@ -460,9 +460,9 @@ export const erSelectionCoverage = Object.freeze({
  },
  "garnet": {
   "clips": 4,
-  "withText": 3,
+  "withText": 4,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "yumin": {
   "clips": 2,
@@ -472,87 +472,87 @@ export const erSelectionCoverage = Object.freeze({
  },
  "hisui": {
   "clips": 4,
-  "withText": 0,
+  "withText": 4,
   "nonverbal": 0,
-  "pending": 4
+  "pending": 0
  },
  "justyna": {
   "clips": 4,
-  "withText": 2,
+  "withText": 4,
   "nonverbal": 0,
-  "pending": 2
+  "pending": 0
  },
  "istvan": {
   "clips": 2,
-  "withText": 1,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "niah": {
   "clips": 4,
-  "withText": 1,
+  "withText": 4,
   "nonverbal": 0,
-  "pending": 3
+  "pending": 0
  },
  "xuelin": {
   "clips": 4,
-  "withText": 2,
+  "withText": 4,
   "nonverbal": 0,
-  "pending": 2
+  "pending": 0
  },
  "henry": {
   "clips": 2,
-  "withText": 1,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "blair": {
   "clips": 2,
-  "withText": 0,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 2
+  "pending": 0
  },
  "mirka": {
   "clips": 2,
-  "withText": 1,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "fenrir": {
   "clips": 2,
-  "withText": 1,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "coraline": {
   "clips": 2,
-  "withText": 1,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "bihyung": {
   "clips": 2,
-  "withText": 0,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 2
+  "pending": 0
  },
  "craver": {
   "clips": 2,
-  "withText": 1,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "lucia": {
   "clips": 2,
-  "withText": 1,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  },
  "seres": {
   "clips": 2,
-  "withText": 1,
+  "withText": 2,
   "nonverbal": 0,
-  "pending": 1
+  "pending": 0
  }
 });
 /** @type {readonly SelectionTranscript[]} */
@@ -594,6 +594,22 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "jackie",
+    "jp": "いつも通りにやればいいよね。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1001003
+    ],
+    "skinNames": [
+      "系統衝擊 傑琪"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "aya",
     "jp": "悪人はどこですか？",
     "evidence": "asr-agreement",
@@ -630,6 +646,39 @@ export const erSelectionTranscripts = Object.freeze([
     ],
     "officialKey": "Skin/OnSelectVO/1002002",
     "clipCount": 1
+  },
+  {
+    "characterId": "aya",
+    "jp": "一緒に花火を見に行きましょう。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1002002
+    ],
+    "skinNames": [
+      "煙火慶典 綾"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "aya",
+    "jp": "鈴木アヤ、皆さんのために歌います！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected",
+      "selected2"
+    ],
+    "skinCodes": [
+      1002005
+    ],
+    "skinNames": [
+      "綾（艾爾菲爾特）"
+    ],
+    "officialKey": null,
+    "clipCount": 2
   },
   {
     "characterId": "fiora",
@@ -669,6 +718,22 @@ export const erSelectionTranscripts = Object.freeze([
       "戰鬥女僕 菲歐拉"
     ],
     "officialKey": "Skin/OnSelectVO/1003004",
+    "clipCount": 1
+  },
+  {
+    "characterId": "fiora",
+    "jp": "メイドならどんな時でも鋭い剣を備えておくべきだ。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1003004
+    ],
+    "skinNames": [
+      "戰鬥女僕 菲歐拉"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -712,6 +777,43 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "magnus",
+    "jp": "この俺は、人間の限界をも超越した。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1004005
+    ],
+    "skinNames": [
+      "Mk. VIII 毀滅者 M.A.G"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "zahir",
+    "jp": "神から与えられた試練なのであれば、喜んで受け入れよう。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected",
+      "selected2"
+    ],
+    "skinCodes": [
+      1005000,
+      1005001,
+      1005002
+    ],
+    "skinNames": [
+      "查希爾",
+      "死神 查希爾",
+      "鈷進化 查希爾"
+    ],
+    "officialKey": null,
+    "clipCount": 3
+  },
+  {
     "characterId": "zahir",
     "jp": "神から与えられた金であれば、喜んで受け入れよう。",
     "evidence": "asr-agreement",
@@ -723,6 +825,118 @@ export const erSelectionTranscripts = Object.freeze([
     ],
     "skinNames": [
       "富豪 查希爾"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "nadine",
+    "jp": "一狩り始めるか。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1006000,
+      1006001,
+      1006002,
+      1006003,
+      1006004,
+      1006005
+    ],
+    "skinNames": [
+      "娜汀",
+      "女獵 娜汀",
+      "小紅帽 娜汀",
+      "野性的呼喚  娜汀",
+      "惡靈獵手 娜汀",
+      "軍官候補生 娜汀"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "hyunwoo",
+    "jp": "信じられるのはこの拳だけだ。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1007000,
+      1007001,
+      1007002,
+      1007003,
+      1007004,
+      1007006
+    ],
+    "skinNames": [
+      "玹雨",
+      "暗巷裡 玹雨",
+      "惡魔之子 玹雨",
+      "軍官候補生 玹雨",
+      "軍官候補生 玹雨(永恆段位造型)",
+      "盛夏派對 玹雨"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "hyunwoo",
+    "jp": "んじゃ、やってみるか。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1007005
+    ],
+    "skinNames": [
+      "傲嬌豬豬 玹雨"
+    ],
+    "officialKey": "Skin/OnSelectVO/1007005",
+    "clipCount": 1
+  },
+  {
+    "characterId": "hart",
+    "jp": "ラブ&ピース！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1008000,
+      1008001,
+      1008003,
+      1008004,
+      1008005,
+      1008006,
+      1008007
+    ],
+    "skinNames": [
+      "哈特",
+      "樂團團長 哈特",
+      "紫心皇后 哈特",
+      "軍樂隊 哈特",
+      "軍官候補生 哈特",
+      "3rd Anniversary 哈特",
+      "3rd Anniversary 哈特 Vivace"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "hart",
+    "jp": "メリークリスマス！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1008002
+    ],
+    "skinNames": [
+      "冰雪慶典 哈特"
     ],
     "officialKey": null,
     "clipCount": 1
@@ -785,6 +999,30 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "lidailin",
+    "jp": "私がいなきゃダメ～。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1010000,
+      1010001,
+      1010002,
+      1010003,
+      1010004
+    ],
+    "skinNames": [
+      "李黛琳",
+      "旅行者 李黛琳",
+      "叛逆 李黛琳",
+      "龍之舞 李黛琳",
+      "可愛吼吼 黛琳"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "lidailin",
     "jp": "さて...海にでも行って遊んでみよっか～",
     "evidence": "official-asr",
     "families": [
@@ -798,6 +1036,39 @@ export const erSelectionTranscripts = Object.freeze([
     ],
     "officialKey": "Skin/OnSelectVO/1010005",
     "clipCount": 1
+  },
+  {
+    "characterId": "lidailin",
+    "jp": "やっぱ飲んで遊ぶのが一番だよね～。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1010005
+    ],
+    "skinNames": [
+      "仲夏微醺 李黛琳"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "lidailin",
+    "jp": "トリックオア...ドリンク～？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected",
+      "selected2"
+    ],
+    "skinCodes": [
+      1010007
+    ],
+    "skinNames": [
+      "李黛琳（潔克・歐）"
+    ],
+    "officialKey": "Skin/OnSelectVO/1010007",
+    "clipCount": 2
   },
   {
     "characterId": "yuki",
@@ -842,6 +1113,46 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "yuki",
+    "jp": "彷徨う魂に救済を。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1011005
+    ],
+    "skinNames": [
+      "幽靈獵人 雪"
+    ],
+    "officialKey": "Skin/OnSelectVO/1011005",
+    "clipCount": 1
+  },
+  {
+    "characterId": "hyejin",
+    "jp": "この運命、神様の思し召しなら…",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1012000,
+      1012001,
+      1012002,
+      1012003,
+      1012004
+    ],
+    "skinNames": [
+      "慧珍",
+      "木蓮花 慧珍",
+      "軍官候補生 慧珍",
+      "幽靈獵人 慧珍",
+      "高考生 慧珍"
+    ],
+    "officialKey": null,
+    "clipCount": 2
+  },
+  {
     "characterId": "hyejin",
     "jp": "共に行動すれば、もっと安全になるでしょう。",
     "evidence": "asr-agreement",
@@ -858,11 +1169,81 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "hyejin",
+    "jp": "ご主人様の思し召しなら、従います、にゃん…",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1012006
+    ],
+    "skinNames": [
+      "冒失喵喵女僕 慧珍"
+    ],
+    "officialKey": "Skin/OnSelectVO/1012006",
+    "clipCount": 1
+  },
+  {
+    "characterId": "hyejin",
+    "jp": "いらっしゃいませ、ご主人…よ、よくあることです。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1012006
+    ],
+    "skinNames": [
+      "冒失喵喵女僕 慧珍"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "xiukai",
+    "jp": "一気に調理してやる！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1013000,
+      1013001,
+      1013002,
+      1013003
+    ],
+    "skinNames": [
+      "秀凱",
+      "壽司師傅 秀凱",
+      "熊貓大主廚 秀凱",
+      "鬥球王 秀凱"
+    ],
+    "officialKey": null,
+    "clipCount": 2
+  },
+  {
     "characterId": "xiukai",
     "jp": "どれどれ、プレゼントをもらう準備はできたかな？",
     "evidence": "asr-agreement",
     "families": [
       "selected"
+    ],
+    "skinCodes": [
+      1013004
+    ],
+    "skinNames": [
+      "聖誕老人 秀凱"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "xiukai",
+    "jp": "メリークリスマス！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
     ],
     "skinCodes": [
       1013004
@@ -954,6 +1335,45 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "sissela",
+    "jp": "落ち着いてください、ウィルソン。今日はどんなお客さんが来てくれるのか、楽しみです。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1015004
+    ],
+    "skinNames": [
+      "小威烘焙坊 希瑟拉"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "silvia",
+    "jp": "レース開始よ！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected",
+      "selected2"
+    ],
+    "skinCodes": [
+      1016000,
+      1016001,
+      1016002,
+      1016004
+    ],
+    "skinNames": [
+      "希爾維婭",
+      "晚風 希爾維婭",
+      "GeForce Now 希爾維婭",
+      "旅行者 希爾維婭"
+    ],
+    "officialKey": null,
+    "clipCount": 3
+  },
+  {
     "characterId": "silvia",
     "jp": "遅れたら払戻されちゃうよ！",
     "evidence": "official-asr",
@@ -971,6 +1391,22 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "silvia",
+    "jp": "どこでも速やかに配達します！でも先払いですよ！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1016003
+    ],
+    "skinNames": [
+      "完美配送 希爾維婭"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "silvia",
     "jp": "悪いやつらをやっつけに行くんだよね？",
     "evidence": "official-asr",
     "families": [
@@ -983,6 +1419,46 @@ export const erSelectionTranscripts = Object.freeze([
       "希爾維婭 (QUEEN)"
     ],
     "officialKey": "Skin/OnSelectVO/1016005",
+    "clipCount": 1
+  },
+  {
+    "characterId": "silvia",
+    "jp": "正義を貫く時間だね！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1016005
+    ],
+    "skinNames": [
+      "希爾維婭 (QUEEN)"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "adriana",
+    "jp": "私を呼んでるの？リリー。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1017000,
+      1017001,
+      1017002,
+      1017003,
+      1017005
+    ],
+    "skinNames": [
+      "亞莉安娜",
+      "火焰兵 亞莉安娜",
+      "除蟲專家 亞莉安娜",
+      "女僕 亞莉安娜",
+      "惡役千金 亞莉安娜"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -1043,6 +1519,22 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "shoichi",
+    "jp": "賢明な選択です。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1018004
+    ],
+    "skinNames": [
+      "吸血鬼 彰一"
+    ],
+    "officialKey": "Skin/OnSelectVO/1018004",
+    "clipCount": 1
+  },
+  {
+    "characterId": "shoichi",
     "jp": "必要であれば、何だってします。",
     "evidence": "asr-agreement",
     "families": [
@@ -1053,6 +1545,30 @@ export const erSelectionTranscripts = Object.freeze([
     ],
     "skinNames": [
       "吸血鬼 彰一"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "emma",
+    "jp": "マジシャン登場！見たことのないステージを見せてあげる！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1019000,
+      1019001,
+      1019002,
+      1019003,
+      1019005
+    ],
+    "skinNames": [
+      "艾瑪",
+      "女僕 艾瑪",
+      "魔女 艾瑪",
+      "森林摯友 艾瑪",
+      "魔法邦尼 艾瑪"
     ],
     "officialKey": null,
     "clipCount": 1
@@ -1071,6 +1587,22 @@ export const erSelectionTranscripts = Object.freeze([
       "夏日魔術師 艾瑪"
     ],
     "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "emma",
+    "jp": "お待たせ～！夏限定マジックショー、始まるよ～！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1019004
+    ],
+    "skinNames": [
+      "夏日魔術師 艾瑪"
+    ],
+    "officialKey": "Skin/OnSelectVO/1019004",
     "clipCount": 1
   },
   {
@@ -1093,6 +1625,38 @@ export const erSelectionTranscripts = Object.freeze([
       "白色聖誕 倫諾克斯",
       "海盜 倫諾克斯",
       "未來戰士 倫諾克斯"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "lenox",
+    "jp": "もうあたしの出番？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1020005
+    ],
+    "skinNames": [
+      "深淵魔王 倫諾克斯"
+    ],
+    "officialKey": "Skin/OnSelectVO/1020005",
+    "clipCount": 1
+  },
+  {
+    "characterId": "lenox",
+    "jp": "今からでも、あたしの手下になるのはどう？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1020005
+    ],
+    "skinNames": [
+      "深淵魔王 倫諾克斯"
     ],
     "officialKey": null,
     "clipCount": 1
@@ -1138,6 +1702,22 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "rozzi",
+    "jp": "ロッジ、単独行動は控えめに。全隊員、戦闘準備！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1021003
+    ],
+    "skinNames": [
+      "戰鬥女僕 洛茲"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "luke",
     "jp": "さあ、何を片付けましょうか。",
     "evidence": "asr-agreement",
@@ -1180,6 +1760,44 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "luke",
+    "jp": "どうやらお掃除の時間みたいです。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1022006
+    ],
+    "skinNames": [
+      "死神 盧克"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "cathy",
+    "jp": "ああ、私ですか？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1023000,
+      1023001,
+      1023003,
+      1023004
+    ],
+    "skinNames": [
+      "凱茜",
+      "軍醫 凱茜",
+      "老師 凱茜",
+      "越獄者 凱茜"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "cathy",
     "jp": "ウイルスは広がる前に排除しなければなりません。",
     "evidence": "official-asr",
@@ -1193,6 +1811,22 @@ export const erSelectionTranscripts = Object.freeze([
       "迷幻醫生 凱茜"
     ],
     "officialKey": "Skin/OnSelectVO/1023002",
+    "clipCount": 1
+  },
+  {
+    "characterId": "cathy",
+    "jp": "私がいるとこなら、どこでも病院なのです。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1023002
+    ],
+    "skinNames": [
+      "迷幻醫生 凱茜"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -1243,6 +1877,50 @@ export const erSelectionTranscripts = Object.freeze([
     ],
     "skinNames": [
       "夢德拉"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "bernice",
+    "jp": "僕はただ、獣を狩るだけだ。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1025000,
+      1025001,
+      1025002,
+      1025003
+    ],
+    "skinNames": [
+      "伯尼斯",
+      "天啟 伯尼斯",
+      "惡靈獵手 伯尼斯",
+      "戰鬥執事 伯尼斯"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "barbara",
+    "jp": "私は世紀の発明家よ。知らないとは言わせないから。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1026000,
+      1026001,
+      1026002,
+      1026003
+    ],
+    "skinNames": [
+      "芭芭拉",
+      "首席機械師 芭芭拉",
+      "太空工程師 芭芭拉",
+      "研究員 芭芭拉"
     ],
     "officialKey": null,
     "clipCount": 1
@@ -1301,6 +1979,22 @@ export const erSelectionTranscripts = Object.freeze([
       "亞歷克斯 (JOKER)"
     ],
     "officialKey": "Skin/OnSelectVO/1027003",
+    "clipCount": 1
+  },
+  {
+    "characterId": "alex",
+    "jp": "新しい任務ですか。引き受けましょう。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1027003
+    ],
+    "skinNames": [
+      "亞歷克斯 (JOKER)"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -1408,6 +2102,22 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "eleven",
+    "jp": "イレブンの結婚式配信、始まるよ～！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1030004
+    ],
+    "skinNames": [
+      "愛的小夜曲 Eleven"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "rio",
     "jp": "矢先にはどんな嘘も通じないよ。",
     "evidence": "official-asr",
@@ -1454,6 +2164,22 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "rio",
+    "jp": "ダーツはいかがですか？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1031006
+    ],
+    "skinNames": [
+      "害羞兔女郎 莉央"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "william",
     "jp": "もう手加減はしない。",
     "evidence": "official-asr",
@@ -1477,6 +2203,54 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "nicky",
+    "jp": "なんだよ面倒だな！...一体何があったんだ？",
+    "evidence": "official-asr",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1033000,
+      1033001,
+      1033003,
+      1033004,
+      1033005
+    ],
+    "skinNames": [
+      "妮琪",
+      "暗巷裡 妮琪",
+      "問題學生 妮琪",
+      "私家偵探 妮琪",
+      "格鬥兔女郎 妮琪"
+    ],
+    "officialKey": "CharacterStoryTitle/33",
+    "clipCount": 1
+  },
+  {
+    "characterId": "nicky",
+    "jp": "さてと、どりゃ！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1033000,
+      1033001,
+      1033003,
+      1033004,
+      1033005
+    ],
+    "skinNames": [
+      "妮琪",
+      "暗巷裡 妮琪",
+      "問題學生 妮琪",
+      "私家偵探 妮琪",
+      "格鬥兔女郎 妮琪"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "nicky",
     "jp": "これしきの暑さは全部吹き飛ばしてやる！",
     "evidence": "official-asr",
     "families": [
@@ -1493,6 +2267,22 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "nicky",
+    "jp": "そうね。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1033002
+    ],
+    "skinNames": [
+      "夏日海灘 妮琪"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "nicky",
     "jp": "勝てるよな？俺が応援するのは、お前だけなんだから！",
     "evidence": "official-asr",
     "families": [
@@ -1505,6 +2295,22 @@ export const erSelectionTranscripts = Object.freeze([
       "應援飛拳 妮琪"
     ],
     "officialKey": "Skin/OnSelectVO/1033006",
+    "clipCount": 1
+  },
+  {
+    "characterId": "nicky",
+    "jp": "フレー、フレー、頑張れ！…も、文句でもあんのか？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1033006
+    ],
+    "skinNames": [
+      "應援飛拳 妮琪"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -1594,6 +2400,22 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "eva",
+    "jp": "素敵な一日になるといいね。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1036004
+    ],
+    "skinNames": [
+      "仲夏回憶 伊娃"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "daniel",
     "jp": "蝶を壁に固定するには鋭いピンが必要だ。",
     "evidence": "official-asr",
@@ -1653,10 +2475,48 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "jenny",
+    "jp": "見られてないわよね？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1038000,
+      1038001,
+      1038002,
+      1038003
+    ],
+    "skinNames": [
+      "珍妮",
+      "BOSS 珍妮",
+      "化裝舞會 珍妮",
+      "紅心兔女郎 珍妮"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "jenny",
     "jp": "私だって、私だって光り輝く宝石になりたい。",
     "evidence": "asr-agreement",
     "families": [
       "selected"
+    ],
+    "skinCodes": [
+      1038004
+    ],
+    "skinNames": [
+      "白日夢想家 珍妮"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "jenny",
+    "jp": "ジャージを忘れちゃった…これで準備OKよ。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
     ],
     "skinCodes": [
       1038004
@@ -1689,6 +2549,26 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "camilo",
+    "jp": "オラ…ミ・アモーレ…",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1039000,
+      1039001,
+      1039002
+    ],
+    "skinNames": [
+      "卡米洛",
+      "燕尾服 卡米洛",
+      "偶像 卡米洛"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "camilo",
     "jp": "これもまた、私の美しい姿です。",
     "evidence": "asr-agreement",
     "families": [
@@ -1705,6 +2585,26 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "chloe",
+    "jp": "人形が動くって？なんの冗談？",
+    "evidence": "official-asr",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1040000,
+      1040001,
+      1040002
+    ],
+    "skinNames": [
+      "克洛伊",
+      "女僕 克洛伊",
+      "幸運兔子 克洛伊"
+    ],
+    "officialKey": "CharacterStoryTitle/40",
+    "clipCount": 1
+  },
+  {
+    "characterId": "chloe",
     "jp": "今回は海の近くで人形劇をやるつもりだけど、見に来る？",
     "evidence": "official-asr",
     "families": [
@@ -1717,6 +2617,22 @@ export const erSelectionTranscripts = Object.freeze([
       "海濱傀儡師 克洛伊"
     ],
     "officialKey": "Skin/OnSelectVO/1040003",
+    "clipCount": 1
+  },
+  {
+    "characterId": "chloe",
+    "jp": "いち、に、準備運動終わり！大丈夫よ、後で新しいの買ってあげるから。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1040003
+    ],
+    "skinNames": [
+      "海濱傀儡師 克洛伊"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -1762,6 +2678,70 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "bianca",
+    "jp": "わらわに拝めることを、光栄に思うがよい！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1042002
+    ],
+    "skinNames": [
+      "轉學生 比安卡"
+    ],
+    "officialKey": "Skin/OnSelectVO/1042002",
+    "clipCount": 1
+  },
+  {
+    "characterId": "bianca",
+    "jp": "お主か、わらわを永眠から目覚めさせたのは。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1042002
+    ],
+    "skinNames": [
+      "轉學生 比安卡"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "bianca",
+    "jp": "永劫の時を経て……わらわがここに降臨したのじゃ！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1042005
+    ],
+    "skinNames": [
+      "永劫亡靈 比安卡"
+    ],
+    "officialKey": "Skin/OnSelectVO/1042005",
+    "clipCount": 1
+  },
+  {
+    "characterId": "bianca",
+    "jp": "わらわの眷属になりたいのか？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1042005
+    ],
+    "skinNames": [
+      "永劫亡靈 比安卡"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "celine",
     "jp": "大体の問題は爆発で解決できる。",
     "evidence": "asr-agreement",
@@ -1788,6 +2768,33 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "celine",
+    "jp": "よいしょっと。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected",
+      "selected2"
+    ],
+    "skinCodes": [
+      1043000,
+      1043001,
+      1043002,
+      1043003,
+      1043004,
+      1043005
+    ],
+    "skinNames": [
+      "席琳",
+      "拆彈專家 席琳",
+      "萬聖南瓜 席琳",
+      "旅途 席琳",
+      "閃爆邦尼 席琳",
+      "莓果炸彈女僕 席琳"
+    ],
+    "officialKey": null,
+    "clipCount": 2
+  },
+  {
     "characterId": "echion",
     "jp": "まとめてぶっ壊してやる！早く行こうぜ。",
     "evidence": "asr-agreement",
@@ -1807,6 +2814,30 @@ export const erSelectionTranscripts = Object.freeze([
       "軍官候補生 厄喀翁",
       "黑暗街頭 厄喀翁",
       "異端審判官 厄喀翁"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "mai",
+    "jp": "本当にやりたくないんですけど…",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1045000,
+      1045001,
+      1045002,
+      1045003,
+      1045005
+    ],
+    "skinNames": [
+      "梅",
+      "轉學生 梅",
+      "軍官候補生 梅",
+      "夏日時尚 梅",
+      "甜心兔女郎 梅"
     ],
     "officialKey": null,
     "clipCount": 1
@@ -1866,6 +2897,23 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "aiden",
+    "jp": "迅雷の所以を教えてやろう。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected",
+      "selected2"
+    ],
+    "skinCodes": [
+      1046004
+    ],
+    "skinNames": [
+      "艾登（凱）"
+    ],
+    "officialKey": null,
+    "clipCount": 2
+  },
+  {
     "characterId": "laura",
     "jp": "見る目があるわね。",
     "evidence": "asr-agreement",
@@ -1903,6 +2951,22 @@ export const erSelectionTranscripts = Object.freeze([
       "統御教官 蘿拉"
     ],
     "officialKey": "Skin/OnSelectVO/1047004",
+    "clipCount": 1
+  },
+  {
+    "characterId": "laura",
+    "jp": "二日目の戦闘で重要なのはここ。では、実戦の時間よ。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1047004
+    ],
+    "skinNames": [
+      "統御教官 蘿拉"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -1967,6 +3031,22 @@ export const erSelectionTranscripts = Object.freeze([
       "像素畫家 蒂亞"
     ],
     "officialKey": "Skin/OnSelectVO/1048003",
+    "clipCount": 1
+  },
+  {
+    "characterId": "tia",
+    "jp": "今日は他の描き方で絵を描いてみるね。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1048003
+    ],
+    "skinNames": [
+      "像素畫家 蒂亞"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -2038,6 +3118,22 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "elena",
+    "jp": "指導すべき生徒が結構いますね。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1050003
+    ],
+    "skinNames": [
+      "學生會長 艾琳娜"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "priya",
     "jp": "私の心が込められた演奏を皆に聞かせたいです。",
     "evidence": "official-asr",
@@ -2059,6 +3155,28 @@ export const erSelectionTranscripts = Object.freeze([
     ],
     "officialKey": "CharacterStoryTitle/51",
     "clipCount": 3
+  },
+  {
+    "characterId": "adina",
+    "jp": "運命より大事なのは、私達の意志です。",
+    "evidence": "official-asr",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1052000,
+      1052001,
+      1052002,
+      1052003
+    ],
+    "skinNames": [
+      "艾迪娜",
+      "命運之翡 艾迪娜",
+      "永恆誓約 艾迪娜",
+      "海濱占星師 艾迪娜"
+    ],
+    "officialKey": "CharacterStoryTitle/52",
+    "clipCount": 1
   },
   {
     "characterId": "markus",
@@ -2083,11 +3201,32 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "karla",
+    "jp": "失せろ、あんたの言うことなんか聞いてる暇はないから。",
+    "evidence": "official-asr",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1054000,
+      1054001,
+      1054002
+    ],
+    "skinNames": [
+      "卡爾拉",
+      "海上救生員 卡爾拉",
+      "暗巷裡 卡爾拉"
+    ],
+    "officialKey": "CharacterStoryTitle/54",
+    "clipCount": 1
+  },
+  {
     "characterId": "estelle",
     "jp": "火災に気をつけてください。あとは私が何とかしますから。",
     "evidence": "asr-agreement",
     "families": [
-      "selected"
+      "selected",
+      "selected2"
     ],
     "skinCodes": [
       1055000,
@@ -2102,6 +3241,22 @@ export const erSelectionTranscripts = Object.freeze([
       "守護教官 艾絲黛爾"
     ],
     "officialKey": null,
+    "clipCount": 2
+  },
+  {
+    "characterId": "estelle",
+    "jp": "\"お、お主らの血の味はどんな味がするかのう\"..アハハ..",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1055003
+    ],
+    "skinNames": [
+      "比安黛爾"
+    ],
+    "officialKey": "Skin/OnSelectVO/1055003",
     "clipCount": 1
   },
   {
@@ -2144,10 +3299,44 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "martina",
+    "jp": "よし！いいもの撮れたよ！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1057000,
+      1057001
+    ],
+    "skinNames": [
+      "瑪蒂娜",
+      "探險記者 瑪蒂娜"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "martina",
     "jp": "妥協はしない。記者だからね。",
     "evidence": "asr-agreement",
     "families": [
       "selected"
+    ],
+    "skinCodes": [
+      1057002
+    ],
+    "skinNames": [
+      "20年前的瑪蒂娜"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "martina",
+    "jp": "わー、よかった！カメラが無事で！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
     ],
     "skinCodes": [
       1057002
@@ -2184,6 +3373,46 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "haze",
+    "jp": "武器ならいくらでもある。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1058000,
+      1058001,
+      1058003,
+      1058004,
+      1058005
+    ],
+    "skinNames": [
+      "海因茨",
+      "黑暗街頭 海因茨",
+      "午後咖啡 海因茨",
+      "1st Anniversary 海因茨",
+      "1st Anniversary Blanc 海因茨"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "haze",
+    "jp": "休暇の時でも、あたしはプロだから。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1058002
+    ],
+    "skinNames": [
+      "嬌陽盛夏 海因茨"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "haze",
     "jp": "久しぶりの休暇だ。存分に楽しんでおかないと。",
     "evidence": "official-asr",
     "families": [
@@ -2215,11 +3444,49 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "haze",
+    "jp": "こちら異常なし。営業開始する。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1058006
+    ],
+    "skinNames": [
+      "王牌兔女郎 海因茨"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "isaac",
     "jp": "この俺に話しかけるな。",
     "evidence": "asr-agreement",
     "families": [
       "selected"
+    ],
+    "skinCodes": [
+      1059000,
+      1059001,
+      1059002,
+      1059003
+    ],
+    "skinNames": [
+      "艾薩克",
+      "黑暗街頭 艾薩克",
+      "西部警長 艾薩克",
+      "傲慢軍團長 艾薩克"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "isaac",
+    "jp": "何でもやる時は、この手でやらねえとな。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
     ],
     "skinCodes": [
       1059000,
@@ -2259,6 +3526,28 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "tazia",
+    "jp": "完璧なものだけが美しくなれるのよ。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1060000,
+      1060001,
+      1060002,
+      1060003
+    ],
+    "skinNames": [
+      "塔齊雅",
+      "白璃幻夢 塔齊雅",
+      "甜蜜情人 塔齊雅",
+      "海洋琉光 塔齊雅"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "irem",
     "jp": "今のって、あたしのことが好きってことでしょ？",
     "evidence": "official-asr",
@@ -2278,6 +3567,24 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "irem",
+    "jp": "今度はどこに遊びに行ってみようかな。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1061000,
+      1061001
+    ],
+    "skinNames": [
+      "愛琳",
+      "冬日戲雪 愛琳"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "irem",
     "jp": "待ってたよ！一緒に金魚すくいに行こう！",
     "evidence": "official-asr",
     "families": [
@@ -2290,6 +3597,22 @@ export const erSelectionTranscripts = Object.freeze([
       "貓貓遊園會 愛琳"
     ],
     "officialKey": "Skin/OnSelectVO/1061003",
+    "clipCount": 1
+  },
+  {
+    "characterId": "irem",
+    "jp": "どこから遊びに行こうかな？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1061003
+    ],
+    "skinNames": [
+      "貓貓遊園會 愛琳"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -2312,6 +3635,28 @@ export const erSelectionTranscripts = Object.freeze([
       "射擊教官 西奧多"
     ],
     "officialKey": "CharacterStoryTitle/62",
+    "clipCount": 1
+  },
+  {
+    "characterId": "theodore",
+    "jp": "装備の手入れは終わった。行こう。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1062000,
+      1062001,
+      1062002,
+      1062003
+    ],
+    "skinNames": [
+      "西奧多",
+      "機動特遣隊 西奧多",
+      "戰鬥祭司 西奧多",
+      "射擊教官 西奧多"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -2352,6 +3697,50 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "vanya",
+    "jp": "蝶々を追いかけているの。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1064000,
+      1064001,
+      1064002,
+      1064004
+    ],
+    "skinNames": [
+      "萬尼亞",
+      "不祥之夢 萬尼亞",
+      "仲夏之夢 萬尼亞",
+      "瞌睡小鳥女僕 萬尼亞"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "vanya",
+    "jp": "道なら、ちょうちょたちが教えてくれるよ。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1064000,
+      1064001,
+      1064002,
+      1064004
+    ],
+    "skinNames": [
+      "萬尼亞",
+      "不祥之夢 萬尼亞",
+      "仲夏之夢 萬尼亞",
+      "瞌睡小鳥女僕 萬尼亞"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "vanya",
     "jp": "一緒に行きましょう、新たな世界へ。",
     "evidence": "official-asr",
     "families": [
@@ -2364,6 +3753,58 @@ export const erSelectionTranscripts = Object.freeze([
       "全息精靈 萬尼亞"
     ],
     "officialKey": "Skin/OnSelectVO/1064003",
+    "clipCount": 1
+  },
+  {
+    "characterId": "vanya",
+    "jp": "ちょうちょと一緒に夢の世界へ。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1064003
+    ],
+    "skinNames": [
+      "全息精靈 萬尼亞"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "debimarlene",
+    "jp": "覚悟しとけよ！私たちは一緒にいる時、強いから。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1065000,
+      1065001
+    ],
+    "skinNames": [
+      "黛比&瑪蓮",
+      "保鑣 黛比&瑪蓮"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "debimarlene",
+    "jp": "グズグズしてないで早く来いよ！どうやっても無駄だと思うけど。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1065000,
+      1065001
+    ],
+    "skinNames": [
+      "黛比&瑪蓮",
+      "保鑣 黛比&瑪蓮"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -2384,6 +3825,22 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "debimarlene",
+    "jp": "あっ、痛かった！ごめん、えーと、後でアイス買ってあげるから。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1065002
+    ],
+    "skinNames": [
+      "幻境雙生 黛比&瑪蓮"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "debimarlene",
     "jp": "授業終わり！一緒に遊びに行く？ \\nついでに、私も行く予定だけど。",
     "evidence": "official-asr",
     "families": [
@@ -2396,6 +3853,42 @@ export const erSelectionTranscripts = Object.freeze([
       "課餘閒時 黛比&瑪蓮"
     ],
     "officialKey": "Skin/OnSelectVO/1065003",
+    "clipCount": 1
+  },
+  {
+    "characterId": "debimarlene",
+    "jp": "起きて！授業もう終わったから。私、寝てた？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1065003
+    ],
+    "skinNames": [
+      "課餘閒時 黛比&瑪蓮"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "arda",
+    "jp": "そなたの痕跡は後世にどう評価されるか、楽しみではないか。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1066000,
+      1066001,
+      1066002
+    ],
+    "skinNames": [
+      "阿爾達",
+      "考古學家 阿爾達",
+      "幽靈獵人 阿爾達"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -2472,6 +3965,22 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "abigail",
+    "jp": "ぴょん、うさぎさん登場です。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1067002
+    ],
+    "skinNames": [
+      "冷面兔女郎 艾比蓋爾"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "abigail",
     "jp": "一緒に、夜の海を散歩しませんか？",
     "evidence": "official-asr",
     "families": [
@@ -2485,6 +3994,60 @@ export const erSelectionTranscripts = Object.freeze([
     ],
     "officialKey": "Skin/OnSelectVO/1067003",
     "clipCount": 1
+  },
+  {
+    "characterId": "abigail",
+    "jp": "次は何を割ればいいですか？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1067003
+    ],
+    "skinNames": [
+      "熱帶次元 艾比蓋爾"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "alonso",
+    "jp": "廃品回収の時間だ。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1068000,
+      1068001
+    ],
+    "skinNames": [
+      "阿隆索",
+      "紳士 阿隆索"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "alonso",
+    "jp": "よし、じゃあ作業始めるか。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1068000,
+      1068001,
+      1068002
+    ],
+    "skinNames": [
+      "阿隆索",
+      "紳士 阿隆索",
+      "地獄先鋒 阿隆索"
+    ],
+    "officialKey": null,
+    "clipCount": 2
   },
   {
     "characterId": "leni",
@@ -2504,6 +4067,22 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "leni",
+    "jp": "ジャジャーン！レニのマーチングバンド出撃！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1069001
+    ],
+    "skinNames": [
+      "軍樂隊 雷妮"
+    ],
+    "officialKey": "Skin/OnSelectVO/1069001",
+    "clipCount": 1
+  },
+  {
+    "characterId": "leni",
     "jp": "今日のご主人様は～そこのあ・な・た！",
     "evidence": "official-asr",
     "families": [
@@ -2516,6 +4095,22 @@ export const erSelectionTranscripts = Object.freeze([
       "頑皮熊熊女僕 雷妮"
     ],
     "officialKey": "Skin/OnSelectVO/1069003",
+    "clipCount": 1
+  },
+  {
+    "characterId": "leni",
+    "jp": "じゃーん！見て見て！レニの限定チェキ！かわいいでしょ！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1069003
+    ],
+    "skinNames": [
+      "頑皮熊熊女僕 雷妮"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -2535,11 +4130,121 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "tsubame",
+    "jp": "依頼したいものは何だ？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1070000,
+      1070001
+    ],
+    "skinNames": [
+      "青燕",
+      "暗香疏影 青燕"
+    ],
+    "officialKey": null,
+    "clipCount": 2
+  },
+  {
+    "characterId": "tsubame",
+    "jp": "海を渡る一羽の玄鳥のように。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1070002
+    ],
+    "skinNames": [
+      "清涼一閃 青燕"
+    ],
+    "officialKey": "Skin/OnSelectVO/1070002",
+    "clipCount": 1
+  },
+  {
+    "characterId": "tsubame",
+    "jp": "一口食べてみるか。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1070002
+    ],
+    "skinNames": [
+      "清涼一閃 青燕"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "kenneth",
+    "jp": "命令には従おう。約束さえ守ってくれれば。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1071000,
+      1071001,
+      1071002
+    ],
+    "skinNames": [
+      "肯尼思",
+      "戰鬥祭司 肯尼思",
+      "青之宿命契約 肯尼思"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "kenneth",
+    "jp": "面倒なのは全部燃やす。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1071000,
+      1071001,
+      1071002
+    ],
+    "skinNames": [
+      "肯尼思",
+      "戰鬥祭司 肯尼思",
+      "青之宿命契約 肯尼思"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "katja",
     "jp": "いいよ、合わせてあげる。",
     "evidence": "asr-agreement",
     "families": [
       "selected"
+    ],
+    "skinCodes": [
+      1072000,
+      1072001,
+      1072003
+    ],
+    "skinNames": [
+      "卡緹雅",
+      "夜鴉 卡緹雅",
+      "咖啡店工讀生 卡緹雅"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "katja",
+    "jp": "面白そうな依頼だね。引き受けるよ。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
     ],
     "skinCodes": [
       1072000,
@@ -2641,6 +4346,26 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "darko",
+    "jp": "お前のすべてを、全部俺によこすんだな。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1074000,
+      1074001,
+      1074002
+    ],
+    "skinNames": [
+      "達爾科",
+      "荷官 達爾科",
+      "海風假日 達爾科"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "lenore",
     "jp": "あなたのメロディーを、私に聞かせて。",
     "evidence": "official-asr",
@@ -2737,6 +4462,22 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "garnet",
+    "jp": "私と一緒に花火、見に行く？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1076002
+    ],
+    "skinNames": [
+      "赤之宿命契約 蓋瑞特"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "yumin",
     "jp": "風に乗って、さあ行こう。",
     "evidence": "asr-agreement",
@@ -2777,6 +4518,74 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "hisui",
+    "jp": "ヒスイ、いつでも準備OK！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1078000,
+      1078001
+    ],
+    "skinNames": [
+      "翡翠",
+      "暗巷裡 翡翠"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "hisui",
+    "jp": "バカな奴らとは、刀で語り合わねえとな。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1078000,
+      1078001
+    ],
+    "skinNames": [
+      "翡翠",
+      "暗巷裡 翡翠"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "hisui",
+    "jp": "斬り落とすべき悪は、この剣で裁く。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1078002
+    ],
+    "skinNames": [
+      "幽靈獵人 翡翠"
+    ],
+    "officialKey": "Skin/OnSelectVO/1078002",
+    "clipCount": 1
+  },
+  {
+    "characterId": "hisui",
+    "jp": "形がなくても、この剣で切れないものはない。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1078002
+    ],
+    "skinNames": [
+      "幽靈獵人 翡翠"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "justyna",
     "jp": "今こそ、ヒーローの出番！でしょ？",
     "evidence": "official-asr",
@@ -2796,6 +4605,24 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "justyna",
+    "jp": "正義のヒーロー、ユスティナ、ここに参上！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1079000,
+      1079001
+    ],
+    "skinNames": [
+      "尤斯蒂娜",
+      "風紀委員長 尤斯蒂娜"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "justyna",
     "jp": "バニーガールが、世界を救う！",
     "evidence": "official-asr",
     "families": [
@@ -2808,6 +4635,40 @@ export const erSelectionTranscripts = Object.freeze([
       "好運勇者兔女郎 尤斯蒂娜"
     ],
     "officialKey": "Skin/OnSelectVO/1079002",
+    "clipCount": 1
+  },
+  {
+    "characterId": "justyna",
+    "jp": "ジャジャーン！スーパーヒーロー登場！あなたの夢を叶えてあげる！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1079002
+    ],
+    "skinNames": [
+      "好運勇者兔女郎 尤斯蒂娜"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "istvan",
+    "jp": "その選択に相応しい結果をもたらそう。",
+    "evidence": "official-asr",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1080000,
+      1080001
+    ],
+    "skinNames": [
+      "伊舒特",
+      "執事 伊舒特"
+    ],
+    "officialKey": "CharacterStoryTitle/80",
     "clipCount": 1
   },
   {
@@ -2847,6 +4708,56 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "niah",
+    "jp": "ピロローン！ニアの体力が回復しました。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1081000,
+      1081001
+    ],
+    "skinNames": [
+      "妮婭",
+      "運動系女僕 妮婭"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "niah",
+    "jp": "全員揃った？じゃあ、出航っ！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1081002
+    ],
+    "skinNames": [
+      "妮婭（水屬性）"
+    ],
+    "officialKey": "Skin/OnSelectVO/1081002",
+    "clipCount": 1
+  },
+  {
+    "characterId": "niah",
+    "jp": "夏休みの世界へレッツゴー！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1081002
+    ],
+    "skinNames": [
+      "妮婭（水屬性）"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "xuelin",
     "jp": "この剣で、道を切り開きましょう。",
     "evidence": "official-asr",
@@ -2864,6 +4775,22 @@ export const erSelectionTranscripts = Object.freeze([
   },
   {
     "characterId": "xuelin",
+    "jp": "我が意志はこの剣にある。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1082000
+    ],
+    "skinNames": [
+      "雪琳"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "xuelin",
     "jp": "夏の海…一緒に見に行きませんか？",
     "evidence": "official-asr",
     "families": [
@@ -2876,6 +4803,22 @@ export const erSelectionTranscripts = Object.freeze([
       "碧波斬浪 雪琳"
     ],
     "officialKey": "Skin/OnSelectVO/1082002",
+    "clipCount": 1
+  },
+  {
+    "characterId": "xuelin",
+    "jp": "今のは私たちだけの秘密にしてください。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1082002
+    ],
+    "skinNames": [
+      "碧波斬浪 雪琳"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -2897,11 +4840,83 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "henry",
+    "jp": "時間は無情に過ぎていく。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1083000,
+      1083001
+    ],
+    "skinNames": [
+      "亨利",
+      "戰鬥祭司 亨利"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "blair",
+    "jp": "跡形もなく全て消してあげる。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1084000,
+      1084001
+    ],
+    "skinNames": [
+      "布萊爾",
+      "極速魅影 布萊爾"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "blair",
+    "jp": "化け物の相手は、化け物がしないとね。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1084000,
+      1084001
+    ],
+    "skinNames": [
+      "布萊爾",
+      "極速魅影 布萊爾"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "mirka",
     "jp": "お前ら、準備はいいか？よし、じゃあ行くぞ。",
     "evidence": "asr-agreement",
     "families": [
       "selected"
+    ],
+    "skinCodes": [
+      1085000,
+      1085001
+    ],
+    "skinNames": [
+      "米爾卡",
+      "狂野女僕 米爾卡"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "mirka",
+    "jp": "小さいからってなめんなよ！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
     ],
     "skinCodes": [
       1085000,
@@ -2933,6 +4948,24 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "fenrir",
+    "jp": "フェルを止めたいなら、覚悟！",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1086000,
+      1086001
+    ],
+    "skinNames": [
+      "芬里爾",
+      "暗夜猛獸 芬里爾"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "coraline",
     "jp": "白と黒、あなたはどっちなのかしら？",
     "evidence": "official-asr",
@@ -2948,6 +4981,60 @@ export const erSelectionTranscripts = Object.freeze([
       "怦然心動 卡洛琳"
     ],
     "officialKey": "CharacterStoryTitle/87",
+    "clipCount": 1
+  },
+  {
+    "characterId": "coraline",
+    "jp": "真実こそ美しさなのよ。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1087000,
+      1087001
+    ],
+    "skinNames": [
+      "卡洛琳",
+      "怦然心動 卡洛琳"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "bihyung",
+    "jp": "今、宴だと言ったよね！どこ？どこで？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected"
+    ],
+    "skinCodes": [
+      1088000,
+      1088001
+    ],
+    "skinNames": [
+      "鼻荊",
+      "青春留影 鼻荊"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
+    "characterId": "bihyung",
+    "jp": "私にシルムで勝ったら、一緒に食べてもいいよ？",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1088000,
+      1088001
+    ],
+    "skinNames": [
+      "鼻荊",
+      "青春留影 鼻荊"
+    ],
+    "officialKey": null,
     "clipCount": 1
   },
   {
@@ -2969,6 +5056,24 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "craver",
+    "jp": "余計なことすんな。全部見えてるからよ。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1089000,
+      1089001
+    ],
+    "skinNames": [
+      "克雷弗",
+      "西部狂野 克雷弗"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "lucia",
     "jp": "わたくしの旅路にご一緒してくださいますか？",
     "evidence": "official-asr",
@@ -2985,6 +5090,22 @@ export const erSelectionTranscripts = Object.freeze([
     "clipCount": 1
   },
   {
+    "characterId": "lucia",
+    "jp": "わたくし、ルチアと申しますわ。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1090000
+    ],
+    "skinNames": [
+      "露西婭"
+    ],
+    "officialKey": null,
+    "clipCount": 1
+  },
+  {
     "characterId": "seres",
     "jp": "あなたを守る剣となりましょう。",
     "evidence": "official-asr",
@@ -2998,6 +5119,22 @@ export const erSelectionTranscripts = Object.freeze([
       "塞莉絲"
     ],
     "officialKey": "CharacterStoryTitle/91",
+    "clipCount": 1
+  },
+  {
+    "characterId": "seres",
+    "jp": "間に合ったようですね。お仕えいたします。",
+    "evidence": "asr-draft",
+    "families": [
+      "selected2"
+    ],
+    "skinCodes": [
+      1091000
+    ],
+    "skinNames": [
+      "塞莉絲"
+    ],
+    "officialKey": null,
     "clipCount": 1
   }
 ]);

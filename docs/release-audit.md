@@ -553,3 +553,15 @@ T64選角追加：獨立整理雪S000、翡翠S000／S002各selected_1與selecte
 T64使用者確認追加：雪selected_1逐字稿「では僕の番ですね」與選角大類已確認，細部觸發待確認。本機選角manifest補讀音、繁中與文法，自製黒沢冴白待審試音通過既有發音核對與ffmpeg全解碼；正式聲線未改。Hisui的S000／S002音檔不同可確認版本差異，但同一目錄也有selected／selected2，不能將事件鍵差異當造型差異。原音、完整機器稿及新試音未提交／部署。
 
 T64翡翠造型已查證：固定版本CharacterSkin明確1078000 Hisui index0→Hisui/S000，1078001 Street Fiend Hisui→共用Hisui/S000，1078002 Ghost Hunter Hisui index2→Hisui/S002。本機完整音檔鍵一致；日／繁中Skin/Name與官方3158／造型介紹頁核對幽靈獵人名稱。Japanese Skin/OnSelectVO/1078002原文「斬り落とすべき悪は、この剣で裁く。」已與S002 selected_1機器音讀對應，據來源修正先前ASR砂漠；S000逐字稿仍待核對，細部選角UI觸發未實測。來源及限制已記既有試作文件，原音與完整資料仍僅.cache，未提交部署。
+
+## 2026-10-12 T65 永恆輪迴選角語音 316 檔收錄
+
+- **使用者決定（2026-10-12 晚）**：316 檔選角原音全部收錄；放棄逐句人耳確認，完成後直接部署。因此每句標證據等級，教材「台詞查證來源」依等級自動產生說明，只有 user 等級經人耳確認。
+- **收錄結果**：316 段全部有處置，待定 0。261 段有台詞、55 段只有笑聲／喘氣／吆喝（記為非語詞，不寫成台詞）。去重後 246 句角色選擇台詞，91 位角色皆有：55 句 Skin/OnSelectVO 官方文字＋191 句逐字稿句。逐字稿句證據：official-asr 37（固定版本 CharacterStoryTitle 等文字，kotoba-whisper 判讀相似度 ≥0.9 或同音異寫）、asr-agreement 55（kotoba-whisper v2.0 與 Whisper small 字面一致）、asr-draft 98（兩模型不一致，依日文語意整理；只修正有把握的同音誤判，例如正規の発明か→世紀の発明家、人雷のゆえん→迅雷の所以、剣族→眷属、以上なし→異常なし）、user 1（では僕の番ですね）。asr-draft 與 asr-agreement 可能與原音有出入，畫面已註明。
+- **資料流**：`scripts/er-selection-clips.json`（只有文字：角色、造型、官方候選、兩模型草稿）→ `scripts/er-selection-decisions.mjs`（每段字面與證據）→ `scripts/build-er-selection-transcripts.mjs` → `curriculum/er-selection-transcripts.mjs`（含每角色收錄數）。原音、ASR 模型與本機確認頁只在被 Git 忽略的 `.cache/`，未上傳。kotoba-whisper v2.0 為一次性免費下載、CPU 本機推論，零月費。
+- **音檔**：本機 VOICEVOX 0.25.2 產製 240 個選角 MP3（51 個官方句＋189 個逐字稿句，一句兩角色共用），全檔 ffmpeg 解碼通過、metadata 只有 encoder。玹雨、雪共 5 句使用 Nemo 男声2，本機引擎沒有此聲線，維持文字版（可直接看逐字稿，不播放原音）。
+- **讀音閘門與覆寫**：16 句引擎誤讀（何だ→なにだ、金→きん、お主→おあるじ、一狩り→いちかり、暇→いとま、玄鳥→げんちょう等）加 `audio-prosody.mjs` 覆寫；玄鳥依兩模型判讀改讀つばめ。助詞發音欄（を→お、へ→え）已修正。
+- **修正的工具缺陷**：本機官方引擎的 `audio_query` 不解析 `is_kana`，把重音記號當文字分析並插入停頓，覆寫音檔每拍約 0.5 秒（一般 0.17 秒）。`scripts/synthesize.mjs` 改由 `/accent_phrases?is_kana=true` 建立句節、另一次查詢只取全域參數；16 檔重產後每拍 0.13～0.23 秒，與一般句一致。單元測試同步更新。既有其他覆寫音檔未重產。
+- **驗證**：`npm run check` 253 tests／typecheck／lint 全過；`VITE_BASE_PATH=/nihongo-lab/ npm run build` 通過（242 precache entries，既有 500KB chunk 提示仍在）。375×667 瀏覽器實測：遊戲首頁收錄數、艾比蓋爾／比安卡選角句播放與顯示逐字稿、雪的文字版直接顯示、解說讀音標記、無橫向溢位、無執行錯誤。新增 127 筆讀音標記（含因新句子帶進日文漢字集而重新列出的既有中文字串）。
+- **效能**：主程式 `index-*.js` 1,140,774 bytes（gzip 329,536），precache 16.85 MB；選角 MP3 共 13 MB／372 檔（永恆輪迴資料夾），不預先快取，播放或手動下載才載入。正式站載入時間另於部署後量測。
+- **限制**：逐字稿多數未經人耳確認；selected2 的非語詞判定也是機器加人工判讀。黛比&瑪蓮的雙人台詞未分配語者。多數角色沿用既有 VOICEVOX 選角（黒沢冴白），屬教學朗讀，不模仿原配音。點選／鎖定等細部觸發時機未實測。

@@ -21,7 +21,10 @@ import { allAudioPaths } from '../lib/offline.mjs';
 import { getVoice } from '../curriculum/voices.mjs';
 import { rubyParts, plainText } from '../lib/furigana.mjs';
 import { erSelectionInventory } from '../curriculum/er-selection-catalog-data.mjs';
-import { erSelectionTranscripts } from '../curriculum/er-selection-transcripts.mjs';
+import {
+  erSelectionTotals,
+  erSelectionTranscripts,
+} from '../curriculum/er-selection-transcripts.mjs';
 
 const lines = gameCharacterStudy.flatMap((g) =>
   g.characters.flatMap((c) => c.lines),
@@ -33,7 +36,8 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
     gameCharacterStudy.map((g) => g.id),
     ['er', 'genshin'],
   );
-  assert.equal(lines.length, 243);
+  // 188 項既有教材 + 55 句官方選角句 + 191 句選角逐字稿。
+  assert.equal(lines.length, 434);
   assert.equal(new Set(lines.map((l) => l.id)).size, lines.length);
   assert.equal(new Set(lines.map(gameRecordId)).size, lines.length);
   for (const game of gameCharacterStudy)
@@ -93,6 +97,13 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
     112,
   );
   assert.equal(gameListeningDone(selectionLines, emptyProgress()), 0);
+  // 316 段選角原音全部有處置：有字面或標為非語詞，沒有待定。
+  assert.deepEqual(erSelectionTotals, {
+    clips: 316,
+    withText: 261,
+    nonverbal: 55,
+    pending: 0,
+  });
   assert.equal(lines.filter((l) => l.category === '編隊加入').length, 5);
 });
 
