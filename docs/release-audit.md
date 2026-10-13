@@ -714,5 +714,14 @@ T79已部署：功能commit `597a04a`、PR [#73](https://github.com/frobel0520/n
 
 - 茜特菈莉、克洛琳德、柯萊各收錄一個編隊加入／元素技能／元素爆發短句，共9句；逐句核對固定版 `49a6544a6c6ae36089cb42fa591fc46f01de8bcf` 日文語音表及voicelineId/title/voicefile。原神36位107句、88位待教材，全遊戲353句。
 - 讀音、繁中、解說與大意題齊備；新增9個VOICEVOX MP3全檔解碼、可聞訊號及僅encoder metadata驗證通過，共208,908 bytes，所有發音通過VOICEVOX發音閘門。
-- typecheck、43測試檔／258 tests、lint及正式base path build通過。375×667 Chromium實測9句播放、答題後揭示原文／假名、情境切換及角色音檔下載後離線重播，無水平溢位或頁面錯誤。PR check與正式站部署待完成。
-- 隱私掃描208個追蹤文字檔及正式建置產物，無新增發現；唯一既有項為package-lock公開套件上游資訊，沒有設定可檢查的私人關鍵字規則。部署後的正式站位元組比對與Actions結果待補記。
+- typecheck、43測試檔／258 tests、lint及正式base path build通過。375×667 Chromium實測9句播放、答題後揭示原文／假名、情境切換及角色音檔下載後離線重播，無水平溢位或頁面錯誤。
+- 隱私掃描208個UTF-8追蹤文字／建置檔案，沒有新增發現；唯一既有項為package-lock的公開套件上游資訊，未設定私人關鍵字規則。9個新增MP3只有encoder metadata。
+
+T80已部署：功能commit `204eb52`、PR [#74](https://github.com/frobel0520/nihongo-lab/pull/74)，[GitHub Actions 38399175111](https://github.com/frobel0520/nihongo-lab/actions/runs/38399175111)的check／deploy均Success。正式站 `index-DH6JpZ25.js`（1,258,934 bytes）及9個MP3（208,908 bytes）與合併版逐位元組匹配；HTTPS保留TLS驗證。原神36位107句、88位待教材。
+
+## 2026-10-13 T81 原神自動接續批次
+
+- 賽諾、迪希雅、多莉各收錄一個編隊加入／元素技能／元素爆發短句，共9句VOICEVOX；原神39位116句、85位待教材，全遊戲362句。逐句核對固定版 `49a6544a6c6ae36089cb42fa591fc46f01de8bcf` 日文語音表與voicelineId/title/voicefile。多莉「一儲け」確認讀作「ひともうけ」、「見せ所」確認讀作「みせどころ」；加入8筆解說讀音標記與兩筆AquesTalk重音覆寫。塔利雅雖有日文語音來源，固定表的actionLines為空，仍列待收錄。
+- 9個MP3全檔解碼且有可聞訊號，只含encoder metadata，共189,900 bytes；全部讀音閘門通過。typecheck、43測試檔／258 tests、lint及正式base path build通過。375×667 Chromium逐句實測9句播放、答題後揭示原文／假名、情境切換、角色音檔下載與離線重播，無橫向溢位或pageerror。
+- 隱私掃描208個UTF-8追蹤文字／建置檔案，新增內容無個人或公司資訊。唯一既有掃描項為package-lock中已核實的公開套件上游資訊；本環境未設定私人關鍵字規則。privacy-guard pre-commit與Git公開身分檢查已通過；commit-msg與pre-push hook會在提交／推送時執行。
+- PR check、正式站部署與逐位元組核對待完成。

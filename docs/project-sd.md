@@ -301,3 +301,7 @@ game-character-study.mjs新增9個LineSpec，quote-sources保留語音識別與�
 ## T80 原神角色與來源
 
 茜特菈莉sayo、克洛琳德saehaku、柯萊hau；固定版來源各取一個編隊加入／元素技能／元素爆發短句，保留voicelineId／sourceTitle／voicefile，新增9個LineSpec與大意選項、10筆解說及來源讀音標記。聲音為VOICEVOX自製朗讀，原配音和來源JSON不公開；教材仍由lessons.mjs匯出。
+
+## T81 原神角色與來源
+
+賽諾ryusei、迪希雅sayo、多莉hau；固定版來源各取一個編隊加入／元素技能／元素爆發短句，保留voicelineId／sourceTitle／voicefile，新增9個LineSpec與大意選項、8筆解說讀音標記。多莉的「一儲け」「見せ所」以核對讀音及VOICEVOX重音覆寫避免錯讀；遊戲原配音和來源JSON不公開，教材仍由lessons.mjs匯出。

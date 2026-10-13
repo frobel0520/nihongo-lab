@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:cyno:join": [
+  "我會放棄努力。",
+  "先等別人幫我。"
+],
+"genshin:cyno:skill": [
+  "現在就能逃走。",
+  "我會讓你離開。"
+],
+"genshin:cyno:burst": [
+  "你可以避開判決。",
+  "判決已經不存在了。"
+],
+"genshin:dehya:join": [
+  "任務已經結束了嗎？",
+  "你要委託我製作服裝嗎？"
+],
+"genshin:dehya:skill": [
+  "我會放輕力道。",
+  "請你對我手下留情。"
+],
+"genshin:dehya:burst": [
+  "你一定受不了吧？",
+  "我已經承受不住了。"
+],
+"genshin:dori:join": [
+  "我打算停止營業。",
+  "我打算花掉所有摩拉。"
+],
+"genshin:dori:skill": [
+  "我會把摩拉送給你。",
+  "我不需要摩拉。"
+],
+"genshin:dori:burst": [
+  "我沒有什麼本領。",
+  "現在不是表現的時候。"
+],
+
 "genshin:citlali:join": [
   "我不會幫忙。",
   "我打算自己離開。"
