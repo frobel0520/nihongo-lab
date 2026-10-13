@@ -8,6 +8,14 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+  'audio/games/genshin/gram-b1d35981a8.mp3': {
+    text: '天道、ここにあり。',
+    reading: 'てんどう、ここに あり。',
+    kana: "テ'ンドオ、ココニ'/ア'リ",
+    reason:
+      'T72：天之道取てんどう，Kanjium記載0／1型；選1型保留原查詢首片語的下降位置，修正引擎讀成てんとう。ここに／あり的句界、停頓與重音保持原查詢，不推定原配音演技。',
+    reference: 'kanjium',
+  },
   'audio/games/er/gram-8ee8cd59be.mp3': {
     text: '彷徨う魂に救済を。',
     reading: 'さまよう たましいに きゅうさいを。',
@@ -704,7 +712,8 @@ export const AUDIO_PROSODY = {
   },
   'audio/games/er/gram-9a26a92e3f-fankit-v1.mp3': {
     text: '火災に気をつけてください。あとは私が何とかしますから。',
-    reading: 'かさいに きを つけてください。あとは わたしが なんとか しますから。',
+    reading:
+      'かさいに きを つけてください。あとは わたしが なんとか しますから。',
     kana: "カ'/サ'イニ/キ'オ/_ツケ'テ/クダサ'イ、ア'トワ/ワタシガ'/ナ'ントカ/シマ'_スカラ",
     reason:
       'T65：引擎把何とか誤讀為なにとか；應讀なんとか。改用讀音文字的引擎查詢（含其句界與重音）。屬教學朗讀，未模仿原配音。',
