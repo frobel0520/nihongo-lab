@@ -313,3 +313,7 @@ game-character-study.mjs新增9個LineSpec，quote-sources保留語音識別與�
 9個VOICEVOX音檔通過讀音閘門及全檔解碼，僅含encoder metadata。助詞「は／を」的實際發音用「わ／お」核對；「氷浪」教材讀作「ひょうろう」，使用校正後的VOICEVOX重音與句界。未逐句人耳驗收或比對遊戲原配音。新增「唸」使中文解說被列入日文候選檢查，三筆中文原字串已審閱，未替中文標假名。
 
 完整typecheck、43測試檔、lint、正式base path build通過；375×667手機尺寸實測9句播放、正確作答、原文／假名揭示，角色音檔下載後斷網重載及9句播放通過；無水平溢位或pageerror。變更文字／正式建置產物隱私格式掃描無發現，公開Git暱稱及指定noreply身分確認。PR與部署待完成，之後依最新main接續下一批。
+
+## T83 配音配置資料
+
+voices.mjs新增教材聲線分類gender；er-voice-casting.mjs保存91位角色gender、voice、direction與角色性別參考連結，getErCasting缺資料即停止，取消saehaku預設。game-character-study.mjs統一讀取角色配置，文字／聲線雜湊產生新MP3網址；13個既有重音覆寫移到對應新網址。原神千織、克洛琳德改用sayo，雷澤改用nemo2；學習與聽力record id不依voice／audio，保留原進度。僅移除本次取代且無引用的舊MP3。[角色配置表](game-voice-plan.md)。

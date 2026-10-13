@@ -44,6 +44,7 @@ npm run coverage
 - [系統分析](docs/project-sa.md)
 - [系統設計](docs/project-sd.md)
 - [任務拆解](docs/task-breakdown.md)
+- [遊戲教材配音與角色配置](docs/game-voice-plan.md)
 - [驗收紀錄](docs/release-audit.md)
 - [專案進度](progress.md)
 
