@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:citlali:join": [
+  "我不會幫忙。",
+  "我打算自己離開。"
+],
+"genshin:citlali:skill": [
+  "來休息一下！",
+  "請不要工作。"
+],
+"genshin:citlali:burst": [
+  "請把事情公開說明。",
+  "我會自己處理，不需要幫忙。"
+],
+"genshin:clorinde:join": [
+  "是要我退出決鬥嗎？",
+  "我會替你製作服裝。"
+],
+"genshin:clorinde:skill": [
+  "我會躲在影子後面。",
+  "請守護影子。"
+],
+"genshin:clorinde:burst": [
+  "可以休息一下了。",
+  "清白已經無法挽回。"
+],
+"genshin:collei:join": [
+  "還沒準備好，先別出發。",
+  "任務已經結束了。"
+],
+"genshin:collei:skill": [
+  "停下來。",
+  "留在這裡。"
+],
+"genshin:collei:burst": [
+  "請把柯里安柏帶走。",
+  "這不是柯里安柏。"
+],
+
 "genshin:chevreuse:join": [
   "任務已經結束了。",
   "我現在要休息。"
