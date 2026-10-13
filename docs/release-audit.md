@@ -606,3 +606,14 @@ T67 已部署：功能commit `51b4d58`，[GitHub Actions 38335037423](https://gi
 T68角色區清理已部署：功能commit `8fb5e51`，[GitHub Actions 38337245773](https://github.com/frobel0520/nihongo-lab/actions/runs/38337245773) Success。正式站 `index-CFicOKhF.js` 與本次production build逐位元組一致，HTTPS保留TLS驗證；253 tests、91頁手機尺寸驗證、公開Git身分、變更／建置產物隱私格式檢查及三個privacy-guard hook通過。官方selected原音取得仍未完成，現有音檔仍是VOICEVOX，不能當成已下載官方語音包。
 
 官方來源補查：開發商 https://nimbleneuron.com/ 轉至官方main頁；robots.txt未提供sitemap連結，sitemap.xml轉至活動HTML而非XML索引，未取得可用語音包索引。沒有把活動頁200回應當成已找到資產清單。
+
+## 2026-10-13 T69 原神全角色三類來源盤點（教材擴充未完成）
+
+- 使用者希望所有角色加入編隊加入、技能及爆發。已核對固定名冊124筆與109份日文語音表；沒有大量重製未提供的整套遊戲台詞，沒有加入新台詞／音檔，也沒有用原創句替代。完整教材翻譯及合成仍需要使用者提供台詞資料；本次僅完成來源對照與收錄狀態，不當作課程擴充完成。
+- 來源為 [genshin-db固定版本日文語音目錄](https://github.com/theBowja/genshin-db/tree/49a6544a6c6ae36089cb42fa591fc46f01de8bcf/src/data/Japanese/voiceovers)。109份逐檔讀取成功，無失敗；角色資料／原文只在repo以外的暫存中核對，公開模組只保存可用狀態、SHA-256及筆數，不複製逐字稿、配音者真人資訊或完整語音庫。最新main的同目錄仍109份，15筆缺表者未發現新檔案，未推定其尚未出現在遊戲。
+- 初次分類只認·，發現新角色來源使用・，修正為兩種中點及NFKC正規化。96筆三類皆有：編隊加入288、元素技能403、元素爆發333，共1024筆；包含不同元素／造型／語音版本，不能當成1024句已完成教材或1024個音檔。13筆有語音表但actionLines為空，15筆沒有語音表；沒有為缺資料者自行補句。既有六位12句與其聲線、音檔、讀音及進度保持。
+- lib/genshin-coverage.mjs分類元資料；scripts/build-genshin-coverage.mjs讀本機已提供來源表生成genshin-action-coverage.mjs。必須讀齊所有已知語音表才輸出，來源格式／讀取錯誤停止並回報泛化訊息，不列本機敏感路徑。metadata只由lessons.mjs公開。角色頁三列表格區分來源筆數、教材句數與待補狀態；不自動產生播放或進度，不把來源數當學習完成數。
+- npm run check：255 tests、typecheck、lint通過，零失敗／略過；正式base pathproduction build通過，242 precache entries，既有chunk大小提示保持。新增測試涵蓋兩種中點／半形中點、拒絕相似前綴及其他情境、來源條目與去重voicefile數分開、全部124筆來源狀態與統計；未放寬既有教材完整性測試。
+- 375×667 Chromium正式建置全部124角色頁：每頁三類來源數符合資料、無教材角色無播放器、語音表連結只在來源存在時顯示、既有班尼特音檔實際播放、ER頁沒有混入原神狀態表、零橫向溢位／pageerror通過。未重新合成音檔或聲稱逐句人耳驗收，本次未測新音檔離線下載（沒有新增音檔）。
+
+T69來源狀態頁部署待確認；所有角色的三類教材仍未完成，待使用者提供台詞資料。

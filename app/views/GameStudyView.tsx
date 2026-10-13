@@ -1,5 +1,9 @@
 import { useRef, useState } from 'react';
-import { gameCharacterStudy } from '../../curriculum/lessons.mjs';
+import {
+  gameCharacterStudy,
+  genshinActionCoverage,
+} from '../../curriculum/lessons.mjs';
+import { genshinActionCategories } from '../../lib/genshin-coverage.mjs';
 import {
   erSelectionCoverage,
   erSelectionTotals,
@@ -40,6 +44,47 @@ const ALL_AUDIO = [
     ),
   ),
 ];
+
+function GenshinCoverage({ character }: { character: GameCharacter }) {
+  const coverage = genshinActionCoverage[character.id];
+  if (!coverage) return null;
+  return (
+    <section className="genshin-coverage" aria-label="三類語音收錄狀態">
+      <h3>三類語音收錄狀態</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>情境</th>
+            <th>來源</th>
+            <th>教材</th>
+          </tr>
+        </thead>
+        <tbody>
+          {genshinActionCategories.map(({ key, label }) => {
+            const count = coverage.categories[key].entries;
+            const ready = character.lines.filter(
+              (l) => l.category === label,
+            ).length;
+            return (
+              <tr key={key}>
+                <th>{label}</th>
+                <td>{count ? `${count} 筆` : '待補來源'}</td>
+                <td>{ready ? `${ready} 句` : '待收錄'}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <p className="muted">
+        來源筆數包含不同語音、造型或元素版本，與已完成教材分開計算。
+        {!coverage.sourceAvailable && '固定資料尚無此角色的語音表。'}
+        {coverage.sourceAvailable &&
+          Object.values(coverage.categories).every((c) => c.entries === 0) &&
+          '現有語音表尚缺這三類內容。'}
+      </p>
+    </section>
+  );
+}
 
 function StudyLine({
   line,
@@ -370,6 +415,7 @@ export function GameStudyView({
             <RubyText text={character.nameJa} />
           </small>
         </h2>
+        {game.id === 'genshin' && <GenshinCoverage character={character} />}
         <p>此角色語音尚未收錄。</p>
         {character.voiceReferenceUrl && (
           <p>
@@ -416,6 +462,7 @@ export function GameStudyView({
             <RubyText text={character.nameJa} />
           </small>
         </h2>
+        {game.id === 'genshin' && <GenshinCoverage character={character} />}
         <p className="muted">
           已學 {gameDone(lines, progress)}/{lines.length}
           {listeningLines.length > 0 && (

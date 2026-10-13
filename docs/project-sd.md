@@ -258,3 +258,7 @@ GameStudyView依gameId初始化category，er為角色選擇，其餘空分類。
 ## T68 selected來源範圍（2026-10-13）
 
 ER由91位名冊及既有選角聲線直接建立空lines，再載入官方文字與selected逐字稿。刪除reference資料／生成器／武器對照與專用132音檔、僅限已無引用音檔的重音覆寫、11筆舊教材讀音審閱註記。移除舊ER大意題干擾選項；原神題目保留。246句的文字、聲線、音檔URL及進度id保持；移除的舊進度不主動刪除，FSRS格式保持。
+
+## T69 原神三類來源狀態（2026-10-13）
+
+genshin-action-coverage.mjs只保存124筆來源可用狀態、來源檔SHA-256與三類條目／不同voicefile數，不含台詞。build-genshin-coverage.mjs讀本機來源表生成盤點；lib/genshin-coverage.mjs接受·與・及半形中點，拒絕相似前綴。公開入口仍為lessons.mjs；角色頁GenshinCoverage只作狀態呈現，不改課程／FSRS／音檔id。

@@ -985,3 +985,5 @@ export const stages = [
 export { gameCharacterStudy } from "./game-character-study.mjs";
 
 export { gameMeaningDistractors } from './game-character-questions.mjs';
+
+export { genshinActionCoverage } from './genshin-action-coverage.mjs';
