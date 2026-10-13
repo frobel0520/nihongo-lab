@@ -5,6 +5,11 @@ import {
 } from '../../curriculum/lessons.mjs';
 import { genshinActionCategories } from '../../lib/genshin-coverage.mjs';
 import {
+  erFankitSources,
+  erFankitTotals,
+  erFankitUrl,
+} from '../../curriculum/er-fankit-selection.mjs';
+import {
   erSelectionCoverage,
   erSelectionTotals,
 } from '../../curriculum/er-selection-transcripts.mjs';
@@ -253,6 +258,24 @@ function StudyLine({
         自製語音：{getVoice(line.voice).credit ?? 'VOICEVOX'}{' '}
         {getVoice(line.voice).name} · 非遊戲原配音
       </p>
+      {line.officialSources && (
+        <details>
+          <summary>官方音檔對照（{line.officialSources.length} 段）</summary>
+          <p>
+            本次官方日文
+            selected／selected2，以語音辨識對照既有教材，尚未逐句人耳驗收；朗讀略去起頭笑聲與出力聲。
+          </p>
+          <ul>
+            {line.officialSources.map((source) => (
+              <li key={source.filename}>
+                <a href={source.sourceUrl} target="_blank" rel="noreferrer">
+                  {source.filename}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
     </section>
   );
 }
@@ -311,13 +334,23 @@ export function GameStudyView({
               <h2>{g.title}</h2>
               <p>{g.scope}</p>
               {g.id === 'er' && (
-                <p className="muted">
-                  selected／selected2 來源索引 {erSelectionTotals.clips}{' '}
-                  段：有台詞 {erSelectionTotals.withText} 段、笑聲／喘氣{' '}
-                  {erSelectionTotals.nonverbal} 段。非語詞僅列索引，播放器使用
-                  VOICEVOX
-                  重製台詞，沒有遊戲原配音。多數字面由語音辨識取得，未經人耳確認。
-                </p>
+                <>
+                  <p className="muted">
+                    <a href={erFankitUrl} target="_blank" rel="noreferrer">
+                      官方素材庫
+                    </a>
+                    ：{erFankitTotals.characters} 位角色、{erFankitTotals.clips}{' '}
+                    段日文選角來源已整理，{erFankitTotals.lessons} 句可跟讀。
+                  </p>
+                  <p className="muted">
+                    既有遊戲版本的 selected／selected2 來源索引{' '}
+                    {erSelectionTotals.clips} 段：有台詞{' '}
+                    {erSelectionTotals.withText} 段、笑聲／喘氣{' '}
+                    {erSelectionTotals.nonverbal} 段。非語詞僅列索引，播放器使用
+                    VOICEVOX
+                    重製台詞，沒有遊戲原配音。多數字面由語音辨識取得，未經人耳確認。
+                  </p>
+                </>
               )}
               <p className="muted">
                 {g.characters.length} 筆角色名冊 ·{' '}
@@ -474,11 +507,38 @@ export function GameStudyView({
           )}{' '}
           · {at + 1}/{items.length} 句
         </p>
+        {game.id === 'er' && (
+          <details>
+            <summary>
+              本次官方素材庫：
+              {
+                erFankitSources.filter(
+                  (source) => source.characterId === character.id,
+                ).length
+              }{' '}
+              段
+            </summary>
+            <ul>
+              {erFankitSources
+                .filter((source) => source.characterId === character.id)
+                .map((source) => (
+                  <li key={source.filename}>
+                    <a href={source.sourceUrl} target="_blank" rel="noreferrer">
+                      {source.filename}
+                    </a>
+                    {source.status === 'nonverbal'
+                      ? ' · 非語詞或無聲，無台詞教材'
+                      : ' · 已整理台詞教材'}
+                  </li>
+                ))}
+            </ul>
+          </details>
+        )}
         {game.id === 'er' && erSelectionCoverage[character.id] && (
           <p className="muted">
-            選角原音 {erSelectionCoverage[character.id].clips} 段：有台詞{' '}
-            {erSelectionCoverage[character.id].withText} 段、笑聲／喘氣{' '}
-            {erSelectionCoverage[character.id].nonverbal} 段
+            既有遊戲版本選角來源 {erSelectionCoverage[character.id].clips}{' '}
+            段：有台詞 {erSelectionCoverage[character.id].withText}{' '}
+            段、笑聲／喘氣 {erSelectionCoverage[character.id].nonverbal} 段
           </p>
         )}
         <div className="row" data-no-swipe>

@@ -266,3 +266,7 @@ genshin-action-coverage.mjs只保存124筆來源可用狀態、來源檔SHA-256�
 ## T70 原神少量三類短句（2026-10-13）
 
 game-character-study.mjs增加三角色的9段短句；genshin-quote-sources.mjs記錄固定語音id／標題／voicefile，game-character-questions.mjs提供大意題選項，ruby-notes.mjs補解說與來源標題讀音。使用既有hau／tsumugi／nemo2合成9個MP3；保留原有258句全部欄位與音檔URL，既有進度及FSRS不變。
+
+## T71 官方來源對照與朗讀（2026-10-13）
+
+`curriculum/er-fankit-selection.mjs`為108筆來源索引，記錄角色id、原檔名、selected家族、speech／nonverbal、lessonId、官方下載來源與雜湊。`game-character-study.mjs`將來源掛到既有GameLine.officialSources，保留文字與學習id；有來源的句子排前並指向-fankit-v1.mp3，避免舊離線音檔混用。七筆既有重音覆寫只移動路徑鍵，內容保持。角色頁與句子均可展開官方檔名對照；非語詞只有索引。教材入口仍由lessons.mjs匯出，原始WAV不進public或Git。獨立HTML內嵌91個MP3，閱讀／盲聽、角色篩選、讀音與解說均不依賴外部網路。
