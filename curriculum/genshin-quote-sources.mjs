@@ -1,6 +1,91 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+  'genshin:amber:burst': {
+    voicelineId: 10148,
+    sourceTitle: '元素爆発·1',
+    voicefile: 'VO_gameplay/VO_ambor/vo_ambor_battle_skill3_01',
+    variant: '預設造型',
+  },
+  'genshin:bennett:burst': {
+    voicelineId: 20057,
+    sourceTitle: '元素爆発·1',
+    voicefile: 'VO_gameplay/VO_bennett/vo_bennett_battle_skill3_01',
+    variant: '預設造型',
+  },
+  'genshin:kaeya:join': {
+    voicelineId: 7167,
+    sourceTitle: 'チーム加入·1',
+    voicefile: 'VO_teamJoin/vo_kaeya_teamJoin_01',
+    variant: '預設造型',
+  },
+  'genshin:keqing:burst': {
+    voicelineId: 32069,
+    sourceTitle: '元素爆発·1',
+    voicefile: 'VO_gameplay/VO_keqing/vo_keqing_battle_skill3_01',
+    variant: '預設造型',
+  },
+  'genshin:raiden:skill': {
+    voicelineId: 52056,
+    sourceTitle: '元素スキル·2',
+    voicefile: 'VO_gameplay/VO_raidenShogun/vo_raidenShogun_battle_skill1_02',
+    variant: '預設造型',
+  },
+  'genshin:zhongli:join': {
+    voicelineId: 17167,
+    sourceTitle: 'チーム加入·3',
+    voicefile: 'VO_teamJoin/vo_zhongli_teamJoin_03',
+    variant: '預設造型',
+  },
+  'genshin:zhongli:skill': {
+    voicelineId: 17145,
+    sourceTitle: '元素スキル·3',
+    voicefile: 'VO_gameplay/VO_zhongli/vo_zhongli_battle_skill1_03',
+    variant: '預設造型',
+  },
+  'genshin:zhongli:burst': {
+    voicelineId: 17150,
+    sourceTitle: '元素爆発·2',
+    voicefile: 'VO_gameplay/VO_zhongli/vo_zhongli_battle_skill3_02',
+    variant: '預設造型',
+  },
+  'genshin:nahida:join': {
+    voicelineId: 73071,
+    sourceTitle: 'チーム加入·1',
+    voicefile: 'VO_teamJoin/vo_nahida_teamJoin_01',
+    variant: '預設造型',
+  },
+  'genshin:nahida:skill': {
+    voicelineId: 73053,
+    sourceTitle: '元素スキル·5',
+    voicefile: 'VO_gameplay/VO_nahida/vo_nahida_battle_skill1_05',
+    variant: '預設造型',
+  },
+  'genshin:nahida:burst': {
+    voicelineId: 73056,
+    sourceTitle: '元素爆発·2',
+    voicefile: 'VO_gameplay/VO_nahida/vo_nahida_battle_skill3_02',
+    variant: '預設造型',
+  },
+  'genshin:sucrose:join': {
+    voicelineId: 31073,
+    sourceTitle: 'チーム加入·1',
+    voicefile: 'VO_teamJoin/vo_sucrose_teamJoin_01',
+    variant: '預設造型',
+  },
+  'genshin:sucrose:skill': {
+    voicelineId: 31054,
+    sourceTitle: '元素スキル·1',
+    voicefile: 'VO_gameplay/VO_sucrose/vo_sucrose_battle_skill1_01',
+    variant: '預設造型',
+  },
+  'genshin:sucrose:burst': {
+    voicelineId: 31057,
+    sourceTitle: '元素爆発·1',
+    voicefile: 'VO_gameplay/VO_sucrose/vo_sucrose_battle_skill3_01',
+    variant: '預設造型',
+  },
+
   'genshin:noelle:join': {
     voicelineId: 21072,
     sourceTitle: 'チーム加入·1',

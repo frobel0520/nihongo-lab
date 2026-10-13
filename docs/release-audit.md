@@ -641,3 +641,11 @@ T70已部署：功能commit `11d7823`，[GitHub Actions 38348793273](https://git
 
 
 T71已部署：功能commit `20c5a11`，PR [#62](https://github.com/frobel0520/nihongo-lab/pull/62)，[GitHub Actions 38356514122](https://github.com/frobel0520/nihongo-lab/actions/runs/38356514122)的check／deploy均Success。部署前整合T69／T70的原神更新，原神21句及來源狀態保持；整合後typecheck、全部43個測試檔、lint與正式base path build通過，手機尺寸的來源說明、使用者確認證據及無聲索引再驗證通過。正式站 `index-BxOb4qXM.js` 與整合後本機build逐位元組一致，全部91個新MP3亦逐位元組一致，HTTPS核對保留TLS驗證。提交、commit-msg、pre-push三個privacy-guard hook通過，原音未上傳。雲端Chromium直接開正式站受環境CA信任限制，沒有關閉TLS；畫面驗證採與正式站一致的本機正式建置，Android真機及逐句人耳驗收仍未執行。
+## 2026-10-13 T72 原神14句擴充與隱私複查
+
+- 新增鍾離／納西妲／砂糖各編隊加入、技能、爆發三句，以及安柏／班尼特的爆發、凱亞編隊、刻晴爆發、雷電將軍技能，共14句。原神12位35句、112筆待教材；全遊戲281句。既有21句逐欄比對保持，永恆輪迴教材未修改。迪盧克預設與造型技能來源僅有喊聲，沒有編造有意義的台詞補位。
+- 來源沿用[genshin-db固定版本日文語音表](https://github.com/theBowja/genshin-db/tree/49a6544a6c6ae36089cb42fa591fc46f01de8bcf/src/data/Japanese/voiceovers)。14個短句及voicelineId、title、voicefile逐筆核對；來源表的text與description兩種欄位依原資料讀取。只收本次短句，完整語音表與原音不加入Git或public。解說與大意干擾項自行編寫，新增17筆日文讀音註記。
+- 14個新MP3合計253,192 bytes；沿用角色聲線，新角色鍾離ryusei、納西妲hau、砂糖sayo。天道取てんどう，Kanjium允許0／1型；採1型保留原查詢首片語的下降位置，其他片語／停頓／句界保持。所有檔案通過合成讀音閘門、全檔解碼、可聽訊號及encoder-only metadata；不當成人耳語氣／重音驗收。
+- typecheck、全部測試、lint與正式base path build通過；215張既有頭像與進度id保持。375×667正式建置，全部14句按三類篩選、播放前不能作答、實際播放後正答及逐字稿／讀音揭示通過；八位相關角色明確下載音檔後斷網重載，14句仍可播放與作答，無溢位／pageerror。非Android真機驗收。
+- 隱私複查208個追蹤文字檔及建置文字資源、已部署commit身分，以及1,921個既有MP3與226個PNG。未發現使用者私人Email、公司內部資訊、憑證或個人本機路徑。8個試聽檔artist標籤為公開VOICEVOX配音署名；182個PNG文字metadata未觸發隱私規則。唯一Email疑似項位於package-lock.json的glob公開棄用訊息，與npm官方metadata一致，是上游公開聯絡資訊，不是使用者資料，也不在部署產物；未把具體地址複製到紀錄。14個新MP3只有encoder標籤。
+- 本次新增內容尚待PR檢查與部署核對；公開GitHub暱稱與指定noreply提交身分沿用，不宣稱審查了所有Git歷史或能辨識未提供的公司專用敏感關鍵字。

@@ -1,6 +1,21 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+  'genshin:amber:burst': ['每次出手都失敗。', '要求大家停止射擊。'],
+  'genshin:bennett:burst': ['大家都必須保護我。', '我不會保護任何人。'],
+  'genshin:kaeya:join': ['對這件事毫無期待。', '要求對方不要期待。'],
+  'genshin:keqing:burst': ['我自己不會逃走。', '我會放你走。'],
+  'genshin:raiden:skill': ['還有很多逃走的路。', '詢問退路在哪裡。'],
+  'genshin:zhongli:join': ['我什麼都不需要做。', '所有工作都已完成。'],
+  'genshin:zhongli:skill': ['將會持續動搖。', '請對方稍微搖晃。'],
+  'genshin:zhongli:burst': ['天道不在這裡。', '詢問天道在哪裡。'],
+  'genshin:nahida:join': ['我剛剛才到。', '希望你再等很久。'],
+  'genshin:nahida:skill': ['請把手放開。', '大家已經牽好手了。'],
+  'genshin:nahida:burst': ['知識只留給自己。', '希望對方失去知識。'],
+  'genshin:sucrose:join': ['我不能提供任何幫助。', '我已經幫忙完成了。'],
+  'genshin:sucrose:skill': ['吸引測試已結束。', '吸引測試無法開始。'],
+  'genshin:sucrose:burst': ['完全不會擴散的狀態。', '回到一般集中形態。'],
+
   'genshin:noelle:join': ['明確拒絕這次邀請。', '要求對方別再說話。'],
   'genshin:noelle:skill': ['請把事情交給別人。', '說事情已經做完了。'],
   'genshin:noelle:burst': ['現在是休息的時候。', '戰場已經清掃完畢。'],
