@@ -36,8 +36,8 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
     gameCharacterStudy.map((g) => g.id),
     ['er', 'genshin'],
   );
-  // 188 項既有教材 + 55 句官方選角句 + 191 句選角逐字稿。
-  assert.equal(lines.length, 434);
+  // ER 55句官方選角與191句逐字稿，另保留原神12句。
+  assert.equal(lines.length, 258);
   assert.equal(new Set(lines.map((l) => l.id)).size, lines.length);
   assert.equal(new Set(lines.map(gameRecordId)).size, lines.length);
   for (const game of gameCharacterStudy)

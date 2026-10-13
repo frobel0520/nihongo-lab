@@ -590,3 +590,17 @@ T66 已部署：功能 commit `f444180`，[GitHub Actions 38329762755](https://g
 - 375×667 Chromium正式建置逐一檢查91個ER角色頁：預設選角、首句逐字稿與資料一致、進頁面不自動播放、原文揭示條件、無水平溢位通過。另測使用者改全部情境後，以同頁hash路由換角色會恢復選角，換原神恢復全部情境，回ER仍正常；手動播放後才能揭示選角逐字稿，零pageerror。未新增或重合成音檔，本次沒有重測全量離線音檔，也未當成原作情境／人耳台詞驗收。
 
 T67 已部署：功能commit `51b4d58`，[GitHub Actions 38335037423](https://github.com/frobel0520/nihongo-lab/actions/runs/38335037423) Success；正式站 `index-Ci1DaVdE.js` 與本次production build逐位元組一致，HTTPS保留TLS驗證。253 tests、91個角色頁手機尺寸驗證、公開Git身分、變更／建置產物隱私格式檢查與三個privacy-guard hook通過。仍不自動播放，未把分類修正當作每段原音觸發查證。
+
+## 2026-10-13 T68 只保留 selected／selected2 來源與官方下載調查
+
+- 使用者明確限定所有selected相關音檔。ER只保留既有91位／246句selected與selected2來源，移除164項武器／資料教材、六句原創練習、六句社群介紹，以及132個無其他引用的專用MP3。保留原神全部12句與核心教材。逐欄比對全部246句的文字、翻譯、解說、聲線、音檔URL與來源證據完全不變；其餘重音覆寫值完全保持。
+- 316個來源索引保持（selected163、selected2 153）：261段有台詞、55段非語詞，待定0；同句整理後246句／245個選角MP3。沒有刪掉非語詞來源索引，也沒有為笑聲／喘氣虛構台詞或冒稱已有官方原音。刪除不再使用的reference來源／武器／生成器模組及ER大意題干擾選項，11筆已無顯示字串的讀音審閱項目移除；角色聲線按既有選擇保留。全遊戲258項／257個MP3，全站引用1874個音檔。使用者的舊進度不主動清除，FSRS格式保持。
+- UI刪除原創／資料教材的統計，不顯示選角頁理解0/0；將「選角原音全數收錄」改為來源索引數，明示播放器為VOICEVOX、非語詞僅索引、沒有遊戲原配音。沒有將合成音冒充使用者本次要求的官方音檔。
+- 本雲端checkout查無selected原始WAV；另一本機session的.cache不會隨Git同步。既有提取工具可從合法安裝遊戲的catalog與bundle抽取selected／selected2，但需要原始資產。
+- [官方首頁](https://playeternalreturn.com/)／[角色與造型頁](https://event.playeternalreturn.com/ER/CHARACTER%26SKIN?hl=ja-JP)的下載入口指向[Steam遊戲](https://store.steampowered.com/app/1049590/Eternal_Return/)。官網目前讀到的頁面沒有selected音檔或獨立語音包連結；不宣稱整個官方伺服器不存在此類檔案。
+- Steam以外另核對[官方main頁](https://playeternalreturn.com/main)及其app.js／frontpage.js／common.js，沒有語音包或selected連結。頁面引用的官方CDN[介紹影片](https://cdn.playeternalreturn.com/video/210930/intro.mp4)與季節宣傳影片HEAD均200、video/mp4，屬網站媒體而非已查證的遊戲語音包。Kakao官方入口 https://er.game.daum.net/er/index.daum 在本環境HTTPS CONNECT回403，未取得頁面內容；環境網路設定為unrestricted，未亂改允許清單或將403說成官方沒有檔案。網頁搜尋回傳不相關結果，未拿來當來源證據。
+- 下載工具只用匿名Steam連線與manifest-only，不下載整個遊戲或使用私人帳密。實際Steam伺服器登入成功後回覆App1049590不提供給此匿名帳號並斷線，未取得depot manifest／語音包。工具與本機暫存留在repo以外；初次工具因預設寫入唯讀目錄失敗，改用可寫XDG資料目錄後才執行，未覆寫HOME或使用者設定。沒有繞過帳號／下載授權，也未聲稱已下載原音。
+- npm run check：253 tests、typecheck、lint通過，零失敗／略過；production build正式base path通過，242 precache entries，既有chunk大小提示保持。舊reference測試改為核對316個來源檔族／角色索引及246句僅selected教材，保留來源與音檔存在的實質斷言；原神及進度相關測試保持。
+- 375×667 Chromium正式建置全部91個ER角色頁：情境選單只有全部／角色選擇、首句逐字稿符合selected資料、沒有武器／資料／自編／介紹教材或理解0/0、不自動播放、切角色與原神狀態重設、手動播放後揭示、無水平溢位／pageerror通過。本次不重合成selected音檔，也未重新下載全量離線音檔，未把UI測試當原音取得或人耳驗收。
+
+T68角色區清理部署待確認；官方selected原音取得仍未完成。

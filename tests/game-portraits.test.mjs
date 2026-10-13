@@ -21,7 +21,7 @@ test('ER 名冊收齊固定來源的 91 個可玩角色，排除隨機／NPC，�
   assert.equal(
     er.characters.filter((c) => c.lines.some((l) => l.kind === 'reference'))
       .length,
-    82,
+    0,
   );
 });
 
@@ -51,33 +51,18 @@ test('角色清單保留已編排音檔；未收錄角色不指定配音', () =>
   );
   assert.equal(
     lines.filter((l) => l.category !== '角色選擇').length,
-    188,
+    12,
   );
-  const jackie = lines.find((l) => l.id === 'er:jackie:prepare');
-  assert.equal(jackie.audio, 'audio/games/er/gram-bc1b256c23.mp3');
+  const bennett = lines.find((l) => l.id === 'genshin:bennett:skill');
+  assert.equal(bennett.audio, 'audio/games/genshin/gram-641caa85ab-ro-v1.mp3');
   for (const g of gameCharacterStudy)
     for (const c of g.characters)
       if (!c.lines.length) assert.equal(c.voice, undefined);
 });
 
-test('ER 社群介紹短句有文字來源，與原創練習和選角語音分開', () => {
+test('ER角色區只保留selected來源台詞，不混入介紹、原創練習或資料句', () => {
   const er = gameCharacterStudy.find((g) => g.id === 'er');
-  const profiles = er.characters
-    .flatMap((c) => c.lines)
-    .filter((l) => l.kind === 'quote' && l.category !== '角色選擇');
-  assert.equal(profiles.length, 6);
-  for (const line of profiles) {
-    assert.equal(line.category, '角色介紹短句');
-    assert.match(
-      line.referenceUrl,
-      /^https:\/\/asatamin-eternalreturn\.com\/characterlist\/#/,
-    );
-    assert.match(line.referenceNote, /社群/);
-    assert.match(line.referenceNote, /未比對原配音或選角/);
-  }
-  assert.equal(
-    er.characters.flatMap((c) => c.lines).filter((l) => l.kind === 'practice')
-      .length,
-    6,
-  );
+  const rows = er.characters.flatMap((c) => c.lines);
+  assert.equal(rows.length, 246);
+  assert.ok(rows.every((l) => l.category === '角色選擇' && l.kind === 'quote'));
 });

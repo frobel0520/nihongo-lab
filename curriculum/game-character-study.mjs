@@ -1,6 +1,6 @@
 /**
- * 角色短句與原創主題練習。作品短句僅選少量核對用例；不宣稱完整台詞庫。
- * ER 原創練習與社群角色介紹短句分開，不把介紹短句當成已核對的選角語音。
+ * 角色語音教材；ER 僅使用 selected／selected2 來源，不混入武器資料或自編練習。
+ * 原音索引與 VOICEVOX 教材音檔分開，不宣稱已公開遊戲原音。
  * @typedef {import('./lessons.mjs').Line & { id: string, category: string, kind: 'quote' | 'practice' | 'reference', note: string, referenceUrl: string, referenceNote: string, voicelineId?: number, sourceTitle?: string, voicefile?: string, variant?: string, pronunciation?: string, audioReady?: boolean, selectionAssetCount?: number }} GameLine
  * @typedef {{ id: string, name: string, nameJa: string, voice?: string, referenceUrl: string, portrait?: string, portraitReferenceUrl?: string, voiceReferenceUrl?: string, lines: GameLine[] }} GameCharacter
  * @typedef {{ id: string, title: string, scope: string, characters: GameCharacter[] }} GameStudy
@@ -12,7 +12,6 @@ import { genshinRoster } from './genshin-character-roster.mjs';
 import { genshinQuoteSources } from './genshin-quote-sources.mjs';
 import { audioPath, contentHash } from './author.mjs';
 import { eternalReturnRoster } from './game-character-roster.mjs';
-import { createErReferenceCharacter } from './game-character-reference.mjs';
 import { erSelectionAnnotations } from './er-selection-annotations.mjs';
 import { erSelectionInventory } from './er-selection-catalog-data.mjs';
 import { erSelectionTranscripts } from './er-selection-transcripts.mjs';
@@ -59,96 +58,8 @@ export const gameCharacterStudy = [
   {
     id: 'er',
     title: '永恆輪迴',
-    scope:
-      '首批三位角色的原創主題練習。遊戲原句、角色選擇及造型語音尚待查證，未收錄劇情。',
-    characters: [
-      character(
-        'er',
-        'jackie',
-        '傑琪',
-        'ジャッキー',
-        'tsumugi',
-        `https://github.com/pypy-vrc/er-gamedata/blob/${erVersion}/l10n/Japanese.txt`,
-        [
-          [
-            'prepare',
-            '主題練習',
-            '刃を研いでおこう。',
-            'はを といでおこう。',
-            '先把刀刃磨好吧。',
-            'ておこう來自ておく的意志形，表達預先準備；此句為自行編寫，不代表角色說過。',
-            'はおといでおこう。',
-          ],
-          [
-            'pursue',
-            '主題練習',
-            '敵を追い詰めろ。',
-            'てきを おいつめろ。',
-            '把敵人逼到無路可退。',
-            '追い詰めろ是追い詰める的命令形；不等於只是追在後面。此句為自行編寫。',
-            'てきおおいつめろ。',
-          ],
-        ],
-        'practice',
-      ),
-      character(
-        'er',
-        'aya',
-        '綾',
-        'アヤ',
-        'sayo',
-        `https://github.com/pypy-vrc/er-gamedata/blob/${erVersion}/l10n/Japanese.txt`,
-        [
-          [
-            'aim',
-            '主題練習',
-            '狙いを定めて。',
-            'ねらいを さだめて。',
-            '瞄準目標。',
-            '句尾て形可提出較簡短的要求；不因沒有命令形就變成動作已完成。此句為自行編寫。',
-            'ねらいおさだめて。',
-          ],
-          [
-            'protect',
-            '主題練習',
-            '仲間を守ります。',
-            'なかまを まもります。',
-            '我會保護同伴。',
-            'ます是禮貌形式；這裡可表意圖，不表示動作已完成。此句為自行編寫。',
-            'なかまおまもります。',
-          ],
-        ],
-        'practice',
-      ),
-      character(
-        'er',
-        'hyunwoo',
-        '玹雨',
-        'ヒョヌ',
-        'nemo2',
-        `https://github.com/pypy-vrc/er-gamedata/blob/${erVersion}/l10n/Japanese.txt`,
-        [
-          [
-            'resolve',
-            '主題練習',
-            'まだ倒れるわけにはいかない。',
-            'まだ たおれる わけには いかない。',
-            '我還不能倒下。',
-            'わけにはいかない強調情勢或責任不允許，不一定是身體能力不足。此句為自行編寫。',
-            'まだたおれるわけにわいかない。',
-          ],
-          [
-            'stand',
-            '主題練習',
-            'もう一度、立ち上がる。',
-            'もういちど、たちあがる。',
-            '再一次站起來。',
-            '辭書形在這裡表達將採取的行動；不是た形的過去陳述。此句為自行編寫。',
-          ],
-        ],
-        'practice',
-      ),
-    ],
+    scope: 'selected／selected2 選角台詞，附 VOICEVOX 自製朗讀。',
+    characters: [],
   },
   {
     id: 'genshin',
@@ -319,124 +230,25 @@ export const gameCharacterStudy = [
   },
 ];
 
-// 合併角色名冊與既有教材；其餘82位使用已核對的角色／武器資料教材。
+// 依名冊建立選角教材，不混入其他來源。
 const er = gameCharacterStudy.find((game) => game.id === 'er');
 if (!er) throw new Error('Missing Eternal Return section');
-const erProfileSource = 'https://asatamin-eternalreturn.com/characterlist/';
-er.characters.push(
-  character('er', 'yuki', '雪', '雪', 'nemo2', `${erProfileSource}#Yuki`, [
-    [
-      'profile',
-      '角色介紹短句',
-      '何か、僕にできることはないでしょうか。',
-      'なにか、ぼくに できることは ないでしょうか。',
-      '有什麼我能做的事嗎？',
-      'できること以可能形修飾名詞，表示能做的事。ないでしょうか在此委婉詢問是否有能幫忙的事，不是斷定自己什麼都做不到。僕是男性常用的自稱。',
-      'なにか、ぼくにできることわないでしょうか。',
-    ],
-  ]),
-  character(
-    'er',
-    'silvia',
-    '希爾維婭',
-    'シルヴィア',
-    'hau',
-    `${erProfileSource}#Silvia`,
-    [
-      [
-        'profile',
-        '角色介紹短句',
-        'ワオ、それ面白そうじゃん！！',
-        'ワオ、それ おもしろそうじゃん！！',
-        '哇，那看起來很有趣嘛！！',
-        '形容詞去い＋そう表示看起來如此；這裡的じゃん是じゃない的口語說法，用來表達發現或認同，不是否定有趣。沒有單靠此句推定遊戲觸發情境。',
-      ],
-    ],
-  ),
-  character(
-    'er',
-    'william',
-    '威廉',
-    'ウィリアム',
-    'ryusei',
-    `${erProfileSource}#William`,
-    [
-      [
-        'profile',
-        '角色介紹短句',
-        'もう手加減はしない',
-        'もう てかげんは しない',
-        '我不會再手下留情。',
-        '手加減する表示控制力道或放水；は將手下留情作為話題，もう與否定連用表示不再這麼做。這不是要求對方手下留情。',
-        'もうてかげんわしない',
-      ],
-    ],
-  ),
-  character(
-    'er',
-    'magnus',
-    '馬格努斯',
-    'マグヌス',
-    'ryusei',
-    `${erProfileSource}#Magnus`,
-    [
-      [
-        'profile',
-        '角色介紹短句',
-        '伝説のバイカーマグヌスとはこの俺様のことだ。',
-        'でんせつの バイカーマグヌスとは この おれさまの ことだ。',
-        '傳說中的摩托車騎士馬格努斯，說的就是本大爺。',
-        '名詞＋とは在此提出要解釋的稱號；この俺様のことだ指出那就是自己。俺様是自大的自稱，帶誇耀語氣。バイカー指騎摩托車的人。',
-        'でんせつのバイカーマグヌストワこのおれさまのことだ。',
-      ],
-    ],
-  ),
-  character(
-    'er',
-    'fiora',
-    '菲歐拉',
-    'フィオラ',
-    'tsumugi',
-    `${erProfileSource}#Fiora`,
-    [
-      [
-        'profile',
-        '角色介紹短句',
-        '首！ 腰！ 姿勢がなってないわよ！',
-        'くび！ こし！ しせいが なってないわよ！',
-        '脖子！腰！你的姿勢不像樣喔！',
-        'なってない是なっていない的口語縮約；姿勢がなっていない批評姿勢不到位。わよ在此加強提醒或責備，不能只按字面理解成沒有變成某物。',
-        'くび！こし！しせいがなってないわよ！',
-      ],
-    ],
-  ),
-  character(
-    'er',
-    'rozzi',
-    '洛茲',
-    'ロッジ',
-    'sayo',
-    `${erProfileSource}#Rozzi`,
-    [
-      [
-        'profile',
-        '角色介紹短句',
-        'おつかれ。',
-        'おつかれ。',
-        '辛苦了。',
-        'おつかれ是お疲れ様的簡短口語招呼，可用來慰勞或道別；單憑這句不能判斷遊戲中的觸發情境。對陌生人或正式場合宜使用完整禮貌說法。',
-      ],
-    ],
-  ),
-);
-const existing = new Map(
-  er.characters.map((character) => [character.id, character]),
-);
+/** 保留已選配音，角色區僅編排 selected／selected2 來源。 */
+const erVoices = /** @type {Record<string, string>} */ ({
+  jackie: 'tsumugi',
+  aya: 'sayo',
+  fiora: 'tsumugi',
+  magnus: 'ryusei',
+  hyunwoo: 'nemo2',
+  yuki: 'nemo2',
+  silvia: 'hau',
+  rozzi: 'sayo',
+  william: 'ryusei',
+});
 er.characters = eternalReturnRoster.map((row) => ({
   ...row,
-  ...(existing.get(row.id) ?? createErReferenceCharacter(row)),
-  portrait: row.portrait,
-  portraitReferenceUrl: row.portraitReferenceUrl,
+  voice: erVoices[row.id] ?? 'saehaku',
+  lines: [],
 }));
 /** @param {import('./er-selection-transcripts.mjs').SelectionTranscript} row */
 function selectionEvidenceNote(row) {
@@ -545,7 +357,7 @@ const selectionLineCount = er.characters.reduce(
   (total, c) => total + c.lines.filter((l) => l.category === '角色選擇').length,
   0,
 );
-er.scope = `91 位角色都有教材。82 位各有武器詞彙與資料句型，依固定版本遊戲資料編寫，非角色原台詞；另有六位介紹短句、三位原創練習，以及 ${selectionLineCount} 句角色選擇台詞（字面取自遊戲文字或選角原音的語音辨識，每句標明依據；教材音檔為 VOICEVOX 自製朗讀）。未加入劇情。`;
+er.scope = `91 位角色的 selected／selected2 來源共 316 段，261 段有台詞，整理為 ${selectionLineCount} 句教材；55 段笑聲／喘氣僅列索引。可播放音檔皆為 VOICEVOX 自製朗讀，非遊戲原配音。未加入其他情境或資料練習。`;
 const genshin = gameCharacterStudy.find((game) => game.id === 'genshin');
 if (!genshin) throw new Error('Missing Genshin section');
 const knownGenshin = new Map(genshin.characters.map((c) => [c.id, c]));

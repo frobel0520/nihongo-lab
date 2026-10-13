@@ -254,3 +254,7 @@ genshin-character-roster.mjs保存124筆名稱、來源及頭像，genshin-quote
 ## T67 角色入口預設（2026-10-13）
 
 GameStudyView依gameId初始化category，er為角色選擇，其餘空分類。App使用遊戲id與角色id作元件key，確保從選單進入或換角色不沿用上一頁分類／句序；沒有自動呼叫play或改教材順序／id。
+
+## T68 selected來源範圍（2026-10-13）
+
+ER由91位名冊及既有選角聲線直接建立空lines，再載入官方文字與selected逐字稿。刪除reference資料／生成器／武器對照與專用132音檔、僅限已無引用音檔的重音覆寫、11筆舊教材讀音審閱註記。移除舊ER大意題干擾選項；原神題目保留。246句的文字、聲線、音檔URL及進度id保持；移除的舊進度不主動刪除，FSRS格式保持。

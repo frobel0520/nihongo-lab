@@ -219,9 +219,7 @@ export function GameStudyView({
   update,
 }: Props) {
   const game = gameCharacterStudy.find((g) => g.id === gameId);
-  const [category, setCategory] = useState(
-    gameId === 'er' ? '角色選擇' : '',
-  );
+  const [category, setCategory] = useState(gameId === 'er' ? '角色選擇' : '');
   const [index, setIndex] = useState(0);
   const [listening, setListening] = useState(true);
   const [plays, setPlays] = useState<Record<string, number>>({});
@@ -269,19 +267,18 @@ export function GameStudyView({
               <p>{g.scope}</p>
               {g.id === 'er' && (
                 <p className="muted">
-                  選角原音 {erSelectionTotals.clips} 段全數收錄：有台詞{' '}
-                  {erSelectionTotals.withText} 段、笑聲／喘氣{' '}
-                  {erSelectionTotals.nonverbal} 段。多數字面由語音辨識取得，未經人耳確認。
+                  selected／selected2 來源索引 {erSelectionTotals.clips}{' '}
+                  段：有台詞 {erSelectionTotals.withText} 段、笑聲／喘氣{' '}
+                  {erSelectionTotals.nonverbal} 段。非語詞僅列索引，播放器使用
+                  VOICEVOX
+                  重製台詞，沒有遊戲原配音。多數字面由語音辨識取得，未經人耳確認。
                 </p>
               )}
               <p className="muted">
-                已收錄 {g.characters.length} 位角色 · 作品短句{' '}
-                {lines.filter(
-                  (line) => line.kind === 'quote' && line.category !== '角色選擇',
-                ).length}{' '}
-                句 · 角色選擇 {selectionLines.length} 句 · 主題練習{' '}
-                {lines.filter((l) => l.kind === 'practice').length} 句 ·
-                資料教材 {lines.filter((l) => l.kind === 'reference').length} 項
+                {g.characters.length} 筆角色名冊 ·{' '}
+                {g.id === 'er'
+                  ? `選角台詞 ${selectionLines.length} 句`
+                  : `作品短句 ${lines.length} 句`}{' '}
                 · 已學 {gameDone(lines, progress)}/{lines.length}
               </p>
               <a className="btn primary" href={gameHash(g.id)}>
@@ -420,9 +417,15 @@ export function GameStudyView({
           </small>
         </h2>
         <p className="muted">
-          已學 {gameDone(lines, progress)}/{lines.length} · 理解{' '}
-          {gameListeningDone(lines, progress)}/{listeningLines.length} · {at + 1}/
-          {items.length} 句
+          已學 {gameDone(lines, progress)}/{lines.length}
+          {listeningLines.length > 0 && (
+            <>
+              {' '}
+              · 理解 {gameListeningDone(lines, progress)}/
+              {listeningLines.length}
+            </>
+          )}{' '}
+          · {at + 1}/{items.length} 句
         </p>
         {game.id === 'er' && erSelectionCoverage[character.id] && (
           <p className="muted">
