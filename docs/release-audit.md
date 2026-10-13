@@ -660,3 +660,5 @@ T72已部署：功能commit `b57c689`、PR [#64](https://github.com/frobel0520/n
 - 讀音、繁中、用法及大意題齊備；10筆解說／來源標題讀音已審閱。皇女採こうじょ（Kanjium 1型），石採いし（2型），修正引擎的おうじょ／せき；句界、重音核對理由記於audio-prosody.mjs。詞典來源及CC BY-SA 4.0歸屬沿用檔頭。非原配音演技驗收。
 - `npm run check` 的typecheck、258 tests及lint，以及正式base path build通過。9音檔全檔解碼有訊號，共216,972 bytes，metadata僅encoder。375×667正式建置實測9句手動播放、作答揭示與假名、情境切換，三角色下載後離線重載／播放／作答通過，無橫向溢出或pageerror；Android真機未測。
 - 提交身分確認指定公開noreply；追蹤文字及dist隱私格式複查，唯一既有發現仍為package-lock的上游公開聯絡資訊，非使用者資料，未包進正式站。沒有新增私人或公司資料，無公司私有關鍵字清單，不能宣稱未知關鍵字或全部歷史已掃描。部署結果另記。
+
+T73已部署：功能commit `3e3d9c4`、PR [#66](https://github.com/frobel0520/nihongo-lab/pull/66)，[GitHub Actions 38374956568](https://github.com/frobel0520/nihongo-lab/actions/runs/38374956568)的check／deploy均Success。正式站 `index-vbKCXlya.js` 及9個新MP3（216,972 bytes）與已驗證正式build逐位元組一致，HTTPS保留TLS驗證。原神15位44句；提交作者／提交者皆為公開暱稱及指定noreply，三個privacy-guard hook通過。後續每批3位完成來源、朗讀、功能及隱私檢查後直接依PR流程部署，保存待收錄狀態以便分次接續。

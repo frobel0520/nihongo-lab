@@ -33,6 +33,7 @@
 - 工作分支採 feature/<task-id>，修改前確認目前分支。
 - 維持 docs/project-plan.md、project-sa.md、project-sd.md 與 task-breakdown.md 的專案契約。
 - 課程資料以 curriculum/lessons.mjs 為唯一來源。
+- 原神教材分批擴充，每批 3 位角色；自行完成來源、讀音、VOICEVOX、功能與隱私檢查，PR check 通過後直接部署，毋須逐批要求確認。每批保存已上線／待收錄狀態，下次從未完成角色接續，目標為全角色教材；缺乏可核對來源者保持待收錄，不編造作品台詞。
 - 第 3 天起每天一個檔案：`curriculum/days/dayNN.mjs`，用 `curriculum/author.mjs` 的 `defineLesson` 編寫（音檔路徑由內容雜湊自動決定），再由 lessons.mjs 匯入；對外仍只有 lessons.mjs 一個入口。
 - 核心教材（例句、單字、文法說明）可由 Claude 或 GPT 編寫，需一次寫完整；不要設計成使用者需中途填空或貼台詞才能使用。
 - 動畫台詞匯入是選配功能，不是核心資料來源，優先度低於教材本體。
