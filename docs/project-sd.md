@@ -293,3 +293,7 @@ game-character-study.mjs新增9個LineSpec，quote-sources保留語音識別與�
 ## T78 原神角色與來源
 
 阿蕾奇諾sayo、夏洛蒂tsumugi、恰斯卡sayo；`game-character-study.mjs`新增9個LineSpec，`genshin-quote-sources.mjs`記錄固定版本的voicelineId／sourceTitle／voicefile，`game-character-questions.mjs`新增大意選項，`ruby-notes.mjs`審閱新增說明與來源標題。音檔由VOICEVOX合成，來源JSON及原配音不納入公開教材；入口仍由lessons.mjs匯出。愛諾來源沒有可用行動語音短句，阿羅夏沒有日文語音來源，故不建立LineSpec。
+
+## T79 原神角色與來源
+
+夏沃蕾sayo、千織saehaku、重雲nemo2；各收錄一個固定版日文編隊加入、元素技能及元素爆發短句，對應source voicelineId／title／voicefile並附意思題。新增9個LineSpec及8筆解說讀音標記；VOICEVOX音檔、讀音及解說完成後仍由lessons.mjs作教材入口；原始來源全文不納入公開教材。

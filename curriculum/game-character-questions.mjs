@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:chevreuse:join": [
+  "任務已經結束了。",
+  "我現在要休息。"
+],
+"genshin:chevreuse:skill": [
+  "把武器拿起來！",
+  "請把武器交給我保管。"
+],
+"genshin:chevreuse:burst": [
+  "繼續抵抗！",
+  "請先觀察情況。"
+],
+"genshin:chiori:join": [
+  "我現在要離開店裡。",
+  "這裡不是千織屋。"
+],
+"genshin:chiori:skill": [
+  "我會自己做完。",
+  "請你不要插手。"
+],
+"genshin:chiori:burst": [
+  "由別人決定時尚。",
+  "時尚不需要定義。"
+],
+"genshin:chongyun:join": [
+  "我還是不懂。",
+  "我忘記這件事了。"
+],
+"genshin:chongyun:skill": [
+  "劍啊，保持原樣。",
+  "請把劍交給我。"
+],
+"genshin:chongyun:burst": [
+  "妖魔，請留在這裡。",
+  "我來替你帶路。"
+],
+
 "genshin:arlecchino:join": [
   "請你讓我安心。",
   "我會把事情交給其他人。"
