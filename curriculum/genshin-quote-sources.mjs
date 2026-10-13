@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+  'genshin:aratakiitto:join': {
+    voicelineId: 57069,
+    sourceTitle: 'チーム加入·3',
+    voicefile: 'VO_teamJoin/vo_itto_teamJoin_03',
+    variant: '預設造型',
+  },
+  'genshin:aratakiitto:skill': {
+    voicelineId: 57047,
+    sourceTitle: '元素スキル·3',
+    voicefile: 'VO_gameplay/VO_itto/vo_itto_battle_skill1_03',
+    variant: '預設造型',
+  },
+  'genshin:aratakiitto:burst': {
+    voicelineId: 57050,
+    sourceTitle: '元素爆発·3',
+    voicefile: 'VO_gameplay/VO_itto/vo_itto_battle_skill3_03',
+    variant: '預設造型',
+  },
+  'genshin:baizhu:join': {
+    voicelineId: 82067,
+    sourceTitle: 'チーム加入·1',
+    voicefile: 'VO_teamJoin/vo_baizhu_teamJoin_01',
+    variant: '預設造型',
+  },
+  'genshin:baizhu:skill': {
+    voicelineId: 82048,
+    sourceTitle: '元素スキル·2',
+    voicefile: 'VO_gameplay/VO_baizhu/vo_baizhu_battle_skill1_02',
+    variant: '預設造型',
+  },
+  'genshin:baizhu:burst': {
+    voicelineId: 82050,
+    sourceTitle: '元素爆発·1',
+    voicefile: 'VO_gameplay/VO_baizhu/vo_baizhu_battle_skill3_01',
+    variant: '預設造型',
+  },
+  'genshin:candace:join': {
+    voicelineId: 72068,
+    sourceTitle: 'チーム加入·3',
+    voicefile: 'VO_teamJoin/vo_candace_teamJoin_03',
+    variant: '預設造型',
+  },
+  'genshin:candace:skill': {
+    voicelineId: 72045,
+    sourceTitle: '元素スキル·3',
+    voicefile: 'VO_gameplay/VO_candace/vo_candace_battle_skill1_03',
+    variant: '預設造型',
+  },
+  'genshin:candace:burst': {
+    voicelineId: 72050,
+    sourceTitle: '元素爆発·2',
+    voicefile: 'VO_gameplay/VO_candace/vo_candace_battle_skill3_02',
+    variant: '預設造型',
+  },
+
   'genshin:aether:join': {
     voicelineId: 1088,
     sourceTitle: 'チーム加入·2',

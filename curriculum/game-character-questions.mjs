@@ -1,6 +1,19 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+  'genshin:aratakiitto:join': [
+    '這件事太困難，我會逃走。',
+    '請你替我解決這件小事。',
+  ],
+  'genshin:aratakiitto:skill': ['輪到我上場了。', '你已經完成演出了。'],
+  'genshin:aratakiitto:burst': ['請把事情交給別人。', '我不想負責處理。'],
+  'genshin:baizhu:join': ['傷口不需要處理。', '我希望別人替我看診。'],
+  'genshin:baizhu:skill': ['好吃的藥最沒有用。', '藥物一點也不苦。'],
+  'genshin:baizhu:burst': ['治療還需要很長時間。', '我不會替你治療。'],
+  'genshin:candace:join': ['請你保障我的安全。', '你的安全無法確認。'],
+  'genshin:candace:skill': ['請你離開這裡。', '歡迎你改天再來。'],
+  'genshin:candace:burst': ['祝福已經離開我們。', '只有我一人需要祝福。'],
+
   'genshin:aether:join': ['世界上沒有任何謎團。', '我已經解開所有謎團。'],
   'genshin:aether:skill': ['請把東西撿起來。', '我不會讓任何東西掉落。'],
   'genshin:aether:burst': ['請迎著風走過來。', '風已經停止了。'],

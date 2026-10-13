@@ -680,3 +680,12 @@ T75已部署：功能commit `5db4b0d`、PR [#69](https://github.com/frobel0520/n
 - 讀音、繁中、解說與大意題齊備；遊戲漢字段在中文說明裡觸發三筆額外人工檢閱，逐一標記為讀音已審。旅行者「風と共に去れ」調整整句讀音邊界。
 - 9個MP3全檔解碼及encoder-only metadata驗證通過，共140,652 bytes。完整typecheck、43個測試檔／258 tests、lint及正式base path build通過。375×667實測9句播放、作答顯示、情境切換及角色音檔下載後離線播放通過；不含漢字的短句不需要假名標籤。
 - 原有62句原神教材、ER教材及進度識別均逐欄保持。隱私檢查沒有新增發現；package-lock上游聯絡資訊仍是唯一既有掃描項。
+
+T76已部署：功能commit `6032895`、PR [#70](https://github.com/frobel0520/nihongo-lab/pull/70)，[GitHub Actions 38387941523](https://github.com/frobel0520/nihongo-lab/actions/runs/38387941523)的check／deploy均Success。正式站 `index-Cyapl4BQ.js`及9個新MP3逐位元組匹配，HTTPS保留TLS驗證。原神24位71句；T77已接續。
+
+## 2026-10-13 T77 原神自動接續批次
+
+- 荒瀧一斗、白朮、坎蒂絲各收錄編隊加入／元素技能／元素爆發一個實際短句，共9句及9個自製VOICEVOX MP3；原神27位80句、97筆待教材，全遊戲326句。既有71句原神教材、永恆輪迴資料與學習識別逐欄保持。
+- 逐句對照固定版 `49a6544a6c6ae36089cb42fa591fc46f01de8bcf` 的日文語音表及voicelineId/title/voicefile；未發布原神原配音或完整語音庫。白朮「良薬は口に苦し」使用人工核對的ruby標記處理自動對齊歧義。
+- 9個MP3全檔解碼、可聞訊號及僅encoder metadata驗證通過，共212,652 bytes。typecheck、43測試檔／258 tests、lint、正式base path build通過。375×667 Chromium逐句實測9句播放、答題後揭示原文／假名、角色音檔下載後離線重播，無水平溢位或頁面錯誤。
+- 隱私掃描208個追蹤文字／建置檔案，無新增發現；唯一既有項為已核實的package-lock上游公開資訊，不是使用者或公司資料。部署commit與Actions結果由下一批更新本紀錄。
