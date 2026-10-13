@@ -579,4 +579,4 @@ T65 已部署：功能 commit `3207522`（PR #60 以 rebase 接上 main），[Gi
 - npm run check：typecheck、253 tests、lint通過，零失敗／略過。既有完整性測試增加全部選角可播放斷言；production build使用正式base path通過，242 precache entries，既有chunk大小提示保持。五個建置MP3與public逐位元組一致。
 - 375×667 Chromium正式建置：玹雨與雪選角情境的五句線上／離線實際播放、正確URL、播放前逐字稿鎖住、播放後揭示及讀音、無水平溢位／零頁面錯誤通過。下載雙角色共八個音檔後離線重載測試。首次測試誤用完成按鈕文字而超時，修正為畫面實際「此角色音檔已全部存好」後通過，沒有改應用程式行為或放寬播放條件。Android真機與本次人耳重音／語氣仍待使用者驗收。
 
-T66部署尚待確認。
+T66 已部署：功能 commit `f444180`，[GitHub Actions 38329762755](https://github.com/frobel0520/nihongo-lab/actions/runs/38329762755) Success。正式站 `index-CbKjGrjW.js` 與五個新增MP3均與本次production build逐位元組一致，HTTPS保留TLS驗證。253 tests、typecheck、lint、手機與離線播放驗證通過；公開Git身分、變更／建置產物隱私格式檢查及三個privacy-guard hook通過。五句文字版已恢復播放，台詞與證據等級未改。
