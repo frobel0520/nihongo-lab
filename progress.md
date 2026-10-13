@@ -346,3 +346,6 @@ T64翡翠造型名稱確認：1078000原造型與1078001暗巷裡共用Hisui/S00
 ## 2026-10-13 T71 官方108段selected教材
 
 已取得並對照官方Fankit的108段日文selected／selected2：89位角色、103段台詞整理為91句，另5段非語詞或無聲保留來源索引。91個VOICEVOX朗讀重新產製，讀音、繁中與用法齊備；角色頁優先顯示官方來源句並附逐檔對照，既有246句selected教材及進度id保留。typecheck／tests／lint／build、原始108檔與91個MP3解碼、手機91頁與離線單檔教材實際播放通過。已交付離線HTML／CSV／含MP3的ZIP；尚未逐句人耳驗收；依部署要求發布，正式站結果另記。細節見release-audit.md的T71。
+
+
+T71已部署：`20c5a11`／PR #62，[GitHub Actions 38356514122](https://github.com/frobel0520/nihongo-lab/actions/runs/38356514122) check及deploy成功。正式站JS與91個新VOICEVOX音檔逐位元組核對一致；原神更新保留，既有學習id不變。詳見release-audit.md。

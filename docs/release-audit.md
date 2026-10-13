@@ -638,3 +638,6 @@ T70已部署：功能commit `11d7823`，[GitHub Actions 38348793273](https://git
 - 另交付獨立HTML（4,518,209 bytes）、108列來源CSV與完整ZIP（6,598,392 bytes，含91個獨立MP3）。375×667 Chromium離線渲染HTML內容，89個角色篩選、搜尋、盲聽／揭示、全部91個音檔實際播放、103段台詞對照＋5段無台詞來源、無水平溢位／pageerror通過。環境瀏覽器政策禁止file URL，改用已讀取的完整HTML內容離線渲染；Android真機直接開啟下載檔未實測。
 - 最終npm run check（typecheck、全部測試檔、lint）、正式base path build通過；242個precache entries。主JS 1,165,115 bytes、gzip約340 KB，既有chunk大小提示仍存在。正式建置手機尺寸91個ER角色頁，89位官方來源角色的首句實際播放與對照連結、無溢位／pageerror通過；最終另測雪的原使用者確認證據、菲歐拉空白檔名、莉央無聲來源標示。既有教材完整性、音檔孤兒與進度測試保持通過。
 - 本機教材及下載產物驗證完成；依部署要求整合遠端較新的原神教材後，將經PR檢查與既有GitHub Pages流程發布，正式站結果另記。
+
+
+T71已部署：功能commit `20c5a11`，PR [#62](https://github.com/frobel0520/nihongo-lab/pull/62)，[GitHub Actions 38356514122](https://github.com/frobel0520/nihongo-lab/actions/runs/38356514122)的check／deploy均Success。部署前整合T69／T70的原神更新，原神21句及來源狀態保持；整合後typecheck、全部43個測試檔、lint與正式base path build通過，手機尺寸的來源說明、使用者確認證據及無聲索引再驗證通過。正式站 `index-BxOb4qXM.js` 與整合後本機build逐位元組一致，全部91個新MP3亦逐位元組一致，HTTPS核對保留TLS驗證。提交、commit-msg、pre-push三個privacy-guard hook通過，原音未上傳。雲端Chromium直接開正式站受環境CA信任限制，沒有關閉TLS；畫面驗證採與正式站一致的本機正式建置，Android真機及逐句人耳驗收仍未執行。
