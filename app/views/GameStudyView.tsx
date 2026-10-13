@@ -219,7 +219,9 @@ export function GameStudyView({
   update,
 }: Props) {
   const game = gameCharacterStudy.find((g) => g.id === gameId);
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState(
+    gameId === 'er' ? '角色選擇' : '',
+  );
   const [index, setIndex] = useState(0);
   const [listening, setListening] = useState(true);
   const [plays, setPlays] = useState<Record<string, number>>({});

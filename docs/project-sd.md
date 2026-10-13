@@ -250,3 +250,7 @@ genshin-character-roster.mjs保存124筆名稱、來源及頭像，genshin-quote
 ## T66 Nemo 選角音檔（2026-10-13）
 
 移除pendingSelectionVoices集合及兩處audioReady:false寫入。五個既有內容雜湊URL加入自製MP3；彷徨う使用AquesTalk控制片語與Kanjium3型，保留救済を原查詢重音。雲端adapter增加accent_phrases端點回傳Core已解析句節，支援T65新版synthesize流程；相容設定只存環境草稿，不寫repo。
+
+## T67 角色入口預設（2026-10-13）
+
+GameStudyView依gameId初始化category，er為角色選擇，其餘空分類。App使用遊戲id與角色id作元件key，確保從選單進入或換角色不沿用上一頁分類／句序；沒有自動呼叫play或改教材順序／id。

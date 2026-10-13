@@ -163,6 +163,7 @@ export function App() {
           ))}
         {route.view === 'games' && (
           <GameStudyView
+            key={`${route.gameId ?? ''}:${route.characterId ?? ''}`}
             gameId={route.gameId}
             characterId={route.characterId}
             progress={progress}
