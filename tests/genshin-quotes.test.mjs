@@ -16,6 +16,9 @@ test('新角色三類短句與既有情境補齊；迪盧克技能喊聲不冒�
     'xiangling',
     'xingqiu',
     'fischl',
+    'jean',
+    'klee',
+    'diona',
   ]) {
     const character = game.characters.find((c) => c.id === id);
     assert.deepEqual(
@@ -43,13 +46,13 @@ test('新角色三類短句與既有情境補齊；迪盧克技能喊聲不冒�
   assert.equal(sucrose.voicelineId, 31054);
 });
 
-test('原神固定名冊 124 筆，十五位有短句，其餘明確待收錄，語音文字來源僅連已有表格', () => {
+test('原神固定名冊 124 筆，十八位有短句，其餘明確待收錄，語音文字來源僅連已有表格', () => {
   assert.equal(game.characters.length, 124);
   assert.equal(new Set(game.characters.map((c) => c.id)).size, 124);
-  assert.equal(game.characters.filter((c) => c.lines.length).length, 15);
-  assert.equal(game.characters.filter((c) => !c.lines.length).length, 109);
+  assert.equal(game.characters.filter((c) => c.lines.length).length, 18);
+  assert.equal(game.characters.filter((c) => !c.lines.length).length, 106);
   assert.equal(game.characters.filter((c) => c.voiceReferenceUrl).length, 109);
-  assert.equal(lines.length, 44);
+  assert.equal(lines.length, 53);
   for (const c of game.characters) {
     if (/[\p{Script=Han}々]/u.test(c.nameJa)) {
       const parts = annotateText(c.nameJa, buildNotesIndex(RUBY_NOTES));

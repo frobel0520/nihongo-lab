@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+  'genshin:jean:join': {
+    voicelineId: 4165,
+    sourceTitle: 'チーム加入·1',
+    voicefile: 'VO_teamJoin/vo_qin_teamJoin_01',
+    variant: '預設造型',
+  },
+  'genshin:jean:skill': {
+    voicelineId: 4147,
+    sourceTitle: '元素スキル·1',
+    voicefile: 'VO_gameplay/VO_qin/vo_qin_battle_skill1_01',
+    variant: '預設造型',
+  },
+  'genshin:jean:burst': {
+    voicelineId: 4151,
+    sourceTitle: '元素爆発·2',
+    voicefile: 'VO_gameplay/VO_qin/vo_qin_battle_skill3_02',
+    variant: '預設造型',
+  },
+  'genshin:klee:join': {
+    voicelineId: 18074,
+    sourceTitle: 'チーム加入·1',
+    voicefile: 'VO_teamJoin/vo_klee_teamJoin_01',
+    variant: '預設造型',
+  },
+  'genshin:klee:skill': {
+    voicelineId: 18054,
+    sourceTitle: '元素スキル·2',
+    voicefile: 'VO_gameplay/VO_klee/vo_klee_battle_skill1_02',
+    variant: '預設造型',
+  },
+  'genshin:klee:burst': {
+    voicelineId: 18057,
+    sourceTitle: '元素爆発·2',
+    voicefile: 'VO_gameplay/VO_klee/vo_klee_battle_skill3_02',
+    variant: '預設造型',
+  },
+  'genshin:diona:join': {
+    voicelineId: 34085,
+    sourceTitle: 'チーム加入·3',
+    voicefile: 'VO_teamJoin/vo_diona_teamJoin_03',
+    variant: '預設造型',
+  },
+  'genshin:diona:skill': {
+    voicelineId: 34061,
+    sourceTitle: '元素スキル·6',
+    voicefile: 'VO_gameplay/VO_diona/vo_diona_battle_skill1_06',
+    variant: '預設造型',
+  },
+  'genshin:diona:burst': {
+    voicelineId: 34064,
+    sourceTitle: '元素爆発·3',
+    voicefile: 'VO_gameplay/VO_diona/vo_diona_battle_skill3_03',
+    variant: '預設造型',
+  },
+
   'genshin:xiangling:join': {
     voicelineId: 12165,
     sourceTitle: 'チーム加入·1',

@@ -1,6 +1,16 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+  'genshin:jean:join': ['今天無法出發。', '出發時間還沒決定。'],
+  'genshin:jean:skill': ['勝負已經結束。', '這次不想戰鬥。'],
+  'genshin:jean:burst': ['請你把劍收起來。', '我不會立下誓言。'],
+  'genshin:klee:join': ['可莉需要別人幫忙。', '可莉不願意幫忙。'],
+  'genshin:klee:skill': ['請把炸彈收好。', '爆炸已經停止。'],
+  'genshin:klee:burst': ['完全停止攻擊。', '只使用很小的火力。'],
+  'genshin:diona:join': ['我會把工作交給你。', '我沒有辦法處理。'],
+  'genshin:diona:skill': ['請你對我溫柔一點。', '我想要甜的東西。'],
+  'genshin:diona:burst': ['醉鬼先生，繼續喝吧。', '我已經反省過了。'],
+
   'genshin:xiangling:join': ['我忘記帶食材了。', '請你把食材都買回來。'],
   'genshin:xiangling:skill': ['料理時間已經結束了。', '現在沒有時間做料理。'],
   'genshin:xiangling:burst': ['請師父教我新的招式。', '我不會使用師父的招式。'],

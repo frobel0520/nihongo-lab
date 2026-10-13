@@ -662,3 +662,10 @@ T72已部署：功能commit `b57c689`、PR [#64](https://github.com/frobel0520/n
 - 提交身分確認指定公開noreply；追蹤文字及dist隱私格式複查，唯一既有發現仍為package-lock的上游公開聯絡資訊，非使用者資料，未包進正式站。沒有新增私人或公司資料，無公司私有關鍵字清單，不能宣稱未知關鍵字或全部歷史已掃描。部署結果另記。
 
 T73已部署：功能commit `3e3d9c4`、PR [#66](https://github.com/frobel0520/nihongo-lab/pull/66)，[GitHub Actions 38374956568](https://github.com/frobel0520/nihongo-lab/actions/runs/38374956568)的check／deploy均Success。正式站 `index-vbKCXlya.js` 及9個新MP3（216,972 bytes）與已驗證正式build逐位元組一致，HTTPS保留TLS驗證。原神15位44句；提交作者／提交者皆為公開暱稱及指定noreply，三個privacy-guard hook通過。後續每批3位完成來源、朗讀、功能及隱私檢查後直接依PR流程部署，保存待收錄狀態以便分次接續。
+
+## 2026-10-13 T74 原神三位長任務批次
+
+- 琴、可莉、迪奧娜各收錄編隊加入／技能／爆發短句，共9句VOICEVOX；原神18位53句，106筆角色待收錄，全遊戲299句。既有44句逐欄、ER資料與進度識別保持。
+- 來源為固定版 genshin-db 三份日文語音表；9句保留voicelineId／標題／voicefile。提供假名、翻譯、解說與題目；沒有原配音或整份語音庫。
+- 9音檔通過完整解碼及encoder-only metadata驗證，音訊共190,188 bytes。`npm run check`：typecheck、43個測試檔／258 tests、lint全過；正式路徑build通過。375×667實測9句播放、作答、顯示讀音及下載角色音檔後離線播放通過。隱私檢查沒有新增發現。
+- 原先檢查跑到一筆既有解說待人工讀音檢閱，已補純字串審閱紀錄，單元及完整檢查通過。
