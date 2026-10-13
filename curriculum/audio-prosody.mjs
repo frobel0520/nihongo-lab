@@ -8,6 +8,15 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+  'audio/games/er/gram-8ee8cd59be.mp3': {
+    text: '彷徨う魂に救済を。',
+    reading: 'さまよう たましいに きゅうさいを。',
+    kana: "サマヨ'ウ/タマ'シイニ/キュウサイオ'",
+    reason:
+      'T66：彷徨う採さまよう、Kanjium 3型；魂片語沿用同角色さまよう魂に救いを的引擎句界及重音，救済を保持原查詢。屬教材朗讀，不宣稱原配音重音。',
+    reference: 'kanjium',
+  },
+
   'audio/games/genshin/gram-641caa85ab-ro-v1.mp3': {
     text: '燃えろ！',
     reading: 'もえろ！',

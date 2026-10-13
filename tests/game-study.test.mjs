@@ -70,6 +70,10 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
     l.id.includes(':selection:'),
   );
   assert.equal(officialSelection.length, 55);
+  assert.ok(
+    selectionLines.every((line) => line.audioReady !== false),
+    '全部選角教材應可播放',
+  );
   const onSelectKeys = new Set(
     erSelectionInventory.officialSelectionRows.map(
       (row) => `Skin/OnSelectVO/${row.skinId}`,

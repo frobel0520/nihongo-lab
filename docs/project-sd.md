@@ -246,3 +246,7 @@ game-character-reference-data.mjs 僅保存 82 位角色 code／id／weaponTypes
 ## T63 原神資料與語尾清晰度（2026-10-12）
 
 genshin-character-roster.mjs保存124筆名稱、來源及頭像，genshin-quote-sources.mjs只存12筆來源識別，不複製完整語音庫；仍由lessons.mjs匯出。既有角色id保留，空角色不指定聲線。Bennett專用-ro-v1音檔網址避開舊快取，不改作答id；applyArticulation只在最末モーラ與母音匹配時調整時長／速度，讀音閘門前後均檢查，失敗停止合成。GameStudyView原文揭示後用JpLine直接顯示讀音，遵循全域假名偏好。
+
+## T66 Nemo 選角音檔（2026-10-13）
+
+移除pendingSelectionVoices集合及兩處audioReady:false寫入。五個既有內容雜湊URL加入自製MP3；彷徨う使用AquesTalk控制片語與Kanjium3型，保留救済を原查詢重音。雲端adapter增加accent_phrases端點回傳Core已解析句節，支援T65新版synthesize流程；相容設定只存環境草稿，不寫repo。

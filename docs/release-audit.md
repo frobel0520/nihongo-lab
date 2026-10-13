@@ -569,3 +569,14 @@ T64翡翠造型已查證：固定版本CharacterSkin明確1078000 Hisui index0�
 T65 已部署：功能 commit `3207522`（PR #60 以 rebase 接上 main），[GitHub Actions 38288868783](https://github.com/frobel0520/nihongo-lab/actions/runs/38288868783) check／deploy 皆 Success。正式站 `index-OsZLreLx.js` 與本機正確路徑建置逐位元組一致；240 個選角 MP3 與本機逐位元組一致；HTTPS 下載保留 TLS 驗證。正式站艾比蓋爾頁載入 DOMContentLoaded 1,044 ms、主程式傳輸 334,307 bytes（桌機、單次樣本，非 p50／p95）。Git 作者／提交者為指定公開身分；本機未安裝 privacy-guard hook，提交前以人工掃描變更內容與 MP3 metadata。
 
 補記：Git Bash 會把 `VITE_BASE_PATH=/nihongo-lab/` 自動轉成 Windows 路徑，本機正式路徑 build 需加 `MSYS_NO_PATHCONV=1`；本節前面記的 build 通過用的是被轉換的 base，部署前以 CI 建置為準，部署後已用正確 base 重建並比對一致。
+
+## 2026-10-13 T66 補齊五句 Nemo 男声2 選角音檔
+
+- 使用者授權補上T65五句文字版：玹雨「んじゃ、やってみるか。」「信じられるのはこの拳だけだ。」；雪「彷徨う魂に救済を。」「では僕の番ですね。」「さまよう魂に救いを。」。全部使用已選Nemo男声2，雲端Core speaker10000，自製教材朗讀，不公開遊戲原音。
+- 原彷徨う被引擎解析為ほうこうう，讀音修正又改動句界，被既有閘門阻止，未發布錯誤音檔。依 [Kanjium固定版本](https://github.com/mifunetoshiro/kanjium/blob/6f32ef33701e572f5485f85eda7ffb9333f8c24e/data/source_files/raw/accents.txt) 彷徨う／さまよう3型；魂片語採同角色「さまよう魂に救いを。」的引擎句界與重音，救済を保持原查詢。新增一筆覆寫，五句全部完整讀音核對通過。未聲稱重音或原作語氣已人耳驗收。
+- 雲端adapter新增accent_phrases端點，以Core假名查詢取回句節，配合T65新版synthesize的相容流程。端點實測モーラ與重音位置通過，既有八聲線health通過。首次端點將Core的JSON bytes直接當物件造成400，修正為JSON解析後通過並完成五檔合成；未繞過讀音閘門。雲端install_script與start_skill草稿已保存，本機helper同步修正並通過語法及端點驗證；草稿保存不等於已發布環境設定。未寫入repo或加入秘密設定。
+- 五個MP3全檔ffmpeg解碼、正時長1.488～2.184秒、encoder-only metadata通過。對照整份T65教材資料，僅移除五筆audioReady:false；原文、讀音、翻譯、解說、聲線、URL、來源證據與進度id逐欄保持。移除pendingSelectionVoices集合與兩處旗標寫入。246句選角教材全部可播放，共245個去重選角MP3；ER總377個MP3、全遊戲389個。
+- npm run check：typecheck、253 tests、lint通過，零失敗／略過。既有完整性測試增加全部選角可播放斷言；production build使用正式base path通過，242 precache entries，既有chunk大小提示保持。五個建置MP3與public逐位元組一致。
+- 375×667 Chromium正式建置：玹雨與雪選角情境的五句線上／離線實際播放、正確URL、播放前逐字稿鎖住、播放後揭示及讀音、無水平溢位／零頁面錯誤通過。下載雙角色共八個音檔後離線重載測試。首次測試誤用完成按鈕文字而超時，修正為畫面實際「此角色音檔已全部存好」後通過，沒有改應用程式行為或放寬播放條件。Android真機與本次人耳重音／語氣仍待使用者驗收。
+
+T66部署尚待確認。

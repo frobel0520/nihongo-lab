@@ -451,8 +451,6 @@ function selectionEvidenceNote(row) {
     return `逐字稿由兩個語音辨識模型（kotoba-whisper、Whisper small）判讀本機選角原音一致，尚未經人耳確認，可能與原音有出入；${tail}`;
   return `逐字稿是選角原音的語音辨識草稿；兩個模型結果不同，經人工依日文語意整理，尚未經人耳確認，可能與原音有出入；${tail}`;
 }
-/** 本機 VOICEVOX 引擎沒有的聲線：這些角色的選角句先提供文字，音檔待有 Nemo 引擎時再產製。 */
-const pendingSelectionVoices = new Set(['nemo2']);
 /** @type {SelectionSourceRow[]} */
 const selectionRows = erSelectionInventory.officialSelectionRows;
 /** @type {SelectionCandidateCount[]} */
@@ -511,7 +509,6 @@ for (const character of er.characters) {
         : '固定版本遊戲資料將此句列為 Skin/OnSelectVO，機器辨識對應本機選角原音，人耳確認待完成；細部時機未指定。原配音不公開，教材音檔為 VOICEVOX 自製朗讀。',
       pronunciation: annotation.pronunciation,
       selectionAssetCount: row.matchingAssetCount,
-      ...(pendingSelectionVoices.has(voice) ? { audioReady: false } : {}),
     });
   }
   const official = new Set(rows.map((row) => `Skin/OnSelectVO/${row.skinId}`));
@@ -541,7 +538,6 @@ for (const character of er.characters) {
       ...(annotation.ruby ? { ruby: annotation.ruby } : {}),
       pronunciation: annotation.pronunciation,
       selectionAssetCount: row.clipCount,
-      ...(pendingSelectionVoices.has(voice) ? { audioReady: false } : {}),
     });
   }
 }
