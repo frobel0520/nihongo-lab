@@ -8,6 +8,7 @@
  * @typedef {{ skinId: string, characterId: string, skinName: string, jp: string, matchingAssetCount: number }} SelectionSourceRow
  * @typedef {{ characterId: string, candidateAssets: number }} SelectionCandidateCount
  */
+import { getErCasting } from './er-voice-casting.mjs';
 import { genshinRoster } from './genshin-character-roster.mjs';
 import { genshinQuoteSources } from './genshin-quote-sources.mjs';
 import { audioPath, contentHash } from './author.mjs';
@@ -326,7 +327,7 @@ character("genshin",
 "clorinde",
 "克洛琳德",
 "クロリンデ",
-"saehaku",
+"sayo",
 `https://github.com/theBowja/genshin-db/blob/${genshinVersion}/src/data/Japanese/voiceovers/clorinde.json`,
 [
   [
@@ -434,7 +435,7 @@ character("genshin",
 "chiori",
 "千織",
 "千織",
-"saehaku",
+"sayo",
 `https://github.com/theBowja/genshin-db/blob/${genshinVersion}/src/data/Japanese/voiceovers/chiori.json`,
 [
   [
@@ -920,7 +921,7 @@ character("genshin",
         'razor',
         '雷澤',
         'レザー',
-        'neko-vy',
+        'nemo2',
         `https://github.com/theBowja/genshin-db/blob/${genshinVersion}/src/data/Japanese/voiceovers/razor.json`,
         [
           [
@@ -1613,21 +1614,9 @@ character("genshin",
 // 依名冊建立選角教材，不混入其他來源。
 const er = gameCharacterStudy.find((game) => game.id === 'er');
 if (!er) throw new Error('Missing Eternal Return section');
-/** 保留已選配音，角色區僅編排 selected／selected2 來源。 */
-const erVoices = /** @type {Record<string, string>} */ ({
-  jackie: 'tsumugi',
-  aya: 'sayo',
-  fiora: 'tsumugi',
-  magnus: 'ryusei',
-  hyunwoo: 'nemo2',
-  yuki: 'nemo2',
-  silvia: 'hau',
-  rozzi: 'sayo',
-  william: 'ryusei',
-});
 er.characters = eternalReturnRoster.map((row) => ({
   ...row,
-  voice: erVoices[row.id] ?? 'saehaku',
+  voice: getErCasting(row.id).voice,
   lines: [],
 }));
 /** @param {import('./er-selection-transcripts.mjs').SelectionTranscript} row */

@@ -4,12 +4,13 @@
  * 產生教材語音前，VOICEVOX.exe 或 vv-engine/run.exe 需在本機跑在 127.0.0.1:50021。
  */
 
-/** @typedef {{ key: string, name: string, speakerId: number, style: string, note: string, credit?: string }} Voice */
+/** @typedef {{ key: string, gender: 'female' | 'male', name: string, speakerId: number, style: string, note: string, credit?: string }} Voice */
 
 /** @type {Voice[]} */
 export const voices = [
   {
     key: 'tsumugi',
+    gender: 'female',
     name: '春日部つむぎ',
     speakerId: 8,
     style: 'ノーマル',
@@ -17,6 +18,7 @@ export const voices = [
   },
   {
     key: 'hau',
+    gender: 'female',
     name: '雨晴はう',
     speakerId: 10,
     style: 'ノーマル',
@@ -24,6 +26,7 @@ export const voices = [
   },
   {
     key: 'sayo',
+    gender: 'female',
     name: '小夜/SAYO',
     speakerId: 46,
     style: 'ノーマル',
@@ -31,6 +34,7 @@ export const voices = [
   },
   {
     key: 'neko-vy',
+    gender: 'female',
     name: '猫使ビィ',
     speakerId: 58,
     style: 'ノーマル',
@@ -38,6 +42,7 @@ export const voices = [
   },
   {
     key: 'zunko',
+    gender: 'female',
     name: '東北ずん子',
     speakerId: 107,
     style: 'ノーマル',
@@ -45,6 +50,7 @@ export const voices = [
   },
   {
     key: 'ryusei',
+    gender: 'male',
     name: '青山龍星',
     speakerId: 13,
     style: 'ノーマル',
@@ -52,6 +58,7 @@ export const voices = [
   },
   {
     key: 'saehaku',
+    gender: 'male',
     name: '黒沢冴白',
     speakerId: 100,
     style: 'ノーマル',
@@ -59,6 +66,7 @@ export const voices = [
   },
   {
     key: 'nemo2',
+    gender: 'male',
     name: 'Nemo 男声2',
     speakerId: 10000,
     style: 'ノーマル',

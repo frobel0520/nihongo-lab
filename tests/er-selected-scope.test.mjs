@@ -33,10 +33,10 @@ test('selected來源316段都有索引及分類，不把非語詞或其他情境
   }
 });
 
-test('只保留246句selected教材及既有聲線，非選角資料句不進入角色播放清單', () => {
+test('只保留246句selected教材並按角色配置聲線，非選角資料句不進入角色播放清單', () => {
   const lines = er.characters.flatMap((c) => c.lines);
   assert.equal(lines.length, 246);
-  assert.equal(new Set(lines.map((l) => l.audio)).size, 245);
+  assert.equal(new Set(lines.map((l) => l.audio)).size, 246);
   for (const c of er.characters) {
     assert.ok(c.lines.length);
     for (const l of c.lines) {
