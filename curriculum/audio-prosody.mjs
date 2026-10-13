@@ -8,6 +8,14 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+  'audio/games/genshin/gram-857c0a5b1a.mp3': {
+    text: '氷浪のように唸れ——',
+    reading: 'ひょうろうのように うなれ——',
+    kana: "ヒョオ'ロオノ/ヨ'オニ/ウナ'レ",
+    reason:
+      'T82：教材將「氷浪」讀作「ひょうろう」，校正漢字解析的「こおりなみ」；指定讀音校正後的VOICEVOX句界與重音。教材朗讀未比對遊戲原配音。',
+    reference: 'voicevox',
+  },
   'audio/games/genshin/gram-cdf9199f58.mp3': {
     text: 'さあさあ、一儲けしに行きますの！',
     reading: 'さあさあ、ひともうけしに いきますの！',
