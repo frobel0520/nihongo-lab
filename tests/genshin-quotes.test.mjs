@@ -9,7 +9,14 @@ const game = gameCharacterStudy.find((g) => g.id === 'genshin');
 const lines = game.characters.flatMap((c) => c.lines);
 
 test('新角色三類短句與既有情境補齊；迪盧克技能喊聲不冒配完整台詞', () => {
-  for (const id of ['zhongli', 'nahida', 'sucrose']) {
+  for (const id of [
+    'zhongli',
+    'nahida',
+    'sucrose',
+    'xiangling',
+    'xingqiu',
+    'fischl',
+  ]) {
     const character = game.characters.find((c) => c.id === id);
     assert.deepEqual(
       new Set(character.lines.map((l) => l.category)),
@@ -36,13 +43,13 @@ test('新角色三類短句與既有情境補齊；迪盧克技能喊聲不冒�
   assert.equal(sucrose.voicelineId, 31054);
 });
 
-test('原神固定名冊 124 筆，十二位有短句，其餘明確待收錄，語音文字來源僅連已有表格', () => {
+test('原神固定名冊 124 筆，十五位有短句，其餘明確待收錄，語音文字來源僅連已有表格', () => {
   assert.equal(game.characters.length, 124);
   assert.equal(new Set(game.characters.map((c) => c.id)).size, 124);
-  assert.equal(game.characters.filter((c) => c.lines.length).length, 12);
-  assert.equal(game.characters.filter((c) => !c.lines.length).length, 112);
+  assert.equal(game.characters.filter((c) => c.lines.length).length, 15);
+  assert.equal(game.characters.filter((c) => !c.lines.length).length, 109);
   assert.equal(game.characters.filter((c) => c.voiceReferenceUrl).length, 109);
-  assert.equal(lines.length, 35);
+  assert.equal(lines.length, 44);
   for (const c of game.characters) {
     if (/[\p{Script=Han}々]/u.test(c.nameJa)) {
       const parts = annotateText(c.nameJa, buildNotesIndex(RUBY_NOTES));

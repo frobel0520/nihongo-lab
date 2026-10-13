@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+  'genshin:xiangling:join': {
+    voicelineId: 12165,
+    sourceTitle: 'チーム加入·1',
+    voicefile: 'VO_teamJoin/vo_xiangling_teamJoin_01',
+    variant: '預設造型',
+  },
+  'genshin:xiangling:skill': {
+    voicelineId: 12145,
+    sourceTitle: '元素スキル·3',
+    voicefile: 'VO_gameplay/VO_xiangling/vo_xiangling_battle_skill1_03',
+    variant: '預設造型',
+  },
+  'genshin:xiangling:burst': {
+    voicelineId: 12148,
+    sourceTitle: '元素爆発·3',
+    voicefile: 'VO_gameplay/VO_xiangling/vo_xiangling_battle_skill3_03',
+    variant: '預設造型',
+  },
+  'genshin:xingqiu:join': {
+    voicelineId: 13079,
+    sourceTitle: 'チーム加入·1',
+    voicefile: 'VO_teamJoin/vo_xingqiu_teamJoin_01',
+    variant: '預設造型',
+  },
+  'genshin:xingqiu:skill': {
+    voicelineId: 13059,
+    sourceTitle: '元素スキル·3',
+    voicefile: 'VO_gameplay/VO_xingqiu/vo_xingqiu_battle_skill1_03',
+    variant: '預設造型',
+  },
+  'genshin:xingqiu:burst': {
+    voicelineId: 13061,
+    sourceTitle: '元素爆発·2',
+    voicefile: 'VO_gameplay/VO_xingqiu/vo_xingqiu_battle_skill3_02',
+    variant: '預設造型',
+  },
+  'genshin:fischl:join': {
+    voicelineId: 19072,
+    sourceTitle: 'チーム加入·1',
+    voicefile: 'VO_teamJoin/vo_fischl_teamJoin_01',
+    variant: '預設造型',
+  },
+  'genshin:fischl:skill': {
+    voicelineId: 19051,
+    sourceTitle: '元素スキル·2',
+    voicefile: 'VO_gameplay/VO_fischl/vo_fischl_battle_skill1_02',
+    variant: '預設造型',
+  },
+  'genshin:fischl:burst': {
+    voicelineId: 19054,
+    sourceTitle: '元素爆発·1',
+    voicefile: 'VO_gameplay/VO_fischl/vo_fischl_battle_skill3_01',
+    variant: '預設造型',
+  },
+
   'genshin:amber:burst': {
     voicelineId: 10148,
     sourceTitle: '元素爆発·1',

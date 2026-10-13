@@ -652,3 +652,11 @@ T71已部署：功能commit `20c5a11`，PR [#62](https://github.com/frobel0520/n
 
 
 T72已部署：功能commit `b57c689`、PR [#64](https://github.com/frobel0520/nihongo-lab/pull/64)，[GitHub Actions 38370067179](https://github.com/frobel0520/nihongo-lab/actions/runs/38370067179)的check／deploy均Success。正式站 `index-DFd8GaMG.js`（1,207,081 bytes）及14個新MP3（253,192 bytes）與已驗證正式build逐位元組一致，HTTPS保留TLS驗證。原神目前12位35句；原有21句與ER教材保持，私人或公司資料未寫入本次提交或產物。Git作者／提交者沿用公開暱稱及指定noreply，三個privacy-guard hook通過。部署後再次掃描追蹤文字及dist，疑似Email仍只有已查證的package-lock上游公開聯絡資訊，非使用者資料。實際原配音重音與Android真機未驗收。
+
+## 2026-10-13 T73 原神9句擴充
+
+- 香菱、行秋、菲謝爾各編隊加入／技能／爆發一個短句，共9句、9個自製VOICEVOX MP3；原神15位44句，固定名冊其餘109筆待教材，全遊戲290句。既有原神35句逐欄比對及ER全部資料一致，原進度識別保持。
+- 固定來源版本 `49a6544a6c6ae36089cb42fa591fc46f01de8bcf` 的[香菱](https://github.com/theBowja/genshin-db/blob/49a6544a6c6ae36089cb42fa591fc46f01de8bcf/src/data/Japanese/voiceovers/xiangling.json)、[行秋](https://github.com/theBowja/genshin-db/blob/49a6544a6c6ae36089cb42fa591fc46f01de8bcf/src/data/Japanese/voiceovers/xingqiu.json)、[菲謝爾](https://github.com/theBowja/genshin-db/blob/49a6544a6c6ae36089cb42fa591fc46f01de8bcf/src/data/Japanese/voiceovers/fischl.json)語音表逐句核對，保存voicelineId／title／voicefile；只取本人單句，未加入奧茲回答或完整語音表，未下載發布原神原配音。
+- 讀音、繁中、用法及大意題齊備；10筆解說／來源標題讀音已審閱。皇女採こうじょ（Kanjium 1型），石採いし（2型），修正引擎的おうじょ／せき；句界、重音核對理由記於audio-prosody.mjs。詞典來源及CC BY-SA 4.0歸屬沿用檔頭。非原配音演技驗收。
+- `npm run check` 的typecheck、258 tests及lint，以及正式base path build通過。9音檔全檔解碼有訊號，共216,972 bytes，metadata僅encoder。375×667正式建置實測9句手動播放、作答揭示與假名、情境切換，三角色下載後離線重載／播放／作答通過，無橫向溢出或pageerror；Android真機未測。
+- 提交身分確認指定公開noreply；追蹤文字及dist隱私格式複查，唯一既有發現仍為package-lock的上游公開聯絡資訊，非使用者資料，未包進正式站。沒有新增私人或公司資料，無公司私有關鍵字清單，不能宣稱未知關鍵字或全部歷史已掃描。部署結果另記。
