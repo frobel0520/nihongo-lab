@@ -1,6 +1,16 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+  'genshin:noelle:join': ['明確拒絕這次邀請。', '要求對方別再說話。'],
+  'genshin:noelle:skill': ['請把事情交給別人。', '說事情已經做完了。'],
+  'genshin:noelle:burst': ['現在是休息的時候。', '戰場已經清掃完畢。'],
+  'genshin:barbara:join': ['請對方獨自努力。', '勸對方放棄。'],
+  'genshin:barbara:skill': ['叫對方不要振作。', '說自己已經累了。'],
+  'genshin:barbara:burst': ['命令對方立刻準備。', '確定大家還沒準備好。'],
+  'genshin:venti:join': ['要求對方繼續等待。', '說自己早就到了。'],
+  'genshin:venti:skill': ['在那邊喔。', '詢問東西在哪裡。'],
+  'genshin:venti:burst': ['是火喔。', '要求風停止。'],
+
   'genshin:amber:join': ['我拒絕接受這件事。', '你已經把事情交給別人了。'],
   'genshin:amber:skill': ['兔兔伯爵，停止行動！', '兔兔伯爵已經戰敗。'],
   'genshin:bennett:join': ['禁止對方行動。', '命令對方立刻變厲害。'],

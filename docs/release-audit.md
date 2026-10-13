@@ -616,4 +616,15 @@ T68角色區清理已部署：功能commit `8fb5e51`，[GitHub Actions 383372457
 - npm run check：255 tests、typecheck、lint通過，零失敗／略過；正式base pathproduction build通過，242 precache entries，既有chunk大小提示保持。新增測試涵蓋兩種中點／半形中點、拒絕相似前綴及其他情境、來源條目與去重voicefile數分開、全部124筆來源狀態與統計；未放寬既有教材完整性測試。
 - 375×667 Chromium正式建置全部124角色頁：每頁三類來源數符合資料、無教材角色無播放器、語音表連結只在來源存在時顯示、既有班尼特音檔實際播放、ER頁沒有混入原神狀態表、零橫向溢位／pageerror通過。未重新合成音檔或聲稱逐句人耳驗收，本次未測新音檔離線下載（沒有新增音檔）。
 
-T69來源狀態頁部署待確認；所有角色的三類教材仍未完成，待使用者提供台詞資料。
+T69來源狀態頁已部署：功能commit `669ca55`，[GitHub Actions 38348046024](https://github.com/frobel0520/nihongo-lab/actions/runs/38348046024) Success。正式站 `index-co_XprUL.js` 與production build逐位元組一致；TLS驗證保留，三個privacy-guard hook通過。所有角色的三類教材仍未完成，本次只新增来源狀態頁。
+
+## 2026-10-13 T70 原神少量三類短句
+
+- 新增芭芭拉、諾艾爾、溫迪各編隊加入／技能／爆發短句，共9句、9個自製MP3。原神9位21句，固定名冊124筆中115筆待教材；全遊戲267句／266個去重MP3，全站引用1883個MP3。沒有下載或公開原神遊戲原配音，不宣稱全部角色或全部語音完成。
+- 來源沿用[固定版本日文語音表](https://github.com/theBowja/genshin-db/tree/49a6544a6c6ae36089cb42fa591fc46f01de8bcf/src/data/Japanese/voiceovers)：barbara／noelle／venti的9筆逐一核對原字面、voicelineId、title及voicefile，使用預設造型。只摘錄本次9段短句，不匯入完整逐字稿。原有258句逐欄比較，文字、讀音、翻譯、解說、聲線、音檔URL與来源證據完全保持。
+- 課程解說與大意干擾選項自行撰寫；含日文漢字的原文及解說都有讀音，補元素技能·3來源標題讀音。芭芭拉縮約句尾ろ依來源保留，沒有改成ろう或る；新句～原字面保留。9句合成前後均由既有pronunciation閘門核對發音，9個MP3全解碼通過；未宣稱人耳驗收重音或模仿遊戲原語氣。
+- 聲線：芭芭拉tsumugi、諾艾爾hau、溫迪nemo2；沿用已保留的聲線，不新增模型，不變更既有六位配音。全站資料格式及FSRS不變。
+- npm run check：255 tests／typecheck／lint通過，零失敗／略過；正式base path production build通過，242 precache entries，既有chunk大小提示保持。測試計數依實際新增更新，沒有移除缺大意題或缺讀音的檢查。
+- 375×667 Chromium正式建置：新三角色9句預設聽力、三類筛選、播放前不揭示、實際播放、大意正答及逐字稿／假名揭示通過；逐角色下載9個MP3到正式音檔cache，斷網後全部9句仍可播放與作答。無橫向溢位／pageerror。原有角色完整行資料比對保持；不把手機尺寸瀏覽器測試當Android真機驗收。
+
+T70部署待確認。

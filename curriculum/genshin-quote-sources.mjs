@@ -1,6 +1,60 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+  'genshin:noelle:join': {
+    voicelineId: 21072,
+    sourceTitle: 'チーム加入·1',
+    voicefile: 'VO_teamJoin/vo_noel_teamJoin_01',
+    variant: '預設造型',
+  },
+  'genshin:noelle:skill': {
+    voicelineId: 21054,
+    sourceTitle: '元素スキル·3',
+    voicefile: 'VO_gameplay/VO_noel/vo_noel_battle_skill1_03',
+    variant: '預設造型',
+  },
+  'genshin:noelle:burst': {
+    voicelineId: 21055,
+    sourceTitle: '元素爆発·1',
+    voicefile: 'VO_gameplay/VO_noel/vo_noel_battle_skill3_01',
+    variant: '預設造型',
+  },
+  'genshin:barbara:join': {
+    voicelineId: 6166,
+    sourceTitle: 'チーム加入·3',
+    voicefile: 'VO_teamJoin/vo_barbara_teamJoin_03',
+    variant: '預設造型',
+  },
+  'genshin:barbara:skill': {
+    voicelineId: 6143,
+    sourceTitle: '元素スキル·2',
+    voicefile: 'VO_gameplay/VO_barbara/vo_barbara_battle_skill1_02',
+    variant: '預設造型',
+  },
+  'genshin:barbara:burst': {
+    voicelineId: 6146,
+    sourceTitle: '元素爆発·2',
+    voicefile: 'VO_gameplay/VO_barbara/vo_barbara_battle_skill3_02',
+    variant: '預設造型',
+  },
+  'genshin:venti:join': {
+    voicelineId: 11165,
+    sourceTitle: 'チーム加入·2',
+    voicefile: 'VO_teamJoin/vo_venti_teamJoin_02',
+    variant: '預設造型',
+  },
+  'genshin:venti:skill': {
+    voicelineId: 11144,
+    sourceTitle: '元素スキル·2',
+    voicefile: 'VO_gameplay/VO_venti/vo_venti_battle_skill1_02',
+    variant: '預設造型',
+  },
+  'genshin:venti:burst': {
+    voicelineId: 11148,
+    sourceTitle: '元素爆発·2',
+    voicefile: 'VO_gameplay/VO_venti/vo_venti_battle_skill3_02',
+    variant: '預設造型',
+  },
   'genshin:amber:join': {
     voicelineId: 10173,
     sourceTitle: 'チーム加入·1',

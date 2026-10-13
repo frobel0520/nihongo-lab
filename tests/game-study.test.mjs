@@ -36,8 +36,8 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
     gameCharacterStudy.map((g) => g.id),
     ['er', 'genshin'],
   );
-  // ER 55句官方選角與191句逐字稿，另保留原神12句。
-  assert.equal(lines.length, 258);
+  // ER 55句官方選角與191句逐字稿，另收錄原神21句。
+  assert.equal(lines.length, 267);
   assert.equal(new Set(lines.map((l) => l.id)).size, lines.length);
   assert.equal(new Set(lines.map(gameRecordId)).size, lines.length);
   for (const game of gameCharacterStudy)
@@ -108,7 +108,7 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
     nonverbal: 55,
     pending: 0,
   });
-  assert.equal(lines.filter((l) => l.category === '編隊加入').length, 5);
+  assert.equal(lines.filter((l) => l.category === '編隊加入').length, 8);
 });
 
 test('角色及情境篩選不混遊戲，未知分類安全回空；選角與編隊分離', () => {
@@ -179,9 +179,8 @@ test('遊戲路由可深連結，保留返回路徑，壞編碼及多餘段落�
 });
 
 test('每一句選角逐字稿都寫好讀音、翻譯與解說（缺的會列出）', async () => {
-  const { erSelectionVoiceAnnotations } = await import(
-    '../curriculum/er-selection-voice-annotations.mjs'
-  );
+  const { erSelectionVoiceAnnotations } =
+    await import('../curriculum/er-selection-voice-annotations.mjs');
   const onSelect = new Set(
     erSelectionInventory.officialSelectionRows.map(
       (row) => `Skin/OnSelectVO/${row.skinId}`,

@@ -262,3 +262,7 @@ ER由91位名冊及既有選角聲線直接建立空lines，再載入官方文�
 ## T69 原神三類來源狀態（2026-10-13）
 
 genshin-action-coverage.mjs只保存124筆來源可用狀態、來源檔SHA-256與三類條目／不同voicefile數，不含台詞。build-genshin-coverage.mjs讀本機來源表生成盤點；lib/genshin-coverage.mjs接受·與・及半形中點，拒絕相似前綴。公開入口仍為lessons.mjs；角色頁GenshinCoverage只作狀態呈現，不改課程／FSRS／音檔id。
+
+## T70 原神少量三類短句（2026-10-13）
+
+game-character-study.mjs增加三角色的9段短句；genshin-quote-sources.mjs記錄固定語音id／標題／voicefile，game-character-questions.mjs提供大意題選項，ruby-notes.mjs補解說與來源標題讀音。使用既有hau／tsumugi／nemo2合成9個MP3；保留原有258句全部欄位與音檔URL，既有進度及FSRS不變。
