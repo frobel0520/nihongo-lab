@@ -352,3 +352,6 @@ T71已部署：`20c5a11`／PR #62，[GitHub Actions 38356514122](https://github.
 ## 2026-10-13 T72 原神擴充與隱私
 
 新增14句：鍾離、納西妲、砂糖各三類，加五位舊角色缺類。原神12位35句、112筆待教材，迪盧克技能只有喊聲，不編造台詞。舊21句與ER內容保持，14個VOICEVOX音檔與手機／離線播放作答、typecheck／tests／lint／build通過。文字、建置與媒體metadata複查未發現使用者私人資訊或公司內部資料；package-lock的公開套件聯絡資訊已查證，不是使用者資料。部署另記release-audit.md。
+
+
+T72已部署：`b57c689`／PR #64，[GitHub Actions 38370067179](https://github.com/frobel0520/nihongo-lab/actions/runs/38370067179)成功；正式站JS與14個新音檔逐位元組一致。原神12位35句，隱私複查結果見release-audit.md。

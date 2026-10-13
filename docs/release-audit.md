@@ -649,3 +649,6 @@ T71已部署：功能commit `20c5a11`，PR [#62](https://github.com/frobel0520/n
 - typecheck、全部測試、lint與正式base path build通過；215張既有頭像與進度id保持。375×667正式建置，全部14句按三類篩選、播放前不能作答、實際播放後正答及逐字稿／讀音揭示通過；八位相關角色明確下載音檔後斷網重載，14句仍可播放與作答，無溢位／pageerror。非Android真機驗收。
 - 隱私複查208個追蹤文字檔及建置文字資源、已部署commit身分，以及1,921個既有MP3與226個PNG。未發現使用者私人Email、公司內部資訊、憑證或個人本機路徑。8個試聽檔artist標籤為公開VOICEVOX配音署名；182個PNG文字metadata未觸發隱私規則。唯一Email疑似項位於package-lock.json的glob公開棄用訊息，與npm官方metadata一致，是上游公開聯絡資訊，不是使用者資料，也不在部署產物；未把具體地址複製到紀錄。14個新MP3只有encoder標籤。
 - 本次新增內容尚待PR檢查與部署核對；公開GitHub暱稱與指定noreply提交身分沿用，不宣稱審查了所有Git歷史或能辨識未提供的公司專用敏感關鍵字。
+
+
+T72已部署：功能commit `b57c689`、PR [#64](https://github.com/frobel0520/nihongo-lab/pull/64)，[GitHub Actions 38370067179](https://github.com/frobel0520/nihongo-lab/actions/runs/38370067179)的check／deploy均Success。正式站 `index-DFd8GaMG.js`（1,207,081 bytes）及14個新MP3（253,192 bytes）與已驗證正式build逐位元組一致，HTTPS保留TLS驗證。原神目前12位35句；原有21句與ER教材保持，私人或公司資料未寫入本次提交或產物。Git作者／提交者沿用公開暱稱及指定noreply，三個privacy-guard hook通過。部署後再次掃描追蹤文字及dist，疑似Email仍只有已查證的package-lock上游公開聯絡資訊，非使用者資料。實際原配音重音與Android真機未驗收。
