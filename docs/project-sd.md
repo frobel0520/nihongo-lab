@@ -281,3 +281,7 @@ game-character-study.mjs新增9個LineSpec，quote-sources保留語音識別與�
 ## T74 長任務資料
 
 琴sayo、可莉hau、迪奧娜neko-vy，新增9個LineSpec與来源識別、大意干擾項及10筆解說／來源標題讀音。音檔透過發音／重音閘門；既有44句及ER逐欄保持。公開入口仍為lessons.mjs，機器來源全文及工作檔不發布。
+
+## T75 資料與聲線
+
+阿貝多使用saehaku、北斗tsumugi、雷澤neko-vy。新增9個LineSpec、來源識別、大意選項與10筆解說／來源讀音審閱；來源全文留在工作素材，不進專案。

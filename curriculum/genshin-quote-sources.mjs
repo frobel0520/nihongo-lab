@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+  'genshin:albedo:join': {
+    voicelineId: 35070,
+    sourceTitle: 'チーム加入·3',
+    voicefile: 'VO_teamJoin/vo_albedo_teamJoin_03',
+    variant: '預設造型',
+  },
+  'genshin:albedo:skill': {
+    voicelineId: 35049,
+    sourceTitle: '元素スキル·1',
+    voicefile: 'VO_gameplay/VO_albedo/vo_albedo_battle_skill1_01',
+    variant: '預設造型',
+  },
+  'genshin:albedo:burst': {
+    voicelineId: 35054,
+    sourceTitle: '元素爆発·3',
+    voicefile: 'VO_gameplay/VO_albedo/vo_albedo_battle_skill3_03',
+    variant: '預設造型',
+  },
+  'genshin:beidou:join': {
+    voicelineId: 14168,
+    sourceTitle: 'チーム加入·3',
+    voicefile: 'VO_teamJoin/vo_beidou_teamJoin_03',
+    variant: '預設造型',
+  },
+  'genshin:beidou:skill': {
+    voicelineId: 14146,
+    sourceTitle: '元素スキル·3',
+    voicefile: 'VO_gameplay/VO_beidou/vo_beidou_battle_skill1_06',
+    variant: '預設造型',
+  },
+  'genshin:beidou:burst': {
+    voicelineId: 14150,
+    sourceTitle: '元素爆発·2',
+    voicefile: 'VO_gameplay/VO_beidou/vo_beidou_battle_skill3_02',
+    variant: '預設造型',
+  },
+  'genshin:razor:join': {
+    voicelineId: 9160,
+    sourceTitle: 'チーム加入·1',
+    voicefile: 'VO_teamJoin/vo_razor_teamJoin_01',
+    variant: '預設造型',
+  },
+  'genshin:razor:skill': {
+    voicelineId: 9143,
+    sourceTitle: '元素スキル·4',
+    voicefile: 'VO_gameplay/VO_razor/vo_razor_battle_skill1_06',
+    variant: '預設造型',
+  },
+  'genshin:razor:burst': {
+    voicelineId: 9145,
+    sourceTitle: '元素爆発·2',
+    voicefile: 'VO_gameplay/VO_razor/vo_razor_battle_skill3_02',
+    variant: '預設造型',
+  },
+
   'genshin:jean:join': {
     voicelineId: 4165,
     sourceTitle: 'チーム加入·1',
