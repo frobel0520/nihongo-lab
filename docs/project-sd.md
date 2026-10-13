@@ -285,3 +285,7 @@ game-character-study.mjs新增9個LineSpec，quote-sources保留語音識別與�
 ## T75 資料與聲線
 
 阿貝多使用saehaku、北斗tsumugi、雷澤neko-vy。新增9個LineSpec、來源識別、大意選項與10筆解說／來源讀音審閱；來源全文留在工作素材，不進專案。
+
+## T76 原神角色與來源
+
+旅行者nemo2、艾爾海森saehaku、亞蘿伊sayo。新增9個LineSpec、固定來源識別及意思題；旅行者「風と共に去れ」讀音邊界經對齊檢查。入口仍由lessons.mjs匯出。

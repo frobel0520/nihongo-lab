@@ -1,6 +1,16 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+  'genshin:aether:join': ['世界上沒有任何謎團。', '我已經解開所有謎團。'],
+  'genshin:aether:skill': ['請把東西撿起來。', '我不會讓任何東西掉落。'],
+  'genshin:aether:burst': ['請迎著風走過來。', '風已經停止了。'],
+  'genshin:alhaitham:join': ['我有事情要找你。', '我現在很忙。'],
+  'genshin:alhaitham:skill': ['我還沒有拿到。', '請把它交還給你。'],
+  'genshin:alhaitham:burst': ['整齊地排列好。', '集中在同一個地方。'],
+  'genshin:aloy:join': ['請你把手借給我。', '我不需要任何幫助。'],
+  'genshin:aloy:skill': ['爆炸已經結束了。', '我不會讓它爆炸。'],
+  'genshin:aloy:burst': ['請放開被綁住的人。', '沒有人受到限制。'],
+
   'genshin:albedo:join': ['我想獨自去探索。', '探索已經結束了。'],
   'genshin:albedo:skill': ['花已經凋謝了。', '請把花收起來。'],
   'genshin:albedo:burst': ['請忘記這項成就。', '我還沒開始做任何事。'],

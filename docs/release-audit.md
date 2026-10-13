@@ -671,3 +671,12 @@ T73已部署：功能commit `3e3d9c4`、PR [#66](https://github.com/frobel0520/n
 - 原先檢查跑到一筆既有解說待人工讀音檢閱，已補純字串審閱紀錄，單元及完整檢查通過。
 
 T74／T75連續批次記錄：T74琴／可莉／迪奧娜9句已由PR #68部署，check／deploy run 38385530362成功，線上JS與9音檔逐位元組匹配（HTTPS保留TLS）。T75新增阿貝多／北斗／雷澤9句；既有53句和ER保持。T75的完整檢查與上線核對詳見本節批次結果。
+
+T75已部署：功能commit `5db4b0d`、PR [#69](https://github.com/frobel0520/nihongo-lab/pull/69)，[GitHub Actions 38386663456](https://github.com/frobel0520/nihongo-lab/actions/runs/38386663456)的check／deploy均Success。正式站 `index-a9Xao0kk.js`（1,226,755 bytes）及9個新MP3（134,604 bytes）逐位元組匹配，HTTPS保留TLS驗證。原神21位62句，既有教材保持，已接續T76。
+
+## 2026-10-13 T76 原神自動接續批次
+
+- 旅行者、艾爾海森、亞蘿伊各收錄三類短句，共9句自製VOICEVOX；原神24位71句、100筆待教材。保留逐句來源識別與固定genshin-db版次，未發布遊戲原配音或完整語音表。
+- 讀音、繁中、解說與大意題齊備；遊戲漢字段在中文說明裡觸發三筆額外人工檢閱，逐一標記為讀音已審。旅行者「風と共に去れ」調整整句讀音邊界。
+- 9個MP3全檔解碼及encoder-only metadata驗證通過，共140,652 bytes。完整typecheck、43個測試檔／258 tests、lint及正式base path build通過。375×667實測9句播放、作答顯示、情境切換及角色音檔下載後離線播放通過；不含漢字的短句不需要假名標籤。
+- 原有62句原神教材、ER教材及進度識別均逐欄保持。隱私檢查沒有新增發現；package-lock上游聯絡資訊仍是唯一既有掃描項。
