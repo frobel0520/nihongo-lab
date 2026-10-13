@@ -1,6 +1,16 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+  'genshin:albedo:join': ['我想獨自去探索。', '探索已經結束了。'],
+  'genshin:albedo:skill': ['花已經凋謝了。', '請把花收起來。'],
+  'genshin:albedo:burst': ['請忘記這項成就。', '我還沒開始做任何事。'],
+  'genshin:beidou:join': ['我懷疑你說的話。', '請你相信我。'],
+  'genshin:beidou:skill': ['我會把所有東西留下。', '請把東西全部還給我。'],
+  'genshin:beidou:burst': ['不要看這裡。', '我已經看過了。'],
+  'genshin:razor:join': ['請你自己去。', '我不會去。'],
+  'genshin:razor:skill': ['快點過來！', '我會過去。'],
+  'genshin:razor:burst': ['停下攻擊吧。', '目標已經逃走。'],
+
   'genshin:jean:join': ['今天無法出發。', '出發時間還沒決定。'],
   'genshin:jean:skill': ['勝負已經結束。', '這次不想戰鬥。'],
   'genshin:jean:burst': ['請你把劍收起來。', '我不會立下誓言。'],

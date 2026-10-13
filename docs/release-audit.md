@@ -669,3 +669,5 @@ T73已部署：功能commit `3e3d9c4`、PR [#66](https://github.com/frobel0520/n
 - 來源為固定版 genshin-db 三份日文語音表；9句保留voicelineId／標題／voicefile。提供假名、翻譯、解說與題目；沒有原配音或整份語音庫。
 - 9音檔通過完整解碼及encoder-only metadata驗證，音訊共190,188 bytes。`npm run check`：typecheck、43個測試檔／258 tests、lint全過；正式路徑build通過。375×667實測9句播放、作答、顯示讀音及下載角色音檔後離線播放通過。隱私檢查沒有新增發現。
 - 原先檢查跑到一筆既有解說待人工讀音檢閱，已補純字串審閱紀錄，單元及完整檢查通過。
+
+T74／T75連續批次記錄：T74琴／可莉／迪奧娜9句已由PR #68部署，check／deploy run 38385530362成功，線上JS與9音檔逐位元組匹配（HTTPS保留TLS）。T75新增阿貝多／北斗／雷澤9句；既有53句和ER保持。T75的完整檢查與上線核對詳見本節批次結果。
