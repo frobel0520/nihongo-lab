@@ -8,6 +8,22 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+  'audio/games/genshin/gram-cdf9199f58.mp3': {
+    text: 'さあさあ、一儲けしに行きますの！',
+    reading: 'さあさあ、ひともうけしに いきますの！',
+    kana: "サア'サア、ヒトモ'オケ/シニ'/イキマ'スノ",
+    reason:
+      'T81：確認「一儲け」讀作「ひともうけ」。VOICEVOX預設會誤讀成「いちもうけ」，此設定用核對讀音保持原文查詢的句界與重音；不使用遊戲原配音，僅合成教材音聲。',
+    reference: 'voicevox',
+  },
+  'audio/games/genshin/gram-31370acd78.mp3': {
+    text: '腕の見せ所ですの！',
+    reading: 'うでの みせどころですの！',
+    kana: "ウデ'ノ/ミセドコロデ'スノ",
+    reason:
+      'T81：確認「見せ所」讀作「みせどころ」。VOICEVOX原文解析會誤讀「所」；此設定保留引擎查詢的前半重音與兩個片語界線，並採用修正讀音後的後半重音；不使用遊戲原配音，僅合成教材音聲。',
+    reference: 'voicevox',
+  },
   'audio/games/genshin/gram-9c66cccf23.mp3': {
     text: '皇女の名のもとに！',
     reading: 'こうじょの なの もとに！',

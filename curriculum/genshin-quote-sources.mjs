@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:cyno:join": {
+  "voicelineId": 71072,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_cyno_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:cyno:skill": {
+  "voicelineId": 71051,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_cyno/vo_cyno_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:cyno:burst": {
+  "voicelineId": 71056,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_cyno/vo_cyno_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:dehya:join": {
+  "voicelineId": 79066,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_dehya_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:dehya:skill": {
+  "voicelineId": 79047,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_dehya/vo_dehya_battle_skill1_02",
+  "variant": "預設造型"
+},
+"genshin:dehya:burst": {
+  "voicelineId": 79049,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_dehya/vo_dehya_battle_skill3_01",
+  "variant": "預設造型"
+},
+"genshin:dori:join": {
+  "voicelineId": 68068,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_dori_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:dori:skill": {
+  "voicelineId": 68049,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_dori/vo_dori_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:dori:burst": {
+  "voicelineId": 68051,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_dori/vo_dori_battle_skill3_02",
+  "variant": "預設造型"
+},
+
 "genshin:citlali:join": {
   "voicelineId": 107067,
   "sourceTitle": "チーム加入・3",
