@@ -589,4 +589,4 @@ T66 已部署：功能 commit `f444180`，[GitHub Actions 38329762755](https://g
 - npm run check：253 tests、typecheck、lint全通過，零失敗／略過；正式base path build通過，242 precache entries，既有chunk提示保持。
 - 375×667 Chromium正式建置逐一檢查91個ER角色頁：預設選角、首句逐字稿與資料一致、進頁面不自動播放、原文揭示條件、無水平溢位通過。另測使用者改全部情境後，以同頁hash路由換角色會恢復選角，換原神恢復全部情境，回ER仍正常；手動播放後才能揭示選角逐字稿，零pageerror。未新增或重合成音檔，本次沒有重測全量離線音檔，也未當成原作情境／人耳台詞驗收。
 
-T67部署待確認。
+T67 已部署：功能commit `51b4d58`，[GitHub Actions 38335037423](https://github.com/frobel0520/nihongo-lab/actions/runs/38335037423) Success；正式站 `index-Ci1DaVdE.js` 與本次production build逐位元組一致，HTTPS保留TLS驗證。253 tests、91個角色頁手機尺寸驗證、公開Git身分、變更／建置產物隱私格式檢查與三個privacy-guard hook通過。仍不自動播放，未把分類修正當作每段原音觸發查證。
