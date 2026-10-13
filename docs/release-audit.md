@@ -627,4 +627,4 @@ T69來源狀態頁已部署：功能commit `669ca55`，[GitHub Actions 383480460
 - npm run check：255 tests／typecheck／lint通過，零失敗／略過；正式base path production build通過，242 precache entries，既有chunk大小提示保持。測試計數依實際新增更新，沒有移除缺大意題或缺讀音的檢查。
 - 375×667 Chromium正式建置：新三角色9句預設聽力、三類筛選、播放前不揭示、實際播放、大意正答及逐字稿／假名揭示通過；逐角色下載9個MP3到正式音檔cache，斷網後全部9句仍可播放與作答。無橫向溢位／pageerror。原有角色完整行資料比對保持；不把手機尺寸瀏覽器測試當Android真機驗收。
 
-T70部署待確認。
+T70已部署：功能commit `11d7823`，[GitHub Actions 38348793273](https://github.com/frobel0520/nihongo-lab/actions/runs/38348793273) Success。正式站 `index-BFpiuh4U.js`（1,156,583 bytes）及全部9個新增MP3（149,868 bytes）與本次production build逐位元組一致，HTTPS保留TLS驗證。指定公開Git身分、實際cached diff逐行審閱、建置產物及9個MP3 metadata隱私格式檢查、三個privacy-guard hook通過。人耳重音與Android真機更新仍由使用者驗收。
