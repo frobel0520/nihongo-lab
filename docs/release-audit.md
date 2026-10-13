@@ -603,4 +603,6 @@ T67 已部署：功能commit `51b4d58`，[GitHub Actions 38335037423](https://gi
 - npm run check：253 tests、typecheck、lint通過，零失敗／略過；production build正式base path通過，242 precache entries，既有chunk大小提示保持。舊reference測試改為核對316個來源檔族／角色索引及246句僅selected教材，保留來源與音檔存在的實質斷言；原神及進度相關測試保持。
 - 375×667 Chromium正式建置全部91個ER角色頁：情境選單只有全部／角色選擇、首句逐字稿符合selected資料、沒有武器／資料／自編／介紹教材或理解0/0、不自動播放、切角色與原神狀態重設、手動播放後揭示、無水平溢位／pageerror通過。本次不重合成selected音檔，也未重新下載全量離線音檔，未把UI測試當原音取得或人耳驗收。
 
-T68角色區清理部署待確認；官方selected原音取得仍未完成。
+T68角色區清理已部署：功能commit `8fb5e51`，[GitHub Actions 38337245773](https://github.com/frobel0520/nihongo-lab/actions/runs/38337245773) Success。正式站 `index-CFicOKhF.js` 與本次production build逐位元組一致，HTTPS保留TLS驗證；253 tests、91頁手機尺寸驗證、公開Git身分、變更／建置產物隱私格式檢查及三個privacy-guard hook通過。官方selected原音取得仍未完成，現有音檔仍是VOICEVOX，不能當成已下載官方語音包。
+
+官方來源補查：開發商 https://nimbleneuron.com/ 轉至官方main頁；robots.txt未提供sitemap連結，sitemap.xml轉至活動HTML而非XML索引，未取得可用語音包索引。沒有把活動頁200回應當成已找到資產清單。

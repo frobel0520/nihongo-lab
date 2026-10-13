@@ -1,10 +1,10 @@
 # 專案進度
 
-## 2026-10-13 T68 僅保留 selected／selected2 來源
+## 2026-10-13 T68 僅保留 selected／selected2 來源（清理已部署）
 
 永恆輪迴角色區移除164項武器／資料教材、六句自編練習、六句社群介紹及132個專用MP3；只保留91位角色的246句selected／selected2教材（245個MP3）。原神12句保持，全遊戲257個音檔。316個來源檔仍有完整索引：261段語句、55段非語詞；非語詞不冒充已可播放音檔。
 
-原始selected WAV不在此雲端checkout；目前播放器仍使用VOICEVOX。查證官網、官方CDN及Steam，尚未取得獨立官方語音包；Steam匿名下載明確拒絕此遊戲，Kakao官方入口的連線403尚未解決。另一本機session紀錄中的原音在被Git忽略的.cache，沒有同步到這裡。來源、驗證與部署詳見release-audit.md。
+原始selected WAV不在此雲端checkout；目前播放器仍使用VOICEVOX。查證官網、官方CDN及Steam，尚未取得獨立官方語音包；Steam匿名下載明確拒絕此遊戲，Kakao官方入口的連線403尚未解決。另一本機session紀錄中的原音在被Git忽略的.cache，沒有同步到這裡。清理功能 `8fb5e51` 已部署，Actions 38337245773 Success，正式站程式已核對一致；官方原音仍未取得。來源與驗證詳見release-audit.md。
 
 ## 2026-10-13 T67 永恆輪迴角色入口修正（已部署）
 
