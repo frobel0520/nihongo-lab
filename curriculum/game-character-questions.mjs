@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:arlecchino:join": [
+  "請你讓我安心。",
+  "我會把事情交給其他人。"
+],
+"genshin:arlecchino:skill": [
+  "到此為止吧。",
+  "請在這裡停下。"
+],
+"genshin:arlecchino:burst": [
+  "如月亮一樣短暫。",
+  "月亮已經消失了。"
+],
+"genshin:charlotte:join": [
+  "越是遠離，報導越有真實感。",
+  "報導的真實感完全沒有改變。"
+],
+"genshin:charlotte:skill": [
+  "不，現在不要拍照。",
+  "拍照已經結束了。"
+],
+"genshin:charlotte:burst": [
+  "由你來報導。",
+  "夏洛蒂不會報導。"
+],
+"genshin:chasca:join": [
+  "子彈還沒有裝填。",
+  "我打算一個人留下。"
+],
+"genshin:chasca:skill": [
+  "風已經停了。",
+  "天氣一直沒有變化。"
+],
+"genshin:chasca:burst": [
+  "請你留在這裡。",
+  "快點出現。"
+],
+
   'genshin:aratakiitto:join': [
     '這件事太困難，我會逃走。',
     '請你替我解決這件小事。',
