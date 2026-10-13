@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+  'genshin:aether:join': {
+    voicelineId: 1088,
+    sourceTitle: 'チーム加入·2',
+    voicefile: 'VO_teamJoin/vo_hero_teamJoin_02',
+    variant: '預設造型',
+  },
+  'genshin:aether:skill': {
+    voicelineId: 1066,
+    sourceTitle: '元素スキル·5',
+    voicefile: 'VO_gameplay/VO_hero/vo_hero_battle_skill1_rock_02',
+    variant: '預設造型',
+  },
+  'genshin:aether:burst': {
+    voicelineId: 1073,
+    sourceTitle: '元素爆発·3',
+    voicefile: 'VO_gameplay/VO_hero/vo_hero_battle_skill3_03',
+    variant: '預設造型',
+  },
+  'genshin:alhaitham:join': {
+    voicelineId: 78062,
+    sourceTitle: 'チーム加入·1',
+    voicefile: 'VO_teamJoin/vo_alhaitham_teamJoin_01',
+    variant: '預設造型',
+  },
+  'genshin:alhaitham:skill': {
+    voicelineId: 78045,
+    sourceTitle: '元素スキル·1',
+    voicefile: 'VO_gameplay/VO_alhaitham/vo_alhaitham_battle_skill1_01',
+    variant: '預設造型',
+  },
+  'genshin:alhaitham:burst': {
+    voicelineId: 78047,
+    sourceTitle: '元素爆発·1',
+    voicefile: 'VO_gameplay/VO_alhaitham/vo_alhaitham_battle_skill3_01',
+    variant: '預設造型',
+  },
+  'genshin:aloy:join': {
+    voicelineId: 62057,
+    sourceTitle: 'チーム加入·3',
+    voicefile: 'VO_teamJoin/vo_aloy_teamJoin_03',
+    variant: '預設造型',
+  },
+  'genshin:aloy:skill': {
+    voicelineId: 62033,
+    sourceTitle: '元素スキル·1',
+    voicefile: 'VO_gameplay/VO_aloy/vo_aloy_battle_skill1_01',
+    variant: '預設造型',
+  },
+  'genshin:aloy:burst': {
+    voicelineId: 62036,
+    sourceTitle: '元素爆発·1',
+    voicefile: 'VO_gameplay/VO_aloy/vo_aloy_battle_skill3_01',
+    variant: '預設造型',
+  },
+
   'genshin:albedo:join': {
     voicelineId: 35070,
     sourceTitle: 'チーム加入·3',
