@@ -4,7 +4,7 @@
  * @typedef {import('./lessons.mjs').Line & { id: string, category: string, kind: 'quote' | 'practice' | 'reference', note: string, referenceUrl: string, referenceNote: string, voicelineId?: number, sourceTitle?: string, voicefile?: string, variant?: string, pronunciation?: string, audioReady?: boolean, selectionAssetCount?: number, officialSources?: ReadonlyArray<Readonly<import('./er-fankit-selection.mjs').FankitSource>> }} GameLine
  * @typedef {{ id: string, name: string, nameJa: string, voice?: string, referenceUrl: string, portrait?: string, portraitReferenceUrl?: string, voiceReferenceUrl?: string, lines: GameLine[] }} GameCharacter
  * @typedef {{ id: string, title: string, scope: string, characters: GameCharacter[] }} GameStudy
- * @typedef {[string, string, string, string, string, string, string?]} LineSpec id/category/jp/reading/zh/note/pronunciation
+ * @typedef {[string, string, string, string, string, string, (string | undefined)?, (string | undefined)?]} LineSpec id/category/jp/reading/zh/note/pronunciation/ruby
  * @typedef {{ skinId: string, characterId: string, skinName: string, jp: string, matchingAssetCount: number }} SelectionSourceRow
  * @typedef {{ characterId: string, candidateAssets: number }} SelectionCandidateCount
  */
@@ -28,7 +28,7 @@ function character(game, id, name, nameJa, voice, url, rows, kind = 'quote') {
     voice,
     referenceUrl: url,
     lines: rows.map(
-      ([key, category, jp, reading, zh, note, pronunciation]) => ({
+      ([key, category, jp, reading, zh, note, pronunciation, ruby]) => ({
         id: `${game}:${id}:${key}`,
         category,
         kind,
@@ -50,6 +50,7 @@ function character(game, id, name, nameJa, voice, url, rows, kind = 'quote') {
               ? '官網連結的日文社群攻略站角色介紹短句；已核對文字，未比對原配音或選角情境。'
               : '固定版本日文角色語音表；依原表的語音情境分類。',
         ...(pronunciation ? { pronunciation } : {}),
+        ...(ruby ? { ruby } : {}),
       }),
     ),
   };
@@ -68,6 +69,121 @@ export const gameCharacterStudy = [
     scope:
       '收錄少量已核對的編隊加入、元素技能與元素爆發實際短句；以 VOICEVOX 自製教材音檔，未加入劇情。',
     characters: [
+      character(
+        'genshin',
+        'aratakiitto',
+        '荒瀧一斗',
+        '荒瀧一斗',
+        'ryusei',
+        `https://github.com/theBowja/genshin-db/blob/${genshinVersion}/src/data/Japanese/voiceovers/aratakiitto.json`,
+        [
+          [
+            'join',
+            '編隊加入',
+            'これしきのこと、俺様が解決してやる！',
+            'これしきのこと、おれさまが かいけつして やる！',
+            '這點小事，就由本大爺來解決！',
+            '「これしきのこと」表示這點程度的小事；「俺様が」強調由我出手；「解決してやる」用て形加やる，帶出替對方解決事情的豪邁口氣。',
+            'これしきのことおれさまがかいけつしてやる',
+          ],
+          [
+            'skill',
+            '元素技能',
+            'お前の出番だぜ！',
+            'おまえの でばんだぜ！',
+            '輪到你上場了！',
+            '「お前」是親暱或粗獷的你；「出番」是上場的時機；句尾だぜ帶男性口語的強調語氣。',
+            'おまえのでばんだぜ',
+          ],
+          [
+            'burst',
+            '元素爆發',
+            '俺様に任せろ！',
+            'おれさまに まかせろ！',
+            '交給本大爺！',
+            '「俺様に」指出應交託的對象；「任せろ」是任せる的命令形，要求對方把事情交給自己。',
+            'おれさまにまかせろ',
+          ],
+        ],
+      ),
+
+      character(
+        'genshin',
+        'baizhu',
+        '白朮',
+        '白朮',
+        'saehaku',
+        `https://github.com/theBowja/genshin-db/blob/${genshinVersion}/src/data/Japanese/voiceovers/baizhu.json`,
+        [
+          [
+            'join',
+            '編隊加入',
+            '傷ならば私が手当てしましょう。',
+            'きずならば わたしが てあてしましょう。',
+            '如果是傷口，就由我來處理吧。',
+            '「傷ならば」用ならば提出假設條件；「私が」指出由我處理；「手当てしましょう」是手当てする的意向形，提出主動照料。',
+            'きずならばわたしがてあてしましょう',
+          ],
+          [
+            'skill',
+            '元素技能',
+            '良薬は口に苦し。',
+            'りょうやくは くちに にがし。',
+            '良藥苦口。',
+            '「良薬は口に苦し」是諺語；「苦し」是表示苦的文語形容詞，整句以簡潔形式陳述良藥通常難以下嚥。',
+            'りょうやくわくちににがし',
+            '{良薬|りょうやく}は{口|くち}に{苦|にが}し。',
+          ],
+          [
+            'burst',
+            '元素爆發',
+            'すぐに治してあげましょう。',
+            'すぐに なおして あげましょう。',
+            '我馬上替你治療吧。',
+            '「治してあげる」由治す的て形加あげる，表示為對方治療；「ましょう」用禮貌形式提出意願。',
+            'すぐになおしてあげましょう',
+          ],
+        ],
+      ),
+
+      character(
+        'genshin',
+        'candace',
+        '坎蒂絲',
+        'キャンディス',
+        'sayo',
+        `https://github.com/theBowja/genshin-db/blob/${genshinVersion}/src/data/Japanese/voiceovers/candace.json`,
+        [
+          [
+            'join',
+            '編隊加入',
+            'あなたの安全は私が保証します。',
+            'あなたの あんぜんは わたしが ほしょうします。',
+            '你的安全由我來保證。',
+            '「あなたの安全は」提出你的安全作主題；「私が」強調由我負責；「保証します」是保證的禮貌說法。',
+            'あなたのあんぜんわわたしがほしょうします',
+          ],
+          [
+            'skill',
+            '元素技能',
+            'いらっしゃい！',
+            'いらっしゃい！',
+            '歡迎光臨！',
+            '「いらっしゃい」是「いらっしゃる」的命令形，也常單獨用作歡迎客人的招呼語；此處結合戰鬥情境，也可帶迎接對手的語氣。',
+            'いらっしゃい',
+          ],
+          [
+            'burst',
+            '元素爆發',
+            '我らに祝福あれ！',
+            'われらに しゅくふく あれ！',
+            '願祝福降臨我們身上！',
+            '「我らに」指出祝福所及的對象；「祝福あれ」使用文語「あれ」表達祝願，意思近於「願有祝福」。',
+            'われらにしゅくふくあれ',
+          ],
+        ],
+      ),
+
       character(
         'genshin',
         'aether',
