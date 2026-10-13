@@ -1,7 +1,7 @@
 /**
  * 角色語音教材；ER 僅使用 selected／selected2 來源，不混入武器資料或自編練習。
  * 原音索引與 VOICEVOX 教材音檔分開，不宣稱已公開遊戲原音。
- * @typedef {import('./lessons.mjs').Line & { id: string, category: string, kind: 'quote' | 'practice' | 'reference', note: string, referenceUrl: string, referenceNote: string, voicelineId?: number, sourceTitle?: string, voicefile?: string, variant?: string, pronunciation?: string, audioReady?: boolean, selectionAssetCount?: number }} GameLine
+ * @typedef {import('./lessons.mjs').Line & { id: string, category: string, kind: 'quote' | 'practice' | 'reference', note: string, referenceUrl: string, referenceNote: string, voicelineId?: number, sourceTitle?: string, voicefile?: string, variant?: string, pronunciation?: string, audioReady?: boolean, selectionAssetCount?: number, officialSources?: ReadonlyArray<Readonly<import('./er-fankit-selection.mjs').FankitSource>> }} GameLine
  * @typedef {{ id: string, name: string, nameJa: string, voice?: string, referenceUrl: string, portrait?: string, portraitReferenceUrl?: string, voiceReferenceUrl?: string, lines: GameLine[] }} GameCharacter
  * @typedef {{ id: string, title: string, scope: string, characters: GameCharacter[] }} GameStudy
  * @typedef {[string, string, string, string, string, string, string?]} LineSpec id/category/jp/reading/zh/note/pronunciation
@@ -16,6 +16,7 @@ import { erSelectionAnnotations } from './er-selection-annotations.mjs';
 import { erSelectionInventory } from './er-selection-catalog-data.mjs';
 import { erSelectionTranscripts } from './er-selection-transcripts.mjs';
 import { erSelectionVoiceAnnotations } from './er-selection-voice-annotations.mjs';
+import { erFankitSources, erFankitTotals } from './er-fankit-selection.mjs';
 const genshinVersion = '49a6544a6c6ae36089cb42fa591fc46f01de8bcf';
 const erVersion = 'ea359154465075aa61a668efde014db076820a03';
 /** @param {string} game @param {string} id @param {string} name @param {string} nameJa @param {string} voice @param {string} url @param {LineSpec[]} rows @param {'quote'|'practice'} [kind] @returns {GameCharacter} */
@@ -455,11 +456,31 @@ for (const character of er.characters) {
     });
   }
 }
+// Attach every supplied official recording to its annotated lesson. Repeated takes
+// share one reading; nonverbal files remain visible in the source inventory only.
+for (const character of er.characters) {
+  for (const line of character.lines) {
+    const sources = erFankitSources.filter(
+      (source) => source.lessonId === line.id,
+    );
+    if (!sources.length) continue;
+    if (sources.some((source) => source.characterId !== character.id))
+      throw new Error(
+        `Official source belongs to another character: ${line.id}`,
+      );
+    line.officialSources = sources;
+    line.audio = line.audio.replace(/\.mp3$/, '-fankit-v1.mp3');
+  }
+  character.lines.sort(
+    (a, b) =>
+      Number(Boolean(b.officialSources)) - Number(Boolean(a.officialSources)),
+  );
+}
 const selectionLineCount = er.characters.reduce(
   (total, c) => total + c.lines.filter((l) => l.category === '角色選擇').length,
   0,
 );
-er.scope = `91 位角色的 selected／selected2 來源共 316 段，261 段有台詞，整理為 ${selectionLineCount} 句教材；55 段笑聲／喘氣僅列索引。可播放音檔皆為 VOICEVOX 自製朗讀，非遊戲原配音。未加入其他情境或資料練習。`;
+er.scope = `本次官方素材庫共 ${erFankitTotals.clips} 段日文 selected／selected2：${erFankitTotals.withText} 段有台詞，整理為 ${erFankitTotals.lessons} 句教材；${erFankitTotals.nonverbal} 段無台詞音檔僅列來源索引。官方來源句優先顯示，91 位角色既有選角教材共 ${selectionLineCount} 句。可播放音檔皆為 VOICEVOX 自製朗讀。`;
 const genshin = gameCharacterStudy.find((game) => game.id === 'genshin');
 if (!genshin) throw new Error('Missing Genshin section');
 const knownGenshin = new Map(genshin.characters.map((c) => [c.id, c]));

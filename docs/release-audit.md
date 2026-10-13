@@ -628,3 +628,13 @@ T69來源狀態頁已部署：功能commit `669ca55`，[GitHub Actions 383480460
 - 375×667 Chromium正式建置：新三角色9句預設聽力、三類筛選、播放前不揭示、實際播放、大意正答及逐字稿／假名揭示通過；逐角色下載9個MP3到正式音檔cache，斷網後全部9句仍可播放與作答。無橫向溢位／pageerror。原有角色完整行資料比對保持；不把手機尺寸瀏覽器測試當Android真機驗收。
 
 T70已部署：功能commit `11d7823`，[GitHub Actions 38348793273](https://github.com/frobel0520/nihongo-lab/actions/runs/38348793273) Success。正式站 `index-BFpiuh4U.js`（1,156,583 bytes）及全部9個新增MP3（149,868 bytes）與本次production build逐位元組一致，HTTPS保留TLS驗證。指定公開Git身分、實際cached diff逐行審閱、建置產物及9個MP3 metadata隱私格式檢查、三個privacy-guard hook通過。人耳重音與Android真機更新仍由使用者驗收。
+
+## 2026-10-13 T71 官方Fankit 108段選角教材
+
+- 提供的官方素材庫角色目錄含97個資料夾；透過公開目錄分頁盤點，掃描85個日文ZIP及日文散裝資料夾，取出108個selected／selected2 WAV（selected101、selected2 7），涵蓋89位角色。菲歐拉`fiora_selected .wav`的空白保留；角色名與檔名對照，不把素材目錄序號當遊戲角色碼。
+- 108段皆以Whisper small／CPU int8本機辨識並與既有逐字稿對照。103段台詞去重為91句，既有讀音、繁中翻譯、用法、角色聲線與進度id保持；Barbara／Hart／Hyunwoo／Leon的selected2為出力或非語詞，Rio的selected2僅約0.0027秒且無台詞，五段不冒配其他句子。不能將本次機器對照說成人耳驗收，雙人台詞未分語者。
+- 新增純文字官方來源索引及每句檔名對照。官方來源句優先顯示，既有246句selected教材仍保留；官方資料庫未提供的兩位角色不假稱已有本次來源。原有來源連結與user／official-asr／asr等證據說明保持，新官方對照另列。
+- 91句透過VOICEVOX Core 0.17.0與既有選定聲線重新產製，總3,292,964 bytes。七筆重音覆寫僅改路徑鍵、內容保持；使用-fankit-v1新URL避開舊快取，91個不再引用的舊MP3移至私人備份。雲端adapter補支援accent_phrases，從Core query回傳原片語，不改辨識或發音閘門。全部91檔通過合成時讀音檢查、ffmpeg全解碼、非零訊號與encoder-only metadata；108個來源WAV亦全解碼。來源WAV、ZIP與ASR模型均在repo外，未納入Git或build。
+- 另交付獨立HTML（4,518,209 bytes）、108列來源CSV與完整ZIP（6,598,392 bytes，含91個獨立MP3）。375×667 Chromium離線渲染HTML內容，89個角色篩選、搜尋、盲聽／揭示、全部91個音檔實際播放、103段台詞對照＋5段無台詞來源、無水平溢位／pageerror通過。環境瀏覽器政策禁止file URL，改用已讀取的完整HTML內容離線渲染；Android真機直接開啟下載檔未實測。
+- 最終npm run check（typecheck、全部測試檔、lint）、正式base path build通過；242個precache entries。主JS 1,165,115 bytes、gzip約340 KB，既有chunk大小提示仍存在。正式建置手機尺寸91個ER角色頁，89位官方來源角色的首句實際播放與對照連結、無溢位／pageerror通過；最終另測雪的原使用者確認證據、菲歐拉空白檔名、莉央無聲來源標示。既有教材完整性、音檔孤兒與進度測試保持通過。
+- 本機教材及下載產物驗證完成；依部署要求整合遠端較新的原神教材後，將經PR檢查與既有GitHub Pages流程發布，正式站結果另記。

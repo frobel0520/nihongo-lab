@@ -654,7 +654,7 @@ export const AUDIO_PROSODY = {
       'T65：引擎把金誤讀為きん；此處指錢，讀かね。改用讀音文字的引擎查詢（含其句界與重音）。屬教學朗讀，未模仿原配音。',
     reference: 'voicevox',
   },
-  'audio/games/er/gram-f6f161e1b7.mp3': {
+  'audio/games/er/gram-f6f161e1b7-fankit-v1.mp3': {
     text: '一狩り始めるか。',
     reading: 'ひとかり はじめるか。',
     kana: "_ヒト'/カ'リ/ハジメル'カ",
@@ -670,7 +670,7 @@ export const AUDIO_PROSODY = {
       'T65：引擎把何だって誤讀為なにだって；應讀なんだって。改用讀音文字的引擎查詢（含其句界與重音）。屬教學朗讀，未模仿原配音。',
     reference: 'voicevox',
   },
-  'audio/games/er/gram-6babb98e50.mp3': {
+  'audio/games/er/gram-6babb98e50-fankit-v1.mp3': {
     text: 'お主らの血の味はどんな味がするかの？',
     reading: 'おぬしらの ちの あじは どんな あじが するかの？',
     kana: "オヌシ'ラノ/チ'ノ/ア'ジワ/ド'ンナ/ア'ジガ/スル'カノ？",
@@ -678,7 +678,7 @@ export const AUDIO_PROSODY = {
       'T65：引擎把お主誤讀為おあるじ；應讀おぬし。改用讀音文字的引擎查詢（含其句界與重音）。屬教學朗讀，未模仿原配音。',
     reference: 'voicevox',
   },
-  'audio/games/er/gram-abfe0aeb02.mp3': {
+  'audio/games/er/gram-abfe0aeb02-fankit-v1.mp3': {
     text: '私に…描いてほしいものとか…ある？',
     reading: 'わたしに…かいて ほしい ものとか…ある？',
     kana: "ワタシニ'、カ'/イテホシイ'/モノ'トカ、ア'ル？",
@@ -694,7 +694,7 @@ export const AUDIO_PROSODY = {
       'T65：引擎把他の誤讀為たの、描く讀えがく；改讀ほかの、かきかた、かいて。改用讀音文字的引擎查詢（含其句界與重音）。屬教學朗讀，未模仿原配音。',
     reference: 'voicevox',
   },
-  'audio/games/er/gram-3ae7c0fff4.mp3': {
+  'audio/games/er/gram-3ae7c0fff4-fankit-v1.mp3': {
     text: '失せろ、あんたの言うことなんか聞いてる暇はないから。',
     reading: 'うせろ、あんたの いうことなんか きいてる ひまは ないから。',
     kana: "ウ'セロ、ア'ンタノ/イ'ウ/コト'ナンカ/キイテ'ル/ヒマワナイ'カラ",
@@ -702,7 +702,7 @@ export const AUDIO_PROSODY = {
       'T65：引擎把暇誤讀為いとま；口語讀ひま。改用讀音文字的引擎查詢（含其句界與重音）。屬教學朗讀，未模仿原配音。',
     reference: 'voicevox',
   },
-  'audio/games/er/gram-9a26a92e3f.mp3': {
+  'audio/games/er/gram-9a26a92e3f-fankit-v1.mp3': {
     text: '火災に気をつけてください。あとは私が何とかしますから。',
     reading: 'かさいに きを つけてください。あとは わたしが なんとか しますから。',
     kana: "カ'/サ'イニ/キ'オ/_ツケ'テ/クダサ'イ、ア'トワ/ワタシガ'/ナ'ントカ/シマ'_スカラ",
@@ -718,7 +718,7 @@ export const AUDIO_PROSODY = {
       'T65：引擎把何でも誤讀為なにでも；應讀なんでも。改用讀音文字的引擎查詢（含其句界與重音）。屬教學朗讀，未模仿原配音。',
     reference: 'voicevox',
   },
-  'audio/games/er/gram-d785c46355.mp3': {
+  'audio/games/er/gram-d785c46355-fankit-v1.mp3': {
     text: '蝶々を追いかけているの。',
     reading: 'ちょうちょを おいかけて いるの。',
     kana: "チョ'オチョオ/オイカケ'テ/イル'ノ",
@@ -750,7 +750,7 @@ export const AUDIO_PROSODY = {
       'T65：引擎把何だ誤讀為なにだ；應讀なんだ。改用讀音文字的引擎查詢（含其句界與重音）。屬教學朗讀，未模仿原配音。',
     reference: 'voicevox',
   },
-  'audio/games/er/gram-78e149f0af.mp3': {
+  'audio/games/er/gram-78e149f0af-fankit-v1.mp3': {
     text: 'んじゃ、金を稼ぎに行くか。',
     reading: 'んじゃ、かねを かせぎに いくか。',
     kana: "ンジャ'、カネオ'/カセ'ギニ/イ'クカ",
