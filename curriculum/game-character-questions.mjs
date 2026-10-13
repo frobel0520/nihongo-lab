@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:emilie:join": [
+  "今天有點困擾。",
+  "我第一次來這裡。"
+],
+"genshin:emilie:skill": [
+  "清掃已經結束了。",
+  "開始進行調查。"
+],
+"genshin:emilie:burst": [
+  "請把霧聚集起來。",
+  "化作花朵綻放吧。"
+],
+"genshin:eula:join": [
+  "計畫還沒決定嗎？",
+  "計畫已經結束了嗎？"
+],
+"genshin:eula:skill": [
+  "請閉上眼睛。",
+  "用耳朵換取耳朵。"
+],
+"genshin:eula:burst": [
+  "像冰一樣平靜下來吧。",
+  "像風一樣奔跑吧。"
+],
+"genshin:faruzan:join": [
+  "這是第一次活動筋骨。",
+  "我不想再活動筋骨了。"
+],
+"genshin:faruzan:skill": [
+  "不後悔也沒有關係。",
+  "現在開始還太早。"
+],
+"genshin:faruzan:burst": [
+  "真理永遠不變。",
+  "循環並不是真理。"
+],
+
 "genshin:cyno:join": [
   "我會放棄努力。",
   "先等別人幫我。"

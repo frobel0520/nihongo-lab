@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:emilie:join": {
+  "voicelineId": 99065,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_emelie_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:emilie:skill": {
+  "voicelineId": 99047,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_emelie/vo_emelie_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:emilie:burst": {
+  "voicelineId": 99049,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_emelie/vo_emelie_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:eula:join": {
+  "voicelineId": 39082,
+  "sourceTitle": "チーム加入·3",
+  "voicefile": "VO_teamJoin/vo_eula_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:eula:skill": {
+  "voicelineId": 39061,
+  "sourceTitle": "元素スキル·6",
+  "voicefile": "VO_gameplay/VO_eula/vo_eula_battle_skill1_06",
+  "variant": "預設造型"
+},
+"genshin:eula:burst": {
+  "voicelineId": 39062,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_eula/vo_eula_battle_skill3_01",
+  "variant": "預設造型"
+},
+"genshin:faruzan:join": {
+  "voicelineId": 76066,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_faruzan_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:faruzan:skill": {
+  "voicelineId": 76046,
+  "sourceTitle": "元素スキル·1",
+  "voicefile": "VO_gameplay/VO_faruzan/vo_faruzan_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:faruzan:burst": {
+  "voicelineId": 76051,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_faruzan/vo_faruzan_battle_skill3_03",
+  "variant": "預設造型"
+},
+
 "genshin:cyno:join": {
   "voicelineId": 71072,
   "sourceTitle": "チーム加入·1",
