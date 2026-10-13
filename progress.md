@@ -355,3 +355,7 @@ T71已部署：`20c5a11`／PR #62，[GitHub Actions 38356514122](https://github.
 
 
 T72已部署：`b57c689`／PR #64，[GitHub Actions 38370067179](https://github.com/frobel0520/nihongo-lab/actions/runs/38370067179)成功；正式站JS與14個新音檔逐位元組一致。原神12位35句，隱私複查結果見release-audit.md。
+
+## 2026-10-13 T73 原神三角色教材
+
+新增香菱、行秋、菲謝爾各編隊加入／技能／爆發短句，共9句VOICEVOX；原神15位44句、109筆待教材。來源逐句核對，修正皇女／石的朗讀，舊35句與ER逐欄保持。typecheck、258 tests、lint、正式build、9音檔解碼與手機／離線實際播放作答通過；沒有新增隱私掃描發現。部署結果另記release-audit.md。

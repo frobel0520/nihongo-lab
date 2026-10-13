@@ -273,3 +273,7 @@ game-character-study.mjs增加三角色的9段短句；genshin-quote-sources.mjs
 ## T72 原神新增資料（2026-10-13）
 
 `game-character-study.mjs`新增14個LineSpec，`genshin-quote-sources.mjs`保留逐句固定版本voicelineId／title／voicefile，`game-character-questions.mjs`新增大意干擾項，`ruby-notes.mjs`新增17筆逐字檢閱。鍾離使用ryusei、納西妲hau、砂糖sayo；舊角色聲線保持。天道朗讀採てんどう，首片語取Kanjium允許的1型並保留原查詢其餘句界與重音。原神scope依實際角色與句數產生，避免舊文字仍寫六位12句；資料入口仍為lessons.mjs。
+
+## T73 原神資料與朗讀（2026-10-13）
+
+game-character-study.mjs新增9個LineSpec，quote-sources保留語音識別與固定來源，questions及ruby-notes補解說與題目。香菱使用tsumugi、行秋nemo2、菲謝爾sayo；教材入口仍是lessons.mjs。皇女採こうじょ、石採いし，重音覆寫記錄來源與句界核對；不是原配音模仿。

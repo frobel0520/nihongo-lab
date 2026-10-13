@@ -1,6 +1,16 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+  'genshin:xiangling:join': ['我忘記帶食材了。', '請你把食材都買回來。'],
+  'genshin:xiangling:skill': ['料理時間已經結束了。', '現在沒有時間做料理。'],
+  'genshin:xiangling:burst': ['請師父教我新的招式。', '我不會使用師父的招式。'],
+  'genshin:xingqiu:join': ['雨水無法改變石頭。', '只有一次努力就能成功。'],
+  'genshin:xingqiu:skill': ['這把劍已經壞掉了。', '請把這把劍交給我。'],
+  'genshin:xingqiu:burst': ['詩已經消失不見了。', '不要讓詩變得華美。'],
+  'genshin:fischl:join': ['請告訴我皇女的名字。', '我會忘記皇女的名字。'],
+  'genshin:fischl:skill': ['奧茲，請藏好身影。', '奧茲已經離開了。'],
+  'genshin:fischl:burst': ['漆黑之翼啊，停止飛翔吧。', '晝夜已經恢復平靜了。'],
+
   'genshin:amber:burst': ['每次出手都失敗。', '要求大家停止射擊。'],
   'genshin:bennett:burst': ['大家都必須保護我。', '我不會保護任何人。'],
   'genshin:kaeya:join': ['對這件事毫無期待。', '要求對方不要期待。'],

@@ -8,6 +8,23 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+  'audio/games/genshin/gram-9c66cccf23.mp3': {
+    text: '皇女の名のもとに！',
+    reading: 'こうじょの なの もとに！',
+    kana: "コ'オジョノ/ナノ'/モト'ニ",
+    reason:
+      'T73：皇女採こうじょ，Kanjium記載1型；只修正原查詢おうじょ的首音，保留皇女の／名の／もとに的句界及下降位置。名採な，沿用原查詢，不模仿原配音。',
+    reference: 'kanjium',
+  },
+  'audio/games/genshin/gram-790186fc70.mp3': {
+    text: '雨垂れ石をも穿つ。',
+    reading: 'あまだれ いしをも うがつ。',
+    kana: "アマダレ'/イシ'オモ/ウガ'ツ",
+    reason:
+      'T73：石採いし，修正原查詢せき。依諺語的主語雨垂れ與賓語石をも分句，假名全文查詢確認各片語讀音；去掉空格產生的停頓，石的重音依詞典修正為2型，穿つ片語保持原查詢。雨垂れ0型、石2型、穿つ2型均與Kanjium相符；屬教材朗讀，未查證原配音重音。',
+    reference: 'kanjium',
+  },
+
   'audio/games/genshin/gram-b1d35981a8.mp3': {
     text: '天道、ここにあり。',
     reading: 'てんどう、ここに あり。',
