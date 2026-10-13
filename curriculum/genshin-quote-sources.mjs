@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:citlali:join": {
+  "voicelineId": 107067,
+  "sourceTitle": "チーム加入・3",
+  "voicefile": "VO_teamJoin/vo_citlali_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:citlali:skill": {
+  "voicelineId": 107043,
+  "sourceTitle": "元素スキル・1",
+  "voicefile": "VO_gameplay/VO_citlali/vo_citlali_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:citlali:burst": {
+  "voicelineId": 107049,
+  "sourceTitle": "元素爆発・1",
+  "voicefile": "VO_gameplay/VO_citlali/vo_citlali_battle_skill3_01",
+  "variant": "預設造型"
+},
+"genshin:clorinde:join": {
+  "voicelineId": 98068,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_clorinde_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:clorinde:skill": {
+  "voicelineId": 98050,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_clorinde/vo_clorinde_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:clorinde:burst": {
+  "voicelineId": 98052,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_clorinde/vo_clorinde_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:collei:join": {
+  "voicelineId": 67066,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_collei_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:collei:skill": {
+  "voicelineId": 67048,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_collei/vo_collei_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:collei:burst": {
+  "voicelineId": 67049,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_collei/vo_collei_battle_skill3_01",
+  "variant": "預設造型"
+},
+
 "genshin:chevreuse:join": {
   "voicelineId": 90067,
   "sourceTitle": "チーム加入·1",

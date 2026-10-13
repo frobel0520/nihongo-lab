@@ -297,3 +297,7 @@ game-character-study.mjs新增9個LineSpec，quote-sources保留語音識別與�
 ## T79 原神角色與來源
 
 夏沃蕾sayo、千織saehaku、重雲nemo2；各收錄一個固定版日文編隊加入、元素技能及元素爆發短句，對應source voicelineId／title／voicefile並附意思題。新增9個LineSpec及8筆解說讀音標記；VOICEVOX音檔、讀音及解說完成後仍由lessons.mjs作教材入口；原始來源全文不納入公開教材。
+
+## T80 原神角色與來源
+
+茜特菈莉sayo、克洛琳德saehaku、柯萊hau；固定版來源各取一個編隊加入／元素技能／元素爆發短句，保留voicelineId／sourceTitle／voicefile，新增9個LineSpec與大意選項、10筆解說及來源讀音標記。聲音為VOICEVOX自製朗讀，原配音和來源JSON不公開；教材仍由lessons.mjs匯出。
