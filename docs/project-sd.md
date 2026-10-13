@@ -277,3 +277,7 @@ game-character-study.mjs增加三角色的9段短句；genshin-quote-sources.mjs
 ## T73 原神資料與朗讀（2026-10-13）
 
 game-character-study.mjs新增9個LineSpec，quote-sources保留語音識別與固定來源，questions及ruby-notes補解說與題目。香菱使用tsumugi、行秋nemo2、菲謝爾sayo；教材入口仍是lessons.mjs。皇女採こうじょ、石採いし，重音覆寫記錄來源與句界核對；不是原配音模仿。
+
+## T74 長任務資料
+
+琴sayo、可莉hau、迪奧娜neko-vy，新增9個LineSpec與来源識別、大意干擾項及10筆解說／來源標題讀音。音檔透過發音／重音閘門；既有44句及ER逐欄保持。公開入口仍為lessons.mjs，機器來源全文及工作檔不發布。
