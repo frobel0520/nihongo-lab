@@ -697,4 +697,13 @@ T77已部署：功能commit `bb76666`、PR [#71](https://github.com/frobel0520/n
 - 阿蕾奇諾、夏洛蒂、恰斯卡各收錄編隊加入／元素技能／元素爆發一個實際短句，共9句及9個自製VOICEVOX MP3；原神30位89句、94位待教材，全遊戲335句。既有80句原神教材、永恆輪迴資料與學習識別逐欄保持。
 - 逐句對照固定版 `49a6544a6c6ae36089cb42fa591fc46f01de8bcf` 日文語音表及voicelineId/title/voicefile；愛諾語音表沒有可用行動短句、阿羅夏沒有日文語音表，兩者保持待收錄，未自行補寫作品台詞。未發布原配音或完整語音表。
 - 9個MP3全檔解碼、可聞訊號及僅encoder metadata驗證通過，共208,332 bytes。typecheck、43測試檔／258 tests、lint、正式base path build通過。375×667 Chromium逐句實測9句播放、答題後揭示原文／假名、角色音檔下載後離線重播，無水平溢位或頁面錯誤。
-- 隱私掃描208個追蹤文字檔及正式建置產物，無新增發現；唯一既有項為package-lock公開套件上游資訊，沒有設定可檢查的私人關鍵字規則。PR／部署結果與正式站位元組比對由下一批補記。
+- 隱私掃描208個追蹤文字檔及正式建置產物，無新增發現；唯一既有項為package-lock公開套件上游資訊，沒有設定可檢查的私人關鍵字規則。
+
+T78已部署：功能commit `f82d577`、PR [#72](https://github.com/frobel0520/nihongo-lab/pull/72)，[GitHub Actions 38394775506](https://github.com/frobel0520/nihongo-lab/actions/runs/38394775506)的check／deploy均Success。正式站 `index-NmSotvxy.js`（1,246,399 bytes）及9個新MP3（208,332 bytes）逐位元組匹配，HTTPS保留TLS驗證。原神30位89句；T79已接續。
+
+## 2026-10-13 T79 原神自動接續批次
+
+- 夏沃蕾、千織、重雲各收錄一個編隊加入／元素技能／元素爆發短句，共9句；固定版 `49a6544a6c6ae36089cb42fa591fc46f01de8bcf` 的來源文字、voicelineId、title、voicefile已逐句核對。原神33位98句、91位待教材，全遊戲344句。
+- 補齊讀音、繁中、解說、大意選項及8筆新增解說讀音標記。9個MP3全檔解碼、可聞訊號及僅encoder metadata驗證通過，共184,716 bytes；所有讀音通過VOICEVOX發音閘門。
+- typecheck、43測試檔／258 tests、lint、正式base path build通過。375×667 Chromium實測9句播放、答題後揭示原文／假名、情境切換及角色下載後離線重播，無水平溢位或頁面錯誤。PR check與部署待完成。
+- 隱私掃描208個追蹤文字檔及正式建置產物，沒有新增發現；唯一既有項為package-lock公開套件上游資訊，沒有設定可檢查的私人關鍵字規則。

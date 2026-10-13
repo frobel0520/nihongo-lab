@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:chevreuse:join": {
+  "voicelineId": 90067,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_chevreuse_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:chevreuse:skill": {
+  "voicelineId": 90050,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_chevreuse/vo_chevreuse_battle_skill1_02",
+  "variant": "預設造型"
+},
+"genshin:chevreuse:burst": {
+  "voicelineId": 90054,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_chevreuse/vo_chevreuse_battle_skill3_03",
+  "variant": "預設造型"
+},
+"genshin:chiori:join": {
+  "voicelineId": 94065,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_chiori_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:chiori:skill": {
+  "voicelineId": 94047,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_chiori/vo_chiori_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:chiori:burst": {
+  "voicelineId": 94048,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_chiori/vo_chiori_battle_skill3_01",
+  "variant": "預設造型"
+},
+"genshin:chongyun:join": {
+  "voicelineId": 22070,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_chongyun_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:chongyun:skill": {
+  "voicelineId": 22051,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_chongyun/vo_chongyun_battle_skill1_02",
+  "variant": "預設造型"
+},
+"genshin:chongyun:burst": {
+  "voicelineId": 22054,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_chongyun/vo_chongyun_battle_skill3_01",
+  "variant": "預設造型"
+},
+
 "genshin:arlecchino:join": {
   "voicelineId": 96071,
   "sourceTitle": "チーム加入·1",
