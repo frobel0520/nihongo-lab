@@ -688,4 +688,13 @@ T76已部署：功能commit `6032895`、PR [#70](https://github.com/frobel0520/n
 - 荒瀧一斗、白朮、坎蒂絲各收錄編隊加入／元素技能／元素爆發一個實際短句，共9句及9個自製VOICEVOX MP3；原神27位80句、97筆待教材，全遊戲326句。既有71句原神教材、永恆輪迴資料與學習識別逐欄保持。
 - 逐句對照固定版 `49a6544a6c6ae36089cb42fa591fc46f01de8bcf` 的日文語音表及voicelineId/title/voicefile；未發布原神原配音或完整語音庫。白朮「良薬は口に苦し」使用人工核對的ruby標記處理自動對齊歧義。
 - 9個MP3全檔解碼、可聞訊號及僅encoder metadata驗證通過，共212,652 bytes。typecheck、43測試檔／258 tests、lint、正式base path build通過。375×667 Chromium逐句實測9句播放、答題後揭示原文／假名、角色音檔下載後離線重播，無水平溢位或頁面錯誤。
-- 隱私掃描208個追蹤文字／建置檔案，無新增發現；唯一既有項為已核實的package-lock上游公開資訊，不是使用者或公司資料。部署commit與Actions結果由下一批更新本紀錄。
+- 隱私掃描208個追蹤文字／建置檔案，無新增發現；唯一既有項為已核實的package-lock上游公開資訊，不是使用者或公司資料。
+
+T77已部署：功能commit `bb76666`、PR [#71](https://github.com/frobel0520/nihongo-lab/pull/71)，[GitHub Actions 38391077563](https://github.com/frobel0520/nihongo-lab/actions/runs/38391077563)的check／deploy均Success。正式站 `index-Bx1nUGWo.js`（1,239,787 bytes）及9個新MP3（212,652 bytes）逐位元組匹配，HTTPS保留TLS驗證。原神27位80句；T78已接續。
+
+## 2026-10-13 T78 原神自動接續批次
+
+- 阿蕾奇諾、夏洛蒂、恰斯卡各收錄編隊加入／元素技能／元素爆發一個實際短句，共9句及9個自製VOICEVOX MP3；原神30位89句、94位待教材，全遊戲335句。既有80句原神教材、永恆輪迴資料與學習識別逐欄保持。
+- 逐句對照固定版 `49a6544a6c6ae36089cb42fa591fc46f01de8bcf` 日文語音表及voicelineId/title/voicefile；愛諾語音表沒有可用行動短句、阿羅夏沒有日文語音表，兩者保持待收錄，未自行補寫作品台詞。未發布原配音或完整語音表。
+- 9個MP3全檔解碼、可聞訊號及僅encoder metadata驗證通過，共208,332 bytes。typecheck、43測試檔／258 tests、lint、正式base path build通過。375×667 Chromium逐句實測9句播放、答題後揭示原文／假名、角色音檔下載後離線重播，無水平溢位或頁面錯誤。
+- 隱私掃描208個追蹤文字檔及正式建置產物，無新增發現；唯一既有項為package-lock公開套件上游資訊，沒有設定可檢查的私人關鍵字規則。PR／部署結果與正式站位元組比對由下一批補記。

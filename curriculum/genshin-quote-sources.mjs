@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:arlecchino:join": {
+  "voicelineId": 96071,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_arlecchino_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:arlecchino:skill": {
+  "voicelineId": 96052,
+  "sourceTitle": "元素スキル·1",
+  "voicefile": "VO_gameplay/VO_arlecchino/vo_arlecchino_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:arlecchino:burst": {
+  "voicelineId": 96057,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_arlecchino/vo_arlecchino_battle_skill3_03",
+  "variant": "預設造型"
+},
+"genshin:charlotte:join": {
+  "voicelineId": 88067,
+  "sourceTitle": "チーム加入·3",
+  "voicefile": "VO_teamJoin/vo_charlotte_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:charlotte:skill": {
+  "voicelineId": 88047,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_charlotte/vo_charlotte_battle_skill1_02",
+  "variant": "預設造型"
+},
+"genshin:charlotte:burst": {
+  "voicelineId": 88051,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_charlotte/vo_charlotte_battle_skill3_03",
+  "variant": "預設造型"
+},
+"genshin:chasca:join": {
+  "voicelineId": 104065,
+  "sourceTitle": "チーム加入・3",
+  "voicefile": "VO_teamJoin/vo_chasca_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:chasca:skill": {
+  "voicelineId": 104046,
+  "sourceTitle": "元素スキル・3",
+  "voicefile": "VO_gameplay/Vo_chasca/vo_chasca_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:chasca:burst": {
+  "voicelineId": 104049,
+  "sourceTitle": "元素爆発・3",
+  "voicefile": "VO_gameplay/Vo_chasca/vo_chasca_battle_skill3_03",
+  "variant": "預設造型"
+},
+
   'genshin:aratakiitto:join': {
     voicelineId: 57069,
     sourceTitle: 'チーム加入·3',

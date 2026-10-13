@@ -289,3 +289,7 @@ game-character-study.mjs新增9個LineSpec，quote-sources保留語音識別與�
 ## T76 原神角色與來源
 
 旅行者nemo2、艾爾海森saehaku、亞蘿伊sayo。新增9個LineSpec、固定來源識別及意思題；旅行者「風と共に去れ」讀音邊界經對齊檢查。入口仍由lessons.mjs匯出。
+
+## T78 原神角色與來源
+
+阿蕾奇諾sayo、夏洛蒂tsumugi、恰斯卡sayo；`game-character-study.mjs`新增9個LineSpec，`genshin-quote-sources.mjs`記錄固定版本的voicelineId／sourceTitle／voicefile，`game-character-questions.mjs`新增大意選項，`ruby-notes.mjs`審閱新增說明與來源標題。音檔由VOICEVOX合成，來源JSON及原配音不納入公開教材；入口仍由lessons.mjs匯出。愛諾來源沒有可用行動語音短句，阿羅夏沒有日文語音來源，故不建立LineSpec。
