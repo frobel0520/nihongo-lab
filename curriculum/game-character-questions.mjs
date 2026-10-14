@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:yoimiya:join": [
+  "祭典已經結束了嗎？",
+  "不准再辦祭典了。"
+],
+"genshin:yoimiya:skill": [
+  "把火升大一點～",
+  "火已經全熄了～"
+],
+"genshin:yoimiya:burst": [
+  "祭典取消啦！",
+  "祭典結束啦！"
+],
+"genshin:yumemizukimizuki:join": [
+  "看診時間已經取消了。",
+  "現在是休息時間。"
+],
+"genshin:yumemizukimizuki:skill": [
+  "你笑得很開心喔。",
+  "你把臉遮住了喔。"
+],
+"genshin:yumemizukimizuki:burst": [
+  "美夢啊，快留下來……",
+  "惡夢啊，快回來吧……"
+],
+"genshin:yunjin:join": [
+  "今天的戲已經演完了嗎？",
+  "今天誰不來看戲呢？"
+],
+"genshin:yunjin:skill": [
+  "旗幟啊，離開！",
+  "旗幟已不在此！"
+],
+"genshin:yunjin:burst": [
+  "違反命令！",
+  "取消命令！"
+],
+
 "genshin:yanfei:join": [
   "請交給別人。",
   "我無法接受委託。"

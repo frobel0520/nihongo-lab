@@ -8,6 +8,14 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+"audio/games/genshin/gram-40e0ca96c9.mp3": {
+  "text": "命に応えよ！",
+  "reading": "めいに こたえよ！",
+  "kana": "メ'イニ/コタ'エヨ",
+  "reason": "T101：此處命是命令，採めい，修正引擎的いのち；使用校正讀音查詢的兩個片語與下降位置，屬教材朗讀，不推定原配音。",
+  "reference": "voicevox"
+},
+
 "audio/games/genshin/gram-e416a2a01e.mp3": {
   "text": "ヨォーヨがいるから、心配しなくていいよ～",
   "reading": "ヨォーヨが いるから、しんぱいしなくて いいよ～",

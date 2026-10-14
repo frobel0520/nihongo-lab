@@ -36,8 +36,8 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
     gameCharacterStudy.map((g) => g.id),
     ['er', 'genshin'],
   );
-  // ER 55句官方選角與191句逐字稿，另收錄原神277句。
-  assert.equal(lines.length, 523);
+  // ER 55句官方選角與191句逐字稿，另收錄原神286句。
+  assert.equal(lines.length, 532);
   assert.equal(new Set(lines.map((l) => l.id)).size, lines.length);
   assert.equal(new Set(lines.map(gameRecordId)).size, lines.length);
   for (const game of gameCharacterStudy)
@@ -108,7 +108,7 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
     nonverbal: 55,
     pending: 0,
   });
-  assert.equal(lines.filter((l) => l.category === '編隊加入').length, 93);
+  assert.equal(lines.filter((l) => l.category === '編隊加入').length, 96);
 });
 
 test('角色及情境篩選不混遊戲，未知分類安全回空；選角與編隊分離', () => {
