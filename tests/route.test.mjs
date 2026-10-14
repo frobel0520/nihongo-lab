@@ -58,3 +58,15 @@ test('課程方向可直接開啟、重載，壞路徑退回首頁', async () =>
     assert.deepEqual(parseRoute(hash), { view: 'lessons' });
   }
 });
+
+test('返回鍵：上一頁就是返回目標才退回歷史，直接開網址或從別頁進來則換頁', async () => {
+  const { backNavigation, stageHash } = await import('../lib/route.mjs');
+  assert.equal(backNavigation(null, stageHash('stage-1')), 'replace');
+  assert.equal(
+    backNavigation(stageHash('stage-1'), stageHash('stage-1')),
+    'back',
+  );
+  assert.equal(backNavigation(viewHash('srs'), stageHash('stage-1')), 'replace');
+  // 首頁的空 hash 與 #/ 視為同一頁。
+  assert.equal(backNavigation('', viewHash('lessons')), 'back');
+});

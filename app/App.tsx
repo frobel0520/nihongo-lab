@@ -1,7 +1,19 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type MouseEvent,
+  type ReactNode,
+} from 'react';
 import { stages } from '../curriculum/lessons.mjs';
 import type { DictationMode } from '../lib/prefs.mjs';
-import { parseRoute, stageHash, viewHash, type ViewId } from '../lib/route.mjs';
+import {
+  backNavigation,
+  parseRoute,
+  stageHash,
+  viewHash,
+  type ViewId,
+} from '../lib/route.mjs';
 import {
   BackIcon,
   BookIcon,
@@ -45,6 +57,8 @@ export function App() {
   const sync = useSync({ progress, getProgress, update });
   const [prefs, setPrefs] = useState(loadPrefs);
   const { updated, dismiss: dismissUpdate, reload } = useSwUpdate();
+  // 上一頁的 hash：返回鍵據此決定退回歷史或換頁（見 lib/route.mjs backNavigation）。
+  const previousHash = useRef<string | null>(null);
 
   const setFurigana = (furigana: boolean) => {
     const next = { ...prefs, furigana };
@@ -58,7 +72,8 @@ export function App() {
   };
 
   useEffect(() => {
-    const onHashChange = () => {
+    const onHashChange = (event: HashChangeEvent) => {
+      previousHash.current = new URL(event.oldURL).hash;
       setRoute(parseRoute(window.location.hash));
     };
     window.addEventListener('hashchange', onHashChange);
@@ -81,6 +96,16 @@ export function App() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [routeKey]);
 
+  const backTarget = parentStage
+    ? stageHash(parentStage.id)
+    : viewHash('lessons');
+  const goBack = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    if (backNavigation(previousHash.current, backTarget) === 'back')
+      window.history.back();
+    else window.location.replace(backTarget);
+  };
+
   const title =
     (route.view === 'games'
       ? '遊戲角色語音'
@@ -96,7 +121,8 @@ export function App() {
           <a
             className="icon-btn"
             aria-label={lesson ? '返回課程清單' : '返回課程首頁'}
-            href={parentStage ? stageHash(parentStage.id) : viewHash('lessons')}
+            href={backTarget}
+            onClick={goBack}
           >
             <BackIcon />
           </a>
