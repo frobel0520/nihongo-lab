@@ -2,7 +2,7 @@
 
 ## 最新狀態：2026-10-14 T120 效能 Release Gate（PR 待合併）
 
-新增 `npm run perf:bundle`／`perf:logic`／`perf:page`，門檻在 `scripts/perf-budget.mjs`，CI 每次 build 後檢查 bundle（門檻基準 +20%，使用者選定），操作計算與頁面載入發布前本機跑。首輪結果：bundle 與操作計算通過；手機情境冷啟動 LCP p95 本機約 4.0 秒、正式站 4.9 秒，未達 2.5 秒門檻，Release Gate 記為未通過，暖啟動、TBT、單課下載通過。門檻值待使用者確認；縮小首次載入另開 Task。
+新增 `npm run perf:bundle`／`perf:logic`／`perf:page`，門檻在 `scripts/perf-budget.mjs`，CI 每次 build 後檢查 bundle（門檻基準 +20%，使用者選定），操作計算與頁面載入發布前本機跑。首輪結果：bundle 與操作計算通過；手機情境冷啟動 LCP p95 本機約 4.0 秒、正式站 4.9 秒，未達 2.5 秒門檻，Release Gate 記為未通過，暖啟動、TBT、單課下載通過。門檻值已確認沿用；縮小首次載入另開 T121（待開始）。
 
 ## 最新狀態：2026-10-14 T119 code review 修正（已合併 `fe6a5a4`；T120 效能 Gate 已開立待開始）
 
