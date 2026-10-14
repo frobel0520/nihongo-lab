@@ -8,6 +8,121 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+  "audio/stage-1/general-listening-24/gram-b3028508bc.mp3": {
+    "text": "店が開いているかどうか調べる。",
+    "reading": "みせが あいているかどうか しらべる。",
+    "kana": "ミセ'ガ/ア'イテ/イル'カ/ド'オカ/シラベ'ル",
+    "reason": "T107：依教材語義校正描いて的かいて、開いてる的あいてる、降りそう的ふりそう、山道的やまみち或肚子空いて的すいて；保留其他片語原查詢重音，校正片語採已核對讀音，不推定真人演技。",
+    "reference": "voicevox"
+  },
+  "audio/stage-1/general-listening-24/dlg-9bd9364ff0.mp3": {
+    "text": "明日、店が開いているかどうかわかる？",
+    "reading": "あした、みせが あいているかどうか わかる？",
+    "kana": "ア_シタ'、ミセ'ガ/ア'イテ/イル'カ/ド'オカ/ワカ'ル？",
+    "reason": "T107：依教材語義校正描いて的かいて、開いてる的あいてる、降りそう的ふりそう、山道的やまみち或肚子空いて的すいて；保留其他片語原查詢重音，校正片語採已核對讀音，不推定真人演技。",
+    "reference": "voicevox"
+  },
+  "audio/stage-1/general-listening-28/gram-062a638eb3.mp3": {
+    "text": "お腹はあまり空いていない。",
+    "reading": "おなかは あまり すいていない。",
+    "kana": "オナカワ'/アマリ'/スイテ'/イナイ'",
+    "reason": "T107：依教材語義校正描いて的かいて、開いてる的あいてる、降りそう的ふりそう、山道的やまみち或肚子空いて的すいて；保留其他片語原查詢重音，校正片語採已核對讀音，不推定真人演技。",
+    "reference": "voicevox"
+  },
+  "audio/stage-1/general-listening-28/dlg-8e6da7161f.mp3": {
+    "text": "私はあまりお腹が空いてない。",
+    "reading": "わたしは あまり おなかが すいてない。",
+    "kana": "ワタシワ'/アマリ'/オナカガ'/スイテナイ'",
+    "reason": "T107：依教材語義校正描いて的かいて、開いてる的あいてる、降りそう的ふりそう、山道的やまみち或肚子空いて的すいて；保留其他片語原查詢重音，校正片語採已核對讀音，不推定真人演技。",
+    "reference": "voicevox"
+  },
+  "audio/stage-1/general-listening-30/vocab-1fd9467c94.mp3": {
+    "text": "港町",
+    "reading": "みなとまち",
+    "kana": "ミナト'マチ",
+    "reason": "T107：港町採みなとまち，修正みなとちょう；依Kanjium採重音型3。",
+    "reference": "kanjium"
+  },
+
+  "audio/stage-1/general-listening-17/gram-2e8fa7dc8e.mp3": {
+    "text": "友達に地図を描いてもらう。",
+    "reading": "ともだちに ちずを かいてもらう。",
+    "kana": "トモダチニ'/チ'ズオ/カ'イテ/モラウ'",
+    "reason": "T107：依教材語義校正描いて的かいて、開いてる的あいてる、降りそう的ふりそう或山道的やまみち；保留其他片語原查詢重音，校正片語採已核對讀音，不推定真人演技。",
+    "reference": "voicevox"
+  },
+  "audio/stage-1/general-listening-19/vocab-341e3b41a4.mp3": {
+    "text": "開く",
+    "reading": "あく",
+    "kana": "アク'",
+    "reason": "T107：開く表示開著，採あく，修正ひらく；依Kanjium採平板型0。",
+    "reference": "kanjium"
+  },
+  "audio/stage-1/general-listening-19/dlg-01b3eb383a.mp3": {
+    "text": "隣町の店なら開いてるかもしれない。",
+    "reading": "となりまちの みせなら あいてるかもしれない。",
+    "kana": "トナリ'マチノ/ミセ'ナラ/アイテ'ルカモ/シレナイ'",
+    "reason": "T107：依教材語義校正描いて的かいて、開いてる的あいてる、降りそう的ふりそう或山道的やまみち；保留其他片語原查詢重音，校正片語採已核對讀音，不推定真人演技。",
+    "reference": "voicevox"
+  },
+  "audio/stage-1/general-listening-21/vocab-5723d0ebe5.mp3": {
+    "text": "山道",
+    "reading": "やまみち",
+    "kana": "ヤマ'ミチ",
+    "reason": "T107：山道表示山上的道路，採やまみち，修正さんどう；依Kanjium採重音型2。",
+    "reference": "kanjium"
+  },
+  "audio/stage-1/general-listening-21/gram-bf0f7f1616.mp3": {
+    "text": "雨が降りそうだ。",
+    "reading": "あめが ふりそうだ。",
+    "kana": "ア'メガ/フリ'ソオダ",
+    "reason": "T107：依教材語義校正描いて的かいて、開いてる的あいてる、降りそう的ふりそう或山道的やまみち；保留其他片語原查詢重音，校正片語採已核對讀音，不推定真人演技。",
+    "reference": "voicevox"
+  },
+  "audio/stage-1/general-listening-21/dlg-a63cb0c5c2.mp3": {
+    "text": "雲が暗いね。雨が降りそうだ。",
+    "reading": "くもが くらいね。あめが ふりそうだ。",
+    "kana": "ク'モガ/クライネ'、ア'メガ/フリ'ソオダ",
+    "reason": "T107：依教材語義校正描いて的かいて、開いてる的あいてる、降りそう的ふりそう或山道的やまみち；保留其他片語原查詢重音，校正片語採已核對讀音，不推定真人演技。",
+    "reference": "voicevox"
+  },
+  "audio/stage-1/general-listening-21/dlg-60e0284499.mp3": {
+    "text": "山道は危険かもしれないよ。",
+    "reading": "やまみちは きけんかもしれないよ。",
+    "kana": "ヤマ'ミチワ/_キケンカ'モ/シレナイヨ'",
+    "reason": "T107：依教材語義校正描いて的かいて、開いてる的あいてる、降りそう的ふりそう或山道的やまみち；保留其他片語原查詢重音，校正片語採已核對讀音，不推定真人演技。",
+    "reference": "voicevox"
+  },
+  "audio/stage-1/general-listening-22/gram-52ba64cb61.mp3": {
+    "text": "彼は「まだ開いてる」って言ってた。",
+    "reading": "かれは「まだ あいてる」って いってた。",
+    "kana": "カ'レワ、マ'ダ/アイテ'ル、ッテ'/イッテタ'",
+    "reason": "T107：依教材語義校正描いて的かいて、開いてる的あいてる、降りそう的ふりそう或山道的やまみち；保留其他片語原查詢重音，校正片語採已核對讀音，不推定真人演技。",
+    "reference": "voicevox"
+  },
+
+  "audio/stage-1/general-listening-12/dlg-d489f7bb47.mp3": {
+    "text": "受付はまだ開いてる？",
+    "reading": "うけつけは まだ あいてる？",
+    "kana": "ウケ_ツケワ'/マ'ダ/アイテ'ル？",
+    "reason": "T107：此處問櫃檯是否仍開著，開いてる讀あいてる，修正引擎的ひらいてる；依校正查詢保留問句與句界，不宣稱真人演技。",
+    "reference": "voicevox"
+  },
+  "audio/stage-1/general-listening-15/vocab-6b22e3aee3.mp3": {
+    "text": "破れる",
+    "reading": "やぶれる",
+    "kana": "ヤブレ'ル",
+    "reason": "T107：破れる表示破掉，讀やぶれる，修正引擎的われる；依Kanjium採重音型3。",
+    "reference": "kanjium"
+  },
+  "audio/stage-1/general-listening-15/vocab-e6aa87a27e.mp3": {
+    "text": "汚す",
+    "reading": "よごす",
+    "kana": "ヨゴス'",
+    "reason": "T107：汚す表示弄髒，讀よごす，修正引擎的けがす；依Kanjium採平板型0。",
+    "reference": "kanjium"
+  },
+
   "audio/stage-1/general-listening-08/vocab-78f293b15a.mp3": {
     "text": "空",
     "reading": "から",

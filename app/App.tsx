@@ -22,6 +22,9 @@ import { SettingsView } from './views/SettingsView';
 import { ShadowingView } from './views/ShadowingView';
 import { GameStudyView } from './views/GameStudyView';
 import { SrsView } from './views/SrsView';
+import { STUDY_CATEGORIES } from '../lib/study-categories.mjs';
+import { STUDY_CATALOG } from '../lib/study-catalog.mjs';
+import { StudyCategoryPicker } from './components/StudyCategoryPicker';
 
 const APP_NAME = 'かなの日本語';
 
@@ -69,7 +72,9 @@ export function App() {
   const stage = stages.find((s) => s.id === route.stageId);
   const parentStage =
     lesson && stages.find((s) => s.lessons.some((l) => l.id === lesson.id));
-  const routeKey = `${route.view}/${stage?.id ?? ''}/${lesson?.id ?? ''}/${route.srsMode ?? ''}/${route.gameId ?? ''}/${route.characterId ?? ''}`;
+  const category = STUDY_CATEGORIES.find((c) => c.id === route.category);
+  const catalog = category ? STUDY_CATALOG[category.id] : undefined;
+  const routeKey = `${route.view}/${category?.id ?? ''}/${stage?.id ?? ''}/${lesson?.id ?? ''}/${route.srsMode ?? ''}/${route.gameId ?? ''}/${route.characterId ?? ''}`;
 
   // 換頁時回到頁首，不停在上一頁滑到一半的位置。
   useEffect(() => {
@@ -102,7 +107,7 @@ export function App() {
       </header>
 
       <main
-        className={`screen${route.view === 'dictation' ? ' dictation-page' : ''}`}
+        className={`screen${route.view === 'dictation' && catalog ? ' dictation-page' : ''}`}
         key={routeKey}
       >
         {updated && (
@@ -166,20 +171,47 @@ export function App() {
             update={update}
           />
         )}
-        {route.view === 'srs' && (
+        {['srs', 'dictation', 'shadowing'].includes(route.view) &&
+          (category ? (
+            <section className="study-context" aria-label="目前教材">
+              <div className="row">
+                <strong>{category.title}</strong>
+                <a className="btn" href={viewHash(route.view)}>
+                  更換教材類別
+                </a>
+              </div>
+              {category.id === 'games' && route.view === 'srs' && (
+                <p className="muted">
+                  本類別使用角色短台詞卡，練習原句與意思。
+                </p>
+              )}
+            </section>
+          ) : (
+            <StudyCategoryPicker
+              view={route.view}
+              mode={route.srsMode}
+              progress={progress}
+            />
+          ))}
+        {route.view === 'srs' && catalog && category && (
           <SrsView
             progress={progress}
             update={update}
             mode={route.srsMode ?? 'review'}
+            cards={catalog.cards}
+            categoryId={category.id}
           />
         )}
-        {route.view === 'shadowing' && <ShadowingView />}
-        {route.view === 'dictation' && (
+        {route.view === 'shadowing' && catalog && (
+          <ShadowingView sentences={catalog.sentences} />
+        )}
+        {route.view === 'dictation' && catalog && (
           <DictationView
             progress={progress}
             update={update}
             mode={prefs.dictationMode}
             setMode={setDictationMode}
+            sentences={catalog.sentences}
           />
         )}
         {route.view === 'settings' && (

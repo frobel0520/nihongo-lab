@@ -52,6 +52,27 @@ import day31 from './days/day31.mjs';
 import day32 from './days/day32.mjs';
 import day33 from './days/day33.mjs';
 import day34 from './days/day34.mjs';
+import day35 from './days/day35.mjs';
+import day36 from './days/day36.mjs';
+import day37 from './days/day37.mjs';
+import day38 from './days/day38.mjs';
+import day39 from './days/day39.mjs';
+import day40 from './days/day40.mjs';
+import day41 from './days/day41.mjs';
+import day42 from './days/day42.mjs';
+import day43 from './days/day43.mjs';
+import day44 from './days/day44.mjs';
+import day45 from './days/day45.mjs';
+import day46 from './days/day46.mjs';
+import day47 from './days/day47.mjs';
+import day48 from './days/day48.mjs';
+import day49 from './days/day49.mjs';
+import day50 from './days/day50.mjs';
+import day51 from './days/day51.mjs';
+import day52 from './days/day52.mjs';
+import day53 from './days/day53.mjs';
+import day54 from './days/day54.mjs';
+import day55 from './days/day55.mjs';
 import { buildAnimeLessons } from './anime-training.mjs';
 import { expandedAnimeQuotes } from './anime-quotes-expansion.mjs';
 import { animeQuotes100 } from './anime-quotes-100.mjs';
@@ -986,7 +1007,7 @@ for (const quote of quotes.quotes ?? []) {
 /** @type {Stage[]} */
 export const stages = [
   { id: 'stage-0', title: '第 0 階段：N5 復健', lessons: [day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11, day12, day13, day14, day15, day16, day17, day18, day19, day20, day21, day22, day23, day24, day25] },
-  { id: 'stage-1', title: '第 1 階段：動漫／遊戲通用聽解（初版）', lessons: [day26, day27, day28, day29, day30, day31, day32, day33, day34] },
+  { id: 'stage-1', title: '第 1 階段：動漫／遊戲通用聽解（前30課）', lessons: [day26, day27, day28, day29, day30, day31, day32, day33, day34, day35, day36, day37, day38, day39, day40, day41, day42, day43, day44, day45, day46, day47, day48, day49, day50, day51, day52, day53, day54, day55] },
   { id: 'stage-2', title: '第 2 階段：口語與動畫日文', lessons: [...buildAnimeLessons(quotes.quotes ?? []), spoken, quotes] },
   { id: 'stage-3', title: '第 3 階段：N3 到 N1', lessons: [] },
 ];

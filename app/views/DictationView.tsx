@@ -5,9 +5,7 @@ import {
   type FormEvent,
   type KeyboardEvent,
 } from 'react';
-import { stages } from '../../curriculum/lessons.mjs';
 import {
-  buildSentences,
   compareDictation,
   type DictationResult,
   type Mark,
@@ -22,8 +20,6 @@ import { CheckIcon, CloseIcon, NextIcon, PrevIcon } from '../components/Icons';
 import { ProgressBar } from '../components/ProgressBar';
 import { Ruby, RubyText, useRuby } from '../components/Ruby';
 import { useSwipeNavigation } from '../lib/useSwipeNavigation';
-
-const SENTENCES = buildSentences(stages);
 
 function Marks({ marks }: { marks: Mark[] }) {
   return (
@@ -79,12 +75,15 @@ export function DictationView({
   update,
   mode,
   setMode,
+  sentences,
 }: {
   progress: Progress;
   update: (change: (prev: Progress) => Progress) => void;
   mode: DictationMode;
   setMode: (mode: DictationMode) => void;
+  sentences: Sentence[];
 }) {
+  const SENTENCES = sentences;
   // 進入畫面時從第一句還沒通過的開始；全部通過就從頭。
   const [start] = useState(() => {
     const first = SENTENCES.findIndex((s) => !progress.dictation[s.id]?.passed);

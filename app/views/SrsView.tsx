@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { stages } from '../../curriculum/lessons.mjs';
 import { isInteractive, isTextEntry, type KeyTarget } from '../../lib/keys.mjs';
 import { recordReviewSequence, type Progress } from '../../lib/progress.mjs';
-import { srsHash, viewHash } from '../../lib/route.mjs';
+import { studyHash, viewHash } from '../../lib/route.mjs';
 import {
   applyGrade,
   baseState,
@@ -15,12 +14,12 @@ import {
   type Session,
 } from '../../lib/srs-session.mjs';
 import {
-  buildCards,
   buildDeck,
   daysUntilDue,
   scheduleSequence,
   summarize,
   toDateString,
+  type Card,
   type Grade,
   type SrsMode,
 } from '../../lib/srs.mjs';
@@ -34,8 +33,6 @@ import {
 import { ProgressBar } from '../components/ProgressBar';
 import { RubyText } from '../components/Ruby';
 import { useSwipeNavigation } from '../lib/useSwipeNavigation';
-
-const CARDS = buildCards(stages);
 
 // 評分：✕／✓ 圖示加文字；快捷鍵 1、2 依序對應。滑動只換卡。
 const GRADE_LABEL: Record<Grade, string> = {
@@ -71,7 +68,17 @@ function buzz() {
  * 單字卡分成兩區（T52）：複習（今天到期，含答「還不會」的）與新卡（還沒看過的），各自一輪。
  * 「還不會」的卡再多，也能直接切到新卡區，不會被擋住。
  */
-function ModeSwitch({ mode, due, fresh }: { mode: SrsMode; due: number; fresh: number }) {
+function ModeSwitch({
+  mode,
+  due,
+  fresh,
+  categoryId,
+}: {
+  mode: SrsMode;
+  due: number;
+  fresh: number;
+  categoryId: string;
+}) {
   const options: { id: SrsMode; label: string; count: number }[] = [
     { id: 'review', label: '複習', count: due },
     { id: 'new', label: '新卡', count: fresh },
@@ -86,7 +93,15 @@ function ModeSwitch({ mode, due, fresh }: { mode: SrsMode; due: number; fresh: n
             name="srs-mode"
             checked={mode === option.id}
             // 用 replace 換區：切換分區不該在返回鍵的歷史裡留一堆紀錄。
-            onChange={() => window.location.replace(srsHash(option.id))}
+            onChange={() =>
+              window.location.replace(
+                studyHash(
+                  'srs',
+                  categoryId,
+                  option.id === 'new' ? 'new' : undefined,
+                ),
+              )
+            }
           />
           <span>
             {option.label} {option.count}
@@ -101,11 +116,16 @@ export function SrsView({
   progress,
   update,
   mode,
+  cards,
+  categoryId,
 }: {
   progress: Progress;
   update: (change: (prev: Progress) => Progress) => void;
   mode: SrsMode;
+  cards: Card[];
+  categoryId: string;
 }) {
+  const CARDS = cards;
   // 日期每次渲染都重算：畫面停在單字卡過了午夜，評分與預告仍用「現在」的日期，不會排出偏一天的到期日。
   const today = toDateString();
   // 牌組只在進入畫面（或換區）時排一次；一輪的流程（上一張／下一張、評分後跳到哪一張）見 lib/srs-session.mjs。
@@ -133,7 +153,9 @@ export function SrsView({
     setSession(next);
     const card = currentCard(next);
     setRevealed(
-      card !== null && next.grades[card.id] !== undefined && !isRevisit(next, card),
+      card !== null &&
+        next.grades[card.id] !== undefined &&
+        !isRevisit(next, card),
     );
   };
   const swipe = useSwipeNavigation(
@@ -148,7 +170,9 @@ export function SrsView({
     const stamp = new Date().toISOString();
     // 這一輪這張卡依序的評分（繞回來再考是接在後面，回頭改是換掉最後一個），從這一輪之前的狀態依序排程。
     const grades = nextHistory(session, current, g);
-    update((prev) => recordReviewSequence(prev, current.id, baseOf, grades, day, stamp));
+    update((prev) =>
+      recordReviewSequence(prev, current.id, baseOf, grades, day, stamp),
+    );
     setReviewed((n) => n + 1);
     moveTo(applyGrade(session, g, progress.srs[current.id]));
     buzz();
@@ -186,46 +210,63 @@ export function SrsView({
     );
   }
 
-  const modeSwitch = <ModeSwitch mode={mode} due={stats.due} fresh={stats.fresh} />;
+  const modeSwitch = (
+    <ModeSwitch
+      mode={mode}
+      due={stats.due}
+      fresh={stats.fresh}
+      categoryId={categoryId}
+    />
+  );
 
   if (!current) {
     const other: SrsMode = mode === 'review' ? 'new' : 'review';
     const otherCount = other === 'new' ? stats.fresh : stats.due;
-    const emptyLabel = mode === 'review' ? '目前沒有要複習的卡片' : '新卡都看過了';
+    const emptyLabel =
+      mode === 'review' ? '目前沒有要複習的卡片' : '新卡都看過了';
     return (
       <>
         {modeSwitch}
-      <section className="card hero">
-        <p className="hero-label">{reviewed > 0 ? '完成！' : emptyLabel}</p>
-        <p className="hero-number">
-          {reviewed > 0 ? reviewed : stats.learned}
-          <small>{reviewed > 0 ? '次評分' : `/ ${stats.total} 張已學`}</small>
-        </p>
-        <p className="muted">
-          {reviewed > 0
-            ? `已學 ${stats.learned} / ${stats.total} 張。`
-            : mode === 'review'
-              ? '答「記得」的卡會在幾天後到期回到這裡；答「還不會」的今天就會出現在這裡。'
-              : '教材新增單字時，會出現在這裡。'}
-        </p>
-        {otherCount > 0 && (
-          <a className="btn primary big block" href={srsHash(other)}>
-            {other === 'new' ? `去學新卡（${otherCount} 張）` : `去複習（${otherCount} 張到期）`}
+        <section className="card hero">
+          <p className="hero-label">{reviewed > 0 ? '完成！' : emptyLabel}</p>
+          <p className="hero-number">
+            {reviewed > 0 ? reviewed : stats.learned}
+            <small>{reviewed > 0 ? '次評分' : `/ ${stats.total} 張已學`}</small>
+          </p>
+          <p className="muted">
+            {reviewed > 0
+              ? `已學 ${stats.learned} / ${stats.total} 張。`
+              : mode === 'review'
+                ? '答「記得」的卡會在幾天後到期回到這裡；答「還不會」的今天就會出現在這裡。'
+                : '教材新增單字時，會出現在這裡。'}
+          </p>
+          {otherCount > 0 && (
+            <a
+              className="btn primary big block"
+              href={studyHash(
+                'srs',
+                categoryId,
+                other === 'new' ? 'new' : undefined,
+              )}
+            >
+              {other === 'new'
+                ? `去學新卡（${otherCount} 張）`
+                : `去複習（${otherCount} 張到期）`}
+            </a>
+          )}
+          {total > 0 && (
+            <button
+              type="button"
+              className="btn big block"
+              onClick={() => moveTo(step(session, -1))}
+            >
+              回到最後一張
+            </button>
+          )}
+          <a className="btn big block" href={viewHash('lessons')}>
+            回課程
           </a>
-        )}
-        {total > 0 && (
-          <button
-            type="button"
-            className="btn big block"
-            onClick={() => moveTo(step(session, -1))}
-          >
-            回到最後一張
-          </button>
-        )}
-        <a className="btn big block" href={viewHash('lessons')}>
-          回課程
-        </a>
-      </section>
+        </section>
       </>
     );
   }

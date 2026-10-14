@@ -1522,3 +1522,10 @@ rt {
 .character-tile small { font-size: .75rem; }
 .portrait-source { display: inline-block; margin: 5px 10px 5px 0; }
 .empty-character-portrait { display: block; margin: 16px auto; object-fit: cover; object-position: center 20%; border-radius: 12px; }
+
+.study-context {
+  flex: none;
+}
+.study-context p {
+  margin-bottom: 0;
+}
