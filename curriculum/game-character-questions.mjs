@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:thoma:join": [
+  "這次什麼時候回來？",
+  "這次要帶多少東西？"
+],
+"genshin:thoma:skill": [
+  "把火點起來。",
+  "不用在意火勢。"
+],
+"genshin:thoma:burst": [
+  "請你保護我。",
+  "我不會留下來。"
+],
+"genshin:tighnari:join": [
+  "帶路的話請找別人。",
+  "我要你告訴我回程。"
+],
+"genshin:tighnari:skill": [
+  "看得很清楚吧？",
+  "不想看了吧？"
+],
+"genshin:tighnari:burst": [
+  "我聽不到聲音。",
+  "我正在發出聲音。"
+],
+"genshin:wanderer:join": [
+  "誰都可以吧？我很樂意。",
+  "我完全不能去，你找別人。"
+],
+"genshin:wanderer:skill": [
+  "沒有風！",
+  "風停了！"
+],
+"genshin:wanderer:burst": [
+  "超越所有限制。",
+  "請忘記自己的能力。"
+],
+
 "genshin:shikanoinheizou:join": [
   "先休息吧，搭檔。",
   "你自己去吧，搭檔。"

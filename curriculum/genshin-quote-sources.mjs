@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:thoma:join": {
+  "voicelineId": 50076,
+  "sourceTitle": "チーム加入·3",
+  "voicefile": "VO_teamJoin/vo_thoma_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:thoma:skill": {
+  "voicelineId": 50057,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_thoma/vo_thoma_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:thoma:burst": {
+  "voicelineId": 50060,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_thoma/vo_thoma_battle_skill3_03",
+  "variant": "預設造型"
+},
+"genshin:tighnari:join": {
+  "voicelineId": 69069,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_tighnari_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:tighnari:skill": {
+  "voicelineId": 69049,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_tighnari/vo_tighnari_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:tighnari:burst": {
+  "voicelineId": 69052,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_tighnari/vo_tighnari_battle_skill3_03",
+  "variant": "預設造型"
+},
+"genshin:wanderer:join": {
+  "voicelineId": 75083,
+  "sourceTitle": "チーム加入·3",
+  "voicefile": "VO_teamJoin/vo_wanderer_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:wanderer:skill": {
+  "voicelineId": 75052,
+  "sourceTitle": "元素スキル·1",
+  "voicefile": "VO_gameplay/VO_wanderer/vo_wanderer_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:wanderer:burst": {
+  "voicelineId": 75059,
+  "sourceTitle": "元素爆発·5",
+  "voicefile": "VO_gameplay/VO_wanderer/vo_wanderer_battle_skill3_05",
+  "variant": "預設造型"
+},
+
 "genshin:shikanoinheizou:join": {
   "voicelineId": 59064,
   "sourceTitle": "チーム加入·3",
