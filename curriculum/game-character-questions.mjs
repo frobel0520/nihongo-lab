@@ -1,6 +1,16 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:nefer:join": ["生意已經全部結束。","不准談任何事情。"],
+"genshin:nefer:skill": ["說謊完全沒問題。","所有話都是真的。"],
+"genshin:nefer:burst": ["把謎團藏起來。","謎團已經全部解開。"],
+"genshin:nicole:join": ["請你教我。","我不會告訴你。"],
+"genshin:nicole:skill": ["前進。","慶祝勝利。"],
+"genshin:nicole:burst": ["告訴所有人。","大家都已經知道。"],
+"genshin:odette:join": ["還沒有準備好。","不要做任何準備。"],
+"genshin:odette:skill": ["我已經回來了。","我不會再行動。"],
+"genshin:odette:burst": ["溫暖的旋律已停止。","把所有聲音忘掉。"],
+
 "genshin:lauma:join": ["別去有月光的地方。","已經離開月光下了。"],
 "genshin:lauma:skill": ["回來。","別動。"],
 "genshin:lauma:burst": ["只為自己祈禱。","不再祈禱。"],
