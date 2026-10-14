@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:qiqi:join": [
+  "筆記……忘了。",
+  "筆記……交給你。"
+],
+"genshin:qiqi:skill": [
+  "繼續前進。",
+  "不要回來。"
+],
+"genshin:qiqi:burst": [
+  "請休息，命令已經取消。",
+  "回去吧，我不再說話。"
+],
+"genshin:rosaria:join": [
+  "舊工作已完成了。",
+  "我不要再換工作。"
+],
+"genshin:rosaria:skill": [
+  "我原諒你！",
+  "可以通過！"
+],
+"genshin:rosaria:burst": [
+  "冷靜下來！",
+  "停止顫抖！"
+],
+"genshin:sangonomiyakokomi:join": [
+  "準備不足，先別出發。",
+  "大家已經抵達目的地。"
+],
+"genshin:sangonomiyakokomi:skill": [
+  "請保持警戒。",
+  "請不要打擾。"
+],
+"genshin:sangonomiyakokomi:burst": [
+  "海面的波浪！",
+  "深海的黑暗！"
+],
+
 "genshin:nilou:join": [
   "我什麼都不想做。",
   "你有沒有不能做的事？"

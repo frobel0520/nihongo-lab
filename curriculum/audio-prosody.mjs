@@ -8,6 +8,14 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+"audio/games/genshin/gram-c91fe6a9e1.mp3": {
+  "text": "聞き給え、ここにて命ずる。",
+  "reading": "ききたまえ、ここにて めいずる。",
+  "kana": "_キキタマ'エ、ココニ'テ/メエズル'",
+  "reason": "T94：聞き給え採ききたまえ，修正引擎的ききあたえ；合併聞き給え為一個命令片語，給え的下降位置沿用讀音校正查詢，其餘句界與重音保持原查詢，不宣稱原配音重音。",
+  "reference": "voicevox"
+},
+
 "audio/games/genshin/gram-499b3f8e4d.mp3": {
   "text": "注目～！君に幸あれ！",
   "reading": "ちゅうもく～！きみに さちあれ！",
