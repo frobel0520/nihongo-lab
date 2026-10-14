@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:kamisatoayato:join": [
+  "這是一項正式公務。",
+  "現在沒有任何表演。"
+],
+"genshin:kamisatoayato:skill": [
+  "劍影已經消失了。",
+  "請把劍交給我。"
+],
+"genshin:kamisatoayato:burst": [
+  "請更加激動一些。",
+  "現在就大聲叫喊吧。"
+],
+"genshin:kaveh:join": [
+  "這件事請你自己處理。",
+  "我不想接下這件事。"
+],
+"genshin:kaveh:skill": [
+  "列印！",
+  "刪除！"
+],
+"genshin:kaveh:burst": [
+  "工程已經完工了。",
+  "暫時不能施工。"
+],
+"genshin:kinich:join": [
+  "你必須自己完成。",
+  "我不會幫你處理。"
+],
+"genshin:kinich:skill": [
+  "退路仍然暢通。",
+  "隨時都能安全撤退。"
+],
+"genshin:kinich:burst": [
+  "踏上平安回家的路。",
+  "旅途已經結束了。"
+],
+
 "genshin:kachina:join": [
   "你先自己去吧。",
   "現在還不能出發。"

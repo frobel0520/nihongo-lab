@@ -771,3 +771,13 @@ T85已部署：PR [#79](https://github.com/frobel0520/nihongo-lab/pull/79)、合
 楓原萬葉文語短句的「行く」教材採「ゆく」，加入讀音校正後的VOICEVOX重音與句界覆寫；「共」保留固定來源字面並讀「とも」，未宣稱原作演技已核對。
 
 完整typecheck、260 tests、lint與正式base path build通過；9個MP3讀音閘門、全檔解碼、非靜音訊號與encoder-only metadata通過，共186,156 bytes。375×667手機實測9句播放／作答／原文假名揭示，角色音檔下載後斷網重載與9句播放通過；無水平溢位或pageerror。PR check與正式站部署待完成，核對後直接接續下一批。音色、語氣與原作演技未逐句人耳驗收。
+
+T86已部署：PR [#80](https://github.com/frobel0520/nihongo-lab/pull/80)、合併commit `effe744`，Actions [38492388774](https://github.com/frobel0520/nihongo-lab/actions/runs/38492388774)成功。正式站JS與9個MP3共186,156 bytes逐位元組一致，TLS驗證保留。
+
+## 2026-10-14 T87 原神自動接續批次
+
+神里綾人、卡維、基尼奇收錄可核對的編隊加入／元素技能／元素爆發短句，共9句VOICEVOX；原神54位160句、70筆待教材。固定版本語音表逐句核對voicelineId／標題／voicefile，繁中、讀音、解說及大意題齊備；既有教材與ER聲線配置逐欄保持。
+
+基尼奇只收錄沒有「アハウ：」標記的本人短句，避免將阿喬的獨立發言套用基尼奇聲線。
+
+完整typecheck、260 tests、lint與正式base path build通過；9個MP3讀音閘門、全檔解碼、非靜音訊號與encoder-only metadata通過，共159,084 bytes。375×667手機實測9句播放／作答／原文假名揭示，角色音檔下載後斷網重載與9句播放通過；無水平溢位或pageerror。PR check與正式站部署待完成，核對後直接接續下一批。音色、語氣與原作演技未逐句人耳驗收。
