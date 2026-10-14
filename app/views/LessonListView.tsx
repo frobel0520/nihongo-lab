@@ -1,14 +1,19 @@
-import { stages, generalListeningRoadmap } from '../../curriculum/lessons.mjs';
+import {
+  stages,
+  generalListeningRoadmap,
+  type Lesson,
+} from '../../curriculum/lessons.mjs';
 import { lessonProgress } from '../../lib/lesson-progress.mjs';
 import type { Progress } from '../../lib/progress.mjs';
 import { stageHash, srsHash, viewHash } from '../../lib/route.mjs';
-import { buildCards, summarize, toDateString } from '../../lib/srs.mjs';
+import { summarize, toDateString } from '../../lib/srs.mjs';
 import { ChevronRightIcon } from '../components/Icons';
 import { ProgressBar } from '../components/ProgressBar';
 import { RubyText } from '../components/Ruby';
+import { STUDY_CATALOG } from '../../lib/study-catalog.mjs';
 import { lessonHash } from '../../lib/route.mjs';
 
-const CARDS = buildCards(stages);
+const CARDS = Object.values(STUDY_CATALOG).flatMap((catalog) => catalog.cards);
 const TRACKS: Record<string, { title: string; description: string }> = {
   'stage-0': {
     title: 'N5 基礎復健',
@@ -41,6 +46,43 @@ export function LessonListView({
   const stats = summarize(CARDS, progress.srs, toDateString());
   const byLesson = lessonProgress(stages, progress);
   const selected = stages.filter((stage) => stage.id === stageId);
+
+  const lessonList = (lessons: Lesson[]) => (
+    <ul className="lesson-list">
+      {lessons.map((lesson) => {
+        const p = byLesson[lesson.id];
+        const meta = [
+          p.vocab.total > 0 && `單字 ${p.vocab.done}/${p.vocab.total}`,
+          p.dictation.total > 0 &&
+            `聽寫 ${p.dictation.done}/${p.dictation.total}`,
+          p.listening.total > 0 &&
+            `理解 ${p.listening.done}/${p.listening.total}`,
+          p.grammar.total > 0 && `文法 ${p.grammar.done}/${p.grammar.total}`,
+          p.grammar.review > 0 && `文法待重練 ${p.grammar.review}`,
+          lesson.audioReady === false && '音檔製作中',
+        ].filter(Boolean);
+        const percent = Math.round(p.ratio * 100);
+        return (
+          <li key={lesson.id}>
+            <a className="card lesson-card" href={lessonHash(lesson.id)}>
+              <span className="lesson-card-body">
+                <span className="lesson-title">
+                  <RubyText text={lesson.title} />
+                </span>
+                <span className="muted">{meta.join(' · ')}</span>
+                <ProgressBar
+                  value={percent}
+                  max={100}
+                  label={`${lesson.title} 的進度`}
+                />
+              </span>
+              <ChevronRightIcon />
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  );
 
   if (!selected.length)
     return (
@@ -152,45 +194,28 @@ export function LessonListView({
           </h2>
           {stage.lessons.length === 0 ? (
             <p className="muted stage-empty">即將推出</p>
+          ) : stage.id === 'stage-1' && stage.lessons.length >= 10 ? (
+            <>
+              {Array.from(
+                { length: Math.ceil(stage.lessons.length / 10) },
+                (_, i) => i * 10,
+              ).map((start, i) => (
+                <details className="card" key={start} open={start === 0}>
+                  <summary>
+                    第 {start + 1}～{Math.min(start + 10, stage.lessons.length)}{' '}
+                    課：
+                    {[
+                      '基本指示、願望與規則',
+                      '狀態、協助與行動安排',
+                      '推測、目的與綜合理解',
+                    ][i] ?? '延伸練習'}
+                  </summary>
+                  {lessonList(stage.lessons.slice(start, start + 10))}
+                </details>
+              ))}
+            </>
           ) : (
-            <ul className="lesson-list">
-              {stage.lessons.map((lesson) => {
-                const p = byLesson[lesson.id];
-                const meta = [
-                  p.vocab.total > 0 && `單字 ${p.vocab.done}/${p.vocab.total}`,
-                  p.dictation.total > 0 &&
-                    `聽寫 ${p.dictation.done}/${p.dictation.total}`,
-                  p.listening.total > 0 &&
-                    `理解 ${p.listening.done}/${p.listening.total}`,
-                  p.grammar.total > 0 &&
-                    `文法 ${p.grammar.done}/${p.grammar.total}`,
-                  p.grammar.review > 0 && `文法待重練 ${p.grammar.review}`,
-                  lesson.audioReady === false && '音檔製作中',
-                ].filter(Boolean);
-                const percent = Math.round(p.ratio * 100);
-                return (
-                  <li key={lesson.id}>
-                    <a
-                      className="card lesson-card"
-                      href={lessonHash(lesson.id)}
-                    >
-                      <span className="lesson-card-body">
-                        <span className="lesson-title">
-                          <RubyText text={lesson.title} />
-                        </span>
-                        <span className="muted">{meta.join(' · ')}</span>
-                        <ProgressBar
-                          value={percent}
-                          max={100}
-                          label={`${lesson.title} 的進度`}
-                        />
-                      </span>
-                      <ChevronRightIcon />
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+            lessonList(stage.lessons)
           )}
         </section>
       ))}

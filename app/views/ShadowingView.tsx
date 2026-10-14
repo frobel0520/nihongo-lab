@@ -1,16 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
-import { stages } from '../../curriculum/lessons.mjs';
-import { buildSentences } from '../../lib/dictation.mjs';
+import { type Sentence } from '../../lib/dictation.mjs';
 import { gapMs } from '../../lib/shadowing.mjs';
 import { audioUrl } from '../components/AudioLine';
 import { NextIcon, PlayIcon, PrevIcon, StopIcon } from '../components/Icons';
 import { JpLine, RubyText } from '../components/Ruby';
 
-const SENTENCES = buildSentences(stages);
-
 type Phase = 'idle' | 'playing' | 'gap';
 
-export function ShadowingView() {
+export function ShadowingView({ sentences }: { sentences: Sentence[] }) {
+  const SENTENCES = sentences;
   const [index, setIndex] = useState(0);
   const [showText, setShowText] = useState(false);
   const [phase, setPhase] = useState<Phase>('idle');
@@ -84,12 +82,15 @@ export function ShadowingView() {
   };
 
   // 離開畫面時停掉計時器與播放，不留背景輪播。
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    const el = audioRef.current;
+    const run = runRef.current;
+    return () => {
+      run.running = false;
       clearTimeout(timerRef.current);
-    },
-    [],
-  );
+      el?.pause();
+    };
+  }, []);
 
   if (!sentence) {
     return (
