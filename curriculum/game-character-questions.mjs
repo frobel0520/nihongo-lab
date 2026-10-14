@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:wriothesley:join": [
+  "家裡的工作嗎？先休息。",
+  "工作都做完了？回去吧。"
+],
+"genshin:wriothesley:skill": [
+  "結束吧。",
+  "先等一下。"
+],
+"genshin:wriothesley:burst": [
+  "天氣暖和，不用擔心。",
+  "因為太熱，快點停下。"
+],
+"genshin:xianyun:join": [
+  "糧食全都吃完了吧？",
+  "糧食不需要準備吧？"
+],
+"genshin:xianyun:skill": [
+  "聚集！",
+  "停住！"
+],
+"genshin:xianyun:burst": [
+  "仙人已經離開！",
+  "仙人禁止來訪！"
+],
+"genshin:xiao:join": [
+  "拒絕召喚，立刻離去。",
+  "我要召喚其他人。"
+],
+"genshin:xiao:skill": [
+  "很有用。",
+  "還不錯。"
+],
+"genshin:xiao:burst": [
+  "出現吧。",
+  "留下來。"
+],
+
 "genshin:thoma:join": [
   "這次什麼時候回來？",
   "這次要帶多少東西？"

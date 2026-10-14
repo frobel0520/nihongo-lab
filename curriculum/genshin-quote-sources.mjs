@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:wriothesley:join": {
+  "voicelineId": 86064,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_wriothesley_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:wriothesley:skill": {
+  "voicelineId": 86044,
+  "sourceTitle": "元素スキル·1",
+  "voicefile": "VO_gameplay/VO_wriothesley/vo_wriothesley_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:wriothesley:burst": {
+  "voicelineId": 86048,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_wriothesley/vo_wriothesley_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:xianyun:join": {
+  "voicelineId": 93067,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_xianyun_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:xianyun:skill": {
+  "voicelineId": 93049,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_xianyun/vo_xianyun_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:xianyun:burst": {
+  "voicelineId": 93051,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_xianyun/vo_xianyun_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:xiao:join": {
+  "voicelineId": 16166,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_xiao_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:xiao:skill": {
+  "voicelineId": 16147,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_xiao/vo_xiao_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:xiao:burst": {
+  "voicelineId": 16150,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_xiao/vo_xiao_battle_skill3_01",
+  "variant": "預設造型"
+},
+
 "genshin:thoma:join": {
   "voicelineId": 50076,
   "sourceTitle": "チーム加入·3",
