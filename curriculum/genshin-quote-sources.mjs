@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:mavuika:join": {
+  "voicelineId": 106072,
+  "sourceTitle": "チーム加入・3",
+  "voicefile": "VO_teamJoin/vo_mavuika_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:mavuika:skill": {
+  "voicelineId": 106049,
+  "sourceTitle": "元素スキル・1",
+  "voicefile": "VO_gameplay/VO_mavuika/vo_mavuika_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:mavuika:burst": {
+  "voicelineId": 106055,
+  "sourceTitle": "元素爆発・1",
+  "voicefile": "VO_gameplay/VO_mavuika/vo_mavuika_battle_skill3_01",
+  "variant": "預設造型"
+},
+"genshin:mika:join": {
+  "voicelineId": 80073,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_friendship/VO_mika/vo_mika_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:mika:skill": {
+  "voicelineId": 80050,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_mika/vo_mika_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:mika:burst": {
+  "voicelineId": 80054,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_mika/vo_mika_battle_skill3_01",
+  "variant": "預設造型"
+},
+"genshin:mona:join": {
+  "voicelineId": 30072,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_mona_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:mona:skill": {
+  "voicelineId": 30052,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_mona/vo_mona_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:mona:burst": {
+  "voicelineId": 30054,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_mona/vo_mona_battle_skill3_02",
+  "variant": "預設造型"
+},
+
 "genshin:lumine:join": {
   "voicelineId": 2086,
   "sourceTitle": "チーム加入·1",
