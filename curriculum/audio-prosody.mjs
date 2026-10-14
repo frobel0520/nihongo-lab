@@ -8,6 +8,14 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+  'audio/games/genshin/gram-a6e49b6988.mp3': {
+    text: '風の共、雲の行くごと。',
+    reading: 'かぜの とも、くもの ゆくごと。',
+    kana: "カゼノ'/ト'モ、ク'モノ/ユ'クゴト",
+    reason:
+      'T86：文語的「行く」採ゆく，校正引擎解析的いく；「共」保留來源字面並讀とも。使用讀音校正後的VOICEVOX句界與重音，不宣稱與原作演技相同。',
+    reference: 'voicevox',
+  },
   'audio/games/genshin/gram-857c0a5b1a.mp3': {
     text: '氷浪のように唸れ——',
     reading: 'ひょうろうのように うなれ——',
