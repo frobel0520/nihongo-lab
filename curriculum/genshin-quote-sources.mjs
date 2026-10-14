@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:yoimiya:join": {
+  "voicelineId": 49029,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_yoimiya_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:yoimiya:skill": {
+  "voicelineId": 49011,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_yoimiya/vo_yoimiya_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:yoimiya:burst": {
+  "voicelineId": 49012,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_yoimiya/vo_yoimiya_battle_skill3_01",
+  "variant": "預設造型"
+},
+"genshin:yumemizukimizuki:join": {
+  "voicelineId": 109070,
+  "sourceTitle": "チーム加入・2",
+  "voicefile": "VO_teamJoin/vo_mizuki_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:yumemizukimizuki:skill": {
+  "voicelineId": 109048,
+  "sourceTitle": "元素スキル・1",
+  "voicefile": "VO_gameplay/VO_mizuki/vo_mizuki_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:yumemizukimizuki:burst": {
+  "voicelineId": 109051,
+  "sourceTitle": "元素爆発・1",
+  "voicefile": "VO_gameplay/VO_mizuki/vo_mizuki_battle_skill3_01",
+  "variant": "預設造型"
+},
+"genshin:yunjin:join": {
+  "voicelineId": 64064,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_yunjin_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:yunjin:skill": {
+  "voicelineId": 64043,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_yunjin/vo_yunjin_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:yunjin:burst": {
+  "voicelineId": 64046,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_yunjin/vo_yunjin_battle_skill3_01",
+  "variant": "預設造型"
+},
+
 "genshin:yanfei:join": {
   "voicelineId": 38072,
   "sourceTitle": "チーム加入·3",
