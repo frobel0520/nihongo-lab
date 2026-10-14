@@ -60,6 +60,9 @@ test('新角色三類短句與既有情境補齊；未核對讀音的技能喊�
     'lanyan',
     'layla',
     'lisa',
+    'lumine',
+    'lynette',
+    'lyney',
   ]) {
     const character = game.characters.find((c) => c.id === id);
     assert.deepEqual(
@@ -90,10 +93,10 @@ test('新角色三類短句與既有情境補齊；未核對讀音的技能喊�
 test('原神固定名冊 124 筆，已收錄角色有短句，其餘明確待收錄，語音文字來源僅連已有表格', () => {
   assert.equal(game.characters.length, 124);
   assert.equal(new Set(game.characters.map((c) => c.id)).size, 124);
-  assert.equal(game.characters.filter((c) => c.lines.length).length, 60);
-  assert.equal(game.characters.filter((c) => !c.lines.length).length, 64);
+  assert.equal(game.characters.filter((c) => c.lines.length).length, 63);
+  assert.equal(game.characters.filter((c) => !c.lines.length).length, 61);
   assert.equal(game.characters.filter((c) => c.voiceReferenceUrl).length, 109);
-  assert.equal(lines.length, 178);
+  assert.equal(lines.length, 187);
   for (const c of game.characters) {
     if (/[\p{Script=Han}々]/u.test(c.nameJa)) {
       const parts = annotateText(c.nameJa, buildNotesIndex(RUBY_NOTES));

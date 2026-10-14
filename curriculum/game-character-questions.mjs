@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:lumine:join": [
+  "上次遇見的是什麼呢？",
+  "下次一定不會遇到任何人。"
+],
+"genshin:lumine:skill": [
+  "飛上去吧！",
+  "請停留在空中！"
+],
+"genshin:lumine:burst": [
+  "與風一起留下來。",
+  "等風停了再出發。"
+],
+"genshin:lynette:join": [
+  "現在是早餐時間。",
+  "下午茶已經取消了。"
+],
+"genshin:lynette:skill": [
+  "這是一個重大的計畫。",
+  "完全沒有使用任何技巧。"
+],
+"genshin:lynette:burst": [
+  "關閉所有燈光。",
+  "請讓四周保持黑暗。"
+],
+"genshin:lyney:join": [
+  "我不想幫你。",
+  "你必須自己解決。"
+],
+"genshin:lyney:skill": [
+  "這件事早就通知過了。",
+  "一點也不令人意外。"
+],
+"genshin:lyney:burst": [
+  "現在先從序幕開始吧！",
+  "今天還不會進入終幕！"
+],
+
 "genshin:lanyan:join": [
   "今天不出門了！",
   "已經回到家了！"

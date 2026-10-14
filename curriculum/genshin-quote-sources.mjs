@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:lumine:join": {
+  "voicelineId": 2086,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_heroine_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:lumine:skill": {
+  "voicelineId": 2065,
+  "sourceTitle": "元素スキル·5",
+  "voicefile": "VO_gameplay/VO_heroine/vo_heroine_battle_skill1_rock_02",
+  "variant": "預設造型"
+},
+"genshin:lumine:burst": {
+  "voicelineId": 2072,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_heroine/vo_heroine_battle_skill3_03",
+  "variant": "預設造型"
+},
+"genshin:lynette:join": {
+  "voicelineId": 83069,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_lynette_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:lynette:skill": {
+  "voicelineId": 83049,
+  "sourceTitle": "元素スキル·1",
+  "voicefile": "VO_gameplay/VO_lynette/vo_lynette_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:lynette:burst": {
+  "voicelineId": 83053,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_lynette/vo_lynette_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:lyney:join": {
+  "voicelineId": 84070,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_lyney_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:lyney:skill": {
+  "voicelineId": 84052,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_lyney/vo_lyney_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:lyney:burst": {
+  "voicelineId": 84053,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_lyney/vo_lyney_battle_skill3_01",
+  "variant": "預設造型"
+},
+
 "genshin:lanyan:join": {
   "voicelineId": 108066,
   "sourceTitle": "チーム加入・2",
