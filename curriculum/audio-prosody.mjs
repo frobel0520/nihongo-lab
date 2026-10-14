@@ -8,6 +8,21 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+  "audio/stage-1/general-listening-08/vocab-78f293b15a.mp3": {
+    "text": "空",
+    "reading": "から",
+    "kana": "カラ'",
+    "reason": "T106：此處空表示空無物品，讀から，修正引擎的そら；依Kanjium採重音型2。",
+    "reference": "kanjium"
+  },
+  "audio/stage-1/general-listening-09/vocab-a494edec9a.mp3": {
+    "text": "静か",
+    "reading": "しずか",
+    "kana": "シ'ズカ",
+    "reason": "T106：静か讀しずか，修正引擎多出的か；依Kanjium採重音型1。",
+    "reference": "kanjium"
+  },
+
   "audio/stage-1/general-listening-04/vocab-6696b923d1.mp3": {
     "text": "空く",
     "reading": "あく",
