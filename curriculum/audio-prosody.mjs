@@ -8,6 +8,32 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+"audio/stage-1/general-listening-51/gram-51a0f31945.mp3": {"text":"橋は明日開くそうだ。","reading":"はしは あした あくそうだ。","kana":"ハシ'ワ/ア_シタ'/アク'/ソオダ'","reason":"T108：開く指恢復開放，採あく；保留其他原查詢片語。","reference":"voicevox"},
+"audio/stage-1/general-listening-52/vocab-5d92cc3700.mp3": {"text":"明後日","reading":"あさって","kana":"アサ'ッテ","reason":"T108：明後日採口語あさって；依Kanjium重音型2。","reference":"kanjium"},
+"audio/stage-1/general-listening-57/dlg-482581a10d.mp3": {"text":"じゃあ、分けるかどうかは、その後で決めよう。","reading":"じゃあ、わけるかどうかは、その あとで きめよう。","kana":"ジャ'ア、ワケ'ルカ/ド'オカワ、ソノ'/ア'トデ/キメヨオ'","reason":"T108：その後指其後的順序，教材採そのあと；保留前後原查詢片語，校正片語依讀音查詢。","reference":"voicevox"},
+"audio/stage-1/general-listening-58/vocab-9165aa0820.mp3": {"text":"静か","reading":"しずか","kana":"シ'ズカ","reason":"T108：静か採しずか，刪除引擎多出的か，依Kanjium重音型1。","reference":"kanjium"},
+"audio/stage-1/general-listening-58/vocab-0eb9cbed9a.mp3": {"text":"空く","reading":"すく","kana":"スク'","reason":"T108：空く表示變得不擁擠，採すく；依Kanjium平板型0。","reference":"kanjium"},
+"audio/stage-1/general-listening-58/gram-2478ce7a27.mp3": {"text":"入れるけど、座れない。","reading":"はいれるけど、すわれない。","kana":"ハイレル'ケド、スワレナイ'","reason":"T108：入れる為進入的可能形，採はいれる；保留否定能力句的原查詢重音。","reference":"voicevox"},
+"audio/stage-1/general-listening-59/dlg-64eced3b29.mp3": {"text":"うん。決まったら皆に知らせる。","reading":"うん。きまったら みんなに しらせる。","kana":"ウ'ン、キマッタ'ラ/ミンナニ'/シラセル'","reason":"T108：皆採口語みんな；保留其餘原查詢片語重音及停頓。","reference":"voicevox"},
+"audio/stage-1/general-listening-43/vocab-381fcf851f.mp3": {"text":"辛い","reading":"からい","kana":"カラ'イ","reason":"T108：辛い為味覺辣，採からい，依Kanjium重音型2。","reference":"kanjium"},
+"audio/stage-1/general-listening-44/vocab-f0d4f9844a.mp3": {"text":"行き","reading":"ゆき","kana":"ユキ'","reason":"T108：行き表示開往，教材採ゆき，依Kanjium平板型0。","reference":"kanjium"},
+"audio/stage-1/general-listening-44/dlg-4be4ecf4c3.mp3": {"text":"三番線で港行きに乗るんですね。","reading":"さんばんせんで みなとゆきに のるんですね。","kana":"サンバ'ンセンデ/ミナト'ユキニ/ノル'/ン'デ_スネ","reason":"T108：開往港口採みなとゆき；保留其他原查詢片語重音與句界。","reference":"voicevox"},
+"audio/stage-1/general-listening-45/dlg-6550f65767.mp3": {"text":"予約したミナです。今、部屋に入れますか。","reading":"よやくした ミナです。いま、へやに はいれますか。","kana":"ヨヤク'/_シタ'/ミ'ナデ_ス、イ'マ、ヘヤ'ニ/ハイレマ'_スカ","reason":"T108：入れます為進入的可能形，採はいれます；保留前半原查詢片語。","reference":"voicevox"},
+"audio/stage-1/general-listening-46/vocab-9b49d08af1.mp3": {"text":"晴れる","reading":"はれる","kana":"ハレ'ル","reason":"T108：晴れる採はれる，刪除多出的れ，依Kanjium重音型2。","reference":"kanjium"},
+"audio/stage-1/general-listening-47/vocab-1ccbf5e205.mp3": {"text":"診療所","reading":"しんりょうじょ","kana":"シンリョオジョ'","reason":"T108：診療所採しんりょうじょ，依Kanjium選平板型0。","reference":"kanjium"},
+"audio/stage-1/general-listening-47/dlg-216cf34e9d.mp3": {"text":"午後もよくならなかったら、診療所に行こう。付き添うよ。","reading":"ごごも よくならなかったら、しんりょうじょに いこう。つきそうよ。","kana":"ゴ'ゴモ/ヨクナラ'ナカッタラ、シンリョオジョ'ニ/イコオ'、_ツキソ'ウヨ","reason":"T108：診療所採しんりょうじょ；保留其他原查詢重音及停頓。","reference":"voicevox"},
+"audio/stage-1/general-listening-50/dlg-33c4027ded.mp3": {"text":"ありがとう。次の角を右に曲がろう。","reading":"ありがとう。つぎの かどを みぎに まがろう。","kana":"アリ'ガトオ、ツギ'ノ/カ'ドオ/ミギニ'/マガロオ'","reason":"T108：道路轉角採かど；保留其他原查詢片語重音。","reference":"voicevox"},
+"audio/stage-1/general-listening-32/vocab-1d0f2d0699.mp3": {"text":"描く","reading":"かく","kana":"カ'ク","reason":"T108：描く的畫畫語義採かく，依Kanjium重音型1。","reference":"kanjium"},
+"audio/stage-1/general-listening-32/gram-687b5236b5.mp3": {"text":"絵を描くのが好きです。","reading":"えを かくのが すきです。","kana":"エ'オ/カ'ク/ノガ'/_スキ'デ_ス","reason":"T108：描く採かく；保留其他原查詢片語重音與句界。","reference":"voicevox"},
+"audio/stage-1/general-listening-32/dlg-82b966a6d5.mp3": {"text":"絵を描くのが好きだよ。","reading":"えを かくのが すきだよ。","kana":"エ'オ/カ'ク/ノガ'/_スキ'ダヨ","reason":"T108：描く採かく；保留其他原查詢片語重音與句界。","reference":"voicevox"},
+"audio/stage-1/general-listening-32/dlg-1bb5fa963a.mp3": {"text":"いいよ。最近描いた絵を持ってくる。","reading":"いいよ。さいきん かいた えを もってくる。","kana":"イ'イヨ、サイキン'/カ'イタ/エ'オ/モ'ッテ/ク'ル","reason":"T108：描いた採かいた；保留最近等其他原查詢片語，不沿用全假名重切詞。","reference":"voicevox"},
+"audio/stage-1/general-listening-33/vocab-6696b923d1.mp3": {"text":"空く","reading":"あく","kana":"アク'","reason":"T108：空く表示位置空出，採あく，依Kanjium平板型0。","reference":"kanjium"},
+"audio/stage-1/general-listening-35/vocab-ea48768930.mp3": {"text":"静か","reading":"しずか","kana":"シ'ズカ","reason":"T108：静か採しずか，刪除引擎多出的か，依Kanjium重音型1。","reference":"kanjium"},
+"audio/stage-1/general-listening-36/dlg-3e47695c82.mp3": {"text":"じゃあ、出発しよう。もう皆待ってる。","reading":"じゃあ、しゅっぱつしよう。もう みんな まってる。","kana":"ジャ'ア、シュッパ_ツ'/シヨオ'、モ'オ/ミンナ'/マッテ'ル","reason":"T108：皆採教材口語みんな；保留其他原查詢片語重音，校正片語採讀音查詢。","reference":"voicevox"},
+"audio/stage-1/general-listening-38/dlg-4efc094533.mp3": {"text":"ごめん、騒がしくて聞き取れない。もう一度言って。","reading":"ごめん、さわがしくて ききとれない。もう いちど いって。","kana":"ゴメン'、サワガシ'_クテ/_キキトレ'ナイ、モオイチド'/イッテ'","reason":"T108：言って為いって而非げんって；保留前面原查詢片語重音，請求尾句依いって校正。","reference":"voicevox"},
+"audio/stage-1/general-listening-40/gram-6a75e6ba7b.mp3": {"text":"日曜日に市場へ行きませんか。","reading":"にちようびに いちばへ いきませんか。","kana":"ニチヨ'オビニ/イ'チバエ/イキマセ'ンカ","reason":"T108：市場指市集，採いちば；保留日期與邀請句原查詢重音。","reference":"voicevox"},
+"audio/stage-1/general-listening-40/dlg-4abf76fd49.mp3": {"text":"土曜日、一緒に市場へ行きませんか。","reading":"どようび、いっしょに いちばへ いきませんか。","kana":"ドヨ'オビ、イッショニ'/イ'チバエ/イキマセ'ンカ","reason":"T108：市場指市集，採いちば；保留日期與邀請句原查詢重音。","reference":"voicevox"},
+
 "audio/games/genshin/gram-3b76cdc731.mp3": {"text": "何でも言ってくれ！", "reading": "なんでも いってくれ！", "kana": "ナ'ンデモ/イッテ'/クレ'", "reason": "T117：何でも採教材的なんでも，保留言って與くれ的原查詢重音及句界。", "reference": "voicevox"},
 
 "audio/games/genshin/gram-b4a1a8f0c9.mp3": {"text": "鈴の音を合図に。", "reading": "すずの ねを あいずに。", "kana": "スズノ'/ネオ'/ア'イズニ", "reason": "T115：鈴の音以ね校正引擎的おと；保留鈴の與合図に的原查詢片語重音及句界，音ね的核對讀法與平板型0參考Kanjium。", "reference": "voicevox"},
