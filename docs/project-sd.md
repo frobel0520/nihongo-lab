@@ -317,3 +317,9 @@ game-character-study.mjs新增9個LineSpec，quote-sources保留語音識別與�
 ## T83 配音配置資料
 
 voices.mjs新增教材聲線分類gender；er-voice-casting.mjs保存91位角色gender、voice、direction與角色性別參考連結，getErCasting缺資料即停止，取消saehaku預設。game-character-study.mjs統一讀取角色配置，文字／聲線雜湊產生新MP3網址；13個既有重音覆寫移到對應新網址。原神千織、克洛琳德改用sayo，雷澤改用nemo2；學習與聽力record id不依voice／audio，保留原進度。僅移除本次取代且無引用的舊MP3。[角色配置表](game-voice-plan.md)。
+
+## 2026-10-14 T84 原神自動接續批次
+
+菲米尼、芙寧娜、嘉明各新增編隊加入／元素技能／元素爆發一句，共9句VOICEVOX；原神45位134句、79筆待教材。固定版本語音表逐句核對voicelineId／標題／voicefile，繁中、讀音、解說及大意題齊備；既有教材與ER聲線配置逐欄保持。
+
+完整typecheck、260 tests、lint與正式base path build通過；9個MP3讀音閘門、全檔解碼、非靜音訊號與encoder-only metadata通過，共142,092 bytes。375×667手機實测9句播放／作答／原文假名揭示，角色音檔下載後斷網重載與9句播放通過；無水平溢位或pageerror。PR check與正式站部署待完成，核對後直接接續下一批。音色、語氣與原作演技未逐句人耳驗收。
