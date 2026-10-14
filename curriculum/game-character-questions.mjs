@@ -1,6 +1,16 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:varesa:join": ["只有比賽，不能出門。","已經比賽完回家。"],
+"genshin:varesa:skill": ["我不會前進。","我已經離開很久。"],
+"genshin:varesa:burst": ["是我輸了。","你已經贏了。"],
+"genshin:varka:join": ["戰鬥已取消。","已經撤回營地。"],
+"genshin:varka:skill": ["寒冰！","流水！"],
+"genshin:varka:burst": ["我會跟著你走。","不要跟著我。"],
+"genshin:zibai:join": ["剛才去了哪裡？","不要出發。"],
+"genshin:zibai:skill": ["別處理眼前的事。","已經全部弄亂了。"],
+"genshin:zibai:burst": ["雨前，月亮消失。","琉璃已經破碎。"],
+
 "genshin:prune:join": ["好，已經到達。","今天不要出發。"],
 "genshin:prune:skill": ["動起來吧。","我已經動過了。"],
 "genshin:prune:burst": ["鈴聲表示活動取消。","不需要任何信號。"],
