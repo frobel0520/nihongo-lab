@@ -1,4 +1,4 @@
-import { stages } from '../../curriculum/lessons.mjs';
+import { stages, generalListeningRoadmap } from '../../curriculum/lessons.mjs';
 import { lessonProgress } from '../../lib/lesson-progress.mjs';
 import type { Progress } from '../../lib/progress.mjs';
 import { lessonHash, srsHash, viewHash } from '../../lib/route.mjs';
@@ -66,6 +66,46 @@ export function LessonListView({ progress }: { progress: Progress }) {
             </a>
           </>
         )}
+      </section>
+
+      <section className="card" aria-label="動漫與遊戲通用聽解">
+        <h2>動漫／遊戲通用聽解</h2>
+        <p>
+          初版 3 課：75 個單字、6 個文法重點、3 段男女聲對話與 9 題理解練習。
+        </p>
+        <p>
+          每天 30～45 分鐘：先聽整段 → 學單字與句型 → 看解析並跟讀 →
+          用單字卡複習。適合已有基本假名與 N5 概念的人；需要打底可先學「N5
+          復健」。
+        </p>
+        <a className="btn primary" href={lessonHash('general-listening-01')}>
+          開始通用聽解第一課
+        </a>
+        <ul className="list">
+          {stages
+            .find((s) => s.id === 'stage-1')
+            ?.lessons.map((lesson) => (
+              <li key={lesson.id}>
+                <a href={lessonHash(lesson.id)}>{lesson.title}</a>
+              </li>
+            ))}
+        </ul>
+        <details>
+          <summary>六階段學習路線（規劃 180 課）</summary>
+          <p className="muted">
+            目前完成起始 3
+            課；其餘為擴充方向。目標是理解常見對話與任務大意，後期再練真實作品的速度、情緒與省略。
+          </p>
+          <ol>
+            {generalListeningRoadmap.map((phase, i) => (
+              <li key={phase.title}>
+                <strong>{phase.title}</strong>：{phase.goal}。目標{' '}
+                {phase.target} 課
+                {i === 0 ? '，初版已提供 3 課。' : '，待擴充。'}
+              </li>
+            ))}
+          </ol>
+        </details>
       </section>
 
       <section className="card">

@@ -31,7 +31,8 @@ test('使用者選角：保留五位原有角色及三男聲，所有公開教�
         ...lesson.dialogue,
       ]) {
         assert.ok(allowed.has(line.voice), line.voice);
-        assert.ok(!male.has(line.voice), '男聲只加入動畫／遊戲名句');
+        if (!lesson.scene)
+          assert.ok(!male.has(line.voice), '既有基礎課程保持原選角；通用聽解使用男女聲');
       }
       if (lesson.dialogue.length > 1)
         assert.equal(

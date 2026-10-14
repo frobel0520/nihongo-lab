@@ -14,6 +14,7 @@
  *   quotes?: Quote[],
  *   practice: PracticeItem[],
  *   training?: import('../lib/anime-training.mjs').AnimeTraining,
+ *   scene?: import('../lib/scene-listening.mjs').ListeningScene,
  *   references?: { title: string, url: string, note: string }[],
  * }} Lesson
  * @typedef {{ id: string, title: string, lessons: Lesson[] }} Stage
@@ -42,6 +43,9 @@ import day22 from './days/day22.mjs';
 import day23 from './days/day23.mjs';
 import day24 from './days/day24.mjs';
 import day25 from './days/day25.mjs';
+import day26 from './days/day26.mjs';
+import day27 from './days/day27.mjs';
+import day28 from './days/day28.mjs';
 import { buildAnimeLessons } from './anime-training.mjs';
 import { expandedAnimeQuotes } from './anime-quotes-expansion.mjs';
 import { animeQuotes100 } from './anime-quotes-100.mjs';
@@ -976,7 +980,7 @@ for (const quote of quotes.quotes ?? []) {
 /** @type {Stage[]} */
 export const stages = [
   { id: 'stage-0', title: '第 0 階段：N5 復健', lessons: [day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11, day12, day13, day14, day15, day16, day17, day18, day19, day20, day21, day22, day23, day24, day25] },
-  { id: 'stage-1', title: '第 1 階段：聽力打底', lessons: [] },
+  { id: 'stage-1', title: '第 1 階段：動漫／遊戲通用聽解（初版）', lessons: [day26, day27, day28] },
   { id: 'stage-2', title: '第 2 階段：口語與動畫日文', lessons: [...buildAnimeLessons(quotes.quotes ?? []), spoken, quotes] },
   { id: 'stage-3', title: '第 3 階段：N3 到 N1', lessons: [] },
 ];
@@ -987,3 +991,5 @@ export { gameCharacterStudy } from "./game-character-study.mjs";
 export { gameMeaningDistractors } from './game-character-questions.mjs';
 
 export { genshinActionCoverage } from './genshin-action-coverage.mjs';
+
+export { generalListeningRoadmap } from './general-listening.mjs';
