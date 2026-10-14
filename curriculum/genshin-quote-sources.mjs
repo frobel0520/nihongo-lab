@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:nilou:join": {
+  "voicelineId": 70065,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_nilou_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:nilou:skill": {
+  "voicelineId": 70046,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_nilou/vo_nilou_battle_skill1_02",
+  "variant": "預設造型"
+},
+"genshin:nilou:burst": {
+  "voicelineId": 70049,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_nilou/vo_nilou_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:ningguang:join": {
+  "voicelineId": 15170,
+  "sourceTitle": "チーム加入·3",
+  "voicefile": "VO_teamJoin/vo_ningguang_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:ningguang:skill": {
+  "voicelineId": 15150,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_ningguang/vo_ningguang_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:ningguang:burst": {
+  "voicelineId": 15152,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_ningguang/vo_ningguang_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:ororon:join": {
+  "voicelineId": 105064,
+  "sourceTitle": "チーム加入・1",
+  "voicefile": "VO_teamJoin/vo_olorun_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:ororon:skill": {
+  "voicelineId": 105047,
+  "sourceTitle": "元素スキル・3",
+  "voicefile": "VO_gameplay/VO_olorun/vo_olorun_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:ororon:burst": {
+  "voicelineId": 105050,
+  "sourceTitle": "元素爆発・3",
+  "voicefile": "VO_gameplay/VO_olorun/vo_olorun_battle_skill3_03",
+  "variant": "預設造型"
+},
+
 "genshin:mualani:join": {
   "voicelineId": 102072,
   "sourceTitle": "チーム加入·2",
