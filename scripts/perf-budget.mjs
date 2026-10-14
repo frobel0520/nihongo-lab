@@ -3,10 +3,11 @@
 
 /** @type {import('../lib/perf-stats.mjs').Budget[]} */
 export const BUNDLE_BUDGETS = [
-  // 迴歸門檻：T120 基準（主程式 gzip 524,703 bytes、precache 17,913,219 bytes）加 5%，CI 每次 build 檢查。
-  { metric: 'mainJsGzipBytes', limit: 551_000, unit: 'bytes' },
-  { metric: 'cssGzipBytes', limit: 6_000, unit: 'bytes' },
-  { metric: 'precacheBytes', limit: 18_800_000, unit: 'bytes' },
+  // 迴歸門檻：T120 基準（主程式 gzip 524,703 bytes、CSS gzip 4,817、precache 17,913,219 bytes）加 20%，CI 每次 build 檢查。
+  // 2026-10-15 使用者選定 +20%（原提案 +5%）：擋住失控成長，又不讓下一批教材立刻被擋。
+  { metric: 'mainJsGzipBytes', limit: 630_000, unit: 'bytes' },
+  { metric: 'cssGzipBytes', limit: 5_800, unit: 'bytes' },
+  { metric: 'precacheBytes', limit: 21_500_000, unit: 'bytes' },
 ];
 
 /** 操作時的同步計算（Node、桌機）。p95 50ms 約等於 4 倍慢的手機 200ms，對應 INP「良好」上限。

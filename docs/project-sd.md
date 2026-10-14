@@ -612,10 +612,12 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 
 | 層 | 指令 | 何時跑 | 指標與門檻 |
 | --- | --- | --- | --- |
-| Bundle 迴歸 | `npm run perf:bundle` | CI 每次 build 後 | 主程式 gzip ≤ 551,000 bytes、CSS gzip ≤ 6,000 bytes、precache ≤ 18,800,000 bytes（T120 基準加 5%） |
-| 操作計算 | `npm run perf:logic` | CI | 首頁卡片統計、課程進度、排牌組、評分＋存檔、聽寫比對，各 p95 ≤ 50 ms（Node 桌機；約等於 4 倍慢手機 200 ms，INP「良好」上限） |
+| Bundle 迴歸 | `npm run perf:bundle` | CI 每次 build 後 | 主程式 gzip ≤ 630,000 bytes、CSS gzip ≤ 5,800 bytes、precache ≤ 21,500,000 bytes（T120 基準加 20%） |
+| 操作計算 | `npm run perf:logic` | 發布前在本機跑 | 首頁卡片統計、課程進度、排牌組、評分＋存檔、聽寫比對，各 p95 ≤ 50 ms（Node 桌機；約等於 4 倍慢手機 200 ms，INP「良好」上限） |
 | 頁面載入 | `npm run perf:page` | 發布前在本機跑，正式站另跑一次 | 手機情境首頁與課程頁：冷啟動 LCP p95 ≤ 2,500 ms、暖啟動 LCP p95 ≤ 1,500 ms、冷啟動 TBT p95 ≤ 200 ms、單課音檔下載 p95 ≤ 5,000 ms |
 
 頁面載入的量測方式：`scripts/perf-page.mjs` 以本機 Chrome 的 DevTools Protocol 驅動 headless Chrome，不需要額外套件或付費服務。手機情境為 375×667、DPR 2、CPU 4 倍降速、網路 150 ms RTT／1.6 Mbps 下載／750 Kbps 上傳（Lighthouse 行動版設定）。每個樣本用全新設定檔：冷啟動先清快取與 service worker，暖啟動等 service worker 接管後再載入。FCP、LCP、long task 由頁面內 PerformanceObserver 收集；TBT 是 FCP 之後 long task 超過 50 ms 部分的加總，量到載入後 3 秒。單課音檔下載以 4 條並行抓 `general-listening-31` 的 35 個音檔；降速只套用在頁面，所以這一步繞過 service worker。`longestTaskMs` 與 `contentReadyMs`（課程清單或聽解區塊出現的時間）只做診斷，不設門檻。
 
-限制：頁面載入不放進 CI，因為共用 runner 的時間變異大；本機 preview 與正式站結果分開記錄，都不等於真實手機。樣本數 5 時 p95 就是最大值。iOS 與真實手機未量測。
+CI 只跑 bundle 檢查：大小每次量都一樣，而原神批次是「PR check 通過後直接部署」，CI 是唯一一定會執行的關卡。操作計算與頁面載入是時間量測，共用 runner 變異大，改在發布前本機跑；操作計算目前距門檻很遠（最慢 p95 9.8 ms／50 ms）。
+
+限制：本機 preview 與正式站結果分開記錄，都不等於真實手機。樣本數 5 時 p95 就是最大值。iOS 與真實手機未量測。

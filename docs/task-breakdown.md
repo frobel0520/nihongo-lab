@@ -508,4 +508,5 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 - Acceptance checks：每項指標都有門檻、環境（版本、硬體、網路節流、資料量、冷／暖啟動）、樣本數與 p50／p95；本機、fixture 與正式站結果分開記錄；量測可重跑且結果寫入 release-audit.md；CI 或部署前檢查能擋下超過門檻的 bundle 成長。
 - Fixture or test data：正式站與本機 build；不使用使用者真實進度資料。
 - Evidence path：release-audit.md「T120 效能 Release Gate」（實作後新增）。
-- 實作結果（2026-10-14）：`lib/perf-stats.mjs`（百分位數與門檻判定）、`scripts/perf-budget.mjs`（門檻）、`scripts/perf-bundle.mjs`、`scripts/perf-logic.mjs`、`scripts/perf-page.mjs`（DevTools Protocol，不加套件）、`npm run perf:*`、CI 加入 bundle 與操作計算檢查；設計見 project-sd.md「T120 效能 Release Gate」。原提案的「可互動時間」改用 TBT 與內容出現時間（診斷），因為 TTI 已不是 Lighthouse 指標。
+- 實作結果（2026-10-14）：`lib/perf-stats.mjs`（百分位數與門檻判定）、`scripts/perf-budget.mjs`（門檻）、`scripts/perf-bundle.mjs`、`scripts/perf-logic.mjs`、`scripts/perf-page.mjs`（DevTools Protocol，不加套件）、`npm run perf:*`、CI 加入 bundle 檢查（操作計算改發布前本機跑）；設計見 project-sd.md「T120 效能 Release Gate」。原提案的「可互動時間」改用 TBT 與內容出現時間（診斷），因為 TTI 已不是 Lighthouse 指標。
+- Change Request（2026-10-15，使用者）：bundle 迴歸門檻由提案的基準 +5% 改為 +20%（主程式 gzip 630,000、CSS gzip 5,800、precache 21,500,000 bytes），CI 只跑 bundle 檢查。影響：下一批教材不會立刻被 CI 擋下，但 20% 以內的成長不會被自動發現；操作計算延遲改為發布前手動量測。
