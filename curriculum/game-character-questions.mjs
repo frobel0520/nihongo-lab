@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:kirara:join": [
+  "包裹已經遺失了嗎？",
+  "你要親自來取包裹嗎？"
+],
+"genshin:kirara:skill": [
+  "非常感謝你的招待！",
+  "請你先不要打擾我！"
+],
+"genshin:kirara:burst": [
+  "包裹不見了～",
+  "這不是您的包裹～"
+],
+"genshin:kujousara:join": [
+  "請留在原地。",
+  "我會跟著你走。"
+],
+"genshin:kujousara:skill": [
+  "聚集過來！",
+  "留在原地！"
+],
+"genshin:kujousara:burst": [
+  "所有雷光都消失了！",
+  "只剩一片黑暗！"
+],
+"genshin:kukishinobu:join": [
+  "這次所有問題都解決了。",
+  "我們已經沒有問題了。"
+],
+"genshin:kukishinobu:skill": [
+  "請立刻坐下。",
+  "繼續躺著休息吧。"
+],
+"genshin:kukishinobu:burst": [
+  "請你來幫忙干擾對手。",
+  "我希望你打斷這件事。"
+],
+
 "genshin:kamisatoayato:join": [
   "這是一項正式公務。",
   "現在沒有任何表演。"

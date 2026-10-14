@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:kirara:join": {
+  "voicelineId": 61070,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_kirara_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:kirara:skill": {
+  "voicelineId": 61049,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_kirara/vo_kirara_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:kirara:burst": {
+  "voicelineId": 61053,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_kirara/vo_kirara_battle_skill3_01",
+  "variant": "預設造型"
+},
+"genshin:kujousara:join": {
+  "voicelineId": 56069,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_kujouSara_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:kujousara:skill": {
+  "voicelineId": 56048,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_kujouSara/vo_kujouSara_battle_skill1_02",
+  "variant": "預設造型"
+},
+"genshin:kujousara:burst": {
+  "voicelineId": 56052,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_kujouSara/vo_kujouSara_battle_skill3_03",
+  "variant": "預設造型"
+},
+"genshin:kukishinobu:join": {
+  "voicelineId": 65062,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_shinobu_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:kukishinobu:skill": {
+  "voicelineId": 65043,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_shinobu/vo_shinobu_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:kukishinobu:burst": {
+  "voicelineId": 65046,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_shinobu/vo_shinobu_battle_skill3_03",
+  "variant": "預設造型"
+},
+
 "genshin:kamisatoayato:join": {
   "voicelineId": 66066,
   "sourceTitle": "チーム加入·3",
