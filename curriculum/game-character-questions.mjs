@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:mavuika:join": [
+  "現在還沒有準備好。",
+  "只有明天才準備好。"
+],
+"genshin:mavuika:skill": [
+  "熄滅吧。",
+  "不要燃燒。"
+],
+"genshin:mavuika:burst": [
+  "不要聽太陽的聲音！",
+  "太陽已經沉默了！"
+],
+"genshin:mika:join": [
+  "裝備檢查還沒開始，物品也沒備齊。",
+  "裝備已經全部遺失了。"
+],
+"genshin:mika:skill": [
+  "請留在這裡！",
+  "請立刻回到這裡！"
+],
+"genshin:mika:burst": [
+  "各位，不要再努力了！",
+  "各位，現在立刻休息！"
+],
+"genshin:mona:join": [
+  "辦法多得很呢。",
+  "完全沒有問題呢。"
+],
+"genshin:mona:skill": [
+  "命運啊，從水面消失吧。",
+  "水面上什麼影像也沒有。"
+],
+"genshin:mona:burst": [
+  "這只是偶然。",
+  "這與命運無關。"
+],
+
 "genshin:lumine:join": [
   "上次遇見的是什麼呢？",
   "下次一定不會遇到任何人。"
