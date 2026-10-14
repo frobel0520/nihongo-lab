@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:lanyan:join": {
+  "voicelineId": 108066,
+  "sourceTitle": "チーム加入・2",
+  "voicefile": "VO_teamJoin/vo_lanyan_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:lanyan:skill": {
+  "voicelineId": 108045,
+  "sourceTitle": "元素スキル・1",
+  "voicefile": "VO_gameplay/VO_lanyan/vo_lanyan_battle_skill1_04",
+  "variant": "預設造型"
+},
+"genshin:lanyan:burst": {
+  "voicelineId": 108049,
+  "sourceTitle": "元素爆発・2",
+  "voicefile": "VO_gameplay/VO_lanyan/vo_lanyan_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:layla:join": {
+  "voicelineId": 74063,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_layla_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:layla:skill": {
+  "voicelineId": 74045,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_layla/vo_layla_battle_skill1_02",
+  "variant": "預設造型"
+},
+"genshin:layla:burst": {
+  "voicelineId": 74049,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_layla/vo_layla_battle_skill3_03",
+  "variant": "預設造型"
+},
+"genshin:lisa:join": {
+  "voicelineId": 5167,
+  "sourceTitle": "チーム加入·3",
+  "voicefile": "VO_teamJoin/vo_lisa_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:lisa:skill": {
+  "voicelineId": 5145,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_lisa/vo_lisa_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:lisa:burst": {
+  "voicelineId": 5150,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_lisa/vo_lisa_battle_skill3_02",
+  "variant": "預設造型"
+},
+
 "genshin:kirara:join": {
   "voicelineId": 61070,
   "sourceTitle": "チーム加入·1",
