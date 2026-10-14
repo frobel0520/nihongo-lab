@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { stages } from '../curriculum/lessons.mjs';
 import type { DictationMode } from '../lib/prefs.mjs';
-import { parseRoute, viewHash, type ViewId } from '../lib/route.mjs';
+import { parseRoute, stageHash, viewHash, type ViewId } from '../lib/route.mjs';
 import {
   BackIcon,
   BookIcon,
@@ -42,8 +42,6 @@ export function App() {
   const sync = useSync({ progress, getProgress, update });
   const [prefs, setPrefs] = useState(loadPrefs);
   const { updated, dismiss: dismissUpdate, reload } = useSwUpdate();
-  // 有沒有在 App 裡換過頁：沒有的話（直接開單一課程的網址），返回鍵不能用 history.back()，否則會離開 App。
-  const navigated = useRef(false);
 
   const setFurigana = (furigana: boolean) => {
     const next = { ...prefs, furigana };
@@ -58,7 +56,6 @@ export function App() {
 
   useEffect(() => {
     const onHashChange = () => {
-      navigated.current = true;
       setRoute(parseRoute(window.location.hash));
     };
     window.addEventListener('hashchange', onHashChange);
@@ -69,20 +66,20 @@ export function App() {
     route.view === 'lessons' && route.lessonId
       ? LESSONS.find((l) => l.id === route.lessonId)
       : undefined;
-  const routeKey = `${route.view}/${lesson?.id ?? ''}/${route.srsMode ?? ''}/${route.gameId ?? ''}/${route.characterId ?? ''}`;
+  const stage = stages.find((s) => s.id === route.stageId);
+  const parentStage =
+    lesson && stages.find((s) => s.lessons.some((l) => l.id === lesson.id));
+  const routeKey = `${route.view}/${stage?.id ?? ''}/${lesson?.id ?? ''}/${route.srsMode ?? ''}/${route.gameId ?? ''}/${route.characterId ?? ''}`;
 
   // 換頁時回到頁首，不停在上一頁滑到一半的位置。
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [routeKey]);
 
-  const goBack = () => {
-    if (navigated.current) window.history.back();
-    else window.location.replace(viewHash('lessons'));
-  };
-
   const title =
-    (route.view === 'games' ? '遊戲角色語音' : lesson?.title) ??
+    (route.view === 'games'
+      ? '遊戲角色語音'
+      : (lesson?.title ?? stage?.title)) ??
     (route.view === 'lessons'
       ? APP_NAME
       : TABS.find((t) => t.id === route.view)?.label);
@@ -90,15 +87,14 @@ export function App() {
   return (
     <PrefsContext.Provider value={prefs}>
       <header className="appbar">
-        {lesson && (
-          <button
-            type="button"
+        {(lesson || stage) && (
+          <a
             className="icon-btn"
-            aria-label="返回課程清單"
-            onClick={goBack}
+            aria-label={lesson ? '返回課程清單' : '返回課程首頁'}
+            href={parentStage ? stageHash(parentStage.id) : viewHash('lessons')}
           >
             <BackIcon />
-          </button>
+          </a>
         )}
         <h1 className="appbar-title">
           <RubyText text={title ?? ''} />
@@ -159,7 +155,7 @@ export function App() {
           (lesson ? (
             <LessonView lesson={lesson} progress={progress} update={update} />
           ) : (
-            <LessonListView progress={progress} />
+            <LessonListView progress={progress} stageId={stage?.id} />
           ))}
         {route.view === 'games' && (
           <GameStudyView

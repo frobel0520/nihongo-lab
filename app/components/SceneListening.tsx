@@ -24,7 +24,6 @@ export function SceneListening({
   const control = useRef({ run: 0, cursor: null as number | null });
   const submitted = useRef(new Set<string>());
   const [lineIndex, setLineIndex] = useState<number | null>(null);
-  const [speed, setSpeed] = useState(1);
   const [heard, setHeard] = useState(false);
   const [error, setError] = useState(false);
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -56,7 +55,7 @@ export function SceneListening({
     setLineIndex(i);
     el.src = audioUrl(lesson.dialogue[i].audio);
     el.load();
-    el.playbackRate = speed;
+    el.playbackRate = 1;
     const result = await playFromStart(el, {
       others: document.querySelectorAll('audio'),
       isCurrent: () =>
@@ -109,18 +108,6 @@ export function SceneListening({
         同伴甲（女聲）／同伴乙（男聲）。先完整聽完六句，再回答三題；全部作答後揭示原文。
       </p>
       <div className="row">
-        <label>
-          播放速度{' '}
-          <select
-            aria-label="對話播放速度"
-            value={speed}
-            disabled={lineIndex !== null}
-            onChange={(e) => setSpeed(Number(e.target.value))}
-          >
-            <option value={1}>正常速度</option>
-            <option value={0.8}>練習慢速（0.8 倍）</option>
-          </select>
-        </label>
         <button
           type="button"
           className="btn primary"
@@ -220,7 +207,7 @@ export function SceneListening({
         </>
       )}
       <p className="muted">
-        答對紀錄會儲存與同步，代表曾答對這份練習。已讀過課文或解析的重練，也不代表已能聽懂陌生作品。音檔為自製語音，慢速使用播放器調速。
+        答對紀錄會儲存與同步，代表曾答對這份練習。已讀過課文或解析的重練，也不代表已能聽懂陌生作品。音檔為自製語音。
       </p>
       <details>
         <summary>下載本課音檔供離線使用</summary>
