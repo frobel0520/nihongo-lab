@@ -1,6 +1,16 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:flins:join": ["你必須帶路。","我已經迷路了。"],
+"genshin:flins:skill": ["睜大眼睛。","把門打開。"],
+"genshin:flins:burst": ["黑暗已經消失了。","我一定不害怕。"],
+"genshin:iansan:join": ["訓練已經取消。","訓練結束。"],
+"genshin:iansan:skill": ["停止呼吸。","忘掉訓練。"],
+"genshin:iansan:burst": ["不用等信號。","信號已經消失了。"],
+"genshin:ifa:join": ["已經回家了嗎？","不准出門。"],
+"genshin:ifa:skill": ["別再前進了。","已經抵達了。"],
+"genshin:ifa:burst": ["不用小心。","已經受傷了。"],
+
 "genshin:dahlia:join": ["只有我沒來。","我明天才會來。"],
 "genshin:dahlia:skill": ["越來越無聊了。","從來沒有任何變化。"],
 "genshin:dahlia:burst": ["拒絕神的庇護。","神已失去力量。"],
