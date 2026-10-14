@@ -41,7 +41,10 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
     ['er', 'genshin'],
   );
   // ER 55句官方選角與191句逐字稿，另收錄原神286句。
-  assert.equal(lines.length, 532 + genshinSupplement.length * 3);
+  assert.equal(
+    lines.length,
+    532 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0),
+  );
   assert.equal(new Set(lines.map((l) => l.id)).size, lines.length);
   assert.equal(new Set(lines.map(gameRecordId)).size, lines.length);
   for (const game of gameCharacterStudy)
@@ -114,7 +117,11 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
   });
   assert.equal(
     lines.filter((l) => l.category === '編隊加入').length,
-    96 + genshinSupplement.length,
+    96 +
+      genshinSupplement.reduce(
+        (n, c) => n + c.lines.filter((l) => l.category === '編隊加入').length,
+        0,
+      ),
   );
 });
 

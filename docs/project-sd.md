@@ -575,3 +575,13 @@ OpenJLPT全階段65課：去重1215詞，N5 670／674（99.4%），N4 144詞；N
 限制：本批每類選取一句，並非原作完整語音庫。
 
 來源：[瓦雷莎](https://wikiwiki.jp/genshinwiki/%E3%83%B4%E3%82%A1%E3%83%AC%E3%82%B5)、[法爾伽](https://wikiwiki.jp/genshinwiki/%E3%83%95%E3%82%A1%E3%83%AB%E3%82%AB)、[茲白](https://wikiwiki.jp/genshinwiki/%E5%85%B9%E7%99%BD)；性別資料依角色名冊中對應的固定版本角色JSON。
+
+## 2026-10-14 T117 原神其他來源補錄
+
+薇斯納、沃雅妮莎、奇偶·男性補入已核對的角色語音，共9句原作短台詞及VOICEVOX自製朗讀。原神現有123位可學習角色、367句，124筆名冊仍有1筆待教材。文字逐句對照社群角色語音表中的日文欄位，另依固定版本角色gender欄位安排男女聲；來源URL、頁面SHA-256、核對日期與技能按法註記保留於genshin-supplement.mjs。來源未提供原音編號或音檔名時，不編造voicelineId／voicefile。既有286句與ER教材保持，固定資料庫來源盤點也保持原值；畫面分開顯示Wiki補錄來源與固定資料庫筆數。
+
+完整typecheck、268 tests、lint及正式base path build通過；9音檔（142,956 bytes）讀音閘門、解碼、非靜音與encoder-only metadata檢查通過。375×667手機實播、9題大意、假名、單角色下載與離線重載播放通過，沒有水平溢位或pageerror。教材音聲不是原配音，也未逐句驗收原作演技。
+
+限制：本批奇偶僅收錄編隊加入，元素技能與元素爆發仍待可核對台詞；薇斯納及沃雅妮莎採BWIKI表內的日文欄位。
+
+來源：[薇斯納](https://wiki.biligame.com/ys/%E8%96%87%E6%96%AF%E7%BA%B3%E8%AF%AD%E9%9F%B3)、[沃雅妮莎](https://wiki.biligame.com/ys/%E6%B2%83%E9%9B%85%E5%A6%AE%E8%8E%8E%E8%AF%AD%E9%9F%B3)、[奇偶·男性](https://wikiwiki.jp/genshinwiki/%E3%83%89%E3%83%BC%E3%83%AB)；性別資料依角色名冊中對應的固定版本角色JSON。

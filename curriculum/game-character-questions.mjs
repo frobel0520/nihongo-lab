@@ -1,6 +1,16 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:vesna:join": ["巡視已經取消。","現在該睡覺了。"],
+"genshin:vesna:skill": ["解散。","休息。"],
+"genshin:vesna:burst": ["請你陪我玩。","我不會奉陪。"],
+"genshin:vodyanitsa:join": ["我已經離開了。","不要再呼吸。"],
+"genshin:vodyanitsa:skill": ["把耳朵洗乾淨。","別再聽了。"],
+"genshin:vodyanitsa:burst": ["大家別唱歌。","大家已經唱完。"],
+"genshin:manekin:join-ready": ["還沒準備好。","任務已失敗。"],
+"genshin:manekin:join-order": ["我已經下命令了。","不接受任何命令。"],
+"genshin:manekin:join-request": ["什麼都別說。","我只接受一種要求。"],
+
 "genshin:varesa:join": ["只有比賽，不能出門。","已經比賽完回家。"],
 "genshin:varesa:skill": ["我不會前進。","我已經離開很久。"],
 "genshin:varesa:burst": ["是我輸了。","你已經贏了。"],

@@ -76,13 +76,13 @@ function GenshinCoverage({ character }: { character: GameCharacter }) {
               <tr key={key}>
                 <th>{label}</th>
                 <td>
-                  {supplement ? (
+                  {supplement?.lines.some((l) => l.category === label) ? (
                     <a
                       href={supplement.referenceUrl}
                       target="_blank"
                       rel="noreferrer"
                     >
-                      日文 Wiki
+                      補錄語音表
                     </a>
                   ) : count ? (
                     `${count} 筆`
@@ -98,7 +98,7 @@ function GenshinCoverage({ character }: { character: GameCharacter }) {
       </table>
       <p className="muted">
         {supplement
-          ? '日文 Wiki 語音表補錄；每類選取一個已核對短句，並非完整語音庫。'
+          ? '以已核對的日文短句補錄；各情境的完成數分開顯示。'
           : '固定資料庫筆數包含不同語音、造型或元素版本，與已完成教材分開計算。'}
         {!supplement &&
           !coverage.sourceAvailable &&
