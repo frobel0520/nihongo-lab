@@ -1084,17 +1084,17 @@ PR #113 check 通過後以 rebase 合併為 `fe6a5a4`，[GitHub Actions 38573993
 
 ## 2026-10-14 T120 效能 Release Gate
 
-新增三層效能量測與門檻（設計見 project-sd.md「T120 效能 Release Gate」），CI 每次 build 後跑 bundle 與操作計算檢查。基準 commit：`b1b644f` 加上 T120 分支；完整 typecheck、275 tests、lint 通過。
+新增三層效能量測與門檻（設計見 project-sd.md「T120 效能 Release Gate」），CI 每次 build 後跑 bundle 檢查，操作計算與頁面載入在發布前本機跑。基準 commit：`b1b644f` 加上 T120 分支；完整 typecheck、275 tests、lint 通過。
 
 ### Bundle（正式 base path `vite build`，gzip -9）— 通過
 
 | 指標 | 量測 | 門檻 | 結果 |
 | --- | --- | --- | --- |
-| 主程式 `index-*.js` | 1,798,253 bytes（gzip 524,703） | gzip ≤ 551,000 | pass |
-| CSS | gzip 4,817 | ≤ 6,000 | pass |
-| precache | 236 項、17,913,219 bytes | ≤ 18,800,000 | pass |
+| 主程式 `index-*.js` | 1,798,253 bytes（gzip 524,703） | gzip ≤ 630,000 | pass |
+| CSS | gzip 4,817 | ≤ 5,800 | pass |
+| precache | 236 項、17,913,219 bytes | ≤ 21,500,000 | pass |
 
-precache 中 215 項是遊戲角色頭像（`game-portraits/`），首次開啟就會在背景下載；主程式內含全部教材資料，所以每批新教材都會讓主程式變大。門檻是基準加 5% 的迴歸上限，不代表大小合理。
+precache 中 215 項是遊戲角色頭像（`game-portraits/`），首次開啟就會在背景下載；主程式內含全部教材資料，所以每批新教材都會讓主程式變大。門檻是基準加 20% 的迴歸上限（Change Request：原提案 +5%，使用者改選 +20%，避免下一批教材立刻被擋；影響是約 105KB gzip 內的成長不會被 CI 發現），不代表大小合理。
 
 ### 操作計算（Node v24.14.1、Windows 10、i7-12700KF、200 樣本、暖啟動）— 通過
 
@@ -1142,4 +1142,4 @@ precache 中 215 項是遊戲角色頭像（`game-portraits/`），首次開啟�
 
 ### Release Gate 判定
 
-bundle 迴歸與操作計算通過，CI 已會擋下超過門檻的變更。頁面載入的冷啟動 LCP 在本機與正式站都未通過，**本次效能 Release Gate 記為未通過**。門檻值仍待使用者確認；縮小首次載入的工作另開 Task。真實手機與 iOS 未量測。
+bundle 迴歸與操作計算通過，CI 會擋下 bundle 超過門檻的變更。頁面載入的冷啟動 LCP 在本機與正式站都未通過，**本次效能 Release Gate 記為未通過**。門檻值仍待使用者確認；縮小首次載入的工作另開 Task。真實手機與 iOS 未量測。
