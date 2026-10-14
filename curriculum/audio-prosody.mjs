@@ -8,6 +8,28 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+  "audio/stage-1/general-listening-04/vocab-6696b923d1.mp3": {
+    "text": "空く",
+    "reading": "あく",
+    "kana": "アク'",
+    "reason": "T105：空出或有空位的空く讀あく，修正引擎的むなしく；依Kanjium採平板型0。",
+    "reference": "kanjium"
+  },
+  "audio/stage-1/general-listening-04/vocab-efe20aec0f.mp3": {
+    "text": "明後日",
+    "reading": "あさって",
+    "kana": "アサ'ッテ",
+    "reason": "T105：日常說法明後日讀あさって，修正引擎的みょうごにち；依Kanjium採重音型2。",
+    "reference": "kanjium"
+  },
+  "audio/stage-1/general-listening-06/vocab-9b49d08af1.mp3": {
+    "text": "晴れる",
+    "reading": "はれる",
+    "kana": "ハレ'ル",
+    "reason": "T105：晴れる讀はれる，修正引擎多出的れ；依Kanjium採單一片語重音型2，避免假名解析拆成はれ／る。",
+    "reference": "kanjium"
+  },
+
 "audio/games/genshin/gram-40e0ca96c9.mp3": {
   "text": "命に応えよ！",
   "reading": "めいに こたえよ！",

@@ -16,7 +16,7 @@ const TRACKS: Record<string, { title: string; description: string }> = {
   },
   'stage-1': {
     title: '動漫／遊戲通用聽解',
-    description: '用原創男女聲對話練習聽懂目的地、請求、理由與行動。',
+    description: '用原創男女聲對話練習請求、邀請、能力與條件，抓住行動和意思。',
   },
   'stage-2': {
     title: '口語與動畫日文',
@@ -125,12 +125,14 @@ export function LessonListView({
         {stageId === 'stage-1' && (
           <>
             <p>
-              初版 3 課，建議按順序學習。每天 30～45 分鐘：先聽整段 → 作答 →
-              學單字與句型 → 看解析並跟讀。
+              目前 {selected[0].lessons.length} 課，建議按順序學習。每天 30～45
+              分鐘：先聽整段 → 作答 → 學單字與句型 → 看解析並跟讀。
             </p>
             <details>
               <summary>六階段學習路線（規劃 180 課）</summary>
-              <p className="muted">目前完成起始 3 課，其餘為擴充方向。</p>
+              <p className="muted">
+                目前完成起始 {selected[0].lessons.length} 課，其餘為擴充方向。
+              </p>
               <ol>
                 {generalListeningRoadmap.map((phase) => (
                   <li key={phase.title}>

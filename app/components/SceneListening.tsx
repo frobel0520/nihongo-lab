@@ -214,7 +214,7 @@ export function SceneListening({
         <OfflineAudio
           lessonPaths={lessonPaths}
           allPaths={COURSE_AUDIO}
-          allLabel="通用聽解三課"
+          allLabel="通用聽解全部課程"
         />
       </details>
     </section>
