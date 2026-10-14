@@ -8,6 +8,14 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+"audio/games/genshin/gram-e416a2a01e.mp3": {
+  "text": "ヨォーヨがいるから、心配しなくていいよ～",
+  "reading": "ヨォーヨが いるから、しんぱいしなくて いいよ～",
+  "kana": "ヨ'オヨガ/イル'カラ、シンパイ'/シナ_クテイイヨ'",
+  "reason": "T100：ヨォーヨ保留來源字面與畫面讀音；教材音聲把首段ヨォー作一個長音，指定よおよ，修正引擎拆成ヨ／オオヨ的多餘音節。後半句界與重音保留原查詢，不宣稱已比對原作演技。",
+  "reference": "voicevox"
+},
+
 "audio/games/genshin/gram-bad63746bf.mp3": {
   "text": "罪を認めろ！",
   "reading": "つみを みとめろ！",

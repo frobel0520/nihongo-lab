@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:yanfei:join": [
+  "請交給別人。",
+  "我無法接受委託。"
+],
+"genshin:yanfei:skill": [
+  "前進！",
+  "留下！"
+],
+"genshin:yanfei:burst": [
+  "熄火的許可！",
+  "避火的獎賞！"
+],
+"genshin:yaoyao:join": [
+  "瑤瑤不在，所以要小心喔～",
+  "瑤瑤在，但還是得擔心喔～"
+],
+"genshin:yaoyao:skill": [
+  "快跑起來喔！",
+  "隨意移動吧！"
+],
+"genshin:yaoyao:burst": [
+  "疼痛留下來～",
+  "大家快飛回來～"
+],
+"genshin:yelan:join": [
+  "目標已經逃走了嗎？",
+  "你要增加目標嗎？"
+],
+"genshin:yelan:skill": [
+  "被抓到了。",
+  "沒抓到。"
+],
+"genshin:yelan:burst": [
+  "骰子已經掉在哪裡？",
+  "為什麼所有點數都相同？"
+],
+
 "genshin:xilonen:join": [
   "已經到達了嗎？",
   "要取消行程嗎？"

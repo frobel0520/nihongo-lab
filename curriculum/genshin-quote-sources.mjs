@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:yanfei:join": {
+  "voicelineId": 38072,
+  "sourceTitle": "チーム加入·3",
+  "voicefile": "VO_teamJoin/vo_yanfei_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:yanfei:skill": {
+  "voicelineId": 38054,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_yanfei/vo_yanfei_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:yanfei:burst": {
+  "voicelineId": 38056,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_yanfei/vo_yanfei_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:yaoyao:join": {
+  "voicelineId": 77068,
+  "sourceTitle": "チーム加入·3",
+  "voicefile": "VO_teamJoin/vo_yaoyao_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:yaoyao:skill": {
+  "voicelineId": 77048,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_yaoyao/vo_yaoyao_battle_skill1_02",
+  "variant": "預設造型"
+},
+"genshin:yaoyao:burst": {
+  "voicelineId": 77051,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_yaoyao/vo_yaoyao_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:yelan:join": {
+  "voicelineId": 60065,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_yelan_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:yelan:skill": {
+  "voicelineId": 60046,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_yelan/vo_yelan_battle_skill1_02",
+  "variant": "預設造型"
+},
+"genshin:yelan:burst": {
+  "voicelineId": 60050,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_yelan/vo_yelan_battle_skill3_03",
+  "variant": "預設造型"
+},
+
 "genshin:xilonen:join": {
   "voicelineId": 103064,
   "sourceTitle": "チーム加入・1",
