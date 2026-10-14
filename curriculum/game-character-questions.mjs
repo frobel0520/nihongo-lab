@@ -1,6 +1,16 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:lauma:join": ["別去有月光的地方。","已經離開月光下了。"],
+"genshin:lauma:skill": ["回來。","別動。"],
+"genshin:lauma:burst": ["只為自己祈禱。","不再祈禱。"],
+"genshin:linnea:join": ["昨天去了哪裡？","今天不准冒險。"],
+"genshin:linnea:skill": ["請舔一下。","我已經認輸了。"],
+"genshin:linnea:burst": ["完全違背您的願望。","您的願望已忘了。"],
+"genshin:lohen:join": ["身體完全不能動。","已經決定去睡覺。"],
+"genshin:lohen:skill": ["我會放你逃走。","我自己想逃走。"],
+"genshin:lohen:burst": ["繼續掙扎一定有用。","現在完全沒有危險。"],
+
 "genshin:illuga:join": ["我不會努力。","期待已經全部實現了。"],
 "genshin:illuga:skill": ["不用再幫忙。","我拒絕你的請求。"],
 "genshin:illuga:burst": ["讓黑夜永遠持續。","熄滅所有光線。"],
