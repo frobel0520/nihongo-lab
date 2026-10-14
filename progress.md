@@ -1,5 +1,9 @@
 # 專案進度
 
+## 最新狀態：2026-10-14 T120 效能 Release Gate（PR 待合併）
+
+新增 `npm run perf:bundle`／`perf:logic`／`perf:page`，門檻在 `scripts/perf-budget.mjs`，CI 每次 build 後檢查 bundle 與操作計算。首輪結果：bundle 與操作計算通過；手機情境冷啟動 LCP p95 本機約 4.0 秒、正式站 4.9 秒，未達 2.5 秒門檻，Release Gate 記為未通過，暖啟動、TBT、單課下載通過。門檻值待使用者確認；縮小首次載入另開 Task。
+
 ## 最新狀態：2026-10-14 T119 code review 修正（已合併 `fe6a5a4`；T120 效能 Gate 已開立待開始）
 
 針對 T66～T118（`3207522..04900fb`）的程式碼 review，修正三項：App 內返回鍵改為「上一頁就是目標才退回歷史，否則 replace」，手機返回鍵不再在課程與清單間來回跳；通用聽解分組標題移到 `curriculum/general-listening.mjs`，第61課起沿用路線階段名稱；整段聽解的句數、題數與同伴標籤改由資料推導。271 tests／typecheck／lint／build 通過，瀏覽器驗證返回流程、直接開課程網址與 375 寬聽解畫面。其餘 review 項目（首頁複習數混合四類別、build-genshin-coverage 吞錯、階段 id 寫死、props 命名）未處理。
