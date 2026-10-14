@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:xilonen:join": [
+  "已經到達了嗎？",
+  "要取消行程嗎？"
+],
+"genshin:xilonen:skill": [
+  "那麼，留下吧。",
+  "那麼，已經結束了。"
+],
+"genshin:xilonen:burst": [
+  "平息吧，海之水！",
+  "凝固吧，山之血！"
+],
+"genshin:xinyan:join": [
+  "我已經退場了！",
+  "輪到你休息了！"
+],
+"genshin:xinyan:skill": [
+  "節奏已經停了嗎？",
+  "要改變節奏嗎？"
+],
+"genshin:xinyan:burst": [
+  "該安靜睡覺了！",
+  "搖滾表演已經結束！"
+],
+"genshin:yaemiko:join": [
+  "去把有趣的事忘掉吧。",
+  "有趣的事都已經結束了。"
+],
+"genshin:yaemiko:skill": [
+  "隱藏形體吧。",
+  "停止變化吧。"
+],
+"genshin:yaemiko:burst": [
+  "雷光，真令人厭煩啊。",
+  "雷光，已經全都消失了。"
+],
+
 "genshin:wriothesley:join": [
   "家裡的工作嗎？先休息。",
   "工作都做完了？回去吧。"
