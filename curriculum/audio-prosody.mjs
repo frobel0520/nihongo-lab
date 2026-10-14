@@ -8,6 +8,8 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+"audio/games/genshin/gram-3b76cdc731.mp3": {"text": "何でも言ってくれ！", "reading": "なんでも いってくれ！", "kana": "ナ'ンデモ/イッテ'/クレ'", "reason": "T117：何でも採教材的なんでも，保留言って與くれ的原查詢重音及句界。", "reference": "voicevox"},
+
 "audio/games/genshin/gram-b4a1a8f0c9.mp3": {"text": "鈴の音を合図に。", "reading": "すずの ねを あいずに。", "kana": "スズノ'/ネオ'/ア'イズニ", "reason": "T115：鈴の音以ね校正引擎的おと；保留鈴の與合図に的原查詢片語重音及句界，音ね的核對讀法與平板型0參考Kanjium。", "reference": "voicevox"},
 
   "audio/stage-1/general-listening-24/gram-b3028508bc.mp3": {

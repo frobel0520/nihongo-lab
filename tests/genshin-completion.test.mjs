@@ -91,6 +91,9 @@ const genders = {
     'skirk',
     'varesa',
     'zibai',
+    'vesna',
+    'vodyanitsa',
+    'manekina',
   ],
   male: [
     'aether',
@@ -134,6 +137,7 @@ const genders = {
     'illuga',
     'lohen',
     'varka',
+    'manekin',
   ],
 };
 
@@ -149,18 +153,28 @@ test('固定來源96位與日文Wiki補錄角色分別核對；缺句角色保�
   assert.deepEqual(
     collected.map((c) => c.id).sort(),
     [
-      ...actionable.map((c) => c.id),
-      ...genshinSupplement.map((c) => c.id),
+      ...new Set([
+        ...actionable.map((c) => c.id),
+        ...genshinSupplement.map((c) => c.id),
+      ]),
     ].sort(),
   );
   assert.equal(
     collected.flatMap((c) => c.lines).length,
-    286 + genshinSupplement.length * 3,
+    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0),
   );
   for (const c of collected) {
-    const expected = ['diluc', 'hutao'].includes(c.id)
-      ? ['元素爆發', '編隊加入']
-      : ['元素技能', '元素爆發', '編隊加入'];
+    const expected = c.id.startsWith('manekin')
+      ? ['編隊加入', '編隊加入', '編隊加入']
+      : ['diluc', 'hutao'].includes(c.id)
+        ? [
+            '元素爆發',
+            '編隊加入',
+            ...(genshinSupplement.some((s) => s.id === c.id)
+              ? ['角色閒聊']
+              : []),
+          ]
+        : ['元素技能', '元素爆發', '編隊加入'];
     assert.deepEqual(
       c.lines.map((l) => l.category).sort(),
       expected.sort(),
@@ -169,7 +183,11 @@ test('固定來源96位與日文Wiki補錄角色分別核對；缺句角色保�
   }
   assert.equal(
     game.characters.filter((c) => !c.lines.length).length,
-    28 - genshinSupplement.length,
+    124 -
+      new Set([
+        ...actionable.map((c) => c.id),
+        ...genshinSupplement.map((c) => c.id),
+      ]).size,
   );
   for (const c of game.characters.filter((c) => !c.lines.length)) {
     assert.ok(
@@ -188,7 +206,7 @@ test('原神已收錄角色的聲線與獨立性別資料一致，同角色所�
     ),
   );
   const collected = game.characters.filter((c) => c.lines.length);
-  assert.equal(expected.size, 120);
+  assert.equal(expected.size, 124);
   assert.ok(collected.every((c) => expected.has(c.id)));
   for (const c of collected) {
     assert.equal(getVoice(c.voice).gender, expected.get(c.id), c.id);
