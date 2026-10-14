@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:sayu:join": {
+  "voicelineId": 53034,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_sayu_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:sayu:skill": {
+  "voicelineId": 53013,
+  "sourceTitle": "元素スキル·5",
+  "voicefile": "VO_gameplay/VO_sayu/vo_sayu_battle_skill1_05",
+  "variant": "預設造型"
+},
+"genshin:sayu:burst": {
+  "voicelineId": 53016,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_sayu/vo_sayu_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:sethos:join": {
+  "voicelineId": 97068,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_sethos_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:sethos:skill": {
+  "voicelineId": 97046,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_sethos/vo_sethos_battle_skill1_02",
+  "variant": "預設造型"
+},
+"genshin:sethos:burst": {
+  "voicelineId": 97053,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_sethos/vo_sethos_battle_skill3_03",
+  "variant": "預設造型"
+},
+"genshin:shenhe:join": {
+  "voicelineId": 63067,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_shenhe_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:shenhe:skill": {
+  "voicelineId": 63043,
+  "sourceTitle": "元素スキル·1",
+  "voicefile": "VO_gameplay/VO_shenhe/vo_shenhe_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:shenhe:burst": {
+  "voicelineId": 63051,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_shenhe/vo_shenhe_battle_skill3_03",
+  "variant": "預設造型"
+},
+
 "genshin:qiqi:join": {
   "voicelineId": 24075,
   "sourceTitle": "チーム加入·3",

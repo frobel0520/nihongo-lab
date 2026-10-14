@@ -8,6 +8,14 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+"audio/games/genshin/gram-ebdd5c48a1.mp3": {
+  "text": "ごめん、ちょっと退いてくれる？",
+  "reading": "ごめん、ちょっと どいてくれる？",
+  "kana": "ゴメン'、チョ'ット/ド'イテ/クレル'？",
+  "reason": "T95：請求讓路的退いて採どいて，修正引擎的しりぞいて；其餘句界及重音保留原查詢，退いて使用讀音校正後的VOICEVOX重音，不模仿原配音。",
+  "reference": "voicevox"
+},
+
 "audio/games/genshin/gram-c91fe6a9e1.mp3": {
   "text": "聞き給え、ここにて命ずる。",
   "reading": "ききたまえ、ここにて めいずる。",

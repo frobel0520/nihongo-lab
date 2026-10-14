@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:sayu:join": [
+  "已經睡著了嗎？",
+  "不可以睡覺嗎？"
+],
+"genshin:sayu:skill": [
+  "我要抓住你。",
+  "已經被抓住了。"
+],
+"genshin:sayu:burst": [
+  "躲起來。",
+  "回去吧。"
+],
+"genshin:sethos:join": [
+  "好～你要走了嗎？",
+  "不行，我沒有空。"
+],
+"genshin:sethos:skill": [
+  "多謝款待！",
+  "請別打擾我！"
+],
+"genshin:sethos:burst": [
+  "抱歉，可以先留下嗎？",
+  "抱歉，請你坐在這裡。"
+],
+"genshin:shenhe:join": [
+  "知道了，必須一直走嗎？",
+  "我不懂，先坐下吧。"
+],
+"genshin:shenhe:skill": [
+  "撤回命令！",
+  "無須命令！"
+],
+"genshin:shenhe:burst": [
+  "改寫所有規則！",
+  "忘記這些命令！"
+],
+
 "genshin:qiqi:join": [
   "筆記……忘了。",
   "筆記……交給你。"
