@@ -46,6 +46,9 @@ import day25 from './days/day25.mjs';
 import day26 from './days/day26.mjs';
 import day27 from './days/day27.mjs';
 import day28 from './days/day28.mjs';
+import day29 from './days/day29.mjs';
+import day30 from './days/day30.mjs';
+import day31 from './days/day31.mjs';
 import { buildAnimeLessons } from './anime-training.mjs';
 import { expandedAnimeQuotes } from './anime-quotes-expansion.mjs';
 import { animeQuotes100 } from './anime-quotes-100.mjs';
@@ -980,7 +983,7 @@ for (const quote of quotes.quotes ?? []) {
 /** @type {Stage[]} */
 export const stages = [
   { id: 'stage-0', title: '第 0 階段：N5 復健', lessons: [day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11, day12, day13, day14, day15, day16, day17, day18, day19, day20, day21, day22, day23, day24, day25] },
-  { id: 'stage-1', title: '第 1 階段：動漫／遊戲通用聽解（初版）', lessons: [day26, day27, day28] },
+  { id: 'stage-1', title: '第 1 階段：動漫／遊戲通用聽解（初版）', lessons: [day26, day27, day28, day29, day30, day31] },
   { id: 'stage-2', title: '第 2 階段：口語與動畫日文', lessons: [...buildAnimeLessons(quotes.quotes ?? []), spoken, quotes] },
   { id: 'stage-3', title: '第 3 階段：N3 到 N1', lessons: [] },
 ];
