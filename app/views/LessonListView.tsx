@@ -1,20 +1,25 @@
 import {
-  stages,
+  curriculumSummary,
   generalListeningRoadmap,
   generalListeningGroupTitle,
   GENERAL_LISTENING_GROUP_SIZE,
-  type Lesson,
 } from '../../curriculum/lessons.mjs';
-import { lessonProgress } from '../../lib/lesson-progress.mjs';
+import {
+  indexedLessonProgress,
+  summarizeIds,
+} from '../../lib/curriculum-summary.mjs';
+import type { LessonIndex } from '../../lib/curriculum-index.mjs';
 import type { Progress } from '../../lib/progress.mjs';
 import { lessonHash, stageHash, srsHash, viewHash } from '../../lib/route.mjs';
-import { summarize, toDateString } from '../../lib/srs.mjs';
+import { toDateString } from '../../lib/srs.mjs';
 import { ChevronRightIcon } from '../components/Icons';
 import { ProgressBar } from '../components/ProgressBar';
 import { RubyText } from '../components/Ruby';
-import { STUDY_CATALOG } from '../../lib/study-catalog.mjs';
 
-const CARDS = Object.values(STUDY_CATALOG).flatMap((catalog) => catalog.cards);
+const stages = curriculumSummary.stages;
+const CARD_IDS = Object.values(curriculumSummary.categories).flatMap(
+  (c) => c.cardIds,
+);
 const TRACKS: Record<string, { title: string; description: string }> = {
   'stage-0': {
     title: 'N5 基礎復健',
@@ -44,11 +49,11 @@ export function LessonListView({
   progress: Progress;
   stageId?: string;
 }) {
-  const stats = summarize(CARDS, progress.srs, toDateString());
-  const byLesson = lessonProgress(stages, progress);
+  const stats = summarizeIds(CARD_IDS, progress.srs, toDateString());
+  const byLesson = indexedLessonProgress(curriculumSummary, progress);
   const selected = stages.filter((stage) => stage.id === stageId);
 
-  const lessonList = (lessons: Lesson[]) => (
+  const lessonList = (lessons: LessonIndex[]) => (
     <ul className="lesson-list">
       {lessons.map((lesson) => {
         const p = byLesson[lesson.id];

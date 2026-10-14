@@ -1,8 +1,7 @@
 import { practiceRecordCount } from '../../lib/grammar-study.mjs';
 import { useState } from 'react';
-import { stages, gameCharacterStudy } from '../../curriculum/lessons.mjs';
+import { loadAllAudioPaths } from '../../curriculum/lessons.mjs';
 import { voices } from '../../curriculum/voices.mjs';
-import { allAudioPaths } from '../../lib/offline.mjs';
 import type { Progress } from '../../lib/progress.mjs';
 import type { Prefs } from '../../lib/prefs.mjs';
 import { CACHE_CLEARED_FLAG, ClearCache } from '../components/ClearCache';
@@ -11,12 +10,7 @@ import { ProgressTransfer } from '../components/ProgressTransfer';
 import { SyncPanel } from '../components/SyncPanel';
 import type { SyncApi } from '../useSync';
 
-const ALL_AUDIO_PATHS = allAudioPaths(
-  stages,
-  gameCharacterStudy.flatMap((g) =>
-    g.characters.flatMap((c) => c.lines.map((l) => l.audio)),
-  ),
-);
+const ALL_AUDIO_PATHS = await loadAllAudioPaths();
 /** 設定頁只提供「全部課程」下載；模組層級的固定陣列，避免每次渲染都換新參考而重跑下載計數。 */
 const NO_LESSON_PATHS: string[] = [];
 
