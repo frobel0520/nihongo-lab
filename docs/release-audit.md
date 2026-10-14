@@ -975,3 +975,11 @@ OpenJLPT全階段65課：去重1215詞，N5 670／674（99.4%），N4 144詞；N
 完整typecheck、268 tests、lint及正式base path build通過；9音檔（158,220 bytes）讀音閘門、解碼、非靜音與encoder-only metadata檢查通過。375×667手機實播、9題大意、假名、單角色下載與離線重載播放通過，沒有水平溢位或pageerror。教材音聲不是原配音，也未逐句驗收原作演技。
 
 來源：[愛諾](https://wikiwiki.jp/genshinwiki/%E3%82%A2%E3%82%A4%E3%83%8E)、[阿羅夏](https://wikiwiki.jp/genshinwiki/%E3%82%A2%E3%83%AA%E3%83%A7%E3%83%BC%E3%82%B7%E3%83%A3)、[哥倫比婭](https://wikiwiki.jp/genshinwiki/%E3%82%B3%E3%83%AD%E3%83%B3%E3%83%93%E3%83%BC%E3%83%8A)；性別資料依角色名冊中對應的固定版本角色JSON。
+
+## 2026-10-14 T110 原神其他來源補錄
+
+塔利雅、杜林、愛可菲各補入編隊加入、元素技能與元素爆發一句，共9句原作短台詞及VOICEVOX自製朗讀。原神現有102位可學習角色、304句，124筆名冊仍有22筆待教材。文字逐句對照日文Wiki角色語音表，另依固定版本角色gender欄位安排男女聲；來源URL、頁面SHA-256、核對日期與技能按法註記保留於genshin-supplement.mjs。來源未提供原音編號或音檔名時，不編造voicelineId／voicefile。既有286句與ER教材保持，固定資料庫來源盤點也保持原值；畫面分開顯示Wiki補錄來源與固定資料庫筆數。
+
+完整typecheck、268 tests、lint及正式base path build通過；9音檔（181,548 bytes）讀音閘門、解碼、非靜音與encoder-only metadata檢查通過。375×667手機實播、9題大意、假名、單角色下載與離線重載播放通過，沒有水平溢位或pageerror。教材音聲不是原配音，也未逐句驗收原作演技。
+
+來源：[塔利雅](https://wikiwiki.jp/genshinwiki/%E3%83%80%E3%83%AA%E3%82%A2)、[杜林](https://wikiwiki.jp/genshinwiki/%E3%83%89%E3%82%A5%E3%83%AA%E3%83%B3)、[愛可菲](https://wikiwiki.jp/genshinwiki/%E3%82%A8%E3%82%B9%E3%82%B3%E3%83%95%E3%82%A3%E3%82%A8)；性別資料依角色名冊中對應的固定版本角色JSON。
