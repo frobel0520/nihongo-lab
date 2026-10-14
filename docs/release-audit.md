@@ -853,3 +853,13 @@ T94已部署：PR [#88](https://github.com/frobel0520/nihongo-lab/pull/88)、合
 T95：請求讓路的退いて採どいて，修正引擎的しりぞいて；其餘句界及重音保留原查詢，退いて使用讀音校正後的VOICEVOX重音，不模仿原配音。
 
 完整typecheck、260 tests、lint與正式base path build通過；9個MP3讀音閘門、全檔解碼、非靜音訊號與encoder-only metadata通過，共173,484 bytes。375×667手機實測9句播放／作答／原文假名揭示，角色音檔下載後斷網重載與9句播放通過；無水平溢位或pageerror。PR check與正式站部署待完成，核對後直接接續下一批。音色、語氣與原作演技未逐句人耳驗收。
+
+T95已部署：PR [#89](https://github.com/frobel0520/nihongo-lab/pull/89)、合併commit `9dc3fcd`，Actions [38496314067](https://github.com/frobel0520/nihongo-lab/actions/runs/38496314067)成功。正式站JS與9個MP3共173,484 bytes逐位元組一致，TLS驗證保留。
+
+## 2026-10-14 T96 原神自動接續批次
+
+鹿野院平藏、希格雯、達達利亞收錄可核對的編隊加入／元素技能／元素爆發短句，共9句VOICEVOX；原神81位241句、43筆待教材。固定版本語音表逐句核對voicelineId／標題／voicefile，繁中、讀音、解說及大意題齊備；既有教材與ER聲線配置逐欄保持。
+
+T96：認めろ採みとめろ，修正引擎的したためろ；罪を保留原查詢下降位置，認めろ使用讀音校正後的VOICEVOX重音與原句界，不模仿原配音。
+
+完整typecheck、260 tests、lint與正式base path build通過；9個MP3讀音閘門、全檔解碼、非靜音訊號與encoder-only metadata通過，共165,132 bytes。375×667手機實測9句播放／作答／原文假名揭示，角色音檔下載後斷網重載與9句播放通過；無水平溢位或pageerror。PR check與正式站部署待完成，核對後直接接續下一批。音色、語氣與原作演技未逐句人耳驗收。

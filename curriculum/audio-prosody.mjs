@@ -8,6 +8,14 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+"audio/games/genshin/gram-bad63746bf.mp3": {
+  "text": "罪を認めろ！",
+  "reading": "つみを みとめろ！",
+  "kana": "ツ'ミオ/ミトメ'ロ",
+  "reason": "T96：認めろ採みとめろ，修正引擎的したためろ；罪を保留原查詢下降位置，認めろ使用讀音校正後的VOICEVOX重音與原句界，不模仿原配音。",
+  "reference": "voicevox"
+},
+
 "audio/games/genshin/gram-ebdd5c48a1.mp3": {
   "text": "ごめん、ちょっと退いてくれる？",
   "reading": "ごめん、ちょっと どいてくれる？",
