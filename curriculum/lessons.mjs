@@ -73,6 +73,36 @@ import day52 from './days/day52.mjs';
 import day53 from './days/day53.mjs';
 import day54 from './days/day54.mjs';
 import day55 from './days/day55.mjs';
+import day56 from './days/day56.mjs';
+import day57 from './days/day57.mjs';
+import day58 from './days/day58.mjs';
+import day59 from './days/day59.mjs';
+import day60 from './days/day60.mjs';
+import day61 from './days/day61.mjs';
+import day62 from './days/day62.mjs';
+import day63 from './days/day63.mjs';
+import day64 from './days/day64.mjs';
+import day65 from './days/day65.mjs';
+import day66 from './days/day66.mjs';
+import day67 from './days/day67.mjs';
+import day68 from './days/day68.mjs';
+import day69 from './days/day69.mjs';
+import day70 from './days/day70.mjs';
+import day71 from './days/day71.mjs';
+import day72 from './days/day72.mjs';
+import day73 from './days/day73.mjs';
+import day74 from './days/day74.mjs';
+import day75 from './days/day75.mjs';
+import day76 from './days/day76.mjs';
+import day77 from './days/day77.mjs';
+import day78 from './days/day78.mjs';
+import day79 from './days/day79.mjs';
+import day80 from './days/day80.mjs';
+import day81 from './days/day81.mjs';
+import day82 from './days/day82.mjs';
+import day83 from './days/day83.mjs';
+import day84 from './days/day84.mjs';
+import day85 from './days/day85.mjs';
 import { buildAnimeLessons } from './anime-training.mjs';
 import { expandedAnimeQuotes } from './anime-quotes-expansion.mjs';
 import { animeQuotes100 } from './anime-quotes-100.mjs';
@@ -1007,7 +1037,7 @@ for (const quote of quotes.quotes ?? []) {
 /** @type {Stage[]} */
 export const stages = [
   { id: 'stage-0', title: '第 0 階段：N5 復健', lessons: [day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11, day12, day13, day14, day15, day16, day17, day18, day19, day20, day21, day22, day23, day24, day25] },
-  { id: 'stage-1', title: '第 1 階段：動漫／遊戲通用聽解（前30課）', lessons: [day26, day27, day28, day29, day30, day31, day32, day33, day34, day35, day36, day37, day38, day39, day40, day41, day42, day43, day44, day45, day46, day47, day48, day49, day50, day51, day52, day53, day54, day55] },
+  { id: 'stage-1', title: '第 1 階段：動漫／遊戲通用聽解（前60課）', lessons: [day26, day27, day28, day29, day30, day31, day32, day33, day34, day35, day36, day37, day38, day39, day40, day41, day42, day43, day44, day45, day46, day47, day48, day49, day50, day51, day52, day53, day54, day55, day56, day57, day58, day59, day60, day61, day62, day63, day64, day65, day66, day67, day68, day69, day70, day71, day72, day73, day74, day75, day76, day77, day78, day79, day80, day81, day82, day83, day84, day85] },
   { id: 'stage-2', title: '第 2 階段：口語與動畫日文', lessons: [...buildAnimeLessons(quotes.quotes ?? []), spoken, quotes] },
   { id: 'stage-3', title: '第 3 階段：N3 到 N1', lessons: [] },
 ];

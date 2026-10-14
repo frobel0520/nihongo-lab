@@ -208,6 +208,9 @@ export function LessonListView({
                       '基本指示、願望與規則',
                       '狀態、協助與行動安排',
                       '推測、目的與綜合理解',
+                      '建立互動、協助與邀約',
+                      '生活安排與問題處理',
+                      '協調、感受與綜合對話',
                     ][i] ?? '延伸練習'}
                   </summary>
                   {lessonList(stage.lessons.slice(start, start + 10))}

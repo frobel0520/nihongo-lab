@@ -13,8 +13,8 @@ import { mergeProgress } from '../lib/progress-merge.mjs';
 import { getVoice } from '../curriculum/voices.mjs';
 
 const lessons = stages.find((s) => s.id === 'stage-1').lessons;
-test('通用聽解完成前30課原創教材，路線目標與完成課分開；同伴聲線固定', () => {
-  assert.equal(lessons.length, 30);
+test('通用聽解完成前60課原創教材，路線目標與完成課分開；同伴聲線固定', () => {
+  assert.equal(lessons.length, 60);
   assert.equal(
     generalListeningRoadmap.reduce((n, p) => n + p.target, 0),
     180,
