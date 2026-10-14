@@ -1067,3 +1067,17 @@ OpenJLPT全階段65課：去重1215詞，N5 670／674（99.4%），N4 144詞；N
 375×667手機實測全部30新課：180句自然連播、90題理解、假名、單字／文法／句型頁、單課35檔下載、2100檔總數、進度保存與換頁停播；斷網重載後全部30課180句播放、作答與重練通過。四類教材×三個練習區共12種組合的播放、作答、進度、模式／重載與換頁停播通過，六組課程選取與離線分類重載通過，無水平溢位或pageerror。原有全部課程物件與遊戲教材逐欄比對一致，進度儲存及同步版本仍為3。
 
 OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N5漢字84／84、文法81／81；71個既有文法點未標jlpt。數字為全站清單覆蓋，單字條目含跨課複習，不表示1500個不同單字或真實作品理解率；原始清單僅保留於被忽略的.cache。
+
+## 2026-10-14 T119 程式碼 review 修正
+
+針對 T66～T118（`3207522..04900fb`）的 `app/`、`lib/`、`scripts/build-genshin-coverage.mjs` 與 `tests/` 做程式碼 review，找到 9 項，本次修正 3 項並合併重複 import：
+
+1. App 內返回鍵：上一頁就是返回目標時用 `history.back()`，否則用 `location.replace`，Android 返回鍵不再在課程與清單之間來回跳，直接開課程網址也不會多留歷史。
+2. 通用聽解分組標題移到 `curriculum/general-listening.mjs`，第 61 課起沿用路線階段名稱，不再顯示「延伸練習」。
+3. 整段聽解的句數、題數由資料計算；同伴標籤依聲線首次出現順序與 voices.mjs 的性別產生。
+
+PR #113 check 通過後以 rebase 合併為 `fe6a5a4`，[GitHub Actions 38573993205](https://github.com/frobel0520/nihongo-lab/actions/runs/38573993205) 部署 Success（正式站檔案未逐位元組比對）。完整 typecheck、271 tests、lint 與 build 通過。瀏覽器實測：首頁 → 學習方向 → 課程 → App 返回 → 瀏覽器返回，最後回到首頁且歷史紀錄沒有增加；直接開 `#/lesson/general-listening-31` 再按返回會用 replace；375 寬整段聽解畫面顯示「同伴甲（女聲）／同伴乙（男聲）」「6 句」「3 題」，console 沒有錯誤。iOS 沒測。
+
+效能回歸（Node v24.14.1、Windows 10 桌機、`vite build`、gzip -9 自行計算、單次）：主程式 `index-*.js` 由 1,797,551 bytes（gzip 521,321）變為 1,798,205 bytes（gzip 521,501），增加 654 bytes（gzip 180 bytes）。返回鍵與標籤計算只在換頁或載入課程時執行一次，未另行量測互動延遲；正式站載入時間未量測，效能門檻另開 T120。
+
+未處理的 review 項目：首頁「今天的複習」數字混合四個教材類別（含遊戲短句）；`scripts/build-genshin-coverage.mjs` 的 catch 會吞掉寫檔錯誤；`lib/route.mjs` 階段 id 以 `stage-[0-3]` 寫死；`LessonListView` 的 TRACKS 課程說明仍在 view 內；SrsView／DictationView／ShadowingView 以大寫常數名稱接 props。

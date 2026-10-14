@@ -483,3 +483,28 @@ OpenJLPT全階段65課：去重1215詞，N5 670／674（99.4%），N4 144詞；N
 375×667手機實測全部30新課：180句自然連播、90題理解、假名、單字／文法／句型頁、單課35檔下載、2100檔總數、進度保存與換頁停播；斷網重載後全部30課180句播放、作答與重練通過。四類教材×三個練習區共12種組合的播放、作答、進度、模式／重載與換頁停播通過，六組課程選取與離線分類重載通過，無水平溢位或pageerror。原有全部課程物件與遊戲教材逐欄比對一致，進度儲存及同步版本仍為3。
 
 OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N5漢字84／84、文法81／81；71個既有文法點未標jlpt。數字為全站清單覆蓋，單字條目含跨課複習，不表示1500個不同單字或真實作品理解率；原始清單僅保留於被忽略的.cache。
+
+## 2026-10-14 T119 程式碼 review 修正
+
+- Task ID：T119（PR #113，rebase 合併為 `fe6a5a4`）。
+- Goal：修正 T66～T118（`3207522..04900fb`）程式碼 review 找到的三項問題：App 內返回鍵改成連結後，Android 返回鍵會在課程與清單之間來回跳；通用聽解分組標題寫死 6 組，第 61 課起會顯示「延伸練習」；整段聽解的句數、題數與同伴標籤寫死。
+- Input contract：`origin/main` `04900fb` 的 `app/`、`lib/` 與 `curriculum/general-listening.mjs`；課程資料格式、進度 id 與同步版本 3 不變。
+- Output artifact：`lib/route.mjs` 的 `backNavigation`、`lib/scene-listening.mjs` 的 `sceneSpeakerLabels`、`curriculum/general-listening.mjs` 的 `generalListeningGroupTitle`／`GENERAL_LISTENING_GROUP_SIZE`（由 lessons.mjs 匯出），以及 App、LessonListView、SceneListening 改用上述函式。
+- depends_on：T104（課程導覽與返回）、T103／T108（通用聽解與整段聽解）。
+- Out of scope：review 的其餘 6 項（首頁複習數混合四個類別、build-genshin-coverage 吞錯、階段 id 寫死、TRACKS 留在 view、props 命名、重複 import 已順手合併）；教材內容審查；效能門檻（另開 T120）。
+- Acceptance checks：返回目標與上一頁相同時退回歷史，否則用 replace；直接開課程網址不留多餘歷史；第 61 課以後的組別沿用路線階段名稱；同伴標籤依聲線首次出現順序與性別產生；完整 test／typecheck／lint／build 通過；瀏覽器實測返回流程與 375 寬聽解畫面。
+- Fixture or test data：既有 60 課通用聽解資料；合成的三句對話（同一聲線連說兩句）測試同伴標籤。
+- Evidence path：`tests/route.test.mjs`、`tests/scene-listening.test.mjs`；release-audit.md「T119 程式碼 review 修正」。
+
+## 2026-10-14 T120 效能 Release Gate（待開始）
+
+- Task ID：T120。狀態：已開立，尚未實作；下列門檻是提案，使用者確認後才生效。
+- Goal：為正式站建立可重複執行的效能量測與 Release Gate，訂出門檻並納入部署前檢查；未量測或未達門檻不記為通過。
+- Input contract：GitHub Pages 正式站與本機正式 base path build；現況主程式 `index-*.js` 1,798,205 bytes（gzip 521,501，T119 量測），T65 時為 1,140,774 bytes（gzip 329,536），precache 16.85 MB（T65）。
+- Output artifact：量測腳本（建議 `scripts/measure-perf.mjs`，以本機瀏覽器自動化執行，不依賴付費服務）、docs/project-sd.md 的效能指標與門檻章節、release-audit.md 的量測紀錄格式。
+- 提案指標（待確認）：首頁與單一課程頁在手機尺寸、節流網路下的冷／暖啟動 LCP 與可互動時間，各取 p50／p95；主程式 gzip 大小與 precache 總量；單字卡評分、聽寫比對與課程進度計算的互動延遲；離線下載單課音檔耗時。
+- depends_on：T119（量測基準 commit）。
+- Out of scope：重構以縮小 bundle（量測後另開 Task）；iOS 實機；付費監測服務。
+- Acceptance checks：每項指標都有門檻、環境（版本、硬體、網路節流、資料量、冷／暖啟動）、樣本數與 p50／p95；本機、fixture 與正式站結果分開記錄；量測可重跑且結果寫入 release-audit.md；CI 或部署前檢查能擋下超過門檻的 bundle 成長。
+- Fixture or test data：正式站與本機 build；不使用使用者真實進度資料。
+- Evidence path：release-audit.md「T120 效能 Release Gate」（實作後新增）。
