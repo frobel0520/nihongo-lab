@@ -20,3 +20,7 @@
 角色性別參考：[角色資料表](https://skdojo.com/en/dle/eternal-return/)、[鼻荊](https://eternalreturn.fandom.com/wiki/Bihyung)、[克雷弗官方活動](https://event.playeternalreturn.com/S11/Craver)、[露西婭官方角色介紹](https://event.playeternalreturn.com/ER/CHARACTER%26SKIN?hl=en-US)、[塞莉絲官方介紹](https://playeternalreturn.com/posts/news/3857?hl=en-US)。資料表之外四位個別核對；聲線配置屬教材編排。
 
 驗證需包含：全角色性別與聲線相符、八種聲線都有使用、同角色所有句子聲線一致；新音檔讀音閘門及解碼；手機與離線播放；音檔URL改變但學習進度id保持。人耳聲音／語氣驗收另列狀態，不把自動檢查當作人耳驗收。
+
+## 原神可核對角色配置
+
+96位已收錄角色皆以固定版本角色資料的gender欄位核對：63位女性用女聲、33位男性用男聲，八種聲線皆使用。同一角色的編隊、技能與爆發短句保持同一聲線；未收錄的28位不指定配音。逐角色配置與來源缺口見[原神完整配音表](genshin-completion.md)。獨立性別fixture與全來源角色覆蓋測試防止新增批次漏收或再度錯配。
