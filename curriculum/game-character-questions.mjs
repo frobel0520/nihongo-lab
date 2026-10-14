@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:freminet:join": [
+  "我會先自己離開。",
+  "請讓我留在這裡。"
+],
+"genshin:freminet:skill": [
+  "停下來吧。",
+  "請直接往前走。"
+],
+"genshin:freminet:burst": [
+  "現在是初次見面的時間。",
+  "我們還有很多時間。"
+],
+"genshin:furina:join": [
+  "旅程肯定會很無聊。",
+  "這趟旅程已經結束了。"
+],
+"genshin:furina:skill": [
+  "演出已經結束了。",
+  "現在還不能開始。"
+],
+"genshin:furina:burst": [
+  "請把光芒隱藏起來。",
+  "光芒已經消失了。"
+],
+"genshin:gaming:join": [
+  "先等一下，還不能開始。",
+  "我們現在就結束吧。"
+],
+"genshin:gaming:skill": [
+  "這次完全沒中。",
+  "還不知道結果。"
+],
+"genshin:gaming:burst": [
+  "運氣變差、福氣遠去。",
+  "請暫時停止表演。"
+],
+
 "genshin:emilie:join": [
   "今天有點困擾。",
   "我第一次來這裡。"

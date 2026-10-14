@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:freminet:join": {
+  "voicelineId": 85069,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_freminet_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:freminet:skill": {
+  "voicelineId": 85051,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_freminet/vo_freminet_battle_skill1_02",
+  "variant": "預設造型"
+},
+"genshin:freminet:burst": {
+  "voicelineId": 85055,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_freminet/vo_freminet_battle_skill3_03",
+  "variant": "預設造型"
+},
+"genshin:furina:join": {
+  "voicelineId": 89068,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_furina_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:furina:skill": {
+  "voicelineId": 89048,
+  "sourceTitle": "元素スキル·4",
+  "voicefile": "VO_gameplay/VO_furina/vo_furina_battle_skill1_04",
+  "variant": "預設造型"
+},
+"genshin:furina:burst": {
+  "voicelineId": 89052,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_furina/vo_furina_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:gaming:join": {
+  "voicelineId": 92068,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_gaming_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:gaming:skill": {
+  "voicelineId": 92050,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_gaming/vo_gaming_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:gaming:burst": {
+  "voicelineId": 92051,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_gaming/vo_gaming_battle_skill3_01",
+  "variant": "預設造型"
+},
+
 "genshin:emilie:join": {
   "voicelineId": 99065,
   "sourceTitle": "チーム加入·1",

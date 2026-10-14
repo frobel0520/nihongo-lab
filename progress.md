@@ -407,3 +407,11 @@ ER原本9位明確選角，其餘82位全預設成男聲黒沢冴白。現已取
 195個ER及9個原神音檔重製，共204檔、7,441,392 bytes；203個被取代且無引用舊檔移除，原先共用一個音檔的角色因選角不同而分開，ER246句現在對應246個音檔。13個既有重音覆寫只移動網址、內容保持。全部讀音閘門、全檔解碼、非靜音訊號與僅encoder metadata檢查通過。台詞、翻譯、來源、學習id與可用聽力id逐欄比對保持。
 
 完整typecheck、44測試檔、lint與正式base path build通過。375×667 Chromium驗證94角色頁／255句，線上播放、聲線署名、原文揭示、已學進度，以及下載後斷網重載／全255句播放均通過；無水平溢位或pageerror。變更文字與正式建置產物隱私格式掃描無發現；公開Git身分確認，既有privacy-guard hook正常。PR check及正式站部署待完成。人耳音色、重音及原作演技未逐句驗收，不將自動檢查宣稱為人耳驗收。
+
+T83已部署：PR [#77](https://github.com/frobel0520/nihongo-lab/pull/77)、合併commit `09500e3`，Actions [38420039227](https://github.com/frobel0520/nihongo-lab/actions/runs/38420039227)的check與deploy成功。正式站JS與204個新MP3共7,441,392 bytes逐位元組一致，TLS驗證保留；ER八種聲線配置已上線。
+
+## 2026-10-14 T84 原神自動接續批次
+
+菲米尼、芙寧娜、嘉明各新增編隊加入／元素技能／元素爆發一句，共9句VOICEVOX；原神45位134句、79筆待教材。固定版本語音表逐句核對voicelineId／標題／voicefile，繁中、讀音、解說及大意題齊備；既有教材與ER聲線配置逐欄保持。
+
+完整typecheck、260 tests、lint與正式base path build通過；9個MP3讀音閘門、全檔解碼、非靜音訊號與encoder-only metadata通過，共142,092 bytes。375×667手機實测9句播放／作答／原文假名揭示，角色音檔下載後斷網重載與9句播放通過；無水平溢位或pageerror。PR check與正式站部署待完成，核對後直接接續下一批。音色、語氣與原作演技未逐句人耳驗收。
