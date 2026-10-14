@@ -1,6 +1,16 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:aino:join": ["已經玩完回來了。","別出去玩。"],
+"genshin:aino:skill": ["一起吃飯吧。","我已經睡著了。"],
+"genshin:aino:burst": ["快看，下雪了！","不要看這裡！"],
+"genshin:alyosha:join": ["該睡覺了。","狩獵已經取消。"],
+"genshin:alyosha:skill": ["槍比別的方式更慢。","槍已經損壞了。"],
+"genshin:alyosha:burst": ["獵犬已經走了。", "要不要養獵犬？"],
+"genshin:columbina:join": ["月光已經消失。","不准使用月光。"],
+"genshin:columbina:skill": ["已經停止流動了。","請把東西撿起來。"],
+"genshin:columbina:burst": ["明早取回月亮。","今晚藏起太陽。"],
+
 "genshin:yoimiya:join": [
   "祭典已經結束了嗎？",
   "不准再辦祭典了。"

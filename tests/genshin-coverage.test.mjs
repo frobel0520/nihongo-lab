@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   genshinActionCoverage,
+  genshinSupplement,
   gameCharacterStudy,
 } from '../curriculum/lessons.mjs';
 import {
@@ -78,5 +79,8 @@ test('124筆都有三類來源狀態；無來源、空語音表與有來源的�
     rows.reduce((s, r) => s + r.categories.burst.entries, 0),
     333,
   );
-  assert.equal(g.characters.flatMap((c) => c.lines).length, 286);
+  assert.equal(
+    g.characters.flatMap((c) => c.lines).length,
+    286 + genshinSupplement.length * 3,
+  );
 });

@@ -1,7 +1,7 @@
 /**
  * 角色語音教材；ER 僅使用 selected／selected2 來源，不混入武器資料或自編練習。
  * 原音索引與 VOICEVOX 教材音檔分開，不宣稱已公開遊戲原音。
- * @typedef {import('./lessons.mjs').Line & { id: string, category: string, kind: 'quote' | 'practice' | 'reference', note: string, referenceUrl: string, referenceNote: string, voicelineId?: number, sourceTitle?: string, voicefile?: string, variant?: string, pronunciation?: string, audioReady?: boolean, selectionAssetCount?: number, officialSources?: ReadonlyArray<Readonly<import('./er-fankit-selection.mjs').FankitSource>> }} GameLine
+ * @typedef {import('./lessons.mjs').Line & { id: string, category: string, kind: 'quote' | 'practice' | 'reference', note: string, referenceUrl: string, referenceNote: string, voicelineId?: number, sourceTitle?: string, voicefile?: string, variant?: string, pronunciation?: string, sourceType?: 'community-wiki', sourceSha256?: string, checkedAt?: string, sourceCondition?: string, audioReady?: boolean, selectionAssetCount?: number, officialSources?: ReadonlyArray<Readonly<import('./er-fankit-selection.mjs').FankitSource>> }} GameLine
  * @typedef {{ id: string, name: string, nameJa: string, voice?: string, referenceUrl: string, portrait?: string, portraitReferenceUrl?: string, voiceReferenceUrl?: string, lines: GameLine[] }} GameCharacter
  * @typedef {{ id: string, title: string, scope: string, characters: GameCharacter[] }} GameStudy
  * @typedef {[string, string, string, string, string, string, (string | undefined)?, (string | undefined)?]} LineSpec id/category/jp/reading/zh/note/pronunciation/ruby
@@ -10,6 +10,7 @@
  */
 import { getErCasting } from './er-voice-casting.mjs';
 import { genshinRoster } from './genshin-character-roster.mjs';
+import { genshinSupplement } from './genshin-supplement.mjs';
 import { genshinQuoteSources } from './genshin-quote-sources.mjs';
 import { audioPath, contentHash } from './author.mjs';
 import { eternalReturnRoster } from './game-character-roster.mjs';
@@ -3694,5 +3695,24 @@ genshin.characters = genshinRoster.map((row) => ({
   portrait: row.portrait,
   portraitReferenceUrl: row.portraitReferenceUrl,
 }));
+// Supplement sparse database entries with independently checked community tables.
+for (const source of genshinSupplement) {
+  const target = genshin.characters.find((c) => c.id === source.id);
+  if (!target || target.lines.length) throw new Error(`Invalid supplement: ${source.id}`);
+  target.voice = source.voice;
+  target.referenceUrl = source.referenceUrl;
+  target.lines = source.lines.map(({key, choices: _choices, ...line}) => ({
+    ...line,
+    id: `genshin:${source.id}:${key}`,
+    kind: 'quote',
+    voice: source.voice,
+    audio: audioPath('audio/games/genshin', 'gram', line.jp, source.voice),
+    referenceUrl: source.referenceUrl,
+    referenceNote: '日文社群角色語音表，已核對短句與情境；使用VOICEVOX自製朗讀。',
+    sourceType: 'community-wiki',
+    sourceSha256: source.sourceSha256,
+    checkedAt: source.checkedAt,
+  }));
+}
 const genshinLearnable = genshin.characters.filter((c) => c.lines.length);
 genshin.scope = `固定來源名冊共 ${genshin.characters.length} 筆角色條目，包含旅行者與人偶的不同版本。${genshinLearnable.length} 位角色收錄 ${genshinLearnable.reduce((n, c) => n + c.lines.length, 0)} 句短台詞與 VOICEVOX 朗讀；其餘 ${genshin.characters.length - genshinLearnable.length} 筆仍待教材。迪盧克的技能來源只有喊聲，沒有編造完整台詞；未加入劇情。`;

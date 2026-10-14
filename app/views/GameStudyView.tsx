@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import {
   gameCharacterStudy,
   genshinActionCoverage,
+  genshinSupplement,
 } from '../../curriculum/lessons.mjs';
 import { genshinActionCategories } from '../../lib/genshin-coverage.mjs';
 import {
@@ -52,6 +53,7 @@ const ALL_AUDIO = [
 
 function GenshinCoverage({ character }: { character: GameCharacter }) {
   const coverage = genshinActionCoverage[character.id];
+  const supplement = genshinSupplement.find((c) => c.id === character.id);
   if (!coverage) return null;
   return (
     <section className="genshin-coverage" aria-label="三類語音收錄狀態">
@@ -73,7 +75,21 @@ function GenshinCoverage({ character }: { character: GameCharacter }) {
             return (
               <tr key={key}>
                 <th>{label}</th>
-                <td>{count ? `${count} 筆` : '待補來源'}</td>
+                <td>
+                  {supplement ? (
+                    <a
+                      href={supplement.referenceUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      日文 Wiki
+                    </a>
+                  ) : count ? (
+                    `${count} 筆`
+                  ) : (
+                    '待補來源'
+                  )}
+                </td>
                 <td>{ready ? `${ready} 句` : '待收錄'}</td>
               </tr>
             );
@@ -81,9 +97,14 @@ function GenshinCoverage({ character }: { character: GameCharacter }) {
         </tbody>
       </table>
       <p className="muted">
-        來源筆數包含不同語音、造型或元素版本，與已完成教材分開計算。
-        {!coverage.sourceAvailable && '固定資料尚無此角色的語音表。'}
-        {coverage.sourceAvailable &&
+        {supplement
+          ? '日文 Wiki 語音表補錄；每類選取一個已核對短句，並非完整語音庫。'
+          : '固定資料庫筆數包含不同語音、造型或元素版本，與已完成教材分開計算。'}
+        {!supplement &&
+          !coverage.sourceAvailable &&
+          '固定資料尚無此角色的語音表。'}
+        {!supplement &&
+          coverage.sourceAvailable &&
           Object.values(coverage.categories).every((c) => c.entries === 0) &&
           '現有語音表尚缺這三類內容。'}
       </p>
