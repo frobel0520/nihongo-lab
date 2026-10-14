@@ -1,11 +1,14 @@
 import {
+  lazy,
   useEffect,
   useRef,
   useState,
   type MouseEvent,
   type ReactNode,
 } from 'react';
-import { stages } from '../curriculum/lessons.mjs';
+import { curriculumSummary } from '../curriculum/lessons.mjs';
+import { LoadBoundary } from './components/LoadBoundary';
+import { useRouteData } from './useRouteData';
 import type { DictationMode } from '../lib/prefs.mjs';
 import {
   backNavigation,
@@ -27,16 +30,28 @@ import { RubyText } from './components/Ruby';
 import { useProgress } from './useProgress';
 import { useSwUpdate } from './useSwUpdate';
 import { useSync } from './useSync';
-import { DictationView } from './views/DictationView';
 import { LessonListView } from './views/LessonListView';
-import { LessonView } from './views/LessonView';
-import { SettingsView } from './views/SettingsView';
-import { ShadowingView } from './views/ShadowingView';
-import { GameStudyView } from './views/GameStudyView';
-import { SrsView } from './views/SrsView';
 import { STUDY_CATEGORIES } from '../lib/study-categories.mjs';
-import { STUDY_CATALOG } from '../lib/study-catalog.mjs';
 import { StudyCategoryPicker } from './components/StudyCategoryPicker';
+
+const DictationView = lazy(() =>
+  import('./views/DictationView').then((m) => ({ default: m.DictationView })),
+);
+const LessonView = lazy(() =>
+  import('./views/LessonView').then((m) => ({ default: m.LessonView })),
+);
+const SettingsView = lazy(() =>
+  import('./views/SettingsView').then((m) => ({ default: m.SettingsView })),
+);
+const ShadowingView = lazy(() =>
+  import('./views/ShadowingView').then((m) => ({ default: m.ShadowingView })),
+);
+const GameStudyView = lazy(() =>
+  import('./views/GameStudyView').then((m) => ({ default: m.GameStudyView })),
+);
+const SrsView = lazy(() =>
+  import('./views/SrsView').then((m) => ({ default: m.SrsView })),
+);
 
 const APP_NAME = 'かなの日本語';
 
@@ -48,6 +63,7 @@ const TABS: { id: ViewId; label: string; icon: ReactNode }[] = [
   { id: 'settings', label: '設定', icon: <SlidersIcon /> },
 ];
 
+const stages = curriculumSummary.stages;
 const LESSONS = stages.flatMap((stage) => stage.lessons);
 
 export function App() {
@@ -88,8 +104,17 @@ export function App() {
   const parentStage =
     lesson && stages.find((s) => s.lessons.some((l) => l.id === lesson.id));
   const category = STUDY_CATEGORIES.find((c) => c.id === route.category);
-  const catalog = category ? STUDY_CATALOG[category.id] : undefined;
+
   const routeKey = `${route.view}/${category?.id ?? ''}/${stage?.id ?? ''}/${lesson?.id ?? ''}/${route.srsMode ?? ''}/${route.gameId ?? ''}/${route.characterId ?? ''}`;
+
+  const data = useRouteData(
+    routeKey,
+    lesson?.id,
+    ['srs', 'dictation', 'shadowing'].includes(route.view)
+      ? category?.id
+      : undefined,
+  );
+  const catalog = data.catalog;
 
   // 換頁時回到頁首，不停在上一頁滑到一半的位置。
   useEffect(() => {
@@ -133,7 +158,7 @@ export function App() {
       </header>
 
       <main
-        className={`screen${route.view === 'dictation' && catalog ? ' dictation-page' : ''}`}
+        className={`screen${route.view === 'dictation' && category ? ' dictation-page' : ''}`}
         key={routeKey}
       >
         {updated && (
@@ -182,73 +207,92 @@ export function App() {
           </p>
         )}
 
-        {route.view === 'lessons' &&
-          (lesson ? (
-            <LessonView lesson={lesson} progress={progress} update={update} />
-          ) : (
-            <LessonListView progress={progress} stageId={stage?.id} />
-          ))}
-        {route.view === 'games' && (
-          <GameStudyView
-            key={`${route.gameId ?? ''}:${route.characterId ?? ''}`}
-            gameId={route.gameId}
-            characterId={route.characterId}
-            progress={progress}
-            update={update}
-          />
-        )}
-        {['srs', 'dictation', 'shadowing'].includes(route.view) &&
-          (category ? (
-            <section className="study-context" aria-label="目前教材">
-              <div className="row">
-                <strong>{category.title}</strong>
-                <a className="btn" href={viewHash(route.view)}>
-                  更換教材類別
-                </a>
-              </div>
-              {category.id === 'games' && route.view === 'srs' && (
-                <p className="muted">
-                  本類別使用角色短台詞卡，練習原句與意思。
-                </p>
-              )}
+        <LoadBoundary>
+          {data.error && (
+            <section className="card" role="alert">
+              <p>教材載入失敗。請連線後重新載入；已快取的教材仍可離線使用。</p>
+              <button className="btn" onClick={() => window.location.reload()}>
+                重新載入
+              </button>
             </section>
-          ) : (
-            <StudyCategoryPicker
-              view={route.view}
-              mode={route.srsMode}
+          )}
+          {!data.ready && !data.error && (lesson || category) && (
+            <output className="notice">正在載入教材…</output>
+          )}
+          {route.view === 'lessons' &&
+            (lesson ? (
+              data.lesson && (
+                <LessonView
+                  lesson={data.lesson}
+                  progress={progress}
+                  update={update}
+                />
+              )
+            ) : (
+              <LessonListView progress={progress} stageId={stage?.id} />
+            ))}
+          {route.view === 'games' && (
+            <GameStudyView
+              key={`${route.gameId ?? ''}:${route.characterId ?? ''}`}
+              gameId={route.gameId}
+              characterId={route.characterId}
               progress={progress}
+              update={update}
             />
-          ))}
-        {route.view === 'srs' && catalog && category && (
-          <SrsView
-            progress={progress}
-            update={update}
-            mode={route.srsMode ?? 'review'}
-            cards={catalog.cards}
-            categoryId={category.id}
-          />
-        )}
-        {route.view === 'shadowing' && catalog && (
-          <ShadowingView sentences={catalog.sentences} />
-        )}
-        {route.view === 'dictation' && catalog && (
-          <DictationView
-            progress={progress}
-            update={update}
-            mode={prefs.dictationMode}
-            setMode={setDictationMode}
-            sentences={catalog.sentences}
-          />
-        )}
-        {route.view === 'settings' && (
-          <SettingsView
-            progress={progress}
-            update={update}
-            sync={sync}
-            prefs={prefs}
-            setFurigana={setFurigana}
-          />
-        )}
+          )}
+          {['srs', 'dictation', 'shadowing'].includes(route.view) &&
+            (category ? (
+              <section className="study-context" aria-label="目前教材">
+                <div className="row">
+                  <strong>{category.title}</strong>
+                  <a className="btn" href={viewHash(route.view)}>
+                    更換教材類別
+                  </a>
+                </div>
+                {category.id === 'games' && route.view === 'srs' && (
+                  <p className="muted">
+                    本類別使用角色短台詞卡，練習原句與意思。
+                  </p>
+                )}
+              </section>
+            ) : (
+              <StudyCategoryPicker
+                view={route.view}
+                mode={route.srsMode}
+                progress={progress}
+              />
+            ))}
+          {route.view === 'srs' && catalog && category && (
+            <SrsView
+              progress={progress}
+              update={update}
+              mode={route.srsMode ?? 'review'}
+              cards={catalog.cards}
+              categoryId={category.id}
+            />
+          )}
+          {route.view === 'shadowing' && catalog && (
+            <ShadowingView sentences={catalog.sentences} />
+          )}
+          {route.view === 'dictation' && catalog && (
+            <DictationView
+              progress={progress}
+              update={update}
+              mode={prefs.dictationMode}
+              setMode={setDictationMode}
+              sentences={catalog.sentences}
+            />
+          )}
+          {route.view === 'settings' && (
+            <SettingsView
+              progress={progress}
+              update={update}
+              sync={sync}
+              prefs={prefs}
+              setFurigana={setFurigana}
+            />
+          )}
+        </LoadBoundary>
       </main>
 
       <nav className="tabs" aria-label="功能">

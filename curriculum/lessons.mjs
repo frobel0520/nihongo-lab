@@ -1055,3 +1055,46 @@ export {
   generalListeningGroupTitle,
   GENERAL_LISTENING_GROUP_SIZE,
 } from './general-listening.mjs';
+
+// T121: browser builds project this entry into lazy payloads; Node tools retain the eager API.
+import { createCurriculumIndex } from '../lib/curriculum-index.mjs';
+import { createStudyCatalog } from '../lib/catalog-build.mjs';
+import { gameCharacterStudy as games } from './game-character-study.mjs';
+import { genshinActionCoverage as actionCoverage } from './genshin-action-coverage.mjs';
+import { genshinSupplement as supplements } from './genshin-supplement.mjs';
+import { allAudioPaths, lessonAudioPaths } from '../lib/offline.mjs';
+export const curriculumSummary = createCurriculumIndex(stages, games);
+/** @param {string} id */
+export async function loadLesson(id) {
+  return stages.flatMap((s) => s.lessons).find((l) => l.id === id);
+}
+/** @param {string} id */
+export async function loadCategory(id) {
+  return createStudyCatalog(stages, games)[id];
+}
+export async function loadGameData() {
+  return {
+    gameCharacterStudy: games,
+    genshinActionCoverage: actionCoverage,
+    genshinSupplement: supplements,
+  };
+}
+/** @param {string} id */
+export async function loadStageAudioPaths(id) {
+  return allAudioPaths(stages.filter((s) => s.id === id));
+}
+export async function loadAllAudioPaths() {
+  return allAudioPaths(
+    stages,
+    games.flatMap((g) =>
+      g.characters.flatMap((c) =>
+        c.lines.filter((l) => l.audioReady !== false).map((l) => l.audio),
+      ),
+    ),
+  );
+}
+/** @param {string} id */
+export async function loadLessonAudioPaths(id) {
+  const lesson = await loadLesson(id);
+  return lesson ? lessonAudioPaths(lesson) : [];
+}

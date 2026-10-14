@@ -511,9 +511,9 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 - 實作結果（2026-10-14）：`lib/perf-stats.mjs`（百分位數與門檻判定）、`scripts/perf-budget.mjs`（門檻）、`scripts/perf-bundle.mjs`、`scripts/perf-logic.mjs`、`scripts/perf-page.mjs`（DevTools Protocol，不加套件）、`npm run perf:*`、CI 加入 bundle 檢查（操作計算改發布前本機跑）；設計見 project-sd.md「T120 效能 Release Gate」。原提案的「可互動時間」改用 TBT 與內容出現時間（診斷），因為 TTI 已不是 Lighthouse 指標。
 - Change Request（2026-10-15，使用者）：bundle 迴歸門檻由提案的基準 +5% 改為 +20%（主程式 gzip 630,000、CSS gzip 5,800、precache 21,500,000 bytes），CI 只跑 bundle 檢查。影響：下一批教材不會立刻被 CI 擋下，但 20% 以內的成長不會被自動發現；操作計算延遲改為發布前手動量測。
 
-## 2026-10-15 T121 縮小首次載入（待開始）
+## 2026-10-15 T121 縮小首次載入（本機通過，正式站待驗收）
 
-- Task ID：T121。狀態：已開立，尚未實作。
+- Task ID：T121。狀態：實作與本機驗收完成；正式站量測尚待完成，Release Gate尚未完成。
 - Goal：讓手機情境冷啟動 LCP p95 ≤ 2,500 ms（T120 門檻，2026-10-15 使用者確認），本機 preview 與正式站都通過，使效能 Release Gate 轉為通過。
 - Input contract：T120 量測基準——冷啟動 LCP p95 本機 4,048 ms、正式站 4,932 ms；冷啟動傳輸約 534KB，主程式 gzip 524,703 bytes 內含全部教材資料；首次繪製前 long task 385～604 ms；precache 236 項中 215 項為遊戲頭像。目前 14 個 app／lib 模組直接匯入 `curriculum/lessons.mjs`。
 - Output artifact：首次載入只含首頁所需的程式與資料；各學習方向、遊戲角色與練習類別的教材改為進入該區才載入（動態 import 或拆成資料檔）；頭像是否留在 precache 另行判斷；`lessons.mjs` 仍是課程資料唯一入口。
@@ -522,3 +522,7 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 - Acceptance checks：`npm run perf:page` 本機與正式站各 5 樣本，冷啟動 LCP p95 ≤ 2,500 ms，暖啟動 LCP、TBT、單課下載仍通過；`perf:bundle`、`perf:logic` 通過；離線重載後所有方向可學習；舊網址、返回鍵與進度保存不變；完整 test／typecheck／lint／build；375 寬手機實測。
 - Fixture or test data：既有教材與合成進度；不使用使用者真實進度。
 - Evidence path：release-audit.md「T121 縮小首次載入」（實作後新增）。
+
+- 實作結果：同一教材入口的瀏覽器build投影成首頁索引與動態教材chunk，四類卡片統計及逐課進度由原ID索引計算。讀音標記隨教材載入，頁面有loading／error／reload狀態，舊路由請求不覆蓋新課程；離線面板首次展開才查全部快取。教材文字與全部ID雜湊對照557fec1保持，280 tests／typecheck／lint／build、bundle、操作計算與本機五樣本Gate通過。沒有Change Request，也沒有放寬原門檻。
+- 瀏覽器證據：375×667三個已開放學習方向→課程→返回、四類×三種練習、遊戲角色播放、已下載通用31課的離線播放與所有方向文字重載通過；未下載音檔仍顯示待下載提示。實際斷開chunk請求後顯示錯誤、恢復連線重新載入成功；延後舊請求不覆蓋新課程。
+- 未完成：正式站改動前／後的同雲端五樣本頁面量測與最終Gate判定。Chromium的HTTPS信任設定仍待處理；不以本機數字替代正式站驗收。

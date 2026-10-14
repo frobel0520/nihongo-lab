@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import type { Lesson } from '../../curriculum/lessons.mjs';
 import type { Progress } from '../../lib/progress.mjs';
 import { recordDictation } from '../../lib/progress.mjs';
@@ -12,10 +12,21 @@ import { playFromStart } from '../../lib/playback.mjs';
 import { AudioLine, audioUrl } from './AudioLine';
 import { RubyText } from './Ruby';
 import { OfflineAudio } from './OfflineAudio';
-import { stages } from '../../curriculum/lessons.mjs';
-import { allAudioPaths, lessonAudioPaths } from '../../lib/offline.mjs';
+import { loadStageAudioPaths } from '../../curriculum/lessons.mjs';
+import { lessonAudioPaths } from '../../lib/offline.mjs';
 
-const COURSE_AUDIO = allAudioPaths(stages.filter((s) => s.id === 'stage-1'));
+const CourseOfflineAudio = lazy(async () => {
+  const paths = await loadStageAudioPaths('stage-1');
+  return {
+    default: ({ lessonPaths }: { lessonPaths: string[] }) => (
+      <OfflineAudio
+        lessonPaths={lessonPaths}
+        allPaths={paths}
+        allLabel="通用聽解全部課程"
+      />
+    ),
+  };
+});
 
 export function SceneListening({
   lesson,
@@ -31,6 +42,7 @@ export function SceneListening({
   const [heard, setHeard] = useState(false);
   const [error, setError] = useState(false);
   const [answers, setAnswers] = useState<Record<string, number>>({});
+  const [offlineOpened, setOfflineOpened] = useState(false);
   const scene = lesson.scene!;
   const lessonPaths = useMemo(() => lessonAudioPaths(lesson), [lesson]);
   const speakers = useMemo(
@@ -217,13 +229,17 @@ export function SceneListening({
       <p className="muted">
         答對紀錄會儲存與同步，代表曾答對這份練習。已讀過課文或解析的重練，也不代表已能聽懂陌生作品。音檔為自製語音。
       </p>
-      <details>
+      <details
+        onToggle={(e) => {
+          if (e.currentTarget.open) setOfflineOpened(true);
+        }}
+      >
         <summary>下載本課音檔供離線使用</summary>
-        <OfflineAudio
-          lessonPaths={lessonPaths}
-          allPaths={COURSE_AUDIO}
-          allLabel="通用聽解全部課程"
-        />
+        {offlineOpened && (
+          <Suspense fallback={<output>正在準備離線下載…</output>}>
+            <CourseOfflineAudio lessonPaths={lessonPaths} />
+          </Suspense>
+        )}
       </details>
     </section>
   );

@@ -1,7 +1,8 @@
 import { STUDY_CATEGORIES } from '../../lib/study-categories.mjs';
-import { STUDY_CATALOG } from '../../lib/study-catalog.mjs';
+import { curriculumSummary } from '../../curriculum/lessons.mjs';
+import { summarizeIds } from '../../lib/curriculum-summary.mjs';
 import { studyHash, type ViewId } from '../../lib/route.mjs';
-import { summarize, toDateString } from '../../lib/srs.mjs';
+import { toDateString } from '../../lib/srs.mjs';
 import type { Progress } from '../../lib/progress.mjs';
 import { ChevronRightIcon } from './Icons';
 export function StudyCategoryPicker({
@@ -18,10 +19,14 @@ export function StudyCategoryPicker({
       <h2>選擇教材類別</h2>
       <ul className="lesson-list">
         {STUDY_CATEGORIES.map((category) => {
-          const data = STUDY_CATALOG[category.id];
-          const stats = summarize(data.cards, progress.srs, toDateString());
-          const done = data.sentences.filter(
-            (s) => progress.dictation[s.id]?.passed,
+          const data = curriculumSummary.categories[category.id];
+          const stats = summarizeIds(
+            data.cardIds,
+            progress.srs,
+            toDateString(),
+          );
+          const done = data.sentenceIds.filter(
+            (id) => progress.dictation[id]?.passed,
           ).length;
           return (
             <li key={category.id}>
@@ -41,7 +46,7 @@ export function StudyCategoryPicker({
                   <span className="muted">
                     {view === 'srs'
                       ? `${stats.total} 張 · 到期 ${stats.due} · 新卡 ${stats.fresh}`
-                      : `${data.sentences.length} 句 · 聽寫已通過 ${done} 句`}
+                      : `${data.sentenceIds.length} 句 · 聽寫已通過 ${done} 句`}
                   </span>
                 </span>
                 <ChevronRightIcon />
