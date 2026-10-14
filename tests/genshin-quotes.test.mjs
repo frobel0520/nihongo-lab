@@ -8,7 +8,7 @@ import { gameRecordId, gameListeningRecordId } from '../lib/game-study.mjs';
 const game = gameCharacterStudy.find((g) => g.id === 'genshin');
 const lines = game.characters.flatMap((c) => c.lines);
 
-test('新角色三類短句與既有情境補齊；迪盧克技能喊聲不冒配完整台詞', () => {
+test('新角色三類短句與既有情境補齊；未核對讀音的技能喊聲不冒配完整台詞', () => {
   for (const id of [
     'zhongli',
     'nahida',
@@ -46,6 +46,8 @@ test('新角色三類短句與既有情境補齊；迪盧克技能喊聲不冒�
     'freminet',
     'furina',
     'gaming',
+    'ganyu',
+    'gorou',
   ]) {
     const character = game.characters.find((c) => c.id === id);
     assert.deepEqual(
@@ -56,12 +58,12 @@ test('新角色三類短句與既有情境補齊；迪盧克技能喊聲不冒�
   for (const id of ['amber', 'bennett', 'kaeya', 'keqing', 'raiden']) {
     assert.equal(game.characters.find((c) => c.id === id).lines.length, 3);
   }
-  assert.equal(
-    game.characters
-      .find((c) => c.id === 'diluc')
-      .lines.some((l) => l.category === '元素技能'),
-    false,
-  );
+  for (const id of ['diluc', 'hutao']) {
+    assert.equal(
+      game.characters.find((c) => c.id === id).lines.some((l) => l.category === '元素技能'),
+      false,
+    );
+  }
   const zhongli = lines.find((l) => l.id === 'genshin:zhongli:join');
   assert.equal(zhongli.jp, '何をすればいい…');
   assert.equal(zhongli.voicelineId, 17167);
@@ -76,10 +78,10 @@ test('新角色三類短句與既有情境補齊；迪盧克技能喊聲不冒�
 test('原神固定名冊 124 筆，已收錄角色有短句，其餘明確待收錄，語音文字來源僅連已有表格', () => {
   assert.equal(game.characters.length, 124);
   assert.equal(new Set(game.characters.map((c) => c.id)).size, 124);
-  assert.equal(game.characters.filter((c) => c.lines.length).length, 45);
-  assert.equal(game.characters.filter((c) => !c.lines.length).length, 79);
+  assert.equal(game.characters.filter((c) => c.lines.length).length, 48);
+  assert.equal(game.characters.filter((c) => !c.lines.length).length, 76);
   assert.equal(game.characters.filter((c) => c.voiceReferenceUrl).length, 109);
-  assert.equal(lines.length, 134);
+  assert.equal(lines.length, 142);
   for (const c of game.characters) {
     if (/[\p{Script=Han}々]/u.test(c.nameJa)) {
       const parts = annotateText(c.nameJa, buildNotesIndex(RUBY_NOTES));
