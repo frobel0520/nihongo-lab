@@ -4,9 +4,11 @@ import { AudioLine } from '../components/AudioLine';
 import { RubyText } from '../components/Ruby';
 import { AnimeTraining } from '../components/AnimeTraining';
 import { AnimeGrammarStudy } from '../components/AnimeGrammarStudy';
+import { SceneListening } from '../components/SceneListening';
 import type { Progress } from '../../lib/progress.mjs';
 
 type SectionId =
+  | 'scene'
   | 'training'
   | 'vocab'
   | 'grammar'
@@ -51,6 +53,11 @@ export function LessonView({
   const pending = lesson.audioReady === false;
 
   const sections: { id: SectionId; label: string; count: number }[] = [
+    {
+      id: 'scene' as const,
+      label: '聽解',
+      count: lesson.scene?.questions.length ?? 0,
+    },
     {
       id: 'training' as const,
       label: '特訓',
@@ -123,6 +130,10 @@ export function LessonView({
           lessonId={lesson.id}
           update={update}
         />
+      )}
+
+      {active?.id === 'scene' && lesson.scene && (
+        <SceneListening lesson={lesson} update={update} />
       )}
 
       {active?.id === 'vocab' && (
