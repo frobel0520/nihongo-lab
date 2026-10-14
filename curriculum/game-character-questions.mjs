@@ -1,6 +1,39 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:ganyu:join": [
+  "工作時間已經結束了。",
+  "你想換一份工作嗎？"
+],
+"genshin:ganyu:skill": [
+  "歡迎所有外人進入。",
+  "外人可以自由通行。"
+],
+"genshin:ganyu:burst": [
+  "晴天與暖風的象徵。",
+  "請畫一張角色肖像。"
+],
+"genshin:gorou:join": [
+  "準備還沒有開始。",
+  "還有許多東西沒有備齊。"
+],
+"genshin:gorou:skill": [
+  "立刻撤退！",
+  "原地休息！"
+],
+"genshin:gorou:burst": [
+  "我會留在你身後。",
+  "請不要跟著我。"
+],
+"genshin:hutao:join": [
+  "你看錯了。",
+  "我什麼也看不見。"
+],
+"genshin:hutao:burst": [
+  "初次見面！",
+  "歡迎回來！"
+],
+
 "genshin:freminet:join": [
   "我會先自己離開。",
   "請讓我留在這裡。"

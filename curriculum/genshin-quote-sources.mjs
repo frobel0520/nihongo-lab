@@ -1,6 +1,55 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:ganyu:join": {
+  "voicelineId": 25080,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_ganyu_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:ganyu:skill": {
+  "voicelineId": 25058,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_ganyu/vo_ganyu_battle_skill1_02",
+  "variant": "預設造型"
+},
+"genshin:ganyu:burst": {
+  "voicelineId": 25060,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_ganyu/vo_ganyu_battle_skill3_01",
+  "variant": "預設造型"
+},
+"genshin:gorou:join": {
+  "voicelineId": 55065,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_gorou_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:gorou:skill": {
+  "voicelineId": 55045,
+  "sourceTitle": "元素スキル·1",
+  "voicefile": "VO_gameplay/VO_gorou/vo_gorou_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:gorou:burst": {
+  "voicelineId": 55048,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_gorou/vo_gorou_battle_skill3_01",
+  "variant": "預設造型"
+},
+"genshin:hutao:join": {
+  "voicelineId": 36080,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_hutao_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:hutao:burst": {
+  "voicelineId": 36061,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_hutao/vo_hutao_battle_skill3_02",
+  "variant": "預設造型"
+},
+
 "genshin:freminet:join": {
   "voicelineId": 85069,
   "sourceTitle": "チーム加入·1",
