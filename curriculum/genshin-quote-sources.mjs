@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:kachina:join": {
+  "voicelineId": 100068,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_kachina_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:kachina:skill": {
+  "voicelineId": 100048,
+  "sourceTitle": "元素スキル·4",
+  "voicefile": "VO_gameplay/VO_kachina/vo_kachina_battle_skill1_04",
+  "variant": "預設造型"
+},
+"genshin:kachina:burst": {
+  "voicelineId": 100053,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_kachina/vo_kachina_battle_skill3_03",
+  "variant": "預設造型"
+},
+"genshin:kaedeharakazuha:join": {
+  "voicelineId": 40075,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_kazuha_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:kaedeharakazuha:skill": {
+  "voicelineId": 40054,
+  "sourceTitle": "元素スキル·5",
+  "voicefile": "VO_gameplay/VO_kazuha/vo_kazuha_battle_skill1_05",
+  "variant": "預設造型"
+},
+"genshin:kaedeharakazuha:burst": {
+  "voicelineId": 40057,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_kazuha/vo_kazuha_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:kamisatoayaka:join": {
+  "voicelineId": 3167,
+  "sourceTitle": "チーム加入·3",
+  "voicefile": "VO_teamJoin/vo_ayaka_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:kamisatoayaka:skill": {
+  "voicelineId": 3146,
+  "sourceTitle": "元素スキル·1",
+  "voicefile": "VO_gameplay/VO_ayaka/vo_ayaka_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:kamisatoayaka:burst": {
+  "voicelineId": 3150,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_ayaka/vo_ayaka_battle_skill3_02",
+  "variant": "預設造型"
+},
+
 "genshin:ganyu:join": {
   "voicelineId": 25080,
   "sourceTitle": "チーム加入·1",

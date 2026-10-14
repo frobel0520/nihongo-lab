@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:kachina:join": [
+  "你先自己去吧。",
+  "現在還不能出發。"
+],
+"genshin:kachina:skill": [
+  "該停止轉動了。",
+  "現在還沒有時間。"
+],
+"genshin:kachina:burst": [
+  "再靠近一點吧。",
+  "請立刻站到我旁邊。"
+],
+"genshin:kaedeharakazuha:join": [
+  "就留在這裡吧。",
+  "我已經回來了。"
+],
+"genshin:kaedeharakazuha:skill": [
+  "請不要理會風。",
+  "風已經停止了。"
+],
+"genshin:kaedeharakazuha:burst": [
+  "風與雲都停在原地。",
+  "請讓風把雲吹散。"
+],
+"genshin:kamisatoayaka:join": [
+  "我不想與你合作。",
+  "下次再見吧。"
+],
+"genshin:kamisatoayaka:skill": [
+  "請停止跳舞。",
+  "請安靜坐下。"
+],
+"genshin:kamisatoayaka:burst": [
+  "炎熱的沙漠。",
+  "櫻花仍緊閉著花苞。"
+],
+
 "genshin:ganyu:join": [
   "工作時間已經結束了。",
   "你想換一份工作嗎？"
