@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:lanyan:join": [
+  "今天不出門了！",
+  "已經回到家了！"
+],
+"genshin:lanyan:skill": [
+  "我會一直站在地上。",
+  "我已經停止飛翔。"
+],
+"genshin:lanyan:burst": [
+  "我把福氣送走了！",
+  "福氣還沒有到這裡！"
+],
+"genshin:layla:join": [
+  "因為很想睡，所以先去休息。",
+  "今天能睡著，決定不去散步。"
+],
+"genshin:layla:skill": [
+  "請你過來幫忙！",
+  "請立刻叫醒我！"
+],
+"genshin:layla:burst": [
+  "你應該感到害怕。",
+  "我已經開始害怕了。"
+],
+"genshin:lisa:join": [
+  "哎呀，已經回來了嗎？",
+  "今天一直待在家裡嗎？"
+],
+"genshin:lisa:skill": [
+  "你可以放心逃走喔～",
+  "我已經放你走了喔～"
+],
+"genshin:lisa:burst": [
+  "繼續抵抗，不要投降。",
+  "慢慢等待援軍就好。"
+],
+
 "genshin:kirara:join": [
   "包裹已經遺失了嗎？",
   "你要親自來取包裹嗎？"
