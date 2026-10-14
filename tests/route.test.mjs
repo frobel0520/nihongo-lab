@@ -1,6 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { VIEWS, lessonHash, parseRoute, srsHash, viewHash } from '../lib/route.mjs';
+import {
+  VIEWS,
+  lessonHash,
+  parseRoute,
+  srsHash,
+  viewHash,
+} from '../lib/route.mjs';
 
 test('parseRoute：每個分頁的 hash 都能解回自己', () => {
   for (const view of VIEWS) {
@@ -17,7 +23,10 @@ test('parseRoute：空 hash、未知 hash 一律回課程清單', () => {
 
 test('lessonHash／parseRoute：課程 id 來回轉換，含需要編碼的字元', () => {
   for (const id of ['stage0-day1', 'stage2-quotes', '第 1 天/a?b#c']) {
-    assert.deepEqual(parseRoute(lessonHash(id)), { view: 'lessons', lessonId: id });
+    assert.deepEqual(parseRoute(lessonHash(id)), {
+      view: 'lessons',
+      lessonId: id,
+    });
   }
 });
 
@@ -30,4 +39,22 @@ test('單字卡兩區：#/srs 是複習區、#/srs/new 是新卡區', () => {
   assert.deepEqual(parseRoute(srsHash('review')), { view: 'srs' });
   assert.deepEqual(parseRoute(srsHash('new')), { view: 'srs', srsMode: 'new' });
   assert.equal(srsHash('review'), viewHash('srs'));
+});
+
+test('課程方向可直接開啟、重載，壞路徑退回首頁', async () => {
+  const { stageHash } = await import('../lib/route.mjs');
+  for (const id of ['stage-0', 'stage-1', 'stage-2', 'stage-3']) {
+    assert.deepEqual(parseRoute(stageHash(id)), {
+      view: 'lessons',
+      stageId: id,
+    });
+  }
+  for (const hash of [
+    '#/courses/',
+    '#/courses/%E0%A4%A',
+    '#/courses/stage-1/extra',
+    '#/courses/unknown',
+  ]) {
+    assert.deepEqual(parseRoute(hash), { view: 'lessons' });
+  }
 });
