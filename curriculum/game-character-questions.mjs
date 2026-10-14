@@ -1,6 +1,16 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:dahlia:join": ["只有我沒來。","我明天才會來。"],
+"genshin:dahlia:skill": ["越來越無聊了。","從來沒有任何變化。"],
+"genshin:dahlia:burst": ["拒絕神的庇護。","神已失去力量。"],
+"genshin:durin:join": ["杜林已經走了。","我不想認識你。"],
+"genshin:durin:skill": ["自己處理，別找我。","事情已經取消。"],
+"genshin:durin:burst": ["故事已經全部結束。","故事從未開始。"],
+"genshin:escoffier:join": ["餐具還沒準備。","餐具不能使用。"],
+"genshin:escoffier:skill": ["該解凍了。","冷凍已經結束很久。"],
+"genshin:escoffier:burst": ["這道菜最差。","一道菜也沒有。"],
+
 "genshin:aino:join": ["已經玩完回來了。","別出去玩。"],
 "genshin:aino:skill": ["一起吃飯吧。","我已經睡著了。"],
 "genshin:aino:burst": ["快看，下雪了！","不要看這裡！"],
