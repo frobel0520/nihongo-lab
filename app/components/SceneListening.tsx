@@ -2,7 +2,11 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Lesson } from '../../curriculum/lessons.mjs';
 import type { Progress } from '../../lib/progress.mjs';
 import { recordDictation } from '../../lib/progress.mjs';
-import { sceneRecordId } from '../../lib/scene-listening.mjs';
+import {
+  sceneRecordId,
+  sceneSpeakerLabels,
+} from '../../lib/scene-listening.mjs';
+import { getVoice } from '../../curriculum/voices.mjs';
 import { checkListeningChoice } from '../../lib/anime-training.mjs';
 import { playFromStart } from '../../lib/playback.mjs';
 import { AudioLine, audioUrl } from './AudioLine';
@@ -29,6 +33,12 @@ export function SceneListening({
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const scene = lesson.scene!;
   const lessonPaths = useMemo(() => lessonAudioPaths(lesson), [lesson]);
+  const speakers = useMemo(
+    () => sceneSpeakerLabels(lesson.dialogue, getVoice),
+    [lesson],
+  );
+  const lineCount = lesson.dialogue.length;
+  const questionCount = scene.questions.length;
   const question = scene.questions.find((q) => answers[q.id] === undefined);
   const revealed = !question;
 
@@ -104,8 +114,8 @@ export function SceneListening({
       <h2>整段聽解：先聽，再理解</h2>
       <p>{scene.goal}</p>
       <p className="muted">
-        原創情境 ·
-        同伴甲（女聲）／同伴乙（男聲）。先完整聽完六句，再回答三題；全部作答後揭示原文。
+        原創情境 · {[...new Set(speakers)].join('／')}。先完整聽完 {lineCount}{' '}
+        句，再回答 {questionCount} 題；全部作答後揭示原文。
       </p>
       <div className="row">
         <button
@@ -129,7 +139,7 @@ export function SceneListening({
       />
       <output className="scene-status" aria-live="polite">
         {lineIndex !== null
-          ? `正在播放第 ${lineIndex + 1}／6 句`
+          ? `正在播放第 ${lineIndex + 1}／${lineCount} 句`
           : heard
             ? '已完整聽過對話，可以作答或重播。'
             : '尚未完整聽完對話。'}
@@ -142,7 +152,7 @@ export function SceneListening({
       {question && (
         <div className="scene-question">
           <h3>
-            理解題 {Object.keys(answers).length + 1}／{scene.questions.length}
+            理解題 {Object.keys(answers).length + 1}／{questionCount}
           </h3>
           <p>{question.prompt}</p>
           <div className="anime-options">
@@ -184,9 +194,7 @@ export function SceneListening({
           <ul className="list">
             {lesson.dialogue.map((line, i) => (
               <li key={line.audio}>
-                <p className="muted">
-                  同伴{i % 2 === 0 ? '甲（女聲）' : '乙（男聲）'}
-                </p>
+                <p className="muted">{speakers[i]}</p>
                 <AudioLine {...line} />
               </li>
             ))}

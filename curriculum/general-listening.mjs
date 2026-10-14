@@ -37,3 +37,27 @@ export const generalListeningRoadmap = [
   { title: '情境詞彙', goal: '探索、戰鬥、魔法、推理與人際關係', target: 30 },
   { title: '綜合聽解', goal: '練習較長對話、指代與隱含意思', target: 30 },
 ];
+
+/** 課程清單每組的課數與已完成課程的組別標題。 */
+export const GENERAL_LISTENING_GROUP_SIZE = 10;
+const groupTitles = [
+  '基本指示、願望與規則',
+  '狀態、協助與行動安排',
+  '推測、目的與綜合理解',
+  '建立互動、協助與邀約',
+  '生活安排與問題處理',
+  '協調、感受與綜合對話',
+];
+
+/** 還沒寫專屬標題的組別，沿用所屬路線階段的標題。
+ * @param {number} groupIndex 從 0 起算 */
+export function generalListeningGroupTitle(groupIndex) {
+  if (groupTitles[groupIndex]) return groupTitles[groupIndex];
+  let start = 0;
+  const lessonIndex = groupIndex * GENERAL_LISTENING_GROUP_SIZE;
+  for (const phase of generalListeningRoadmap) {
+    if (lessonIndex < start + phase.target) return phase.title;
+    start += phase.target;
+  }
+  return '延伸練習';
+}

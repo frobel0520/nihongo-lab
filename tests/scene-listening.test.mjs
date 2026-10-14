@@ -77,3 +77,33 @@ test('聽解進度計入首頁，沿用版本3儲存與跨裝置合併；不新�
   assert.equal(merged.version, 3);
   assert.equal(merged.dictation[id].passed, true);
 });
+
+test('整段聽解的同伴標籤依聲線命名，句數不同或同一人連說兩句也正確', async () => {
+  const { sceneSpeakerLabels } = await import('../lib/scene-listening.mjs');
+  assert.deepEqual(
+    sceneSpeakerLabels(
+      [{ voice: 'nemo2' }, { voice: 'nemo2' }, { voice: 'hau' }],
+      getVoice,
+    ),
+    ['同伴甲（男聲）', '同伴甲（男聲）', '同伴乙（女聲）'],
+  );
+  for (const lesson of lessons)
+    assert.deepEqual(
+      sceneSpeakerLabels(lesson.dialogue, getVoice),
+      lesson.dialogue.map((_, i) =>
+        i % 2 === 0 ? '同伴甲（女聲）' : '同伴乙（男聲）',
+      ),
+    );
+});
+
+test('通用聽解每組都有標題；尚無專屬標題的組沿用路線階段名稱', async () => {
+  const { generalListeningGroupTitle, GENERAL_LISTENING_GROUP_SIZE } =
+    await import('../curriculum/lessons.mjs');
+  const groups = Math.ceil(lessons.length / GENERAL_LISTENING_GROUP_SIZE);
+  for (let i = 0; i < groups; i++)
+    assert.notEqual(generalListeningGroupTitle(i), '延伸練習');
+  // 第 61～70 課屬於路線第 3 階段。
+  assert.equal(generalListeningGroupTitle(6), generalListeningRoadmap[2].title);
+  assert.equal(generalListeningGroupTitle(17), generalListeningRoadmap[5].title);
+  assert.equal(generalListeningGroupTitle(18), '延伸練習');
+});

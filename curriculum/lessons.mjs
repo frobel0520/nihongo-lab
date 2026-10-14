@@ -1050,4 +1050,8 @@ export { gameMeaningDistractors } from './game-character-questions.mjs';
 export { genshinActionCoverage } from './genshin-action-coverage.mjs';
 export { genshinSupplement } from './genshin-supplement.mjs';
 
-export { generalListeningRoadmap } from './general-listening.mjs';
+export {
+  generalListeningRoadmap,
+  generalListeningGroupTitle,
+  GENERAL_LISTENING_GROUP_SIZE,
+} from './general-listening.mjs';

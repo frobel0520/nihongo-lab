@@ -1,17 +1,18 @@
 import {
   stages,
   generalListeningRoadmap,
+  generalListeningGroupTitle,
+  GENERAL_LISTENING_GROUP_SIZE,
   type Lesson,
 } from '../../curriculum/lessons.mjs';
 import { lessonProgress } from '../../lib/lesson-progress.mjs';
 import type { Progress } from '../../lib/progress.mjs';
-import { stageHash, srsHash, viewHash } from '../../lib/route.mjs';
+import { lessonHash, stageHash, srsHash, viewHash } from '../../lib/route.mjs';
 import { summarize, toDateString } from '../../lib/srs.mjs';
 import { ChevronRightIcon } from '../components/Icons';
 import { ProgressBar } from '../components/ProgressBar';
 import { RubyText } from '../components/Ruby';
 import { STUDY_CATALOG } from '../../lib/study-catalog.mjs';
-import { lessonHash } from '../../lib/route.mjs';
 
 const CARDS = Object.values(STUDY_CATALOG).flatMap((catalog) => catalog.cards);
 const TRACKS: Record<string, { title: string; description: string }> = {
@@ -194,26 +195,32 @@ export function LessonListView({
           </h2>
           {stage.lessons.length === 0 ? (
             <p className="muted stage-empty">即將推出</p>
-          ) : stage.id === 'stage-1' && stage.lessons.length >= 10 ? (
+          ) : stage.id === 'stage-1' &&
+            stage.lessons.length >= GENERAL_LISTENING_GROUP_SIZE ? (
             <>
               {Array.from(
-                { length: Math.ceil(stage.lessons.length / 10) },
-                (_, i) => i * 10,
+                {
+                  length: Math.ceil(
+                    stage.lessons.length / GENERAL_LISTENING_GROUP_SIZE,
+                  ),
+                },
+                (_, i) => i * GENERAL_LISTENING_GROUP_SIZE,
               ).map((start, i) => (
                 <details className="card" key={start} open={start === 0}>
                   <summary>
-                    第 {start + 1}～{Math.min(start + 10, stage.lessons.length)}{' '}
-                    課：
-                    {[
-                      '基本指示、願望與規則',
-                      '狀態、協助與行動安排',
-                      '推測、目的與綜合理解',
-                      '建立互動、協助與邀約',
-                      '生活安排與問題處理',
-                      '協調、感受與綜合對話',
-                    ][i] ?? '延伸練習'}
+                    第 {start + 1}～
+                    {Math.min(
+                      start + GENERAL_LISTENING_GROUP_SIZE,
+                      stage.lessons.length,
+                    )}{' '}
+                    課：{generalListeningGroupTitle(i)}
                   </summary>
-                  {lessonList(stage.lessons.slice(start, start + 10))}
+                  {lessonList(
+                    stage.lessons.slice(
+                      start,
+                      start + GENERAL_LISTENING_GROUP_SIZE,
+                    ),
+                  )}
                 </details>
               ))}
             </>
