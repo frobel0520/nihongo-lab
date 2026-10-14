@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:shikanoinheizou:join": {
+  "voicelineId": 59064,
+  "sourceTitle": "チーム加入·3",
+  "voicefile": "VO_teamJoin/vo_heizou_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:shikanoinheizou:skill": {
+  "voicelineId": 59044,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_heizou/vo_heizou_battle_skill1_05",
+  "variant": "預設造型"
+},
+"genshin:shikanoinheizou:burst": {
+  "voicelineId": 59046,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_heizou/vo_heizou_battle_skill3_01",
+  "variant": "預設造型"
+},
+"genshin:sigewinne:join": {
+  "voicelineId": 95074,
+  "sourceTitle": "チーム加入·3",
+  "voicefile": "VO_teamJoin/vo_sigewinne_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:sigewinne:skill": {
+  "voicelineId": 95048,
+  "sourceTitle": "元素スキル·1",
+  "voicefile": "VO_gameplay/VO_sigewinne/vo_sigewinne_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:sigewinne:burst": {
+  "voicelineId": 95055,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_sigewinne/vo_sigewinne_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:tartaglia:join": {
+  "voicelineId": 23076,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_tartaglia_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:tartaglia:skill": {
+  "voicelineId": 23054,
+  "sourceTitle": "元素スキル·4",
+  "voicefile": "VO_gameplay/VO_tartaglia/vo_tartaglia_battle_skill1_04",
+  "variant": "預設造型"
+},
+"genshin:tartaglia:burst": {
+  "voicelineId": 23060,
+  "sourceTitle": "元素爆発·4",
+  "voicefile": "VO_gameplay/VO_tartaglia/vo_tartaglia_battle_skill3_04",
+  "variant": "預設造型"
+},
+
 "genshin:sayu:join": {
   "voicelineId": 53034,
   "sourceTitle": "チーム加入·2",

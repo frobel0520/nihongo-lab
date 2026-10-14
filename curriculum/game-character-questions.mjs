@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:shikanoinheizou:join": [
+  "先休息吧，搭檔。",
+  "你自己去吧，搭檔。"
+],
+"genshin:shikanoinheizou:skill": [
+  "可以慢慢找藉口！",
+  "你不必再解釋了！"
+],
+"genshin:shikanoinheizou:burst": [
+  "忘掉罪行！",
+  "請繼續辯解！"
+],
+"genshin:sigewinne:join": [
+  "請不要打擾我。",
+  "歡迎你來這裡。"
+],
+"genshin:sigewinne:skill": [
+  "一直走動喔。",
+  "快跑起來喔。"
+],
+"genshin:sigewinne:burst": [
+  "集中力氣，別放鬆。",
+  "繼續用力，把速度加快。"
+],
+"genshin:tartaglia:join": [
+  "請別看我！",
+  "我會替你看守！"
+],
+"genshin:tartaglia:skill": [
+  "回去！",
+  "等著！"
+],
+"genshin:tartaglia:burst": [
+  "因為不痛，所以不用忍。",
+  "忍耐之後就完全不痛。"
+],
+
 "genshin:sayu:join": [
   "已經睡著了嗎？",
   "不可以睡覺嗎？"
