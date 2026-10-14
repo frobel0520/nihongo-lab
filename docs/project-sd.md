@@ -605,3 +605,17 @@ OpenJLPT全階段65課：去重1215詞，N5 670／674（99.4%），N4 144詞；N
 375×667手機實測全部30新課：180句自然連播、90題理解、假名、單字／文法／句型頁、單課35檔下載、2100檔總數、進度保存與換頁停播；斷網重載後全部30課180句播放、作答與重練通過。四類教材×三個練習區共12種組合的播放、作答、進度、模式／重載與換頁停播通過，六組課程選取與離線分類重載通過，無水平溢位或pageerror。原有全部課程物件與遊戲教材逐欄比對一致，進度儲存及同步版本仍為3。
 
 OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N5漢字84／84、文法81／81；71個既有文法點未標jlpt。數字為全站清單覆蓋，單字條目含跨課複習，不表示1500個不同單字或真實作品理解率；原始清單僅保留於被忽略的.cache。
+
+## 2026-10-14 T120 效能 Release Gate
+
+量測分三層，判定一律走 `lib/perf-stats.mjs`（nearest-rank 百分位數；沒量到的指標記 `not_measured`，不算通過）。門檻集中在 `scripts/perf-budget.mjs`，修改門檻要記 Change Request，不為了讓結果通過而放寬。
+
+| 層 | 指令 | 何時跑 | 指標與門檻 |
+| --- | --- | --- | --- |
+| Bundle 迴歸 | `npm run perf:bundle` | CI 每次 build 後 | 主程式 gzip ≤ 551,000 bytes、CSS gzip ≤ 6,000 bytes、precache ≤ 18,800,000 bytes（T120 基準加 5%） |
+| 操作計算 | `npm run perf:logic` | CI | 首頁卡片統計、課程進度、排牌組、評分＋存檔、聽寫比對，各 p95 ≤ 50 ms（Node 桌機；約等於 4 倍慢手機 200 ms，INP「良好」上限） |
+| 頁面載入 | `npm run perf:page` | 發布前在本機跑，正式站另跑一次 | 手機情境首頁與課程頁：冷啟動 LCP p95 ≤ 2,500 ms、暖啟動 LCP p95 ≤ 1,500 ms、冷啟動 TBT p95 ≤ 200 ms、單課音檔下載 p95 ≤ 5,000 ms |
+
+頁面載入的量測方式：`scripts/perf-page.mjs` 以本機 Chrome 的 DevTools Protocol 驅動 headless Chrome，不需要額外套件或付費服務。手機情境為 375×667、DPR 2、CPU 4 倍降速、網路 150 ms RTT／1.6 Mbps 下載／750 Kbps 上傳（Lighthouse 行動版設定）。每個樣本用全新設定檔：冷啟動先清快取與 service worker，暖啟動等 service worker 接管後再載入。FCP、LCP、long task 由頁面內 PerformanceObserver 收集；TBT 是 FCP 之後 long task 超過 50 ms 部分的加總，量到載入後 3 秒。單課音檔下載以 4 條並行抓 `general-listening-31` 的 35 個音檔；降速只套用在頁面，所以這一步繞過 service worker。`longestTaskMs` 與 `contentReadyMs`（課程清單或聽解區塊出現的時間）只做診斷，不設門檻。
+
+限制：頁面載入不放進 CI，因為共用 runner 的時間變異大；本機 preview 與正式站結果分開記錄，都不等於真實手機。樣本數 5 時 p95 就是最大值。iOS 與真實手機未量測。

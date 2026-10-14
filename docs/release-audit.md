@@ -1081,3 +1081,65 @@ PR #113 check 通過後以 rebase 合併為 `fe6a5a4`，[GitHub Actions 38573993
 效能回歸（Node v24.14.1、Windows 10 桌機、`vite build`、gzip -9 自行計算、單次）：主程式 `index-*.js` 由 1,797,551 bytes（gzip 521,321）變為 1,798,205 bytes（gzip 521,501），增加 654 bytes（gzip 180 bytes）。返回鍵與標籤計算只在換頁或載入課程時執行一次，未另行量測互動延遲；正式站載入時間未量測，效能門檻另開 T120。
 
 未處理的 review 項目：首頁「今天的複習」數字混合四個教材類別（含遊戲短句）；`scripts/build-genshin-coverage.mjs` 的 catch 會吞掉寫檔錯誤；`lib/route.mjs` 階段 id 以 `stage-[0-3]` 寫死；`LessonListView` 的 TRACKS 課程說明仍在 view 內；SrsView／DictationView／ShadowingView 以大寫常數名稱接 props。
+
+## 2026-10-14 T120 效能 Release Gate
+
+新增三層效能量測與門檻（設計見 project-sd.md「T120 效能 Release Gate」），CI 每次 build 後跑 bundle 與操作計算檢查。基準 commit：`b1b644f` 加上 T120 分支；完整 typecheck、275 tests、lint 通過。
+
+### Bundle（正式 base path `vite build`，gzip -9）— 通過
+
+| 指標 | 量測 | 門檻 | 結果 |
+| --- | --- | --- | --- |
+| 主程式 `index-*.js` | 1,798,253 bytes（gzip 524,703） | gzip ≤ 551,000 | pass |
+| CSS | gzip 4,817 | ≤ 6,000 | pass |
+| precache | 236 項、17,913,219 bytes | ≤ 18,800,000 | pass |
+
+precache 中 215 項是遊戲角色頭像（`game-portraits/`），首次開啟就會在背景下載；主程式內含全部教材資料，所以每批新教材都會讓主程式變大。門檻是基準加 5% 的迴歸上限，不代表大小合理。
+
+### 操作計算（Node v24.14.1、Windows 10、i7-12700KF、200 樣本、暖啟動）— 通過
+
+合成資料：2,909 張卡片全部複習過、2,044 句全部聽寫過（不讀使用者真實進度）。
+
+| 操作 | p50 | p95 | 門檻 p95 | 結果 |
+| --- | --- | --- | --- | --- |
+| 首頁卡片統計 | 0.13 ms | 0.27 ms | 50 ms | pass |
+| 課程進度（全部課程） | 7.7 ms | 9.8 ms | 50 ms | pass |
+| 排複習牌組 | 0.31 ms | 0.55 ms | 50 ms | pass |
+| 評分＋寫回＋序列化存檔 | 3.8 ms | 5.8 ms | 50 ms | pass |
+| 聽寫比對（長句） | 0.07 ms | 0.11 ms | 50 ms | pass |
+
+### 頁面載入（本機 `vite preview`，手機情境，Chrome headless，5 樣本）— 未通過
+
+環境：Windows 10、i7-12700KF、Chrome 本機版本；375×667、DPR 2、CPU 4 倍降速、150 ms RTT／1.6 Mbps 下載。樣本數 5，p95 等於最大值。
+
+| 指標 | p50 | p95 | 門檻 p95 | 結果 |
+| --- | --- | --- | --- | --- |
+| 首頁冷啟動 LCP | 3,964 ms | 4,048 ms | 2,500 ms | **fail** |
+| 課程頁冷啟動 LCP | 3,848 ms | 4,016 ms | 2,500 ms | **fail** |
+| 首頁暖啟動 LCP | 904 ms | 1,088 ms | 1,500 ms | pass |
+| 課程頁暖啟動 LCP | 908 ms | 1,216 ms | 1,500 ms | pass |
+| 首頁冷啟動 TBT | 0 ms | 0 ms | 200 ms | pass |
+| 課程頁冷啟動 TBT | 0 ms | 2 ms | 200 ms | pass |
+| 單課 35 個音檔下載（555,364 bytes） | 3,422 ms | 3,438 ms | 5,000 ms | pass |
+
+診斷：冷啟動傳輸 534,519 bytes，約 2.7 秒花在下載主程式；首次繪製前另有一個 385～604 ms 的 long task（主程式初始化與教材資料建構），所以 TBT 是 0、延遲全部反映在 LCP。暖啟動由 service worker 供檔，傳輸 0 bytes，但同一個 long task 仍有 391～556 ms。冷啟動 LCP 要達標，需要縮小首次載入的主程式（例如教材資料分割、延後載入遊戲與各階段資料），另開 Task 處理。
+
+### 頁面載入（正式站 https://frobel0520.github.io/nihongo-lab/ ，同一手機情境，5 樣本）— 未通過
+
+量測版本為 main `b1b644f` 的部署（T120 程式尚未部署，不影響頁面內容）；同一台桌機發出，網路含真實延遲再加降速。
+
+| 指標 | p50 | p95 | 門檻 p95 | 結果 |
+| --- | --- | --- | --- | --- |
+| 首頁冷啟動 LCP | 4,148 ms | 4,932 ms | 2,500 ms | **fail** |
+| 課程頁冷啟動 LCP | 3,924 ms | 4,188 ms | 2,500 ms | **fail** |
+| 首頁暖啟動 LCP | 896 ms | 1,000 ms | 1,500 ms | pass |
+| 課程頁暖啟動 LCP | 928 ms | 1,036 ms | 1,500 ms | pass |
+| 首頁冷啟動 TBT | 0 ms | 0 ms | 200 ms | pass |
+| 課程頁冷啟動 TBT | 0 ms | 2 ms | 200 ms | pass |
+| 單課 35 個音檔下載 | 3,474 ms | 4,679 ms | 5,000 ms | pass |
+
+冷啟動傳輸 562,351 bytes（含 HTTP 標頭），首次繪製前的 long task 399～457 ms。正式站結果與本機一致：冷啟動 LCP 未達門檻，其餘通過。單課下載 p95 接近門檻，網路波動時可能超過。
+
+### Release Gate 判定
+
+bundle 迴歸與操作計算通過，CI 已會擋下超過門檻的變更。頁面載入的冷啟動 LCP 在本機與正式站都未通過，**本次效能 Release Gate 記為未通過**。門檻值仍待使用者確認；縮小首次載入的工作另開 Task。真實手機與 iOS 未量測。

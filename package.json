@@ -14,7 +14,10 @@
     "typecheck": "tsc --noEmit",
     "test": "node --test tests/*.test.mjs",
     "coverage": "node scripts/coverage-openjlpt.mjs",
-    "check": "npm run typecheck && npm test && npm run lint"
+    "check": "npm run typecheck && npm test && npm run lint",
+    "perf:bundle": "node scripts/perf-bundle.mjs --check",
+    "perf:logic": "node scripts/perf-logic.mjs --check",
+    "perf:page": "node scripts/perf-page.mjs --check"
   },
   "dependencies": {
     "react": "19.2.8",

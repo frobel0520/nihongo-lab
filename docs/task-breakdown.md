@@ -496,9 +496,9 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 - Fixture or test data：既有 60 課通用聽解資料；合成的三句對話（同一聲線連說兩句）測試同伴標籤。
 - Evidence path：`tests/route.test.mjs`、`tests/scene-listening.test.mjs`；release-audit.md「T119 程式碼 review 修正」。
 
-## 2026-10-14 T120 效能 Release Gate（待開始）
+## 2026-10-14 T120 效能 Release Gate
 
-- Task ID：T120。狀態：已開立，尚未實作；下列門檻是提案，使用者確認後才生效。
+- Task ID：T120。狀態：量測工具、CI 迴歸檢查與首輪量測已完成（分支 `feature/T120-perf-gate`）；頁面門檻的冷啟動 LCP 未通過，門檻值待使用者確認，見 release-audit.md「T120 效能 Release Gate」。
 - Goal：為正式站建立可重複執行的效能量測與 Release Gate，訂出門檻並納入部署前檢查；未量測或未達門檻不記為通過。
 - Input contract：GitHub Pages 正式站與本機正式 base path build；現況主程式 `index-*.js` 1,798,205 bytes（gzip 521,501，T119 量測），T65 時為 1,140,774 bytes（gzip 329,536），precache 16.85 MB（T65）。
 - Output artifact：量測腳本（建議 `scripts/measure-perf.mjs`，以本機瀏覽器自動化執行，不依賴付費服務）、docs/project-sd.md 的效能指標與門檻章節、release-audit.md 的量測紀錄格式。
@@ -508,3 +508,4 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 - Acceptance checks：每項指標都有門檻、環境（版本、硬體、網路節流、資料量、冷／暖啟動）、樣本數與 p50／p95；本機、fixture 與正式站結果分開記錄；量測可重跑且結果寫入 release-audit.md；CI 或部署前檢查能擋下超過門檻的 bundle 成長。
 - Fixture or test data：正式站與本機 build；不使用使用者真實進度資料。
 - Evidence path：release-audit.md「T120 效能 Release Gate」（實作後新增）。
+- 實作結果（2026-10-14）：`lib/perf-stats.mjs`（百分位數與門檻判定）、`scripts/perf-budget.mjs`（門檻）、`scripts/perf-bundle.mjs`、`scripts/perf-logic.mjs`、`scripts/perf-page.mjs`（DevTools Protocol，不加套件）、`npm run perf:*`、CI 加入 bundle 與操作計算檢查；設計見 project-sd.md「T120 效能 Release Gate」。原提案的「可互動時間」改用 TBT 與內容出現時間（診斷），因為 TTI 已不是 Lighthouse 指標。
