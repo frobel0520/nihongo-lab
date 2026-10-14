@@ -1,7 +1,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
-import { gameCharacterStudy } from '../curriculum/lessons.mjs';
+import {
+  gameCharacterStudy,
+  genshinSupplement,
+} from '../curriculum/lessons.mjs';
 import { eternalReturnRoster } from '../curriculum/game-character-roster.mjs';
 
 test('ER 名冊收齊固定來源的 91 個可玩角色，排除隨機／NPC，頭像、中文及日文名齊全', () => {
@@ -49,7 +52,10 @@ test('角色清單保留已編排音檔；未收錄角色不指定配音', () =>
   const lines = gameCharacterStudy.flatMap((g) =>
     g.characters.flatMap((c) => c.lines),
   );
-  assert.equal(lines.filter((l) => l.category !== '角色選擇').length, 286);
+  assert.equal(
+    lines.filter((l) => l.category !== '角色選擇').length,
+    286 + genshinSupplement.length * 3,
+  );
   const bennett = lines.find((l) => l.id === 'genshin:bennett:skill');
   assert.equal(bennett.audio, 'audio/games/genshin/gram-641caa85ab-ro-v1.mp3');
   for (const g of gameCharacterStudy)

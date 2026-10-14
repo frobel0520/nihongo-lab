@@ -1018,5 +1018,6 @@ export { gameCharacterStudy } from "./game-character-study.mjs";
 export { gameMeaningDistractors } from './game-character-questions.mjs';
 
 export { genshinActionCoverage } from './genshin-action-coverage.mjs';
+export { genshinSupplement } from './genshin-supplement.mjs';
 
 export { generalListeningRoadmap } from './general-listening.mjs';

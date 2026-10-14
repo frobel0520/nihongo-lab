@@ -1,4 +1,4 @@
-# 原神可核對來源角色收錄結果
+# 原神角色收錄進度
 
 固定版本 `49a6544a6c6ae36089cb42fa591fc46f01de8bcf` 的124筆名冊中，96位具可用編隊加入／元素技能／元素爆發短句，已全部有教材，共286句。這是每個角色的少量短句，不代表整套語音庫、所有元素版本或造型全部收錄。
 
@@ -51,3 +51,11 @@
 來源：[固定版本日文語音表](https://github.com/theBowja/genshin-db/tree/49a6544a6c6ae36089cb42fa591fc46f01de8bcf/src/data/Japanese/voiceovers)、[角色性別資料](https://github.com/theBowja/genshin-db/tree/49a6544a6c6ae36089cb42fa591fc46f01de8bcf/src/data/Japanese/characters)。個別來源URL與語音識別在教材欄位內。聲線屬教材編排，不宣稱模仿原聲優；人耳音色、語氣與原作讀法驗收尚未逐句完成。
 
 驗證：完整typecheck、262 tests、lint及正式路徑build通過。全遊戲532個使用中去重MP3共14,568,012 bytes，全部可解碼、非靜音且metadata僅encoder；各角色批次皆通過手機與離線播放檢查。
+
+## 2026-10-14 T109 原神其他來源補錄
+
+愛諾、阿羅夏、哥倫比婭各補入編隊加入、元素技能與元素爆發一句，共9句原作短台詞及VOICEVOX自製朗讀。原神現有99位可學習角色、295句，124筆名冊仍有25筆待教材。文字逐句對照日文Wiki角色語音表，另依固定版本角色gender欄位安排男女聲；來源URL、頁面SHA-256、核對日期與技能按法註記保留於genshin-supplement.mjs。來源未提供原音編號或音檔名時，不編造voicelineId／voicefile。既有286句與ER教材保持，固定資料庫來源盤點也保持原值；畫面分開顯示Wiki補錄來源與固定資料庫筆數。
+
+完整typecheck、268 tests、lint及正式base path build通過；9音檔（158,220 bytes）讀音閘門、解碼、非靜音與encoder-only metadata檢查通過。375×667手機實播、9題大意、假名、單角色下載與離線重載播放通過，沒有水平溢位或pageerror。教材音聲不是原配音，也未逐句驗收原作演技。
+
+來源：[愛諾](https://wikiwiki.jp/genshinwiki/%E3%82%A2%E3%82%A4%E3%83%8E)、[阿羅夏](https://wikiwiki.jp/genshinwiki/%E3%82%A2%E3%83%AA%E3%83%A7%E3%83%BC%E3%82%B7%E3%83%A3)、[哥倫比婭](https://wikiwiki.jp/genshinwiki/%E3%82%B3%E3%83%AD%E3%83%B3%E3%83%93%E3%83%BC%E3%83%8A)；性別資料依角色名冊中對應的固定版本角色JSON。
