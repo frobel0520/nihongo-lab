@@ -1,6 +1,12 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:manekina:join-ready": ["我還沒準備好。","我已經睡著了。"],
+"genshin:manekina:join-order": ["我已經發出命令。","請取消所有指令。"],
+"genshin:manekina:join-request": ["我會給你指示。","別給我任何指示。"],
+"genshin:diluc:idle": ["放鬆一下也很糟。","永遠不能休息。"],
+"genshin:hutao:idle": ["不要和我喝茶。","我已經喝完茶。"],
+
 "genshin:vesna:join": ["巡視已經取消。","現在該睡覺了。"],
 "genshin:vesna:skill": ["解散。","休息。"],
 "genshin:vesna:burst": ["請你陪我玩。","我不會奉陪。"],
