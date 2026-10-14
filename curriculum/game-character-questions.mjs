@@ -1,6 +1,16 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:illuga:join": ["我不會努力。","期待已經全部實現了。"],
+"genshin:illuga:skill": ["不用再幫忙。","我拒絕你的請求。"],
+"genshin:illuga:burst": ["讓黑夜永遠持續。","熄滅所有光線。"],
+"genshin:ineffa:join": ["取消任務。","任務已經失敗。"],
+"genshin:ineffa:skill": ["防衛模式關閉。","進入睡眠。"],
+"genshin:ineffa:burst": ["繼續交涉。","交涉尚未開始。"],
+"genshin:jahoda:join": ["工作已經全部完成。","不接受任何委託。"],
+"genshin:jahoda:skill": ["我會讓你逃走。","快跟我一起逃吧。"],
+"genshin:jahoda:burst": ["可以空手回家。","手上的東西都已送出。"],
+
 "genshin:flins:join": ["你必須帶路。","我已經迷路了。"],
 "genshin:flins:skill": ["睜大眼睛。","把門打開。"],
 "genshin:flins:burst": ["黑暗已經消失了。","我一定不害怕。"],
