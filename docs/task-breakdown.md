@@ -498,7 +498,7 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 
 ## 2026-10-14 T120 效能 Release Gate
 
-- Task ID：T120。狀態：量測工具、CI 迴歸檢查與首輪量測已完成（分支 `feature/T120-perf-gate`）；頁面門檻的冷啟動 LCP 未通過，門檻值待使用者確認，見 release-audit.md「T120 效能 Release Gate」。
+- Task ID：T120。狀態：量測工具、CI 迴歸檢查與首輪量測已完成（分支 `feature/T120-perf-gate`）；門檻值 2026-10-15 經使用者確認沿用；頁面門檻的冷啟動 LCP 未通過，縮小首次載入由 T121 處理，見 release-audit.md「T120 效能 Release Gate」。
 - Goal：為正式站建立可重複執行的效能量測與 Release Gate，訂出門檻並納入部署前檢查；未量測或未達門檻不記為通過。
 - Input contract：GitHub Pages 正式站與本機正式 base path build；現況主程式 `index-*.js` 1,798,205 bytes（gzip 521,501，T119 量測），T65 時為 1,140,774 bytes（gzip 329,536），precache 16.85 MB（T65）。
 - Output artifact：量測腳本（建議 `scripts/measure-perf.mjs`，以本機瀏覽器自動化執行，不依賴付費服務）、docs/project-sd.md 的效能指標與門檻章節、release-audit.md 的量測紀錄格式。
@@ -510,3 +510,15 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 - Evidence path：release-audit.md「T120 效能 Release Gate」（實作後新增）。
 - 實作結果（2026-10-14）：`lib/perf-stats.mjs`（百分位數與門檻判定）、`scripts/perf-budget.mjs`（門檻）、`scripts/perf-bundle.mjs`、`scripts/perf-logic.mjs`、`scripts/perf-page.mjs`（DevTools Protocol，不加套件）、`npm run perf:*`、CI 加入 bundle 檢查（操作計算改發布前本機跑）；設計見 project-sd.md「T120 效能 Release Gate」。原提案的「可互動時間」改用 TBT 與內容出現時間（診斷），因為 TTI 已不是 Lighthouse 指標。
 - Change Request（2026-10-15，使用者）：bundle 迴歸門檻由提案的基準 +5% 改為 +20%（主程式 gzip 630,000、CSS gzip 5,800、precache 21,500,000 bytes），CI 只跑 bundle 檢查。影響：下一批教材不會立刻被 CI 擋下，但 20% 以內的成長不會被自動發現；操作計算延遲改為發布前手動量測。
+
+## 2026-10-15 T121 縮小首次載入（待開始）
+
+- Task ID：T121。狀態：已開立，尚未實作。
+- Goal：讓手機情境冷啟動 LCP p95 ≤ 2,500 ms（T120 門檻，2026-10-15 使用者確認），本機 preview 與正式站都通過，使效能 Release Gate 轉為通過。
+- Input contract：T120 量測基準——冷啟動 LCP p95 本機 4,048 ms、正式站 4,932 ms；冷啟動傳輸約 534KB，主程式 gzip 524,703 bytes 內含全部教材資料；首次繪製前 long task 385～604 ms；precache 236 項中 215 項為遊戲頭像。目前 14 個 app／lib 模組直接匯入 `curriculum/lessons.mjs`。
+- Output artifact：首次載入只含首頁所需的程式與資料；各學習方向、遊戲角色與練習類別的教材改為進入該區才載入（動態 import 或拆成資料檔）；頭像是否留在 precache 另行判斷；`lessons.mjs` 仍是課程資料唯一入口。
+- depends_on：T120（量測工具與門檻）。
+- Out of scope：教材內容與進度格式（同步版本維持 3）；離線下載行為改變；更換框架或加付費 CDN。
+- Acceptance checks：`npm run perf:page` 本機與正式站各 5 樣本，冷啟動 LCP p95 ≤ 2,500 ms，暖啟動 LCP、TBT、單課下載仍通過；`perf:bundle`、`perf:logic` 通過；離線重載後所有方向可學習；舊網址、返回鍵與進度保存不變；完整 test／typecheck／lint／build；375 寬手機實測。
+- Fixture or test data：既有教材與合成進度；不使用使用者真實進度。
+- Evidence path：release-audit.md「T121 縮小首次載入」（實作後新增）。
