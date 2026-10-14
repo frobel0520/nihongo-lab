@@ -1,6 +1,16 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:prune:join": ["好，已經到達。","今天不要出發。"],
+"genshin:prune:skill": ["動起來吧。","我已經動過了。"],
+"genshin:prune:burst": ["鈴聲表示活動取消。","不需要任何信號。"],
+"genshin:sandrone:join": ["只是請你幫我。","完全不想幫你。"],
+"genshin:sandrone:skill": ["留在原地。","別再跟著我。"],
+"genshin:sandrone:burst": ["演算已經取消。","演算已經完成。"],
+"genshin:skirk:join": ["我需要你的力量。","我的力量已消失。"],
+"genshin:skirk:skill": ["回家吧。","從虛無回來吧。"],
+"genshin:skirk:burst": ["群星啊，醒來吧。","群星已經消失了。"],
+
 "genshin:nefer:join": ["生意已經全部結束。","不准談任何事情。"],
 "genshin:nefer:skill": ["說謊完全沒問題。","所有話都是真的。"],
 "genshin:nefer:burst": ["把謎團藏起來。","謎團已經全部解開。"],
