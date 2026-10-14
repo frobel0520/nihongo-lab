@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:nilou:join": [
+  "我什麼都不想做。",
+  "你有沒有不能做的事？"
+],
+"genshin:nilou:skill": [
+  "來，休息囉～",
+  "別再跳舞了～"
+],
+"genshin:nilou:burst": [
+  "不用看也沒關係。",
+  "請你先忘記這件事。"
+],
+"genshin:ningguang:join": [
+  "我不會讓你失望。",
+  "請先不要離開我。"
+],
+"genshin:ningguang:skill": [
+  "哼，繼續堅持。",
+  "哼，快點回來。"
+],
+"genshin:ningguang:burst": [
+  "繼續攻擊吧。",
+  "把東西交給我。"
+],
+"genshin:ororon:join": [
+  "我叫過你嗎？",
+  "你已經走了嗎？"
+],
+"genshin:ororon:skill": [
+  "待在原地！",
+  "不要離開我！"
+],
+"genshin:ororon:burst": [
+  "幫我忘記周圍的事。",
+  "讓大家都靠近這裡。"
+],
+
 "genshin:mualani:join": [
   "大家都睡著了。",
   "請大家保持安靜。"
