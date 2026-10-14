@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:qiqi:join": {
+  "voicelineId": 24075,
+  "sourceTitle": "チーム加入·3",
+  "voicefile": "VO_teamJoin/vo_qiqi_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:qiqi:skill": {
+  "voicelineId": 24052,
+  "sourceTitle": "元素スキル·4",
+  "voicefile": "VO_gameplay/VO_qiqi/vo_qiqi_battle_skill1_04",
+  "variant": "預設造型"
+},
+"genshin:qiqi:burst": {
+  "voicelineId": 24053,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_qiqi/vo_qiqi_battle_skill3_01",
+  "variant": "預設造型"
+},
+"genshin:rosaria:join": {
+  "voicelineId": 37072,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_rosaria_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:rosaria:skill": {
+  "voicelineId": 37054,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_rosaria/vo_rosaria_battle_skill1_02",
+  "variant": "預設造型"
+},
+"genshin:rosaria:burst": {
+  "voicelineId": 37057,
+  "sourceTitle": "元素爆発·2",
+  "voicefile": "VO_gameplay/VO_rosaria/vo_rosaria_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:sangonomiyakokomi:join": {
+  "voicelineId": 54073,
+  "sourceTitle": "チーム加入·3",
+  "voicefile": "VO_teamJoin/vo_kokomi_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:sangonomiyakokomi:skill": {
+  "voicelineId": 54051,
+  "sourceTitle": "元素スキル·2",
+  "voicefile": "VO_gameplay/VO_kokomi/vo_kokomi_battle_skill1_02",
+  "variant": "預設造型"
+},
+"genshin:sangonomiyakokomi:burst": {
+  "voicelineId": 54055,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_kokomi/vo_kokomi_battle_skill3_03",
+  "variant": "預設造型"
+},
+
 "genshin:nilou:join": {
   "voicelineId": 70065,
   "sourceTitle": "チーム加入·2",
