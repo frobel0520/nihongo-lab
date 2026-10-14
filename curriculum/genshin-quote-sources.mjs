@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:xilonen:join": {
+  "voicelineId": 103064,
+  "sourceTitle": "チーム加入・1",
+  "voicefile": "VO_teamJoin/vo_xilonen_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:xilonen:skill": {
+  "voicelineId": 103045,
+  "sourceTitle": "元素スキル・1",
+  "voicefile": "VO_gameplay/VO_xilonen/vo_xilonen_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:xilonen:burst": {
+  "voicelineId": 103049,
+  "sourceTitle": "元素爆発・2",
+  "voicefile": "VO_gameplay/VO_xilonen/vo_xilonen_battle_skill3_02",
+  "variant": "預設造型"
+},
+"genshin:xinyan:join": {
+  "voicelineId": 33071,
+  "sourceTitle": "チーム加入·1",
+  "voicefile": "VO_teamJoin/vo_xinyan_teamJoin_01",
+  "variant": "預設造型"
+},
+"genshin:xinyan:skill": {
+  "voicelineId": 33052,
+  "sourceTitle": "元素スキル·1",
+  "voicefile": "VO_gameplay/VO_xinyan/vo_xinyan_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:xinyan:burst": {
+  "voicelineId": 33055,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_xinyan/vo_xinyan_battle_skill3_01",
+  "variant": "預設造型"
+},
+"genshin:yaemiko:join": {
+  "voicelineId": 58066,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_yaeMiko_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:yaemiko:skill": {
+  "voicelineId": 58047,
+  "sourceTitle": "元素スキル·4",
+  "voicefile": "VO_gameplay/VO_yaeMiko/vo_yaeMiko_battle_skill1_04",
+  "variant": "預設造型"
+},
+"genshin:yaemiko:burst": {
+  "voicelineId": 58051,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_yaeMiko/vo_yaeMiko_battle_skill3_03",
+  "variant": "預設造型"
+},
+
 "genshin:wriothesley:join": {
   "voicelineId": 86064,
   "sourceTitle": "チーム加入·2",
