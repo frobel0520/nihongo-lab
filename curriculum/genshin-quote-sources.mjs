@@ -1,6 +1,61 @@
 /** 少量實際短句的固定版本來源識別；未複製完整語音庫。 */
 /** @type {Record<string, {voicelineId: number, sourceTitle: string, voicefile: string, variant: string}>} */
 export const genshinQuoteSources = {
+"genshin:mualani:join": {
+  "voicelineId": 102072,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_mualani_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:mualani:skill": {
+  "voicelineId": 102048,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_mualani/vo_mualani_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:mualani:burst": {
+  "voicelineId": 102054,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_mualani/vo_mualani_battle_skill3_03",
+  "variant": "預設造型"
+},
+"genshin:navia:join": {
+  "voicelineId": 91073,
+  "sourceTitle": "チーム加入·3",
+  "voicefile": "VO_teamJoin/vo_navia_teamJoin_03",
+  "variant": "預設造型"
+},
+"genshin:navia:skill": {
+  "voicelineId": 91048,
+  "sourceTitle": "元素スキル·1",
+  "voicefile": "VO_gameplay/VO_navia/vo_navia_battle_skill1_01",
+  "variant": "預設造型"
+},
+"genshin:navia:burst": {
+  "voicelineId": 91056,
+  "sourceTitle": "元素爆発·3",
+  "voicefile": "VO_gameplay/VO_navia/vo_navia_battle_skill3_03",
+  "variant": "預設造型"
+},
+"genshin:neuvillette:join": {
+  "voicelineId": 87072,
+  "sourceTitle": "チーム加入·2",
+  "voicefile": "VO_teamJoin/vo_neuvillette_teamJoin_02",
+  "variant": "預設造型"
+},
+"genshin:neuvillette:skill": {
+  "voicelineId": 87054,
+  "sourceTitle": "元素スキル·3",
+  "voicefile": "VO_gameplay/VO_neuvillette/vo_neuvillette_battle_skill1_03",
+  "variant": "預設造型"
+},
+"genshin:neuvillette:burst": {
+  "voicelineId": 87055,
+  "sourceTitle": "元素爆発·1",
+  "voicefile": "VO_gameplay/VO_neuvillette/vo_neuvillette_battle_skill3_01",
+  "variant": "預設造型"
+},
+
 "genshin:mavuika:join": {
   "voicelineId": 106072,
   "sourceTitle": "チーム加入・3",

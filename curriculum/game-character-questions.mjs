@@ -1,6 +1,43 @@
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:mualani:join": [
+  "大家都睡著了。",
+  "請大家保持安靜。"
+],
+"genshin:mualani:skill": [
+  "要停下來囉！",
+  "速度太慢了！"
+],
+"genshin:mualani:burst": [
+  "別看我！祝你快睡著！",
+  "請注意！我已經回家了！"
+],
+"genshin:navia:join": [
+  "今天請你帶我回去！",
+  "今天大家各走各的！"
+],
+"genshin:navia:skill": [
+  "放鬆就好～！",
+  "不用注意周圍～！"
+],
+"genshin:navia:burst": [
+  "停止射擊！感覺很糟！",
+  "快躲起來！別再出聲！"
+],
+"genshin:neuvillette:join": [
+  "我不願意。",
+  "請你稍等。"
+],
+"genshin:neuvillette:skill": [
+  "再大聲一點。",
+  "大家一起唱歌。"
+],
+"genshin:neuvillette:burst": [
+  "大海啊，我永遠不會回來。",
+  "大家啊，我要出發了。"
+],
+
 "genshin:mavuika:join": [
   "現在還沒有準備好。",
   "只有明天才準備好。"

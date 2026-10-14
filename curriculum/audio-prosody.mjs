@@ -8,6 +8,14 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+"audio/games/genshin/gram-499b3f8e4d.mp3": {
+  "text": "注目～！君に幸あれ！",
+  "reading": "ちゅうもく～！きみに さちあれ！",
+  "kana": "チュウモク'、キミニ'/サチ'アレ",
+  "reason": "T92：君採きみ、幸採さち，修正原文解析的くん／こう；採用讀音校正後的VOICEVOX句界與重音，保留驚嘆後的停頓，不推定原作演技。",
+  "reference": "voicevox"
+},
+
   'audio/games/genshin/gram-a6e49b6988.mp3': {
     text: '風の共、雲の行くごと。',
     reading: 'かぜの とも、くもの ゆくごと。',
