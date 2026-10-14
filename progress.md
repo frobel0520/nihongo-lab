@@ -527,3 +527,11 @@ T95已部署：PR [#89](https://github.com/frobel0520/nihongo-lab/pull/89)、合
 T96：認めろ採みとめろ，修正引擎的したためろ；罪を保留原查詢下降位置，認めろ使用讀音校正後的VOICEVOX重音與原句界，不模仿原配音。
 
 完整typecheck、260 tests、lint與正式base path build通過；9個MP3讀音閘門、全檔解碼、非靜音訊號與encoder-only metadata通過，共165,132 bytes。375×667手機實測9句播放／作答／原文假名揭示，角色音檔下載後斷網重載與9句播放通過；無水平溢位或pageerror。PR check與正式站部署待完成，核對後直接接續下一批。音色、語氣與原作演技未逐句人耳驗收。
+
+T96已部署：PR [#90](https://github.com/frobel0520/nihongo-lab/pull/90)、合併commit `8a31e28`，Actions [38496543213](https://github.com/frobel0520/nihongo-lab/actions/runs/38496543213)成功。正式站JS與9個MP3共165,132 bytes逐位元組一致，TLS驗證保留。
+
+## 2026-10-14 T97 原神自動接續批次
+
+托馬、提納里、流浪者收錄可核對的編隊加入／元素技能／元素爆發短句，共9句VOICEVOX；原神84位250句、40筆待教材。固定版本語音表逐句核對voicelineId／標題／voicefile，繁中、讀音、解說及大意題齊備；既有教材與ER聲線配置逐欄保持。
+
+完整typecheck、260 tests、lint與正式base path build通過；9個MP3讀音閘門、全檔解碼、非靜音訊號與encoder-only metadata通過，共170,892 bytes。375×667手機實測9句播放／作答／原文假名揭示，角色音檔下載後斷網重載與9句播放通過；無水平溢位或pageerror。PR check與正式站部署待完成，核對後直接接續下一批。音色、語氣與原作演技未逐句人耳驗收。
