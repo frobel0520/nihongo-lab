@@ -1,10 +1,10 @@
 # 專案進度
 
-## 目前狀態：2026-10-15 T126 通用聽解81～90課（待發布）
+## 目前狀態：2026-10-15 T126 通用聽解81～90課（已發布）
 
 以遠端main `3db36e6` 為基底，開始時工作目錄乾淨、沒有其他開放PR。依第三階段「作品常見口語」完成81～90課，90課為階段整合：250單字條目、20文法點、40例句、60對話、30理解、30句型練習與350音檔（6,559,048 bytes）。全部音檔讀音閘門、引用、解碼、非靜音與encoder-only metadata通過，成功後才解除audioReady:false。
 
-289 tests／typecheck／lint、正式路徑build、perf:bundle、coverage與十課375寬線上／離線、四類×三練習通過；原115課、所有舊ID及遊戲資料快照保持。通用聽解90／180課、3150課程音檔，剩餘91～180課90課仍規劃中；PR／正式站驗證待發布後補記，完成90課發布即停止。
+289 tests／typecheck／lint、正式路徑build、perf:bundle、coverage與十課375寬線上／離線、四類×三練習通過；原115課、所有舊ID及遊戲資料快照保持。通用聽解90／180課、3150課程音檔，剩餘91～180課90課仍規劃中；PR [#122](https://github.com/frobel0520/nihongo-lab/pull/122) 已rebase合併為 `8669aae`，[Pages 38691989748](https://github.com/frobel0520/nihongo-lab/actions/runs/38691989748) 成功；正式站162個建置檔與350新音檔逐byte一致，十課路由及功能／離線抽驗通過，本批到此停止。
 
 bundle超標以build-only的單一按需chunk字串共享與實際ruby篩選修正，precache為21,036,445／21,500,000 bytes，原上限與按需／離線契約保持。純文字審閱項仍在作者清單及審閱Gate，不恢復T122撤除的計時門檻，不新增runtime dependency。
 
