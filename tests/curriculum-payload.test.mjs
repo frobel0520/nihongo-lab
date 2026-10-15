@@ -46,7 +46,20 @@ test('payload code generation preserves escaped text, repeated values and own sp
     marker: 'strings[0]',
     quoted: '";throw new Error("unexpected");//',
   });
-  assert.deepEqual(await evaluate(serializeCurriculumPayload(data)), data);
+  // Repetition exercises shared field names, including an own __proto__ and a
+  // quoted key. Authored text resembling generated references stays literal.
+  data.repeatedRecords = Array.from({ length: 40 }, () =>
+    JSON.parse(
+      String.raw`{"__proto__":{"authoredSpecialValue":"keys[0]"},"aLongRepeatedFieldName":"keys[0]","a long \"quoted\" field":"strings[0]"}`,
+    ),
+  );
+  const result = await evaluate(serializeCurriculumPayload(data));
+  assert.deepEqual(result, data);
+  for (const record of result.repeatedRecords) {
+    assert.ok(Object.hasOwn(record, '__proto__'));
+    assert.equal(Object.getPrototypeOf(record), Object.prototype);
+  }
+  assert.equal(Object.hasOwn(Object.prototype, 'authoredSpecialValue'), false);
   assert.throws(() => serializeCurriculumPayload(undefined), TypeError);
 });
 test('lazy annotations retain every actual ruby while author-only review entries stay in source', () => {

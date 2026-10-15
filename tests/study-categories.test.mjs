@@ -31,8 +31,8 @@ test('四類教材隔離且保留既有卡片、句子與進度id', () => {
   );
   const old = new Set(buildCards(stages).map((c) => c.id));
   assert.ok(STUDY_CATALOG.games.cards.every((c) => !old.has(c.id)));
-  assert.equal(STUDY_CATALOG.general.sentences.length, 1000);
-  for (let n = 61; n <= 100; n++) {
+  assert.equal(STUDY_CATALOG.general.sentences.length, 1100);
+  for (let n = 61; n <= 110; n++) {
     const id = `general-listening-${n}`;
     assert.equal(
       STUDY_CATALOG.general.cards.filter((c) => c.lessonId === id).length,
