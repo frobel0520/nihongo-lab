@@ -8,6 +8,23 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T127：文脈讀音與孤立詞重音，保留其他原有覆寫。
+"audio/stage-1/general-listening-91/vocab-898f10e789.mp3": {"text":"その後","reading":"そのあと","kana":"ソノ'/ア'ト","reason":"T127：その後在本課讀そのあと，核對文脈指定讀音；不以孤立詞推定整句語調。","reference":"voicevox"},
+"audio/stage-1/general-listening-92/dlg-f57df5908f.mp3": {"text":"その前に危険を皆に知らせよう。追跡はまだ再開しないよ。","reading":"その まえに きけんを みんなに しらせよう。 ついせきは まだ さいかい しないよ。","kana":"ソノ'/マ'エニ/_キケンオ'/ミンナ'ニ/シラセヨオ'、ツイセキワ'/マ'ダ/サイカイ'/シナイヨ'","reason":"T127：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-93/vocab-2a961c5c33.mp3": {"text":"灯り","reading":"あかり","kana":"アカリ'","reason":"T127：灯り在本課讀あかり，核對文脈指定讀音；不以孤立詞推定整句語調。","reference":"voicevox"},
+"audio/stage-1/general-listening-94/dlg-b19d8fb4c0.mp3": {"text":"そう。雨はその後だよ。今、管理室で原因を調べている。","reading":"そう。 あめは そのあとだよ。 いま、 かんりしつで げんいんを しらべている。","kana":"ソオ'、ア'メワ/ソノ'/ア'トダヨ、イ'マ、カンリ'_シツデ/ゲンインオ'/シラベ'テ/イル'","reason":"T127：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-95/vocab-57c02f06cd.mp3": {"text":"連絡所","reading":"れんらくじょ","kana":"レンラクジョ'","reason":"T127：連絡所在本課讀れんらくじょ，核對文脈指定讀音；不以孤立詞推定整句語調。","reference":"voicevox"},
+"audio/stage-1/general-listening-95/gram-01c1d62b5a.mp3": {"text":"予定を変えるなら、皆に伝えて。","reading":"よていを かえるなら、 みんなに つたえて。","kana":"ヨテエオ'/カエルナラ'、ミンナ'ニ/_ツタエテ'","reason":"T127：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-95/dlg-2c1d761e60.mp3": {"text":"じゃあ、今は移動しない。本部に変える場合は皆に伝えるね。","reading":"じゃあ、 いまは いどう しない。 ほんぶに かえる ばあいは みんなに つたえるね。","kana":"ジャ'ア、イ'マワ/イドオ'/シナイ'、ホ'ンブニ/カエル'/バアイワ'/ミンナ'ニ/_ツタエルネ'","reason":"T127：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-96/dlg-8d8f455a85.mp3": {"text":"結び目が緩くて、風で飛んだんだと思う。","reading":"むすびめが ゆるくて、 かぜで とんだんだと おもう。","kana":"ムスビメガ'/ユル'_クテ、カゼデ'/トンダ'/ン'ダト/オモ'ウ","reason":"T127：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-97/vocab-378a4c067e.mp3": {"text":"空","reading":"から","kana":"カラ'","reason":"T127：空在本課讀から，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-97/gram-46bcd3f371.mp3": {"text":"箱を開けたら、空だった。","reading":"はこを あけたら、 からだった。","kana":"ハコオ'/アケタ'ラ、カラ'ダッタ","reason":"T127：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-97/dlg-588497d231.mp3": {"text":"倉庫で箱を開けたら、中は空だったの。道具は盗まれた？","reading":"そうこで はこを あけたら、 なかは からだったの。 どうぐは ぬすまれた？","kana":"ソ'オコデ/ハコオ'/アケタ'ラ、ナ'カワ/カラ'ダッタノ、ドオグ'ワ/ヌス'マレタ？","reason":"T127：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-97/dlg-c32f2b50a2.mp3": {"text":"よかった。空の箱だけで決めつけなくて正解だったね。","reading":"よかった。 からの はこだけで きめつけなくて せいかいだったね。","kana":"ヨ'カッタ、カラ'ノ/ハコダケデ'/キメ_ツケ'ナ_クテ/セエカイダッタ'ネ","reason":"T127：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-98/vocab-90cd432b9e.mp3": {"text":"開く","reading":"あく","kana":"アク'","reason":"T127：開く在本課讀あく，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-98/dlg-9207adba19.mp3": {"text":"通路が明るくなって、扉も開いたね。自動なの？","reading":"つうろが あかるく なって、 とびらも あいたね。 じどうなの？","kana":"ツ'ウロガ/アカルクナッテ'、トビラモ'/ア'イタネ、ジドオナ'ノ？","reason":"T127：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-98/dlg-37ac5fbdaa.mp3": {"text":"じゃあ、扉は自然に開いたんじゃないのね。","reading":"じゃあ、 とびらは しぜんに あいたんじゃないのね。","kana":"ジャ'ア、トビラワ'/シゼンニ'/ア'イタ/ン'ジャナイノネ","reason":"T127：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-100/dlg-5c06722cd5.mp3": {"text":"まだだよ。橋が壊れていて、対岸の村には入れなかったんだ。","reading":"まだだよ。 はしが こわれていて、 たいがんの むらには はいれなかったんだ。","kana":"マ'ダダヨ、ハシ'ガ/コワレ'テ/イテ'、タイガンノ'/ムラ'ニワ/ハイレ'ナカッタ/ン'ダ","reason":"T127：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
 // T126：孤立詞及歧義字的局部讀音／重音校正；保留既有覆寫。
 "audio/stage-1/general-listening-81/vocab-7feb7a367c.mp3": {"text":"受取人","reading":"うけとりにん","kana":"ウケトリニン'","reason":"T126：受取人在本課讀うけとりにん，核對Kanjium所列孤立詞重音型；不由孤立詞推論整句語調。","reference":"kanjium"},
 "audio/stage-1/general-listening-81/vocab-2e6d1431cb.mp3": {"text":"持ってくる","reading":"もってくる","kana":"モッテク'ル","reason":"T126：持ってくる在本課讀もってくる，核對Kanjium所列孤立詞重音型；不由孤立詞推論整句語調。","reference":"kanjium"},
