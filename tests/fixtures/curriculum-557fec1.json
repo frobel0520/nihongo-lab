@@ -1,0 +1,57 @@
+{
+  "n5.cards": {
+    "count": 711,
+    "sha256": "18b4ce79b4328c95702ea9ce009a8ee5841df462db7a5ad53dadbd409d35e5f6"
+  },
+  "n5.sentences": {
+    "count": 675,
+    "sha256": "9f392a95a81e48c1ccd11b1bff31aeefd229a0ce94ea04746b89ab5737a80fca"
+  },
+  "general.cards": {
+    "count": 1500,
+    "sha256": "59849c77092426a3b366809b6622c144f14dcd3cd9b3b1dec6dfdcfddab9e189"
+  },
+  "general.sentences": {
+    "count": 600,
+    "sha256": "de3d6a5599980880750797c5320dfaccf9de62552c5b0d54fc71c016c68ec115"
+  },
+  "anime.cards": {
+    "count": 80,
+    "sha256": "b7e3ff4666b635e2e7e2c2ace8eeef3d2d04d695218b4c567722d871dd660155"
+  },
+  "anime.sentences": {
+    "count": 151,
+    "sha256": "5d920316bdd45d602241c5fcdf045f31386d8cea2a7a4ab52fe5cbb561156433"
+  },
+  "games.cards": {
+    "count": 618,
+    "sha256": "bf129451c3e16bb0f06004e9fc8c5ec047516e79ed45a4712ae7ff1e7c0d9b70"
+  },
+  "games.sentences": {
+    "count": 618,
+    "sha256": "94351a274930b4eeedc671194619122c46a57b53ee461e42f71fa0d70e559fbf"
+  },
+  "scene": {
+    "count": 180,
+    "sha256": "de373a243b9beddd3b4406a69317a9062b51330ec157e4b549f24f68f26c932b"
+  },
+  "listening": {
+    "count": 105,
+    "sha256": "e842e0beb2bdb0d5385b7706e610aa366e248097fa9a7c2c7701d11eb304b92e"
+  },
+  "grammar": {
+    "count": 64,
+    "sha256": "29dd07afec43b8823e38d14bbe03ff2fbf17bb030c1d12ca7978a8a0b26c9c22"
+  },
+  "games": {
+    "count": 618,
+    "sha256": "94351a274930b4eeedc671194619122c46a57b53ee461e42f71fa0d70e559fbf"
+  },
+  "gameListening": {
+    "count": 372,
+    "sha256": "ac486e2d8228f86dd4be77e016032a313357200d0adf0c0dc19d5ff58dca984d"
+  },
+  "content": {
+    "sha256": "559bdc760f4cc70c5129cf79620c302ee0bbf0c111a33cdb7122d60e8fbe0b8f"
+  }
+}
