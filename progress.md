@@ -4,7 +4,7 @@
 
 保留 T121 首次載入的教材按需載入與離線支援。移除操作計算與頁面載入計時腳本、npm 指令及發布時間門檻，保留 CI 的 `perf:bundle` 與原有大小上限。前文時間門檻與量測結果為歷史資料，以本節為現行發布要求；未宣稱正式站時間門檻已通過。
 
-PR #116 整合更新：49 個測試檔／typecheck／lint、build、bundle、375 寬導覽與離線重載通過；首頁主程式 gzip 64,742 bytes。尚未部署。
+PR #116 已合併為 `a20e238`，[Pages 部署](https://github.com/frobel0520/nihongo-lab/actions/runs/38666772162) 成功。49 個測試檔／typecheck／lint、build、bundle 通過；首頁主程式 gzip 64,742 bytes。正式站主程式與 service worker 逐 byte 核對一致；375 寬導覽、四類×三種練習與離線重載通過，HTTPS 驗證開啟。
 
 ## 歷史狀態：2026-10-15 T121 本機效能通過，正式站待驗收
 
