@@ -1,6 +1,16 @@
 # 任務拆解
 
-## 目前狀態：2026-10-15 T125 通用聽解71～80課（已發布）
+## 目前狀態：2026-10-15 T126 通用聽解81～90課（待發布）
+
+以遠端main `3db36e6` 為基底，開始時工作目錄乾淨、沒有其他開放PR。依第三階段「作品常見口語」完成81～90課，90課為階段整合：250單字條目、20文法點、40例句、60對話、30理解、30句型練習與350音檔（6,559,048 bytes）。全部音檔讀音閘門、引用、解碼、非靜音與encoder-only metadata通過，成功後才解除audioReady:false。
+
+289 tests／typecheck／lint、正式路徑build、perf:bundle、coverage與十課375寬線上／離線、四類×三練習通過；原115課、所有舊ID及遊戲資料快照保持。通用聽解90／180課、3150課程音檔，剩餘91～180課90課仍規劃中；PR／正式站驗證待發布後補記，完成90課發布即停止。
+
+bundle超標以build-only的單一按需chunk字串共享與實際ruby篩選修正，precache為21,036,445／21,500,000 bytes，原上限與按需／離線契約保持。純文字審閱項仍在作者清單及審閱Gate，不恢復T122撤除的計時門檻，不新增runtime dependency。
+
+逐句人工語音、完整現行Android／iOS真機QA與71個既有文法JLPT標記仍待辦，不擴大處理。Android部分安裝／播放及口頭回報保留，375寬模擬不當真機通過；原神受限來源、動畫長片段／跨句理解仍屬後續。不宣稱全站品質或所有review完整驗收。
+
+## 歷史狀態：2026-10-15 T125 通用聽解71～80課（已發布）
 
 以遠端 main `8e68cc0` 為基底，開始時工作目錄乾淨、沒有未合併 PR。依第三階段「作品常見口語」完成第71～80課：250單字條目、20文法點、40例句、60對話、30理解、30句型練習與350音檔（6,590,728 bytes）。全部音檔引用、讀音閘門、解碼、非靜音與encoder-only metadata通過，已解除待合成標記。主題與新知／複習安排見 general-listening-v1.md 的 T125 設計。
 
@@ -602,3 +612,14 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 - Acceptance checks：每課25／2／4／6／3／3／35密度與答案依據；check、正式base path build、perf:bundle、coverage；350音檔讀音／引用／解碼／非靜音／metadata；375寬十課各區塊、作答、進度、相鄰課／返回／停播，四類×三練習與十課下載後斷網重載；PR CI、合併前main／其他PR核對、Pages與正式站350檔逐byte及功能／離線驗證。
 - Fixture or test data：全原創情境與匿名進度；新增8e68cc0的105課／遊戲內容黃金快照，不改原557fec1快照。
 - Evidence path：scene-listening.test、study-categories.test、curriculum-loading.test、tests/fixtures/curriculum-8e68cc0.json與release-audit.md「T125」。手機模擬與機械檢查均保留證據等級，不宣稱真機或人耳全量通過。
+
+## T126：通用聽解第81～90課
+
+- Goal：完成第三階段最後十課，90課整合；完成後90／180課、3150音檔，後90課仍規劃中，停止於90課。
+- Input contract：最新main `3db36e6`，原115課／遊戲資料快照、既有作者工具、lessons.mjs唯一入口、固定1倍、版本3、四類練習與離線語意。
+- Output artifact：days/day106～day115、250單字條目／20文法／40例句／60對話／30理解／30練習／350MP3、必要讀音覆寫、bundle去重與驗證／發布紀錄。
+- depends_on：T103～T108、T119／T121／T122／T123／T124／T125。
+- Out of scope：91課以後、逐句人工語音、完整真機QA、71個舊JLPT補標、原作受限來源、變更發布門檻或同步／下載格式。
+- Acceptance checks：check、正式base build、perf:bundle原上限、coverage；350檔引用／讀音／解碼／非靜音／metadata；原115課／ID／遊戲資料與全payload資料還原；375寬十課五區塊、完整播放／作答／保存、相鄰課及App／原生返回／停播，四類×三練習，下載後斷網重載十課；CI、合併前main／PR核對、Pages、正式站全部新音檔與功能／離線。
+- Fixture or test data：原創情境與合成進度；tests/fixtures/curriculum-3db36e6.json保護115課／遊戲資料，特殊字串fixture驗證build模組產生不誤解教材為程式碼。
+- Evidence path：curriculum-payload.test、curriculum-loading.test、scene-listening.test、study-categories.test及release-audit.md的T126紀錄；手機模擬與機械音檔檢查均不冒充真機／人耳通過。

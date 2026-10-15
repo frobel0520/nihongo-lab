@@ -8,6 +8,25 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T126：孤立詞及歧義字的局部讀音／重音校正；保留既有覆寫。
+"audio/stage-1/general-listening-81/vocab-7feb7a367c.mp3": {"text":"受取人","reading":"うけとりにん","kana":"ウケトリニン'","reason":"T126：受取人在本課讀うけとりにん，核對Kanjium所列孤立詞重音型；不由孤立詞推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-81/vocab-2e6d1431cb.mp3": {"text":"持ってくる","reading":"もってくる","kana":"モッテク'ル","reason":"T126：持ってくる在本課讀もってくる，核對Kanjium所列孤立詞重音型；不由孤立詞推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-81/vocab-4e698cac9e.mp3": {"text":"取ってくる","reading":"とってくる","kana":"ト'ッテクル","reason":"T126：取ってくる在本課讀とってくる，核對Kanjium所列孤立詞重音型；不由孤立詞推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-87/vocab-d88af38cf9.mp3": {"text":"行","reading":"ぎょう","kana":"ギョ'ウ","reason":"T126：行在本課讀ぎょう，核對Kanjium所列孤立詞重音型；不由孤立詞推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-87/vocab-c901dc4e98.mp3": {"text":"背景","reading":"はいけい","kana":"ハイケエ'","reason":"T126：背景在本課讀はいけい，核對Kanjium所列孤立詞重音型；不由孤立詞推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-87/vocab-d92285ca29.mp3": {"text":"大きさ","reading":"おおきさ","kana":"オオキサ'","reason":"T126：大きさ在本課讀おおきさ，核對Kanjium所列孤立詞重音型；不由孤立詞推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-87/vocab-306ad3be35.mp3": {"text":"速さ","reading":"はやさ","kana":"ハ'ヤサ","reason":"T126：速さ在本課讀はやさ，核對Kanjium所列孤立詞重音型；不由孤立詞推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-87/vocab-eeada32db8.mp3": {"text":"長さ","reading":"ながさ","kana":"ナ'ガサ","reason":"T126：長さ在本課讀ながさ，核對Kanjium所列孤立詞重音型；不由孤立詞推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-87/vocab-50c7604dd8.mp3": {"text":"一度に","reading":"いちどに","kana":"イチド'ニ","reason":"T126：一度に在本課讀いちどに，核對Kanjium所列孤立詞重音型；不由孤立詞推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-88/vocab-51666010b0.mp3": {"text":"点ける","reading":"つける","kana":"ツケ'ル","reason":"T126：点ける在本課讀つける，核對Kanjium所列孤立詞重音型；不由孤立詞推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-89/vocab-26087d6b8a.mp3": {"text":"責任者","reading":"せきにんしゃ","kana":"セキニ'ンシャ","reason":"T126：責任者在本課讀せきにんしゃ，核對Kanjium所列孤立詞重音型；不由孤立詞推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-89/vocab-90cd432b9e.mp3": {"text":"開く","reading":"あく","kana":"アク'","reason":"T126：開く在本課讀あく，核對Kanjium所列孤立詞重音型；不由孤立詞推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-89/vocab-acf095d0cd.mp3": {"text":"入れる","reading":"はいれる","kana":"ハイレル'","reason":"T126：入れる在本課讀はいれる，採指定讀音查詢；不由孤立詞推論整句語調。","reference":"voicevox"},
+"audio/stage-1/general-listening-89/gram-07d35493f7.mp3": {"text":"門が開かないと、準備できない。","reading":"もんが あかないと、 じゅんび できない。","kana":"モ'ンガ/アカナイト'、ジュ'ンビ/デキ'ナイ","reason":"T126：開く及其否定／條件形指門的開放，採あく／あかない／あいたら；僅以指定讀音重查歧義字，保留其餘原文字解析片語重音與句界。","reference":"voicevox"},
+"audio/stage-1/general-listening-89/gram-651ab2fab4.mp3": {"text":"鍵がないと、入れない。","reading":"かぎが ないと、 はいれない。","kana":"カギ'ガ/ナ'イト、ハイレ'ナイ","reason":"T126：入れない為進入的可能否定，採はいれない；僅將歧義字改成指定讀音查詢，保留其他片語重音與句界。","reference":"voicevox"},
+"audio/stage-1/general-listening-89/dlg-4e5634b8b3.mp3": {"text":"門が開かないと、中の準備は始められないね。","reading":"もんが あかないと、 なかの じゅんびは はじめられないね。","kana":"モ'ンガ/アカナイト'、ナ'カノ/ジュ'ンビワ/ハジメラレナイネ'","reason":"T126：開く及其否定／條件形指門的開放，採あく／あかない／あいたら；僅以指定讀音重查歧義字，保留其餘原文字解析片語重音與句界。","reference":"voicevox"},
+"audio/stage-1/general-listening-89/dlg-5cb0f7db93.mp3": {"text":"じゃあ、僕がここで待つ。門が開いたら、知らせるよ。","reading":"じゃあ、 ぼくが ここで まつ。 もんが あいたら、 しらせるよ。","kana":"ジャ'ア、ボ'クガ/ココデ'/マ'ツ、モ'ンガ/ア'イタラ、シラセルヨ'","reason":"T126：開く及其否定／條件形指門的開放，採あく／あかない／あいたら；僅以指定讀音重查歧義字，保留其餘原文字解析片語重音與句界。","reference":"voicevox"},
+"audio/stage-1/general-listening-89/dlg-f20b721943.mp3": {"text":"わかった。門が開くまでは準備も始めない。入場の合図もまだだね。","reading":"わかった。 もんが あくまでは じゅんびも はじめない。 にゅうじょうの あいずも まだだね。","kana":"ワカ'ッタ、モ'ンガ/アク'マデワ/ジュ'ンビモ/ハジメナイ'、ニュウジョオノ'/ア'イズモ/マ'ダダネ","reason":"T126：開く及其否定／條件形指門的開放，採あく／あかない／あいたら；僅以指定讀音重查歧義字，保留其餘原文字解析片語重音與句界。","reference":"voicevox"},
 // T125：孤立詞與局部讀音校正，保持既有覆寫。
 "audio/stage-1/general-listening-73/vocab-dab227e715.mp3": {"text":"案内人","reading":"あんないにん","kana":"アンナイニン'","reason":"T125：案内人在本課讀あんないにん，採Kanjium所列孤立詞重音型；不由孤立詞推定整句語調。","reference":"kanjium"},
 "audio/stage-1/general-listening-75/vocab-d2abf66e9c.mp3": {"text":"札","reading":"ふだ","kana":"フダ'","reason":"T125：札在本課讀ふだ，採Kanjium所列孤立詞重音型；不由孤立詞推定整句語調。","reference":"kanjium"},
