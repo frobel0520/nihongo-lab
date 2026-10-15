@@ -6,11 +6,7 @@ import {
   evaluateBudgets,
   gatePassed,
 } from '../lib/perf-stats.mjs';
-import {
-  BUNDLE_BUDGETS,
-  LOGIC_BUDGETS,
-  PAGE_BUDGETS,
-} from '../scripts/perf-budget.mjs';
+import { BUNDLE_BUDGETS } from '../scripts/perf-budget.mjs';
 
 test('百分位數採 nearest-rank：樣本少時回傳實際量到的值', () => {
   const v = [5, 1, 4, 2, 3];
@@ -55,9 +51,7 @@ test('門檻判定：等於上限算通過，超過算失敗，沒量到記 not_
   );
 });
 
-test('門檻設定：每項有正的上限，樣本彙整指標都指定 p50 或 p95', () => {
-  for (const b of [...BUNDLE_BUDGETS, ...LOGIC_BUDGETS, ...PAGE_BUDGETS])
+test('bundle 門檻設定：每項有正的上限與單位', () => {
+  for (const b of BUNDLE_BUDGETS)
     assert.ok(b.limit > 0 && b.unit, b.metric);
-  for (const b of [...LOGIC_BUDGETS, ...PAGE_BUDGETS])
-    assert.ok(b.stat === 'p50' || b.stat === 'p95', b.metric);
 });

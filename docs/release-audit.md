@@ -1173,3 +1173,9 @@ bundle 迴歸與操作計算通過，CI 會擋下 bundle 超過門檻的變更�
 完整typecheck、280 tests、lint、正式base path build、perf:bundle與perf:logic通過。增加拆分前內容雜湊／SRS、聽寫、理解、文法與遊戲ID快照、教材payload一致性、索引統計語意、ID字串池還原及失敗請求可重試的測試。375×667功能與離線驗證範圍見task-breakdown的T121實作结果。
 
 **本機頁面Gate通過；正式站頁面尚未完成同環境量測，整體Release Gate尚未完成。** 首次正式站量測遇到Chromium HTTPS信任設定問題，未取得有效樣本；不能將錯誤頁或缺測記為通過，也沒有放寬2,500ms門檻。正式站與真實手機／iOS驗收分開；真實手機與iOS未量測。
+
+## 2026-10-15 T122 簡化效能檢查
+
+保留 T121 首次載入的教材按需載入與離線支援。移除操作計算與頁面載入計時腳本、npm 指令及發布時間門檻，保留 CI 的 `perf:bundle` 與原有大小上限。前文時間門檻與量測結果為歷史資料，以本節為現行發布要求；未宣稱正式站時間門檻已通過。
+
+整合後 `npm run check` 通過（typecheck、49 個測試檔、lint），正式 base path build 與 `perf:bundle` 通過。主程式 gzip 64,742 bytes（拆分前 524,703），CSS gzip 4,817 bytes、precache 20,878,582 bytes，均在原門檻內。375×667 preview 核對三個方向、通用31課、遊戲與設定，以及四類×三種練習入口；沒有頁面錯誤或水平溢位。service worker 接管後斷網重載通用31課及三個方向文字通過。完整教材 chunk 保留 precache，因此安裝快取總量增加，不把首頁縮小當作總下載量下降。正式站驗證待部署後執行。
