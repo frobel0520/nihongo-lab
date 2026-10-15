@@ -1236,3 +1236,11 @@ progress.md 與 task-breakdown.md 頂端建立目前狀態，保留所有歷史�
 - 本批不改app／lib功能、同步與快取格式、package、既有課程／音檔或發布上限。提交前檢查指定公開Git身分、實際cached diff、音檔metadata與建置產物；查詢／引擎相容層／來源清單皆未納入Git。HTTPS憑證驗證保持開啟。
 
 CI／PR與正式站發布證據接續記錄；本批完成即停止，不接續第71課。不將上述機械及瀏覽器驗證宣稱為逐句人工語音、Android／iOS真機或全站教材品質驗收。
+
+### T124 發布完成
+
+PR [#118](https://github.com/frobel0520/nihongo-lab/pull/118) 的 [CI 38673497682](https://github.com/frobel0520/nihongo-lab/actions/runs/38673497682) 成功，無 review 阻塞，以 rebase 合併為 `5c39a65`。[Pages 38673605567](https://github.com/frobel0520/nihongo-lab/actions/runs/38673605567) 的 check／deploy 均成功。正式站與本機最終build的142個JS／CSS／HTML／manifest檔案（含service worker）及全部350個新MP3逐byte一致；新音檔合計5,908,744 bytes，HTTPS憑證驗證保持開啟。
+
+正式站 Chromium375×667：十課路由／文法與返回皆通過；61、65、70課完整1倍對話及九題作答通過；第一新課35檔下載後斷網重載、播放、返回首頁通過，無pageerror／水平溢位。全批十課完整線上／離線回歸證據見前節，未將抽驗寫成正式站全部350檔人耳試聽。
+
+通用聽解70／180課已上線，剩餘110課為規劃。本輪到此停止，未開始71課。人工語音、現行Android／iOS逐項QA、71個既有文法標記與來源限制保持待辦。
