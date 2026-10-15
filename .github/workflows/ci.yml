@@ -23,7 +23,7 @@ jobs:
       - run: npm run build
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
-      # 效能迴歸門檻（T120）：bundle 大小。操作計算與頁面載入在發布前本機以 npm run perf:logic／perf:page 量測。
+      # 保留 bundle 大小迴歸檢查；不要求操作與頁面載入計時。
       - run: npm run perf:bundle
       - uses: actions/upload-pages-artifact@v4
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
