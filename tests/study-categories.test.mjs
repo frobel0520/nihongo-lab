@@ -31,7 +31,18 @@ test('四類教材隔離且保留既有卡片、句子與進度id', () => {
   );
   const old = new Set(buildCards(stages).map((c) => c.id));
   assert.ok(STUDY_CATALOG.games.cards.every((c) => !old.has(c.id)));
-  assert.equal(STUDY_CATALOG.general.sentences.length, 600);
+  assert.equal(STUDY_CATALOG.general.sentences.length, 700);
+  for (let n = 61; n <= 70; n++) {
+    const id = `general-listening-${n}`;
+    assert.equal(
+      STUDY_CATALOG.general.cards.filter((c) => c.lessonId === id).length,
+      25,
+    );
+    assert.equal(
+      STUDY_CATALOG.general.sentences.filter((s) => s.lessonId === id).length,
+      10,
+    );
+  }
 });
 test('教材類別在切換複習模式及重載時可由URL還原，未知類別回選擇入口', () => {
   for (const c of STUDY_CATEGORIES)

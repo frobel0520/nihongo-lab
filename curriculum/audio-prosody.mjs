@@ -8,6 +8,15 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T124：八筆孤立詞／局部讀音與重音校正；不改既有覆寫。
+"audio/stage-1/general-listening-61/gram-71738d1a27.mp3": {"text":"扉が開いてる。","reading":"とびらが あいてる。","kana":"トビラガ'/アイテ'ル","reason":"T124：開いてる為門開著的結果狀態，採あいてる；保留扉が的原查詢片語，僅校正歧義動詞。","reference":"voicevox"},
+"audio/stage-1/general-listening-63/vocab-f3c59676d1.mp3": {"text":"破れる","reading":"やぶれる","kana":"ヤブレ'ル","reason":"T124：破れる在本課讀やぶれる，核對讀音後採用Kanjium所列的孤立詞重音型。不由此推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-65/vocab-650992c6bc.mp3": {"text":"表","reading":"おもて","kana":"オモテ'","reason":"T124：表在本課讀おもて，核對讀音後採用Kanjium所列的孤立詞重音型。不由此推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-65/vocab-16846482ff.mp3": {"text":"念のため","reading":"ねんのため","kana":"ネンノタメ'","reason":"T124：念のため在本課讀ねんのため，核對讀音後採用Kanjium所列的孤立詞重音型。不由此推論整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-65/gram-12412e0e4b.mp3": {"text":"表の入口は閉まるそうだ。","reading":"おもての いりぐちは しまる そうだ。","kana":"オモテ'ノ/イリグチワ'/シマ'ル/ソオダ'","reason":"T124：表指正面入口，讀おもて，非表格的ひょう；只校正首片語，其餘保留原文字解析的重音與句界。","reference":"voicevox"},
+"audio/stage-1/general-listening-65/dlg-29ad62f5bb.mp3": {"text":"表はどうなるの？時間も変わる？","reading":"おもては どう なるの？ じかんも かわる？","kana":"オモテ'ワ/ド'オ/ナ'ルノ？、ジカンモ'/カワル'？","reason":"T124：表指正面入口，讀おもて，非表格的ひょう；只校正首片語，其餘保留原文字解析的重音與句界。","reference":"voicevox"},
+"audio/stage-1/general-listening-65/dlg-049c891387.mp3": {"text":"表は工事で閉まるそうだよ。集合は予定どおりだって。","reading":"おもては こうじで しまる そうだよ。 しゅうごうは よていどおりだって。","kana":"オモテ'ワ/コ'オジデ/シマ'ル/ソオダヨ'、シュウゴオワ'/ヨテエ'ドオリダッテ","reason":"T124：表指正面入口，讀おもて，非表格的ひょう；只校正首片語，其餘保留原文字解析的重音與句界。","reference":"voicevox"},
+"audio/stage-1/general-listening-70/vocab-a188211c50.mp3": {"text":"静か","reading":"しずか","kana":"シ'ズカ","reason":"T124：静か在本課讀しずか，核對讀音後採用Kanjium所列的孤立詞重音型。不由此推論整句語調。","reference":"kanjium"},
 "audio/stage-1/general-listening-51/gram-51a0f31945.mp3": {"text":"橋は明日開くそうだ。","reading":"はしは あした あくそうだ。","kana":"ハシ'ワ/ア_シタ'/アク'/ソオダ'","reason":"T108：開く指恢復開放，採あく；保留其他原查詢片語。","reference":"voicevox"},
 "audio/stage-1/general-listening-52/vocab-5d92cc3700.mp3": {"text":"明後日","reading":"あさって","kana":"アサ'ッテ","reason":"T108：明後日採口語あさって；依Kanjium重音型2。","reference":"kanjium"},
 "audio/stage-1/general-listening-57/dlg-482581a10d.mp3": {"text":"じゃあ、分けるかどうかは、その後で決めよう。","reading":"じゃあ、わけるかどうかは、その あとで きめよう。","kana":"ジャ'ア、ワケ'ルカ/ド'オカワ、ソノ'/ア'トデ/キメヨオ'","reason":"T108：その後指其後的順序，教材採そのあと；保留前後原查詢片語，校正片語依讀音查詢。","reference":"voicevox"},
