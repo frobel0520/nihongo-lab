@@ -1,6 +1,16 @@
 # 任務拆解
 
-## 目前狀態：2026-10-15 T128 通用聽解101～110課（已發布）
+## 目前狀態：2026-10-15 T129 通用聽解111～120課（待發布）
+
+以最新main `be256e2` 為基底，開始時工作目錄乾淨、無未合併PR、T128 Pages成功。第四階段劇情理解111～120課完成，120課為階段收尾。十課合計250詞條（含複習）、20文法點、40例句、60對話、30理解、30句型練習及350個VOICEVOX MP3（6,941,512 bytes）。累計120／180課、4200通用音檔，121～180共60課仍規劃中，發布120課後停止。
+
+292 tests／typecheck／lint、正式base build、perf:bundle、coverage及375寬十課完整線上／離線、四類×三練習通過。第120課新資料實際可練習，110→111與第十二組劇情理解、返回與換頁停播正確。350引用／讀音／解碼／非靜音／metadata通過才解除audioReady:false；原145課及遊戲資料／進度ID快照保持。
+
+配音待完成的首輪precache已達21,588,811 bytes，超過原21,500,000上限；建置時在單一payload內共用重複音檔目錄前綴，以一般字串串接還原相同網址。全部payload實際ESM載入等值及跳脫目錄／引用文字／特殊鍵測試通過，沒有decoder、runtime dependency、按需邊界或下載範圍變更。全部音檔就緒後最終precache21,121,414 bytes，原上限保持，不恢復T122計時Gate。 PR與正式站驗證待發布後補記。
+
+逐句人工語音、完整真機QA、71個舊文法JLPT標記繼續待辦，Android部分安裝／播放與操作回報保留；手機模擬和機械檢查不當真機／人耳驗收。受限原作來源、動畫長片段與跨句理解保持後續，不宣稱所有review或全站品質完整驗收。
+
+## 歷史狀態：2026-10-15 T128 通用聽解101～110課（已發布）
 
 基底main `0dcbd8e`，開始時工作目錄乾淨、無未合併PR，T127已部署。依第四階段「劇情理解」先安排101～110課，再完成250詞條（含複習）、20文法點、40例句、60對話、30理解、30句型練習與350個VOICEVOX MP3（6,771,592 bytes）。通用110／180課、3850音檔，111～180共70課仍規劃中，發布110課後停止。
 
@@ -665,3 +675,14 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 - Acceptance checks：check、正式base build、perf:bundle原上限、coverage；350引用／讀音／解碼／非靜音／metadata；135課及遊戲資料與ID快照；375寬十課各區塊／完整播放／作答／進度／相鄰導覽／返回／停播、四類×三練習與新資料實際操作、下載後斷網重載十課、100→101分組銜接、無pageerror／水平溢位。CI通過後核對main／其他PR再rebase合併；Pages、正式站全部建置檔／350音檔、十課路由、101／105／110完整聽解與下載後離線抽驗。
 - Fixture or test data：curriculum-0dcbd8e.json保護原135課與遊戲資料；原創情境及隔離合成版本3進度。
 - Evidence path：curriculum-loading、scene-listening、study-categories與release-audit的T128紀錄。手機模擬與機械檢查不當真機／人耳通過。
+
+## T129：通用聽解第111～120課
+
+- Goal：第四階段劇情理解收尾，120／180課及4200音檔；停止於120課。
+- Input contract：main be256e2、前110課、180課路線圖與既有作者／配音流程。
+- Output artifact：days/day136～145、250詞條／20文法／40例句／60對話／30理解／30練習／350MP3與發布紀錄。
+- depends_on：T128與既有按需載入／四類練習／路由／版本3／離線契約。
+- Out of scope：121課後、逐句人工試聽、完整真機QA、71舊JLPT補標、變更同步格式或發布門檻。
+- Acceptance checks：check、正式base build、原bundle上限、coverage；350引用／讀音／解碼／音量／metadata；原145課及遊戲資料／ID快照；375寬十課各區塊／播放／理解作答／保存／上下課／返回／停播、四類×三練習、新資料實際練習、350下載後離線重載全十課。特查110→111與120分組、無pageerror／溢位。CI後核對main及其他PR再rebase合併；Pages、正式站全部建置檔與350音檔、十課路由、111／115／120完整作答與離線抽驗。
+- Fixture or test data：curriculum-be256e2.json獨立main資料雜湊、原創事件與隔離合成版本3進度。
+- Evidence path：curriculum-loading／scene-listening／study-categories與release-audit；手機模擬及機械檢查不當真機／人耳驗收。
