@@ -190,3 +190,29 @@ test('T121: transport ID interning preserves duplicates, category membership and
     curriculumSummary,
   );
 });
+
+test('T125: preserve all 105 pre-batch lessons and game data from 8e68cc0', () => {
+  const snapshot = JSON.parse(
+    readFileSync(
+      new URL('./fixtures/curriculum-8e68cc0.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  const previousStages = stages.map((stage) => ({
+    ...stage,
+    title:
+      stage.id === 'stage-1'
+        ? '第 1 階段：動漫／遊戲通用聽解（前70課）'
+        : stage.title,
+    lessons: stage.lessons.filter(
+      (lesson) =>
+        !lesson.id.startsWith('general-listening-') ||
+        Number(lesson.id.slice('general-listening-'.length)) <= 70,
+    ),
+  }));
+  assert.equal(previousStages.flatMap((stage) => stage.lessons).length, 105);
+  assert.equal(
+    sha(JSON.stringify({ stages: previousStages, gameCharacterStudy })),
+    snapshot.sha256,
+  );
+});
