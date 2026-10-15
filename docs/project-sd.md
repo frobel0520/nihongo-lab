@@ -9,7 +9,7 @@ Vite / React + TypeScript，本機瀏覽器執行，local-first。目前無後�
 - `app/views/ShadowingView.tsx`：跟讀。播放一次、留白（見 `lib/shadowing.mjs`）讓使用者念、再播，一直重複到按停止（沒有輪數上限，T34），也可以只「聽一次」，可隱藏原文；音檔播放失敗顯示明確錯誤；按停止造成的 `AbortError` 不當成錯誤。不含調速。
 - `lib/`：無 DOM 的純邏輯，用 `.mjs` + JSDoc 型別，讓 `node --test` 直接測、TypeScript 也能匯入。`srs.mjs`（FSRS 排程〔T53，原為 SM-2 簡化版〕、單字卡、複習／新卡兩區的牌組）、`srs-session.mjs`（一輪複習的流程：上一張／下一張、評分後跳到哪一張、回頭改評分）、`dictation.mjs`（聽寫句子清單、逐字比對）、`progress.mjs`（進度資料形狀、解析驗證、聽寫紀錄）、`shadowing.mjs`（跟讀留白長度）。
 - `app/lib/storage.ts`、`app/useProgress.ts`：`localStorage` 讀寫（key `nihongo-lab:progress:v1`）與 React 狀態；存檔壞掉時原文備份到 `…:backup` 並提示，寫入失敗時畫面顯示訊息但仍可繼續學習。
-- `curriculum/lessons.mjs`：學習階段與課程資料的單一來源，目前第 0 階段有 25 課、第 1 階段有 100 課、第 2 階段有 10 課（八課動畫特訓、口語轉換表、動畫與遊戲名句），第 3 階段仍為規劃（`lessons: []`）。
+- `curriculum/lessons.mjs`：學習階段與課程資料的單一來源，目前第 0 階段有 25 課、第 1 階段有 110 課、第 2 階段有 10 課（八課動畫特訓、口語轉換表、動畫與遊戲名句），第 3 階段仍為規劃（`lessons: []`）。
 - `curriculum/voices.mjs`：教材語音角色陣容，對應本機 VOICEVOX 引擎（127.0.0.1:50021）的 speaker id。2026-10-03 最終選角後保留 8 個角色：春日部つむぎ、雨晴はう、小夜/SAYO、猫使ビィ、東北ずん子、青山龍星、黒沢冴白、VOICEVOX Nemo 男声2。
 - `scripts/synthesize.mjs`：呼叫 VOICEVOX 引擎產生 wav、再用 ffmpeg 轉 96kbps mp3 的教材語音產生腳本；只在本機產生教材時用，不是網站執行期依賴。已用 ずんだもん 實測一句，輸出 50KB mp3，音質正常。
 - `tests/curriculum.test.mjs`：驗證 curriculum 資料結構契約。
@@ -655,3 +655,9 @@ T124 由days/day86～day95經defineGeneralLesson接入lessons.mjs，新增課程
 ## 2026-10-15 T127 通用聽解91～100課
 
 新增days/day116～day125，沿用defineGeneralLesson／defineLesson及lessons.mjs唯一入口與按需chunk。第90課仍在作品常見口語，91～100第十組由既有路線函式推導為劇情理解；導覽沿用相鄰清單及返回。新增4df01d4的原125課／遊戲資料快照，原快照不變；不修改既有教材、進度ID、同步版本3、四類分類、固定1倍或下載契約，無runtime dependency。
+
+## 2026-10-15 T128 通用聽解101～110課
+
+days/day126～135沿用defineGeneralLesson／defineLesson，由lessons.mjs唯一入口匯入既有按需chunk。第十一組101～110沿用劇情理解；100→101清單相鄰導覽與返回保持。新增0dcbd8e原135課及遊戲資料黃金雜湊，舊快照不改。資料、進度ID、版本3、四類練習、固定1倍、舊網址及離線語意保持。聲線甲hau女聲、乙nemo2男聲，單字仍用既有八聲線；未驗證音檔維持audioReady:false。
+
+T128建置大小修正：完整音檔就緒的首輪precache為21,545,173 bytes，超過原21,500,000上限；分析後在單一payload內共用重複欄位名稱，輸出仍是相同default {data, notes}，沒有新decoder／runtime dependency或按需邊界變更。全部payload實際載入等值、特殊鍵／跳脫字元回歸通過；最終precache21,431,408 bytes，未放寬門檻。
