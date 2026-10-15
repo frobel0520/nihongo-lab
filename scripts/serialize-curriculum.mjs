@@ -1,4 +1,4 @@
-/** Share repeated strings and field names within one payload without changing its JSON data.
+/** Share repeated strings, field names and audio directories within one JSON payload.
  * Generated modules keep the existing default {data, notes} export and load boundary.
  * @param {unknown} value */
 export function serializeCurriculumPayload(value) {
@@ -27,6 +27,41 @@ export function serializeCurriculumPayload(value) {
     )
     .map(([text]) => text);
   const positions = new Map(strings.map((text, i) => [text, i]));
+  // Repeated audio directories stay ordinary strings after module evaluation.
+  // Count emitted occurrences: a shared value appears only once in its table.
+  /** @type {Map<string,number>} */
+  const pathCounts = new Map();
+  for (const [text, count] of counts) {
+    if (!text.startsWith('audio/')) continue;
+    const prefix = text.slice(0, text.lastIndexOf('/') + 1);
+    if (prefix.length <= 6) continue;
+    pathCounts.set(
+      prefix,
+      (pathCounts.get(prefix) ?? 0) + (positions.has(text) ? 1 : count),
+    );
+  }
+  /** @type {string[]} */
+  const paths = [];
+  /** @type {Map<string,number>} */
+  const pathPositions = new Map();
+  for (const [prefix, count] of pathCounts) {
+    const referenceBytes = 8 + String(paths.length).length;
+    if (
+      count * (Buffer.byteLength(prefix) - referenceBytes) <=
+      Buffer.byteLength(JSON.stringify(prefix)) + 1
+    )
+      continue;
+    pathPositions.set(prefix, paths.length);
+    paths.push(prefix);
+  }
+  /** @param {string} text */
+  const encodePath = (text) => {
+    const prefix = text.slice(0, text.lastIndexOf('/') + 1);
+    const index = pathPositions.get(prefix);
+    return index === undefined
+      ? JSON.stringify(text)
+      : `paths[${index}]+${JSON.stringify(text.slice(prefix.length))}`;
+  };
   /** @type {string[]} */
   const keys = [];
   /** @type {Map<string,number>} */
@@ -47,6 +82,7 @@ export function serializeCurriculumPayload(value) {
   const encode = (item) => {
     if (typeof item === 'string' && positions.has(item))
       return `strings[${positions.get(item)}]`;
+    if (typeof item === 'string') return encodePath(item);
     if (Array.isArray(item)) return `[${item.map(encode).join(',')}]`;
     if (item && typeof item === 'object')
       return `{${Object.entries(item)
@@ -57,5 +93,5 @@ export function serializeCurriculumPayload(value) {
         .join(',')}}`;
     return JSON.stringify(item);
   };
-  return `${strings.length ? `const strings=${JSON.stringify(strings)};` : ''}${keys.length ? `const keys=${JSON.stringify(keys)};` : ''}export default ${encode(data)};`;
+  return `${paths.length ? `const paths=${JSON.stringify(paths)};` : ''}${strings.length ? `const strings=[${strings.map(encodePath).join(',')}];` : ''}${keys.length ? `const keys=${JSON.stringify(keys)};` : ''}export default ${encode(data)};`;
 }

@@ -48,11 +48,14 @@ test('payload code generation preserves escaped text, repeated values and own sp
   });
   // Repetition exercises shared field names, including an own __proto__ and a
   // quoted key. Authored text resembling generated references stays literal.
-  data.repeatedRecords = Array.from({ length: 40 }, () =>
-    JSON.parse(
+  data.repeatedRecords = Array.from({ length: 40 }, (_, index) => {
+    const record = JSON.parse(
       String.raw`{"__proto__":{"authoredSpecialValue":"keys[0]"},"aLongRepeatedFieldName":"keys[0]","a long \"quoted\" field":"strings[0]"}`,
-    ),
-  );
+    );
+    record.audio = String.raw`audio/quoted"folder\sub/clip-${index}.mp3`;
+    record.pathMarker = 'paths[0]';
+    return record;
+  });
   const result = await evaluate(serializeCurriculumPayload(data));
   assert.deepEqual(result, data);
   for (const record of result.repeatedRecords) {
