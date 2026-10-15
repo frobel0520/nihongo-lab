@@ -153,6 +153,16 @@ import day132 from './days/day132.mjs';
 import day133 from './days/day133.mjs';
 import day134 from './days/day134.mjs';
 import day135 from './days/day135.mjs';
+import day136 from './days/day136.mjs';
+import day137 from './days/day137.mjs';
+import day138 from './days/day138.mjs';
+import day139 from './days/day139.mjs';
+import day140 from './days/day140.mjs';
+import day141 from './days/day141.mjs';
+import day142 from './days/day142.mjs';
+import day143 from './days/day143.mjs';
+import day144 from './days/day144.mjs';
+import day145 from './days/day145.mjs';
 import { buildAnimeLessons } from './anime-training.mjs';
 import { expandedAnimeQuotes } from './anime-quotes-expansion.mjs';
 import { animeQuotes100 } from './anime-quotes-100.mjs';
@@ -1087,7 +1097,7 @@ for (const quote of quotes.quotes ?? []) {
 /** @type {Stage[]} */
 export const stages = [
   { id: 'stage-0', title: '第 0 階段：N5 復健', lessons: [day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11, day12, day13, day14, day15, day16, day17, day18, day19, day20, day21, day22, day23, day24, day25] },
-  { id: 'stage-1', title: '第 1 階段：動漫／遊戲通用聽解（前110課）', lessons: [day26, day27, day28, day29, day30, day31, day32, day33, day34, day35, day36, day37, day38, day39, day40, day41, day42, day43, day44, day45, day46, day47, day48, day49, day50, day51, day52, day53, day54, day55, day56, day57, day58, day59, day60, day61, day62, day63, day64, day65, day66, day67, day68, day69, day70, day71, day72, day73, day74, day75, day76, day77, day78, day79, day80, day81, day82, day83, day84, day85, day86, day87, day88, day89, day90, day91, day92, day93, day94, day95, day96, day97, day98, day99, day100, day101, day102, day103, day104, day105, day106, day107, day108, day109, day110, day111, day112, day113, day114, day115, day116, day117, day118, day119, day120, day121, day122, day123, day124, day125, day126, day127, day128, day129, day130, day131, day132, day133, day134, day135] },
+  { id: 'stage-1', title: '第 1 階段：動漫／遊戲通用聽解（前120課）', lessons: [day26, day27, day28, day29, day30, day31, day32, day33, day34, day35, day36, day37, day38, day39, day40, day41, day42, day43, day44, day45, day46, day47, day48, day49, day50, day51, day52, day53, day54, day55, day56, day57, day58, day59, day60, day61, day62, day63, day64, day65, day66, day67, day68, day69, day70, day71, day72, day73, day74, day75, day76, day77, day78, day79, day80, day81, day82, day83, day84, day85, day86, day87, day88, day89, day90, day91, day92, day93, day94, day95, day96, day97, day98, day99, day100, day101, day102, day103, day104, day105, day106, day107, day108, day109, day110, day111, day112, day113, day114, day115, day116, day117, day118, day119, day120, day121, day122, day123, day124, day125, day126, day127, day128, day129, day130, day131, day132, day133, day134, day135, day136, day137, day138, day139, day140, day141, day142, day143, day144, day145] },
   { id: 'stage-2', title: '第 2 階段：口語與動畫日文', lessons: [...buildAnimeLessons(quotes.quotes ?? []), spoken, quotes] },
   { id: 'stage-3', title: '第 3 階段：N3 到 N1', lessons: [] },
 ];
