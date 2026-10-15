@@ -1298,3 +1298,11 @@ PR [#122](https://github.com/frobel0520/nihongo-lab/pull/122) 的 [CI 3868967398
 - 驗證歷史：一輪驗收期間曾重建產物，第97課等待整段完成逾時，未記為通過。保留該失敗紀錄，固定最終build後由乾淨瀏覽器重新跑完整十課線上／離線，第97課亦通過；三處位置指稱改為具體角色／事件後，check／build與十課布局及修訂文字再驗通過。
 - OpenJLPT全階段135課：去重1806詞、N5 670／674（99.4%）、N4 221詞、N5漢字84／84與文法81／81。71個既有文法點仍未標jlpt；清單只在忽略.cache，覆蓋率不等於學習品質或作品理解率。
 - 逐句人工語音、完整現行Android／iOS真機QA、71舊JLPT標記、受限原作來源、動畫長片段／跨句理解仍待辦，Android部分安裝／播放與操作口頭回報保留。不宣稱所有review或全站品質完整驗收。PR／CI／Pages與正式站全部新音檔、十課路由、91／95／100完整聽解及離線抽驗結果待實際發布補記；未開始101課。
+
+### T127 發布完成
+
+PR [#124](https://github.com/frobel0520/nihongo-lab/pull/124) 的 [CI 38701252766](https://github.com/frobel0520/nihongo-lab/actions/runs/38701252766) 成功，合併前再次核對main及其他PR，無併發發布或review阻塞，依授權rebase合併為 `f64706fe033bac2a853a552af2776facce5736ae`。[Pages 38701460124](https://github.com/frobel0520/nihongo-lab/actions/runs/38701460124) check／deploy成功。
+
+正式站172個JS／CSS／HTML／manifest（含service worker）及全部350新MP3與本機最終build逐byte一致，新音檔共6,836,104 bytes，HTTPS憑證驗證保持開啟。375×667 Chromium：十課路由／文法／返回通過，91／95／100課完整1倍對話與九題作答通過；91課下載35檔後斷網重載、播放及返回首頁通過，無pageerror／水平溢位。正式站為指定範圍抽驗，發布前為全十課完整線上／離線驗證，兩者範圍分列，不當人耳／真機通過。
+
+本批100／180課、3500通用音檔上線，剩餘101～180共80課保持規劃，未開始101課。逐句人工語音、完整現行Android／iOS真機QA及71個舊文法JLPT標記繼續待辦，Android已有部分驗證與受限原作來源紀錄保持。
