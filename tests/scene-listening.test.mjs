@@ -13,8 +13,8 @@ import { mergeProgress } from '../lib/progress-merge.mjs';
 import { getVoice } from '../curriculum/voices.mjs';
 
 const lessons = stages.find((s) => s.id === 'stage-1').lessons;
-test('通用聽解完成前60課原創教材，路線目標與完成課分開；同伴聲線固定', () => {
-  assert.equal(lessons.length, 60);
+test('通用聽解完成前70課原創教材，路線目標與完成課分開；同伴聲線固定', () => {
+  assert.equal(lessons.length, 70);
   assert.equal(
     generalListeningRoadmap.reduce((n, p) => n + p.target, 0),
     180,
@@ -104,6 +104,9 @@ test('通用聽解每組都有標題；尚無專屬標題的組沿用路線階�
     assert.notEqual(generalListeningGroupTitle(i), '延伸練習');
   // 第 61～70 課屬於路線第 3 階段。
   assert.equal(generalListeningGroupTitle(6), generalListeningRoadmap[2].title);
-  assert.equal(generalListeningGroupTitle(17), generalListeningRoadmap[5].title);
+  assert.equal(
+    generalListeningGroupTitle(17),
+    generalListeningRoadmap[5].title,
+  );
   assert.equal(generalListeningGroupTitle(18), '延伸練習');
 });
