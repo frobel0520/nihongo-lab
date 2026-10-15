@@ -8,6 +8,16 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T125：孤立詞與局部讀音校正，保持既有覆寫。
+"audio/stage-1/general-listening-73/vocab-dab227e715.mp3": {"text":"案内人","reading":"あんないにん","kana":"アンナイニン'","reason":"T125：案内人在本課讀あんないにん，採Kanjium所列孤立詞重音型；不由孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-75/vocab-d2abf66e9c.mp3": {"text":"札","reading":"ふだ","kana":"フダ'","reason":"T125：札在本課讀ふだ，採Kanjium所列孤立詞重音型；不由孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-76/gram-2a308aa424.mp3": {"text":"手袋がなくて、触れない。","reading":"てぶくろが なくて、 さわれない。","kana":"テブ'クロガ/ナ'_クテ、サワレナイ'","reason":"T125：触れない為触る的可能否定，採さわれない；只校正歧義動詞，保留其他原片語重音與句界。","reference":"voicevox"},
+"audio/stage-1/general-listening-77/vocab-e2fbc2dd61.mp3": {"text":"負傷者","reading":"ふしょうしゃ","kana":"_フショ'オシャ","reason":"T125：負傷者在本課讀ふしょうしゃ，採Kanjium所列孤立詞重音型；不由孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-78/vocab-b1c61d12b7.mp3": {"text":"一回","reading":"いっかい","kana":"イッカイ'","reason":"T125：一回在本課讀いっかい，採Kanjium所列孤立詞重音型；不由孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-78/vocab-6cc3e539ce.mp3": {"text":"二回","reading":"にかい","kana":"ニカイ'","reason":"T125：二回在本課讀にかい，採Kanjium所列孤立詞重音型；不由孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-78/dlg-762ca95edb.mp3": {"text":"いや、先が鐘で、後が笛。太鼓はこの録音にはないよ。","reading":"いや、 さきが かねで、あとが ふえ。 たいこは この ろくおんには ないよ。","kana":"イヤ'、サキガ'/カネデ'/ア'トガ/フエ'、タイコワ'/コノ'/ロクオンニワ'/ナ'イヨ","reason":"T125：後指聲音的先後次序，讀あと，非ご；僅校正後が片語，保留其餘原查詢。","reference":"voicevox"},
+"audio/stage-1/general-listening-79/vocab-b14ae4edd6.mp3": {"text":"念のため","reading":"ねんのため","kana":"ネンノタメ'","reason":"T125：念のため在本課讀ねんのため，採Kanjium所列孤立詞重音型；不由孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-80/dlg-88cd3181ab.mp3": {"text":"わかった。まず稽古で合図を確かめよう。本番はその後だね。","reading":"わかった。 まず けいこで あいずを たしかめよう。 ほんばんは そのあとだね。","kana":"ワカ'ッタ、マ'ズ/ケ'エコデ/ア'イズオ/タ_シカメ'ヨオ、ホンバンワ'/ソノ'/ア'トダネ","reason":"T125：その後指排練之後，採そのあと；只校正末段，保留稽古等原文字解析的重音與句界。","reference":"voicevox"},
 // T124：八筆孤立詞／局部讀音與重音校正；不改既有覆寫。
 "audio/stage-1/general-listening-61/gram-71738d1a27.mp3": {"text":"扉が開いてる。","reading":"とびらが あいてる。","kana":"トビラガ'/アイテ'ル","reason":"T124：開いてる為門開著的結果狀態，採あいてる；保留扉が的原查詢片語，僅校正歧義動詞。","reference":"voicevox"},
 "audio/stage-1/general-listening-63/vocab-f3c59676d1.mp3": {"text":"破れる","reading":"やぶれる","kana":"ヤブレ'ル","reason":"T124：破れる在本課讀やぶれる，核對讀音後採用Kanjium所列的孤立詞重音型。不由此推論整句語調。","reference":"kanjium"},

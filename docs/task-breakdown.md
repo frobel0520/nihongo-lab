@@ -1,6 +1,14 @@
 # 任務拆解
 
-## 目前狀態：2026-10-15 T124 通用聽解61～70課（已發布）
+## 目前狀態：2026-10-15 T125 通用聽解71～80課（待發布）
+
+以遠端 main `8e68cc0` 為基底，開始時工作目錄乾淨、沒有未合併 PR。依第三階段「作品常見口語」完成第71～80課：250單字條目、20文法點、40例句、60對話、30理解、30句型練習與350音檔（6,590,728 bytes）。全部音檔引用、讀音閘門、解碼、非靜音與encoder-only metadata通過，已解除待合成標記。主題與新知／複習安排見 general-listening-v1.md 的 T125 設計。
+
+285 tests／typecheck／lint、正式路徑build、bundle、coverage及十課375寬線上／離線、四類×三種練習通過；原105課與遊戲教材快照保持。通用聽解現為80／180課、2800課程音檔，剩餘第81～180課100課仍規劃中；PR／正式站驗證待發布後補記，完成80課發布即停止。既有教材、進度ID、同步版本3、四類分類、固定1倍與離線下載契約保持。T122後僅保留bundle大小門檻，不恢復計時Gate。
+
+逐句人工語音驗收、完整真機QA、71個既有文法點的JLPT標記仍未完成，本輪不擴大處理；Android已有部分安裝／開啟／播放驗證，不寫成全部未測，375寬模擬不當真機通過。原神名冊待收錄0仍不等於完整語音庫，受限來源與動畫長片段／跨句理解保持後續範圍。
+
+## 歷史狀態：2026-10-15 T124 通用聽解61～70課（已發布）
 
 T123 PR #117 已 rebase 合併為 `16b4189`，Pages [38669606798](https://github.com/frobel0520/nihongo-lab/actions/runs/38669606798) 成功；正式站主程式與 sw.js 逐 byte 一致，375寬三方向、課程返回、四類入口與未知階段 fallback 通過，HTTPS 驗證開啟。
 
@@ -583,3 +591,14 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 - Acceptance checks：每課25詞／2文法／4例句／6對話／3理解／3練習／35音檔；完整check、正式base build、perf:bundle、coverage；350檔讀音／解碼／非靜音／引用；375寬全部十課及離線、四類×三練習；CI與部署後全部新MP3逐byte核對。
 - Fixture or test data：原創搭檔情境與合成進度；不使用私人資料。
 - Evidence path：scene-listening.test、curriculum-loading.test 舊95課快照、release-audit.md「T124」。
+
+## T125：通用聽解第71～80課
+
+- Goal：接續180課路線第三階段，練習口語省略、指涉與語氣，完成後80／180課，剩餘100課仍規劃中，發布後停止。
+- Input contract：最新main `8e68cc0`，T124與發布紀錄已部署；保留105課與遊戲資料、lessons.mjs唯一入口、既有作者工具／按需載入、固定1倍、進度版本3、四類練習與離線語意。
+- Output artifact：days/day96～day105.mjs，250單字條目、20文法／40例句、60對話、30理解、30練習與350個VOICEVOX音檔，以及必要讀音／重音覆寫與驗證紀錄。
+- depends_on：T103～T108、T119／T121／T122／T123／T124。
+- Out of scope：第81課以後、人工逐句語音驗收、完整真機QA、71個既有文法點JLPT補標、原作受限來源；不改依賴、同步格式、下載語意或bundle上限，不恢復計時Gate。
+- Acceptance checks：每課25／2／4／6／3／3／35密度與答案依據；check、正式base path build、perf:bundle、coverage；350音檔讀音／引用／解碼／非靜音／metadata；375寬十課各區塊、作答、進度、相鄰課／返回／停播，四類×三練習與十課下載後斷網重載；PR CI、合併前main／其他PR核對、Pages與正式站350檔逐byte及功能／離線驗證。
+- Fixture or test data：全原創情境與匿名進度；新增8e68cc0的105課／遊戲內容黃金快照，不改原557fec1快照。
+- Evidence path：scene-listening.test、study-categories.test、curriculum-loading.test、tests/fixtures/curriculum-8e68cc0.json與release-audit.md「T125」。手機模擬與機械檢查均保留證據等級，不宣稱真機或人耳全量通過。
