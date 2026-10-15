@@ -9,7 +9,7 @@ Vite / React + TypeScript，本機瀏覽器執行，local-first。目前無後�
 - `app/views/ShadowingView.tsx`：跟讀。播放一次、留白（見 `lib/shadowing.mjs`）讓使用者念、再播，一直重複到按停止（沒有輪數上限，T34），也可以只「聽一次」，可隱藏原文；音檔播放失敗顯示明確錯誤；按停止造成的 `AbortError` 不當成錯誤。不含調速。
 - `lib/`：無 DOM 的純邏輯，用 `.mjs` + JSDoc 型別，讓 `node --test` 直接測、TypeScript 也能匯入。`srs.mjs`（FSRS 排程〔T53，原為 SM-2 簡化版〕、單字卡、複習／新卡兩區的牌組）、`srs-session.mjs`（一輪複習的流程：上一張／下一張、評分後跳到哪一張、回頭改評分）、`dictation.mjs`（聽寫句子清單、逐字比對）、`progress.mjs`（進度資料形狀、解析驗證、聽寫紀錄）、`shadowing.mjs`（跟讀留白長度）。
 - `app/lib/storage.ts`、`app/useProgress.ts`：`localStorage` 讀寫（key `nihongo-lab:progress:v1`）與 React 狀態；存檔壞掉時原文備份到 `…:backup` 並提示，寫入失敗時畫面顯示訊息但仍可繼續學習。
-- `curriculum/lessons.mjs`：學習階段與課程資料的單一來源，目前第 0 階段有 25 課、第 1 階段有 80 課、第 2 階段有 10 課（八課動畫特訓、口語轉換表、動畫與遊戲名句），第 3 階段仍為規劃（`lessons: []`）。
+- `curriculum/lessons.mjs`：學習階段與課程資料的單一來源，目前第 0 階段有 25 課、第 1 階段有 90 課、第 2 階段有 10 課（八課動畫特訓、口語轉換表、動畫與遊戲名句），第 3 階段仍為規劃（`lessons: []`）。
 - `curriculum/voices.mjs`：教材語音角色陣容，對應本機 VOICEVOX 引擎（127.0.0.1:50021）的 speaker id。2026-10-03 最終選角後保留 8 個角色：春日部つむぎ、雨晴はう、小夜/SAYO、猫使ビィ、東北ずん子、青山龍星、黒沢冴白、VOICEVOX Nemo 男声2。
 - `scripts/synthesize.mjs`：呼叫 VOICEVOX 引擎產生 wav、再用 ffmpeg 轉 96kbps mp3 的教材語音產生腳本；只在本機產生教材時用，不是網站執行期依賴。已用 ずんだもん 實測一句，輸出 50KB mp3，音質正常。
 - `tests/curriculum.test.mjs`：驗證 curriculum 資料結構契約。
@@ -647,3 +647,7 @@ T124 由days/day86～day95經defineGeneralLesson接入lessons.mjs，新增課程
 ## 2026-10-15 T125 通用聽解71～80課
 
 新增days/day96～day105，沿用defineGeneralLesson與按需教材chunk。第八組沿用「作品常見口語」，不改分組算法；更新完成數與密度測試，另保存8e68cc0的105課及遊戲資料內容快照，既有557fec1雜湊保持。只新增本批音檔與必要的讀音／重音覆寫，不更動舊音檔、進度ID或runtime dependency。既有設計沒有上下課按鈕，以清單相鄰課、App及原生返回驗證前後課流程。
+
+## 2026-10-15 T126 通用聽解81～90課
+
+新增days/day106～day115，由defineGeneralLesson及lessons.mjs唯一入口接入既有按需chunk；第九組沿用「作品常見口語」。新增3db36e6的原115課／遊戲資料快照，保留557fec1與8e68cc0快照。bundle超標修正僅在build時：每個payload模組以字串表共用重複長字串，輸出仍為原default {data, notes}；沒有新runtime dependency或解碼協定。notesFor只傳含實際ruby的標記，純文字作者審閱紀錄仍在RUBY_NOTES與審閱Gate。回歸測試逐payload還原資料、保留真正ruby、驗證純文字fallback及特殊字串。按需邊界、SW precache範圍、下載快取與版本3不變；不放寬bundle上限，不恢復計時Gate。
