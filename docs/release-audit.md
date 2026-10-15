@@ -1182,3 +1182,28 @@ bundle 迴歸與操作計算通過，CI 會擋下 bundle 超過門檻的變更�
 
 
 發布紀錄：PR #116 合併為 `a20e238`，[Actions 38666772162](https://github.com/frobel0520/nihongo-lab/actions/runs/38666772162) 的 check 與 Pages deploy 成功。正式站入口主程式與 `sw.js` 和已驗證的 production build 逐 byte 相同。375×667 正式站重跑三個方向、通用31課、遊戲、設定與四類×三種練習；沒有頁面錯誤或水平溢位。service worker 接管後，斷網重載通用31課與三個方向文字通過。HTTPS 憑證驗證保持開啟，沒有略過 TLS 驗證。這是瀏覽器功能與離線驗證，未重跑已撤除的計時門檻，也不代表真實手機／iOS 驗收。
+
+## 2026-10-15 T123 T119 遺留 review 收尾（PR 交付，未合併部署）
+
+基底 main `483fd16`，先 fetch 並核對未合併 PR 為 0；起始 work 分支乾淨，另建 feature/T123-review-closeout，沒有 reset／覆寫其他 session 內容。本輪不新增教材、音檔或依賴。
+
+### review 判定與證據
+
+- **可重現功能問題：階段路由**。`parseRoute` 原本只有 `/^stage-[0-3]$/`；即使 lessons.mjs 新增 stage-4 且首頁自動產生連結，進入後仍解析成首頁。改成解析非空單一路徑，由 App 的 curriculumSummary.stages 決定階段是否存在；未知 ID 在 App 仍回首頁。測試增加 stage-4、非數字 ID，以及不同新階段不誤認為相同返回目標。既有階段、課程網址與返回策略保持。
+- **行為設計，保留：首頁四類複習統計**。LessonListView 的 CARD_IDS 來自 curriculumSummary.categories；首頁 review／new 連到沒有 category 的 SRS 路由，App 顯示 StudyCategoryPicker，逐類使用相同 cardIds 與 summarizeIds。四類總數與類別數相加一致，入口是先選類別而非直接開某一類；不需要變更統計範圍，也沒有新增產品語意。
+- **已修復，不重做：來源盤點吞錯**。目前 build-genshin-coverage 的整個讀取／解析／計數／輸出在 try/catch 內，catch 顯示失敗並 exit(1)，只有所有角色完成才寫輸出，沒有把讀檔失敗轉成空 actionLines。本輪用真實 CLI 與合成來源表測試：最後一筆缺檔、壞 JSON、actionLines 無效時皆失敗，既有輸出逐字不變；合法空表與沒有 voiceReferenceUrl 的角色仍有不同 sourceAvailable／hash 狀態。通用錯誤訊息診斷有限，但不會宣告零資料成功；本輪不增加來源正文或私人路徑到 log。
+- **非阻塞重構：TRACKS、配色、props 命名**。TRACKS 與 STAGE_ACCENT 未命中時有 stage.title／空配色 fallback，不會阻擋新增階段；stage-1 專屬路線／分組／全部通用音檔，以及 study-categories 的 stageId 是現行教材分類的明確映射，沒有證據應自動把新階段歸類。新增現有階段的課不受影響。保留這些映射，未搬移 view 常數或大改 props；日後新增教材類別需明確決定映射。
+
+### 現行待辦
+
+progress.md 與 task-breakdown.md 頂端建立目前狀態，保留所有歷史驗證，校正 T38 與第 1 階段的過時摘要。直接讀取現行教材：stage-0／1／2 分別 25／60／10 課（動畫八課加口語與名句兩課）；原神 124 筆／372 句、待教材 0；71 個文法點未標 jlpt。動畫核心 T54／T55 已補齊，長片段、跨句及進一步縮約仍待擴充。通用 61～180、來源限制、jlpt 對照、人工語音、Android 現行版本逐項回歸及 iOS 分開列出；不將手機尺寸 Chromium 當真機，不宣稱所有 review 或教材品質驗收完成。T122 計時 Gate 已撤除，舊正式站量測不列為阻塞。
+
+### 驗證
+
+- `npm run check`：typecheck、284 tests（0 fail／skip）、lint 通過；含 T121 教材內容／進度 ID 與 557fec1 的既有契約測試。
+- `VITE_BASE_PATH=/nihongo-lab/ npm run build` 通過；既有大型 chunk 提示仍在。`npm run perf:bundle` 通過：主程式 gzip 64,736／630,000 bytes、CSS gzip 4,817／5,800、precache 20,878,588／21,500,000（腳本統計 358 個唯一 URL）；大小上限保持。
+- Chromium 375×667、正式 base path preview：瀏覽器測試索引將 stage-0 換成合成 stage-4（不寫回教材或產物），首頁→25 課清單→單課→App 返回清單→首頁通過，捕捉原固定路由範圍問題。
+- 四類各一張到期卡的合成版本 3 進度：首頁到期 4、新卡 2,905，與四類選擇頁加總一致，review／new 入口模式保持。三個現有學習方向、單課與 App／瀏覽器返回、直接網址、未知階段 fallback 通過。
+- 下載通用第一課 35 檔音檔後，由 service worker 接管、斷網重載、實際播放（固定 1 倍）、返回清單與首頁通過，零 pageerror／水平溢位。初次 preview 未帶 base path 造成資產 404、初次合成時間缺毫秒被格式驗證略過、完成下載按鈕選取文字不符，均修正驗證設定後重跑通過；未修改應用行為來配合測試。
+- 沒有改 curriculum、音檔、package、同步／快取格式；沒有使用者真實進度。隱私逐檔檢閱與指定公開 Git 身分核對；HTTPS 憑證驗證保持開啟。本輪未做正式站改版驗收、Android／iOS 真機或逐句人工語音驗收，不宣稱所有 review／全站教材品質通過。
+- 交付範圍為 PR，CI 結果於 PR checks 核對；本輪不合併、不部署。

@@ -43,7 +43,14 @@ test('單字卡兩區：#/srs 是複習區、#/srs/new 是新卡區', () => {
 
 test('課程方向可直接開啟、重載，壞路徑退回首頁', async () => {
   const { stageHash } = await import('../lib/route.mjs');
-  for (const id of ['stage-0', 'stage-1', 'stage-2', 'stage-3']) {
+  for (const id of [
+    'stage-0',
+    'stage-1',
+    'stage-2',
+    'stage-3',
+    'stage-4',
+    '進階 聽解',
+  ]) {
     assert.deepEqual(parseRoute(stageHash(id)), {
       view: 'lessons',
       stageId: id,
@@ -53,7 +60,6 @@ test('課程方向可直接開啟、重載，壞路徑退回首頁', async () =>
     '#/courses/',
     '#/courses/%E0%A4%A',
     '#/courses/stage-1/extra',
-    '#/courses/unknown',
   ]) {
     assert.deepEqual(parseRoute(hash), { view: 'lessons' });
   }
@@ -66,7 +72,18 @@ test('返回鍵：上一頁就是返回目標才退回歷史，直接開網址�
     backNavigation(stageHash('stage-1'), stageHash('stage-1')),
     'back',
   );
-  assert.equal(backNavigation(viewHash('srs'), stageHash('stage-1')), 'replace');
+  assert.equal(
+    backNavigation(stageHash('stage-4'), stageHash('stage-4')),
+    'back',
+  );
+  assert.equal(
+    backNavigation(stageHash('stage-4'), stageHash('stage-5')),
+    'replace',
+  );
+  assert.equal(
+    backNavigation(viewHash('srs'), stageHash('stage-1')),
+    'replace',
+  );
   // 首頁的空 hash 與 #/ 視為同一頁。
   assert.equal(backNavigation('', viewHash('lessons')), 'back');
 });
