@@ -1178,4 +1178,7 @@ bundle 迴歸與操作計算通過，CI 會擋下 bundle 超過門檻的變更�
 
 保留 T121 首次載入的教材按需載入與離線支援。移除操作計算與頁面載入計時腳本、npm 指令及發布時間門檻，保留 CI 的 `perf:bundle` 與原有大小上限。前文時間門檻與量測結果為歷史資料，以本節為現行發布要求；未宣稱正式站時間門檻已通過。
 
-整合後 `npm run check` 通過（typecheck、49 個測試檔、lint），正式 base path build 與 `perf:bundle` 通過。主程式 gzip 64,742 bytes（拆分前 524,703），CSS gzip 4,817 bytes、precache 20,878,582 bytes，均在原門檻內。375×667 preview 核對三個方向、通用31課、遊戲與設定，以及四類×三種練習入口；沒有頁面錯誤或水平溢位。service worker 接管後斷網重載通用31課及三個方向文字通過。完整教材 chunk 保留 precache，因此安裝快取總量增加，不把首頁縮小當作總下載量下降。正式站驗證待部署後執行。
+整合後 `npm run check` 通過（typecheck、49 個測試檔、lint），正式 base path build 與 `perf:bundle` 通過。主程式 gzip 64,742 bytes（拆分前 524,703），CSS gzip 4,817 bytes、precache 20,878,582 bytes，均在原門檻內。375×667 preview 核對三個方向、通用31課、遊戲與設定，以及四類×三種練習入口；沒有頁面錯誤或水平溢位。service worker 接管後斷網重載通用31課及三個方向文字通過。完整教材 chunk 保留 precache，因此安裝快取總量增加，不把首頁縮小當作總下載量下降。正式站驗證見下方部署紀錄。
+
+
+發布紀錄：PR #116 合併為 `a20e238`，[Actions 38666772162](https://github.com/frobel0520/nihongo-lab/actions/runs/38666772162) 的 check 與 Pages deploy 成功。正式站入口主程式與 `sw.js` 和已驗證的 production build 逐 byte 相同。375×667 正式站重跑三個方向、通用31課、遊戲、設定與四類×三種練習；沒有頁面錯誤或水平溢位。service worker 接管後，斷網重載通用31課與三個方向文字通過。HTTPS 憑證驗證保持開啟，沒有略過 TLS 驗證。這是瀏覽器功能與離線驗證，未重跑已撤除的計時門檻，也不代表真實手機／iOS 驗收。
