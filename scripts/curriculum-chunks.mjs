@@ -1,5 +1,6 @@
 import { resolve, dirname } from 'node:path';
 import { packCurriculumIndex } from '../lib/curriculum-pack.mjs';
+import { serializeCurriculumPayload } from './serialize-curriculum.mjs';
 import {
   stages,
   gameCharacterStudy,
@@ -25,7 +26,12 @@ export function notesFor(value) {
       Object.values(item).forEach(visit);
   };
   visit(value);
-  return RUBY_NOTES.filter((note) => strings.has(plainText(parseRuby(note))));
+  // Plain entries record author review, but add no ruby at runtime.
+  // Keep them in RUBY_NOTES for the review gate; transmit only actual annotations.
+  return RUBY_NOTES.filter((note) => {
+    const parts = parseRuby(note);
+    return parts.some((part) => part.ruby) && strings.has(plainText(parts));
+  });
 }
 /** Build artifacts are derived exclusively from curriculum/lessons.mjs; never a second authored source. */
 export function curriculumPayloads() {
@@ -103,7 +109,7 @@ export async function loadLessonAudioPaths(id){const l=await loadLesson(id);if(!
       if (id === '\0' + PREFIX + 'entry') return facade;
       if (id.startsWith('\0' + PREFIX)) {
         const payload = payloads.get(id.slice(PREFIX.length + 1));
-        if (payload) return 'export default ' + JSON.stringify(payload) + ';';
+        if (payload) return serializeCurriculumPayload(payload);
       }
     },
   };
