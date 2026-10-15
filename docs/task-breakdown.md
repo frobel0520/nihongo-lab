@@ -1,6 +1,14 @@
 # 任務拆解
 
-## 目前狀態：2026-10-15 T123 review 收尾（PR 待審查，未部署）
+## 目前狀態：2026-10-15 T124 通用聽解61～70課（本機驗證完成，待發布）
+
+T123 PR #117 已 rebase 合併為 `16b4189`，Pages [38669606798](https://github.com/frobel0520/nihongo-lab/actions/runs/38669606798) 成功；正式站主程式與 sw.js 逐 byte 一致，375寬三方向、課程返回、四類入口與未知階段 fallback 通過，HTTPS 驗證開啟。
+
+T124 依第三階段「作品常見口語」完成第61～70課：250單字條目、20文法點、40例句、60對話、30理解與30句型練習，以及350音檔（5,908,744 bytes）。音檔讀音閘門、解碼與非靜音通過，已解除待合成旗標。284 tests／typecheck／lint、正式路徑build／bundle、coverage，以及全部十課375寬線上／離線、四類×三種練習通過。通用聽解現為70／180課；發布結果接續記錄於release-audit。
+
+既有教材文字、進度 ID、同步版本3、四類分類與固定1倍保持。第71～180課共110課仍規劃中，本批完成後停止。71個既有文法點的 jlpt 對照、長片段／跨句理解、受限來源、人工語音及現行版本真機 QA 仍分列待辦；Android 已有部分驗證，非全部未測。
+
+## 歷史狀態：2026-10-15 T123 review 收尾（PR 待審查，未部署）
 
 基底為遠端 main `483fd16`；開始時工作目錄乾淨、沒有未合併 PR。本輪不擴充教材。T121 按需載入保留；T122 已撤除計時 Gate，現行效能檢查只有 `perf:bundle` 與原大小上限，舊正式站計時不阻塞交付。
 
@@ -564,3 +572,14 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 - Acceptance checks：新階段 ID 可解析、舊路由與返回保持；來源缺漏／壞 JSON／壞欄位非零退出且不覆寫既有結果；check、正式 base path build、perf:bundle、375 寬導覽／離線／返回。
 - Fixture or test data：合成的空來源表、最後一筆來源故障、合成進度、新階段 ID；不用私人資料。
 - Evidence path：tests/route.test.mjs、tests/genshin-coverage-builder.test.mjs、release-audit.md「T123」。
+
+## 2026-10-15 T124 通用聽解61～70課
+
+- Goal：依180課路線第三階段補十課「作品常見口語」，完成後70／180課，後110課仍規劃。
+- Input contract：最新main `16b4189`、T123已部署；lessons.mjs唯一入口、作者工具、男女聲與固定1倍播放、進度版本3及四類練習契約保持。
+- Output artifact：days/day86～day95.mjs、350個VOICEVOX音檔、中文／讀音與重音覆寫、驗證與部署紀錄。
+- depends_on：T103～T108、T119／T121／T122／T123。
+- Out of scope：第71課以後、真人演技／人耳全量驗收、調速、來源短缺原作台詞、同步或快取格式更動、放寬bundle上限。
+- Acceptance checks：每課25詞／2文法／4例句／6對話／3理解／3練習／35音檔；完整check、正式base build、perf:bundle、coverage；350檔讀音／解碼／非靜音／引用；375寬全部十課及離線、四類×三練習；CI與部署後全部新MP3逐byte核對。
+- Fixture or test data：原創搭檔情境與合成進度；不使用私人資料。
+- Evidence path：scene-listening.test、curriculum-loading.test 舊95課快照、release-audit.md「T124」。
