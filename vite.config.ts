@@ -1,16 +1,21 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { curriculumChunks } from './scripts/curriculum-chunks.mjs';
 import { VitePWA } from 'vite-plugin-pwa';
 import { AUDIO_CACHE_NAME, AUDIO_ROUTE_PATTERN } from './lib/offline.mjs';
 
 export default defineConfig({
   base: process.env.VITE_BASE_PATH || '/',
   plugins: [
+    curriculumChunks(),
     react(),
     VitePWA({
       registerType: 'autoUpdate',
       devOptions: { enabled: true },
-      includeAssets: ['jinwoo-favicon.ico', 'jinwoo-apple-touch-icon-180x180.png'],
+      includeAssets: [
+        'jinwoo-favicon.ico',
+        'jinwoo-apple-touch-icon-180x180.png',
+      ],
       manifest: {
         name: 'かなの日本語',
         short_name: 'かなの日本語',
@@ -22,9 +27,22 @@ export default defineConfig({
         theme_color: '#f5f6f3',
         icons: [
           { src: 'jinwoo-pwa-64x64.png', sizes: '64x64', type: 'image/png' },
-          { src: 'jinwoo-pwa-192x192.png', sizes: '192x192', type: 'image/png' },
-          { src: 'jinwoo-pwa-512x512.png', sizes: '512x512', type: 'image/png' },
-          { src: 'jinwoo-maskable-icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+          {
+            src: 'jinwoo-pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: 'jinwoo-pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+          {
+            src: 'jinwoo-maskable-icon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable',
+          },
         ],
       },
       workbox: {
@@ -41,7 +59,10 @@ export default defineConfig({
               // <audio> 一律送 Range 請求；快取裡是整檔（200），要由這個外掛切成 206 回給播放器。
               rangeRequests: true,
               // 25 課預估約 1100 個音檔，上限抓寬一點，避免下載完的音檔被淘汰。
-              expiration: { maxEntries: 3000, maxAgeSeconds: 60 * 60 * 24 * 365 },
+              expiration: {
+                maxEntries: 3000,
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+              },
             },
           },
         ],

@@ -1,9 +1,7 @@
 import { useRef, useState } from 'react';
-import {
-  gameCharacterStudy,
-  genshinActionCoverage,
-  genshinSupplement,
-} from '../../curriculum/lessons.mjs';
+import { loadGameData } from '../../curriculum/lessons.mjs';
+const { gameCharacterStudy, genshinActionCoverage, genshinSupplement } =
+  await loadGameData();
 import { genshinActionCategories } from '../../lib/genshin-coverage.mjs';
 import {
   erFankitSources,
