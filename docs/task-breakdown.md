@@ -1,12 +1,12 @@
 # 任務拆解
 
-## 目前狀態：2026-10-15 T128 通用聽解101～110課（待發布）
+## 目前狀態：2026-10-15 T128 通用聽解101～110課（已發布）
 
 基底main `0dcbd8e`，開始時工作目錄乾淨、無未合併PR，T127已部署。依第四階段「劇情理解」先安排101～110課，再完成250詞條（含複習）、20文法點、40例句、60對話、30理解、30句型練習與350個VOICEVOX MP3（6,771,592 bytes）。通用110／180課、3850音檔，111～180共70課仍規劃中，發布110課後停止。
 
 291 tests／typecheck／lint、正式base build、perf:bundle、coverage及十課375寬完整線上／離線、四類×三練習通過；第110課新資料實際進入三練習，100→101銜接與第十一組劇情理解正確。全部350檔引用／讀音／解碼／非靜音／metadata通過，成功後才解除audioReady:false。原135課／遊戲資料與ID快照保持，唯一入口、版本3、舊網址／返回、分類、固定1倍與離線語意不變。
 
-完整音檔就緒的首輪precache為21,545,173 bytes，超過原21,500,000上限；分析後在單一payload內共用重複欄位名稱，輸出仍是相同default {data, notes}，沒有新decoder／runtime dependency或按需邊界變更。全部payload實際載入等值、特殊鍵／跳脫字元回歸通過；最終precache21,431,408 bytes，未放寬門檻。 不恢復T122計時Gate。PR／正式站驗證待發布後補記，完成110課發布即停止。
+完整音檔就緒的首輪precache為21,545,173 bytes，超過原21,500,000上限；分析後在單一payload內共用重複欄位名稱，輸出仍是相同default {data, notes}，沒有新decoder／runtime dependency或按需邊界變更。全部payload實際載入等值、特殊鍵／跳脫字元回歸通過；最終precache21,431,408 bytes，未放寬門檻。 不恢復T122計時Gate。PR [#126](https://github.com/frobel0520/nihongo-lab/pull/126) 已rebase合併為 `a792a7b`，[Pages 38727691356](https://github.com/frobel0520/nihongo-lab/actions/runs/38727691356) 成功；正式站182個建置檔與350新音檔逐byte一致，十課路由、101／105／110完整聽解與離線抽驗通過，本輪已停止於110課。
 
 逐句人工語音、完整現行Android／iOS真機QA及71個舊文法JLPT標記仍待辦，Android部分安裝／播放與操作回報保留。375寬是手機模擬，機械音檔檢查不當人耳驗收；受限原作來源與動畫長片段／跨句理解保持後續。不宣稱所有review或全站品質完整驗收。
 
