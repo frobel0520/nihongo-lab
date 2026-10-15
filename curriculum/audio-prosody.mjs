@@ -8,6 +8,20 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T128：文脈讀音與孤立詞重音，保留其他原有覆寫。
+"audio/stage-1/general-listening-101/vocab-2988d47fba.mp3": {"text":"受取人","reading":"うけとりにん","kana":"ウケトリニン'","reason":"T128：受取人在本課讀うけとりにん，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-102/vocab-0951a5689b.mp3": {"text":"その後","reading":"そのあと","kana":"ソノ'/ア'ト","reason":"T128：その後在本課讀そのあと，核對文脈指定讀音；不以孤立詞推定整句語調。","reference":"voicevox"},
+"audio/stage-1/general-listening-103/vocab-9224a061fd.mp3": {"text":"一度","reading":"いちど","kana":"イチド'","reason":"T128：一度在本課讀いちど，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-104/vocab-1622089d82.mp3": {"text":"重さ","reading":"おもさ","kana":"オモサ'","reason":"T128：重さ在本課讀おもさ，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-105/vocab-0e1a04f4b0.mp3": {"text":"道標","reading":"みちしるべ","kana":"ミ_チシ'ルベ","reason":"T128：道標在本課讀みちしるべ，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-105/vocab-37ec9193b7.mp3": {"text":"晴れる","reading":"はれる","kana":"ハレ'ル","reason":"T128：晴れる在本課讀はれる，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-106/vocab-f26b85daae.mp3": {"text":"一度","reading":"いちど","kana":"イチド'","reason":"T128：一度在本課讀いちど，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-106/dlg-8989b2dac8.mp3": {"text":"その間に使者が来たんだね。僕は作業を続けていて、気づかなかった。","reading":"そのあいだに ししゃが きたんだね。 ぼくは さぎょうを つづけていて、 きづかなかった。","kana":"ソノ'/アイダニ'/シ'シャガ/キ'タ/ン'ダネ、ボ'クワ/サ'ギョオオ/ツズケテ'/イテ'、キズカ'ナカッタ","reason":"T128：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-107/vocab-5bf49e297b.mp3": {"text":"入れる","reading":"はいれる","kana":"ハイレル'","reason":"T128：入れる在本課讀はいれる，核對文脈指定讀音；不以孤立詞推定整句語調。","reference":"voicevox"},
+"audio/stage-1/general-listening-107/gram-f933bc4692.mp3": {"text":"鍵がなければ、入れるはずがない。","reading":"かぎが なければ、 はいれるはずが ない。","kana":"カギ'ガ/ナ'ケレバ、ハイレ'ル/ハズガ'/ナ'イ","reason":"T128：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-107/dlg-203efe99f8.mp3": {"text":"でも、奥の鍵は私が持ってる。入れるはずがないよ。","reading":"でも、 おくの かぎは わたしが もってる。 はいれるはずが ないよ。","kana":"デ'モ、オ'クノ/カギ'ワ/ワタシガ'/モッテ'ル、ハイレ'ル/ハズガ'/ナ'イヨ","reason":"T128：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-108/vocab-ad280f6a00.mp3": {"text":"機械","reading":"きかい","kana":"キカ'イ","reason":"T128：機械在本課讀きかい，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-110/dlg-8356aca729.mp3": {"text":"うん。君には結果を記録してほしい。私は操作するから。","reading":"うん。きみには けっかを きろく してほしい。 わたしは そうさ するから。","kana":"ウ'ン/キミニワ'/ケッカオ'/キロク'/_シテホシイ'、ワタシワ'/ソ'オサ/スル'カラ","reason":"T128：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
 // T127：文脈讀音與孤立詞重音，保留其他原有覆寫。
 "audio/stage-1/general-listening-91/vocab-898f10e789.mp3": {"text":"その後","reading":"そのあと","kana":"ソノ'/ア'ト","reason":"T127：その後在本課讀そのあと，核對文脈指定讀音；不以孤立詞推定整句語調。","reference":"voicevox"},
 "audio/stage-1/general-listening-92/dlg-f57df5908f.mp3": {"text":"その前に危険を皆に知らせよう。追跡はまだ再開しないよ。","reading":"その まえに きけんを みんなに しらせよう。 ついせきは まだ さいかい しないよ。","kana":"ソノ'/マ'エニ/_キケンオ'/ミンナ'ニ/シラセヨオ'、ツイセキワ'/マ'ダ/サイカイ'/シナイヨ'","reason":"T127：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
