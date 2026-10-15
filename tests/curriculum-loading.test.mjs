@@ -11,6 +11,7 @@ import {
 } from '../curriculum/lessons.mjs';
 import { curriculumPayloads } from '../scripts/curriculum-chunks.mjs';
 import { STUDY_CATALOG } from '../lib/study-catalog.mjs';
+import { createStudyCatalog } from '../lib/catalog-build.mjs';
 import { sceneRecordId } from '../lib/scene-listening.mjs';
 import { listeningRecordId, trainingClips } from '../lib/anime-training.mjs';
 import { grammarRecordId } from '../lib/grammar-study.mjs';
@@ -32,22 +33,41 @@ const baseline = JSON.parse(
 const sha = (value) => createHash('sha256').update(value).digest('hex');
 const lessons = stages.flatMap((s) => s.lessons);
 test('T121: every pre-split progress identity and authored content matches 557fec1', () => {
+  // 保留首次拆包前的95課快照；新增課程由下方 loader／統計及課程契約測試覆蓋。
+  // 只還原該快照的清單標題，原有課程物件與進度 ID 仍逐 byte 比對，不能更新黃金雜湊掩蓋變動。
+  const originalStages = stages.map((stage) => ({
+    ...stage,
+    title:
+      stage.id === 'stage-1'
+        ? '第 1 階段：動漫／遊戲通用聽解（前60課）'
+        : stage.title,
+    lessons: stage.lessons.filter(
+      (lesson) =>
+        !lesson.id.startsWith('general-listening-') ||
+        Number(lesson.id.slice('general-listening-'.length)) <= 60,
+    ),
+  }));
+  const originalLessons = originalStages.flatMap((stage) => stage.lessons);
+  const originalCatalog = createStudyCatalog(
+    originalStages,
+    gameCharacterStudy,
+  );
   const ids = {};
-  for (const [k, c] of Object.entries(STUDY_CATALOG)) {
+  for (const [k, c] of Object.entries(originalCatalog)) {
     ids[k + '.cards'] = c.cards.map((x) => x.id);
     ids[k + '.sentences'] = c.sentences.map((x) => x.id);
   }
-  ids.scene = lessons.flatMap((l) =>
+  ids.scene = originalLessons.flatMap((l) =>
     (l.scene?.questions ?? []).map((q) => sceneRecordId(l, q)),
   );
-  ids.listening = lessons.flatMap((l) =>
+  ids.listening = originalLessons.flatMap((l) =>
     l.training
       ? trainingClips(l.training).flatMap((c) =>
           c.questions.map((q) => listeningRecordId(l.id, c, q)),
         )
       : [],
   );
-  ids.grammar = lessons.flatMap((l) =>
+  ids.grammar = originalLessons.flatMap((l) =>
     l.grammar.flatMap((g) =>
       (g.study?.questions ?? []).map((q) => grammarRecordId(l.id, g, q)),
     ),
@@ -69,7 +89,7 @@ test('T121: every pre-split progress identity and authored content matches 557fe
       key,
     );
   assert.equal(
-    sha(JSON.stringify({ stages, gameCharacterStudy })),
+    sha(JSON.stringify({ stages: originalStages, gameCharacterStudy })),
     baseline.content.sha256,
   );
 });
