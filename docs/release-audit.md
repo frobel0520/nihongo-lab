@@ -1414,3 +1414,13 @@ PR [#132](https://github.com/frobel0520/nihongo-lab/pull/132) 的 [CI 3884300923
 修正版296 tests／typecheck／lint、正式base build、原bundle門檻通過（precache21,474,718 bytes；main gzip64,739／CSS gzip4,817）。350筆最終引用／讀音／全檔解碼／非靜音／metadata重新核對，替換句自然查詢讀音通過，既有重音覆寫保持。初輪十課五區塊／完整線上離線聽解、四類×三練習、140→141與第十五組仍有完整證據；最終產品只改149一句，另以固定修正版建置補驗149五區塊、六句完整1倍播放、三題作答／解析／保存、下載35檔、真正斷網重載與六句／三題／返回／停播，零pageerror／溢位。更新稽核清單後，隔離瀏覽器再下載350檔並斷網逐檔SHA／bytes比對與瀏覽器解碼通過。其他349檔保持原內容，不把機械檢查當逐句人工試聽或真機通過。
 
 PR #134已rebase合併為c5ada66，Pages 38861908608成功；本節助詞修正的CI／部署與最終正式站結果待完成後補記，交付以修正版為準。
+
+### T132 最終修正版發布完成
+
+教材PR [#134](https://github.com/frobel0520/nihongo-lab/pull/134) 的 [CI 38861710045](https://github.com/frobel0520/nihongo-lab/actions/runs/38861710045) 通過，rebase合併c5ada6638555ebb4aa89053748676acda38f7b1d，[首版Pages 38861908608](https://github.com/frobel0520/nihongo-lab/actions/runs/38861908608) 成功。149助詞修正PR [#135](https://github.com/frobel0520/nihongo-lab/pull/135) 的 [CI 38863612911](https://github.com/frobel0520/nihongo-lab/actions/runs/38863612911) 通過，合併前再次核對main／其他PR／review，無併發或阻塞，依授權rebase合併為72f79bf11bc7cab38c8dc1d59894e3dc0f9ffa08；[修正版Pages 38863899625](https://github.com/frobel0520/nihongo-lab/actions/runs/38863899625) check／deploy成功。交付以修正版及本節正式站結果為準，初輪與149補驗範圍見上節。
+
+正式站492個建置／靜態檔（audio/以外，含JS／CSS／HTML／manifest／SW、圖片、字型及38個既有聲線預覽）與全部350個精確新課程MP3路徑逐byte一致，共842檔。新MP3共7,598,440 bytes；它們是全通用5250引用的本批子集合，不把precache448個去重URL、靜態預覽或全站audio/範圍混算。HTTPS憑證驗證保持開啟。
+
+正式站375×667 Chromium完整核對十課路由／文法／返回；141／145／149／150四課完整1倍對話（24句）及12題作答通過，四課各下載35檔（共140檔）後真正斷網重載、完整24句／12題與返回首頁通過，零pageerror／水平溢位。指定正式站流程為抽驗；發布前為全十課完整線上／離線，149文字修訂後再補驗受影響完整流程與全部350音檔離線SHA／bytes／瀏覽器解碼，範圍分列，不冒充每課在正式站全測或逐句人耳／真機通過。
+
+目前150／180課、5250通用音檔，後151～180共30課仍規劃，未開始151課。前140課／原175課與遊戲資料ID快照保持；149三個scene ID依既有原文修訂規則更新，不修改版本3或其他進度ID。逐句人工語音、完整現行Android／iOS真機QA、71舊文法JLPT標記保持待辦，既有Android部分驗證與原作來源限制紀錄保留。
