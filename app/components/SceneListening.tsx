@@ -166,7 +166,9 @@ export function SceneListening({
           <h3>
             理解題 {Object.keys(answers).length + 1}／{questionCount}
           </h3>
-          <p>{question.prompt}</p>
+          <p>
+            <RubyText text={question.prompt} />
+          </p>
           <div className="anime-options">
             {question.options.map((option, i) => (
               <button
@@ -194,7 +196,7 @@ export function SceneListening({
             <div key={q.id} className="grammar-point">
               <p className={answers[q.id] === q.answer ? 'answer' : 'notice'}>
                 {answers[q.id] === q.answer ? '答對了' : '這次沒有答對'}：
-                {q.prompt}
+                <RubyText text={q.prompt} />
               </p>
               <p>正確答案：{q.options[q.answer]}</p>
               <p>
