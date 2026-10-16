@@ -694,3 +694,7 @@ T133的共用決策除ID前綴與packed索引外，對完整配音後仍超出�
 
 
 本批發布前299 tests、正式base build、原bundle門檻及完整手機尺寸／離線驗證通過，precache 21,474,089 bytes；全部結果與待辦見release-audit。
+
+T133讀音顯示補修：SceneListening的目前題目與答案回顧都沿用RubyText，透過既有偏好與ruby-note-store顯示已登錄讀音，與文法／練習／解析一致。題目、作答狀態、scene ID、播放控制與離線API保持。React SSR回歸使用既有Vite與React開發工具載入真實元件，無新增dependency，不以原始碼字串比對代替渲染驗證。
+
+讀音顯示補修版300 tests／typecheck／lint、正式build／原bundle及同一建置十課線上／離線覆驗通過，precache21,475,086 bytes；11段顯示核對及正式站／發布範圍分列於release-audit。
