@@ -8,6 +8,26 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T130：文脈讀音與孤立詞重音，保留其他原有覆寫。
+"audio/stage-1/general-listening-122/vocab-d7c347d5f9.mp3": {"text":"描く","reading":"かく","kana":"カ'ク","reason":"T130：描く在本課讀かく，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-122/gram-6db6d5fcee.mp3": {"text":"壁に矢印が描いてある。","reading":"かべに やじるしが かいてある。","kana":"カベニ'/ヤジ'ルシガ/カ'イテ/ア'ル","reason":"T130：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-122/dlg-d29a817163.mp3": {"text":"壁に右向きの矢印が描いてある。誰が描いたの？","reading":"かべに みぎむきの やじるしが かいてある。 だれが かいたの？","kana":"カベニ'/ミギムキノ'/ヤジ'ルシガ/カ'イテ/ア'ル、ダ'レガ/カ'イタノ？","reason":"T130：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-122/dlg-7db8b2905c.mp3": {"text":"隊長だよ。昨日、帰り道がわかるように描いたんだ。","reading":"たいちょうだよ。 きのう、 かえりみちが わかるように かいたんだ。","kana":"タイチョオダヨ'、キノ'オ、カエリ'ミチガ/ワカ'ル/ヨ'オニ/カ'イタ/ン'ダ","reason":"T130：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-123/vocab-e2fbc2dd61.mp3": {"text":"負傷者","reading":"ふしょうしゃ","kana":"_フショ'オシャ","reason":"T130：負傷者在本課讀ふしょうしゃ，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-123/dlg-a8e6973999.mp3": {"text":"お願い。君も門を通ったら、中から合図をして。","reading":"おねがい。 きみも もんを とおったら、 なかから あいずを して。","kana":"オネガイ'、キミモ'/モ'ンオ/ト'オッタラ、ナ'カカラ/ア'イズオ/_シテ'","reason":"T130：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-124/vocab-8af9701791.mp3": {"text":"避ける","reading":"よける","kana":"ヨケ'ル","reason":"T130：避ける在本課讀よける，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-124/vocab-a33260ea2a.mp3": {"text":"一本","reading":"いっぽん","kana":"イ'ッポン","reason":"T130：一本在本課讀いっぽん，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-124/dlg-efec7be09a.mp3": {"text":"わかった。弱点を決めつけずに、まず二人で退こう。","reading":"わかった。 じゃくてんを きめつけずに、 まず ふたりで しりぞこう。","kana":"ワカ'ッタ、ジャ_クテ'ンオ/キメ_ツケズニ'、マ'ズ/_フタリ'デ/シリゾ'コオ","reason":"T130：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-125/vocab-154923e2f6.mp3": {"text":"魔法陣","reading":"まほうじん","kana":"マホ'オジン","reason":"T130：魔法陣在本課讀まほうじん，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-126/vocab-74afe80be7.mp3": {"text":"一滴","reading":"いってき","kana":"イッテキ'","reason":"T130：一滴在本課讀いってき，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-127/gram-1a88787970.mp3": {"text":"雨が止んだ後で、誰かが倉庫へ来た。","reading":"あめが やんだあとで、 だれかが そうこへ きた。","kana":"ア'メガ/ヤ'ンダ/ア'トデ、ダ'レカガ/ソ'オコエ/キ'タ","reason":"T130：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-127/dlg-ed5b8e7354.mp3": {"text":"その後、僕が来たら、新しい足跡があったよ。","reading":"そのあと、 ぼくが きたら、 あたらしい あしあとが あったよ。","kana":"ソノ'/ア'ト、ボ'クガ/キ'タラ、アタラシ'イ/アシア'トガ/ア'ッタヨ","reason":"T130：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-128/vocab-60d34cf82a.mp3": {"text":"目撃者","reading":"もくげきしゃ","kana":"モクゲ'_キシャ","reason":"T130：目撃者在本課讀もくげきしゃ，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-128/vocab-929489f907.mp3": {"text":"見間違える","reading":"みまちがえる","kana":"ミマチガエル'","reason":"T130：見間違える在本課讀みまちがえる，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-128/vocab-69064e7999.mp3": {"text":"被る","reading":"かぶる","kana":"カブ'ル","reason":"T130：被る在本課讀かぶる，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-129/vocab-067ee3b1ef.mp3": {"text":"鍛冶屋","reading":"かじや","kana":"カジヤ'","reason":"T130：鍛冶屋在本課讀かじや，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-130/vocab-18b5b02eb3.mp3": {"text":"魔法陣","reading":"まほうじん","kana":"マホ'オジン","reason":"T130：魔法陣在本課讀まほうじん，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-130/gram-6deb2a0371.mp3": {"text":"封印が残っているなら、まだ入れない。","reading":"ふういんが のこっているなら、 まだ はいれない。","kana":"フウインガ'/ノコ'ッテ/イルナラ'、マ'ダ/ハイレ'ナイ","reason":"T130：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
 // T129：文脈讀音與孤立詞重音，保留其他原有覆寫。
 "audio/stage-1/general-listening-111/dlg-138ff51ad6.mp3": {"text":"隊長は何て言っていた？","reading":"たいちょうは なんて いっていた？","kana":"タイチョオワ'/ナ'ンテ/イッテ'/イタ'？","reason":"T129：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
 "audio/stage-1/general-listening-112/vocab-826f1d16e7.mp3": {"text":"その間","reading":"そのあいだ","kana":"ソノ'/ア'イダ","reason":"T129：その間在本課讀そのあいだ，核對文脈指定讀音；不以孤立詞推定整句語調。","reference":"voicevox"},
