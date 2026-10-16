@@ -95,6 +95,7 @@ test('shared scalar metadata preserves key order, own special keys and independe
     lessonTitle: 'A shared "quoted" title with \\ and 日本語',
     ['__proto__']: 'ordinary authored scalar',
     marker: 'shared[0]',
+    reading: 'しんりょうじょ',
     audioReady: true,
   }));
   const result = await evaluate(serializeCurriculumPayload({ data: rows }));
@@ -109,4 +110,32 @@ test('shared scalar metadata preserves key order, own special keys and independe
   assert.equal(result.data[1].lessonId, rows[1].lessonId);
   assert.equal(result.data[1].nested.index, 1);
   assert.equal(Object.getPrototypeOf(result.data[0]), Object.prototype);
+});
+
+test('packed progress index keeps exact IDs and key order after build-only namespace sharing', async () => {
+  const { curriculumSummary } = await import('../curriculum/lessons.mjs');
+  const { packCurriculumIndex, unpackCurriculumIndex } = await import('../lib/curriculum-pack.mjs');
+  const packed = packCurriculumIndex(curriculumSummary);
+  const source = serializeCurriculumPayload(packed);
+  const result = await evaluate(source);
+  assert.equal(JSON.stringify(result), JSON.stringify(packed));
+  assert.deepEqual(unpackCurriculumIndex(result), curriculumSummary);
+  assert.ok(Buffer.byteLength(source) < Buffer.byteLength(JSON.stringify(packed)));
+});
+
+test('identifier prefix sharing leaves authored colons, slashes and prototype-like strings literal', async () => {
+  const prefix = 'scene:synthetic-long-lesson-name/with\\escape:';
+  const data = Array.from({ length: 30 }, (_, i) => ({
+    id: prefix + i,
+    value: '__proto__:literal/strings[0]',
+    ['__proto__']: 'own:literal/paths[0]',
+    note: '引用：https://example.com/a:b；不是程式碼',
+  }));
+  const source = serializeCurriculumPayload(data);
+  const result = await evaluate(source);
+  assert.equal(JSON.stringify(result), JSON.stringify(data));
+  assert.ok(result.every(row => Object.hasOwn(row, '__proto__')));
+  result[0].id = 'only-one-row';
+  assert.equal(result[1].id, data[1].id);
+  assert.ok(Buffer.byteLength(source) < Buffer.byteLength('export default ' + JSON.stringify(data)));
 });
