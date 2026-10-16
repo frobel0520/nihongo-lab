@@ -346,3 +346,29 @@ test('T130: preserve all 155 pre-batch lessons and game data from 73c88e1', () =
     snapshot.sha256,
   );
 });
+
+test('T131: preserve all 165 pre-batch lessons and game data from 3690d07', () => {
+  const snapshot = JSON.parse(
+    readFileSync(
+      new URL('./fixtures/curriculum-3690d07.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  const previousStages = stages.map((stage) => ({
+    ...stage,
+    title:
+      stage.id === 'stage-1'
+        ? '第 1 階段：動漫／遊戲通用聽解（前130課）'
+        : stage.title,
+    lessons: stage.lessons.filter(
+      (lesson) =>
+        !lesson.id.startsWith('general-listening-') ||
+        Number(lesson.id.slice('general-listening-'.length)) <= 130,
+    ),
+  }));
+  assert.equal(previousStages.flatMap((stage) => stage.lessons).length, 165);
+  assert.equal(
+    sha(JSON.stringify({ stages: previousStages, gameCharacterStudy })),
+    snapshot.sha256,
+  );
+});

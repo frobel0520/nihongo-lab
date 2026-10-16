@@ -86,3 +86,27 @@ test('lazy annotations retain every actual ruby while author-only review entries
     }
   }
 });
+
+test('shared scalar metadata preserves key order, own special keys and independent records', async () => {
+  const rows = Array.from({ length: 24 }, (_, index) => ({
+    id: 'synthetic-' + index,
+    nested: { index },
+    lessonId: 'synthetic-listening-lesson',
+    lessonTitle: 'A shared "quoted" title with \\ and 日本語',
+    ['__proto__']: 'ordinary authored scalar',
+    marker: 'shared[0]',
+    audioReady: true,
+  }));
+  const result = await evaluate(serializeCurriculumPayload({ data: rows }));
+  assert.equal(JSON.stringify(result), JSON.stringify({ data: rows }));
+  for (const row of result.data) {
+    assert.ok(Object.hasOwn(row, '__proto__'));
+    assert.equal(Object.getPrototypeOf(row), Object.prototype);
+    assert.equal(row.marker, 'shared[0]');
+  }
+  result.data[0].lessonId = 'changed-in-one-record';
+  result.data[0].nested.index = -1;
+  assert.equal(result.data[1].lessonId, rows[1].lessonId);
+  assert.equal(result.data[1].nested.index, 1);
+  assert.equal(Object.getPrototypeOf(result.data[0]), Object.prototype);
+});
