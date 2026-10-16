@@ -8,6 +8,25 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T132：文脈讀音與孤立詞重音，保留其他原有覆寫。
+"audio/stage-1/general-listening-141/vocab-e70da61a64.mp3": {"text":"一方通行","reading":"いっぽうつうこう","kana":"イッポオツ'ウコオ","reason":"T132：一方通行在本課讀いっぽうつうこう，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-141/vocab-ea84936027.mp3": {"text":"石扉","reading":"いしどびら","kana":"イシドビ'ラ","reason":"T132：石扉在本課讀いしどびら，核對文脈指定讀音；不以孤立詞推定整句語調。","reference":"voicevox"},
+"audio/stage-1/general-listening-141/gram-ad4e545069.mp3": {"text":"この石扉を通ると、後ろで閉まる。","reading":"この いしどびらを とおると、 うしろで しまる。","kana":"コノ'/イ'シ/ドビラ'オ/ト'オルト、ウシロデ'/シマ'ル","reason":"T132：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-141/dlg-8ef7a65917.mp3": {"text":"石扉を通ると閉まるって。内側からは開けられないそうだよ。","reading":"いしどびらを とおると しまるって。 うちがわからは あけられない そうだよ。","kana":"イ'シ/ドビラ'オ/ト'オルト/シマ'ルッテ、ウチガワカラワ'/アケラレナイ'/ソオダヨ'","reason":"T132：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-143/vocab-e0e0276070.mp3": {"text":"留まる","reading":"とどまる","kana":"トドマ'ル","reason":"T132：留まる在本課讀とどまる，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-143/gram-75ecdc861e.mp3": {"text":"退路を確保するために、ここに留まる。","reading":"たいろを かくほ するために、 ここに とどまる。","kana":"タ'イロオ/カ'_クホ/スル'/タメ'ニ、ココニ'/トドマ'ル","reason":"T132：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-144/vocab-69aa346236.mp3": {"text":"札","reading":"ふだ","kana":"フダ'","reason":"T132：札在本課讀ふだ，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-145/vocab-721cf0f230.mp3": {"text":"魔法陣","reading":"まほうじん","kana":"マホ'オジン","reason":"T132：魔法陣在本課讀まほうじん，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-145/vocab-e0e0276070.mp3": {"text":"留まる","reading":"とどまる","kana":"トドマ'ル","reason":"T132：留まる在本課讀とどまる，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-146/vocab-46f010b080.mp3": {"text":"消耗品","reading":"しょうもうひん","kana":"ショオモオヒン'","reason":"T132：消耗品在本課讀しょうもうひん，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-146/vocab-9e48e4e564.mp3": {"text":"一回","reading":"いっかい","kana":"イッカイ'","reason":"T132：一回在本課讀いっかい，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-146/vocab-108831be12.mp3": {"text":"癒やす","reading":"いやす","kana":"イヤ'ス","reason":"T132：癒やす在本課讀いやす，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-147/vocab-4c944c524f.mp3": {"text":"目撃者","reading":"もくげきしゃ","kana":"モクゲ'_キシャ","reason":"T132：目撃者在本課讀もくげきしゃ，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-148/vocab-cccb14ebee.mp3": {"text":"依頼人","reading":"いらいにん","kana":"イライ'ニン","reason":"T132：依頼人在本課讀いらいにん，核對文脈指定讀音；不以孤立詞推定整句語調。","reference":"voicevox"},
+"audio/stage-1/general-listening-149/vocab-6c7ea1fe5e.mp3": {"text":"当事者","reading":"とうじしゃ","kana":"トオジ'シャ","reason":"T132：当事者在本課讀とうじしゃ，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-150/vocab-a026525c2a.mp3": {"text":"魔法陣","reading":"まほうじん","kana":"マホ'オジン","reason":"T132：魔法陣在本課讀まほうじん，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-150/vocab-c6d695deb2.mp3": {"text":"敵影","reading":"てきえい","kana":"テキエイ'","reason":"T132：敵影在本課讀てきえい，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-150/vocab-5507c310d3.mp3": {"text":"逃す","reading":"にがす","kana":"ニ'ガス","reason":"T132：逃す在本課讀にがす，核對文脈指定讀音；不以孤立詞推定整句語調。","reference":"voicevox"},
 // T131：文脈讀音與孤立詞重音，保留其他原有覆寫。
 "audio/stage-1/general-listening-131/vocab-dc77d5205f.mp3": {"text":"長さ","reading":"ながさ","kana":"ナ'ガサ","reason":"T131：長さ在本課讀ながさ，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
 "audio/stage-1/general-listening-131/vocab-89a4494fcf.mp3": {"text":"重さ","reading":"おもさ","kana":"オモサ'","reason":"T131：重さ在本課讀おもさ，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},

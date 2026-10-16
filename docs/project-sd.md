@@ -9,7 +9,7 @@ Vite / React + TypeScript，本機瀏覽器執行，local-first。目前無後�
 - `app/views/ShadowingView.tsx`：跟讀。播放一次、留白（見 `lib/shadowing.mjs`）讓使用者念、再播，一直重複到按停止（沒有輪數上限，T34），也可以只「聽一次」，可隱藏原文；音檔播放失敗顯示明確錯誤；按停止造成的 `AbortError` 不當成錯誤。不含調速。
 - `lib/`：無 DOM 的純邏輯，用 `.mjs` + JSDoc 型別，讓 `node --test` 直接測、TypeScript 也能匯入。`srs.mjs`（FSRS 排程〔T53，原為 SM-2 簡化版〕、單字卡、複習／新卡兩區的牌組）、`srs-session.mjs`（一輪複習的流程：上一張／下一張、評分後跳到哪一張、回頭改評分）、`dictation.mjs`（聽寫句子清單、逐字比對）、`progress.mjs`（進度資料形狀、解析驗證、聽寫紀錄）、`shadowing.mjs`（跟讀留白長度）。
 - `app/lib/storage.ts`、`app/useProgress.ts`：`localStorage` 讀寫（key `nihongo-lab:progress:v1`）與 React 狀態；存檔壞掉時原文備份到 `…:backup` 並提示，寫入失敗時畫面顯示訊息但仍可繼續學習。
-- `curriculum/lessons.mjs`：學習階段與課程資料的單一來源，目前第 0 階段有 25 課、第 1 階段有 140 課、第 2 階段有 10 課（八課動畫特訓、口語轉換表、動畫與遊戲名句），第 3 階段仍為規劃（`lessons: []`）。
+- `curriculum/lessons.mjs`：學習階段與課程資料的單一來源，目前第 0 階段有 25 課、第 1 階段有 150 課、第 2 階段有 10 課（八課動畫特訓、口語轉換表、動畫與遊戲名句），第 3 階段仍為規劃（`lessons: []`）。
 - `curriculum/voices.mjs`：教材語音角色陣容，對應本機 VOICEVOX 引擎（127.0.0.1:50021）的 speaker id。2026-10-03 最終選角後保留 8 個角色：春日部つむぎ、雨晴はう、小夜/SAYO、猫使ビィ、東北ずん子、青山龍星、黒沢冴白、VOICEVOX Nemo 男声2。
 - `scripts/synthesize.mjs`：呼叫 VOICEVOX 引擎產生 wav、再用 ffmpeg 轉 96kbps mp3 的教材語音產生腳本；只在本機產生教材時用，不是網站執行期依賴。已用 ずんだもん 實測一句，輸出 50KB mp3，音質正常。
 - `tests/curriculum.test.mjs`：驗證 curriculum 資料結構契約。
@@ -681,3 +681,7 @@ day156～165由既有defineGeneralLesson／defineLesson接入lessons.mjs唯一�
 驗證／部署範圍與限制見release-audit.md；人工語音、完整真機QA及71舊JLPT仍待辦，保留Android部分驗證。
 
 T131建置大小核對：完整音檔就緒後首輪precache 21,551,055 bytes超過21,500,000上限；建置時以區塊內純量欄位的共用常數和物件展開減少重複文字，輸出仍為相同default資料，保留欄位順序與每筆獨立物件。全部payload實際ESM值／JSON欄位順序等值、跳脫／特殊鍵／無別名變更的回歸通過，無decoder、runtime dependency、按需邊界或下載範圍變更。最終precache 21,268,765 bytes，原上限保持。
+
+## 2026-10-16 T132 第五階段收尾
+
+教材透過既有作者工具與唯一入口新增day166～175，分組沿用第五階段標題；按需載入、固定1倍、同步v3、四類練習與離線契約保持。保留PR132的建置純量尾欄位共用及等值／欄位順序／特殊鍵／獨立物件測試，無按需邊界、離線下載範圍或runtime dependency變更。最終precache 21,474,718／21,500,000 bytes，原大小上限保持，不恢復T122計時Gate。
