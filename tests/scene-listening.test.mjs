@@ -13,8 +13,8 @@ import { mergeProgress } from '../lib/progress-merge.mjs';
 import { getVoice } from '../curriculum/voices.mjs';
 
 const lessons = stages.find((s) => s.id === 'stage-1').lessons;
-test('通用聽解完成前140課原創教材，路線目標與完成課分開；同伴聲線固定', () => {
-  assert.equal(lessons.length, 140);
+test('通用聽解完成前150課原創教材，路線目標與完成課分開；同伴聲線固定', () => {
+  assert.equal(lessons.length, 150);
   assert.equal(
     generalListeningRoadmap.reduce((n, p) => n + p.target, 0),
     180,
@@ -116,14 +116,19 @@ test('通用聽解每組都有標題；尚無專屬標題的組沿用路線階�
     generalListeningGroupTitle(11),
     generalListeningRoadmap[3].title,
   );
-  // 120→121進入第五階段；141以後仍只屬規劃，不建立教材入口。
+  // 120→121進入第五階段；151以後仍只屬規劃，不建立教材入口。
   assert.equal(generalListeningGroupTitle(12), '情境詞彙');
   assert.equal(lessons[119].id, 'general-listening-120');
   assert.equal(lessons[120].id, 'general-listening-121');
   assert.equal(generalListeningGroupTitle(13), '情境詞彙');
   assert.equal(lessons[129].id, 'general-listening-130');
   assert.equal(lessons[130].id, 'general-listening-131');
-  assert.equal(lessons.at(-1).id, 'general-listening-140');
+  assert.equal(lessons[139].id, 'general-listening-140');
+  assert.equal(lessons[140].id, 'general-listening-141');
+  assert.equal(generalListeningGroupTitle(14), '情境詞彙');
+  assert.equal(lessons.at(-1).id, 'general-listening-150');
+  assert.equal(lessons.some((l) => l.id === 'general-listening-151'), false);
+  assert.equal(generalListeningGroupTitle(15), generalListeningRoadmap[5].title);
   assert.equal(
     generalListeningGroupTitle(17),
     generalListeningRoadmap[5].title,
