@@ -80,7 +80,8 @@ export function curriculumChunks() {
 import {registerRubyNotes} from ${JSON.stringify(resolve(root, 'lib/ruby-note-store.mjs'))};
 import {createPayloadLoader} from ${JSON.stringify(resolve(root, 'lib/payload-loader.mjs'))};
 import {unpackCurriculumIndex} from ${JSON.stringify(resolve(root, 'lib/curriculum-pack.mjs'))};
-export const curriculumSummary=unpackCurriculumIndex(${JSON.stringify(packCurriculumIndex(curriculumSummary))});
+import packedIndex from ${JSON.stringify(PREFIX + 'packed-index')};
+export const curriculumSummary=unpackCurriculumIndex(packedIndex);
 export {generalListeningRoadmap,generalListeningGroupTitle,GENERAL_LISTENING_GROUP_SIZE} from ${JSON.stringify(resolve(root, 'curriculum/general-listening.mjs'))};
 export const gameMeaningDistractors=${JSON.stringify(gameMeaningDistractors)};
 registerRubyNotes(${JSON.stringify(notesFor(curriculumSummary))});
@@ -107,6 +108,8 @@ export async function loadLessonAudioPaths(id){const l=await loadLesson(id);if(!
     },
     load(id) {
       if (id === '\0' + PREFIX + 'entry') return facade;
+      if (id === '\0' + PREFIX + 'packed-index')
+        return serializeCurriculumPayload(packCurriculumIndex(curriculumSummary));
       if (id.startsWith('\0' + PREFIX)) {
         const payload = payloads.get(id.slice(PREFIX.length + 1));
         if (payload) return serializeCurriculumPayload(payload);

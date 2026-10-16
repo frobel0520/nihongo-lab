@@ -20,20 +20,26 @@ export function serializeCurriculumPayload(value) {
       }
   };
   visit(data);
-  const strings = [...counts]
-    .filter(
-      ([text, count]) =>
-        count > 1 && Buffer.byteLength(JSON.stringify(text)) >= 24,
-    )
-    .map(([text]) => text);
+  /** @type {string[]} */
+  const strings = [];
+  // Include both the table entry and every emitted reference. Short, frequent
+  // readings can save bytes too; a fixed minimum length misses those repeats.
+  for (const [text, count] of counts) {
+    const literalBytes = Buffer.byteLength(JSON.stringify(text));
+    const referenceBytes = 'strings[]'.length + String(strings.length).length;
+    if (count > 1 && (count - 1) * literalBytes > count * referenceBytes + 1)
+      strings.push(text);
+  }
   const positions = new Map(strings.map((text, i) => [text, i]));
   // Repeated audio directories stay ordinary strings after module evaluation.
   // Count emitted occurrences: a shared value appears only once in its table.
+  // Identifier namespaces use the same build-only prefix sharing as audio paths.
+  const prefixOf = (/** @type {string} */ text) =>
+    text.slice(0, Math.max(text.lastIndexOf('/'), text.lastIndexOf(':')) + 1);
   /** @type {Map<string,number>} */
   const pathCounts = new Map();
   for (const [text, count] of counts) {
-    if (!text.startsWith('audio/')) continue;
-    const prefix = text.slice(0, text.lastIndexOf('/') + 1);
+    const prefix = prefixOf(text);
     if (prefix.length <= 6) continue;
     pathCounts.set(
       prefix,
@@ -56,7 +62,7 @@ export function serializeCurriculumPayload(value) {
   }
   /** @param {string} text */
   const encodePath = (text) => {
-    const prefix = text.slice(0, text.lastIndexOf('/') + 1);
+    const prefix = prefixOf(text);
     const index = pathPositions.get(prefix);
     return index === undefined
       ? JSON.stringify(text)
