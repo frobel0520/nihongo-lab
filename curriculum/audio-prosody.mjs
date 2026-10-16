@@ -8,6 +8,12 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T131：文脈讀音與孤立詞重音，保留其他原有覆寫。
+"audio/stage-1/general-listening-131/vocab-dc77d5205f.mp3": {"text":"長さ","reading":"ながさ","kana":"ナ'ガサ","reason":"T131：長さ在本課讀ながさ，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-131/vocab-89a4494fcf.mp3": {"text":"重さ","reading":"おもさ","kana":"オモサ'","reason":"T131：重さ在本課讀おもさ，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-132/dlg-d5798c6454.mp3": {"text":"じゃあ、押せばもっと早く開くのかな。","reading":"じゃあ、 おせば もっと はやく あくのかな。","kana":"ジャ'ア、オセ'バ/モ'ット/ハ'ヤク/アク'/ノカナ'","reason":"T131：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
+"audio/stage-1/general-listening-136/vocab-ab2a7c75c0.mp3": {"text":"五分","reading":"ごふん","kana":"ゴフン'","reason":"T131：五分在本課讀ごふん，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
+"audio/stage-1/general-listening-137/vocab-3b03c66b0e.mp3": {"text":"行","reading":"ぎょう","kana":"ギョ'ウ","reason":"T131：行在本課讀ぎょう，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
 // T130：文脈讀音與孤立詞重音，保留其他原有覆寫。
 "audio/stage-1/general-listening-122/vocab-d7c347d5f9.mp3": {"text":"描く","reading":"かく","kana":"カ'ク","reason":"T130：描く在本課讀かく，核對Kanjium孤立詞重音；不以孤立詞推定整句語調。","reference":"kanjium"},
 "audio/stage-1/general-listening-122/gram-6db6d5fcee.mp3": {"text":"壁に矢印が描いてある。","reading":"かべに やじるしが かいてある。","kana":"カベニ'/ヤジ'ルシガ/カ'イテ/ア'ル","reason":"T130：依本課文脈與明示ruby核對讀音，僅把歧義字改為假名重查並置換受影響片語，其他原文解析的片語、重音與句界保持。","reference":"voicevox"},
