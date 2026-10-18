@@ -9,7 +9,7 @@ Vite / React + TypeScript，本機瀏覽器執行，local-first。目前無後�
 - `app/views/ShadowingView.tsx`：跟讀。播放一次、留白（見 `lib/shadowing.mjs`）讓使用者念、再播，一直重複到按停止（沒有輪數上限，T34），也可以只「聽一次」，可隱藏原文；音檔播放失敗顯示明確錯誤；按停止造成的 `AbortError` 不當成錯誤。不含調速。
 - `lib/`：無 DOM 的純邏輯，用 `.mjs` + JSDoc 型別，讓 `node --test` 直接測、TypeScript 也能匯入。`srs.mjs`（FSRS 排程〔T53，原為 SM-2 簡化版〕、單字卡、複習／新卡兩區的牌組）、`srs-session.mjs`（一輪複習的流程：上一張／下一張、評分後跳到哪一張、回頭改評分）、`dictation.mjs`（聽寫句子清單、逐字比對）、`progress.mjs`（進度資料形狀、解析驗證、聽寫紀錄）、`shadowing.mjs`（跟讀留白長度）。
 - `app/lib/storage.ts`、`app/useProgress.ts`：`localStorage` 讀寫（key `nihongo-lab:progress:v1`）與 React 狀態；存檔壞掉時原文備份到 `…:backup` 並提示，寫入失敗時畫面顯示訊息但仍可繼續學習。
-- `curriculum/lessons.mjs`：學習階段與課程資料的單一來源，目前第 0 階段有 25 課、第 1 階段有 160 課、第 2 階段有 10 課（八課動畫特訓、口語轉換表、動畫與遊戲名句），第 3 階段仍為規劃（`lessons: []`）。
+- `curriculum/lessons.mjs`：學習階段與課程資料的單一來源，目前第 0 階段有 25 課、第 1 階段有 170 課、第 2 階段有 10 課（八課動畫特訓、口語轉換表、動畫與遊戲名句），第 3 階段仍為規劃（`lessons: []`）。
 - `curriculum/voices.mjs`：教材語音角色陣容，對應本機 VOICEVOX 引擎（127.0.0.1:50021）的 speaker id。2026-10-03 最終選角後保留 8 個角色：春日部つむぎ、雨晴はう、小夜/SAYO、猫使ビィ、東北ずん子、青山龍星、黒沢冴白、VOICEVOX Nemo 男声2。
 - `scripts/synthesize.mjs`：呼叫 VOICEVOX 引擎產生 wav、再用 ffmpeg 轉 96kbps mp3 的教材語音產生腳本；只在本機產生教材時用，不是網站執行期依賴。已用 ずんだもん 實測一句，輸出 50KB mp3，音質正常。
 - `tests/curriculum.test.mjs`：驗證 curriculum 資料結構契約。
@@ -698,3 +698,12 @@ T133的共用決策除ID前綴與packed索引外，對完整配音後仍超出�
 T133讀音顯示補修：SceneListening的目前題目與答案回顧都沿用RubyText，透過既有偏好與ruby-note-store顯示已登錄讀音，與文法／練習／解析一致。題目、作答狀態、scene ID、播放控制與離線API保持。React SSR回歸使用既有Vite與React開發工具載入真實元件，無新增dependency，不以原始碼字串比對代替渲染驗證。
 
 讀音顯示補修版300 tests／typecheck／lint、正式build／原bundle及同一建置十課線上／離線覆驗通過，precache21,475,086 bytes；11段顯示核對及正式站／發布範圍分列於release-audit。
+
+
+## 2026-10-18 T134 第六階段161～170課
+
+新增day186～195原創教材，通用170／180課、5950音檔，171～180保持規劃。沿用defineGeneralLesson與唯一入口，甲hau女聲／乙nemo2男聲固定、單字八聲線；官方VOICEVOX與官方Nemo由產製端按style轉送，不修改產品依賴。350 jobs最終pathset與引用精確一致，讀音／ruby／文脈覆寫及MP3解碼／非靜音／metadata驗證後才解除待配音旗標。既有195課／遊戲與catalog獨立fixture、7835音檔及311覆寫保持。
+
+serializeCurriculumPayload在JSON正規化後按有序Object.keys建立欄位結構索引，重複至少五次且至少四欄的形狀輸出局部一般ESM物件建構函式。參數依原Object.values順序傳入，回傳字面物件保留原鍵序，每次呼叫都是新物件；特殊own keys仍使用計算屬性。不同鍵序不共用形狀；不共用可變值、不引入新資料格式／decoder。PR132連續純量尾欄位展開仍保留；展開頭部明確呼叫encodeObjectLiteral，避免新的函式呼叫輸出被當成物件字面值截斷。全部payload實際ESM深度等值、JSON鍵序、特殊鍵、巢狀值修改獨立性及packed索引往返回歸保護此機制。原bundle上限、資產集合、載入與離線契約不變，實測大小見release-audit，不恢復T122時間Gate。
+
+新漢字集合觸發兩段舊文字審閱，91課目標內前に補まえ、113課中文不標。實際React SSR重現目標直接輸出字串不顯示ruby，SceneListening改以既有RubyText顯示scene.goal，保留PR138題目及答案回顧的相同路徑與furigana偏好；舊原文／音檔／scene ID不變。延伸原SSR測試先紅後綠，91課加入375寬線上／真正離線顯示及完整聽解回歸。此為明確顯示修正，不是全站人工語文／語音驗收。

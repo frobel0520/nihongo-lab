@@ -424,3 +424,16 @@ test('T133: preserve all 185 pre-batch lessons including revised 149 from d1ef42
     snapshot.sha256,
   );
 });
+
+
+test('T134: preserve all 195 pre-batch lessons, game data and catalog IDs from ea99d66', () => {
+  const snapshot = JSON.parse(readFileSync(new URL('./fixtures/curriculum-ea99d66.json', import.meta.url), 'utf8'));
+  const previousStages = stages.map((stage) => ({
+    ...stage,
+    title: stage.id === 'stage-1' ? '第 1 階段：動漫／遊戲通用聽解（前160課）' : stage.title,
+    lessons: stage.lessons.filter((l) => !l.id.startsWith('general-listening-') || Number(l.id.split('-').at(-1)) <= 160),
+  }));
+  assert.equal(previousStages.flatMap((s) => s.lessons).length, snapshot.lessons);
+  assert.equal(sha(JSON.stringify({ stages: previousStages, gameCharacterStudy })), snapshot.sha256);
+  assert.equal(sha(JSON.stringify(createStudyCatalog(previousStages, gameCharacterStudy))), snapshot.catalogSha256);
+});
