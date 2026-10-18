@@ -139,3 +139,30 @@ test('identifier prefix sharing leaves authored colons, slashes and prototype-li
   assert.equal(result[1].id, data[1].id);
   assert.ok(Buffer.byteLength(source) < Buffer.byteLength('export default ' + JSON.stringify(data)));
 });
+
+test('repeated record layouts preserve argument values, key order and fresh nested objects', async () => {
+  const rows = Array.from({ length: 12 }, (_, i) => ({
+    ['__proto__']: `own-${i}`,
+    constructor: i,
+    'quoted " key': [i, false, null, 'row0(strings[0])'],
+    nested: { value: i },
+    flag: i % 2 === 0,
+    empty: '',
+  }));
+  // Reverse one layout so sharing a similar set of keys cannot reorder it.
+  const reversed = rows.map((r) => Object.fromEntries(Object.entries(r).reverse()));
+  const expected = { rows, reversed };
+  const result = await evaluate(serializeCurriculumPayload(expected));
+  assert.deepEqual(result, expected);
+  assert.equal(JSON.stringify(result), JSON.stringify(expected));
+  for (const row of [...result.rows, ...result.reversed]) {
+    assert.ok(Object.hasOwn(row, '__proto__'));
+    assert.equal(Object.getPrototypeOf(row), Object.prototype);
+  }
+  result.rows[0].nested.value = 100;
+  result.rows[0]['quoted " key'].push('changed');
+  assert.equal(result.reversed[0].nested.value, 0);
+  assert.equal(result.rows[1].nested.value, 1);
+  assert.equal(result.reversed[0]['quoted " key'].length, 4);
+  assert.equal(rows[0].nested.value, 0);
+});
