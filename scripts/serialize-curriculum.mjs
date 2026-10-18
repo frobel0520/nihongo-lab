@@ -10,14 +10,22 @@ export function serializeCurriculumPayload(value) {
   const counts = new Map();
   /** @type {Map<string,number>} */
   const keyCounts = new Map();
+  /** @type {Map<string, {keys:string[], count:number}>} */
+  const shapes = new Map();
   const visit = (/** @type {unknown} */ item) => {
     if (typeof item === 'string') counts.set(item, (counts.get(item) ?? 0) + 1);
     else if (Array.isArray(item)) item.forEach(visit);
-    else if (item && typeof item === 'object')
+    else if (item && typeof item === 'object') {
+      const keys = Object.keys(item);
+      const signature = JSON.stringify(keys);
+      const shape = shapes.get(signature) ?? { keys, count: 0 };
+      shape.count++;
+      shapes.set(signature, shape);
       for (const [key, entry] of Object.entries(item)) {
         keyCounts.set(key, (keyCounts.get(key) ?? 0) + 1);
         visit(entry);
       }
+    }
   };
   visit(data);
   /** @type {string[]} */
@@ -87,6 +95,19 @@ export function serializeCurriculumPayload(value) {
   // Share scalar field tails at build time; spread keeps row order and fresh objects.
   /** @type {Record<string,unknown>[]} */
   const shared = [];
+  // Build-only constructors share field layout, never authored object values.
+  // Each call creates its own object and preserves the original property order.
+  const factories = [...shapes.entries()].filter(([, shape]) =>
+    shape.count >= 5 && shape.keys.length >= 4,
+  );
+  const factoryPositions = new Map(factories.map(([signature], i) => [signature, i]));
+  /** @param {string} key */
+  const encodeKey = (key) => keyPositions.has(key)
+    ? `[keys[${keyPositions.get(key)}]]`
+    : key === '__proto__' ? '["__proto__"]' : JSON.stringify(key);
+  /** @param {object} item @returns {string} */
+  const encodeObjectLiteral = (item) => `{${Object.entries(item)
+    .map(([key, entry]) => `${encodeKey(key)}:${encode(entry)}`).join(',')}}`;
   /** @returns {Array<[string, unknown]>} */
   const suffix = (/** @type {unknown} */ row) =>
     row && !Array.isArray(row) && typeof row === 'object'
@@ -138,7 +159,7 @@ export function serializeCurriculumPayload(value) {
       ) {
         shared.push(template);
         for (; i < end; i++) {
-          const head = encode(
+          const head = encodeObjectLiteral(
             Object.fromEntries(suffix(items[i]).slice(0, -common)),
           );
           output.push(
@@ -155,16 +176,18 @@ export function serializeCurriculumPayload(value) {
       return `strings[${positions.get(item)}]`;
     if (typeof item === 'string') return encodePath(item);
     if (Array.isArray(item)) return encodeArray(item);
-    if (item && typeof item === 'object')
-      return `{${Object.entries(item)
-        .map(
-          ([key, entry]) =>
-            `${keyPositions.has(key) ? `[keys[${keyPositions.get(key)}]]` : key === '__proto__' ? '["__proto__"]' : JSON.stringify(key)}:${encode(entry)}`,
-        )
-        .join(',')}}`;
+    if (item && typeof item === 'object') {
+      const factory = factoryPositions.get(JSON.stringify(Object.keys(item)));
+      if (factory !== undefined)
+        return `row${factory}(${Object.values(item).map(encode).join(',')})`;
+      return encodeObjectLiteral(item);
+    }
     return JSON.stringify(item);
   };
   const body = encode(data);
   const sharedSource = shared.map(encode).join(',');
-  return `${paths.length ? `const paths=${JSON.stringify(paths)};` : ''}${strings.length ? `const strings=[${strings.map(encodePath).join(',')}];` : ''}${keys.length ? `const keys=${JSON.stringify(keys)};` : ''}${shared.length ? `const shared=[${sharedSource}];` : ''}export default ${body};`;
+  const factorySource = factories.map(([, { keys }], i) =>
+    `const row${i}=(${keys.map((_, j) => `v${j}`).join(',')})=>({${keys.map((key, j) => `${encodeKey(key)}:v${j}`).join(',')}});`,
+  ).join('');
+  return `${paths.length ? `const paths=${JSON.stringify(paths)};` : ''}${strings.length ? `const strings=[${strings.map(encodePath).join(',')}];` : ''}${keys.length ? `const keys=${JSON.stringify(keys)};` : ''}${factorySource}${shared.length ? `const shared=[${sharedSource}];` : ''}export default ${body};`;
 }

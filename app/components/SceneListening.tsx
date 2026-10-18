@@ -124,7 +124,9 @@ export function SceneListening({
   return (
     <section className="card scene-listening">
       <h2>整段聽解：先聽，再理解</h2>
-      <p>{scene.goal}</p>
+      <p>
+        <RubyText text={scene.goal} />
+      </p>
       <p className="muted">
         原創情境 · {[...new Set(speakers)].join('／')}。先完整聽完 {lineCount}{' '}
         句，再回答 {questionCount} 題；全部作答後揭示原文。
