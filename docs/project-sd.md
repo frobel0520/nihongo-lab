@@ -720,3 +720,8 @@ T135目前教材盤點：180／180課、六階段各30課及1050音檔，合計6
 
 
 T135發布前最終驗證：306 tests／check、正式base build／原bundle／coverage，375寬十課完整線上與真斷網／350檔離線解碼、12入口與新180實練，以及91／149／156完整回歸通過。同170課容量修正減287,403 bytes，180課實測precache21,329,440／21,500,000（餘170,560）。180／180及6300音檔是內容交付，逐句人耳、完整真機與71舊JLPT仍待辦；正式站結果待發布後記錄，停止180不新增181。
+
+
+## T136 明確下載保留策略
+
+`lesson-audio-v5` 改作明確下載的保留快取，名稱不變，沒有搬移或先刪舊檔。頁面只接受完整200 audio/*回應，Cache API寫入失敗由下載結果逐檔回報，成功後再核對has。SW CacheFirst的downloadCachePolicy只接受完整音檔、保留RangeRequestsPlugin，cacheWillUpdate拒絕一般播放寫入；不再以播放metadata、固定筆數或檔案Date淘汰明確下載。故保留策略適用全教材而非以6300為上限；應用程式只在明確清快取時刪除，不能保證抵抗瀏覽器／OS清除。下載數由實際Cache API計算並提供重新檢查。回歸命令npm run test:pwa使用正式路徑build及隔離Chromium，規模與結果另記release-audit。

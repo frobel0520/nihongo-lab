@@ -26,7 +26,7 @@ export function createAudioStore(): AudioStore {
     async has(path) {
       const cache = await caches.open(AUDIO_CACHE_NAME);
       const cached = await cache.match(audioUrl(path));
-      return cached !== undefined && audioType(cached);
+      return cached?.status === 200 && audioType(cached);
     },
     async save(path) {
       const url = audioUrl(path);
