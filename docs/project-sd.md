@@ -9,7 +9,7 @@ Vite / React + TypeScript，本機瀏覽器執行，local-first。目前無後�
 - `app/views/ShadowingView.tsx`：跟讀。播放一次、留白（見 `lib/shadowing.mjs`）讓使用者念、再播，一直重複到按停止（沒有輪數上限，T34），也可以只「聽一次」，可隱藏原文；音檔播放失敗顯示明確錯誤；按停止造成的 `AbortError` 不當成錯誤。不含調速。
 - `lib/`：無 DOM 的純邏輯，用 `.mjs` + JSDoc 型別，讓 `node --test` 直接測、TypeScript 也能匯入。`srs.mjs`（FSRS 排程〔T53，原為 SM-2 簡化版〕、單字卡、複習／新卡兩區的牌組）、`srs-session.mjs`（一輪複習的流程：上一張／下一張、評分後跳到哪一張、回頭改評分）、`dictation.mjs`（聽寫句子清單、逐字比對）、`progress.mjs`（進度資料形狀、解析驗證、聽寫紀錄）、`shadowing.mjs`（跟讀留白長度）。
 - `app/lib/storage.ts`、`app/useProgress.ts`：`localStorage` 讀寫（key `nihongo-lab:progress:v1`）與 React 狀態；存檔壞掉時原文備份到 `…:backup` 並提示，寫入失敗時畫面顯示訊息但仍可繼續學習。
-- `curriculum/lessons.mjs`：學習階段與課程資料的單一來源，目前第 0 階段有 25 課、第 1 階段有 170 課、第 2 階段有 10 課（八課動畫特訓、口語轉換表、動畫與遊戲名句），第 3 階段仍為規劃（`lessons: []`）。
+- `curriculum/lessons.mjs`：學習階段與課程資料的單一來源，目前第 0 階段有 25 課、第 1 階段有 180 課、第 2 階段有 10 課（八課動畫特訓、口語轉換表、動畫與遊戲名句），第 3 階段仍為規劃（`lessons: []`）。
 - `curriculum/voices.mjs`：教材語音角色陣容，對應本機 VOICEVOX 引擎（127.0.0.1:50021）的 speaker id。2026-10-03 最終選角後保留 8 個角色：春日部つむぎ、雨晴はう、小夜/SAYO、猫使ビィ、東北ずん子、青山龍星、黒沢冴白、VOICEVOX Nemo 男声2。
 - `scripts/synthesize.mjs`：呼叫 VOICEVOX 引擎產生 wav、再用 ffmpeg 轉 96kbps mp3 的教材語音產生腳本；只在本機產生教材時用，不是網站執行期依賴。已用 ずんだもん 實測一句，輸出 50KB mp3，音質正常。
 - `tests/curriculum.test.mjs`：驗證 curriculum 資料結構契約。
@@ -714,3 +714,9 @@ serializeCurriculumPayload在JSON正規化後按有序Object.keys建立欄位結
 保持JSON正規化及既有純量尾欄位／物件形狀共用；新增建置時字面ruby片段共用，以一般字串串接還原原值，不增加decoder。純量尾欄位記錄另共用頭部鍵布局，以局部函式接收原值與scalar tail，每次仍建立獨立物件並依原鍵序展開。尾索引在遞迴編碼頭部前保存，避免巢狀共享改變索引。特殊own keys、跳脫文字、巢狀可變值、鍵序與所有lesson／category／音檔清單ESM往返均有回歸。載入邊界、資產集合、四類、v3與離線契約保持，未放寬門檻或新增runtime dependency。
 
 原170課正式build precache21,422,510；只做ruby片段共用降為21,382,472，結合尾記錄頭部共用後為21,135,107 bytes，減少287,403、原上限21,500,000及468URL保持。main gzip64,733、CSS gzip4,817。以最後十課密度作純記憶體估算，新增序列化ESM176,667 bytes，加50%緩衝265,001，預估可容納；這不是實際新課或最終驗收，完成後仍以正式build實測為準。304 tests／typecheck／lint及正式base build／perf:bundle通過。最初測試字串多餘跳脫使lint失敗，修正後整套check再通過；未降低規則。
+
+
+T135目前教材盤點：180／180課、六階段各30課及1050音檔，合計6300通用音檔；最後十課與配音完成，驗證／發布結果依release-audit。當前完成介面須同時符合課數與音檔就緒，不連到181、不等同品質全部驗收；人工語音、完整真機與71舊JLPT及Android部分紀錄保持。
+
+
+T135發布前最終驗證：306 tests／check、正式base build／原bundle／coverage，375寬十課完整線上與真斷網／350檔離線解碼、12入口與新180實練，以及91／149／156完整回歸通過。同170課容量修正減287,403 bytes，180課實測precache21,329,440／21,500,000（餘170,560）。180／180及6300音檔是內容交付，逐句人耳、完整真機與71舊JLPT仍待辦；正式站結果待發布後記錄，停止180不新增181。
