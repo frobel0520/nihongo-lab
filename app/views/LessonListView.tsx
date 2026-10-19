@@ -52,6 +52,10 @@ export function LessonListView({
   const stats = summarizeIds(CARD_IDS, progress.srs, toDateString());
   const byLesson = indexedLessonProgress(curriculumSummary, progress);
   const selected = stages.filter((stage) => stage.id === stageId);
+  const generalTarget = generalListeningRoadmap.reduce((sum, phase) => sum + phase.target, 0);
+  const generalComplete = selected.some((stage) => stage.id === 'stage-1' &&
+    stage.lessons.length === generalTarget &&
+    stage.lessons.every((lesson) => lesson.audioReady !== false));
 
   const lessonList = (lessons: LessonIndex[]) => (
     <ul className="lesson-list">
@@ -177,9 +181,11 @@ export function LessonListView({
               分鐘：先聽整段 → 作答 → 學單字與句型 → 看解析並跟讀。
             </p>
             <details>
-              <summary>六階段學習路線（規劃 180 課）</summary>
+              <summary>六階段學習路線（{generalComplete ? '已提供' : '規劃'} {generalTarget} 課）</summary>
               <p className="muted">
-                目前完成起始 {selected[0].lessons.length} 課，其餘為擴充方向。
+                {generalComplete
+                  ? '六階段180課教材與配音已提供；完成練習不代表已掌握陌生作品，可按需要重聽與複習。'
+                  : `目前提供 ${selected[0].lessons.length} 課，其餘為擴充方向；音檔狀態以各課標示為準。`}
               </p>
               <ol>
                 {generalListeningRoadmap.map((phase) => (

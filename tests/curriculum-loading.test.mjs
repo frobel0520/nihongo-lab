@@ -437,3 +437,15 @@ test('T134: preserve all 195 pre-batch lessons, game data and catalog IDs from e
   assert.equal(sha(JSON.stringify({ stages: previousStages, gameCharacterStudy })), snapshot.sha256);
   assert.equal(sha(JSON.stringify(createStudyCatalog(previousStages, gameCharacterStudy))), snapshot.catalogSha256);
 });
+
+test('T135: preserve all205 published lessons and catalog IDs including149/156 revisions from aadcd63', () => {
+  const snapshot = JSON.parse(readFileSync(new URL('./fixtures/curriculum-aadcd63.json', import.meta.url), 'utf8'));
+  const previousStages = stages.map((stage) => ({
+    ...stage,
+    title: stage.id === 'stage-1' ? '第 1 階段：動漫／遊戲通用聽解（前170課）' : stage.title,
+    lessons: stage.lessons.filter((lesson) => !lesson.id.startsWith('general-listening-') || Number(lesson.id.split('-').at(-1)) <= 170),
+  }));
+  assert.equal(previousStages.flatMap((stage) => stage.lessons).length, snapshot.lessons);
+  assert.equal(sha(JSON.stringify(previousStages)), snapshot.stagesSha256);
+  assert.equal(sha(JSON.stringify(createStudyCatalog(previousStages, gameCharacterStudy))), snapshot.catalogSha256);
+});
