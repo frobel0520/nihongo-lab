@@ -104,6 +104,7 @@ export function OfflineAudio({
       <h3>離線音檔</h3>
       <p className="muted">
         播放不會自動存檔；要在沒有網路時聽音檔，請先在有網路時下載。文字內容本來就能離線閱讀。
+        已下載音檔不會因播放其他音檔而由本網站自動刪除；瀏覽器或系統清除儲存空間後仍需重新下載。
         {counts &&
           `　已存：${lessonPaths.length > 0 ? `${lessonLabel} ${counts.lesson} / ${lessonPaths.length}，` : ''}${allLabel} ${counts.all} / ${allPaths.length}。`}
       </p>
@@ -127,6 +128,9 @@ export function OfflineAudio({
           onClick={() => run(allPaths)}
         >
           {allDone ? `${allLabel}音檔已存好` : `下載${allLabel}音檔`}
+        </button>
+        <button type="button" className="btn" disabled={busy} onClick={() => void refresh()}>
+          重新檢查下載狀態
         </button>
       </div>
       <output className="muted status-line">

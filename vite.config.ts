@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import { curriculumChunks } from './scripts/curriculum-chunks.mjs';
 import { VitePWA } from 'vite-plugin-pwa';
 import { AUDIO_CACHE_NAME, AUDIO_ROUTE_PATTERN } from './lib/offline.mjs';
+import { downloadCachePolicy } from './lib/download-cache-policy.mjs';
 
 export default defineConfig({
   base: process.env.VITE_BASE_PATH || '/',
@@ -54,15 +55,11 @@ export default defineConfig({
             urlPattern: AUDIO_ROUTE_PATTERN,
             handler: 'CacheFirst',
             options: {
-              // 頁面端「下載音檔供離線使用」（lib/offline.mjs）會存進同一個快取，名稱必須一致。
+              // 保留既有下載，不搬移／刪除 v5。只有明確下載可寫入，播放不自動儲存。
               cacheName: AUDIO_CACHE_NAME,
+              plugins: [downloadCachePolicy],
               // <audio> 一律送 Range 請求；快取裡是整檔（200），要由這個外掛切成 206 回給播放器。
               rangeRequests: true,
-              // 25 課預估約 1100 個音檔，上限抓寬一點，避免下載完的音檔被淘汰。
-              expiration: {
-                maxEntries: 3000,
-                maxAgeSeconds: 60 * 60 * 24 * 365,
-              },
             },
           },
         ],
