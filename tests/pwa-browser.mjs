@@ -30,7 +30,8 @@ const server = createServer(async (req, res) => {
     const file = resolve(roots.current, relative || 'index.html');
     assert.ok(file.startsWith(roots.current + '/'));
     const bytes = await readFile(file);
-    res.setHeader('Content-Type', ({ '.js': 'text/javascript', '.html': 'text/html', '.css': 'text/css', '.webmanifest': 'application/manifest+json', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.mp3': 'audio/mpeg' })[extname(file)] ?? 'application/octet-stream');
+    res.setHeader('Content-Type', ({ '.js': 'text/javascript', '.html': 'text/html', '.css': 'text/css', '.webmanifest': 'application/manifest+json', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.mp3': 'audio/mp3' })[extname(file)] ?? 'application/octet-stream');
+    if (extname(file) === '.mp3') res.setHeader('Vary', 'Accept-Encoding');
     res.setHeader('Cache-Control', 'no-cache');
     res.end(bytes);
   } catch { res.writeHead(404).end('missing'); }
@@ -133,11 +134,18 @@ try {
   assert.equal(await q.getByRole('button', { name: '本課音檔已全部存好', exact: true }).count(), 0);
   await q.getByRole('button', { name: '下載本課音檔', exact: true }).click();
   await q.getByRole('button', { name: '本課音檔已全部存好', exact: true }).waitFor();
+  await quotaContext.setOffline(true);
+  await q.reload();
+  await q.getByRole('button', { name: '播放完整對話', exact: true }).click();
+  await q.waitForFunction(() => { const a = document.querySelector('.scene-listening audio'); return a && !a.paused && a.readyState >= 2; });
+  await q.getByRole('button', { name: '停止對話', exact: true }).click();
+  await q.getByText('下載本課音檔供離線使用', { exact: true }).click();
+  await q.getByRole('button', { name: '本課音檔已全部存好', exact: true }).waitFor();
   await q.evaluate(async path => { await (await caches.open('lesson-audio-v5')).delete(new URL(path, location.href)); }, lesson.vocab[0].audio);
   await q.getByRole('button', { name: '重新檢查下載狀態', exact: true }).click();
   await q.getByRole('button', { name: '下載本課音檔', exact: true }).waitFor();
   assert.deepEqual(quotaErrors, []);
-  console.log(JSON.stringify({ scenario: 'quota-and-real-cache-state', ordinaryPlaybackNotStored: true, quotaFailureReported: true, retrySucceeded: true, removedFileDetected: true, pageerrors: quotaErrors.length }));
+  console.log(JSON.stringify({ scenario: 'quota-and-real-cache-state', ordinaryPlaybackNotStored: true, quotaFailureReported: true, retrySucceeded: true, removedFileDetected: true, nativeOfflinePlaybackWithVary: true, pageerrors: quotaErrors.length }));
   await quotaContext.close();
 } finally {
   await browser.close();

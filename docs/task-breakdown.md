@@ -4,9 +4,11 @@
 
 以main `4ac67a3`核實工程review兩項P2。F1獨立提交 `26e6cf9`：沿用v5明確下載快取，不搬移或刪舊下載，播放不寫入、不按筆數／日期淘汰。全教材8535真實UI下載並逐檔worker讀取後仍保留8535；一次503僅補抓1檔、真正離線重載與邊界Range抽驗通過。容量錯誤另在隔離頁面Cache.put邊界注入QuotaExceededError，明確回報、重試成功；重新檢查可偵測實際被移除的檔案。瀏覽器／OS清除儲存不在保證範圍。
 
+正式站前置抽驗另確認MP3的Vary: Accept-Encoding會讓原生媒體與下載快取不匹配，已補上公開MP3的ignoreVary讀取；以Pages標頭重現原生離線播放，修正前失敗、修正後通過。兩項原發現保留，新增有效並行下載不被失敗回應刪除的回歸。
+
 F2改為新版worker等待、使用者確認後套用；有其他本站分頁時拒絕啟用，保護他頁尚未送出輸入。兩個後續真實production build／各自worker與4ac67a3實際舊站產物已驗證：等待時舊頁仍可離線載入，部分安裝失敗保留舊版且可重試，多分頁不強制重載，關閉他頁後可離線明確套用。已存合成v3進度與21個跨四類下載保留；更新後12練習入口、四類SRS評分／聽寫作答保存及1倍跟讀通過，零pageerror／chunk404／375寬溢位。
 
-最終309 tests／check、正式base build、原perf:bundle通過：main gzip65653、CSS4817、precache21332888／21500000 bytes，479去重URL，餘167112。225實際payload與Node來源／鍵序一致且皆納入precache；教材、音檔、ID、同步v3、網址／返回與1倍保持，無新增runtime dependency，不恢復T122時間Gate。瀏覽器回歸已納入CI，PR／CI／部署及正式站結果待實際完成補記。首度從舊版升級需關閉所有本站頁面（含PWA）；舊程式無法顯示新增的等待提示，後續版才可使用新提示流程。
+最終310 tests／check、正式base build、原perf:bundle通過：main gzip65649、CSS4817、precache21332988／21500000 bytes，479去重URL，餘167012。225實際payload與Node來源／鍵序一致且皆納入precache；教材、音檔、ID、同步v3、網址／返回與1倍保持，無新增runtime dependency，不恢復T122時間Gate。瀏覽器回歸已納入CI，PR／CI／部署及正式站結果待實際完成補記。首度從舊版升級需關閉所有本站頁面（含PWA）；舊程式無法顯示新增的等待提示，後續版才可使用新提示流程。
 
 本輪不新增教材或開始品質review；逐句人耳、完整真機、71舊JLPT與既有Android部分驗證保持，發布驗收完成後停止。
 

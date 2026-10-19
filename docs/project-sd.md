@@ -736,3 +736,5 @@ VitePWA使用prompt、skipWaiting:false，安裝完成先等待，舊worker繼�
 npm run test:pwa透過UI下載全8535檔、真實worker Range讀取與離線重載，另注入頁面Cache.put容量錯誤。npm run test:pwa:updates在repo外來源副本加入兩個測試用HTML發布標記，分別執行真正Vite／Workbox production build，再測等待、多分頁、離線、失敗安裝與合成進度；沒有改寫輸出worker或mock import。可另用npm run test:pwa:update -- --old-dist <舊build> --dist <修正版build> --next-dist <後續build>驗證歷史版本。本機額外以4ac67a3正式產物驗證第一次遷移；CI執行候選版本的連續兩次真實更新。playwright-core僅為devDependency，Chrome可由CHROME_PATH指定。
 
 首次遷移的適用邊界：新worker尚未啟用時仍執行舊版快取策略，因此應先關閉全部本站頁面完成第一次升級，再進行大量離線下載；新策略不會追溯復原舊worker或瀏覽器此前已刪除的檔案。第一次升級後既有仍在v5的下載直接沿用，無破壞性遷移。
+
+Pages回應會帶Vary: Accept-Encoding，原生媒體與fetch下載使用不同編碼協商值；公開MP3在HTTP解碼後同一URL對應同一內容，因此SW及下載has使用ignoreVary讀取既有完整音檔，仍保留200／audio/*驗證。此策略只用於公開靜態MP3下載路由，不用於同步或登入請求；不搬移、改寫音檔或刪除既有下載。失敗網路回應只清理髒資料，不刪除並行保存的有效下載；quota寫入失敗不先刪好檔。瀏覽器回歸的MP3伺服器使用與Pages相同Vary與audio/mp3標頭，下載後真正斷網重載並透過原生audio播放，避免只測fetch Range而漏掉媒體請求匹配。測試建置fixture的自有輸出先清空，兩版皆跑原perf:bundle，避免重跑時混入舊chunk。

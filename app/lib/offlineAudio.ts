@@ -25,7 +25,7 @@ export function createAudioStore(): AudioStore {
   return {
     async has(path) {
       const cache = await caches.open(AUDIO_CACHE_NAME);
-      const cached = await cache.match(audioUrl(path));
+      const cached = await cache.match(audioUrl(path), { ignoreVary: true });
       return cached?.status === 200 && audioType(cached);
     },
     async save(path) {
@@ -33,7 +33,11 @@ export function createAudioStore(): AudioStore {
       const response = await fetch(downloadUrl(url));
       const cache = await caches.open(AUDIO_CACHE_NAME);
       if (response.status !== 200 || !audioType(response)) {
-        await cache.delete(url);
+        // A parallel downloader may already have saved a valid file. A failed
+        // response must not erase that download while cleaning up dirty data.
+        const cached = await cache.match(url, { ignoreVary: true });
+        if (cached && (cached.status !== 200 || !audioType(cached)))
+          await cache.delete(url, { ignoreVary: true });
         throw new Error(
           response.status !== 200
             ? `HTTP ${response.status}`

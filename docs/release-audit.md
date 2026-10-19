@@ -1601,3 +1601,12 @@ F2採prompt等待與明確套用，多分頁由等待worker實際列出client後
 整合完整check309 tests／typecheck／lint、正式/nihongo-lab/ build及原perf:bundle通過；main raw206732／gzip65653、CSS gzip4817、precache21332888 bytes／479去重URL，餘167112。原630000／5800／21500000上限保持。最終產品build再跑8535真實UI下載／逐檔worker讀取保留8535、一次503僅補抓1檔、真斷網重載三個邊界Range抽讀通過；另注入Cache.put的QuotaExceededError，UI明確失敗且重試成功，人工刪除一檔後重新檢查能撤回已存好狀態。這不是實際填滿裝置容量的試驗。225實際payload值／鍵序與唯一入口一致且均precache，6300通用音檔契約保持；curriculum、public/audio、核心進度／同步／路由沒有變更。PR／CI／發布及正式站另待實際結果，不預記通過。人耳、完整真機、71舊JLPT與既有Android紀錄不變。
 
 測試時序補充：Playwright waitForFunction對async predicate未等待其真值，曾讀到waiting暫態後又觀察到installing，當時controllerchange計數為0；這是測試等待錯誤，不是接管的產品缺陷。改用有期限的實際await輪詢，等待候選waiting且無installing後，完整重跑實際4ac67a3→修正版→後續版，全部步驟通過；原autoUpdate對照無法達到穩定waiting。首次遷移在新worker啟用前仍受舊策略控制，不宣稱能復原已被舊版／系統刪掉的下載。
+
+
+## T136 正式站前置抽驗的編碼協商相容補驗
+
+發布前隔離正式站四類練習抽驗，原生N5跟讀離線播放回MEDIA_ERR_SRC_NOT_SUPPORTED；explicit fetch仍206，不能因此記成播放器通過。出錯MP3與repo逐byte相同，ffmpeg完整解碼通過，audio/mp3與audio/mpeg均獲瀏覽器支援。逐項回應對照：原標頭與相同標頭重建Response均失敗；只移除Vary: Accept-Encoding即可載入metadata，僅移除Content-Length仍失敗。故是下載與媒體的編碼協商造成Cache匹配差異，不是教材、音檔損毀或MIME別名。原報告F1的3000淘汰根因仍成立，此為保持下載可播放時在正式站額外核實的既有交付邊界。
+
+補充修正於公開靜態MP3路由及has忽略Vary，沿用既有v5資料、完整200／audio驗證與Range；未改音檔。另保護並行有效下載不被失敗回應清掉，quota替換失敗不先刪好檔，新增實際adapter回歸。永久瀏覽器伺服器加入Pages的Vary及audio/mp3；未修正產物的原生離線播放回歸確實逾時，修正後8535實際下載／逐檔讀取全保留、quota／重試／實際刪檔狀態及原生離線播放通過，零pageerror。之前正式站跟讀失敗保留為前置證據，不與發布後驗收混記。
+
+此補充版完整check310 tests／typecheck／lint、正式base build／原bundle通過；main raw206732／gzip65649、CSS4817、precache21332988／21500000 bytes、479去重URL，餘167012。乾淨的兩版真實更新fixtures亦逐版通過原bundle，21個跨類下載與合成進度、12入口實際作答、部分安裝失敗重試／多分頁／離線套用及1倍播放通過。兩項原修正維持獨立提交，這次相容補驗以後續提交追加，不改寫已公開分支歷史。
