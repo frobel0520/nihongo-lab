@@ -11,7 +11,7 @@ export default defineConfig({
     curriculumChunks(),
     react(),
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: 'prompt',
       devOptions: { enabled: true },
       includeAssets: [
         'jinwoo-favicon.ico',
@@ -47,6 +47,9 @@ export default defineConfig({
         ],
       },
       workbox: {
+        skipWaiting: false,
+        clientsClaim: true,
+        importScripts: ['sw-update-control.js'],
         globPatterns: ['**/*.{js,css,html,ico,png,jpg,svg}'],
         // 原始插畫只供圖示產生器使用，離線只需快取縮小後的圖示。
         globIgnores: ['**/icon-source-jinwoo.png'],

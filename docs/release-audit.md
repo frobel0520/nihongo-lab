@@ -1590,3 +1590,14 @@ PR／CI／rebase與Pages待發布後補記；正式站全建置／靜態檔及�
 F1保留原快取名稱，取消下載集合的播放淘汰及一般播放寫入，保留完整音檔驗證與Range；下載失敗與未留存結果不算成功。playwright-core僅加入開發依賴，不增加產品runtime依賴。完整與瀏覽器驗證進行中，尚不記錄發布完成。
 
 F1獨立驗證：完整check通過308 tests／typecheck／lint；8535個全教材唯一音檔透過UI實際下載（其中一筆503後僅補抓該檔），逐檔經真實SW Range讀取後仍保留8535。真正斷網重載後下載狀態及最早／第3002／最後檔的206讀取通過，pageerror為0。既有v5預存一檔保持且下載略過，不需搬移。新增單元回歸確認quota例外及save後未留存不計成功，重試僅補失敗項。實際production build與原bundle通過；最終容量待F2整合後另記，不以背景8535檔混稱precache或首次載入量。
+
+
+## 2026-10-19 T136 F2與整合驗證
+
+F2採prompt等待與明確套用，多分頁由等待worker實際列出client後拒絕，其他頁未送出輸入保持；只有確認來源頁可重載。首次從4ac67a3遷移，舊頁繼續離線使用，關閉所有本站頁面後新worker接管；舊程式不具新增提示，這項首次升級限制明示。新程式的下一輪真實production build可顯示等待提示、稍後繼續用、重新開頁偵測waiting；部分precache下載503使候選redundant，舊worker／他頁輸入保持，重試後可等待。關閉其他頁後真正斷網明確套用，v3合成進度及21個跨四類音檔保持；12練習入口、4類SRS評分與聽寫新增保存、1倍跟讀、375寬提示與操作皆通過，零pageerror／chunk404／水平溢位。前期回歸未正確await非同步安裝條件，曾把安裝暫態當成等待狀態；已修正測試後重跑，不以前次狀態判斷取代最終驗收。
+
+兩版fixtures使用相同候選來源，只在repo外HTML加入不同發布標記並真正執行Vite／Workbox；產出不同sw.js，不改教材或偽造worker。另以實際16b4189→4ac67a3對照：相同穩定waiting斷言失敗，證明回歸可捕捉原autoUpdate接管；4ac67a3→修正版及修正版→後續build通過。CI已納入完整保留與更新瀏覽器回歸，開發依賴不進產品runtime。
+
+整合完整check309 tests／typecheck／lint、正式/nihongo-lab/ build及原perf:bundle通過；main raw206732／gzip65653、CSS gzip4817、precache21332888 bytes／479去重URL，餘167112。原630000／5800／21500000上限保持。最終產品build再跑8535真實UI下載／逐檔worker讀取保留8535、一次503僅補抓1檔、真斷網重載三個邊界Range抽讀通過；另注入Cache.put的QuotaExceededError，UI明確失敗且重試成功，人工刪除一檔後重新檢查能撤回已存好狀態。這不是實際填滿裝置容量的試驗。225實際payload值／鍵序與唯一入口一致且均precache，6300通用音檔契約保持；curriculum、public/audio、核心進度／同步／路由沒有變更。PR／CI／發布及正式站另待實際結果，不預記通過。人耳、完整真機、71舊JLPT與既有Android紀錄不變。
+
+測試時序補充：Playwright waitForFunction對async predicate未等待其真值，曾讀到waiting暫態後又觀察到installing，當時controllerchange計數為0；這是測試等待錯誤，不是接管的產品缺陷。改用有期限的實際await輪詢，等待候選waiting且無installing後，完整重跑實際4ac67a3→修正版→後續版，全部步驟通過；原autoUpdate對照無法達到穩定waiting。首次遷移在新worker啟用前仍受舊策略控制，不宣稱能復原已被舊版／系統刪掉的下載。
