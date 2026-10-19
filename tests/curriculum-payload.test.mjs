@@ -16,6 +16,46 @@ const evaluate = async (source) =>
       'data:text/javascript;base64,' + Buffer.from(source).toString('base64')
     )
   ).default;
+test('inline ruby sharing preserves surrounding escaped text and literal reference-like input', async () => {
+  const rows = Array.from({ length: 60 }, (_, i) => ({
+    text: `${i}:「{仲間|なかま}と{集合場所|しゅうごうばしょ}へ」\\\n"r[0]"`,
+    ruby: `{集合場所|しゅうごうばしょ}で{仲間|なかま}を${i}分待つ。`,
+    marker: 'r[0]+";throw new Error("unexpected");//',
+  }));
+  const source = serializeCurriculumPayload({ rows });
+  assert.ok(source.includes('const r='), 'fixture must exercise inline sharing');
+  assert.equal(JSON.stringify(await evaluate(source)), JSON.stringify({ rows }));
+});
+test('shared scalar tails and record heads preserve own keys, order and independent mutable values', async () => {
+  const rows = Array.from({ length: 40 }, (_, i) => ({
+    ['__proto__']: { value: i },
+    id: `synthetic-row-${i}`,
+    text: 'tailRow0(shared[0])',
+    nested: Array.from({ length: 3 }, (_, j) => ({
+      index: i + j,
+      common: 'A long inner scalar tail also shared while encoding the outer head',
+    })),
+    flag: i % 2 === 0,
+    lessonId: 'synthetic-shared-listening-lesson',
+    lessonTitle: 'Shared long title with "quotes" and 日本語',
+    source: 'dialogue',
+  }));
+  const source = serializeCurriculumPayload({ rows });
+  assert.ok(source.includes('const tailRow'), 'fixture must exercise combined sharing');
+  const result = await evaluate(source);
+  assert.equal(JSON.stringify(result), JSON.stringify({ rows }));
+  for (const row of result.rows) {
+    assert.ok(Object.hasOwn(row, '__proto__'));
+    assert.equal(Object.getPrototypeOf(row), Object.prototype);
+    assert.deepEqual(Object.keys(row), Object.keys(rows[0]));
+  }
+  result.rows[0].nested[0].index = -1;
+  result.rows[0].__proto__.value = -1;
+  result.rows[0].lessonId = 'changed';
+  assert.equal(result.rows[1].nested[0].index, 1);
+  assert.equal(result.rows[1].__proto__.value, 1);
+  assert.equal(result.rows[1].lessonId, rows[1].lessonId);
+});
 test('lazy payload modules preserve every lesson, category and audio list after string sharing', async () => {
   let originalBytes = 0,
     emittedBytes = 0;
