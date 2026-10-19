@@ -138,3 +138,8 @@ F2改為等待安裝、明確確認更新；等待worker核對只有來源分頁
 ### T136 F1 正式站相容補驗
 
 前置正式站抽驗另確認Pages的Vary: Accept-Encoding使原生媒體請求未命中fetch下載的快取，雖explicit Range fetch為206，播放器仍失敗。音檔逐byte一致且可解碼；只移除Vary可載入，移除Content-Length無效。F1保留策略補上公開MP3讀取／has忽略編碼Vary，保留型別／完整回應驗證，不更動教材或下載內容。以相同Pages標頭加入原生斷網播放回歸，原產物失敗、修正後通過；原報告兩項發現及上述歷次驗證保持，最終數據與發布依release-audit。
+
+
+## T136 發布驗收結果
+
+兩項修正及Pages編碼協商補驗已由[PR #144](https://github.com/frobel0520/nihongo-lab/pull/144)整合至main `d1d9b0a`，[Pages 39213557211](https://github.com/frobel0520/nihongo-lab/actions/runs/39213557211)成功。正式站593檔逐byte一致；舊35下載與v3合成進度跨本次實際升級保持，新35檔UI下載後真斷網重載／SHA與原生播放、四類12入口及實際作答／1倍跟讀通過，零pageerror。原審查發現保留作歷史證據，已修正結果與精確範圍見release-audit。後續新版等待提示的正式站觀察仍待下一次實際發布，瀏覽器／OS清除與人工品質待辦維持原限制。

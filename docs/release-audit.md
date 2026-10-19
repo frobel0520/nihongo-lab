@@ -1610,3 +1610,14 @@ F2採prompt等待與明確套用，多分頁由等待worker實際列出client後
 補充修正於公開靜態MP3路由及has忽略Vary，沿用既有v5資料、完整200／audio驗證與Range；未改音檔。另保護並行有效下載不被失敗回應清掉，quota替換失敗不先刪好檔，新增實際adapter回歸。永久瀏覽器伺服器加入Pages的Vary及audio/mp3；未修正產物的原生離線播放回歸確實逾時，修正後8535實際下載／逐檔讀取全保留、quota／重試／實際刪檔狀態及原生離線播放通過，零pageerror。之前正式站跟讀失敗保留為前置證據，不與發布後驗收混記。
 
 此補充版完整check310 tests／typecheck／lint、正式base build／原bundle通過；main raw206732／gzip65649、CSS4817、precache21332988／21500000 bytes、479去重URL，餘167012。乾淨的兩版真實更新fixtures亦逐版通過原bundle，21個跨類下載與合成進度、12入口實際作答、部分安裝失敗重試／多分頁／離線套用及1倍播放通過。兩項原修正維持獨立提交，這次相容補驗以後續提交追加，不改寫已公開分支歷史。
+
+
+## 2026-10-19 T136 正式發布與驗收完成
+
+修正[PR #144](https://github.com/frobel0520/nihongo-lab/pull/144)已rebase／合規身分非force快轉整合為`d1d9b0a`；[精確head PR CI 39213019160](https://github.com/frobel0520/nihongo-lab/actions/runs/39213019160)及[Pages 39213557211](https://github.com/frobel0520/nihongo-lab/actions/runs/39213557211)皆成功。正式站全部523個audio/以外產物（含38個既有聲線預覽MP3）與179／180課70個音檔逐byte／SHA一致，共593檔、0失敗；不是完整9058個dist檔、全部8535教材音檔或479個precache URL的混算。
+
+正式站375寬隔離資料驗證：發布前已開啟的4ac67a3頁面下載35檔並保存合成v3進度，部署後新worker等待、舊頁仍可真正離線載入遊戲區；關閉全部本站頁面後新worker接管，舊35檔與進度保持，180課原生1倍播放／Range206／換頁停播通過。新版另由UI下載179課35檔，真正斷網重載、35檔SHA／bytes及原生播放通過；四類21檔的獨立隔離驗證完成12練習入口、SRS評分／聽寫保存至各8筆且原紀錄保持、1倍跟讀，零pageerror／375寬溢位。新版等待提示在下一次實際正式發布的觀察仍保留，不能把本機兩版build當成已正式觀察。
+
+正式產物核對清單保留relative path／bytes／SHA-256，593成功、0失敗；清單JSON SHA-256為`14f4db8f5dda237c70055862ee5133403d45f05f078b0b9fb1b999266fd0373c`。同一產品來源的凍結dist9058檔SHA清單為`c13c09220b6cebeb7a2158ca5392bfc53ed082da9012fbf39bf8bdf7bda0260d`。全部教材8535實際下載／保留的規模是本機與CI證據；正式站舊35檔保留、新35檔UI下載、跨類21檔是三個隔離情境，不加總成全量正式站下載。原Vary問題在發布前正式站確實失敗，發布後相同N5原生離線跟讀與四類流程通過，與內容逐byte／解碼證據一致。
+
+310 tests／check、正式build／原bundle與兩項真實瀏覽器回歸均由PR及main CI通過。發布紀錄以獨立文件PR交付，只有文件改動、產品來源與凍結產物保持一致時才沿用功能驗收；該PR的最終Pages與產物複核結果記於PR驗證紀錄，不預記其部署成功。人耳、完整現行真機、71舊JLPT保持待辦與既有Android部分驗證；不宣稱教材品質全部驗收。T136完成後停止，不開始教材品質review。
