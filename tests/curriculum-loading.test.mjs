@@ -32,10 +32,16 @@ const baseline = JSON.parse(
 );
 const sha = (value) => createHash('sha256').update(value).digest('hex');
 const lessons = stages.flatMap((s) => s.lessons);
+// T137: keep the historical golden hashes unchanged; project only the approved
+// explanation revision back to its original value for pre-T137 snapshots.
+const qualityBaseline = JSON.parse(readFileSync(new URL('./fixtures/curriculum-cfea830-quality.json', import.meta.url), 'utf8'));
+const historicalStages = structuredClone(stages);
+historicalStages.flatMap(s => s.lessons).find(l => l.id === 'general-listening-51').grammar[1].note = qualityBaseline.lessons.find(l => l.id === 'general-listening-51').grammar[1].note;
+
 test('T121: every pre-split progress identity and authored content matches 557fec1', () => {
   // 保留首次拆包前的95課快照；新增課程由下方 loader／統計及課程契約測試覆蓋。
   // 只還原該快照的清單標題，原有課程物件與進度 ID 仍逐 byte 比對，不能更新黃金雜湊掩蓋變動。
-  const originalStages = stages.map((stage) => ({
+  const originalStages = historicalStages.map((stage) => ({
     ...stage,
     title:
       stage.id === 'stage-1'
@@ -198,7 +204,7 @@ test('T125: preserve all 105 pre-batch lessons and game data from 8e68cc0', () =
       'utf8',
     ),
   );
-  const previousStages = stages.map((stage) => ({
+  const previousStages = historicalStages.map((stage) => ({
     ...stage,
     title:
       stage.id === 'stage-1'
@@ -224,7 +230,7 @@ test('T126: preserve all 115 pre-batch lessons and game data from 3db36e6', () =
       'utf8',
     ),
   );
-  const previousStages = stages.map((stage) => ({
+  const previousStages = historicalStages.map((stage) => ({
     ...stage,
     title:
       stage.id === 'stage-1'
@@ -250,7 +256,7 @@ test('T127: preserve all 125 pre-batch lessons and game data from 4df01d4', () =
       'utf8',
     ),
   );
-  const previousStages = stages.map((stage) => ({
+  const previousStages = historicalStages.map((stage) => ({
     ...stage,
     title:
       stage.id === 'stage-1'
@@ -276,7 +282,7 @@ test('T128: preserve all 135 pre-batch lessons and game data from 0dcbd8e', () =
       'utf8',
     ),
   );
-  const previousStages = stages.map((stage) => ({
+  const previousStages = historicalStages.map((stage) => ({
     ...stage,
     title:
       stage.id === 'stage-1'
@@ -302,7 +308,7 @@ test('T129: preserve all 145 pre-batch lessons and game data from be256e2', () =
       'utf8',
     ),
   );
-  const previousStages = stages.map((stage) => ({
+  const previousStages = historicalStages.map((stage) => ({
     ...stage,
     title:
       stage.id === 'stage-1'
@@ -328,7 +334,7 @@ test('T130: preserve all 155 pre-batch lessons and game data from 73c88e1', () =
       'utf8',
     ),
   );
-  const previousStages = stages.map((stage) => ({
+  const previousStages = historicalStages.map((stage) => ({
     ...stage,
     title:
       stage.id === 'stage-1'
@@ -354,7 +360,7 @@ test('T131: preserve all 165 pre-batch lessons and game data from 3690d07', () =
       'utf8',
     ),
   );
-  const previousStages = stages.map((stage) => ({
+  const previousStages = historicalStages.map((stage) => ({
     ...stage,
     title:
       stage.id === 'stage-1'
@@ -380,7 +386,7 @@ test('T132: preserve all 175 pre-batch lessons and game data from e5f2808', () =
       'utf8',
     ),
   );
-  const previousStages = stages.map((stage) => ({
+  const previousStages = historicalStages.map((stage) => ({
     ...stage,
     title:
       stage.id === 'stage-1'
@@ -406,7 +412,7 @@ test('T133: preserve all 185 pre-batch lessons including revised 149 from d1ef42
       'utf8',
     ),
   );
-  const previousStages = stages.map((stage) => ({
+  const previousStages = historicalStages.map((stage) => ({
     ...stage,
     title:
       stage.id === 'stage-1'
@@ -428,7 +434,7 @@ test('T133: preserve all 185 pre-batch lessons including revised 149 from d1ef42
 
 test('T134: preserve all 195 pre-batch lessons, game data and catalog IDs from ea99d66', () => {
   const snapshot = JSON.parse(readFileSync(new URL('./fixtures/curriculum-ea99d66.json', import.meta.url), 'utf8'));
-  const previousStages = stages.map((stage) => ({
+  const previousStages = historicalStages.map((stage) => ({
     ...stage,
     title: stage.id === 'stage-1' ? '第 1 階段：動漫／遊戲通用聽解（前160課）' : stage.title,
     lessons: stage.lessons.filter((l) => !l.id.startsWith('general-listening-') || Number(l.id.split('-').at(-1)) <= 160),
@@ -440,7 +446,7 @@ test('T134: preserve all 195 pre-batch lessons, game data and catalog IDs from e
 
 test('T135: preserve all205 published lessons and catalog IDs including149/156 revisions from aadcd63', () => {
   const snapshot = JSON.parse(readFileSync(new URL('./fixtures/curriculum-aadcd63.json', import.meta.url), 'utf8'));
-  const previousStages = stages.map((stage) => ({
+  const previousStages = historicalStages.map((stage) => ({
     ...stage,
     title: stage.id === 'stage-1' ? '第 1 階段：動漫／遊戲通用聽解（前170課）' : stage.title,
     lessons: stage.lessons.filter((lesson) => !lesson.id.startsWith('general-listening-') || Number(lesson.id.split('-').at(-1)) <= 170),
