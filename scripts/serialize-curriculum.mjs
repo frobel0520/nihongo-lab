@@ -39,6 +39,41 @@ export function serializeCurriculumPayload(value) {
       strings.push(text);
   }
   const positions = new Map(strings.map((text, i) => [text, i]));
+  // Share repeated inline ruby literally at build time. Concatenation evaluates
+  // to the original string; this does not add a decoder or change load boundaries.
+  /** @type {Map<string,number>} */
+  const fragmentCounts = new Map();
+  for (const [text, count] of counts)
+    for (const match of text.matchAll(/\{[^{}|]+\|[^{}]+\}/g))
+      fragmentCounts.set(match[0], (fragmentCounts.get(match[0]) ?? 0) +
+        (positions.has(text) ? 1 : count));
+  /** @type {string[]} */
+  const fragments = [];
+  for (const [text, count] of fragmentCounts) {
+    const referenceBytes = 3 + String(fragments.length).length;
+    // Allow for the extra quotes and concatenation around an inline fragment.
+    if (count >= 3 && count * (Buffer.byteLength(text) - referenceBytes - 4) >
+        Buffer.byteLength(JSON.stringify(text)) + 1) fragments.push(text);
+  }
+  const fragmentPositions = new Map(fragments.map((text, i) => [text, i]));
+  /** @param {string} text */
+  const encodeFragments = (text) => {
+    const literal = JSON.stringify(text);
+    /** @type {string[]} */
+    const parts = [];
+    let cursor = 0;
+    for (const match of text.matchAll(/\{[^{}|]+\|[^{}]+\}/g)) {
+      const index = fragmentPositions.get(match[0]);
+      if (index === undefined) continue;
+      if (match.index > cursor) parts.push(JSON.stringify(text.slice(cursor, match.index)));
+      parts.push(`r[${index}]`);
+      cursor = match.index + match[0].length;
+    }
+    if (!parts.length) return literal;
+    if (cursor < text.length) parts.push(JSON.stringify(text.slice(cursor)));
+    const source = parts.join('+');
+    return Buffer.byteLength(source) < Buffer.byteLength(literal) ? source : literal;
+  };
   // Repeated audio directories stay ordinary strings after module evaluation.
   // Count emitted occurrences: a shared value appears only once in its table.
   // Identifier namespaces use the same build-only prefix sharing as audio paths.
@@ -73,8 +108,8 @@ export function serializeCurriculumPayload(value) {
     const prefix = prefixOf(text);
     const index = pathPositions.get(prefix);
     return index === undefined
-      ? JSON.stringify(text)
-      : `paths[${index}]+${JSON.stringify(text.slice(prefix.length))}`;
+      ? encodeFragments(text)
+      : `paths[${index}]+${encodeFragments(text.slice(prefix.length))}`;
   };
   /** @type {string[]} */
   const keys = [];
@@ -101,6 +136,10 @@ export function serializeCurriculumPayload(value) {
     shape.count >= 5 && shape.keys.length >= 4,
   );
   const factoryPositions = new Map(factories.map(([signature], i) => [signature, i]));
+  /** @type {string[][]} */
+  const tailFactories = [];
+  /** @type {Map<string,number>} */
+  const tailFactoryPositions = new Map();
   /** @param {string} key */
   const encodeKey = (key) => keyPositions.has(key)
     ? `[keys[${keyPositions.get(key)}]]`
@@ -157,11 +196,25 @@ export function serializeCurriculumPayload(value) {
         (end - i) * (Buffer.byteLength(encoded) - 2 - reference.length) >
           Buffer.byteLength(encoded) + 1
       ) {
+        const tailIndex = shared.length;
         shared.push(template);
         for (; i < end; i++) {
-          const head = encodeObjectLiteral(
-            Object.fromEntries(suffix(items[i]).slice(0, -common)),
-          );
+          const entries = suffix(items[i]).slice(0, -common);
+          const headKeys = entries.map(([key]) => key);
+          // Keep PR132's shared scalar values and also share the remaining
+          // record layout. The spread still constructs an independent row.
+          if (headKeys.length >= 4) {
+            const signature = JSON.stringify(headKeys);
+            let factory = tailFactoryPositions.get(signature);
+            if (factory === undefined) {
+              factory = tailFactories.length;
+              tailFactoryPositions.set(signature, factory);
+              tailFactories.push(headKeys);
+            }
+            output.push(`tailRow${factory}(${entries.map(([, value]) => encode(value)).join(',')},shared[${tailIndex}])`);
+            continue;
+          }
+          const head = encodeObjectLiteral(Object.fromEntries(entries));
           output.push(
             head.slice(0, -1) + (head === '{}' ? '' : ',') + reference + '}',
           );
@@ -189,5 +242,8 @@ export function serializeCurriculumPayload(value) {
   const factorySource = factories.map(([, { keys }], i) =>
     `const row${i}=(${keys.map((_, j) => `v${j}`).join(',')})=>({${keys.map((key, j) => `${encodeKey(key)}:v${j}`).join(',')}});`,
   ).join('');
-  return `${paths.length ? `const paths=${JSON.stringify(paths)};` : ''}${strings.length ? `const strings=[${strings.map(encodePath).join(',')}];` : ''}${keys.length ? `const keys=${JSON.stringify(keys)};` : ''}${factorySource}${shared.length ? `const shared=[${sharedSource}];` : ''}export default ${body};`;
+  const tailFactorySource = tailFactories.map((headKeys, i) =>
+    `const tailRow${i}=(${headKeys.map((_, j) => `v${j}`).join(',')},tail)=>({${headKeys.map((key, j) => `${encodeKey(key)}:v${j}`).join(',')},...tail});`,
+  ).join('');
+  return `${paths.length ? `const paths=${JSON.stringify(paths)};` : ''}${fragments.length ? `const r=${JSON.stringify(fragments)};` : ''}${strings.length ? `const strings=[${strings.map(encodePath).join(',')}];` : ''}${keys.length ? `const keys=${JSON.stringify(keys)};` : ''}${factorySource}${tailFactorySource}${shared.length ? `const shared=[${sharedSource}];` : ''}export default ${body};`;
 }

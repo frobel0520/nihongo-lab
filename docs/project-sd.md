@@ -707,3 +707,10 @@ T133讀音顯示補修：SceneListening的目前題目與答案回顧都沿用Ru
 serializeCurriculumPayload在JSON正規化後按有序Object.keys建立欄位結構索引，重複至少五次且至少四欄的形狀輸出局部一般ESM物件建構函式。參數依原Object.values順序傳入，回傳字面物件保留原鍵序，每次呼叫都是新物件；特殊own keys仍使用計算屬性。不同鍵序不共用形狀；不共用可變值、不引入新資料格式／decoder。PR132連續純量尾欄位展開仍保留；展開頭部明確呼叫encodeObjectLiteral，避免新的函式呼叫輸出被當成物件字面值截斷。全部payload實際ESM深度等值、JSON鍵序、特殊鍵、巢狀值修改獨立性及packed索引往返回歸保護此機制。原bundle上限、資產集合、載入與離線契約不變，實測大小見release-audit，不恢復T122時間Gate。
 
 新漢字集合觸發兩段舊文字審閱，91課目標內前に補まえ、113課中文不標。實際React SSR重現目標直接輸出字串不顯示ruby，SceneListening改以既有RubyText顯示scene.goal，保留PR138題目及答案回顧的相同路徑與furigana偏好；舊原文／音檔／scene ID不變。延伸原SSR測試先紅後綠，91課加入375寬線上／真正離線顯示及完整聽解回歸。此為明確顯示修正，不是全站人工語文／語音驗收。
+
+
+## 2026-10-19 T135 編寫前容量方案
+
+保持JSON正規化及既有純量尾欄位／物件形狀共用；新增建置時字面ruby片段共用，以一般字串串接還原原值，不增加decoder。純量尾欄位記錄另共用頭部鍵布局，以局部函式接收原值與scalar tail，每次仍建立獨立物件並依原鍵序展開。尾索引在遞迴編碼頭部前保存，避免巢狀共享改變索引。特殊own keys、跳脫文字、巢狀可變值、鍵序與所有lesson／category／音檔清單ESM往返均有回歸。載入邊界、資產集合、四類、v3與離線契約保持，未放寬門檻或新增runtime dependency。
+
+原170課正式build precache21,422,510；只做ruby片段共用降為21,382,472，結合尾記錄頭部共用後為21,135,107 bytes，減少287,403、原上限21,500,000及468URL保持。main gzip64,733、CSS gzip4,817。以最後十課密度作純記憶體估算，新增序列化ESM176,667 bytes，加50%緩衝265,001，預估可容納；這不是實際新課或最終驗收，完成後仍以正式build實測為準。304 tests／typecheck／lint及正式base build／perf:bundle通過。最初測試字串多餘跳脫使lint失敗，修正後整套check再通過；未降低規則。
