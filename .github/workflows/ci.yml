@@ -25,6 +25,8 @@ jobs:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
       # 保留 bundle 大小迴歸檢查；不要求操作與頁面載入計時。
       - run: npm run perf:bundle
+      - run: npm run test:pwa
+      - run: npm run test:pwa:updates
       - uses: actions/upload-pages-artifact@v4
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         with:

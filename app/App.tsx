@@ -72,7 +72,7 @@ export function App() {
     useProgress();
   const sync = useSync({ progress, getProgress, update });
   const [prefs, setPrefs] = useState(loadPrefs);
-  const { updated, dismiss: dismissUpdate, reload } = useSwUpdate();
+  const { updated, changed, applying, error: updateError, dismiss: dismissUpdate, reload } = useSwUpdate();
   // 上一頁的 hash：返回鍵據此決定退回歷史或換頁（見 lib/route.mjs backNavigation）。
   const previousHash = useRef<string | null>(null);
 
@@ -164,11 +164,15 @@ export function App() {
         {updated && (
           <output className="notice notice-row">
             <span>
-              已更新到新版本，重新載入即可使用（目前的進度都已存好，不會遺失）。
+              {changed
+                ? '版本已切換，請完成目前作答後重新載入。'
+                : '有新版可用；可先完成目前作答，稍後再更新。更新前請關閉本網站其他分頁。'}
+              已儲存的學習進度與下載音檔會保留。
+              {updateError && <span role="alert">{updateError}</span>}
             </span>
             <span className="row">
-              <button type="button" className="btn primary" onClick={reload}>
-                重新載入
+              <button type="button" className="btn primary" disabled={applying} onClick={() => void reload()}>
+                {applying ? '正在套用更新…' : changed ? '重新載入' : '更新並重新載入'}
               </button>
               <button type="button" className="btn" onClick={dismissUpdate}>
                 稍後

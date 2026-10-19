@@ -725,3 +725,14 @@ T135發布前最終驗證：306 tests／check、正式base build／原bundle／c
 ## T136 明確下載保留策略
 
 `lesson-audio-v5` 改作明確下載的保留快取，名稱不變，沒有搬移或先刪舊檔。頁面只接受完整200 audio/*回應，Cache API寫入失敗由下載結果逐檔回報，成功後再核對has。SW CacheFirst的downloadCachePolicy只接受完整音檔、保留RangeRequestsPlugin，cacheWillUpdate拒絕一般播放寫入；不再以播放metadata、固定筆數或檔案Date淘汰明確下載。故保留策略適用全教材而非以6300為上限；應用程式只在明確清快取時刪除，不能保證抵抗瀏覽器／OS清除。下載數由實際Cache API計算並提供重新檢查。回歸命令npm run test:pwa使用正式路徑build及隔離Chromium，規模與結果另記release-audit。
+
+
+## T136 等待更新與分頁協調
+
+VitePWA使用prompt、skipWaiting:false，安裝完成先等待，舊worker繼續供應其precache；啟用後沿用Workbox清除過時項目，不建立無限歷史版本快取。useSwUpdate監聽waiting／updatefound／controllerchange並處理首次註冊ready時序；回前景仍使用原10分鐘更新檢查節流。明確套用前提示尚未送出輸入不保留；等待worker收到NIHONGO_APPLY_UPDATE後列出scope內全部window client，只有已確認的來源頁獨自存在時才skipWaiting。其他頁存在、查詢失敗與逾時皆保留可重試流程。只有請求更新的頁在controllerchange時重載；若遇到非本頁請求的版本切換，只顯示重載復原提示，避免強制丟棄他頁輸入。
+
+首次安裝可clientsClaim，不顯示「新版」提示。已在舊程式開啟的頁面不會追溯取得新hook，第一次升級需關閉所有本站頁面再開啟；新程式之後的更新可用等待提示，另一頁仍開著時不允許套用。新版已完整安裝時可在離線確認套用並以新precache重載。部分下載失敗的候選worker不接管，舊版保持可用；重試安裝成功才提示。舊下載快取名稱與已保存版本3進度不變。若瀏覽器／其他舊程式已意外切換控制者，明示完成作答後重載，不宣稱同文件import失敗一定能重試。
+
+npm run test:pwa透過UI下載全8535檔、真實worker Range讀取與離線重載，另注入頁面Cache.put容量錯誤。npm run test:pwa:updates在repo外來源副本加入兩個測試用HTML發布標記，分別執行真正Vite／Workbox production build，再測等待、多分頁、離線、失敗安裝與合成進度；沒有改寫輸出worker或mock import。可另用npm run test:pwa:update -- --old-dist <舊build> --dist <修正版build> --next-dist <後續build>驗證歷史版本。本機額外以4ac67a3正式產物驗證第一次遷移；CI執行候選版本的連續兩次真實更新。playwright-core僅為devDependency，Chrome可由CHROME_PATH指定。
+
+首次遷移的適用邊界：新worker尚未啟用時仍執行舊版快取策略，因此應先關閉全部本站頁面完成第一次升級，再進行大量離線下載；新策略不會追溯復原舊worker或瀏覽器此前已刪除的檔案。第一次升級後既有仍在v5的下載直接沿用，無破壞性遷移。

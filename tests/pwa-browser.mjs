@@ -1,5 +1,5 @@
 // Production-build browser regression. Usage:
-// CHROME_PATH=/path/to/chrome node tests/pwa-browser.mjs --dist dist [--old-dist old/dist]
+// CHROME_PATH=/path/to/chrome node tests/pwa-browser.mjs --dist dist
 // Both directories must contain real /nihongo-lab/ builds and their workers.
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
@@ -7,7 +7,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve, extname } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright-core';
-import { loadAllAudioPaths } from '../curriculum/lessons.mjs';
+import { loadAllAudioPaths, loadLesson } from '../curriculum/lessons.mjs';
 
 const option = (name, fallback) => process.argv.includes(name)
   ? process.argv[process.argv.indexOf(name) + 1] : fallback;
@@ -42,6 +42,7 @@ const executablePath = process.env.CHROME_PATH || ['chromium', 'google-chrome'].
 }).find(Boolean);
 const browser = await chromium.launch({ executablePath, headless: true, args: ['--no-sandbox'] });
 try {
+  if (!process.argv.includes('--quota-only')) {
   const context = await browser.newContext({ viewport: { width: 375, height: 667 } });
   const page = await context.newPage();
   const errors = [];
@@ -95,6 +96,49 @@ try {
   assert.deepEqual(errors, []);
   console.log(JSON.stringify({ scenario: 'retained-downloads', downloadedRealFiles: paths.length, readThroughWorker: paths.length, retained, offlineSamples: samples.length, failedThenRetried: 1, pageerrors: errors.length }));
   await context.close();
+  }
+  // Inject a quota exception at the real page-side Cache.put boundary. This is
+  // failure handling coverage, not a claim to exhaust a physical device's disk.
+  const quotaContext = await browser.newContext({ viewport: { width: 375, height: 667 } });
+  const q = await quotaContext.newPage();
+  const lesson = await loadLesson('general-listening-180');
+  const quotaErrors = [];
+  q.on('pageerror', error => quotaErrors.push(error.message));
+  await q.goto(base + '#/lesson/general-listening-180');
+  await q.evaluate(() => navigator.serviceWorker.ready);
+  await q.reload();
+  const playbackStored = await q.evaluate(async path => {
+    const url = new URL(path, location.href).href;
+    const response = await fetch(url);
+    if (response.status !== 200) throw Error('full playback response missing');
+    await response.arrayBuffer();
+    await new Promise(r => setTimeout(r, 200));
+    return !!await (await caches.open('lesson-audio-v5')).match(url);
+  }, lesson.vocab[0].audio);
+  assert.equal(playbackStored, false, 'ordinary full playback must not add retained downloads');
+  await q.evaluate(() => {
+    const put = Cache.prototype.put;
+    let once = true;
+    Cache.prototype.put = async function(request, response) {
+      const url = typeof request === 'string' ? request : request.url;
+      if (once && url.includes('/general-listening-180/')) {
+        once = false; throw new DOMException('synthetic quota failure', 'QuotaExceededError');
+      }
+      return put.call(this, request, response);
+    };
+  });
+  await q.getByText('下載本課音檔供離線使用', { exact: true }).click();
+  await q.getByRole('button', { name: '下載本課音檔', exact: true }).click();
+  await q.getByText(/失敗 1 個/).waitFor();
+  assert.equal(await q.getByRole('button', { name: '本課音檔已全部存好', exact: true }).count(), 0);
+  await q.getByRole('button', { name: '下載本課音檔', exact: true }).click();
+  await q.getByRole('button', { name: '本課音檔已全部存好', exact: true }).waitFor();
+  await q.evaluate(async path => { await (await caches.open('lesson-audio-v5')).delete(new URL(path, location.href)); }, lesson.vocab[0].audio);
+  await q.getByRole('button', { name: '重新檢查下載狀態', exact: true }).click();
+  await q.getByRole('button', { name: '下載本課音檔', exact: true }).waitFor();
+  assert.deepEqual(quotaErrors, []);
+  console.log(JSON.stringify({ scenario: 'quota-and-real-cache-state', ordinaryPlaybackNotStored: true, quotaFailureReported: true, retrySucceeded: true, removedFileDetected: true, pageerrors: quotaErrors.length }));
+  await quotaContext.close();
 } finally {
   await browser.close();
   await new Promise(r => server.close(r));
