@@ -133,7 +133,7 @@ export function LessonView({
       )}
 
       {active?.id === 'scene' && lesson.scene && (
-        <SceneListening lesson={lesson} update={update} />
+        <SceneListening key={lesson.id} lesson={lesson} update={update} />
       )}
 
       {active?.id === 'vocab' && (

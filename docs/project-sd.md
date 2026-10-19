@@ -738,3 +738,12 @@ npm run test:pwa透過UI下載全8535檔、真實worker Range讀取與離線重�
 首次遷移的適用邊界：新worker尚未啟用時仍執行舊版快取策略，因此應先關閉全部本站頁面完成第一次升級，再進行大量離線下載；新策略不會追溯復原舊worker或瀏覽器此前已刪除的檔案。第一次升級後既有仍在v5的下載直接沿用，無破壞性遷移。
 
 Pages回應會帶Vary: Accept-Encoding，原生媒體與fetch下載使用不同編碼協商值；公開MP3在HTTP解碼後同一URL對應同一內容，因此SW及下載has使用ignoreVary讀取既有完整音檔，仍保留200／audio/*驗證。此策略只用於公開靜態MP3下載路由，不用於同步或登入請求；不搬移、改寫音檔或刪除既有下載。失敗網路回應只清理髒資料，不刪除並行保存的有效下載；quota寫入失敗不先刪好檔。瀏覽器回歸的MP3伺服器使用與Pages相同Vary與audio/mp3標頭，下載後真正斷網重載並透過原生audio播放，避免只測fetch Range而漏掉媒體請求匹配。測試建置fixture的自有輸出先清空，兩版皆跑原perf:bundle，避免重跑時混入舊chunk。
+
+
+## T137 選項呈現與ID邊界
+
+lib/listening-choices.mjs只回傳{text,index}新陣列，不修改題目或正解。SceneListening掛載時用state保存每題獨立Fisher–Yates結果，點擊回傳原index，答案回顧仍用canonical q.options[q.answer]。不把亂數、呈現順序或attempt寫入v3進度；故洗牌本身不重設ID。重播不重抽，明確重練才重建state；LessonView以lesson.id作key，切課不能沿用前一課順序。新的掛載／重載會重新抽排，允許碰巧相同，不強制答案位置均勻。
+
+相對位置用語的保守檢查或ListeningQuestion.optionOrder:'fixed'可保留原序；該屬性本次只擴充型別，未加到任何既有資料，也不擴大到其他題型。新增排序相依題時，作者需檢查提示及所有選項並明示fixed，不能依賴正則完整理解自然語言。回歸枚舉三選項六種排列，使用注入亂數，不以偶發統計作通過門檻；真實production build的375寬UI另核原索引評分、重播／進度重繪穩定、重練／重載及離線。
+
+175第六句原文變更：舊dlg-76ee9ba503.mp3被內容雜湊新檔dlg-53fc255240.mp3取代。只移除公開目錄中已無引用舊檔，未刪除瀏覽器已有v5下載；新版課程會判定只缺一檔並補抓。舊版尚未下載的此句可能須接受更新後使用新版，不能承諾已刪除的公開舊URL仍在線可抓。scene ID尾碼73d0bddb5c／561f7cae64／5f8fd23cf9→6180f2ebb5／6e69671e38／59c38ad03d；舊紀錄留在v3，不計入新版完成。沒有快取搬移、同步格式更動或新runtime dependency。
