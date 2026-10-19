@@ -8,6 +8,7 @@ import {
 } from '../../lib/scene-listening.mjs';
 import { getVoice } from '../../curriculum/voices.mjs';
 import { checkListeningChoice } from '../../lib/anime-training.mjs';
+import { listeningChoices } from '../../lib/listening-choices.mjs';
 import { playFromStart } from '../../lib/playback.mjs';
 import { AudioLine, audioUrl } from './AudioLine';
 import { RubyText } from './Ruby';
@@ -49,6 +50,7 @@ export function SceneListening({
     () => sceneSpeakerLabels(lesson.dialogue, getVoice),
     [lesson],
   );
+  const [choices, setChoices] = useState(() => scene.questions.map((q) => listeningChoices(q)));
   const lineCount = lesson.dialogue.length;
   const questionCount = scene.questions.length;
   const question = scene.questions.find((q) => answers[q.id] === undefined);
@@ -172,15 +174,15 @@ export function SceneListening({
             <RubyText text={question.prompt} />
           </p>
           <div className="anime-options">
-            {question.options.map((option, i) => (
+            {choices[scene.questions.indexOf(question)].map(({ text, index }) => (
               <button
                 type="button"
                 className="btn block"
-                key={option}
+                key={index}
                 disabled={!heard}
-                onClick={() => choose(i)}
+                onClick={() => choose(index)}
               >
-                {option}
+                {text}
               </button>
             ))}
           </div>
@@ -222,6 +224,7 @@ export function SceneListening({
               stop();
               setHeard(false);
               setAnswers({});
+              setChoices(scene.questions.map((q) => listeningChoices(q)));
               submitted.current.clear();
               window.scrollTo({ top: 0, behavior: 'instant' });
             }}
