@@ -1,0 +1,3378 @@
+{
+  "commit": "cfea830375e85620f3ea64ed112850aa83ed2e56",
+  "lessons": [
+    {
+      "id": "general-listening-51",
+      "title": "通用聽解 51：聽誰說的？區分傳聞與目擊",
+      "vocab": [
+        {
+          "word": "噂",
+          "reading": "うわさ",
+          "zh": "傳聞",
+          "voice": "tsumugi",
+          "audio": "audio/stage-1/general-listening-51/vocab-e1b5185c94.mp3"
+        },
+        {
+          "word": "情報",
+          "reading": "じょうほう",
+          "zh": "資訊",
+          "voice": "hau",
+          "audio": "audio/stage-1/general-listening-51/vocab-f86d2579ed.mp3"
+        },
+        {
+          "word": "知らせ",
+          "reading": "しらせ",
+          "zh": "消息",
+          "voice": "sayo",
+          "audio": "audio/stage-1/general-listening-51/vocab-27ebc41cd9.mp3"
+        },
+        {
+          "word": "聞く",
+          "reading": "きく",
+          "zh": "聽；詢問",
+          "voice": "neko-vy",
+          "audio": "audio/stage-1/general-listening-51/vocab-df54afb899.mp3"
+        },
+        {
+          "word": "伝える",
+          "reading": "つたえる",
+          "zh": "傳達",
+          "voice": "zunko",
+          "audio": "audio/stage-1/general-listening-51/vocab-745a89d0a5.mp3"
+        },
+        {
+          "word": "確かめる",
+          "reading": "たしかめる",
+          "zh": "確認",
+          "voice": "ryusei",
+          "audio": "audio/stage-1/general-listening-51/vocab-d164e36d90.mp3"
+        },
+        {
+          "word": "本当",
+          "reading": "ほんとう",
+          "zh": "真的",
+          "voice": "saehaku",
+          "audio": "audio/stage-1/general-listening-51/vocab-5e0e18c2c3.mp3"
+        },
+        {
+          "word": "直接",
+          "reading": "ちょくせつ",
+          "zh": "直接",
+          "voice": "nemo2",
+          "audio": "audio/stage-1/general-listening-51/vocab-8418eba45d.mp3"
+        },
+        {
+          "word": "間接",
+          "reading": "かんせつ",
+          "zh": "間接",
+          "voice": "tsumugi",
+          "audio": "audio/stage-1/general-listening-51/vocab-63c1cfe0e9.mp3"
+        },
+        {
+          "word": "目撃",
+          "reading": "もくげき",
+          "zh": "目擊",
+          "voice": "hau",
+          "audio": "audio/stage-1/general-listening-51/vocab-09e32c5387.mp3"
+        },
+        {
+          "word": "掲示板",
+          "reading": "けいじばん",
+          "zh": "公告欄",
+          "voice": "sayo",
+          "audio": "audio/stage-1/general-listening-51/vocab-858ba495f3.mp3"
+        },
+        {
+          "word": "発表",
+          "reading": "はっぴょう",
+          "zh": "發布",
+          "voice": "neko-vy",
+          "audio": "audio/stage-1/general-listening-51/vocab-f4512ac443.mp3"
+        },
+        {
+          "word": "営業",
+          "reading": "えいぎょう",
+          "zh": "營業",
+          "voice": "zunko",
+          "audio": "audio/stage-1/general-listening-51/vocab-a43093973e.mp3"
+        },
+        {
+          "word": "再開",
+          "reading": "さいかい",
+          "zh": "重新開始",
+          "voice": "ryusei",
+          "audio": "audio/stage-1/general-listening-51/vocab-1706571f53.mp3"
+        },
+        {
+          "word": "修理",
+          "reading": "しゅうり",
+          "zh": "修理",
+          "voice": "saehaku",
+          "audio": "audio/stage-1/general-listening-51/vocab-29dc56de28.mp3"
+        },
+        {
+          "word": "工事",
+          "reading": "こうじ",
+          "zh": "施工",
+          "voice": "nemo2",
+          "audio": "audio/stage-1/general-listening-51/vocab-0a153b4f78.mp3"
+        },
+        {
+          "word": "橋",
+          "reading": "はし",
+          "zh": "橋",
+          "voice": "tsumugi",
+          "audio": "audio/stage-1/general-listening-51/vocab-0dab30bae4.mp3"
+        },
+        {
+          "word": "通行",
+          "reading": "つうこう",
+          "zh": "通行",
+          "voice": "hau",
+          "audio": "audio/stage-1/general-listening-51/vocab-ec8042a6a7.mp3"
+        },
+        {
+          "word": "通れる",
+          "reading": "とおれる",
+          "zh": "能通過",
+          "voice": "sayo",
+          "audio": "audio/stage-1/general-listening-51/vocab-f7772ca1eb.mp3"
+        },
+        {
+          "word": "昨日",
+          "reading": "きのう",
+          "zh": "昨天",
+          "voice": "neko-vy",
+          "audio": "audio/stage-1/general-listening-51/vocab-c8165df476.mp3"
+        },
+        {
+          "word": "今朝",
+          "reading": "けさ",
+          "zh": "今天早上",
+          "voice": "zunko",
+          "audio": "audio/stage-1/general-listening-51/vocab-aed523ce0b.mp3"
+        },
+        {
+          "word": "明日",
+          "reading": "あした",
+          "zh": "明天",
+          "voice": "ryusei",
+          "audio": "audio/stage-1/general-listening-51/vocab-dc7473e9a9.mp3"
+        },
+        {
+          "word": "最新",
+          "reading": "さいしん",
+          "zh": "最新",
+          "voice": "saehaku",
+          "audio": "audio/stage-1/general-listening-51/vocab-44d3f12833.mp3"
+        },
+        {
+          "word": "古い",
+          "reading": "ふるい",
+          "zh": "舊的",
+          "voice": "nemo2",
+          "audio": "audio/stage-1/general-listening-51/vocab-744aa3bfd6.mp3"
+        },
+        {
+          "word": "確実",
+          "reading": "かくじつ",
+          "zh": "確定可靠",
+          "voice": "tsumugi",
+          "audio": "audio/stage-1/general-listening-51/vocab-cd7ff3befa.mp3"
+        }
+      ],
+      "grammar": [
+        {
+          "pattern": "そうだ：聽說的資訊",
+          "note": "普通形接そうだ表示傳聞，與動詞ます詞幹接そう的外觀判斷不同。",
+          "jlpt": [
+            "sou-da-hearsay"
+          ],
+          "examples": [
+            {
+              "jp": "橋は明日開くそうだ。",
+              "reading": "はしは あした あくそうだ。",
+              "zh": "聽說橋明天開放。",
+              "voice": "sayo",
+              "audio": "audio/stage-1/general-listening-51/gram-51a0f31945.mp3",
+              "ruby": "{橋|はし}は{明日|あした}{開|あ}くそうだ。"
+            },
+            {
+              "jp": "店は今日休みだそうです。",
+              "reading": "みせは きょう やすみだそうです。",
+              "zh": "聽說店今天休息。",
+              "voice": "sayo",
+              "audio": "audio/stage-1/general-listening-51/gram-66e51ef72b.mp3",
+              "ruby": "{店|みせ}は{今日|きょう}{休|やす}みだそうです。"
+            }
+          ]
+        },
+        {
+          "pattern": "らしい：依資訊做推斷或轉述",
+          "note": "普通形接らしい，常依間接資訊判斷。不能把推斷當成已親自確認。",
+          "jlpt": [
+            "rashii"
+          ],
+          "examples": [
+            {
+              "jp": "工事はまだ終わっていないらしい。",
+              "reading": "こうじは まだ おわっていないらしい。",
+              "zh": "工程似乎還沒結束。",
+              "voice": "nemo2",
+              "audio": "audio/stage-1/general-listening-51/gram-e4705ecad2.mp3",
+              "ruby": "{工事|こうじ}はまだ{終|お}わっていないらしい。"
+            },
+            {
+              "jp": "新しい情報らしい。",
+              "reading": "あたらしい じょうほうらしい。",
+              "zh": "似乎是新消息。",
+              "voice": "nemo2",
+              "audio": "audio/stage-1/general-listening-51/gram-a82361b515.mp3",
+              "ruby": "{新|あたら}しい{情報|じょうほう}らしい。"
+            }
+          ]
+        }
+      ],
+      "dialogue": [
+        {
+          "jp": "橋はもう通れるそうだよ。",
+          "reading": "はしは もう とおれるそうだよ。",
+          "zh": "聽說橋已能通過了。",
+          "voice": "hau",
+          "audio": "audio/stage-1/general-listening-51/dlg-bf8c519e5b.mp3",
+          "ruby": "{橋|はし}はもう{通|とお}れるそうだよ。"
+        },
+        {
+          "jp": "それ、誰から聞いたの？",
+          "reading": "それ、だれから きいたの？",
+          "zh": "你是聽誰說的？",
+          "voice": "nemo2",
+          "audio": "audio/stage-1/general-listening-51/dlg-7e3451e567.mp3",
+          "ruby": "それ、{誰|だれ}から{聞|き}いたの？"
+        },
+        {
+          "jp": "昨日、宿の人が言ってた。",
+          "reading": "きのう、やどの ひとが いってた。",
+          "zh": "昨天旅館的人說的。",
+          "voice": "hau",
+          "audio": "audio/stage-1/general-listening-51/dlg-7195d6721b.mp3",
+          "ruby": "{昨日|きのう}、{宿|やど}の{人|ひと}が{言|い}ってた。"
+        },
+        {
+          "jp": "今朝の掲示板には、明日からと書いてあったよ。",
+          "reading": "けさの けいじばんには、あしたからと かいてあったよ。",
+          "zh": "今早公告欄寫著明天起開放。",
+          "voice": "nemo2",
+          "audio": "audio/stage-1/general-listening-51/dlg-23d54313da.mp3",
+          "ruby": "{今朝|けさ}の{掲示板|けいじばん}には、{明日|あした}からと{書|か}いてあったよ。"
+        },
+        {
+          "jp": "じゃあ、昨日の情報は古いらしいね。",
+          "reading": "じゃあ、きのうの じょうほうは ふるいらしいね。",
+          "zh": "那昨天的資訊似乎過時了。",
+          "voice": "hau",
+          "audio": "audio/stage-1/general-listening-51/dlg-a4664219b4.mp3",
+          "ruby": "じゃあ、{昨日|きのう}の{情報|じょうほう}は{古|ふる}いらしいね。"
+        },
+        {
+          "jp": "うん。今日は別の道にしよう。",
+          "reading": "うん。きょうは べつの みちにしよう。",
+          "zh": "對，今天走別條路吧。",
+          "voice": "nemo2",
+          "audio": "audio/stage-1/general-listening-51/dlg-63b923ddc8.mp3",
+          "ruby": "うん。{今日|きょう}は{別|べつ}の{道|みち}にしよう。"
+        }
+      ],
+      "practice": [
+        {
+          "q": "通れるそうだ。親眼見到嗎？",
+          "a": "不是，甲引用旅館的人提供的訊息。"
+        },
+        {
+          "q": "古いらしい。推斷依據？",
+          "a": "乙今早讀到的公告與昨天訊息不一致。"
+        },
+        {
+          "q": "明日から。今天可通行嗎？",
+          "a": "公告指明天起，兩人因此今天改走別路。"
+        }
+      ],
+      "scene": {
+        "goal": "辨認資訊來源與更新時間，以最新具體訊息調整行動。",
+        "questions": [
+          {
+            "id": "understanding-1",
+            "prompt": "甲的消息來自哪裡？",
+            "options": [
+              "昨天旅館的人",
+              "今早公告欄",
+              "親自過橋"
+            ],
+            "answer": 0,
+            "explanation": "甲說昨日宿の人が言ってた。"
+          },
+          {
+            "id": "understanding-2",
+            "prompt": "今早公告說何時開放？",
+            "options": [
+              "今晚起",
+              "明天起",
+              "昨天起"
+            ],
+            "answer": 1,
+            "explanation": "乙看到公告寫明日から。"
+          },
+          {
+            "id": "understanding-3",
+            "prompt": "今天最後怎麼走？",
+            "options": [
+              "直接過橋",
+              "不再出門",
+              "改走別條路"
+            ],
+            "answer": 2,
+            "explanation": "乙提議今日は別の道にしよう。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "general-listening-175",
+      "title": "通用聽解 175：傳言裡的「我」到底是誰？",
+      "vocab": [
+        {
+          "word": "引用",
+          "reading": "いんよう",
+          "zh": "引用",
+          "voice": "tsumugi",
+          "audio": "audio/stage-1/general-listening-175/vocab-958c3ef3d5.mp3"
+        },
+        {
+          "word": "発言",
+          "reading": "はつげん",
+          "zh": "發言",
+          "voice": "hau",
+          "audio": "audio/stage-1/general-listening-175/vocab-8fd925edc2.mp3"
+        },
+        {
+          "word": "伝言",
+          "reading": "でんごん",
+          "zh": "傳話",
+          "voice": "sayo",
+          "audio": "audio/stage-1/general-listening-175/vocab-f431c37e53.mp3"
+        },
+        {
+          "word": "話し手",
+          "reading": "はなして",
+          "zh": "說話者",
+          "voice": "neko-vy",
+          "audio": "audio/stage-1/general-listening-175/vocab-4e5612ff4a.mp3"
+        },
+        {
+          "word": "聞き手",
+          "reading": "ききて",
+          "zh": "聽話者",
+          "voice": "zunko",
+          "audio": "audio/stage-1/general-listening-175/vocab-290820c5bd.mp3"
+        },
+        {
+          "word": "人称",
+          "reading": "にんしょう",
+          "zh": "人稱",
+          "voice": "ryusei",
+          "audio": "audio/stage-1/general-listening-175/vocab-3ee5627a65.mp3"
+        },
+        {
+          "word": "指す",
+          "reading": "さす",
+          "zh": "指稱",
+          "voice": "saehaku",
+          "audio": "audio/stage-1/general-listening-175/vocab-6431bb1783.mp3"
+        },
+        {
+          "word": "約束",
+          "reading": "やくそく",
+          "zh": "承諾",
+          "voice": "nemo2",
+          "audio": "audio/stage-1/general-listening-175/vocab-10d08169fa.mp3"
+        },
+        {
+          "word": "担当",
+          "reading": "たんとう",
+          "zh": "負責",
+          "voice": "tsumugi",
+          "audio": "audio/stage-1/general-listening-175/vocab-b109a9b116.mp3"
+        },
+        {
+          "word": "受付係",
+          "reading": "うけつけがかり",
+          "zh": "接待員",
+          "voice": "hau",
+          "audio": "audio/stage-1/general-listening-175/vocab-8fec268c95.mp3"
+        },
+        {
+          "word": "鍵",
+          "reading": "かぎ",
+          "zh": "鑰匙",
+          "voice": "sayo",
+          "audio": "audio/stage-1/general-listening-175/vocab-628720c50d.mp3"
+        },
+        {
+          "word": "保管庫",
+          "reading": "ほかんこ",
+          "zh": "保管室",
+          "voice": "neko-vy",
+          "audio": "audio/stage-1/general-listening-175/vocab-a318f045a6.mp3"
+        },
+        {
+          "word": "届ける",
+          "reading": "とどける",
+          "zh": "送達",
+          "voice": "zunko",
+          "audio": "audio/stage-1/general-listening-175/vocab-e0507a05c2.mp3"
+        },
+        {
+          "word": "運ぶ",
+          "reading": "はこぶ",
+          "zh": "搬運",
+          "voice": "ryusei",
+          "audio": "audio/stage-1/general-listening-175/vocab-bfd211aa0d.mp3"
+        },
+        {
+          "word": "代わり",
+          "reading": "かわり",
+          "zh": "代替",
+          "voice": "saehaku",
+          "audio": "audio/stage-1/general-listening-175/vocab-fed39251f8.mp3"
+        },
+        {
+          "word": "頼む",
+          "reading": "たのむ",
+          "zh": "請託",
+          "voice": "nemo2",
+          "audio": "audio/stage-1/general-listening-175/vocab-0815ac7461.mp3"
+        },
+        {
+          "word": "受け入れる",
+          "reading": "うけいれる",
+          "zh": "接受",
+          "voice": "tsumugi",
+          "audio": "audio/stage-1/general-listening-175/vocab-fdd8f1407f.mp3"
+        },
+        {
+          "word": "見届ける",
+          "reading": "みとどける",
+          "zh": "見證到底",
+          "voice": "hau",
+          "audio": "audio/stage-1/general-listening-175/vocab-d613cdf482.mp3"
+        },
+        {
+          "word": "引き継ぐ",
+          "reading": "ひきつぐ",
+          "zh": "交接",
+          "voice": "sayo",
+          "audio": "audio/stage-1/general-listening-175/vocab-04d62292ef.mp3"
+        },
+        {
+          "word": "責任",
+          "reading": "せきにん",
+          "zh": "責任",
+          "voice": "neko-vy",
+          "audio": "audio/stage-1/general-listening-175/vocab-0d4e82b86c.mp3"
+        },
+        {
+          "word": "取り違える",
+          "reading": "とりちがえる",
+          "zh": "弄錯",
+          "voice": "zunko",
+          "audio": "audio/stage-1/general-listening-175/vocab-b5c5091659.mp3"
+        },
+        {
+          "word": "同じ",
+          "reading": "おなじ",
+          "zh": "相同",
+          "voice": "ryusei",
+          "audio": "audio/stage-1/general-listening-175/vocab-f61aa662a0.mp3"
+        },
+        {
+          "word": "別",
+          "reading": "べつ",
+          "zh": "不同；另外",
+          "voice": "saehaku",
+          "audio": "audio/stage-1/general-listening-175/vocab-0b11e28580.mp3"
+        },
+        {
+          "word": "時点",
+          "reading": "じてん",
+          "zh": "時間點",
+          "voice": "nemo2",
+          "audio": "audio/stage-1/general-listening-175/vocab-5593322a46.mp3"
+        },
+        {
+          "word": "到着",
+          "reading": "とうちゃく",
+          "zh": "抵達",
+          "voice": "tsumugi",
+          "audio": "audio/stage-1/general-listening-175/vocab-8ba31b3123.mp3"
+        }
+      ],
+      "grammar": [
+        {
+          "pattern": "と言う：引用裡的人稱依原說話者解讀",
+          "note": "複習引用內容加と言う。引用中的私は原發話者自稱，不能因現在由另一人朗讀就改成朗讀者的承諾。",
+          "jlpt": [
+            "to-iu-say"
+          ],
+          "examples": [
+            {
+              "jp": "受付係は「私が届けます」と言った。",
+              "reading": "うけつけがかりは 「わたしが とどけます」と いった。",
+              "zh": "接待員說「我會送去」。",
+              "voice": "sayo",
+              "audio": "audio/stage-1/general-listening-175/gram-94b7a23432.mp3",
+              "ruby": "{受付係|うけつけがかり}は「{私|わたし}が{届|とど}けます」と{言|い}った。"
+            },
+            {
+              "jp": "私は「鍵を待ちます」と伝えた。",
+              "reading": "わたしは 「かぎを まちます」と つたえた。",
+              "zh": "我傳話說「我會等鑰匙」。",
+              "voice": "sayo",
+              "audio": "audio/stage-1/general-listening-175/gram-ddb0617f6c.mp3",
+              "ruby": "{私|わたし}は「{鍵|かぎ}を{待|ま}ちます」と{伝|つた}えた。"
+            }
+          ]
+        },
+        {
+          "pattern": "てもらう：把真正的執行者與受惠者分清",
+          "note": "複習協助者に加て形もらう。等待對方送來是受惠者的安排，不能與由自己搬運混為一談。",
+          "jlpt": [
+            "te-morau"
+          ],
+          "examples": [
+            {
+              "jp": "受付係に鍵を届けてもらう。",
+              "reading": "うけつけがかりに かぎを とどけてもらう。",
+              "zh": "請接待員把鑰匙送來。",
+              "voice": "nemo2",
+              "audio": "audio/stage-1/general-listening-175/gram-9ed2ba9c02.mp3",
+              "ruby": "{受付係|うけつけがかり}に{鍵|かぎ}を{届|とど}けてもらう。"
+            },
+            {
+              "jp": "仲間に到着を確かめてもらう。",
+              "reading": "なかまに とうちゃくを たしかめてもらう。",
+              "zh": "請同行者確認抵達。",
+              "voice": "nemo2",
+              "audio": "audio/stage-1/general-listening-175/gram-1a7e392bbe.mp3",
+              "ruby": "{仲間|なかま}に{到着|とうちゃく}を{確|たし}かめてもらう。"
+            }
+          ]
+        }
+      ],
+      "dialogue": [
+        {
+          "jp": "受付係から「私が鍵を保管庫へ届けます」という伝言を預かったよ。",
+          "reading": "うけつけがかりから 「わたしが かぎを ほかんこへ とどけます」という でんごんを あずかったよ。",
+          "zh": "我收到接待員的傳話：「我會把鑰匙送到保管室。」",
+          "voice": "hau",
+          "audio": "audio/stage-1/general-listening-175/dlg-2cf4757a90.mp3",
+          "ruby": "{受付係|うけつけがかり}から「{私|わたし}が{鍵|かぎ}を{保管庫|ほかんこ}へ{届|とど}けます」という{伝言|でんごん}を{預|あず}かったよ。"
+        },
+        {
+          "jp": "その「私」は受付係のことだよね。君が代わりに運ぶと約束したわけではないんだね。",
+          "reading": "その 「わたし」は うけつけがかりの ことだよね。きみが かわりに はこぶと やくそくしたわけでは ないんだね。",
+          "zh": "那個「我」指的是接待員吧？不是你答應代為搬運，對吧？",
+          "voice": "nemo2",
+          "audio": "audio/stage-1/general-listening-175/dlg-f4c0b626db.mp3",
+          "ruby": "その「{私|わたし}」は{受付係|うけつけがかり}のことだよね。{君|きみ}が{代|か}わりに{運|はこ}ぶと{約束|やくそく}したわけではないんだね。"
+        },
+        {
+          "jp": "うん、届けるのは受付係だよ。私は伝えるだけで、鍵もまだ預かっていない。",
+          "reading": "うん、とどけるのは うけつけがかりだよ。わたしは つたえるだけで、かぎも まだ あずかっていない。",
+          "zh": "嗯，送去的是接待員。我只負責轉達，還沒拿到鑰匙。",
+          "voice": "hau",
+          "audio": "audio/stage-1/general-listening-175/dlg-868ce137f1.mp3",
+          "ruby": "うん、{届|とど}けるのは{受付係|うけつけがかり}だよ。{私|わたし}は{伝|つた}えるだけで、{鍵|かぎ}もまだ{預|あず}かっていない。"
+        },
+        {
+          "jp": "じゃあ、僕は保管庫で待つ。受付係に届けてもらって、受け取ったら君に知らせるよ。",
+          "reading": "じゃあ、ぼくは ほかんこで まつ。うけつけがかりに とどけてもらって、うけとったら きみに しらせるよ。",
+          "zh": "那我在保管室等，請接待員送過來，收到後再通知你。",
+          "voice": "nemo2",
+          "audio": "audio/stage-1/general-listening-175/dlg-6a67c6d54b.mp3",
+          "ruby": "じゃあ、{僕|ぼく}は{保管庫|ほかんこ}で{待|ま}つ。{受付係|うけつけがかり}に{届|とど}けてもらって、{受|う}け{取|と}ったら{君|きみ}に{知|し}らせるよ。"
+        },
+        {
+          "jp": "ありがとう。私は受付係に君が待っていると伝えるね。届く時刻はまだ聞いていないから、それも確かめる。",
+          "reading": "ありがとう。わたしは うけつけがかりに きみが まっていると つたえるね。とどく じこくは まだ きいていないから、それも たしかめる。",
+          "zh": "謝謝。我告訴接待員你正在等。還沒聽到送達時間，我也會確認。",
+          "voice": "hau",
+          "audio": "audio/stage-1/general-listening-175/dlg-f81e340ba1.mp3",
+          "ruby": "ありがとう。{私|わたし}は{受付係|うけつけがかり}に{君|きみ}が{待|ま}っていると{伝|つた}えるね。{届|とど}く{時刻|じこく}はまだ{聞|き}いていないから、それも{確|たし}かめる。"
+        },
+        {
+          "jp": "頼むよ。運ぶ担当と待つ担当は決まったけど、到着時刻までは決まっていないということだね。",
+          "reading": "たのむよ。はこぶ たんとうと まつ たんとうは きまったけど、とうちゃくじこくまでは きまっていないという ことだね。",
+          "zh": "拜託了。搬運者和等待者已定，但送達時間還沒定，對吧。",
+          "voice": "nemo2",
+          "audio": "audio/stage-1/general-listening-175/dlg-76ee9ba503.mp3",
+          "ruby": "{頼|たの}むよ。{運|はこ}ぶ{担当|たんとう}と{待|ま}つ{担当|たんとう}は{決|き}まったけど、{到着|とうちゃく}{時刻|じこく}までは{決|き}まっていないということだね。"
+        }
+      ],
+      "practice": [
+        {
+          "q": "引用接待員的承諾「我會送去」。",
+          "a": "受付係は「私が届けます」と言った。"
+        },
+        {
+          "q": "用受惠句說「請接待員送來」。",
+          "a": "受付係に届けてもらう。"
+        },
+        {
+          "q": "區分已定與未定「負責人已定，時間還沒定」。",
+          "a": "担当は決まったが、時刻はまだ決まっていない。"
+        }
+      ],
+      "scene": {
+        "goal": "將引用的人稱留在原發話者的視點，分清轉達者、搬運者、領取者與尚未確認的時刻。",
+        "questions": [
+          {
+            "id": "understanding-1",
+            "prompt": "傳言「我會把鑰匙送去」中的「我」是誰？",
+            "options": [
+              "甲",
+              "乙",
+              "接待員"
+            ],
+            "answer": 2,
+            "explanation": "甲明說這是接待員的傳話，第三句又確認送鑰匙的是接待員。"
+          },
+          {
+            "id": "understanding-2",
+            "prompt": "乙接下來在哪裡做什麼？",
+            "options": [
+              "在保管室等候領取",
+              "到接待處代替甲朗讀傳言",
+              "帶著鑰匙離開"
+            ],
+            "answer": 0,
+            "explanation": "乙明說在保管室等，收到後再通知甲；沒有答應代送。"
+          },
+          {
+            "id": "understanding-3",
+            "prompt": "哪件事仍未確定？",
+            "options": [
+              "等待的人是乙",
+              "鑰匙送達時刻",
+              "送鑰匙的是接待員"
+            ],
+            "answer": 1,
+            "explanation": "甲說還沒聽到送達時間、會再確認，乙最後也重述此未知狀態。"
+          }
+        ]
+      }
+    }
+  ],
+  "unaffectedSha256": "2e4f4947bf5c163a206e3ad6282d31023c30ec3835b205349b5320b49f9d4955",
+  "sceneIds": [
+    [
+      "general-listening-01",
+      "destination",
+      "scene:general-listening-01:9961f274e7"
+    ],
+    [
+      "general-listening-01",
+      "location",
+      "scene:general-listening-01:2fd6a6ded3"
+    ],
+    [
+      "general-listening-01",
+      "item",
+      "scene:general-listening-01:65a93874e4"
+    ],
+    [
+      "general-listening-02",
+      "request",
+      "scene:general-listening-02:97c6f14951"
+    ],
+    [
+      "general-listening-02",
+      "reason",
+      "scene:general-listening-02:f937d27a28"
+    ],
+    [
+      "general-listening-02",
+      "action",
+      "scene:general-listening-02:9062148813"
+    ],
+    [
+      "general-listening-03",
+      "holder",
+      "scene:general-listening-03:dbab266da6"
+    ],
+    [
+      "general-listening-03",
+      "reason",
+      "scene:general-listening-03:9dac701d30"
+    ],
+    [
+      "general-listening-03",
+      "order",
+      "scene:general-listening-03:82bb1a1e1a"
+    ],
+    [
+      "general-listening-04",
+      "refusal",
+      "scene:general-listening-04:669d428ba4"
+    ],
+    [
+      "general-listening-04",
+      "appointment",
+      "scene:general-listening-04:4be8abe881"
+    ],
+    [
+      "general-listening-04",
+      "reservation",
+      "scene:general-listening-04:bab7bb3e3c"
+    ],
+    [
+      "general-listening-05",
+      "ability",
+      "scene:general-listening-05:c7e40d5d76"
+    ],
+    [
+      "general-listening-05",
+      "warning",
+      "scene:general-listening-05:7f8456973f"
+    ],
+    [
+      "general-listening-05",
+      "route",
+      "scene:general-listening-05:97e44b3211"
+    ],
+    [
+      "general-listening-06",
+      "rain",
+      "scene:general-listening-06:43ececc27e"
+    ],
+    [
+      "general-listening-06",
+      "equipment",
+      "scene:general-listening-06:c1e6657241"
+    ],
+    [
+      "general-listening-06",
+      "return",
+      "scene:general-listening-06:2540be3b34"
+    ],
+    [
+      "general-listening-07",
+      "priority",
+      "scene:general-listening-07:e345b0994b"
+    ],
+    [
+      "general-listening-07",
+      "sword",
+      "scene:general-listening-07:856cec9d9f"
+    ],
+    [
+      "general-listening-07",
+      "rest",
+      "scene:general-listening-07:0d588154a7"
+    ],
+    [
+      "general-listening-08",
+      "cargo",
+      "scene:general-listening-08:22043c2e8c"
+    ],
+    [
+      "general-listening-08",
+      "box",
+      "scene:general-listening-08:cfb583fded"
+    ],
+    [
+      "general-listening-08",
+      "water",
+      "scene:general-listening-08:cbe0c20f01"
+    ],
+    [
+      "general-listening-09",
+      "permission",
+      "scene:general-listening-09:1c861e40b2"
+    ],
+    [
+      "general-listening-09",
+      "restriction",
+      "scene:general-listening-09:cb5220aed3"
+    ],
+    [
+      "general-listening-09",
+      "next",
+      "scene:general-listening-09:c55e6d486f"
+    ],
+    [
+      "general-listening-10",
+      "understanding-1",
+      "scene:general-listening-10:1ce6705639"
+    ],
+    [
+      "general-listening-10",
+      "understanding-2",
+      "scene:general-listening-10:b4b149aa76"
+    ],
+    [
+      "general-listening-10",
+      "understanding-3",
+      "scene:general-listening-10:bc6f52b35c"
+    ],
+    [
+      "general-listening-11",
+      "understanding-1",
+      "scene:general-listening-11:65ce6fe58b"
+    ],
+    [
+      "general-listening-11",
+      "understanding-2",
+      "scene:general-listening-11:12f2d5291a"
+    ],
+    [
+      "general-listening-11",
+      "understanding-3",
+      "scene:general-listening-11:09cd961aeb"
+    ],
+    [
+      "general-listening-12",
+      "understanding-1",
+      "scene:general-listening-12:4c0ae3d5cd"
+    ],
+    [
+      "general-listening-12",
+      "understanding-2",
+      "scene:general-listening-12:ff7dc0e1c4"
+    ],
+    [
+      "general-listening-12",
+      "understanding-3",
+      "scene:general-listening-12:304f7f20be"
+    ],
+    [
+      "general-listening-13",
+      "understanding-1",
+      "scene:general-listening-13:9bc3815a4a"
+    ],
+    [
+      "general-listening-13",
+      "understanding-2",
+      "scene:general-listening-13:fa634d3fd1"
+    ],
+    [
+      "general-listening-13",
+      "understanding-3",
+      "scene:general-listening-13:30ac459469"
+    ],
+    [
+      "general-listening-14",
+      "understanding-1",
+      "scene:general-listening-14:93e439f459"
+    ],
+    [
+      "general-listening-14",
+      "understanding-2",
+      "scene:general-listening-14:6cab14cd56"
+    ],
+    [
+      "general-listening-14",
+      "understanding-3",
+      "scene:general-listening-14:4df56740dd"
+    ],
+    [
+      "general-listening-15",
+      "understanding-1",
+      "scene:general-listening-15:8ebd3fe0dc"
+    ],
+    [
+      "general-listening-15",
+      "understanding-2",
+      "scene:general-listening-15:222f4cd218"
+    ],
+    [
+      "general-listening-15",
+      "understanding-3",
+      "scene:general-listening-15:96d3d531d2"
+    ],
+    [
+      "general-listening-16",
+      "understanding-1",
+      "scene:general-listening-16:4eba29333f"
+    ],
+    [
+      "general-listening-16",
+      "understanding-2",
+      "scene:general-listening-16:cd9b84f4c1"
+    ],
+    [
+      "general-listening-16",
+      "understanding-3",
+      "scene:general-listening-16:650180f7c2"
+    ],
+    [
+      "general-listening-17",
+      "understanding-1",
+      "scene:general-listening-17:69d4158ed1"
+    ],
+    [
+      "general-listening-17",
+      "understanding-2",
+      "scene:general-listening-17:f2b49d6c69"
+    ],
+    [
+      "general-listening-17",
+      "understanding-3",
+      "scene:general-listening-17:a3d4e143eb"
+    ],
+    [
+      "general-listening-18",
+      "understanding-1",
+      "scene:general-listening-18:5bff7a076a"
+    ],
+    [
+      "general-listening-18",
+      "understanding-2",
+      "scene:general-listening-18:dbd3cbba36"
+    ],
+    [
+      "general-listening-18",
+      "understanding-3",
+      "scene:general-listening-18:e70117c420"
+    ],
+    [
+      "general-listening-19",
+      "understanding-1",
+      "scene:general-listening-19:ccaeffa0eb"
+    ],
+    [
+      "general-listening-19",
+      "understanding-2",
+      "scene:general-listening-19:1c71ab48d8"
+    ],
+    [
+      "general-listening-19",
+      "understanding-3",
+      "scene:general-listening-19:67cda0cbb4"
+    ],
+    [
+      "general-listening-20",
+      "understanding-1",
+      "scene:general-listening-20:c70c01a60f"
+    ],
+    [
+      "general-listening-20",
+      "understanding-2",
+      "scene:general-listening-20:5c0a70a63f"
+    ],
+    [
+      "general-listening-20",
+      "understanding-3",
+      "scene:general-listening-20:5b460485fe"
+    ],
+    [
+      "general-listening-21",
+      "understanding-1",
+      "scene:general-listening-21:5edd38e2ad"
+    ],
+    [
+      "general-listening-21",
+      "understanding-2",
+      "scene:general-listening-21:12b4b54605"
+    ],
+    [
+      "general-listening-21",
+      "understanding-3",
+      "scene:general-listening-21:0b331014ea"
+    ],
+    [
+      "general-listening-22",
+      "understanding-1",
+      "scene:general-listening-22:4e42164310"
+    ],
+    [
+      "general-listening-22",
+      "understanding-2",
+      "scene:general-listening-22:375f6b69f1"
+    ],
+    [
+      "general-listening-22",
+      "understanding-3",
+      "scene:general-listening-22:263f974217"
+    ],
+    [
+      "general-listening-23",
+      "understanding-1",
+      "scene:general-listening-23:aa751bc9de"
+    ],
+    [
+      "general-listening-23",
+      "understanding-2",
+      "scene:general-listening-23:49e4d7ee84"
+    ],
+    [
+      "general-listening-23",
+      "understanding-3",
+      "scene:general-listening-23:018681f1f3"
+    ],
+    [
+      "general-listening-24",
+      "understanding-1",
+      "scene:general-listening-24:3da0083de5"
+    ],
+    [
+      "general-listening-24",
+      "understanding-2",
+      "scene:general-listening-24:883dfdcefa"
+    ],
+    [
+      "general-listening-24",
+      "understanding-3",
+      "scene:general-listening-24:2a955f224c"
+    ],
+    [
+      "general-listening-25",
+      "understanding-1",
+      "scene:general-listening-25:88ad0ce5a7"
+    ],
+    [
+      "general-listening-25",
+      "understanding-2",
+      "scene:general-listening-25:bbbd164bff"
+    ],
+    [
+      "general-listening-25",
+      "understanding-3",
+      "scene:general-listening-25:1ddf70fe6c"
+    ],
+    [
+      "general-listening-26",
+      "understanding-1",
+      "scene:general-listening-26:4f4b426676"
+    ],
+    [
+      "general-listening-26",
+      "understanding-2",
+      "scene:general-listening-26:b853a28c48"
+    ],
+    [
+      "general-listening-26",
+      "understanding-3",
+      "scene:general-listening-26:fa14c6393a"
+    ],
+    [
+      "general-listening-27",
+      "understanding-1",
+      "scene:general-listening-27:17bed317f6"
+    ],
+    [
+      "general-listening-27",
+      "understanding-2",
+      "scene:general-listening-27:8d4359dbad"
+    ],
+    [
+      "general-listening-27",
+      "understanding-3",
+      "scene:general-listening-27:1c501c197e"
+    ],
+    [
+      "general-listening-28",
+      "understanding-1",
+      "scene:general-listening-28:7a3f1992f8"
+    ],
+    [
+      "general-listening-28",
+      "understanding-2",
+      "scene:general-listening-28:7d51d750eb"
+    ],
+    [
+      "general-listening-28",
+      "understanding-3",
+      "scene:general-listening-28:96582d2f08"
+    ],
+    [
+      "general-listening-29",
+      "understanding-1",
+      "scene:general-listening-29:561a6bd5ba"
+    ],
+    [
+      "general-listening-29",
+      "understanding-2",
+      "scene:general-listening-29:181b7d744e"
+    ],
+    [
+      "general-listening-29",
+      "understanding-3",
+      "scene:general-listening-29:5de8944f61"
+    ],
+    [
+      "general-listening-30",
+      "understanding-1",
+      "scene:general-listening-30:9f6f113f1c"
+    ],
+    [
+      "general-listening-30",
+      "understanding-2",
+      "scene:general-listening-30:1aca292573"
+    ],
+    [
+      "general-listening-30",
+      "understanding-3",
+      "scene:general-listening-30:20442f0766"
+    ],
+    [
+      "general-listening-31",
+      "understanding-1",
+      "scene:general-listening-31:3fbcec07c6"
+    ],
+    [
+      "general-listening-31",
+      "understanding-2",
+      "scene:general-listening-31:ae81c618d8"
+    ],
+    [
+      "general-listening-31",
+      "understanding-3",
+      "scene:general-listening-31:125f87c6a7"
+    ],
+    [
+      "general-listening-32",
+      "understanding-1",
+      "scene:general-listening-32:4dd436661b"
+    ],
+    [
+      "general-listening-32",
+      "understanding-2",
+      "scene:general-listening-32:71ac4db840"
+    ],
+    [
+      "general-listening-32",
+      "understanding-3",
+      "scene:general-listening-32:1ce593da40"
+    ],
+    [
+      "general-listening-33",
+      "understanding-1",
+      "scene:general-listening-33:d675af83e3"
+    ],
+    [
+      "general-listening-33",
+      "understanding-2",
+      "scene:general-listening-33:190d17b7ce"
+    ],
+    [
+      "general-listening-33",
+      "understanding-3",
+      "scene:general-listening-33:fb104ab19f"
+    ],
+    [
+      "general-listening-34",
+      "understanding-1",
+      "scene:general-listening-34:c6e8392715"
+    ],
+    [
+      "general-listening-34",
+      "understanding-2",
+      "scene:general-listening-34:41524dbd52"
+    ],
+    [
+      "general-listening-34",
+      "understanding-3",
+      "scene:general-listening-34:cad0a10ca9"
+    ],
+    [
+      "general-listening-35",
+      "understanding-1",
+      "scene:general-listening-35:d5751443a7"
+    ],
+    [
+      "general-listening-35",
+      "understanding-2",
+      "scene:general-listening-35:fb233688a0"
+    ],
+    [
+      "general-listening-35",
+      "understanding-3",
+      "scene:general-listening-35:c3c709761d"
+    ],
+    [
+      "general-listening-36",
+      "understanding-1",
+      "scene:general-listening-36:efd6294325"
+    ],
+    [
+      "general-listening-36",
+      "understanding-2",
+      "scene:general-listening-36:167f0762df"
+    ],
+    [
+      "general-listening-36",
+      "understanding-3",
+      "scene:general-listening-36:2a6e75172a"
+    ],
+    [
+      "general-listening-37",
+      "understanding-1",
+      "scene:general-listening-37:6411ffc96b"
+    ],
+    [
+      "general-listening-37",
+      "understanding-2",
+      "scene:general-listening-37:5dcc9fc269"
+    ],
+    [
+      "general-listening-37",
+      "understanding-3",
+      "scene:general-listening-37:9a078f0b07"
+    ],
+    [
+      "general-listening-38",
+      "understanding-1",
+      "scene:general-listening-38:5812cb50ce"
+    ],
+    [
+      "general-listening-38",
+      "understanding-2",
+      "scene:general-listening-38:868cf042ba"
+    ],
+    [
+      "general-listening-38",
+      "understanding-3",
+      "scene:general-listening-38:5b13b178ad"
+    ],
+    [
+      "general-listening-39",
+      "understanding-1",
+      "scene:general-listening-39:b3d2a8d5b1"
+    ],
+    [
+      "general-listening-39",
+      "understanding-2",
+      "scene:general-listening-39:5e99f0760f"
+    ],
+    [
+      "general-listening-39",
+      "understanding-3",
+      "scene:general-listening-39:d4d3845c4f"
+    ],
+    [
+      "general-listening-40",
+      "understanding-1",
+      "scene:general-listening-40:808a8a3879"
+    ],
+    [
+      "general-listening-40",
+      "understanding-2",
+      "scene:general-listening-40:25e0172cdd"
+    ],
+    [
+      "general-listening-40",
+      "understanding-3",
+      "scene:general-listening-40:18077373d3"
+    ],
+    [
+      "general-listening-41",
+      "understanding-1",
+      "scene:general-listening-41:1f07f1acd4"
+    ],
+    [
+      "general-listening-41",
+      "understanding-2",
+      "scene:general-listening-41:e432c4c588"
+    ],
+    [
+      "general-listening-41",
+      "understanding-3",
+      "scene:general-listening-41:3c5a3e3481"
+    ],
+    [
+      "general-listening-42",
+      "understanding-1",
+      "scene:general-listening-42:c0d3a3a94a"
+    ],
+    [
+      "general-listening-42",
+      "understanding-2",
+      "scene:general-listening-42:ce63eb8556"
+    ],
+    [
+      "general-listening-42",
+      "understanding-3",
+      "scene:general-listening-42:3868357008"
+    ],
+    [
+      "general-listening-43",
+      "understanding-1",
+      "scene:general-listening-43:33bd9d2eee"
+    ],
+    [
+      "general-listening-43",
+      "understanding-2",
+      "scene:general-listening-43:ab63938129"
+    ],
+    [
+      "general-listening-43",
+      "understanding-3",
+      "scene:general-listening-43:b7868aa1b4"
+    ],
+    [
+      "general-listening-44",
+      "understanding-1",
+      "scene:general-listening-44:ce542e8f59"
+    ],
+    [
+      "general-listening-44",
+      "understanding-2",
+      "scene:general-listening-44:c779f87174"
+    ],
+    [
+      "general-listening-44",
+      "understanding-3",
+      "scene:general-listening-44:b1b52c75fe"
+    ],
+    [
+      "general-listening-45",
+      "understanding-1",
+      "scene:general-listening-45:7a17de2378"
+    ],
+    [
+      "general-listening-45",
+      "understanding-2",
+      "scene:general-listening-45:2230385ebc"
+    ],
+    [
+      "general-listening-45",
+      "understanding-3",
+      "scene:general-listening-45:fb9cdc1876"
+    ],
+    [
+      "general-listening-46",
+      "understanding-1",
+      "scene:general-listening-46:a941326428"
+    ],
+    [
+      "general-listening-46",
+      "understanding-2",
+      "scene:general-listening-46:3375e2cf01"
+    ],
+    [
+      "general-listening-46",
+      "understanding-3",
+      "scene:general-listening-46:4cd9de93cf"
+    ],
+    [
+      "general-listening-47",
+      "understanding-1",
+      "scene:general-listening-47:58efcfd6b5"
+    ],
+    [
+      "general-listening-47",
+      "understanding-2",
+      "scene:general-listening-47:753d06728d"
+    ],
+    [
+      "general-listening-47",
+      "understanding-3",
+      "scene:general-listening-47:42509db2a4"
+    ],
+    [
+      "general-listening-48",
+      "understanding-1",
+      "scene:general-listening-48:e2167f89f0"
+    ],
+    [
+      "general-listening-48",
+      "understanding-2",
+      "scene:general-listening-48:dacce85cd7"
+    ],
+    [
+      "general-listening-48",
+      "understanding-3",
+      "scene:general-listening-48:5bf73255ef"
+    ],
+    [
+      "general-listening-49",
+      "understanding-1",
+      "scene:general-listening-49:ca5020dd9e"
+    ],
+    [
+      "general-listening-49",
+      "understanding-2",
+      "scene:general-listening-49:39251fd440"
+    ],
+    [
+      "general-listening-49",
+      "understanding-3",
+      "scene:general-listening-49:fd189a4357"
+    ],
+    [
+      "general-listening-50",
+      "understanding-1",
+      "scene:general-listening-50:dbaf6e2621"
+    ],
+    [
+      "general-listening-50",
+      "understanding-2",
+      "scene:general-listening-50:fad2d06dad"
+    ],
+    [
+      "general-listening-50",
+      "understanding-3",
+      "scene:general-listening-50:c510326945"
+    ],
+    [
+      "general-listening-51",
+      "understanding-1",
+      "scene:general-listening-51:d82d419895"
+    ],
+    [
+      "general-listening-51",
+      "understanding-2",
+      "scene:general-listening-51:7faf3e97e6"
+    ],
+    [
+      "general-listening-51",
+      "understanding-3",
+      "scene:general-listening-51:2993bb2382"
+    ],
+    [
+      "general-listening-52",
+      "understanding-1",
+      "scene:general-listening-52:e64c3aa1eb"
+    ],
+    [
+      "general-listening-52",
+      "understanding-2",
+      "scene:general-listening-52:25f43d8853"
+    ],
+    [
+      "general-listening-52",
+      "understanding-3",
+      "scene:general-listening-52:a44e4dc6dd"
+    ],
+    [
+      "general-listening-53",
+      "understanding-1",
+      "scene:general-listening-53:34014a19df"
+    ],
+    [
+      "general-listening-53",
+      "understanding-2",
+      "scene:general-listening-53:11659aa65c"
+    ],
+    [
+      "general-listening-53",
+      "understanding-3",
+      "scene:general-listening-53:911c763dd5"
+    ],
+    [
+      "general-listening-54",
+      "understanding-1",
+      "scene:general-listening-54:c6fcdc6c5d"
+    ],
+    [
+      "general-listening-54",
+      "understanding-2",
+      "scene:general-listening-54:3094b11b7f"
+    ],
+    [
+      "general-listening-54",
+      "understanding-3",
+      "scene:general-listening-54:bf8ccbe72b"
+    ],
+    [
+      "general-listening-55",
+      "understanding-1",
+      "scene:general-listening-55:eea38d0aab"
+    ],
+    [
+      "general-listening-55",
+      "understanding-2",
+      "scene:general-listening-55:f1f0511b50"
+    ],
+    [
+      "general-listening-55",
+      "understanding-3",
+      "scene:general-listening-55:c4896fbb6b"
+    ],
+    [
+      "general-listening-56",
+      "understanding-1",
+      "scene:general-listening-56:21b219fd86"
+    ],
+    [
+      "general-listening-56",
+      "understanding-2",
+      "scene:general-listening-56:e872faf2de"
+    ],
+    [
+      "general-listening-56",
+      "understanding-3",
+      "scene:general-listening-56:be51f5a67e"
+    ],
+    [
+      "general-listening-57",
+      "understanding-1",
+      "scene:general-listening-57:41e840626b"
+    ],
+    [
+      "general-listening-57",
+      "understanding-2",
+      "scene:general-listening-57:b7bb587313"
+    ],
+    [
+      "general-listening-57",
+      "understanding-3",
+      "scene:general-listening-57:57c9fad3d1"
+    ],
+    [
+      "general-listening-58",
+      "understanding-1",
+      "scene:general-listening-58:53fa34a76e"
+    ],
+    [
+      "general-listening-58",
+      "understanding-2",
+      "scene:general-listening-58:3fa523006a"
+    ],
+    [
+      "general-listening-58",
+      "understanding-3",
+      "scene:general-listening-58:1e9f114dda"
+    ],
+    [
+      "general-listening-59",
+      "understanding-1",
+      "scene:general-listening-59:d6b19b7fee"
+    ],
+    [
+      "general-listening-59",
+      "understanding-2",
+      "scene:general-listening-59:858aa853df"
+    ],
+    [
+      "general-listening-59",
+      "understanding-3",
+      "scene:general-listening-59:9b586e4ec0"
+    ],
+    [
+      "general-listening-60",
+      "understanding-1",
+      "scene:general-listening-60:73d45333ce"
+    ],
+    [
+      "general-listening-60",
+      "understanding-2",
+      "scene:general-listening-60:76946f4b16"
+    ],
+    [
+      "general-listening-60",
+      "understanding-3",
+      "scene:general-listening-60:f2b024314a"
+    ],
+    [
+      "general-listening-61",
+      "understanding-1",
+      "scene:general-listening-61:d66f75ca32"
+    ],
+    [
+      "general-listening-61",
+      "understanding-2",
+      "scene:general-listening-61:43357c8fea"
+    ],
+    [
+      "general-listening-61",
+      "understanding-3",
+      "scene:general-listening-61:b46d651ac5"
+    ],
+    [
+      "general-listening-62",
+      "understanding-1",
+      "scene:general-listening-62:94bc7d0401"
+    ],
+    [
+      "general-listening-62",
+      "understanding-2",
+      "scene:general-listening-62:06963b881f"
+    ],
+    [
+      "general-listening-62",
+      "understanding-3",
+      "scene:general-listening-62:97b9a5f368"
+    ],
+    [
+      "general-listening-63",
+      "understanding-1",
+      "scene:general-listening-63:f0d350e2b6"
+    ],
+    [
+      "general-listening-63",
+      "understanding-2",
+      "scene:general-listening-63:13f1aecdfe"
+    ],
+    [
+      "general-listening-63",
+      "understanding-3",
+      "scene:general-listening-63:8bb93cdeb3"
+    ],
+    [
+      "general-listening-64",
+      "understanding-1",
+      "scene:general-listening-64:eb56ba9cd9"
+    ],
+    [
+      "general-listening-64",
+      "understanding-2",
+      "scene:general-listening-64:8bcf7ef790"
+    ],
+    [
+      "general-listening-64",
+      "understanding-3",
+      "scene:general-listening-64:b5aac81082"
+    ],
+    [
+      "general-listening-65",
+      "understanding-1",
+      "scene:general-listening-65:0e82e9673b"
+    ],
+    [
+      "general-listening-65",
+      "understanding-2",
+      "scene:general-listening-65:59862bf562"
+    ],
+    [
+      "general-listening-65",
+      "understanding-3",
+      "scene:general-listening-65:bad02d7eca"
+    ],
+    [
+      "general-listening-66",
+      "understanding-1",
+      "scene:general-listening-66:c044b4e4fd"
+    ],
+    [
+      "general-listening-66",
+      "understanding-2",
+      "scene:general-listening-66:beae55a084"
+    ],
+    [
+      "general-listening-66",
+      "understanding-3",
+      "scene:general-listening-66:bc540f10d1"
+    ],
+    [
+      "general-listening-67",
+      "understanding-1",
+      "scene:general-listening-67:56cf5bb3e7"
+    ],
+    [
+      "general-listening-67",
+      "understanding-2",
+      "scene:general-listening-67:054972cca7"
+    ],
+    [
+      "general-listening-67",
+      "understanding-3",
+      "scene:general-listening-67:4d7751dc10"
+    ],
+    [
+      "general-listening-68",
+      "understanding-1",
+      "scene:general-listening-68:8ff19036a9"
+    ],
+    [
+      "general-listening-68",
+      "understanding-2",
+      "scene:general-listening-68:8f95840eb3"
+    ],
+    [
+      "general-listening-68",
+      "understanding-3",
+      "scene:general-listening-68:1e34b385cb"
+    ],
+    [
+      "general-listening-69",
+      "understanding-1",
+      "scene:general-listening-69:d701b4773b"
+    ],
+    [
+      "general-listening-69",
+      "understanding-2",
+      "scene:general-listening-69:5da97a9114"
+    ],
+    [
+      "general-listening-69",
+      "understanding-3",
+      "scene:general-listening-69:50983c6ba1"
+    ],
+    [
+      "general-listening-70",
+      "understanding-1",
+      "scene:general-listening-70:cc646e418d"
+    ],
+    [
+      "general-listening-70",
+      "understanding-2",
+      "scene:general-listening-70:f36ad21403"
+    ],
+    [
+      "general-listening-70",
+      "understanding-3",
+      "scene:general-listening-70:9e87d08503"
+    ],
+    [
+      "general-listening-71",
+      "understanding-1",
+      "scene:general-listening-71:4557e8a45b"
+    ],
+    [
+      "general-listening-71",
+      "understanding-2",
+      "scene:general-listening-71:ef68de3400"
+    ],
+    [
+      "general-listening-71",
+      "understanding-3",
+      "scene:general-listening-71:c6bd14db97"
+    ],
+    [
+      "general-listening-72",
+      "understanding-1",
+      "scene:general-listening-72:7be4666fde"
+    ],
+    [
+      "general-listening-72",
+      "understanding-2",
+      "scene:general-listening-72:7ec3024a4e"
+    ],
+    [
+      "general-listening-72",
+      "understanding-3",
+      "scene:general-listening-72:fb85a339b0"
+    ],
+    [
+      "general-listening-73",
+      "understanding-1",
+      "scene:general-listening-73:8185bc50f0"
+    ],
+    [
+      "general-listening-73",
+      "understanding-2",
+      "scene:general-listening-73:f474f9420c"
+    ],
+    [
+      "general-listening-73",
+      "understanding-3",
+      "scene:general-listening-73:aa5f893df9"
+    ],
+    [
+      "general-listening-74",
+      "understanding-1",
+      "scene:general-listening-74:7c0935a45a"
+    ],
+    [
+      "general-listening-74",
+      "understanding-2",
+      "scene:general-listening-74:8c907eacf3"
+    ],
+    [
+      "general-listening-74",
+      "understanding-3",
+      "scene:general-listening-74:b2b6f47ac0"
+    ],
+    [
+      "general-listening-75",
+      "understanding-1",
+      "scene:general-listening-75:39f02d90a2"
+    ],
+    [
+      "general-listening-75",
+      "understanding-2",
+      "scene:general-listening-75:2e354c60c7"
+    ],
+    [
+      "general-listening-75",
+      "understanding-3",
+      "scene:general-listening-75:661f619b2f"
+    ],
+    [
+      "general-listening-76",
+      "understanding-1",
+      "scene:general-listening-76:fd0d92a265"
+    ],
+    [
+      "general-listening-76",
+      "understanding-2",
+      "scene:general-listening-76:edd336b104"
+    ],
+    [
+      "general-listening-76",
+      "understanding-3",
+      "scene:general-listening-76:99b957b156"
+    ],
+    [
+      "general-listening-77",
+      "understanding-1",
+      "scene:general-listening-77:a6cb8d5ded"
+    ],
+    [
+      "general-listening-77",
+      "understanding-2",
+      "scene:general-listening-77:5ab3964bd1"
+    ],
+    [
+      "general-listening-77",
+      "understanding-3",
+      "scene:general-listening-77:a99819a2cf"
+    ],
+    [
+      "general-listening-78",
+      "understanding-1",
+      "scene:general-listening-78:c6a674ce74"
+    ],
+    [
+      "general-listening-78",
+      "understanding-2",
+      "scene:general-listening-78:c5d663adf2"
+    ],
+    [
+      "general-listening-78",
+      "understanding-3",
+      "scene:general-listening-78:3c4d5341e6"
+    ],
+    [
+      "general-listening-79",
+      "understanding-1",
+      "scene:general-listening-79:579523fbba"
+    ],
+    [
+      "general-listening-79",
+      "understanding-2",
+      "scene:general-listening-79:4e0acf481d"
+    ],
+    [
+      "general-listening-79",
+      "understanding-3",
+      "scene:general-listening-79:8909c2ee29"
+    ],
+    [
+      "general-listening-80",
+      "understanding-1",
+      "scene:general-listening-80:d15ce9b63a"
+    ],
+    [
+      "general-listening-80",
+      "understanding-2",
+      "scene:general-listening-80:183f097a9b"
+    ],
+    [
+      "general-listening-80",
+      "understanding-3",
+      "scene:general-listening-80:9647ad3e93"
+    ],
+    [
+      "general-listening-81",
+      "understanding-1",
+      "scene:general-listening-81:c1775191a7"
+    ],
+    [
+      "general-listening-81",
+      "understanding-2",
+      "scene:general-listening-81:fe65069ceb"
+    ],
+    [
+      "general-listening-81",
+      "understanding-3",
+      "scene:general-listening-81:57fe2ccbe0"
+    ],
+    [
+      "general-listening-82",
+      "understanding-1",
+      "scene:general-listening-82:2aaf014ab3"
+    ],
+    [
+      "general-listening-82",
+      "understanding-2",
+      "scene:general-listening-82:f47b4ec1c2"
+    ],
+    [
+      "general-listening-82",
+      "understanding-3",
+      "scene:general-listening-82:1a1233d4bc"
+    ],
+    [
+      "general-listening-83",
+      "understanding-1",
+      "scene:general-listening-83:4c1220f5e1"
+    ],
+    [
+      "general-listening-83",
+      "understanding-2",
+      "scene:general-listening-83:56e689679d"
+    ],
+    [
+      "general-listening-83",
+      "understanding-3",
+      "scene:general-listening-83:7eecfaa6e1"
+    ],
+    [
+      "general-listening-84",
+      "understanding-1",
+      "scene:general-listening-84:3736bde1b2"
+    ],
+    [
+      "general-listening-84",
+      "understanding-2",
+      "scene:general-listening-84:a98006593a"
+    ],
+    [
+      "general-listening-84",
+      "understanding-3",
+      "scene:general-listening-84:2074e013aa"
+    ],
+    [
+      "general-listening-85",
+      "understanding-1",
+      "scene:general-listening-85:46c7596099"
+    ],
+    [
+      "general-listening-85",
+      "understanding-2",
+      "scene:general-listening-85:7475a2c7eb"
+    ],
+    [
+      "general-listening-85",
+      "understanding-3",
+      "scene:general-listening-85:df7e275f52"
+    ],
+    [
+      "general-listening-86",
+      "understanding-1",
+      "scene:general-listening-86:1728536f9c"
+    ],
+    [
+      "general-listening-86",
+      "understanding-2",
+      "scene:general-listening-86:ff278d922e"
+    ],
+    [
+      "general-listening-86",
+      "understanding-3",
+      "scene:general-listening-86:6fae455a56"
+    ],
+    [
+      "general-listening-87",
+      "understanding-1",
+      "scene:general-listening-87:2dfa9141c0"
+    ],
+    [
+      "general-listening-87",
+      "understanding-2",
+      "scene:general-listening-87:e654d14453"
+    ],
+    [
+      "general-listening-87",
+      "understanding-3",
+      "scene:general-listening-87:82672fbea3"
+    ],
+    [
+      "general-listening-88",
+      "understanding-1",
+      "scene:general-listening-88:e91387b740"
+    ],
+    [
+      "general-listening-88",
+      "understanding-2",
+      "scene:general-listening-88:56370bd1d2"
+    ],
+    [
+      "general-listening-88",
+      "understanding-3",
+      "scene:general-listening-88:81fc86ba1d"
+    ],
+    [
+      "general-listening-89",
+      "understanding-1",
+      "scene:general-listening-89:7e33e0f8bb"
+    ],
+    [
+      "general-listening-89",
+      "understanding-2",
+      "scene:general-listening-89:325f2f88b8"
+    ],
+    [
+      "general-listening-89",
+      "understanding-3",
+      "scene:general-listening-89:87f508e731"
+    ],
+    [
+      "general-listening-90",
+      "understanding-1",
+      "scene:general-listening-90:90a89c5c74"
+    ],
+    [
+      "general-listening-90",
+      "understanding-2",
+      "scene:general-listening-90:4aeffb0026"
+    ],
+    [
+      "general-listening-90",
+      "understanding-3",
+      "scene:general-listening-90:8d81c13ab2"
+    ],
+    [
+      "general-listening-91",
+      "understanding-1",
+      "scene:general-listening-91:ebc0e08c46"
+    ],
+    [
+      "general-listening-91",
+      "understanding-2",
+      "scene:general-listening-91:4136b2eb17"
+    ],
+    [
+      "general-listening-91",
+      "understanding-3",
+      "scene:general-listening-91:21049f5e2a"
+    ],
+    [
+      "general-listening-92",
+      "understanding-1",
+      "scene:general-listening-92:c6bd4ed636"
+    ],
+    [
+      "general-listening-92",
+      "understanding-2",
+      "scene:general-listening-92:0643fef986"
+    ],
+    [
+      "general-listening-92",
+      "understanding-3",
+      "scene:general-listening-92:0e7405dd08"
+    ],
+    [
+      "general-listening-93",
+      "understanding-1",
+      "scene:general-listening-93:c4f9fa9ae0"
+    ],
+    [
+      "general-listening-93",
+      "understanding-2",
+      "scene:general-listening-93:9393ec5a77"
+    ],
+    [
+      "general-listening-93",
+      "understanding-3",
+      "scene:general-listening-93:f2b4cc7a60"
+    ],
+    [
+      "general-listening-94",
+      "understanding-1",
+      "scene:general-listening-94:3a3fef8623"
+    ],
+    [
+      "general-listening-94",
+      "understanding-2",
+      "scene:general-listening-94:b37784d376"
+    ],
+    [
+      "general-listening-94",
+      "understanding-3",
+      "scene:general-listening-94:fb21299e1e"
+    ],
+    [
+      "general-listening-95",
+      "understanding-1",
+      "scene:general-listening-95:ef34c74cea"
+    ],
+    [
+      "general-listening-95",
+      "understanding-2",
+      "scene:general-listening-95:ae3221ff08"
+    ],
+    [
+      "general-listening-95",
+      "understanding-3",
+      "scene:general-listening-95:12bf5e961a"
+    ],
+    [
+      "general-listening-96",
+      "understanding-1",
+      "scene:general-listening-96:18c654b750"
+    ],
+    [
+      "general-listening-96",
+      "understanding-2",
+      "scene:general-listening-96:8a827cdabc"
+    ],
+    [
+      "general-listening-96",
+      "understanding-3",
+      "scene:general-listening-96:5bd175d93b"
+    ],
+    [
+      "general-listening-97",
+      "understanding-1",
+      "scene:general-listening-97:580003174a"
+    ],
+    [
+      "general-listening-97",
+      "understanding-2",
+      "scene:general-listening-97:6a9f33cf9c"
+    ],
+    [
+      "general-listening-97",
+      "understanding-3",
+      "scene:general-listening-97:40afd535a1"
+    ],
+    [
+      "general-listening-98",
+      "understanding-1",
+      "scene:general-listening-98:4dcf30b6dc"
+    ],
+    [
+      "general-listening-98",
+      "understanding-2",
+      "scene:general-listening-98:d0cfa0e2ad"
+    ],
+    [
+      "general-listening-98",
+      "understanding-3",
+      "scene:general-listening-98:d6cc915274"
+    ],
+    [
+      "general-listening-99",
+      "understanding-1",
+      "scene:general-listening-99:a584f84f55"
+    ],
+    [
+      "general-listening-99",
+      "understanding-2",
+      "scene:general-listening-99:bacacded02"
+    ],
+    [
+      "general-listening-99",
+      "understanding-3",
+      "scene:general-listening-99:2e58b91fd6"
+    ],
+    [
+      "general-listening-100",
+      "understanding-1",
+      "scene:general-listening-100:8107551d2d"
+    ],
+    [
+      "general-listening-100",
+      "understanding-2",
+      "scene:general-listening-100:c7fd6751ae"
+    ],
+    [
+      "general-listening-100",
+      "understanding-3",
+      "scene:general-listening-100:e05a9cea59"
+    ],
+    [
+      "general-listening-101",
+      "understanding-1",
+      "scene:general-listening-101:9bad95fcff"
+    ],
+    [
+      "general-listening-101",
+      "understanding-2",
+      "scene:general-listening-101:1a9d24ef79"
+    ],
+    [
+      "general-listening-101",
+      "understanding-3",
+      "scene:general-listening-101:edc9394514"
+    ],
+    [
+      "general-listening-102",
+      "understanding-1",
+      "scene:general-listening-102:4767e0eae1"
+    ],
+    [
+      "general-listening-102",
+      "understanding-2",
+      "scene:general-listening-102:1905d615e0"
+    ],
+    [
+      "general-listening-102",
+      "understanding-3",
+      "scene:general-listening-102:ea844d0a11"
+    ],
+    [
+      "general-listening-103",
+      "understanding-1",
+      "scene:general-listening-103:26e050a199"
+    ],
+    [
+      "general-listening-103",
+      "understanding-2",
+      "scene:general-listening-103:4248e34f4f"
+    ],
+    [
+      "general-listening-103",
+      "understanding-3",
+      "scene:general-listening-103:4e1c7d2e62"
+    ],
+    [
+      "general-listening-104",
+      "understanding-1",
+      "scene:general-listening-104:0ea96b6cf4"
+    ],
+    [
+      "general-listening-104",
+      "understanding-2",
+      "scene:general-listening-104:a23209a479"
+    ],
+    [
+      "general-listening-104",
+      "understanding-3",
+      "scene:general-listening-104:52bbafcbee"
+    ],
+    [
+      "general-listening-105",
+      "understanding-1",
+      "scene:general-listening-105:8a1c1feed4"
+    ],
+    [
+      "general-listening-105",
+      "understanding-2",
+      "scene:general-listening-105:bdda9ed7d6"
+    ],
+    [
+      "general-listening-105",
+      "understanding-3",
+      "scene:general-listening-105:b1cd3cd68b"
+    ],
+    [
+      "general-listening-106",
+      "understanding-1",
+      "scene:general-listening-106:33cf1c0414"
+    ],
+    [
+      "general-listening-106",
+      "understanding-2",
+      "scene:general-listening-106:6861ce64ba"
+    ],
+    [
+      "general-listening-106",
+      "understanding-3",
+      "scene:general-listening-106:c9d6a85ebe"
+    ],
+    [
+      "general-listening-107",
+      "understanding-1",
+      "scene:general-listening-107:ddc8fcc0a0"
+    ],
+    [
+      "general-listening-107",
+      "understanding-2",
+      "scene:general-listening-107:c2b8a0cedf"
+    ],
+    [
+      "general-listening-107",
+      "understanding-3",
+      "scene:general-listening-107:cbfdb68ab9"
+    ],
+    [
+      "general-listening-108",
+      "understanding-1",
+      "scene:general-listening-108:6bfdd97042"
+    ],
+    [
+      "general-listening-108",
+      "understanding-2",
+      "scene:general-listening-108:e7a240e52a"
+    ],
+    [
+      "general-listening-108",
+      "understanding-3",
+      "scene:general-listening-108:057e635403"
+    ],
+    [
+      "general-listening-109",
+      "understanding-1",
+      "scene:general-listening-109:1a29d4170e"
+    ],
+    [
+      "general-listening-109",
+      "understanding-2",
+      "scene:general-listening-109:2a5df71378"
+    ],
+    [
+      "general-listening-109",
+      "understanding-3",
+      "scene:general-listening-109:e940b98fa6"
+    ],
+    [
+      "general-listening-110",
+      "understanding-1",
+      "scene:general-listening-110:6bb17a2d82"
+    ],
+    [
+      "general-listening-110",
+      "understanding-2",
+      "scene:general-listening-110:d9ce695f9e"
+    ],
+    [
+      "general-listening-110",
+      "understanding-3",
+      "scene:general-listening-110:e2ae2240dd"
+    ],
+    [
+      "general-listening-111",
+      "understanding-1",
+      "scene:general-listening-111:7d77ad4c2f"
+    ],
+    [
+      "general-listening-111",
+      "understanding-2",
+      "scene:general-listening-111:f5b0ab3fee"
+    ],
+    [
+      "general-listening-111",
+      "understanding-3",
+      "scene:general-listening-111:387c286359"
+    ],
+    [
+      "general-listening-112",
+      "understanding-1",
+      "scene:general-listening-112:928eb48c7f"
+    ],
+    [
+      "general-listening-112",
+      "understanding-2",
+      "scene:general-listening-112:fa38e150c8"
+    ],
+    [
+      "general-listening-112",
+      "understanding-3",
+      "scene:general-listening-112:9490689d6f"
+    ],
+    [
+      "general-listening-113",
+      "understanding-1",
+      "scene:general-listening-113:fb2d5b7bdd"
+    ],
+    [
+      "general-listening-113",
+      "understanding-2",
+      "scene:general-listening-113:82f0ef813d"
+    ],
+    [
+      "general-listening-113",
+      "understanding-3",
+      "scene:general-listening-113:0e2679c5a2"
+    ],
+    [
+      "general-listening-114",
+      "understanding-1",
+      "scene:general-listening-114:c02d6b29c0"
+    ],
+    [
+      "general-listening-114",
+      "understanding-2",
+      "scene:general-listening-114:3538d74d02"
+    ],
+    [
+      "general-listening-114",
+      "understanding-3",
+      "scene:general-listening-114:1be9741940"
+    ],
+    [
+      "general-listening-115",
+      "understanding-1",
+      "scene:general-listening-115:4d32da7c87"
+    ],
+    [
+      "general-listening-115",
+      "understanding-2",
+      "scene:general-listening-115:063a5cf8de"
+    ],
+    [
+      "general-listening-115",
+      "understanding-3",
+      "scene:general-listening-115:1146a70d1f"
+    ],
+    [
+      "general-listening-116",
+      "understanding-1",
+      "scene:general-listening-116:f2ee99cf7a"
+    ],
+    [
+      "general-listening-116",
+      "understanding-2",
+      "scene:general-listening-116:65059a36a0"
+    ],
+    [
+      "general-listening-116",
+      "understanding-3",
+      "scene:general-listening-116:0645717a28"
+    ],
+    [
+      "general-listening-117",
+      "understanding-1",
+      "scene:general-listening-117:d113ccda3f"
+    ],
+    [
+      "general-listening-117",
+      "understanding-2",
+      "scene:general-listening-117:c0054db01f"
+    ],
+    [
+      "general-listening-117",
+      "understanding-3",
+      "scene:general-listening-117:3b12fdef16"
+    ],
+    [
+      "general-listening-118",
+      "understanding-1",
+      "scene:general-listening-118:4883e948cb"
+    ],
+    [
+      "general-listening-118",
+      "understanding-2",
+      "scene:general-listening-118:2910a18f3a"
+    ],
+    [
+      "general-listening-118",
+      "understanding-3",
+      "scene:general-listening-118:811e9d972b"
+    ],
+    [
+      "general-listening-119",
+      "understanding-1",
+      "scene:general-listening-119:40289023f7"
+    ],
+    [
+      "general-listening-119",
+      "understanding-2",
+      "scene:general-listening-119:446816f4c2"
+    ],
+    [
+      "general-listening-119",
+      "understanding-3",
+      "scene:general-listening-119:bd9511b6c0"
+    ],
+    [
+      "general-listening-120",
+      "understanding-1",
+      "scene:general-listening-120:e6e5016008"
+    ],
+    [
+      "general-listening-120",
+      "understanding-2",
+      "scene:general-listening-120:58c9faf7d9"
+    ],
+    [
+      "general-listening-120",
+      "understanding-3",
+      "scene:general-listening-120:4c1a175fcd"
+    ],
+    [
+      "general-listening-121",
+      "understanding-1",
+      "scene:general-listening-121:fd92daa589"
+    ],
+    [
+      "general-listening-121",
+      "understanding-2",
+      "scene:general-listening-121:56f497cb45"
+    ],
+    [
+      "general-listening-121",
+      "understanding-3",
+      "scene:general-listening-121:3d0af12808"
+    ],
+    [
+      "general-listening-122",
+      "understanding-1",
+      "scene:general-listening-122:5f87941b95"
+    ],
+    [
+      "general-listening-122",
+      "understanding-2",
+      "scene:general-listening-122:dfbb2d6c8f"
+    ],
+    [
+      "general-listening-122",
+      "understanding-3",
+      "scene:general-listening-122:820ea27640"
+    ],
+    [
+      "general-listening-123",
+      "understanding-1",
+      "scene:general-listening-123:f712a91103"
+    ],
+    [
+      "general-listening-123",
+      "understanding-2",
+      "scene:general-listening-123:3a4e9f4d92"
+    ],
+    [
+      "general-listening-123",
+      "understanding-3",
+      "scene:general-listening-123:631070e727"
+    ],
+    [
+      "general-listening-124",
+      "understanding-1",
+      "scene:general-listening-124:19f7fae197"
+    ],
+    [
+      "general-listening-124",
+      "understanding-2",
+      "scene:general-listening-124:a5dd135f5f"
+    ],
+    [
+      "general-listening-124",
+      "understanding-3",
+      "scene:general-listening-124:c005d9708b"
+    ],
+    [
+      "general-listening-125",
+      "understanding-1",
+      "scene:general-listening-125:d936d0d2ea"
+    ],
+    [
+      "general-listening-125",
+      "understanding-2",
+      "scene:general-listening-125:dc5d7541d2"
+    ],
+    [
+      "general-listening-125",
+      "understanding-3",
+      "scene:general-listening-125:b51233478f"
+    ],
+    [
+      "general-listening-126",
+      "understanding-1",
+      "scene:general-listening-126:af1c3517ae"
+    ],
+    [
+      "general-listening-126",
+      "understanding-2",
+      "scene:general-listening-126:d925e82916"
+    ],
+    [
+      "general-listening-126",
+      "understanding-3",
+      "scene:general-listening-126:328ff3318b"
+    ],
+    [
+      "general-listening-127",
+      "understanding-1",
+      "scene:general-listening-127:42c47864f5"
+    ],
+    [
+      "general-listening-127",
+      "understanding-2",
+      "scene:general-listening-127:8241782ac7"
+    ],
+    [
+      "general-listening-127",
+      "understanding-3",
+      "scene:general-listening-127:63c62daf54"
+    ],
+    [
+      "general-listening-128",
+      "understanding-1",
+      "scene:general-listening-128:88f8d77e82"
+    ],
+    [
+      "general-listening-128",
+      "understanding-2",
+      "scene:general-listening-128:f32498287c"
+    ],
+    [
+      "general-listening-128",
+      "understanding-3",
+      "scene:general-listening-128:5c10a5c307"
+    ],
+    [
+      "general-listening-129",
+      "understanding-1",
+      "scene:general-listening-129:a806ac23ec"
+    ],
+    [
+      "general-listening-129",
+      "understanding-2",
+      "scene:general-listening-129:1e4d52f6cc"
+    ],
+    [
+      "general-listening-129",
+      "understanding-3",
+      "scene:general-listening-129:7316ef9a84"
+    ],
+    [
+      "general-listening-130",
+      "understanding-1",
+      "scene:general-listening-130:e40f846785"
+    ],
+    [
+      "general-listening-130",
+      "understanding-2",
+      "scene:general-listening-130:7412728546"
+    ],
+    [
+      "general-listening-130",
+      "understanding-3",
+      "scene:general-listening-130:55e5f879ea"
+    ],
+    [
+      "general-listening-131",
+      "understanding-1",
+      "scene:general-listening-131:1ea7649f7a"
+    ],
+    [
+      "general-listening-131",
+      "understanding-2",
+      "scene:general-listening-131:91c3d2c5fb"
+    ],
+    [
+      "general-listening-131",
+      "understanding-3",
+      "scene:general-listening-131:b035ef6fb2"
+    ],
+    [
+      "general-listening-132",
+      "understanding-1",
+      "scene:general-listening-132:b3d7076087"
+    ],
+    [
+      "general-listening-132",
+      "understanding-2",
+      "scene:general-listening-132:bd15b60b63"
+    ],
+    [
+      "general-listening-132",
+      "understanding-3",
+      "scene:general-listening-132:3abe997cc7"
+    ],
+    [
+      "general-listening-133",
+      "understanding-1",
+      "scene:general-listening-133:7699c21604"
+    ],
+    [
+      "general-listening-133",
+      "understanding-2",
+      "scene:general-listening-133:801c4bcb83"
+    ],
+    [
+      "general-listening-133",
+      "understanding-3",
+      "scene:general-listening-133:bc20107fa5"
+    ],
+    [
+      "general-listening-134",
+      "understanding-1",
+      "scene:general-listening-134:7d47216931"
+    ],
+    [
+      "general-listening-134",
+      "understanding-2",
+      "scene:general-listening-134:e8acb045cb"
+    ],
+    [
+      "general-listening-134",
+      "understanding-3",
+      "scene:general-listening-134:ed98910de3"
+    ],
+    [
+      "general-listening-135",
+      "understanding-1",
+      "scene:general-listening-135:4514f798e9"
+    ],
+    [
+      "general-listening-135",
+      "understanding-2",
+      "scene:general-listening-135:d29906fca5"
+    ],
+    [
+      "general-listening-135",
+      "understanding-3",
+      "scene:general-listening-135:fae7560e34"
+    ],
+    [
+      "general-listening-136",
+      "understanding-1",
+      "scene:general-listening-136:cfcac778f2"
+    ],
+    [
+      "general-listening-136",
+      "understanding-2",
+      "scene:general-listening-136:21e75d7433"
+    ],
+    [
+      "general-listening-136",
+      "understanding-3",
+      "scene:general-listening-136:5b0894be74"
+    ],
+    [
+      "general-listening-137",
+      "understanding-1",
+      "scene:general-listening-137:5c52cd1de0"
+    ],
+    [
+      "general-listening-137",
+      "understanding-2",
+      "scene:general-listening-137:098a71f877"
+    ],
+    [
+      "general-listening-137",
+      "understanding-3",
+      "scene:general-listening-137:cc0d479dde"
+    ],
+    [
+      "general-listening-138",
+      "understanding-1",
+      "scene:general-listening-138:1c8b316508"
+    ],
+    [
+      "general-listening-138",
+      "understanding-2",
+      "scene:general-listening-138:83871402a5"
+    ],
+    [
+      "general-listening-138",
+      "understanding-3",
+      "scene:general-listening-138:a597ebe9b9"
+    ],
+    [
+      "general-listening-139",
+      "understanding-1",
+      "scene:general-listening-139:893a5efb8e"
+    ],
+    [
+      "general-listening-139",
+      "understanding-2",
+      "scene:general-listening-139:b66968347c"
+    ],
+    [
+      "general-listening-139",
+      "understanding-3",
+      "scene:general-listening-139:c3e85593f6"
+    ],
+    [
+      "general-listening-140",
+      "understanding-1",
+      "scene:general-listening-140:c0cf43212c"
+    ],
+    [
+      "general-listening-140",
+      "understanding-2",
+      "scene:general-listening-140:9593ce7856"
+    ],
+    [
+      "general-listening-140",
+      "understanding-3",
+      "scene:general-listening-140:75e2ce1a6a"
+    ],
+    [
+      "general-listening-141",
+      "understanding-1",
+      "scene:general-listening-141:13e1ab80e5"
+    ],
+    [
+      "general-listening-141",
+      "understanding-2",
+      "scene:general-listening-141:b8458322e0"
+    ],
+    [
+      "general-listening-141",
+      "understanding-3",
+      "scene:general-listening-141:8896083392"
+    ],
+    [
+      "general-listening-142",
+      "understanding-1",
+      "scene:general-listening-142:0f7e3abadd"
+    ],
+    [
+      "general-listening-142",
+      "understanding-2",
+      "scene:general-listening-142:c6fa880a38"
+    ],
+    [
+      "general-listening-142",
+      "understanding-3",
+      "scene:general-listening-142:bf8f6afd85"
+    ],
+    [
+      "general-listening-143",
+      "understanding-1",
+      "scene:general-listening-143:43a2621752"
+    ],
+    [
+      "general-listening-143",
+      "understanding-2",
+      "scene:general-listening-143:ef6d2813d0"
+    ],
+    [
+      "general-listening-143",
+      "understanding-3",
+      "scene:general-listening-143:e574413725"
+    ],
+    [
+      "general-listening-144",
+      "understanding-1",
+      "scene:general-listening-144:bad1a167b5"
+    ],
+    [
+      "general-listening-144",
+      "understanding-2",
+      "scene:general-listening-144:b1a16464a5"
+    ],
+    [
+      "general-listening-144",
+      "understanding-3",
+      "scene:general-listening-144:f95b97a9f8"
+    ],
+    [
+      "general-listening-145",
+      "understanding-1",
+      "scene:general-listening-145:aa2b6e45cb"
+    ],
+    [
+      "general-listening-145",
+      "understanding-2",
+      "scene:general-listening-145:948b00e9f7"
+    ],
+    [
+      "general-listening-145",
+      "understanding-3",
+      "scene:general-listening-145:e09fa71729"
+    ],
+    [
+      "general-listening-146",
+      "understanding-1",
+      "scene:general-listening-146:e6512f1091"
+    ],
+    [
+      "general-listening-146",
+      "understanding-2",
+      "scene:general-listening-146:436b161fa2"
+    ],
+    [
+      "general-listening-146",
+      "understanding-3",
+      "scene:general-listening-146:835f32b8af"
+    ],
+    [
+      "general-listening-147",
+      "understanding-1",
+      "scene:general-listening-147:b8e51cf959"
+    ],
+    [
+      "general-listening-147",
+      "understanding-2",
+      "scene:general-listening-147:c14383fd9a"
+    ],
+    [
+      "general-listening-147",
+      "understanding-3",
+      "scene:general-listening-147:fbdaca0c5b"
+    ],
+    [
+      "general-listening-148",
+      "understanding-1",
+      "scene:general-listening-148:424fe25837"
+    ],
+    [
+      "general-listening-148",
+      "understanding-2",
+      "scene:general-listening-148:3cbba8dd3a"
+    ],
+    [
+      "general-listening-148",
+      "understanding-3",
+      "scene:general-listening-148:db42e1d59b"
+    ],
+    [
+      "general-listening-149",
+      "understanding-1",
+      "scene:general-listening-149:250b0d5e28"
+    ],
+    [
+      "general-listening-149",
+      "understanding-2",
+      "scene:general-listening-149:ac94fa35d2"
+    ],
+    [
+      "general-listening-149",
+      "understanding-3",
+      "scene:general-listening-149:519ab0c836"
+    ],
+    [
+      "general-listening-150",
+      "understanding-1",
+      "scene:general-listening-150:c16d95a9bc"
+    ],
+    [
+      "general-listening-150",
+      "understanding-2",
+      "scene:general-listening-150:8e0cc199cb"
+    ],
+    [
+      "general-listening-150",
+      "understanding-3",
+      "scene:general-listening-150:c01e043c9b"
+    ],
+    [
+      "general-listening-151",
+      "understanding-1",
+      "scene:general-listening-151:3bde3ec762"
+    ],
+    [
+      "general-listening-151",
+      "understanding-2",
+      "scene:general-listening-151:0572e79436"
+    ],
+    [
+      "general-listening-151",
+      "understanding-3",
+      "scene:general-listening-151:d33898d307"
+    ],
+    [
+      "general-listening-152",
+      "understanding-1",
+      "scene:general-listening-152:91f2971a32"
+    ],
+    [
+      "general-listening-152",
+      "understanding-2",
+      "scene:general-listening-152:8507e53bf3"
+    ],
+    [
+      "general-listening-152",
+      "understanding-3",
+      "scene:general-listening-152:604b1feaed"
+    ],
+    [
+      "general-listening-153",
+      "understanding-1",
+      "scene:general-listening-153:69bc4830a4"
+    ],
+    [
+      "general-listening-153",
+      "understanding-2",
+      "scene:general-listening-153:61842a3c99"
+    ],
+    [
+      "general-listening-153",
+      "understanding-3",
+      "scene:general-listening-153:2a959520a5"
+    ],
+    [
+      "general-listening-154",
+      "understanding-1",
+      "scene:general-listening-154:a25c9d5f87"
+    ],
+    [
+      "general-listening-154",
+      "understanding-2",
+      "scene:general-listening-154:06203a4c37"
+    ],
+    [
+      "general-listening-154",
+      "understanding-3",
+      "scene:general-listening-154:0911aaeed7"
+    ],
+    [
+      "general-listening-155",
+      "understanding-1",
+      "scene:general-listening-155:51fe4e3ac6"
+    ],
+    [
+      "general-listening-155",
+      "understanding-2",
+      "scene:general-listening-155:089d076565"
+    ],
+    [
+      "general-listening-155",
+      "understanding-3",
+      "scene:general-listening-155:4034835952"
+    ],
+    [
+      "general-listening-156",
+      "understanding-1",
+      "scene:general-listening-156:4ba91aa76a"
+    ],
+    [
+      "general-listening-156",
+      "understanding-2",
+      "scene:general-listening-156:7e9352312b"
+    ],
+    [
+      "general-listening-156",
+      "understanding-3",
+      "scene:general-listening-156:d152106d9c"
+    ],
+    [
+      "general-listening-157",
+      "understanding-1",
+      "scene:general-listening-157:f84bef366d"
+    ],
+    [
+      "general-listening-157",
+      "understanding-2",
+      "scene:general-listening-157:0ec7e8a8f7"
+    ],
+    [
+      "general-listening-157",
+      "understanding-3",
+      "scene:general-listening-157:95a5123dab"
+    ],
+    [
+      "general-listening-158",
+      "understanding-1",
+      "scene:general-listening-158:90fc6d5155"
+    ],
+    [
+      "general-listening-158",
+      "understanding-2",
+      "scene:general-listening-158:3b8fe8aa62"
+    ],
+    [
+      "general-listening-158",
+      "understanding-3",
+      "scene:general-listening-158:13763a44b0"
+    ],
+    [
+      "general-listening-159",
+      "understanding-1",
+      "scene:general-listening-159:49e2685d1d"
+    ],
+    [
+      "general-listening-159",
+      "understanding-2",
+      "scene:general-listening-159:b909ada3af"
+    ],
+    [
+      "general-listening-159",
+      "understanding-3",
+      "scene:general-listening-159:4ba72fbae0"
+    ],
+    [
+      "general-listening-160",
+      "understanding-1",
+      "scene:general-listening-160:5d624ea7e0"
+    ],
+    [
+      "general-listening-160",
+      "understanding-2",
+      "scene:general-listening-160:ea43166cb6"
+    ],
+    [
+      "general-listening-160",
+      "understanding-3",
+      "scene:general-listening-160:50d0d1ff30"
+    ],
+    [
+      "general-listening-161",
+      "understanding-1",
+      "scene:general-listening-161:fd50399f8b"
+    ],
+    [
+      "general-listening-161",
+      "understanding-2",
+      "scene:general-listening-161:27b3f1b2af"
+    ],
+    [
+      "general-listening-161",
+      "understanding-3",
+      "scene:general-listening-161:0d17e2ed5f"
+    ],
+    [
+      "general-listening-162",
+      "understanding-1",
+      "scene:general-listening-162:9262ae1999"
+    ],
+    [
+      "general-listening-162",
+      "understanding-2",
+      "scene:general-listening-162:c8bd65b836"
+    ],
+    [
+      "general-listening-162",
+      "understanding-3",
+      "scene:general-listening-162:d2310ed7e6"
+    ],
+    [
+      "general-listening-163",
+      "understanding-1",
+      "scene:general-listening-163:8efe867856"
+    ],
+    [
+      "general-listening-163",
+      "understanding-2",
+      "scene:general-listening-163:9f210f8374"
+    ],
+    [
+      "general-listening-163",
+      "understanding-3",
+      "scene:general-listening-163:17c0298e1f"
+    ],
+    [
+      "general-listening-164",
+      "understanding-1",
+      "scene:general-listening-164:eaf99ba80a"
+    ],
+    [
+      "general-listening-164",
+      "understanding-2",
+      "scene:general-listening-164:dfc4c66ca3"
+    ],
+    [
+      "general-listening-164",
+      "understanding-3",
+      "scene:general-listening-164:aaa3d917a5"
+    ],
+    [
+      "general-listening-165",
+      "understanding-1",
+      "scene:general-listening-165:37a0264c44"
+    ],
+    [
+      "general-listening-165",
+      "understanding-2",
+      "scene:general-listening-165:7ac28415c4"
+    ],
+    [
+      "general-listening-165",
+      "understanding-3",
+      "scene:general-listening-165:0a88e2fa10"
+    ],
+    [
+      "general-listening-166",
+      "understanding-1",
+      "scene:general-listening-166:54577542b4"
+    ],
+    [
+      "general-listening-166",
+      "understanding-2",
+      "scene:general-listening-166:4cf982cb4c"
+    ],
+    [
+      "general-listening-166",
+      "understanding-3",
+      "scene:general-listening-166:450e17e8dc"
+    ],
+    [
+      "general-listening-167",
+      "understanding-1",
+      "scene:general-listening-167:8f97a22898"
+    ],
+    [
+      "general-listening-167",
+      "understanding-2",
+      "scene:general-listening-167:c0817b7ec4"
+    ],
+    [
+      "general-listening-167",
+      "understanding-3",
+      "scene:general-listening-167:dd8868631c"
+    ],
+    [
+      "general-listening-168",
+      "understanding-1",
+      "scene:general-listening-168:f9f4e133d5"
+    ],
+    [
+      "general-listening-168",
+      "understanding-2",
+      "scene:general-listening-168:932041041e"
+    ],
+    [
+      "general-listening-168",
+      "understanding-3",
+      "scene:general-listening-168:1f23afb5e7"
+    ],
+    [
+      "general-listening-169",
+      "understanding-1",
+      "scene:general-listening-169:5db5982c85"
+    ],
+    [
+      "general-listening-169",
+      "understanding-2",
+      "scene:general-listening-169:50cd6946c8"
+    ],
+    [
+      "general-listening-169",
+      "understanding-3",
+      "scene:general-listening-169:b3ada4fcd5"
+    ],
+    [
+      "general-listening-170",
+      "understanding-1",
+      "scene:general-listening-170:0eeb09f092"
+    ],
+    [
+      "general-listening-170",
+      "understanding-2",
+      "scene:general-listening-170:aa587d419d"
+    ],
+    [
+      "general-listening-170",
+      "understanding-3",
+      "scene:general-listening-170:ed41ecd345"
+    ],
+    [
+      "general-listening-171",
+      "understanding-1",
+      "scene:general-listening-171:2233d15411"
+    ],
+    [
+      "general-listening-171",
+      "understanding-2",
+      "scene:general-listening-171:63bec72eb4"
+    ],
+    [
+      "general-listening-171",
+      "understanding-3",
+      "scene:general-listening-171:a760586713"
+    ],
+    [
+      "general-listening-172",
+      "understanding-1",
+      "scene:general-listening-172:b82cf221b3"
+    ],
+    [
+      "general-listening-172",
+      "understanding-2",
+      "scene:general-listening-172:afee127daa"
+    ],
+    [
+      "general-listening-172",
+      "understanding-3",
+      "scene:general-listening-172:681992dce7"
+    ],
+    [
+      "general-listening-173",
+      "understanding-1",
+      "scene:general-listening-173:7e83b01be5"
+    ],
+    [
+      "general-listening-173",
+      "understanding-2",
+      "scene:general-listening-173:e78b927417"
+    ],
+    [
+      "general-listening-173",
+      "understanding-3",
+      "scene:general-listening-173:3a2e50c41a"
+    ],
+    [
+      "general-listening-174",
+      "understanding-1",
+      "scene:general-listening-174:cc1ac2861b"
+    ],
+    [
+      "general-listening-174",
+      "understanding-2",
+      "scene:general-listening-174:6e0c1b3863"
+    ],
+    [
+      "general-listening-174",
+      "understanding-3",
+      "scene:general-listening-174:4ecfc20c2c"
+    ],
+    [
+      "general-listening-175",
+      "understanding-1",
+      "scene:general-listening-175:73d0bddb5c"
+    ],
+    [
+      "general-listening-175",
+      "understanding-2",
+      "scene:general-listening-175:561f7cae64"
+    ],
+    [
+      "general-listening-175",
+      "understanding-3",
+      "scene:general-listening-175:5f8fd23cf9"
+    ],
+    [
+      "general-listening-176",
+      "understanding-1",
+      "scene:general-listening-176:9d650c839e"
+    ],
+    [
+      "general-listening-176",
+      "understanding-2",
+      "scene:general-listening-176:e7ee1ee6ff"
+    ],
+    [
+      "general-listening-176",
+      "understanding-3",
+      "scene:general-listening-176:2f9b1cf4d7"
+    ],
+    [
+      "general-listening-177",
+      "understanding-1",
+      "scene:general-listening-177:e2f10ec4a5"
+    ],
+    [
+      "general-listening-177",
+      "understanding-2",
+      "scene:general-listening-177:378713315b"
+    ],
+    [
+      "general-listening-177",
+      "understanding-3",
+      "scene:general-listening-177:4ba79375fa"
+    ],
+    [
+      "general-listening-178",
+      "understanding-1",
+      "scene:general-listening-178:5f06cb2f0f"
+    ],
+    [
+      "general-listening-178",
+      "understanding-2",
+      "scene:general-listening-178:35fb492efb"
+    ],
+    [
+      "general-listening-178",
+      "understanding-3",
+      "scene:general-listening-178:68b82a64a4"
+    ],
+    [
+      "general-listening-179",
+      "understanding-1",
+      "scene:general-listening-179:88161bfcd2"
+    ],
+    [
+      "general-listening-179",
+      "understanding-2",
+      "scene:general-listening-179:41047ac5c5"
+    ],
+    [
+      "general-listening-179",
+      "understanding-3",
+      "scene:general-listening-179:39fe98484c"
+    ],
+    [
+      "general-listening-180",
+      "understanding-1",
+      "scene:general-listening-180:1f0e54c3dd"
+    ],
+    [
+      "general-listening-180",
+      "understanding-2",
+      "scene:general-listening-180:470bf17458"
+    ],
+    [
+      "general-listening-180",
+      "understanding-3",
+      "scene:general-listening-180:badb35478e"
+    ]
+  ]
+}
