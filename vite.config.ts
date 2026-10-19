@@ -60,6 +60,10 @@ export default defineConfig({
             options: {
               // 保留既有下載，不搬移／刪除 v5。只有明確下載可寫入，播放不自動儲存。
               cacheName: AUDIO_CACHE_NAME,
+              // Public MP3 bytes are identical after HTTP decoding. Media uses a
+              // different Accept-Encoding than the explicit download request;
+              // Pages' Vary header must not hide an already-downloaded file.
+              matchOptions: { ignoreVary: true },
               plugins: [downloadCachePolicy],
               // <audio> 一律送 Range 請求；快取裡是整檔（200），要由這個外掛切成 206 回給播放器。
               rangeRequests: true,

@@ -21,7 +21,8 @@ const server = createServer(async (req, res) => {
   try {
     const file = resolve(root, relative || 'index.html'); assert.ok(file.startsWith(root + '/'));
     const bytes = await readFile(file);
-    res.setHeader('content-type', ({ '.js': 'text/javascript', '.html': 'text/html', '.css': 'text/css', '.webmanifest': 'application/manifest+json', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.mp3': 'audio/mpeg' })[extname(file)] ?? 'application/octet-stream');
+    res.setHeader('content-type', ({ '.js': 'text/javascript', '.html': 'text/html', '.css': 'text/css', '.webmanifest': 'application/manifest+json', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.mp3': 'audio/mp3' })[extname(file)] ?? 'application/octet-stream');
+    if (extname(file) === '.mp3') res.setHeader('Vary', 'Accept-Encoding');
     res.setHeader('cache-control', 'no-cache');res.end(bytes);
   } catch { missing.push(relative);res.writeHead(404).end('missing'); }
 });
