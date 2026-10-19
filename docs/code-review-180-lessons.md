@@ -143,3 +143,8 @@ F2改為等待安裝、明確確認更新；等待worker核對只有來源分頁
 ## T136 發布驗收結果
 
 兩項修正及Pages編碼協商補驗已由[PR #144](https://github.com/frobel0520/nihongo-lab/pull/144)整合至main `d1d9b0a`，[Pages 39213557211](https://github.com/frobel0520/nihongo-lab/actions/runs/39213557211)成功。正式站593檔逐byte一致；舊35下載與v3合成進度跨本次實際升級保持，新35檔UI下載後真斷網重載／SHA與原生播放、四類12入口及實際作答／1倍跟讀通過，零pageerror。原審查發現保留作歷史證據，已修正結果與精確範圍見release-audit。後續新版等待提示的正式站觀察仍待下一次實際發布，瀏覽器／OS清除與人工品質待辦維持原限制。
+
+
+## T137 後續正式站更新觀察
+
+本次必要產品發布[PR #146](https://github.com/frobel0520/nihongo-lab/pull/146)／[Pages 39260341465](https://github.com/frobel0520/nihongo-lab/actions/runs/39260341465)完成T136留下的隔離桌面正式站後續更新觀察：發布前cfea830舊頁於新worker安裝後顯示等待提示，多分頁確認被阻擋且他頁未送出合成輸入保持；關閉他頁後單頁可真正離線明確套用／重載，v3逐值與舊70音檔保持。175必要原文修訂的新音檔另由UI正確辨認缺1並補抓，不先刪舊下載。正式站兩課完整線上／離線及593產物一致另見release-audit。此結果收斂原等待提示的正式站觀察待辦，沒有宣稱手機PWA、完整真機或瀏覽器／OS儲存驅逐已全面驗收；原F1／F2與歷史證據均保留。

@@ -1638,4 +1638,17 @@ I2比較資料端重排（只消除當前分布，題號位置長期固定且改
 
 T137本機最終驗證：316 tests／check、typecheck／lint、正式/nihongo-lab/ build、原perf:bundle、coverage及--all-stages通過。main raw206732／gzip65647、CSS4817、precache21334150／21500000 bytes、479URL，餘165850；原門檻保持。225實際build payload逐值／鍵序與Node入口一致且皆precache。全階段215課、2363去重詞；N5單字670／674、N4詞239、漢字84／84、文法81／81，71舊JLPT不變。
 
-最終同一產品build的npm run test:quality完成375×667兩課五區塊，線上12句／6題後實際UI下載35＋35檔，BrowserContext.setOffline(true)、navigator.onLine=false並真正reload，再12句／6題；70不同音檔於兩種網路狀態各核SHA／bytes。原生audio ended各六次、固定1倍，新175音檔包含在實際播放內。原索引評分三題皆正確，同次播放／下載進度／重繪順序保持；明確重練可換序、不刪v3進度，離線重載保留已存結果。零pageerror／375寬溢位。未修正版相同回歸在第一題原始順序處確實失敗。初輪定位問題不計入上述最終通過；沒有分派真實資料或把手機模擬當真機。
+最終同一產品build的npm run test:quality完成375×667兩課五區塊，線上12句／6題及實際UI下載35＋35檔，BrowserContext.setOffline(true)、navigator.onLine=false並真正reload，再12句／6題；70不同音檔於兩種網路狀態各核SHA／bytes。原生audio ended各六次、固定1倍，新175音檔包含在實際播放內。原索引評分三題皆正確，同次播放／下載進度／重繪順序保持；明確重練可換序、不刪v3進度，離線重載保留已存結果。零pageerror／375寬溢位。未修正版相同回歸在第一題原始順序處確實失敗。初輪定位問題不計入上述最終通過；未讀取真實個人進度，也不把手機模擬當真機。
+
+
+### T137 正式發布與真實舊頁更新驗收
+
+[PR #146](https://github.com/frobel0520/nihongo-lab/pull/146)精確head `44781b46b10dc68e138b739e4fc346e2a8753bc5` 的[CI 39259298389](https://github.com/frobel0520/nihongo-lab/actions/runs/39259298389)成功，合併前main仍cfea830且無其他PR。正常rebase未改寫任何公開commit，以公開author／committer及正常hooks非force快轉；[Pages 39260341465](https://github.com/frobel0520/nihongo-lab/actions/runs/39260341465)check／deploy成功。CI包含316 tests／新quality瀏覽器及既有8535檔保留／真實兩版worker更新回歸。
+
+有效HTTPS核對正式站全部523個audio/以外產物（含既有聲線預覽）及51／175課70音檔，共593檔逐byte／SHA一致、0失敗。清單摘要SHA-256 `533a19f7a6e8c4dd94d80eda22ef5753944a5cf1cee12c51c6636d52d530a130`。新MP3 SHA-256 `c23743a49dbe811ac4ed886f59f5703d6f3c94a7c50140eff79e92f0d636f634`，78380 bytes。此抽驗不是完整dist9058檔或8535教材音檔的全部正式下載。
+
+正式站以全新375×667隔離Chromium實際跑npm run test:quality：51／175各五區塊，線上12句1倍／6題及新51接續／175未知狀態文字、答案、ruby回顧；UI下載70檔後BrowserContext.setOffline(true)、navigator.onLine=false並真正reload，再12句1倍／6題及各區塊；70不同音檔線上／離線各SHA／bytes一致。實際native ended共24次，選項評分／順序穩定、明確重練換序與v3保存通過，零pageerror／375寬溢位。手機模擬與播放成功不當逐句人耳或真機驗收。
+
+另一隔離context在正式發布前已開啟cfea830，UI下載51／175舊70檔，保存兩課原scene合成進度；第二分頁保留未送出聽寫輸入。本次部署後實際registration.update安裝新worker，舊頁出現等待提示；點擊確認時因其他頁存在遭阻擋，另一頁輸入與頁面狀態保持。關閉另一頁後真正斷網，單頁明確確認、controllerchange重載成功；已存v3逐值一致，舊70檔仍在v5。新版175顯示缺少唯一新音檔，重新連線UI僅補1檔，cache共71（有效兩課集合70＋舊修訂檔1），與新隔離context的70檔不同集合，不混算。完成本次實際正式站提示／多分頁／單頁離線確認／舊進度與下載保留觀察；未驗證手機安裝PWA、背景凍結或所有瀏覽器。
+
+原工程／品質發現保留並追加收尾；121／127摘要、151疑似JLPT、I3及人耳／完整真機／71舊標記仍不在本次修正範圍。接下來純文件提交不變產品來源、音檔或SW；其自身CI／Pages與凍結9058檔／正式站593檔複核在該PR記錄，不預記成功。
