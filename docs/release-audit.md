@@ -1721,16 +1721,21 @@ T137本機最終驗證：316 tests／check、typecheck／lint、正式/nihongo-l
 
 起始遠端main 069b0f2、工作目錄乾淨、無未合併PR；讀AGENTS、最新文件、coverage／作者規則及釘選OpenJLPT README／NOTICE／LICENSE。現行N5／N4 JSON快取已與遠端釘選版本逐項等值核對，原始資料仍只在被忽略的.cache；自寫判定表見jlpt-grammar-audit，未複製外部完整清單／解說／例句。
 
-實際215課／543文法、71項缺標（29課），逐項處理40補標／31無現行對應保留／0 JLPT對應待確認。40項涉及18課、16教材檔，56引用／36既有ID；14項部分對應有範圍說明。全站N5 81／81、N4 89／98不變，真正新增清單覆蓋0；第0階段未標51→27，全階段71→31，0 unknown，詞彙／漢字與原教學內容不變。現行對照不含N3～N1，不把保留未標推成其他級別也無此構式。
+實際215課／543文法、71項缺標（29課），逐項處理41補標／30無現行對應保留／0 JLPT對應待確認。41項涉及19課、16教材檔，57引用／36既有ID；15項部分對應有範圍說明。全站N5 81／81、N4 89／98不變，真正新增清單覆蓋0；第0階段未標51→27，全階段71→30，0 unknown，詞彙／漢字與原教學內容不變。現行對照不含N3～N1，不把保留未標推成其他級別也無此構式。
 
-本機323 tests／check（typecheck、lint）、正式/nihongo-lab/ build、原perf:bundle、coverage預設與全階段通過。main raw206732／gzip65644、CSS4817、precache21336859／21500000 bytes，479去重URL，餘163141。225實際教材payload的值／鍵序與唯一入口一致且均precache，600 JSON邊界案例通過。
+本機323 tests／check（typecheck、lint）、正式/nihongo-lab/ build、原perf:bundle、coverage預設與全階段通過。main raw206732／gzip65649、CSS4817、precache21336871／21500000 bytes，479去重URL，餘163129。225實際教材payload的值／鍵序與唯一入口一致且均precache，600 JSON邊界案例通過。
 
-開始前快照確認只有明列40個jlpt欄位新增，教材文字、舊標記、全catalog／summary及所有進度ID保持（540 scene、64 grammar、105 anime listening、618 games、372 game listening）；全部8535 MP3逐檔SHA不變，無需重答或補下載。獨立新回歸在補標前實際指出缺標、修訂後通過；歷史黃金雜湊不改，跨點複習只在單點內驗重複、coverage集合去重另測。受限環境最初測試子程序未正常執行，不當作通過或有效紅燈；正常執行環境的實際缺標紅燈另已核實。
+開始前快照確認只有明列41個jlpt欄位新增，教材文字、舊標記、全catalog／summary及所有進度ID保持（540 scene、64 grammar、105 anime listening、618 games、372 game listening）；全部8535 MP3逐檔SHA不變，無需重答或補下載。獨立新回歸在補標前實際指出缺標、修訂後通過；歷史黃金雜湊不改，跨點複習只在單點內驗重複、coverage集合去重另測。受限環境最初測試子程序未正常執行，不當作通過或有效紅燈；正常執行環境的實際缺標紅燈另已核實。
 
-metadata使教材chunk與引用雜湊改變，不能說產品產物與069b0f2相同。新dist9058檔凍結清單SHA-256 `6978975407b686cdf22aa2a3e88f317382613fd6eb3bbaa0414aff39ad81659d`。瀏覽器、PR CI及正式站實測後另追加，不預記成功。沒有新增runtime dependency或改UI／同步3／路由／離線／1倍／原bundle與T122計時政策。人工語音、完整真機、Android既有紀錄保持；另有1項舊教材措辭候選疑點未獨立查核，不計為確認文法缺陷或JLPT對應未決。
+metadata使教材chunk與引用雜湊改變，不能說產品產物與069b0f2相同。新dist9058檔凍結清單SHA-256 `8cf283fa3806909fafa892bd399e0668d55d1652eb1daf7cb5de9d5e077007f8`。瀏覽器、PR CI及正式站實測後另追加，不預記成功。沒有新增runtime dependency或改UI／同步3／路由／離線／1倍／原bundle與T122計時政策。人工語音、完整真機、Android既有紀錄保持；另有1項舊教材措辭候選疑點未獨立查核，不計為確認文法缺陷或JLPT對應未決。
 
 ### T140 本機文法瀏覽器驗證
 
-375×667隔離Chromium完整開啟18個受影響課程的文法區，線上與BrowserContext.setOffline(true)、navigator.onLine=false後逐課直接網址reload，共36次課程文法檢視。一般教材逐點核對原pattern／note／日文／翻譯，動畫四課逐一進入重點、顯示原讀音／翻譯並核對formation；舊64筆文法與1筆scene合成v3紀錄保持，動畫原已完成狀態仍顯示。零pageerror、本站HTTP錯誤及375寬溢位。
+375×667隔離Chromium完整開啟19個受影響課程的文法區，線上與BrowserContext.setOffline(true)、navigator.onLine=false後逐課直接網址reload，共38次課程文法檢視。一般教材逐點核對原pattern／note／日文／翻譯，動畫四課逐一進入重點、顯示原讀音／翻譯並核對formation；舊64筆文法與1筆scene合成v3紀錄保持，動畫原已完成狀態仍顯示。零pageerror、本站HTTP錯誤及375寬溢位。
 
 另外以Cache API在獨立資料中預先準備3個既有文法例句音檔（N5第3／20天與口語轉換），兩種狀態各SHA及原生1倍完整播放，共6次。不冒充UI下載驗收或全教材音訊驗收；動畫文法本來是無音訊的文字學習介面，沒有為驗證新增播放器。CI仍保留既有全教材8535檔UI下載／保留與兩版worker回歸。手機尺寸模擬／瀏覽器解碼播放不當成人工語音或真機通過。PR及正式站結果仍待發布。
+
+
+### T140 接續複核後再驗證
+
+動畫第4課study.formation明示名詞＋だ，故由初稿保留未標修正為部分對應；最新為41補／30保留、57引用／36既有ID、15項部分對應、19課。新增判定只擴充原核准metadata清單，開始前內容與ID雜湊完全不改。323 tests／check、正式build／原bundle與coverage再次通過；19課375寬線上／真正離線逐課reload共38次文法檢視、3個準備快取音檔雙狀態SHA與原生播放6次、65筆合成v3保持通過，零pageerror／HTTP錯誤／溢位。釘選參照有效ID為0 unknown，全站N5 81／81、N4 89／98不變；全教材8535音檔SHA再核對保持。225實際payload一致且precache，再次核實600邊界案例。

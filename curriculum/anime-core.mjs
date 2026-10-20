@@ -147,6 +147,7 @@ const cores = {
     grammar: [
       {
         pattern: 'だが／嘘だ：拒絕與反駁',
+        jlpt: ['da'],
         reference: 'explanation',
         note: '「だが」是較硬的「但是」；JOJO「だが断る」直接拒絕。「嘘だ」字面是否定真實性，也可能表示震驚；暮蟬悲鳴時這句短台詞本身不足以證明對方真的說謊。人物意圖要結合句義與上下文，不只聽音量。',
         quotes: ['jojo-rohan', 'higurashi-uso'],

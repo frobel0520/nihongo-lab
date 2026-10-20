@@ -777,4 +777,4 @@ npm run test:inference預設保留T138與T139共六課；--batch T139可只驗�
 
 保留jlpt?: string[]格式，一點可有多個參照ID，跨點可以是不同用法或有目的複習；單點內不得重複，coverage用集合計數。將舊「全課不得重複」測試改為單點陣列／合法slug／不得重複，新增合成多目標與跨點去重回歸；未變更coverage計算語意或擴充N3～N1。所有有效ID以釘選N5／N4快取核對，不把外部表納入fixture。
 
-獨立curriculum-069b0f2-jlpt.json只含本專案核准40點的metadata與開始前雜湊／ID計數，保護整份教材、舊標記、catalog、summary及音檔路徑。歷史比較只還原明列40項，不更新既有黃金fixture；當前完整scope與各類進度ID另驗，避免用投影掩蓋無關變更。新增標記不影響音檔contentHash、sceneRecordId、grammarRecordId或其他catalog ID，無需同步遷移、重答或補下載。
+獨立curriculum-069b0f2-jlpt.json只含本專案核准40點的metadata與開始前雜湊／ID計數，保護整份教材、舊標記、catalog、summary及音檔路徑。歷史比較只還原明列41項，不更新既有黃金fixture；當前完整scope與各類進度ID另驗，避免用投影掩蓋無關變更。新增標記不影響音檔contentHash、sceneRecordId、grammarRecordId或其他catalog ID，無需同步遷移、重答或補下載。
