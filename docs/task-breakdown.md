@@ -917,4 +917,3 @@ PR150已合併為`24ea7ae`，精確head CI39368784644與Pages39370118580成功�
 - Counts：補41、現行無對應30、JLPT對應待確認0；19課，57引用／36既有ID；新增清單覆蓋0。15項部分對應不代表整點全部內容已分級。
 - Acceptance：check、正式base build、原bundle、coverage預設及全階段，釘選179參照有效ID／0 unknown；全部教材文字與舊metadata、所有進度ID及8535音檔SHA保持；受影響文法顯示／載入與合成進度、瀏覽器抽驗。CI成功後重核main／其他PR，以公開身分、正常hooks、rebase檢查與非force整合；正式站核對產物與受影響課，完成文件PR與最終Pages。
 - Out of scope：N3～N1參照擴充、課文／有聲文字修正、推論題、人工語音／完整真機；保留Android紀錄。不改版本3、URL、固定1倍、離線或原bundle限制。
-
