@@ -883,3 +883,16 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 - Local result：318 tests／check、正式base build／原bundle、225實際payload及8535音檔SHA保持；三課375寬完整線上／真正斷網直接網址重載、36句／18題／105檔雙狀態SHA、洗牌／重練／v3通過，51／175另回歸。發布結果待CI／Pages後追加。
 
 - Release progress：[PR148](https://github.com/frobel0520/nihongo-lab/pull/148)／精確head CI39356183608及Pages39357328826成功，公開身分rebase檢查及非force整合為29d6ff1；正式站628檔一致，三課375寬五區塊線上／真正斷網直接網址重載36句／18題／105檔雙狀態SHA、重練／選項穩定／v3新舊ID保存通過，零pageerror／溢位。純文件收尾維持相同產品與音檔，最終CI／Pages及產物複核記於文件PR。
+
+
+## T139：158／166／177推論理解題第二小批
+
+- Goal：各課改善第三題，共三題，保留基本題與全部既有對話；完成驗證、產品與文件發布後停止。
+- Input contract：main 8c0c02f、T138設計與品質報告候選理由；保留51／175及156／165／180修訂。
+- Output artifact：三題與解析、三個依契約產生的scene ID、獨立8c0c02f基準及ID／v3／實際瀏覽器回歸、發布紀錄。
+- Acceptance checks：逐題跨至少兩句證據／干擾項／第二解複核；其餘537理解題ID與全部教材／音檔保持；check、正式base build、原bundle、375寬五區塊完整播放／作答／解析／重練／進度保存／真斷網直接網址重載、105檔雙狀態SHA與換頁停播。CI保留上批三課、51／175、全教材下載及兩版worker回歸。合併前重核main／PR／公開身分，正常hooks及非force整合，Pages後正式站同範圍驗證；發布紀錄PR及最終部署產物一致才收尾。
+- Progress contract：只改題第三題須重答，舊v3紀錄保留、基本題不重設；現有介面完整播放與依序作答不變，無音檔補下載需求。
+- Out of scope：其他課程、對話／有聲文字、介面、依賴、71舊JLPT、人耳及完整真機；保留Android紀錄與已完成更新提示觀察。後續候選僅建議。
+- Local status：320 tests／check、正式base build、原bundle及225實際payload通過；瀏覽器與發布證據另追加。
+
+本機三課375寬完整線上／真正斷網直接網址重載通過：36句原生1倍／18題、105檔雙狀態SHA、6次播放中換頁停播、選項穩定／重練及v3新舊ID保持，零pageerror／溢位。8535音檔SHA不變；CI及正式站仍待發布結果，精確範圍見release-audit。
