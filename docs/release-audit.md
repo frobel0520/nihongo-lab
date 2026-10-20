@@ -1702,3 +1702,16 @@ T137本機最終驗證：316 tests／check、typecheck／lint、正式/nihongo-l
 320 tests／check、正式base build、原bundle及225實際payload通過；8535音檔逐檔SHA與開始前完全相同。375×667獨立Chromium、合成v3完成三課五區塊，線上18句原生1倍／9題，UI下載105檔後BrowserContext.setOffline(true)、navigator.onLine=false，三課直接網址真正reload後再18句／9題。105個不同音檔兩種狀態各SHA一致，6次播放中換頁原audio停止；同次選項穩定、原索引評分／完整解析、明確重練換序、新題保存與舊紀錄保持，零pageerror／水平溢位。不是人工語音或真機驗收。
 
 凍結dist9058檔清單SHA-256 `6fed049d882ec71b529e36f470224ddc85ddd70b908d62e17105f708952cec70`。CI／正式站待發布後追加，不預記成功。
+
+
+### T139 正式發布與驗收
+
+[PR #150](https://github.com/frobel0520/nihongo-lab/pull/150)精確head `24ea7aecc6ccab212b038cfd4f95a57eeffa44cd`的[CI 39368784644](https://github.com/frobel0520/nihongo-lab/actions/runs/39368784644)成功，含320 tests、正式build／原bundle、第51／175、T138與T139六課、全教材下載保留及真實兩版worker更新。合併前再次核對main與其他PR，以公開author／committer、正常hooks及非force快轉整合，未改寫公開歷史。[Pages 39370118580](https://github.com/frobel0520/nihongo-lab/actions/runs/39370118580)check／deploy成功，正式站對應相同產品提交。
+
+有效HTTPS核對正式站全部523個audio/以外產物（含既有聲線預覽）及158／166／177課105音檔，共628檔逐byte／SHA一致、0失敗。清單摘要SHA-256 `0ad71568d288541819ff3b2d9cea7b9203a4d549d4a0dd54d299af469033a94d`。這不是8535個音檔全量正式站下載；全部8535來源音檔SHA保持另已驗證。
+
+正式站375×667全新Chromium與合成v3完成三課五區塊，線上18句原生1倍／9題，UI下載105檔後BrowserContext.setOffline(true)、navigator.onLine=false，各課直接網址真正reload後再18句／9題。105個不同音檔兩種狀態各SHA一致，6次播放中換頁停播；原索引評分／完整解析、同次選項穩定、重練換序、離線重答前新版進度保持、舊三題ID及基本題紀錄保留，零pageerror／水平溢位。沒有讀取個人進度，不當人工語音或真機驗收。
+
+本次未重新跨正式部署觀察更新提示，沿用T137已完成的提示／多頁阻擋／離線確認與舊資料保留；CI真實兩版build回歸另列。人工語音、完整真機、71舊JLPT及Android紀錄維持。三題文字複核不是外部盲審或教學成效實驗；後續160／179僅候選，170暫不優先，沒有實作。
+
+本次收尾只改progress、task-breakdown、release-audit及品質報告；產品／音檔與凍結9058檔保持。文件PR自身最終CI／Pages與產物一致核對記於該PR，不預記成功；只有產品產物完全相同才沿用上述功能證據。
