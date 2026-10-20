@@ -1739,3 +1739,15 @@ metadata使教材chunk與引用雜湊改變，不能說產品產物與069b0f2相
 ### T140 接續複核後再驗證
 
 動畫第4課study.formation明示名詞＋だ，故由初稿保留未標修正為部分對應；最新為41補／30保留、57引用／36既有ID、15項部分對應、19課。新增判定只擴充原核准metadata清單，開始前內容與ID雜湊完全不改。323 tests／check、正式build／原bundle與coverage再次通過；19課375寬線上／真正離線逐課reload共38次文法檢視、3個準備快取音檔雙狀態SHA與原生播放6次、65筆合成v3保持通過，零pageerror／HTTP錯誤／溢位。釘選參照有效ID為0 unknown，全站N5 81／81、N4 89／98不變；全教材8535音檔SHA再核對保持。225實際payload一致且precache，再次核實600邊界案例。
+
+### T140 正式發布與驗收
+
+[PR #152](https://github.com/frobel0520/nihongo-lab/pull/152)已合併為`4d7d1969048963c8ee71c225e8a55d9fc8950db2`，精確head的[CI 39385558545](https://github.com/frobel0520/nihongo-lab/actions/runs/39385558545)成功；323 tests／check、正式base build／原bundle、既有51／175、六課推論、全教材下載保留及真實兩版worker更新皆通過。合併前再次核對main與其他PR，以公開author／committer、正常hooks、rebase檢查及非force快轉整合，保留公開歷史。[Pages 39387551841](https://github.com/frobel0520/nihongo-lab/actions/runs/39387551841)check／deploy成功，正式站對應相同產品提交。
+
+有效HTTPS逐byte／SHA核對正式站全部523個audio/以外產物（含聲線預覽）及3個抽驗音檔，共526檔、0失敗；清單摘要SHA-256 `add91aafe25b518dd97fe5a3ac5e52323864c33984ba2d3c9016cef15ec3a46b`。8535來源音檔全量SHA保持另已核對，不將這3檔HTTP抽驗寫成全教材音訊正式站下載驗收。
+
+正式站375×667隔離Chromium完整檢查19個受影響課程的文法，線上與BrowserContext.setOffline(true)、navigator.onLine=false後逐課直接網址reload，共38次文法檢視。N5／口語逐點核對原文／翻譯，動畫五課逐一開啟重點、顯示原讀音／翻譯與formation；64筆文法及1筆scene合成v3保持，動畫已答對狀態不變。3個Cache API預先準備的既有例句音檔在兩種狀態各SHA與原生1倍完整播放，共6次，零pageerror／HTTP錯誤／375寬溢位。這是有限快取樣本，非UI下載、人耳或真機驗收；既有CI的8535檔UI下載保留另列。
+
+最終判定71項：41補標、30無現行N5／N4可靠獨立對應保留、JLPT對應待確認0；57筆引用／36既有ID，15項部分對應。N5 81／81、N4 89／98及詞彙／漢字清單覆蓋不變，真正新增文法清單覆蓋0。全部教材文字、舊標記及各類進度ID保持，版本3無遷移；不需重做或補下載。沒有新增課程或推論改寫，不將補標視為內容全面驗收或學習者級別認證。原教材1項絕對限制措辭疑點未獨立核實，不計確認錯誤或JLPT未決；人工語音、完整真機及Android既有紀錄保持。
+
+本次收尾只改progress、task-breakdown、release-audit及JLPT盤點文件，產品與9058檔凍結清單保持。文件PR自己的CI／最終Pages／產物一致證據記於該PR，避免自我記錄的發布循環；只有產品完全相同才沿用上述功能驗收。
