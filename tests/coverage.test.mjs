@@ -113,3 +113,23 @@ test('pacing：全部平均與「剩下的課」平均分開算，課數用完�
   assert.equal(p.remainingPerLesson, 10);
   assert.equal(pacing(100, 10, 5, 5).remainingPerLesson, null);
 });
+
+// Handwritten reference entries: no external OpenJLPT data fixture.
+test('grammarCoverage: a compound target and cross-point review count each reference once', () => {
+  const ref = [
+    { id: 'demo-basic', pattern: 'synthetic basic', level: 'N5' },
+    { id: 'demo-later', pattern: 'synthetic later', level: 'N4' },
+  ];
+  const lessons = [{ grammar: [
+    { jlpt: ['demo-basic', 'demo-later'] },
+    { jlpt: ['demo-basic'] },
+    { examples: [] },
+  ] }];
+  const basic = grammarCoverage(lessons, ref, 'N5');
+  const later = grammarCoverage(lessons, ref, 'N4');
+  assert.equal(basic.covered, 1);
+  assert.equal(later.covered, 1);
+  assert.equal(basic.untagged, 1);
+  assert.deepEqual(basic.unknown, []);
+  assert.deepEqual(later.unknown, []);
+});

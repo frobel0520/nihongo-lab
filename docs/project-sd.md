@@ -42,7 +42,7 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 - `Lesson.quotes`：動畫與遊戲名句，每筆是一般句子加 `source`（作品與角色）與 `note`（口語重點解說）。音檔就緒後自動進入聽寫與跟讀。
 - 補產音檔流程（在有 VOICEVOX 與 ffmpeg 的機器上）：`node scripts/build-audio-jobs.mjs --missing` 只列出還沒有音檔的項目，再 `node scripts/synthesize.mjs --batch scripts/audio-jobs.json`，最後把課程的 `audioReady: false` 移除。
 - 2026-09-30（T23）：第 2 天（52 個）與 T07、T13（77 個）共 129 個待合成音檔已產生，三課的 `audioReady: false` 都移除，全站 152 個音檔、3.5MB；旗標機制保留給之後新增的課。這台 Windows 機器的引擎在 `Documents\VOICEVOX\VOICEVOX\vv-engine\run.exe`（`--host 127.0.0.1 --port 50021`），ffmpeg 由 winget 安裝。
-- 涵蓋率檢查：`lib/coverage.mjs` 是純邏輯（單字比對、漢字分級、文法 id 統計、課數推算，有測試）；`scripts/coverage-openjlpt.mjs` 負責下載 OpenJLPT 資料（釘在固定 commit，快取在不進 git 的 `.cache/`）與輸出報告。OpenJLPT 為 CC BY-SA 4.0，所以資料不進 repo；只有執行結果的數字會寫進文件。
+- 涵蓋率檢查：`lib/coverage.mjs` 是純邏輯（單字比對、漢字分級、文法 id 統計、課數推算，有測試）；`scripts/coverage-openjlpt.mjs` 負責下載 OpenJLPT 資料（釘在固定 commit，快取在不進 git 的 `.cache/`）與輸出報告。OpenJLPT 為 CC BY-SA 4.0，所以資料不進 repo；可記錄統計及本專案教材所用ID、自己撰寫的判定理由與來源連結；外部完整清單、解說與例句不複製進repo。
 - 讀音標記（T15）：`lib/furigana.mjs` 把句子的整句假名 `reading` 對回每段漢字，輸出 `{ text, ruby? }[]`，畫面（`app/components/Ruby.tsx`）轉成 `<ruby>`。對齊規則：漢字段之間的假名（送假名、助詞）當定位點，標點與空白若在讀音裡也出現就當漢字段之間的邊界；讀音標整段漢字（會社員 → かいしゃいん），不逐字拆；對不起來或有多種對法時回傳 null，不猜。
 - `Line.ruby`、`VocabItem.ruby`（選填）：手動標註，格式 `{40秒|よんじゅうびょう}で{支度|したく}しな！`（大括號內為「原文|讀音」，記法與 OpenJLPT 的 furigana 欄位相同，只是格式）。自動對齊不了的句子（如含阿拉伯數字）才需要；去掉標記後必須等於 `jp`。`tests/lessons.test.mjs` 檢查每個含漢字的句子都標得出讀音。
 - 沒有讀音資料的日文文字的讀音（T35）：課程標題、文法句型與說明、練習題與答案、名句出處與解說、翻譯裡夾的日文沒有 `reading` 欄位，不能自動對齊。標記放在 `curriculum/ruby-notes.mjs`（866 筆，`{漢字|よみ}`，與例句 `ruby` 欄位同一種寫法；去掉標記要與教材原字串完全一致），`lib/ruby-notes.mjs` 以原字串查表（`buildNotesIndex`、`annotateText`），畫面用 `RubyText` 元件（`app/components/Ruby.tsx`）：偏好開啟且查得到才標，關閉或查不到原樣顯示。**只標日文，不標中文**：中日混寫的說明文字裡，中文詞（名詞、動詞、問、回答…）不標；讀音只放漢字串本身，okurigana 留在外面（與例句一致，例如 `{食|た}べます`）；文字裡已緊接著寫了讀音的（「一分いっぷん」「何」＋「唸なん」）與問讀音的練習題（「三百円」怎麼唸）不標，免得洩漏答案。**檢查**（`tests/ruby-notes.test.mjs`）：標記語法完整、讀音是假名、每一筆都對得到教材實際會顯示的字串（教材改字會抓到）、**教材裡每一個含日文漢字的字串都有一筆標記項目**（用「含假名的日文區段裡、全部由日文用過的漢字組成的漢字串」判斷有沒有需要人看的字串，所以新增教材後會被列出來；沒有要標的也要加一筆與原字串相同的項目）。單字卡正面不標讀音（使用者決定：正面是考「看到漢字想得出讀音」）。
@@ -771,3 +771,10 @@ lib/listening-choices.mjs只回傳{text,index}新陣列，不修改題目或正�
 獨立fixture curriculum-8c0c02f-inference.json取自改動前的唯一入口，保護三課完整雜湊、其他教材、catalog與537個ID；歷史測試僅把三個核准題目投影回舊值，不更新既有黃金雜湊。當前scope另直接驗證，避免投影掩蓋其他欄位。兩個新回歸在未修訂8c0c02f實際失敗，修訂後通過；合成舊9筆理解紀錄保留，新增3筆後序列化／解析共12筆。
 
 npm run test:inference預設保留T138與T139共六課；--batch T139可只驗本批三課。各自用隔離合成進度、真實production build、原生1倍播放與真正斷網reload。增加播放中換頁後檢查原audio已pause，既有同次穩定／重練洗牌及原索引評分仍檢查。沒有改共用產品邏輯或新增runtime dependency。
+
+
+## T140：JLPT metadata與驗證
+
+保留jlpt?: string[]格式，一點可有多個參照ID，跨點可以是不同用法或有目的複習；單點內不得重複，coverage用集合計數。將舊「全課不得重複」測試改為單點陣列／合法slug／不得重複，新增合成多目標與跨點去重回歸；未變更coverage計算語意或擴充N3～N1。所有有效ID以釘選N5／N4快取核對，不把外部表納入fixture。
+
+獨立curriculum-069b0f2-jlpt.json只含本專案核准40點的metadata與開始前雜湊／ID計數，保護整份教材、舊標記、catalog、summary及音檔路徑。歷史比較只還原明列40項，不更新既有黃金fixture；當前完整scope與各類進度ID另驗，避免用投影掩蓋無關變更。新增標記不影響音檔contentHash、sceneRecordId、grammarRecordId或其他catalog ID，無需同步遷移、重答或補下載。
