@@ -14,18 +14,18 @@
 
 | 項目 | 開始前 | 本輪後 |
 | --- | ---: | ---: |
-| 缺標文法點（全階段） | 71 | 31 |
+| 缺標文法點（全階段） | 71 | 30 |
 | 缺標文法點（第0階段） | 51 | 27 |
-| 本批補標 | — | 40 |
-| 本批無現行可靠對應、保留未標 | — | 31 |
+| 本批補標 | — | 41 |
+| 本批無現行可靠對應、保留未標 | — | 30 |
 | 本批JLPT對應待確認 | — | 0 |
 | 全階段N5文法清單覆蓋 | 81/81 | 81/81 |
 | 全階段N4文法清單覆蓋 | 89/98 | 89/98 |
 | unknown ID | 0 | 0 |
 
-40項涉及18課、16個教材來源檔，新增56筆引用、36個不同ID；這36個ID本來均已由其他文法點引用，真正新增清單覆蓋為0。未新增教材內容或教學用法，不能寫成新增36種文法、達成新等級或學習成效改善。
+41項涉及19課、16個教材來源檔，新增57筆引用、36個不同ID；這36個ID本來均已由其他文法點引用，真正新增清單覆蓋為0。未新增教材內容或教學用法，不能寫成新增36種文法、達成新等級或學習成效改善。
 
-其中14項明列「部分對應」：只給確實教授的子目標標記，其他詞彙／語氣或構式不因此取得同一等級。`jlpt`本來就是參照ID集合，不是整個文法點所有內容的完整分級；複合目標可用陣列，不拆改課文、不把不相同的近義構式硬塞單一ID。只在例句偶然出現的です、が、あとで等，不當成本點的文法教學標記；總複習也不任選一個ID湊數。
+其中15項明列「部分對應」：只給確實教授的子目標標記，其他詞彙／語氣或構式不因此取得同一等級。`jlpt`本來就是參照ID集合，不是整個文法點所有內容的完整分級；複合目標可用陣列，不拆改課文、不把不相同的近義構式硬塞單一ID。只在例句偶然出現的です、が、あとで等，不當成本點的文法教學標記；總複習也不任選一個ID湊數。
 
 ## 71項逐一判定
 
@@ -87,12 +87,12 @@
 | 52／動畫第1課／`anime-lesson-01/grammar/4（study:past-predicate）` | ～た／～だ：動作完成與名詞判斷<br>`curriculum/anime-core-foundation.mjs:121` | 補標（複合）<br>`ta`、`da` | 解說把来た／頑張った過去動作與戦士だ名詞判斷分開，兩個ID正好表達這項對比。 |
 | 53／動畫第3課／`anime-lesson-03/grammar/1（study:imperative）` | ～え／～ろ：動詞命令形<br>`curriculum/anime-core-foundation.mjs:396` | 補標（直接）<br>`e-ro` | 五段う→え、一段る→ろ與不規則命令；前を見ろ直接支持，不等同なさい禮貌層次。 |
 | 54／動畫第3課／`anime-lesson-03/grammar/2（study:negative-command）` | 辭書形＋な：不要做某事<br>`curriculum/anime-core-foundation.mjs:404` | 補標（直接）<br>`na-prohibition` | 辭書形＋な禁止，一人で行くな；解說也排除感嘆な與縮約命令しな。 |
-| 55／動畫第4課／`anime-lesson-04/grammar/1（study:refusal-objection）` | だが／嘘だ：拒絕與反駁<br>`curriculum/anime-core.mjs:149` | 無現行對應（語用複合）<br>保留未標 | 拒絕／反駁與驚訝的語用辨識；獨立連接詞だが不直接等同句內が，嘘だ也不是此點在教名詞判斷接續。 |
-| 56／動畫第5課／`anime-lesson-05/grammar/1（study:battle-command）` | 命令形／辞書形＋な<br>`curriculum/anime-core.mjs:288` | 補標（複合）<br>`e-ro`、`na-prohibition` | 防げ命令與捨てるな禁止是兩個構式；書面捧げよ僅作變體說明，不把整點硬塞單一禁止ID。 |
-| 57／動畫第5課／`anime-lesson-05/grammar/2（study:negative-causative）` | ～させない：不讓某事發生<br>`curriculum/anime-core.mjs:300` | 補標（複合）<br>`seru-saseru`、`nai` | 解說明拆死ぬ→死なせる→死なせない：使役加否定，不是欲求或可能否定。 |
-| 58／動畫第5課／`anime-lesson-05/grammar/4（study:responsibility-wake）` | ～わけにはいかない：不能就這樣做<br>`curriculum/anime-core.mjs:320` | 無現行對應（對照範圍外）<br>保留未標 | 責任／立場的わけにはいかない不在現行N5／N4參照，不等於能力否定或なければ義務；不推定其他級別也未收。 |
-| 59／動畫第6課／`anime-lesson-06/grammar/1（study:te-connection-request）` | ～て、～てよ：動作連接與要求<br>`curriculum/anime-core.mjs:434` | 補標（部分對應）<br>`te` | 契約して連接下一動作符合て；なってよ是省略式請求，未出現ください，不能標成てください或以よ的新資訊功能代替。 |
-| 60／動畫第7課／`anime-lesson-07/grammar/4（study:conclusion-negation）` | ～ということか／～わけではない<br>`curriculum/anime-core.mjs:637` | 無現行對應（對照範圍外）<br>保留未標 | ということか推論與わけではない部分否定在現行N5／N4沒有可靠ID；不是引用と言う或全面否定。 |
+| 55／動畫第4課／`anime-lesson-04/grammar/1（study:refusal-objection）` | だが／嘘だ：拒絕與反駁<br>`curriculum/anime-core.mjs:149` | 補標（部分對應）<br>`da` | 分步學習formation明示「名詞＋だ可表判斷」，嘘だ提供用例，因此只標da子目標；獨立だが的轉折與拒絕／驚訝語用不隨此判級，不以句內が硬替。 |
+| 56／動畫第5課／`anime-lesson-05/grammar/1（study:battle-command）` | 命令形／辞書形＋な<br>`curriculum/anime-core.mjs:289` | 補標（複合）<br>`e-ro`、`na-prohibition` | 防げ命令與捨てるな禁止是兩個構式；書面捧げよ僅作變體說明，不把整點硬塞單一禁止ID。 |
+| 57／動畫第5課／`anime-lesson-05/grammar/2（study:negative-causative）` | ～させない：不讓某事發生<br>`curriculum/anime-core.mjs:301` | 補標（複合）<br>`seru-saseru`、`nai` | 解說明拆死ぬ→死なせる→死なせない：使役加否定，不是欲求或可能否定。 |
+| 58／動畫第5課／`anime-lesson-05/grammar/4（study:responsibility-wake）` | ～わけにはいかない：不能就這樣做<br>`curriculum/anime-core.mjs:321` | 無現行對應（對照範圍外）<br>保留未標 | 責任／立場的わけにはいかない不在現行N5／N4參照，不等於能力否定或なければ義務；不推定其他級別也未收。 |
+| 59／動畫第6課／`anime-lesson-06/grammar/1（study:te-connection-request）` | ～て、～てよ：動作連接與要求<br>`curriculum/anime-core.mjs:435` | 補標（部分對應）<br>`te` | 契約して連接下一動作符合て；なってよ是省略式請求，未出現ください，不能標成てください或以よ的新資訊功能代替。 |
+| 60／動畫第7課／`anime-lesson-07/grammar/4（study:conclusion-negation）` | ～ということか／～わけではない<br>`curriculum/anime-core.mjs:638` | 無現行對應（對照範圍外）<br>保留未標 | ということか推論與わけではない部分否定在現行N5／N4沒有可靠ID；不是引用と言う或全面否定。 |
 | 61／動畫第8課／`anime-lesson-08/grammar/4（study:even-extreme）` | ～すら：連這個都……<br>`curriculum/anime-core-foundation.mjs:583` | 無現行對應（對照範圍外）<br>保留未標 | 極端例示すら不是も的任意替換，現行N5／N4沒有該構式ID；不藉近義增加覆蓋。 |
 | 62／口語轉換表／`stage2-spoken/grammar/1` | ている → てる<br>`curriculum/lessons.mjs:438` | 補標（復習）<br>`te-iru` | 完整降っています與縮約降ってる明確成對；ID指基底體貌，不把縮約另算新覆蓋。 |
 | 63／口語轉換表／`stage2-spoken/grammar/2` | てしまう → ちゃう（でしまう → じゃう）<br>`curriculum/lessons.mjs:447` | 補標（直接）<br>`te-shimau-chau` | 釘選條目本身含ちゃう／じゃう；忘れてしまいました與忘れちゃった對應完成／遺憾。 |
@@ -107,9 +107,9 @@
 
 ## 契約、驗證與限制
 
-`jlpt`沒有加入內容雜湊：作者音檔依原文／聲線；scene依整段日文、題幹、選項及答案；文法練習依pattern、既有語義點／題ID、題幹／選項／答案。新標記不改既有540個scene、64個文法練習、105個動畫聽解、618個遊戲主紀錄與372個遊戲聽解ID，全SRS／聽寫catalog及curriculumSummary保持。版本3舊紀錄不失效，不需重做練習，也不新增遷移。與上批推論題改義時的ID修訂不同。
+`jlpt`沒有加入內容雜湊：作者音檔依原文／聲線；scene依整段日文、題幹、選項及答案；文法練習依pattern、既有語義點／題ID、題幹／選項／答案。新標記不改既有541個scene、64個文法練習、105個動畫聽解、618個遊戲主紀錄與372個遊戲聽解ID，全SRS／聽寫catalog及curriculumSummary保持。版本3舊紀錄不失效，不需重做練習，也不新增遷移。與上批推論題改義時的ID修訂不同。
 
-獨立069b0f2快照保護完整教材與舊標記，只有明列40項可新增jlpt；歷史黃金fixture不改，只在歷史比較時還原這40項。新增當前範圍及全部ID回歸，避免投影掩蓋其他變更。原狀態實際被新回歸捕捉為缺標，補標後通過。格式檢查仍要求非空合法slug陣列，去重界線修正為同一點內；跨點複習由coverage的Set去重，新增合成多ID／重複引用測試，不納入外部完整清單。有效ID另以釘選快取逐一核對，0 unknown。
+獨立069b0f2快照保護完整教材與舊標記，只有明列41項可新增jlpt；歷史黃金fixture不改，只在歷史比較時還原這41項。新增當前範圍及全部ID回歸，避免投影掩蓋其他變更。原狀態實際被新回歸捕捉為缺標，補標後通過。格式檢查仍要求非空合法slug陣列，去重界線修正為同一點內；跨點複習由coverage的Set去重，新增合成多ID／重複引用測試，不納入外部完整清單。有效ID另以釘選快取逐一核對，0 unknown。
 
 目前文法標記不顯示在畫面。Node教材與瀏覽器payload仍保留同樣資料／鍵序；沒有新增runtime dependency、改同步版本／路由／離線／固定1倍，或放寬bundle／恢復T122時間Gate。全部8535個來源MP3逐檔SHA與開始前相同，不需補下載；教材原文、翻譯、reading／ruby及題義保持。
 
@@ -121,6 +121,11 @@
 
 ## 後續界線
 
-31項保留未標皆已有上述判定，不再把歷史71項視為全部未處理，也不要求歸零。若要涵蓋關係子句、わけ系或すら等，另批評估N3～N1對照與coverage驗證；不能以近義的も、名詞化の／こと或能力否定代替。外部讀題／試答回饋到位前不擴大推論改寫。完成本次產品及發布紀錄部署後停止。
+30項保留未標皆已有上述判定，不再把歷史71項視為全部未處理，也不要求歸零。若要涵蓋關係子句、わけ系或すら等，另批評估N3～N1對照與coverage驗證；不能以近義的も、名詞化の／こと或能力否定代替。外部讀題／試答回饋到位前不擴大推論改寫。完成本次產品及發布紀錄部署後停止。
 
-本機實測：323 tests／check、正式base build、原bundle與預設／全階段coverage通過；18課375寬線上／真正離線逐課reload共36次文法檢視、65筆合成v3保持，3個Cache API準備音檔各兩次SHA與原生1倍，共6次播放，零pageerror／HTTP錯誤／溢位。非UI下載／人耳／真機驗收；225實際payload一致且precache、8535來源音檔SHA保持。CI及正式站結果另記release-audit。
+本機實測：323 tests／check、正式base build、原bundle與預設／全階段coverage通過；19課375寬線上／真正離線逐課reload共38次文法檢視、65筆合成v3保持，3個Cache API準備音檔各兩次SHA與原生1倍，共6次播放，零pageerror／HTTP錯誤／溢位。非UI下載／人耳／真機驗收；225實際payload一致且precache、8535來源音檔SHA保持。CI及正式站結果另記release-audit。
+
+### 分步接續複核更正
+
+第55項的獨立study.formation明示「名詞＋だ可表判斷」，故將初稿的保留未標改為部分對應da。だが的語用仍不硬配ID；初稿40補／31保留修正為41補／30保留、部分對應15項，其他判定不變。修訂僅增加一個metadata欄位，原基底內容／ID雜湊不改；完整check／build／coverage與19課線上／真正離線文法檢視已重新通過，精確證據見release-audit。
+
