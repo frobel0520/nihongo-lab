@@ -286,6 +286,7 @@ const cores = {
     grammar: [
       {
         pattern: '命令形／辞書形＋な',
+        jlpt: ['e-ro', 'na-prohibition'],
         also: ['essential-grammar/making-requests/134-negative-command.md'],
         reference: 'commands',
         note: '五段動詞把末音換成え段，如「戦う→戦え」；一段動詞常改成「ろ」，如「逃げる→逃げろ」。也有莊重的「よ」，如進擊的巨人「捧げよ」。禁止則是辭書形接「な」：交響詩篇「ねだるな」是不要索求，不是命令形。',
@@ -297,6 +298,7 @@ const cores = {
       },
       {
         pattern: '～させない：不讓某事發生',
+        jlpt: ['seru-saseru', 'nai'],
         reference: 'causative',
         note: '使役形的否定可表示不讓人做、也可表示不讓某事發生。鬼滅之刃「誰も死なせない」是在保護他人：「死ぬ」變成「死なせる」，再否定；不是「沒有人想死」，也不是說自己不會死。',
         quotes: ['kimetsu-protect'],
@@ -430,6 +432,7 @@ const cores = {
     grammar: [
       {
         pattern: '～て、～てよ：動作連接與要求',
+        jlpt: ['te'],
         reference: 'requests',
         note: '魔法少女小圓「契約して、魔法少女になってよ」先連接簽約與成為魔法少女，最後「てよ」提出要求。不是說契約已經成立；這句短台詞也沒有列出契約的全部條件。',
         quotes: ['madoka-kyubey'],

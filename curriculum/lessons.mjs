@@ -436,6 +436,7 @@ const spoken = {
   grammar: [
     {
       pattern: 'ている → てる',
+      jlpt: ['te-iru'],
       note: '口語把「い」省略。「ていない」變「てない」。動畫對話常見縮約形，也會使用完整的「ている」；要能辨認兩種形式。',
       examples: [
         { jp: '雨が降っています。', reading: 'あめが ふって います。', zh: '教科書：正在下雨。', voice: 'sayo', audio: `${SPOKEN_AUDIO}/teru-1.mp3` },
@@ -444,6 +445,7 @@ const spoken = {
     },
     {
       pattern: 'てしまう → ちゃう（でしまう → じゃう）',
+      jlpt: ['te-shimau-chau'],
       note: '表示「做完了」或「不小心、可惜」。口語說「ちゃう」；前面是「ん」音便時變「じゃう」（死んでしまう → 死んじゃう）。過去式「ちゃった」出現頻率非常高。',
       examples: [
         { jp: '宿題を忘れてしまいました。', reading: 'しゅくだいを わすれて しまいました。', zh: '教科書：我把作業忘了。', voice: 'sayo', audio: `${SPOKEN_AUDIO}/chau-1.mp3` },
@@ -452,6 +454,7 @@ const spoken = {
     },
     {
       pattern: 'ておく → とく（でおく → どく）',
+      jlpt: ['te-oku'],
       note: '表示「事先做好」。口語縮成「とく」，語氣輕鬆。',
       examples: [
         { jp: '先に買っておきます。', reading: 'さきに かって おきます。', zh: '教科書：我先買好。', voice: 'sayo', audio: `${SPOKEN_AUDIO}/toku-1.mp3` },
@@ -460,6 +463,7 @@ const spoken = {
     },
     {
       pattern: 'ては → ちゃ（では → じゃ）',
+      jlpt: ['te-wa-ikenai'],
       note: '「〜てはいけない／ダメ」的口語是「〜ちゃいけない／ダメ」，表示禁止。動畫名句「逃げちゃダメだ」就是這個縮約。',
       examples: [
         { jp: 'ここで遊んではいけません。', reading: 'ここで あそんでは いけません。', zh: '教科書：不可以在這裡玩。', voice: 'sayo', audio: `${SPOKEN_AUDIO}/cha-1.mp3` },
@@ -468,6 +472,7 @@ const spoken = {
     },
     {
       pattern: 'なければ → なきゃ',
+      jlpt: ['nakereba-naranai-nakute-wa-ikenai'],
       note: '「〜なければならない」是「非…不可」。口語縮成「なきゃ」，後面的「ならない／いけない」常整段省略，單獨一句「行かなきゃ」就成立。',
       examples: [
         { jp: '早く行かなければなりません。', reading: 'はやく いかなければ なりません。', zh: '教科書：我必須快點去。', voice: 'sayo', audio: `${SPOKEN_AUDIO}/nakya-1.mp3` },
@@ -476,6 +481,7 @@ const spoken = {
     },
     {
       pattern: 'のだ／のです → んだ／んです',
+      jlpt: ['n-desu-no-desu'],
       note: '說明原因、狀況或帶出心情的語氣（「其實是這樣啦」）。口語的「の」變成「ん」。疑問句更常直接用「の？」結尾。',
       examples: [
         { jp: '実は、行きたくないのです。', reading: 'じつは、いきたくないのです。', zh: '教科書：其實我不想去。', voice: 'sayo', audio: `${SPOKEN_AUDIO}/nda-1.mp3` },
@@ -484,6 +490,7 @@ const spoken = {
     },
     {
       pattern: 'と言う → って',
+      jlpt: ['to-iu-say'],
       note: '轉述別人的話時，口語常把「と」換成「って」，連「言う」都可以省略，帶有「聽說」的傳聞語氣。',
       examples: [
         { jp: '田中さんは来ないと言いました。', reading: 'たなかさんは こないと いいました。', zh: '教科書：田中先生說他不來。', voice: 'sayo', audio: `${SPOKEN_AUDIO}/tte-1.mp3` },
@@ -492,6 +499,7 @@ const spoken = {
     },
     {
       pattern: 'ら抜き言葉（食べられる → 食べれる）',
+      jlpt: ['eru-rareru-potential'],
       note: '一段動詞（食べる、見る、起きる）的可能形，口語常把「ら」拿掉。聽得懂就好，考試與正式文章仍用完整的「られる」。五段動詞（行く → 行ける）本來就沒有「ら」。',
       examples: [
         { jp: '朝ごはんが食べられません。', reading: 'あさごはんが たべられません。', zh: '教科書：我吃不下早餐。', voice: 'sayo', audio: `${SPOKEN_AUDIO}/rasnuki-1.mp3` },
@@ -500,6 +508,7 @@ const spoken = {
     },
     {
       pattern: '語尾：よ／ね／よね',
+      jlpt: ['yo', 'ne'],
       note: '「よ」告訴對方對方可能不知道的事；「ね」尋求對方同意、共鳴；「よね」是「我覺得是這樣，對吧？」的確認。三個都沒有實際詞義，卻決定了整句的態度。',
       examples: [
         { jp: 'このラーメン、おいしいよ。', reading: 'この ラーメン、おいしいよ。', zh: '這碗拉麵很好吃喔（我告訴你）。', voice: 'tsumugi', audio: `${SPOKEN_AUDIO}/yone-1.mp3` },
@@ -508,6 +517,7 @@ const spoken = {
     },
     {
       pattern: '語尾：ぞ／ぜ／わ／かしら（角色語氣）',
+      jlpt: ['kana-kashira'],
       note: '「ぞ」「ぜ」是男性化、帶力道的斷定，動畫裡常見於熱血角色；「わ」「かしら」是女性化或大小姐口吻的語氣。這些語尾也會出現在現實口語中，語氣取決於說話者、方言與場合；先學會辨認角色口吻，使用時注意對象與情境。',
       examples: [
         { jp: 'そろそろ行くぞ。', reading: 'そろそろ いくぞ。', zh: '差不多該出發了！（男性、有力）', voice: 'nana', audio: `${SPOKEN_AUDIO}/kyara-1.mp3` },

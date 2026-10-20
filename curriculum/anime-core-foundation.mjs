@@ -119,6 +119,7 @@ export const foundationCores = {
       },
       {
         pattern: '～た／～だ：動作完成與名詞判斷',
+        jlpt: ['ta', 'da'],
         reference: 'past',
         also: [
           'basic-grammatical-structures/expressing-state-of-being/019-declaring-something-is-so-and-so-using.md',
@@ -393,6 +394,7 @@ export const foundationCores = {
     grammar: [
       {
         pattern: '～え／～ろ：動詞命令形',
+        jlpt: ['e-ro'],
         reference: 'commands',
         note: '五段動詞把末尾う段變え段，例如「燃やす→燃やせ」「括る→括れ」；一段動詞把る換ろ，例如「見る→見ろ」。する→しろ／せよ、来る→こい是不規則形。形式是在要求動作，是否鼓勵、威嚇或催促，仍要結合語義與上下文。',
         quotes: ['kimetsu-kokoro', 'frieren-kakugo', 'eureka-win'],
@@ -400,6 +402,7 @@ export const foundationCores = {
       },
       {
         pattern: '辭書形＋な：不要做某事',
+        jlpt: ['na-prohibition'],
         reference: 'prohibition',
         note: '「ねだるな」「かけるな」是辭書形＋な，表示禁止。它與「しな」的短縮命令、表示感嘆或確認的句尾な不同；先聽前面的動詞是不是辭書形，再結合意思判斷。交響詩篇一句同時包含不要央求與主動爭取。',
         quotes: ['eureka-win', 'mha-students'],

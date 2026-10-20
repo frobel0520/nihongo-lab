@@ -1,0 +1,367 @@
+{
+  "commit": "069b0f2723064f59598cf14dec2a05429339e4db",
+  "contentSha256": "5875ff103f0bead24d9cb877939443d796126205c68628b7294dc81f802e23c3",
+  "catalogSha256": "f88a50de5cdf8d765fc2b8981097bc0e4c02737eaced691f955d46c20d89e3f1",
+  "summarySha256": "194a76c2337a84882157d8886deb25ea0c02a8558879e719b43b5464abe977b6",
+  "audioPathsSha256": "0f5ce7e50eabae92af2872b2f5f83d2fd853da6ea8972db4ec29d41c126def1b",
+  "records": {
+    "scene": {
+      "count": 540,
+      "sha256": "c89cc9f22a4b5ca584edcbb5dcebfdb2c13b90fa7f62a0a969ba538e5cea24ab"
+    },
+    "grammar": {
+      "count": 64,
+      "sha256": "652b655fd773cec94a1161cf4dc3068c9d17b5fd2783e1cf5bcbffe014f332f9"
+    },
+    "listening": {
+      "count": 105,
+      "sha256": "762945c52d6af91453469592c66f683709153b064ea9617fe69eee249ed4b290"
+    },
+    "games": {
+      "count": 618,
+      "sha256": "affd94097f4156d7bf474142cf231559bd2bd101f87f788c33eebaf5a18a7947"
+    },
+    "gameListening": {
+      "count": 372,
+      "sha256": "bdd720adaea340546d899d8c18af69b672f1d1263fc5e943d6de6dd2b57fcc09"
+    }
+  },
+  "approvedTags": [
+    {
+      "lessonId": "stage0-day3",
+      "index": 1,
+      "pattern": "N は ここ／そこ／あそこ です　／　N は どこ ですか",
+      "jlpt": [
+        "koko-soko-asoko-doko"
+      ]
+    },
+    {
+      "lessonId": "stage0-day3",
+      "index": 2,
+      "pattern": "こちら／そちら／あちら／どちら",
+      "jlpt": [
+        "koko-soko-asoko-doko"
+      ]
+    },
+    {
+      "lessonId": "stage0-day7",
+      "index": 0,
+      "pattern": "N（道具・語言）で 〜ます",
+      "jlpt": [
+        "de-means"
+      ]
+    },
+    {
+      "lessonId": "stage0-day7",
+      "index": 2,
+      "pattern": "N1 に／から N2 を もらいます・借ります・習います",
+      "jlpt": [
+        "ageru-kureru-morau"
+      ]
+    },
+    {
+      "lessonId": "stage0-day8",
+      "index": 0,
+      "pattern": "N は い形容詞 です　／　〜くないです",
+      "jlpt": [
+        "ku-nai-katta-ku-nakatta"
+      ]
+    },
+    {
+      "lessonId": "stage0-day8",
+      "index": 1,
+      "pattern": "N は な形容詞 です　／　〜じゃありません",
+      "jlpt": [
+        "na-na-adjective",
+        "de-wa-arimasen-ja-nai"
+      ]
+    },
+    {
+      "lessonId": "stage0-day10",
+      "index": 1,
+      "pattern": "N は 場所に あります／います",
+      "jlpt": [
+        "ga-aru-ga-iru",
+        "ni-location"
+      ]
+    },
+    {
+      "lessonId": "stage0-day10",
+      "index": 2,
+      "pattern": "N1 の 上／下／前／後ろ／中／外／隣／横／そば",
+      "jlpt": [
+        "no"
+      ]
+    },
+    {
+      "lessonId": "stage0-day10",
+      "index": 4,
+      "pattern": "方位：東・西・南・北",
+      "jlpt": [
+        "no"
+      ]
+    },
+    {
+      "lessonId": "stage0-day13",
+      "index": 4,
+      "pattern": "色の言い方",
+      "jlpt": [
+        "no"
+      ]
+    },
+    {
+      "lessonId": "stage0-day14",
+      "index": 4,
+      "pattern": "道案内：まっすぐ行って、右へ曲がってください",
+      "jlpt": [
+        "te",
+        "te-kudasai",
+        "o"
+      ]
+    },
+    {
+      "lessonId": "stage0-day15",
+      "index": 2,
+      "pattern": "〜ています（狀態・習慣・職業）",
+      "jlpt": [
+        "te-iru"
+      ]
+    },
+    {
+      "lessonId": "stage0-day16",
+      "index": 0,
+      "pattern": "V1 て、V2 て、V3　（連續動作）",
+      "jlpt": [
+        "te"
+      ]
+    },
+    {
+      "lessonId": "stage0-day16",
+      "index": 4,
+      "pattern": "N1 は N2 が 〜です（部分與整體）",
+      "jlpt": [
+        "wa",
+        "ga-subject"
+      ]
+    },
+    {
+      "lessonId": "stage0-day16",
+      "index": 5,
+      "pattern": "着る・はく・かける・締める（穿戴的動詞）",
+      "jlpt": [
+        "te-iru"
+      ]
+    },
+    {
+      "lessonId": "stage0-day20",
+      "index": 0,
+      "pattern": "普通形とは（丁寧形との対応）",
+      "jlpt": [
+        "nai",
+        "ta",
+        "da",
+        "de-wa-arimasen-ja-nai",
+        "ku-nai-katta-ku-nakatta"
+      ]
+    },
+    {
+      "lessonId": "stage0-day20",
+      "index": 5,
+      "pattern": "こっち／そっち／あっち／どっち　と　どの／どれ／どなた／こんな",
+      "jlpt": [
+        "kore-sore-are-dore",
+        "kono-sono-ano-dono"
+      ]
+    },
+    {
+      "lessonId": "stage0-day21",
+      "index": 5,
+      "pattern": "みんな・皆さん・いろいろ・同じ・違う",
+      "jlpt": [
+        "na-na-adjective"
+      ]
+    },
+    {
+      "lessonId": "stage0-day22",
+      "index": 1,
+      "pattern": "修飾文の中の「が」（主語）",
+      "jlpt": [
+        "ga-subject"
+      ]
+    },
+    {
+      "lessonId": "stage0-day22",
+      "index": 2,
+      "pattern": "い形容詞・な形容詞・N の ＋ N",
+      "jlpt": [
+        "na-na-adjective",
+        "no"
+      ]
+    },
+    {
+      "lessonId": "stage0-day23",
+      "index": 2,
+      "pattern": "自動詞と他動詞（〜が開く／〜を開ける）",
+      "jlpt": [
+        "te-iru"
+      ]
+    },
+    {
+      "lessonId": "stage0-day23",
+      "index": 4,
+      "pattern": "色の名詞：青・赤・黒・白・黄色",
+      "jlpt": [
+        "to-and",
+        "no"
+      ]
+    },
+    {
+      "lessonId": "stage0-day25",
+      "index": 2,
+      "pattern": "もし 〜たら、〜",
+      "jlpt": [
+        "tara"
+      ]
+    },
+    {
+      "lessonId": "stage0-day25",
+      "index": 4,
+      "pattern": "縦・横・より・ふろ",
+      "jlpt": [
+        "yori"
+      ]
+    },
+    {
+      "lessonId": "anime-lesson-01",
+      "index": 3,
+      "pattern": "～た／～だ：動作完成與名詞判斷",
+      "jlpt": [
+        "ta",
+        "da"
+      ]
+    },
+    {
+      "lessonId": "anime-lesson-03",
+      "index": 0,
+      "pattern": "～え／～ろ：動詞命令形",
+      "jlpt": [
+        "e-ro"
+      ]
+    },
+    {
+      "lessonId": "anime-lesson-03",
+      "index": 1,
+      "pattern": "辭書形＋な：不要做某事",
+      "jlpt": [
+        "na-prohibition"
+      ]
+    },
+    {
+      "lessonId": "anime-lesson-05",
+      "index": 0,
+      "pattern": "命令形／辞書形＋な",
+      "jlpt": [
+        "e-ro",
+        "na-prohibition"
+      ]
+    },
+    {
+      "lessonId": "anime-lesson-05",
+      "index": 1,
+      "pattern": "～させない：不讓某事發生",
+      "jlpt": [
+        "seru-saseru",
+        "nai"
+      ]
+    },
+    {
+      "lessonId": "anime-lesson-06",
+      "index": 0,
+      "pattern": "～て、～てよ：動作連接與要求",
+      "jlpt": [
+        "te"
+      ]
+    },
+    {
+      "lessonId": "stage2-spoken",
+      "index": 0,
+      "pattern": "ている → てる",
+      "jlpt": [
+        "te-iru"
+      ]
+    },
+    {
+      "lessonId": "stage2-spoken",
+      "index": 1,
+      "pattern": "てしまう → ちゃう（でしまう → じゃう）",
+      "jlpt": [
+        "te-shimau-chau"
+      ]
+    },
+    {
+      "lessonId": "stage2-spoken",
+      "index": 2,
+      "pattern": "ておく → とく（でおく → どく）",
+      "jlpt": [
+        "te-oku"
+      ]
+    },
+    {
+      "lessonId": "stage2-spoken",
+      "index": 3,
+      "pattern": "ては → ちゃ（では → じゃ）",
+      "jlpt": [
+        "te-wa-ikenai"
+      ]
+    },
+    {
+      "lessonId": "stage2-spoken",
+      "index": 4,
+      "pattern": "なければ → なきゃ",
+      "jlpt": [
+        "nakereba-naranai-nakute-wa-ikenai"
+      ]
+    },
+    {
+      "lessonId": "stage2-spoken",
+      "index": 5,
+      "pattern": "のだ／のです → んだ／んです",
+      "jlpt": [
+        "n-desu-no-desu"
+      ]
+    },
+    {
+      "lessonId": "stage2-spoken",
+      "index": 6,
+      "pattern": "と言う → って",
+      "jlpt": [
+        "to-iu-say"
+      ]
+    },
+    {
+      "lessonId": "stage2-spoken",
+      "index": 7,
+      "pattern": "ら抜き言葉（食べられる → 食べれる）",
+      "jlpt": [
+        "eru-rareru-potential"
+      ]
+    },
+    {
+      "lessonId": "stage2-spoken",
+      "index": 8,
+      "pattern": "語尾：よ／ね／よね",
+      "jlpt": [
+        "yo",
+        "ne"
+      ]
+    },
+    {
+      "lessonId": "stage2-spoken",
+      "index": 9,
+      "pattern": "語尾：ぞ／ぜ／わ／かしら（角色語氣）",
+      "jlpt": [
+        "kana-kashira"
+      ]
+    }
+  ]
+}
