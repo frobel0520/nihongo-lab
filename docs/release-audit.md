@@ -1669,6 +1669,19 @@ T137本機最終驗證：316 tests／check、typecheck／lint、正式/nihongo-l
 
 本機最終318 tests／check（typecheck、lint）、正式/nihongo-lab/ build與原perf:bundle通過。main raw206732／gzip65646、CSS4817、precache21335481／21500000 bytes、479去重URL，餘164519。225實際建置payload與唯一入口的值／鍵序一致且precache；180課、6300通用及8535全教材音檔保持，8535檔SHA與開始前完全相同。沒有更動JLPT／詞彙／文法標記，本輪不重跑coverage，教材範圍由獨立快照驗證。
 
-375×667獨立Chromium完成三課五區塊，線上18句原生1倍／9題、UI下載105檔後BrowserContext.setOffline(true)、navigator.onLine=false，每課直接網址真正reload後再18句／9題。105不同音檔線上／離線各SHA一致；三題原索引評分／完整解析、同次順序穩定、明確重練換序與v3保存／退休ID保留通過，零pageerror／溢位。新回歸另在斷網重答前核對已存新版ID，隨CI驗收。51／175既有回歸另完成24句／12題、70檔兩種狀態SHA，兩課修正保持；不將兩組相加成全站人耳或真機驗收。
+375×667獨立Chromium完成三課五區塊，線上18句原生1倍／9題、UI下載105檔後BrowserContext.setOffline(true)、navigator.onLine=false，每課直接網址真正reload後再18句／9題。105不同音檔線上／離線各SHA一致；三題原索引評分／完整解析、同次順序穩定、明確重練換序與v3保存／舊題ID保留通過，零pageerror／溢位。新回歸另在斷網重答前核對已存新版ID，隨CI驗收。51／175既有回歸另完成24句／12題、70檔兩種狀態SHA，兩課修正保持；不將兩組相加成全站人耳或真機驗收。
 
 產品dist9058檔凍結清單SHA-256 `c42e22be9c6d0c4a68f44d334e2b7ac403a69c7948d50b593dc60516bee67e43`；全教材MP3清單SHA-256 `e351ed4677c9b7991f65822b6023581f29bd1fc40c5f0d8320ce9d58ff257ed8`。尚未把PR CI或正式站驗收預記為成功，發布後另追加。
+
+
+### T138 正式發布與產物核對
+
+[PR #148](https://github.com/frobel0520/nihongo-lab/pull/148)精確head `29d6ff196a55e4066bf16140ea3bc30d24f782ff`的[CI 39356183608](https://github.com/frobel0520/nihongo-lab/actions/runs/39356183608)成功，包含新增三課回歸（斷網重答前核對新版ID保持）、既有51／175、全教材下載保留及真實兩版worker更新。合併前main仍5ee1dc2、只有本PR；正常rebase未重建公開commit，以公開author／committer及正常hooks非force快轉整合，沒有改寫歷史。[Pages 39357328826](https://github.com/frobel0520/nihongo-lab/actions/runs/39357328826)check／deploy成功，正式站對應相同產品提交。
+
+有效HTTPS核對正式站全部523個audio/以外產物（含既有聲線預覽）及156／165／180課105個音檔，共628檔逐byte／SHA一致、0失敗。清單摘要SHA-256 `f3d27583622c5874d8d19202f5fb506b77ae5864d6c817be75d4909267f83e4b`。不是完整dist9058檔或8535個教材音檔的全量正式站下載；前述全量SHA保持是來源檔案驗證。
+
+正式站375×667全新Chromium資料完整驗證156／165／180各五區塊：線上18句原生1倍／9題，UI下載105檔後BrowserContext.setOffline(true)、navigator.onLine=false，每課直接網址真正reload，再18句／9題。105個不同音檔兩種狀態各SHA一致；新版三個scene ID在離線重答前仍為passed，三個舊題ID及原基本題紀錄保持。原索引評分／完整解析、下載及播放期間選項穩定、明確重練換序與v3保存通過，零pageerror／375寬溢位。全程只用合成進度，沒有讀取個人進度；手機尺寸模擬與解碼播放不當成人耳或真機驗收。
+
+本次沒有重新執行舊頁跨正式部署的更新觀察，T137已完成的提示／多頁阻擋／離線確認與舊資料保留紀錄仍有效；本次CI的真實兩版build回歸另列，不冒充再次正式觀察。人工語音、完整真機、71舊JLPT與Android既有紀錄保持。三課內容複核由同一編修者分離步驟完成，未作外部盲審或學習成效實驗；I3其餘後段未全面改寫。
+
+產品／音檔及凍結9058檔保持，本次收尾只改progress、task-breakdown、release-audit與品質報告。文件PR本身的CI／Pages與同一628檔正式產物複核結果記於該PR，不預記成功；只有相同產物才沿用以上功能驗收。

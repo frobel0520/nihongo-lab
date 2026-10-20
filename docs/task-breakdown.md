@@ -881,3 +881,5 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 - Out of scope：其他課程、教材新增、共用題型／介面變更、71舊JLPT、人耳／完整真機；保留Android紀錄與已完成更新流程觀察。下一批僅候選，不繼續實作。
 
 - Local result：318 tests／check、正式base build／原bundle、225實際payload及8535音檔SHA保持；三課375寬完整線上／真正斷網直接網址重載、36句／18題／105檔雙狀態SHA、洗牌／重練／v3通過，51／175另回歸。發布結果待CI／Pages後追加。
+
+- Release progress：[PR148](https://github.com/frobel0520/nihongo-lab/pull/148)／精確head CI39356183608及Pages39357328826成功，公開身分rebase檢查及非force整合為29d6ff1；正式站628檔一致，三課375寬五區塊線上／真正斷網直接網址重載36句／18題／105檔雙狀態SHA、重練／選項穩定／v3新舊ID保存通過，零pageerror／溢位。純文件收尾維持相同產品與音檔，最終CI／Pages及產物複核記於文件PR。
