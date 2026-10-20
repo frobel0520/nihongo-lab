@@ -8,6 +8,10 @@ import { createHash } from 'node:crypto';
 import { chromium } from 'playwright-core';
 import { loadLesson, loadLessonAudioPaths } from '../curriculum/lessons.mjs';
 import { sceneRecordId } from '../lib/scene-listening.mjs';
+import { emptyProgress, recordDictation } from '../lib/progress.mjs';
+import { inferenceBaseline } from './helpers/inference-baseline.mjs';
+const inference = process.argv.includes('--inference');
+const lessonIds = inference ? inferenceBaseline.lessons.map(l => l.id) : ['general-listening-51','general-listening-175'];
 const arg = (name, fallback) => process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : fallback;
 const root = resolve(arg('--dist', 'dist'));
 const remote = arg('--base', '');
@@ -28,16 +32,34 @@ const browser = await chromium.launch({executablePath,headless:true,args:['--no-
 const errors=[];
 try {
   const context=await browser.newContext({viewport:{width:375,height:667}});
+  await context.addInitScript(()=>{Math.random=()=>0;});
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base+'#/settings');await page.evaluate(()=>navigator.serviceWorker.ready);await page.reload();await page.waitForFunction(()=>navigator.serviceWorker.controller);
+  let originalProgress;
+  if(inference) {
+    originalProgress=emptyProgress();
+    for(const old of inferenceBaseline.lessons)for(const q of old.scene.questions)originalProgress=recordDictation(originalProgress,sceneRecordId(old,q),true,'2026-10-01T00:00:00.000Z');
+    await page.evaluate(p=>localStorage.setItem('nihongo-lab:progress:v1',JSON.stringify(p)),originalProgress);
+    await page.reload();await page.waitForFunction(()=>navigator.serviceWorker.controller);
+  }
   const goto=async id=>{await page.evaluate(id=>{location.hash='#/lesson/'+id;},id);await page.getByRole('button',{name:'播放完整對話',exact:true}).waitFor();};
   let playedLines=0;
   for (const offline of [false,true]) {
     if(offline){await context.setOffline(true);await page.reload();assert.equal(await page.evaluate(()=>navigator.onLine),false);}
-    for (const id of ['general-listening-51','general-listening-175']) {
+    for (const id of lessonIds) {
       const lesson=await loadLesson(id);
       await page.evaluate(()=>{Math.random=()=>0;});
       await goto(id);
+      if(offline){
+        await page.reload();
+        await page.getByRole('button',{name:'播放完整對話',exact:true}).waitFor();
+        assert.equal(await page.evaluate(()=>navigator.onLine),false);
+      }
+      if(inference){
+        const savedBefore=await page.evaluate(()=>JSON.parse(localStorage.getItem('nihongo-lab:progress:v1')));
+        if(offline)for(const q of lesson.scene.questions)assert.equal(savedBefore.dictation[sceneRecordId(lesson,q)]?.passed,true,'saved current answers must survive offline direct-URL reload before answering again');
+        else assert.equal(savedBefore.dictation[sceneRecordId(lesson,lesson.scene.questions[2])],undefined,'old completion must not count as revised question');
+      }
       const optionTexts=()=>page.locator('.scene-question .anime-options button').allTextContents();
       const expected=[lesson.scene.questions[0].options[1],lesson.scene.questions[0].options[2],lesson.scene.questions[0].options[0]];
       assert.deepEqual(await optionTexts(),expected,'old fixed-position UI must fail here');
@@ -54,14 +76,22 @@ try {
       assert.equal(await page.evaluate(()=>window.qualityEnded),6);playedLines+=6;
       assert.deepEqual(await optionTexts(),expected);
       for(const q of lesson.scene.questions){
+        assert.equal(await page.locator('.scene-question').evaluate((el,prompt)=>{const copy=el.cloneNode(true);copy.querySelectorAll('rt,rp').forEach(n=>n.remove());return copy.textContent.includes(prompt);},q.prompt),true);
         const labels=await optionTexts();assert.deepEqual(new Set(labels),new Set(q.options));
         await page.waitForTimeout(30);assert.deepEqual(await optionTexts(),labels,'progress repaint must keep current question stable');
         await page.locator('.scene-question .anime-options').getByRole('button',{name:q.options[q.answer],exact:true}).click();
       }
       await page.getByRole('heading',{name:'答案與解析',exact:true}).waitFor();
       assert.equal(await page.locator('.scene-listening .grammar-point p.answer').count(),3);
+      const review=await page.locator('.scene-listening').evaluate(el=>{const copy=el.cloneNode(true);copy.querySelectorAll('rt,rp').forEach(n=>n.remove());return copy.textContent;});
+      for(const q of lesson.scene.questions)assert.ok(review.includes(q.explanation),'full current explanation must render');
       const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('nihongo-lab:progress:v1')));
       assert.equal(saved.version,3);
+      if(originalProgress)for(const [key,value] of Object.entries(originalProgress.dictation)){
+        // Unchanged basic questions can receive another attempt; obsolete revised IDs must stay exactly intact.
+        const retired=inferenceBaseline.lessons.some(l=>sceneRecordId(l,l.scene.questions[2])===key);
+        if(retired)assert.deepEqual(saved.dictation[key],value);else assert.equal(saved.dictation[key].passed,true);
+      }
       for(const q of lesson.scene.questions)assert.equal(saved.dictation[sceneRecordId(lesson,q)].passed,true);
       await page.evaluate(()=>{Math.random=()=>.999;});
       await page.getByRole('button',{name:'重新練習整段聽解',exact:true}).click();
@@ -86,6 +116,6 @@ try {
     }
   }
   assert.deepEqual(errors,[]);
-  console.log(JSON.stringify({scenario:'quality-production-build',remote:!!remote,playedLines,pageerrors:0,width:375,overflow:false}));
+  console.log(JSON.stringify({scenario:inference?'inference-production-build':'quality-production-build',remote:!!remote,playedLines,pageerrors:0,width:375,overflow:false}));
   await context.close();
 } finally { await browser.close();if(server)await new Promise(r=>server.close(r)); }

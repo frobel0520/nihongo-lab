@@ -1,4 +1,5 @@
 import { test } from 'node:test';
+import { beforeInference } from './helpers/inference-baseline.mjs';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
@@ -34,8 +35,9 @@ const sha = (value) => createHash('sha256').update(value).digest('hex');
 const lessons = stages.flatMap((s) => s.lessons);
 // T137: keep the historical golden hashes unchanged; project only the approved
 // explanation revision back to its original value for pre-T137 snapshots.
+// T138 projects only the three approved questions; current scope has its own golden check.
 const qualityBaseline = JSON.parse(readFileSync(new URL('./fixtures/curriculum-cfea830-quality.json', import.meta.url), 'utf8'));
-const historicalStages = structuredClone(stages);
+const historicalStages = beforeInference(stages);
 historicalStages.flatMap(s => s.lessons).find(l => l.id === 'general-listening-51').grammar[1].note = qualityBaseline.lessons.find(l => l.id === 'general-listening-51').grammar[1].note;
 
 test('T121: every pre-split progress identity and authored content matches 557fec1', () => {

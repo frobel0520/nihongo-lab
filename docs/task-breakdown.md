@@ -869,3 +869,15 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 - Acceptance checks：check／正式base build／原perf:bundle／coverage；350讀音與引用／完整解碼／非靜音／metadata；既有資料及ID保持；375寬十課五區塊／全播放作答進度／真斷網重載、四類×三入口及新資料實練；91／149／156跨階段回歸；170→171與180結束無181。
 - Release contract：PR附加、精確head CI、合併前重核main／其他PR／審查；新提交身分符合AGENTS。避免伺服器重建committer的合規本機rebase及快轉方式，無法遵守時停止合併，不改帳號、保護規則或舊歷史。Pages成功後核對全靜態／精確350音檔與十課路由，171／175／180完整線上／真離線及受影響回歸課，範圍分列並完成紀錄。
 - Out of scope：181、其他教材／考試系統、逐句人工語音、完整真機及71舊JLPT補標；不放寬原門檻、不移除必要離線資產或暗改契約。
+
+
+## T138：156／165／180推論理解題小批
+
+- Goal：每課保留基本題，僅第三題改為跨話輪整合，共三題；不擴課或全面改寫後段。
+- Input contract：最新main 5ee1dc2、T137小批方案與原教材品質報告；第51／175修訂及既有更新驗收維持。
+- Output artifact：三題／解析與必要引用ruby、三個新scene ID、獨立舊快照與ID／v3回歸、375寬真實build離線回歸及發布紀錄。
+- Acceptance checks：逐題證據／干擾項／第二解複核；其餘資料／537理解題ID及全部音檔bytes保持；check、正式base build、原perf:bundle，三課完整播放／作答／解析／重練／保存／真正斷網重載、105音檔兩種網路狀態SHA。CI通過後重核main及PR，以公開身分rebase／非force整合與Pages；正式站產物及三課同範圍驗證。
+- Progress contract：v3舊紀錄保留，改題需重做，六個基本題保持；無音檔文字／路徑變更，無補下載需求。
+- Out of scope：其他課程、教材新增、共用題型／介面變更、71舊JLPT、人耳／完整真機；保留Android紀錄與已完成更新流程觀察。下一批僅候選，不繼續實作。
+
+- Local result：318 tests／check、正式base build／原bundle、225實際payload及8535音檔SHA保持；三課375寬完整線上／真正斷網直接網址重載、36句／18題／105檔雙狀態SHA、洗牌／重練／v3通過，51／175另回歸。發布結果待CI／Pages後追加。
