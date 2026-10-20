@@ -26,6 +26,7 @@ jobs:
       # 保留 bundle 大小迴歸檢查；不要求操作與頁面載入計時。
       - run: npm run perf:bundle
       - run: npm run test:quality
+      - run: npm run test:inference
       - run: npm run test:pwa
       - run: npm run test:pwa:updates
       - uses: actions/upload-pages-artifact@v4

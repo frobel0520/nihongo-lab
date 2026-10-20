@@ -1,11 +1,13 @@
 import { test } from 'node:test';
+import { beforeInference } from './helpers/inference-baseline.mjs';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { stages, gameCharacterStudy } from '../curriculum/lessons.mjs';
 import { sceneRecordId } from '../lib/scene-listening.mjs';
 const baseline = JSON.parse(readFileSync(new URL('./fixtures/curriculum-cfea830-quality.json', import.meta.url), 'utf8'));
-const lessons = stages.flatMap(s => s.lessons);
+const historicalStages = beforeInference(stages);
+const lessons = historicalStages.flatMap(s => s.lessons);
 const old51 = baseline.lessons.find(l => l.id === 'general-listening-51');
 const old175 = baseline.lessons.find(l => l.id === 'general-listening-175');
 const current51 = lessons.find(l => l.id === old51.id);
@@ -35,7 +37,7 @@ test('T137: only approved 175 changes; revised sound and all scene identities ch
 });
 test('T137: all other lessons, games and 537 unaffected scene records match cfea830', () => {
   const ids = new Set(baseline.lessons.map(l => l.id));
-  const unchanged = stages.map(s => ({ ...s, lessons: s.lessons.filter(l => !ids.has(l.id)) }));
+  const unchanged = historicalStages.map(s => ({ ...s, lessons: s.lessons.filter(l => !ids.has(l.id)) }));
   assert.equal(createHash('sha256').update(JSON.stringify({ stages: unchanged, gameCharacterStudy })).digest('hex'), baseline.unaffectedSha256);
   const sceneIds = lessons.filter(l => l.scene && l.id !== old175.id).flatMap(l => l.scene.questions.map(q => [l.id, q.id, sceneRecordId(l, q)]));
   assert.deepEqual(sceneIds, baseline.sceneIds.filter(([id]) => id !== old175.id));

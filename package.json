@@ -19,7 +19,8 @@
     "test:pwa": "node tests/pwa-browser.mjs",
     "test:pwa:update": "node tests/pwa-update-browser.mjs",
     "test:pwa:updates": "node tests/build-pwa-fixtures.mjs && node tests/pwa-update-browser.mjs --old-dist dist --dist .cache/pwa-fixtures/next --next-dist .cache/pwa-fixtures/later",
-    "test:quality": "node tests/quality-browser.mjs"
+    "test:quality": "node tests/quality-browser.mjs",
+    "test:inference": "node tests/quality-browser.mjs --inference"
   },
   "dependencies": {
     "react": "19.2.8",
