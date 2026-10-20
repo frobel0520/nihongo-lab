@@ -10,9 +10,14 @@ import { loadLesson, loadLessonAudioPaths } from '../curriculum/lessons.mjs';
 import { sceneRecordId } from '../lib/scene-listening.mjs';
 import { emptyProgress, recordDictation } from '../lib/progress.mjs';
 import { inferenceBaseline } from './helpers/inference-baseline.mjs';
+import { followupInferenceBaseline } from './helpers/followup-inference-baseline.mjs';
 const inference = process.argv.includes('--inference');
-const lessonIds = inference ? inferenceBaseline.lessons.map(l => l.id) : ['general-listening-51','general-listening-175'];
 const arg = (name, fallback) => process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : fallback;
+const batches = { T138: inferenceBaseline, T139: followupInferenceBaseline };
+const batch = arg('--batch', 'all');
+assert.ok(batch === 'all' || Object.hasOwn(batches, batch), 'unknown inference batch');
+const oldLessons = (batch === 'all' ? Object.values(batches) : [batches[batch]]).flatMap(b => b.lessons);
+const lessonIds = inference ? oldLessons.map(l => l.id) : ['general-listening-51','general-listening-175'];
 const root = resolve(arg('--dist', 'dist'));
 const remote = arg('--base', '');
 const server = !remote && createServer(async (req, res) => {
@@ -38,7 +43,7 @@ try {
   let originalProgress;
   if(inference) {
     originalProgress=emptyProgress();
-    for(const old of inferenceBaseline.lessons)for(const q of old.scene.questions)originalProgress=recordDictation(originalProgress,sceneRecordId(old,q),true,'2026-10-01T00:00:00.000Z');
+    for(const old of oldLessons)for(const q of old.scene.questions)originalProgress=recordDictation(originalProgress,sceneRecordId(old,q),true,'2026-10-01T00:00:00.000Z');
     await page.evaluate(p=>localStorage.setItem('nihongo-lab:progress:v1',JSON.stringify(p)),originalProgress);
     await page.reload();await page.waitForFunction(()=>navigator.serviceWorker.controller);
   }
@@ -89,7 +94,7 @@ try {
       assert.equal(saved.version,3);
       if(originalProgress)for(const [key,value] of Object.entries(originalProgress.dictation)){
         // Unchanged basic questions can receive another attempt; obsolete revised IDs must stay exactly intact.
-        const retired=inferenceBaseline.lessons.some(l=>sceneRecordId(l,l.scene.questions[2])===key);
+        const retired=oldLessons.some(l=>sceneRecordId(l,l.scene.questions[2])===key);
         if(retired)assert.deepEqual(saved.dictation[key],value);else assert.equal(saved.dictation[key].passed,true);
       }
       for(const q of lesson.scene.questions)assert.equal(saved.dictation[sceneRecordId(lesson,q)].passed,true);
@@ -111,8 +116,18 @@ try {
         const digest=await page.evaluate(async path=>{const r=await fetch(new URL(path,location.href));if(r.status!==200)throw Error('offline audio missing');const bytes=await r.arrayBuffer();return [...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(x=>x.toString(16).padStart(2,'0')).join('');},path);
         assert.equal(digest,createHash('sha256').update(await readFile(resolve('public',path))).digest('hex'));
       }
-      console.log(JSON.stringify({id,offline,sections:5,nativeLines:6,questions:3,stableChoices:true,savedV3:true,audioShaVerified:35}));
+      if(inference){
+        await page.getByRole('tab',{name:/^聽解/}).click();
+        await page.getByRole('button',{name:'播放完整對話',exact:true}).click();
+        await page.waitForFunction(()=>{const a=document.querySelector('.scene-listening audio');return a&&!a.paused&&a.readyState>=2;});
+        await page.evaluate(()=>{window.departingAudio=document.querySelector('.scene-listening audio');});
+      }
       await page.evaluate(()=>{location.hash='#/settings';});await page.getByRole('button',{name:'重新檢查下載狀態',exact:true}).waitFor();
+      if(inference){
+        assert.equal(await page.evaluate(()=>window.departingAudio.paused),true,'route change must stop the detached native player');
+        assert.equal(await page.locator('.scene-listening audio').count(),0);
+      }
+      console.log(JSON.stringify({id,offline,sections:5,nativeLines:6,questions:3,stableChoices:true,savedV3:true,audioShaVerified:35,routeStopChecked:inference}));
     }
   }
   assert.deepEqual(errors,[]);

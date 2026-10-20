@@ -1,4 +1,5 @@
 import { test } from 'node:test';
+import { beforeFollowupInference } from './helpers/followup-inference-baseline.mjs';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { stages, gameCharacterStudy, curriculumSummary } from '../curriculum/lessons.mjs';
@@ -9,7 +10,8 @@ import { lessonProgress } from '../lib/lesson-progress.mjs';
 import { indexedLessonProgress } from '../lib/curriculum-summary.mjs';
 import { inferenceBaseline as baseline } from './helpers/inference-baseline.mjs';
 const sha = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
-const lessons = stages.flatMap(s => s.lessons);
+const historicalStages = beforeFollowupInference(stages);
+const lessons = historicalStages.flatMap(s => s.lessons);
 const ids = new Set(baseline.lessons.map(l => l.id));
 
 test('T138: only question 3 in 156/165/180 changes; all other authored fields and catalog identities match 5ee1dc2', () => {
@@ -24,7 +26,7 @@ test('T138: only question 3 in 156/165/180 changes; all other authored fields an
     restored.scene.questions[2] = old.scene.questions[2];
     assert.equal(sha(restored), old.lessonSha256, 'no dialogue, sound, basic question, vocabulary or grammar edits');
   }
-  assert.equal(sha({ stages: stages.map(s => ({ ...s, lessons: s.lessons.filter(l => !ids.has(l.id)) })), gameCharacterStudy }), baseline.unaffectedSha256);
+  assert.equal(sha({ stages: historicalStages.map(s => ({ ...s, lessons: s.lessons.filter(l => !ids.has(l.id)) })), gameCharacterStudy }), baseline.unaffectedSha256);
   assert.equal(sha(STUDY_CATALOG), baseline.catalogSha256, 'all SRS and dictation materials unchanged');
   assert.equal(sha(lessons.filter(l => l.scene).flatMap(l => l.scene.questions.filter(q => !ids.has(l.id) || q.id !== 'understanding-3').map(q => sceneRecordId(l, q)))), baseline.unaffectedSceneSha256, '537 current scene IDs, including revised 175, unchanged');
 });
