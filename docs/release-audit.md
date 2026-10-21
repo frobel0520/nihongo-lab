@@ -1790,3 +1790,16 @@ metadata使教材chunk與引用雜湊改變，不能說產品產物與069b0f2相
 ### T149 本機375寬與真正離線
 
 隔離Chromium、375×667及合成v3資料，逐一開啟74／121／127／133／151／166直接網址並reload。線上與BrowserContext.setOffline(true)、navigator.onLine=false後各核對完整兩文法點／四例原文與翻譯、note及ruby、三練習問答揭示，共24區塊檢視、36次答案揭示、182個rt節點；121日文詞條及133新增引用讀音另逐一核對。UI下載每課35檔共210檔，離線狀態仍顯示已全部存好；每課各兩狀態一例原生1倍播至ended，共12次。18筆既有scene合成完成紀錄逐值保持，零pageerror／本站HTTP錯誤／水平溢位。不是人耳或真機驗收，也不是全站8535檔重新播放。正式站須待發布後獨立再驗。
+
+
+### T149 正式發布及驗收
+
+[PR #155](https://github.com/frobel0520/nihongo-lab/pull/155)精確head `cabf939c1984b60ec094b13d4f9817c8cd3488a7`的[CI 39553594470](https://github.com/frobel0520/nihongo-lab/actions/runs/39553594470)成功，含327 tests、check／正式build／原bundle、51／175與六課推論、全教材8535檔下載保留及真實多版worker回歸。合併前重核main、其他PR及公開author／committer，正常rebase檢查、非force快轉整合為`cabf939c1984b60ec094b13d4f9817c8cd3488a7`，不改寫公開歷史。[Pages 39555144023](https://github.com/frobel0520/nihongo-lab/actions/runs/39555144023)check／deploy成功，對應相同提交。
+
+有效HTTPS逐byte／SHA核對全部523個audio/以外產物（含既有聲線預覽）及六課210個音檔，兩組無重疊，共733檔成功、0失敗；清單摘要`7c44f1c06ad6bf3093c732e3ac76db5c976d055b819304418c66a5bd36c34d4d`。不是重新下載正式站全部8535檔，來源8535個SHA保持另有獨立快照證據。
+
+正式站375×667隔離Chromium，六課直接網址線上／真正斷網reload，共24文法／練習區塊、36參考答案揭示；原文／新note／翻譯及ruby一致，121／133新日文引用另核讀音。UI下載210檔後BrowserContext.setOffline(true)、navigator.onLine=false仍顯示全數存好，210檔各兩狀態共420次SHA一致。12次原生1倍完整播放、18筆既有scene合成進度保持，零pageerror／本站HTTP錯誤／375寬溢位。沒有使用個人進度，不當人耳或真機驗收。
+
+原生PR附加工具未返回結果，不能確認附加成功；直接PR連結如上。全部既有ID／8535音檔保持，不需重答或補下載。180文字覆蓋由edd78cd歷史審查及T149六課差異複核接續；未解決確認錯誤0、待核實0，158與後段題目為可選且未實作。語音／真機依日常回報，不主動安排、不標通過、不作發布阻塞；Android歷史保持。
+
+本次收尾僅progress／task-breakdown／release-audit、覆蓋現況及通用課程設計／計畫的狀態標示；產品來源與上述已驗證版本相同。完整Pages封裝下載受執行環境網路代理403限制，未核對整包9058檔；不以733檔比對推定其餘實體部署檔全量一致。最後文件PR的CI／Pages、再次733檔及六課線上／真正離線結果據實記於該PR，不為記錄文件發布自身再形成循環。
