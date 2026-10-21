@@ -136,9 +136,6 @@ export default defineGeneralLesson(
     {
       "pattern": "という：替指代重新命名",
       "note": "複習という連接名稱；跨話輪的それ可能承接容器，也可能指內容物，須聽後續明示名稱修正，不只抓最近出現的名詞。",
-      "jlpt": [
-        "to-iu-named"
-      ],
       "examples": [
         [
           "「それ」というのは、箱ではなく封筒のことだ。",

@@ -19,11 +19,14 @@ test('通用聽解完成六階段180課原創教材；每課密度與同伴聲�
     generalListeningRoadmap.reduce((n, p) => n + p.target, 0),
     180,
   );
+  const untagged = lessons.flatMap(l => l.grammar.flatMap((g,i) => g.jlpt?.length ? [] : [`${l.id}/grammar/${i}`]));
+  // T149: the definition/reference lesson has no reliable pinned N5/N4 match.
+  assert.deepEqual(untagged, ['general-listening-151/grammar/0']);
   for (const lesson of lessons) {
     assert.equal(lesson.vocab.length, 25);
     assert.equal(lesson.grammar.length, 2);
     assert.ok(
-      lesson.grammar.every((g) => g.jlpt?.length && g.examples.length === 2),
+      lesson.grammar.every((g) => g.examples.length === 2),
     );
     assert.equal(lesson.dialogue.length, 6);
     assert.equal(lesson.scene.questions.length, 3);
