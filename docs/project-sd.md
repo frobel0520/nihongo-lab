@@ -785,3 +785,8 @@ npm run test:inference預設保留T138與T139共六課；--batch T139可只驗�
 note與RUBY_NOTES是說明顯示，不參與音檔jp／voice內容定址；例句zh進入study catalog的顯示內容，但不進入單字／聽寫識別；jlpt是coverage metadata，不進入進度或音檔ID。通用理解題ID依scene文字／題義生成，本輪相關日文及所有題目不改，故不修訂ID。T149以獨立開始快照逐值保護其餘教材，明列歷史投影，不更新舊fixture黃金雜湊。
 
 本次74中文顯示改動使完整catalog內容有差異，不能說catalog逐byte不變；所有既有catalog卡片／句子ID與其他練習ID均保持。教材payload／precache內容也改變，仍須按正常更新流程部署；音檔本身8535檔與路徑保持，不需補下載。同步版本3、唯一入口、固定1倍及離線保留策略不變。文法未標允許有來源的明列例外，不能硬配近似ID以滿足全數已標斷言。
+
+
+## 2026-10-21 T151 單字卡配圖試版
+
+T151實作：lib/vocab-illustrations.mjs以12個固定卡片ID加word／reading／zh校對，VocabIllustration只在答案區掛載、以卡片ID重建並在onError退化為無圖。224×168自製SVG共6327 bytes，88×66顯示；手機SRS專用版面讓卡片獨立捲動、評分列在外，其他頁不變。沿用既有svg預快取glob，491 URL／21347203 bytes、不改上限或下載語意／runtime dependency；來源及手機驗證見vocab-illustration-pilot與release-audit。

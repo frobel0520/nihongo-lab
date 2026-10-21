@@ -158,7 +158,7 @@ export function App() {
       </header>
 
       <main
-        className={`screen${route.view === 'dictation' && category ? ' dictation-page' : ''}`}
+        className={`screen${route.view === 'dictation' && category ? ' dictation-page' : ''}${route.view === 'srs' && category ? ' srs-page' : ''}`}
         key={routeKey}
       >
         {updated && (
