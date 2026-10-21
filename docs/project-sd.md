@@ -778,3 +778,10 @@ npm run test:inference預設保留T138與T139共六課；--batch T139可只驗�
 保留jlpt?: string[]格式，一點可有多個參照ID，跨點可以是不同用法或有目的複習；單點內不得重複，coverage用集合計數。將舊「全課不得重複」測試改為單點陣列／合法slug／不得重複，新增合成多目標與跨點去重回歸；未變更coverage計算語意或擴充N3～N1。所有有效ID以釘選N5／N4快取核對，不把外部表納入fixture。
 
 獨立curriculum-069b0f2-jlpt.json只含本專案核准40點的metadata與開始前雜湊／ID計數，保護整份教材、舊標記、catalog、summary及音檔路徑。歷史比較只還原明列41項，不更新既有黃金fixture；當前完整scope與各類進度ID另驗，避免用投影掩蓋無關變更。新增標記不影響音檔contentHash、sceneRecordId、grammarRecordId或其他catalog ID，無需同步遷移、重答或補下載。
+
+
+## T149：審查措辭與對照欄位的相容界線
+
+note與RUBY_NOTES是說明顯示，不參與音檔jp／voice內容定址；例句zh進入study catalog的顯示內容，但不進入單字／聽寫識別；jlpt是coverage metadata，不進入進度或音檔ID。通用理解題ID依scene文字／題義生成，本輪相關日文及所有題目不改，故不修訂ID。T149以獨立開始快照逐值保護其餘教材，明列歷史投影，不更新舊fixture黃金雜湊。
+
+本次74中文顯示改動使完整catalog內容有差異，不能說catalog逐byte不變；所有既有catalog卡片／句子ID與其他練習ID均保持。教材payload／precache內容也改變，仍須按正常更新流程部署；音檔本身8535檔與路徑保持，不需補下載。同步版本3、唯一入口、固定1倍及離線保留策略不變。文法未標允許有來源的明列例外，不能硬配近似ID以滿足全數已標斷言。
