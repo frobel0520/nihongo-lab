@@ -1,0 +1,76 @@
+{
+  "commit": "edd78cd816738d416c830b759e0e515ccf16e58c",
+  "notes": [
+    {
+      "lessonId": "general-listening-121",
+      "index": 0,
+      "note": "有目的複習：普通形接ようだ，名詞接のようだ。足跡朝洞窟深處延續，可推測有人進去過；看不見出口及現在的人影，不能保證人仍在裡面。新詞足跡、奥、出口須配對空間方向。"
+    },
+    {
+      "lessonId": "general-listening-127",
+      "index": 1,
+      "note": "複習普通形加はずだ，名詞用のはずだ。本課根據雨停時無腳印與後來出現足跡的時間推論，不等於已知來者身分。需要保留依據和推論範圍，不能用有腳印證明特定人有罪。"
+    },
+    {
+      "lessonId": "general-listening-133",
+      "index": 1,
+      "note": "複習名詞加と表示共同動作者，與を標示的對象分開。新人と治療役を守る是與新人一起保護治療人員，不是新人與治療人員都作受詞。"
+    },
+    {
+      "lessonId": "general-listening-166",
+      "index": 0,
+      "note": "複習普通形加ので。先後發生不一定互為因果，對話以檢查結果明說雷擊造成停電、停電造成延誤，不可把結果倒當原因。"
+    },
+    {
+      "lessonId": "general-listening-166",
+      "index": 1,
+      "note": "複習普通形加とき表示時間背景。說某時發生某事，只提供時點；真正原因仍要依對話的檢查報告。"
+    }
+  ],
+  "translation": {
+    "lessonId": "general-listening-74",
+    "pointIndex": 1,
+    "exampleIndex": 0,
+    "zh": "看來能透過牆壁。"
+  },
+  "jlpt": {
+    "lessonId": "general-listening-151",
+    "pointIndex": 0,
+    "old": [
+      "to-iu-named"
+    ]
+  },
+  "contentSha256": "de5a791d73a67d6af411ea52b63363e069dbfe22fbf34dedf6add0a669603c8f",
+  "records": {
+    "catalog": {
+      "count": 9153,
+      "sha256": "b3fbc0b1c2ec9d67a86459164383093fe5be323a6690af70298fbd3f3f4721b4"
+    },
+    "scene": {
+      "count": 540,
+      "sha256": "c89cc9f22a4b5ca584edcbb5dcebfdb2c13b90fa7f62a0a969ba538e5cea24ab"
+    },
+    "grammar": {
+      "count": 64,
+      "sha256": "652b655fd773cec94a1161cf4dc3068c9d17b5fd2783e1cf5bcbffe014f332f9"
+    },
+    "listening": {
+      "count": 105,
+      "sha256": "762945c52d6af91453469592c66f683709153b064ea9617fe69eee249ed4b290"
+    },
+    "games": {
+      "count": 618,
+      "sha256": "affd94097f4156d7bf474142cf231559bd2bd101f87f788c33eebaf5a18a7947"
+    },
+    "gameListening": {
+      "count": 372,
+      "sha256": "bdd720adaea340546d899d8c18af69b672f1d1263fc5e943d6de6dd2b57fcc09"
+    }
+  },
+  "audioPathsSha256": "0f5ce7e50eabae92af2872b2f5f83d2fd853da6ea8972db4ec29d41c126def1b",
+  "audioFiles": {
+    "count": 8535,
+    "sha256": "4711ca59ae5577f4cbcbfd21ab9c4472100548f7879f325d94a6c46b3752ac62"
+  },
+  "summarySha256": "194a76c2337a84882157d8886deb25ea0c02a8558879e719b43b5464abe977b6"
+}

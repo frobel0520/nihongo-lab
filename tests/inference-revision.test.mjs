@@ -1,9 +1,10 @@
+import { beforeReviewCloseout } from './helpers/review-closeout-baseline.mjs';
 import { test } from 'node:test';
 import { beforeFollowupInference } from './helpers/followup-inference-baseline.mjs';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { stages, gameCharacterStudy, curriculumSummary } from '../curriculum/lessons.mjs';
-import { STUDY_CATALOG } from '../lib/study-catalog.mjs';
+import { createStudyCatalog } from '../lib/catalog-build.mjs';
 import { sceneRecordId } from '../lib/scene-listening.mjs';
 import { emptyProgress, recordDictation, parseProgress, serializeProgress } from '../lib/progress.mjs';
 import { lessonProgress } from '../lib/lesson-progress.mjs';
@@ -27,7 +28,7 @@ test('T138: only question 3 in 156/165/180 changes; all other authored fields an
     assert.equal(sha(restored), old.lessonSha256, 'no dialogue, sound, basic question, vocabulary or grammar edits');
   }
   assert.equal(sha({ stages: historicalStages.map(s => ({ ...s, lessons: s.lessons.filter(l => !ids.has(l.id)) })), gameCharacterStudy }), baseline.unaffectedSha256);
-  assert.equal(sha(STUDY_CATALOG), baseline.catalogSha256, 'all SRS and dictation materials unchanged');
+  assert.equal(sha(createStudyCatalog(beforeReviewCloseout(stages), gameCharacterStudy)), baseline.catalogSha256, 'all SRS and dictation materials unchanged');
   assert.equal(sha(lessons.filter(l => l.scene).flatMap(l => l.scene.questions.filter(q => !ids.has(l.id) || q.id !== 'understanding-3').map(q => sceneRecordId(l, q)))), baseline.unaffectedSceneSha256, '537 current scene IDs, including revised 175, unchanged');
 });
 
