@@ -803,6 +803,92 @@ a {
   animation: screen-in 0.18s ease-out;
 }
 
+/* Answer-only images stay beside the text, leaving playback and grading in place. */
+.flash-answer-detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 100%;
+}
+
+.flash-answer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.vocab-illustration {
+  width: 88px;
+  height: 66px;
+  object-fit: contain;
+  flex: none;
+  border-radius: 10px;
+}
+
+.flashcard.has-illustration {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 52px;
+  min-height: 0;
+  padding: 16px;
+  gap: 12px;
+}
+
+.flashcard.has-illustration > .flash-word {
+  font-size: clamp(2rem, 10vw, 3rem);
+  overflow-wrap: anywhere;
+}
+
+.flashcard.has-illustration .play-big {
+  width: 52px;
+  height: 52px;
+}
+
+.flashcard.has-illustration > .flash-back {
+  grid-column: 1 / -1;
+}
+
+/* Keep the SRS controls outside the independently scrollable card on phones. */
+@media (max-width: 640px) {
+  .screen.srs-page {
+    flex: none;
+    height: calc(100dvh - var(--stack-top));
+    min-height: 0;
+    padding: 6px 12px calc(var(--tabbar-h) + env(safe-area-inset-bottom) + 8px);
+    gap: 8px;
+  }
+
+  .srs-page .srs-screen {
+    min-height: 0;
+    gap: 8px;
+  }
+
+  .srs-page .flashcard-area {
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .srs-page .flashcard {
+    flex: none;
+    min-height: 240px;
+  }
+
+  .srs-page .flashcard.has-illustration {
+    min-height: 0;
+  }
+
+  .srs-page .actions {
+    position: static;
+    flex: none;
+    margin-top: 0;
+  }
+}
+
 .flash-reading {
   color: var(--ink-2);
   font-size: 1.1rem;
