@@ -32,3 +32,12 @@ test('T149: wording preserves all existing progress identities, summary and audi
   assert.equal(sha(curriculumSummary),baseline.summarySha256);
   assert.equal(sha(await loadAllAudioPaths()),baseline.audioPathsSha256);
 });
+
+test('T149: removing the unsupported label is reported against its actual point', async () => {
+  const { grammarCoverage } = await import('../lib/coverage.mjs');
+  const g = lessons.find(l => l.id === baseline.jlpt.lessonId).grammar[baseline.jlpt.pointIndex];
+  assert.equal(g.jlpt, undefined);
+  const cov = grammarCoverage([{ grammar: [g] }], [{id:'to-iu-named',level:'N5'}], 'N5');
+  assert.equal(cov.untagged, 1);
+  assert.equal(cov.covered, 0);
+});
