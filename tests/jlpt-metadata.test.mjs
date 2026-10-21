@@ -1,8 +1,9 @@
+import { beforeReviewCloseout } from './helpers/review-closeout-baseline.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { stages, gameCharacterStudy, curriculumSummary, loadAllAudioPaths } from '../curriculum/lessons.mjs';
-import { STUDY_CATALOG } from '../lib/study-catalog.mjs';
+import { createStudyCatalog } from '../lib/catalog-build.mjs';
 import { sceneRecordId } from '../lib/scene-listening.mjs';
 import { grammarRecordId } from '../lib/grammar-study.mjs';
 import { listeningRecordId, trainingClips } from '../lib/anime-training.mjs';
@@ -21,7 +22,7 @@ test('T140: only reviewed JLPT fields change; existing tags and all authored con
 });
 
 test('T140: metadata preserves every SRS/dictation/listening/grammar/game identity, summary and audio reference', async () => {
-  assert.equal(sha(STUDY_CATALOG), baseline.catalogSha256);
+  assert.equal(sha(createStudyCatalog(beforeReviewCloseout(stages), gameCharacterStudy)), baseline.catalogSha256);
   assert.equal(sha(curriculumSummary), baseline.summarySha256);
   assert.equal(sha(await loadAllAudioPaths()), baseline.audioPathsSha256);
   const records = {
