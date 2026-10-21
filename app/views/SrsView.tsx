@@ -23,7 +23,6 @@ import {
   type Grade,
   type SrsMode,
 } from '../../lib/srs.mjs';
-import { illustrationFor } from '../../lib/vocab-illustrations.mjs';
 import { VocabIllustration } from '../components/VocabIllustration';
 import { PlayButton } from '../components/AudioLine';
 import {
@@ -325,7 +324,7 @@ export function SrsView({
       </div>
 
       <div className="flashcard-area">
-        <div className={`flashcard${revealed && illustrationFor(current) ? ' has-illustration' : ''}`} aria-live="polite">
+        <div className={`flashcard${revealed ? ' is-revealed' : ''}`} aria-live="polite">
           <div className="flash-word" lang="ja">
             {current.word}
           </div>
@@ -337,7 +336,6 @@ export function SrsView({
           {revealed && (
             <div className="flash-back">
               <div className="flash-answer-detail">
-                <VocabIllustration key={current.id} card={current} />
                 <div className="flash-answer-text">
                   <div className="flash-reading" lang="ja">
                     {current.reading}
@@ -346,6 +344,7 @@ export function SrsView({
                     <RubyText text={current.zh} />
                   </div>
                 </div>
+                <VocabIllustration key={current.id} card={current} />
               </div>
               <span className="chip">
                 <RubyText text={current.lessonTitle} />

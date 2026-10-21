@@ -789,4 +789,4 @@ note與RUBY_NOTES是說明顯示，不參與音檔jp／voice內容定址；例�
 
 ## 2026-10-21 T151 單字卡配圖試版
 
-T151實作：lib/vocab-illustrations.mjs以12個固定卡片ID加word／reading／zh校對，VocabIllustration只在答案區掛載、以卡片ID重建並在onError退化為無圖。224×168自製SVG共6327 bytes，88×66顯示；手機SRS專用版面讓卡片獨立捲動、評分列在外，其他頁不變。沿用既有svg預快取glob，491 URL／21347203 bytes、不改上限或下載語意／runtime dependency；來源及手機驗證見vocab-illustration-pilot與release-audit。
+T151實作：lib/vocab-illustrations.mjs以12個固定卡片ID加word／reading／zh校對，VocabIllustration只在答案區掛載、以卡片ID重建並在onError退化為無圖。224×168自製SVG共6327 bytes，56×42顯示；日文／讀音／翻譯各自置中、圖片在翻譯下方、來源分開留白，有圖與無圖使用相同文字中心線；手機SRS專用版面讓卡片獨立捲動、評分列在外，其他頁不變。沿用既有svg預快取glob，491 URL／21347457 bytes、不改上限或下載語意／runtime dependency；來源及手機驗證見vocab-illustration-pilot與release-audit。

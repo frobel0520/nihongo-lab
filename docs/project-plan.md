@@ -600,4 +600,4 @@ T135發布前最終驗證：306 tests／check、正式base build／原bundle／c
 
 ## 2026-10-21 T151 單字卡配圖試版
 
-T151：只對12個核實既有N5詞條做答案面插畫UX試版；自製CC0 SVG、精確ID／義項配對與離線預快取，不增教材／對話／漫畫／動畫。僅交付PR及手機畫面，不合併部署；不宣稱記憶效果，詳見vocab-illustration-pilot。
+T151：只對12個核實既有N5詞條做答案面插畫UX試版；自製CC0 SVG、精確ID／義項配對與離線預快取，不增教材／對話／漫畫／動畫。更新同一PR及手機畫面，先待使用者確認版面再交reviewer，不合併部署；不宣稱記憶效果，詳見vocab-illustration-pilot。
