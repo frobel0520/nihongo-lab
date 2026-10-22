@@ -6,7 +6,7 @@ import {
   evaluateBudgets,
   gatePassed,
 } from '../lib/perf-stats.mjs';
-import { BUNDLE_BUDGETS } from '../scripts/perf-budget.mjs';
+import { BUNDLE_BUDGETS, T120_PRECACHE_BASELINE_BYTES } from '../scripts/perf-budget.mjs';
 
 test('百分位數採 nearest-rank：樣本少時回傳實際量到的值', () => {
   const v = [5, 1, 4, 2, 3];
@@ -51,7 +51,14 @@ test('門檻判定：等於上限算通過，超過算失敗，沒量到記 not_
   );
 });
 
-test('bundle 門檻設定：每項有正的上限與單位', () => {
-  for (const b of BUNDLE_BUDGETS)
-    assert.ok(b.limit > 0 && b.unit, b.metric);
+test('bundle 預算固定原始基準＋50%，其他上限保持且正確處理邊界', () => {
+  assert.equal(T120_PRECACHE_BASELINE_BYTES, 17_913_219);
+  assert.deepEqual(BUNDLE_BUDGETS, [
+    { metric: 'mainJsGzipBytes', limit: 630_000, unit: 'bytes' },
+    { metric: 'cssGzipBytes', limit: 5_800, unit: 'bytes' },
+    { metric: 'precacheBytes', limit: 26_869_829, unit: 'bytes' },
+  ]);
+  const precache = BUNDLE_BUDGETS.filter(b => b.metric === 'precacheBytes');
+  assert.equal(gatePassed(evaluateBudgets({ precacheBytes: 26_869_829 }, precache)), true);
+  assert.equal(gatePassed(evaluateBudgets({ precacheBytes: 26_869_830 }, precache)), false);
 });
