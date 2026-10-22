@@ -1920,3 +1920,17 @@ T153預算已由PR #159合併發布為main `c7d7a27`，最新PR CI 39738845446�
 - `t154-browser-general-review-result.json` SHA-256 `d390c2046011fa74517bd26e28cb8331c1d1ceef85694e391bc82fe289967b30`。
 
 所有新資產自行編繪CC0，12圖逐張XML安全／無外部引用與真實渲染檢視；總覽與12張卡片均在docs/previews，不列入runtime。PR及精確head CI按實際結果記同一PR，本輪未合併／未部署。
+
+
+### T154／PR #160 兩圖定點修訂（未部署）
+
+針對30825bc審查：again.svg改為同一按鈕的再次按下與環繞回返箭頭，quiet.svg改窗邊座椅／盆栽／放鬆閱讀者的安靜環境；不使用第二個不同色按鈕、噤聲手勢或靜音叉號。52張其他SVG逐SHA保持，全部映射、教材、ID、音檔、版面與快取程式無差異。只更新兩張資產及必要設計／實際預覽紀錄。
+
+完整check含332 tests、正式base build與perf通過；新12圖8210 bytes、總54圖30477 bytes，precache21,379,441／26,869,829 bytes（533 URL），餘5,490,388；比修訂前增加248 bytes，main gzip65661、CSS5068不變。兩圖XML安全／56×42渲染檢視通過。375×667兩圖×兩模式×線上／真正離線共8主流程：揭示前不出圖、空alt與無障礙樹、文字置中、1倍播放、評分／改評、滑動／保存、未參與合成進度保持；54圖兩模式真離線SHA全相同，清HTTP快取移除圖後缺圖退化及下一張圖恢復通過，零pageerror／溢位。斷網以BrowserContext.setOffline(true)後reload及每次離線播放前未快取請求ERR_INTERNET_DISCONNECTED為證，不能以cache命中取代。
+
+修訂前60流程／舊清單雜湊是歷史證據，這次另保存兩圖補驗紀錄；不是手機真機／實體螢幕閱讀器或記憶效果驗收。預覽與說明見vocab-illustration-semantic-prototype.md。維持Draft、未合併、未部署；原reviewer只需定點複核兩圖，最新commit CI於同PR記錄，不沿用舊head成功。
+
+修訂SVG SHA-256：
+
+- `quiet.svg`（887 bytes）：`358438bea8d4a8b6e14c62b4334ca5dfeb343c147397ae3ec431a555d6150f22`。
+- `again.svg`（582 bytes）：`5c50cd0d42b7d6dd68239b85a2f5b00a7a9b8b0d87a526d0290005603eedf8df`。
