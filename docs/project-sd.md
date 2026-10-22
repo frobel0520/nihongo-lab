@@ -795,3 +795,12 @@ T151實作：lib/vocab-illustrations.mjs以12個固定卡片ID加word／reading�
 ## 2026-10-22 T152 單字卡30詞配圖擴充
 
 T152在原vocab-illustrations陣列追加30筆精確映射及30張本地自製SVG；未改VocabIllustration、SrsView或CSS。42圖共22267 bytes、新增15940 bytes，521預快取URL／21368531 bytes，原21500000上限及glob不變。無新增runtime dependency。語義界線、資料ID、總覽及預覽見vocab-illustration-expansion；初次交付只到PR；其後依審查與使用者授權發布，最終驗證記於PR #158。
+
+
+## 2026-10-22 T153 precache容量Change Request
+
+使用者明確授權只將precache改為T120同一原始基準＋50%。原始17,913,219 bytes（2218f70、4c56bed及T120稽核記錄）；歷史21,500,000為人工約整，沒有通用取整公式。本次明定ceil(17,913,219×1.5)＝26,869,829 bytes，不是21,500,000×1.5或以目前產物重設基準。主程式gzip630,000、CSS5,800、統計範圍、離線契約及圖片規格保持。
+
+當前產品precache21,368,531 bytes／521 URL，新預算餘5,501,298 bytes；只改設定、風險測試及文件，不增圖片或教材。330 tests／check、正式base build／perf通過，566個audio/以外產品檔逐SHA與6947ad1一致；最新CI仍待實際完成；合併部署與相同產品產物確認直接補於本PR，避免文件發布循環。
+
+T120／T122及其他舊紀錄的21,500,000仍是當時上限；以本節26,869,829為現行precache預算，不恢復時間Gate。原始基準×1.5＝26,869,828.5，向上取整至整數byte，避免隱含人工約整。配置不進入產品bundle；相同產品逐檔確認後沿用T152正式站功能證據，最新CI／Pages結果另按實際記於本PR。
