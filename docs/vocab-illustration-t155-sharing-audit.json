@@ -1,0 +1,3080 @@
+{
+  "schema": 1,
+  "baselineCommit": "84c9449013babb00190b4d8dc8accfa56fdb9686",
+  "policy": "Approved exact IDs only. Remaining candidates are not approved senses or mappings.",
+  "original54": [
+    {
+      "sourceId": "stage0-day6:パン",
+      "sourceWord": "パン",
+      "src": "images/vocab/bread.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-11:パン"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-11:パン",
+          "word": "パン",
+          "reading": "パン",
+          "zh": "麵包",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day14:地図",
+      "sourceWord": "地図",
+      "src": "images/vocab/map.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-01:地図"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-01:地図",
+          "word": "地図",
+          "reading": "ちず",
+          "zh": "地圖",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-24:地図",
+          "word": "地図",
+          "reading": "ちず",
+          "zh": "地圖",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-34:地図",
+          "word": "地図",
+          "reading": "ちず",
+          "zh": "地圖",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-50:地図",
+          "word": "地図",
+          "reading": "ちず",
+          "zh": "地圖",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-62:地図",
+          "word": "地図",
+          "reading": "ちず",
+          "zh": "地圖",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-63:地図",
+          "word": "地図",
+          "reading": "ちず",
+          "zh": "地圖",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-91:地図",
+          "word": "地図",
+          "reading": "ちず",
+          "zh": "地圖",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-96:地図",
+          "word": "地図",
+          "reading": "ちず",
+          "zh": "地圖",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-105:地図",
+          "word": "地図",
+          "reading": "ちず",
+          "zh": "地圖",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-106:地図",
+          "word": "地図",
+          "reading": "ちず",
+          "zh": "地圖",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-113:地図",
+          "word": "地図",
+          "reading": "ちず",
+          "zh": "地圖",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-115:地図",
+          "word": "地図",
+          "reading": "ちず",
+          "zh": "地圖",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-141:地図",
+          "word": "地図",
+          "reading": "ちず",
+          "zh": "地圖",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-163:地図",
+          "word": "地図",
+          "reading": "ちず",
+          "zh": "地圖",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day2:傘",
+      "sourceWord": "傘",
+      "src": "images/vocab/umbrella.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-21:傘"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-21:傘",
+          "word": "傘",
+          "reading": "かさ",
+          "zh": "傘",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-37:傘",
+          "word": "傘",
+          "reading": "かさ",
+          "zh": "傘",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day6:卵",
+      "sourceWord": "卵",
+      "src": "images/vocab/egg.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-43:卵"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-43:卵",
+          "word": "卵",
+          "reading": "たまご",
+          "zh": "蛋",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day6:魚",
+      "sourceWord": "魚",
+      "src": "images/vocab/fish.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-43:魚"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-43:魚",
+          "word": "魚",
+          "reading": "さかな",
+          "zh": "魚",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day2:本",
+      "sourceWord": "本",
+      "src": "images/vocab/book.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day7:かぎ",
+      "sourceWord": "かぎ",
+      "src": "images/vocab/key.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-02:鍵"
+      ],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day10:いす",
+      "sourceWord": "いす",
+      "src": "images/vocab/chair.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day2:時計",
+      "sourceWord": "時計",
+      "src": "images/vocab/clock.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-95:時計"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-95:時計",
+          "word": "時計",
+          "reading": "とけい",
+          "zh": "時鐘",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-116:時計",
+          "word": "時計",
+          "reading": "とけい",
+          "zh": "時鐘",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-136:時計",
+          "word": "時計",
+          "reading": "とけい",
+          "zh": "時鐘",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-155:時計",
+          "word": "時計",
+          "reading": "とけい",
+          "zh": "時鐘",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day3:学校",
+      "sourceWord": "学校",
+      "src": "images/vocab/school.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day14:橋",
+      "sourceWord": "橋",
+      "src": "images/vocab/bridge.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-05:橋"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-05:橋",
+          "word": "橋",
+          "reading": "はし",
+          "zh": "橋",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-30:橋",
+          "word": "橋",
+          "reading": "はし",
+          "zh": "橋",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-50:橋",
+          "word": "橋",
+          "reading": "はし",
+          "zh": "橋",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-51:橋",
+          "word": "橋",
+          "reading": "はし",
+          "zh": "橋",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-67:橋",
+          "word": "橋",
+          "reading": "はし",
+          "zh": "橋",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-100:橋",
+          "word": "橋",
+          "reading": "はし",
+          "zh": "橋",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-112:橋",
+          "word": "橋",
+          "reading": "はし",
+          "zh": "橋",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-119:橋",
+          "word": "橋",
+          "reading": "はし",
+          "zh": "橋",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-120:橋",
+          "word": "橋",
+          "reading": "はし",
+          "zh": "橋",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day13:公園",
+      "sourceWord": "公園",
+      "src": "images/vocab/park.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day6:牛乳",
+      "sourceWord": "牛乳",
+      "src": "images/vocab/milk.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day6:ご飯",
+      "sourceWord": "ご飯",
+      "src": "images/vocab/rice.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "stage0-day23:御飯"
+      ],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day6:肉",
+      "sourceWord": "肉",
+      "src": "images/vocab/meat.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-43:肉"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-43:肉",
+          "word": "肉",
+          "reading": "にく",
+          "zh": "肉",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "anime-lesson-02:肉",
+          "word": "肉",
+          "reading": "にく",
+          "zh": "肉、肉類",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day23:お弁当",
+      "sourceWord": "お弁当",
+      "src": "images/vocab/bento.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day23:カレー",
+      "sourceWord": "カレー",
+      "src": "images/vocab/curry.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day23:飴",
+      "sourceWord": "飴",
+      "src": "images/vocab/candy.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day2:かばん",
+      "sourceWord": "かばん",
+      "src": "images/vocab/bag.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day13:靴",
+      "sourceWord": "靴",
+      "src": "images/vocab/shoes.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-35:靴"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-35:靴",
+          "word": "靴",
+          "reading": "くつ",
+          "zh": "鞋子",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day13:帽子",
+      "sourceWord": "帽子",
+      "src": "images/vocab/hat.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-35:帽子"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-35:帽子",
+          "word": "帽子",
+          "reading": "ぼうし",
+          "zh": "帽子",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-49:帽子",
+          "word": "帽子",
+          "reading": "ぼうし",
+          "zh": "帽子",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day13:眼鏡",
+      "sourceWord": "眼鏡",
+      "src": "images/vocab/glasses.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day2:鉛筆",
+      "sourceWord": "鉛筆",
+      "src": "images/vocab/pencil.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day7:コップ",
+      "sourceWord": "コップ",
+      "src": "images/vocab/glass.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day2:机",
+      "sourceWord": "机",
+      "src": "images/vocab/desk.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-13:机"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-13:机",
+          "word": "机",
+          "reading": "つくえ",
+          "zh": "桌子",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-48:机",
+          "word": "机",
+          "reading": "つくえ",
+          "zh": "桌子",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-62:机",
+          "word": "机",
+          "reading": "つくえ",
+          "zh": "桌子",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-97:机",
+          "word": "机",
+          "reading": "つくえ",
+          "zh": "桌子",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-107:机",
+          "word": "机",
+          "reading": "つくえ",
+          "zh": "桌子",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-115:机",
+          "word": "机",
+          "reading": "つくえ",
+          "zh": "桌子",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-151:机",
+          "word": "机",
+          "reading": "つくえ",
+          "zh": "桌子",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day3:電話",
+      "sourceWord": "電話",
+      "src": "images/vocab/telephone.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": [
+        {
+          "id": "general-listening-22:電話",
+          "word": "電話",
+          "reading": "でんわ",
+          "zh": "電話",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-39:電話",
+          "word": "電話",
+          "reading": "でんわ",
+          "zh": "電話",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-165:電話",
+          "word": "電話",
+          "reading": "でんわ",
+          "zh": "電話",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day2:テレビ",
+      "sourceWord": "テレビ",
+      "src": "images/vocab/television.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day2:カメラ",
+      "sourceWord": "カメラ",
+      "src": "images/vocab/camera.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day2:ラジオ",
+      "sourceWord": "ラジオ",
+      "src": "images/vocab/radio.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day22:花瓶",
+      "sourceWord": "花瓶",
+      "src": "images/vocab/vase.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day2:自動車",
+      "sourceWord": "自動車",
+      "src": "images/vocab/car.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day5:自転車",
+      "sourceWord": "自転車",
+      "src": "images/vocab/bicycle.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day5:電車",
+      "sourceWord": "電車",
+      "src": "images/vocab/train.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-44:電車"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-44:電車",
+          "word": "電車",
+          "reading": "でんしゃ",
+          "zh": "電車",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day5:バス",
+      "sourceWord": "バス",
+      "src": "images/vocab/bus.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day5:飛行機",
+      "sourceWord": "飛行機",
+      "src": "images/vocab/airplane.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "general-listening-30:船",
+      "sourceWord": "船",
+      "src": "images/vocab/boat.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day3:駅",
+      "sourceWord": "駅",
+      "src": "images/vocab/station.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-01:駅"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-01:駅",
+          "word": "駅",
+          "reading": "えき",
+          "zh": "車站",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-44:駅",
+          "word": "駅",
+          "reading": "えき",
+          "zh": "車站",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day3:病院",
+      "sourceWord": "病院",
+      "src": "images/vocab/hospital.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day3:郵便局",
+      "sourceWord": "郵便局",
+      "src": "images/vocab/postoffice.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day3:図書館",
+      "sourceWord": "図書館",
+      "src": "images/vocab/library.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day3:銀行",
+      "sourceWord": "銀行",
+      "src": "images/vocab/bank.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day12:山",
+      "sourceWord": "山",
+      "src": "images/vocab/mountain.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-06:山"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-06:山",
+          "word": "山",
+          "reading": "やま",
+          "zh": "山",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day18:走る",
+      "sourceWord": "走る",
+      "src": "images/vocab/running.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-29:走る"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-29:走る",
+          "word": "走る",
+          "reading": "はしる",
+          "zh": "跑步",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-67:走る",
+          "word": "走る",
+          "reading": "はしる",
+          "zh": "跑",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day14:待つ",
+      "sourceWord": "待つ",
+      "src": "images/vocab/waiting.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-02:待つ"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-02:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-13:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-53:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-61:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-70:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-84:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-92:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等候",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-93:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等候",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-100:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等候",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-106:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等候",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-107:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-108:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-109:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等候",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-112:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-114:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-117:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-118:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-119:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-130:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-136:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-149:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-152:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-169:待つ",
+          "word": "待つ",
+          "reading": "まつ",
+          "zh": "等待",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day14:渡す",
+      "sourceWord": "渡す",
+      "src": "images/vocab/handing.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-16:渡す"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-16:渡す",
+          "word": "渡す",
+          "reading": "わたす",
+          "zh": "交給",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-54:渡す",
+          "word": "渡す",
+          "reading": "わたす",
+          "zh": "交給",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-91:渡す",
+          "word": "渡す",
+          "reading": "わたす",
+          "zh": "交給",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-101:渡す",
+          "word": "渡す",
+          "reading": "わたす",
+          "zh": "交給",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-112:渡す",
+          "word": "渡す",
+          "reading": "わたす",
+          "zh": "交給",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-148:渡す",
+          "word": "渡す",
+          "reading": "わたす",
+          "zh": "交給",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-156:渡す",
+          "word": "渡す",
+          "reading": "わたす",
+          "zh": "交給",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-160:渡す",
+          "word": "渡す",
+          "reading": "わたす",
+          "zh": "交給",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-176:渡す",
+          "word": "渡す",
+          "reading": "わたす",
+          "zh": "交給",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day8:重い",
+      "sourceWord": "重い",
+      "src": "images/vocab/heavy.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-08:重い"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-08:重い",
+          "word": "重い",
+          "reading": "おもい",
+          "zh": "重的",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-33:重い",
+          "word": "重い",
+          "reading": "おもい",
+          "zh": "重的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-60:重い",
+          "word": "重い",
+          "reading": "おもい",
+          "zh": "重的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-77:重い",
+          "word": "重い",
+          "reading": "おもい",
+          "zh": "重的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day12:冷たい",
+      "sourceWord": "冷たい",
+      "src": "images/vocab/cold.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [],
+      "candidates": [
+        {
+          "id": "general-listening-37:冷たい",
+          "word": "冷たい",
+          "reading": "つめたい",
+          "zh": "冷的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-43:冷たい",
+          "word": "冷たい",
+          "reading": "つめたい",
+          "zh": "冷的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-168:冷たい",
+          "word": "冷たい",
+          "reading": "つめたい",
+          "zh": "冷淡",
+          "decision": "deferred-not-approved",
+          "reason": "Different sense: interpersonal coldness, not physical cold."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day8:静か",
+      "sourceWord": "静か",
+      "src": "images/vocab/quiet.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-58:静か"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-09:静か",
+          "word": "静か",
+          "reading": "しずか",
+          "zh": "安靜",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-35:静か",
+          "word": "静か",
+          "reading": "しずか",
+          "zh": "安靜",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-58:静か",
+          "word": "静か",
+          "reading": "しずか",
+          "zh": "安靜",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-70:静か",
+          "word": "静か",
+          "reading": "しずか",
+          "zh": "安靜",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "general-listening-03:約束",
+      "sourceWord": "約束",
+      "src": "images/vocab/promise.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-155:約束"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-36:約束",
+          "word": "約束",
+          "reading": "やくそく",
+          "zh": "約定",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-52:約束",
+          "word": "約束",
+          "reading": "やくそく",
+          "zh": "承諾；約定",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-64:約束",
+          "word": "約束",
+          "reading": "やくそく",
+          "zh": "約定",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-99:約束",
+          "word": "約束",
+          "reading": "やくそく",
+          "zh": "約定",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-100:約束",
+          "word": "約束",
+          "reading": "やくそく",
+          "zh": "約定",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-109:約束",
+          "word": "約束",
+          "reading": "やくそく",
+          "zh": "約定",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-115:約束",
+          "word": "約束",
+          "reading": "やくそく",
+          "zh": "約定",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-129:約束",
+          "word": "約束",
+          "reading": "やくそく",
+          "zh": "約定",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-138:約束",
+          "word": "約束",
+          "reading": "やくそく",
+          "zh": "約定",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-155:約束",
+          "word": "約束",
+          "reading": "やくそく",
+          "zh": "約定",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-175:約束",
+          "word": "約束",
+          "reading": "やくそく",
+          "zh": "承諾",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "anime-lesson-04:約束",
+          "word": "約束",
+          "reading": "やくそく",
+          "zh": "約定、承諾",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "general-listening-23:理由",
+      "sourceWord": "理由",
+      "src": "images/vocab/reason.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-30:理由"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-30:理由",
+          "word": "理由",
+          "reading": "りゆう",
+          "zh": "理由",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-36:理由",
+          "word": "理由",
+          "reading": "りゆう",
+          "zh": "原因",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-57:理由",
+          "word": "理由",
+          "reading": "りゆう",
+          "zh": "理由",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-66:理由",
+          "word": "理由",
+          "reading": "りゆう",
+          "zh": "理由",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "anime-lesson-07:理由",
+          "word": "理由",
+          "reading": "りゆう",
+          "zh": "理由",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "general-listening-15:安心",
+      "sourceWord": "安心",
+      "src": "images/vocab/relief.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-56:安心"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-56:安心",
+          "word": "安心",
+          "reading": "あんしん",
+          "zh": "安心",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-164:安心",
+          "word": "安心",
+          "reading": "あんしん",
+          "zh": "安心",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "general-listening-02:ゆっくり",
+      "sourceWord": "ゆっくり",
+      "src": "images/vocab/slowly.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-20:ゆっくり",
+        "stage0-day21:ゆっくりと"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-20:ゆっくり",
+          "word": "ゆっくり",
+          "reading": "ゆっくり",
+          "zh": "慢慢地",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-38:ゆっくり",
+          "word": "ゆっくり",
+          "reading": "ゆっくり",
+          "zh": "慢慢地",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-78:ゆっくり",
+          "word": "ゆっくり",
+          "reading": "ゆっくり",
+          "zh": "慢慢地",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "general-listening-17:一緒に",
+      "sourceWord": "一緒に",
+      "src": "images/vocab/together.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-40:一緒に",
+        "stage0-day5:一緒"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-40:一緒に",
+          "word": "一緒に",
+          "reading": "いっしょに",
+          "zh": "一起",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-77:一緒に",
+          "word": "一緒に",
+          "reading": "いっしょに",
+          "zh": "一起",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day14:もう一度",
+      "sourceWord": "もう一度",
+      "src": "images/vocab/again.svg",
+      "assetOrigin": "existing54",
+      "approvedIds": [
+        "general-listening-20:もう一度"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-20:もう一度",
+          "word": "もう一度",
+          "reading": "もういちど",
+          "zh": "再一次",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-38:もう一度",
+          "word": "もう一度",
+          "reading": "もういちど",
+          "zh": "再一次",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    }
+  ],
+  "new60": [
+    {
+      "sourceId": "stage0-day7:花",
+      "sourceWord": "花",
+      "src": "images/vocab/flower.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-54:花"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-54:花",
+          "word": "花",
+          "reading": "はな",
+          "zh": "花",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day16:せっけん",
+      "sourceWord": "せっけん",
+      "src": "images/vocab/soap.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day2:新聞",
+      "sourceWord": "新聞",
+      "src": "images/vocab/newspaper.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day2:ノート",
+      "sourceWord": "ノート",
+      "src": "images/vocab/notebook.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day2:ボールペン",
+      "sourceWord": "ボールペン",
+      "src": "images/vocab/ballpen.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day2:コーヒー",
+      "sourceWord": "コーヒー",
+      "src": "images/vocab/coffee.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day3:教室",
+      "sourceWord": "教室",
+      "src": "images/vocab/classroom.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day3:食堂",
+      "sourceWord": "食堂",
+      "src": "images/vocab/canteen.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day3:階段",
+      "sourceWord": "階段",
+      "src": "images/vocab/stairs.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-33:階段"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-33:階段",
+          "word": "階段",
+          "reading": "かいだん",
+          "zh": "樓梯",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-61:階段",
+          "word": "階段",
+          "reading": "かいだん",
+          "zh": "樓梯",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-141:階段",
+          "word": "階段",
+          "reading": "かいだん",
+          "zh": "樓梯",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day3:エレベーター",
+      "sourceWord": "エレベーター",
+      "src": "images/vocab/elevator.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day7:手紙",
+      "sourceWord": "手紙",
+      "src": "images/vocab/letter.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-13:手紙"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-13:手紙",
+          "word": "手紙",
+          "reading": "てがみ",
+          "zh": "信件",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-97:手紙",
+          "word": "手紙",
+          "reading": "てがみ",
+          "zh": "信件",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-101:手紙",
+          "word": "手紙",
+          "reading": "てがみ",
+          "zh": "信件",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-137:手紙",
+          "word": "手紙",
+          "reading": "てがみ",
+          "zh": "信件",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-151:手紙",
+          "word": "手紙",
+          "reading": "てがみ",
+          "zh": "信件",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day7:切手",
+      "sourceWord": "切手",
+      "src": "images/vocab/stamp.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day7:封筒",
+      "sourceWord": "封筒",
+      "src": "images/vocab/envelope.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-13:封筒"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-13:封筒",
+          "word": "封筒",
+          "reading": "ふうとう",
+          "zh": "信封",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-97:封筒",
+          "word": "封筒",
+          "reading": "ふうとう",
+          "zh": "信封",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-101:封筒",
+          "word": "封筒",
+          "reading": "ふうとう",
+          "zh": "信封",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-148:封筒",
+          "word": "封筒",
+          "reading": "ふうとう",
+          "zh": "信封",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-151:封筒",
+          "word": "封筒",
+          "reading": "ふうとう",
+          "zh": "信封",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day7:財布",
+      "sourceWord": "財布",
+      "src": "images/vocab/wallet.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-28:財布"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-28:財布",
+          "word": "財布",
+          "reading": "さいふ",
+          "zh": "錢包",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-42:財布",
+          "word": "財布",
+          "reading": "さいふ",
+          "zh": "錢包",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-48:財布",
+          "word": "財布",
+          "reading": "さいふ",
+          "zh": "錢包",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day7:はし",
+      "sourceWord": "はし",
+      "src": "images/vocab/chopsticks.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day7:ナイフ",
+      "sourceWord": "ナイフ",
+      "src": "images/vocab/knife.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day7:フォーク",
+      "sourceWord": "フォーク",
+      "src": "images/vocab/fork.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day7:スプーン",
+      "sourceWord": "スプーン",
+      "src": "images/vocab/spoon.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day7:お皿",
+      "sourceWord": "お皿",
+      "src": "images/vocab/plate.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day10:冷蔵庫",
+      "sourceWord": "冷蔵庫",
+      "src": "images/vocab/fridge.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day10:窓",
+      "sourceWord": "窓",
+      "src": "images/vocab/window.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-14:窓"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-14:窓",
+          "word": "窓",
+          "reading": "まど",
+          "zh": "窗戶",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-72:窓",
+          "word": "窓",
+          "reading": "まど",
+          "zh": "窗戶",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-86:窓",
+          "word": "窓",
+          "reading": "まど",
+          "zh": "窗戶",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day10:ドア",
+      "sourceWord": "ドア",
+      "src": "images/vocab/door.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day10:犬",
+      "sourceWord": "犬",
+      "src": "images/vocab/dog.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-14:犬"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-14:犬",
+          "word": "犬",
+          "reading": "いぬ",
+          "zh": "狗",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day10:猫",
+      "sourceWord": "猫",
+      "src": "images/vocab/cat.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-14:猫"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-14:猫",
+          "word": "猫",
+          "reading": "ねこ",
+          "zh": "貓",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day4:起きる",
+      "sourceWord": "起きる",
+      "src": "images/vocab/waking.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day4:寝る",
+      "sourceWord": "寝る",
+      "src": "images/vocab/sleeping.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day5:歩く",
+      "sourceWord": "歩く",
+      "src": "images/vocab/walking.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-29:歩く"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-29:歩く",
+          "word": "歩く",
+          "reading": "あるく",
+          "zh": "走路",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day6:食べる",
+      "sourceWord": "食べる",
+      "src": "images/vocab/eating.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day6:飲む",
+      "sourceWord": "飲む",
+      "src": "images/vocab/drinking.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-62:飲む"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-62:飲む",
+          "word": "飲む",
+          "reading": "のむ",
+          "zh": "喝",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-63:飲む",
+          "word": "飲む",
+          "reading": "のむ",
+          "zh": "喝",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-83:飲む",
+          "word": "飲む",
+          "reading": "のむ",
+          "zh": "喝",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-126:飲む",
+          "word": "飲む",
+          "reading": "のむ",
+          "zh": "喝",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day6:読む",
+      "sourceWord": "読む",
+      "src": "images/vocab/reading.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-05:読む"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-05:読む",
+          "word": "読む",
+          "reading": "よむ",
+          "zh": "閱讀",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-29:読む",
+          "word": "読む",
+          "reading": "よむ",
+          "zh": "閱讀",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-62:読む",
+          "word": "読む",
+          "reading": "よむ",
+          "zh": "閱讀",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-76:読む",
+          "word": "読む",
+          "reading": "よむ",
+          "zh": "閱讀",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-84:読む",
+          "word": "読む",
+          "reading": "よむ",
+          "zh": "閱讀",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-97:読む",
+          "word": "読む",
+          "reading": "よむ",
+          "zh": "閱讀",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-114:読む",
+          "word": "読む",
+          "reading": "よむ",
+          "zh": "閱讀",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-137:読む",
+          "word": "読む",
+          "reading": "よむ",
+          "zh": "閱讀",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day6:書く",
+      "sourceWord": "書く",
+      "src": "images/vocab/writing.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-05:書く"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-05:書く",
+          "word": "書く",
+          "reading": "かく",
+          "zh": "書寫",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-62:書く",
+          "word": "書く",
+          "reading": "かく",
+          "zh": "書寫",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-101:書く",
+          "word": "書く",
+          "reading": "かく",
+          "zh": "書寫",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-108:書く",
+          "word": "書く",
+          "reading": "かく",
+          "zh": "書寫",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-110:書く",
+          "word": "書く",
+          "reading": "かく",
+          "zh": "書寫",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-148:書く",
+          "word": "書く",
+          "reading": "かく",
+          "zh": "書寫",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day6:買う",
+      "sourceWord": "買う",
+      "src": "images/vocab/buying.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-07:買う"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-07:買う",
+          "word": "買う",
+          "reading": "かう",
+          "zh": "購買",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day6:会う",
+      "sourceWord": "会う",
+      "src": "images/vocab/meeting.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-04:会う"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-04:会う",
+          "word": "会う",
+          "reading": "あう",
+          "zh": "見面",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-109:会う",
+          "word": "会う",
+          "reading": "あう",
+          "zh": "見面",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day9:歌う",
+      "sourceWord": "歌う",
+      "src": "images/vocab/singing.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-32:歌う"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-32:歌う",
+          "word": "歌う",
+          "reading": "うたう",
+          "zh": "唱歌",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day9:泳ぐ",
+      "sourceWord": "泳ぐ",
+      "src": "images/vocab/swimming.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day14:開ける",
+      "sourceWord": "開ける",
+      "src": "images/vocab/opening.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-02:開ける"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-02:開ける",
+          "word": "開ける",
+          "reading": "あける",
+          "zh": "打開",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-15:開ける",
+          "word": "開ける",
+          "reading": "あける",
+          "zh": "打開",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-54:開ける",
+          "word": "開ける",
+          "reading": "あける",
+          "zh": "打開",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-65:開ける",
+          "word": "開ける",
+          "reading": "あける",
+          "zh": "打開",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-83:開ける",
+          "word": "開ける",
+          "reading": "あける",
+          "zh": "打開",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-97:開ける",
+          "word": "開ける",
+          "reading": "あける",
+          "zh": "打開",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-98:開ける",
+          "word": "開ける",
+          "reading": "あける",
+          "zh": "打開",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-113:開ける",
+          "word": "開ける",
+          "reading": "あける",
+          "zh": "打開",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-117:開ける",
+          "word": "開ける",
+          "reading": "あける",
+          "zh": "打開（他動）",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-141:開ける",
+          "word": "開ける",
+          "reading": "あける",
+          "zh": "打開",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-176:開ける",
+          "word": "開ける",
+          "reading": "あける",
+          "zh": "打開",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day14:閉める",
+      "sourceWord": "閉める",
+      "src": "images/vocab/closing.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-02:閉める"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-02:閉める",
+          "word": "閉める",
+          "reading": "しめる",
+          "zh": "關閉",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-15:閉める",
+          "word": "閉める",
+          "reading": "しめる",
+          "zh": "關閉",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-65:閉める",
+          "word": "閉める",
+          "reading": "しめる",
+          "zh": "關閉",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-72:閉める",
+          "word": "閉める",
+          "reading": "しめる",
+          "zh": "關閉",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-83:閉める",
+          "word": "閉める",
+          "reading": "しめる",
+          "zh": "關閉",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-94:閉める",
+          "word": "閉める",
+          "reading": "しめる",
+          "zh": "關閉",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day14:座る",
+      "sourceWord": "座る",
+      "src": "images/vocab/sitting.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-02:座る"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-02:座る",
+          "word": "座る",
+          "reading": "すわる",
+          "zh": "坐下",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-84:座る",
+          "word": "座る",
+          "reading": "すわる",
+          "zh": "坐下",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day14:立つ",
+      "sourceWord": "立つ",
+      "src": "images/vocab/standing.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-02:立つ"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-02:立つ",
+          "word": "立つ",
+          "reading": "たつ",
+          "zh": "站立",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-84:立つ",
+          "word": "立つ",
+          "reading": "たつ",
+          "zh": "站立",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day16:洗う",
+      "sourceWord": "洗う",
+      "src": "images/vocab/washing.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-12:洗う"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-12:洗う",
+          "word": "洗う",
+          "reading": "あらう",
+          "zh": "清洗",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day14:撮る",
+      "sourceWord": "撮る",
+      "src": "images/vocab/photographing.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-09:撮る"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-09:撮る",
+          "word": "撮る",
+          "reading": "とる",
+          "zh": "拍攝",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-32:撮る",
+          "word": "撮る",
+          "reading": "とる",
+          "zh": "拍攝",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day24:手伝う",
+      "sourceWord": "手伝う",
+      "src": "images/vocab/helping.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-05:手伝う"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-05:手伝う",
+          "word": "手伝う",
+          "reading": "てつだう",
+          "zh": "幫忙做事",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-16:手伝う",
+          "word": "手伝う",
+          "reading": "てつだう",
+          "zh": "幫忙",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-33:手伝う",
+          "word": "手伝う",
+          "reading": "てつだう",
+          "zh": "幫忙",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-80:手伝う",
+          "word": "手伝う",
+          "reading": "てつだう",
+          "zh": "幫忙",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-104:手伝う",
+          "word": "手伝う",
+          "reading": "てつだう",
+          "zh": "幫忙",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day8:大きい",
+      "sourceWord": "大きい",
+      "src": "images/vocab/big.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-42:大きい"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-42:大きい",
+          "word": "大きい",
+          "reading": "おおきい",
+          "zh": "大的",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day8:小さい",
+      "sourceWord": "小さい",
+      "src": "images/vocab/small.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-42:小さい"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-42:小さい",
+          "word": "小さい",
+          "reading": "ちいさい",
+          "zh": "小的",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day8:長い",
+      "sourceWord": "長い",
+      "src": "images/vocab/long.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-10:長い"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-10:長い",
+          "word": "長い",
+          "reading": "ながい",
+          "zh": "長的",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day8:短い",
+      "sourceWord": "短い",
+      "src": "images/vocab/short.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-10:短い"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-10:短い",
+          "word": "短い",
+          "reading": "みじかい",
+          "zh": "短的",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-80:短い",
+          "word": "短い",
+          "reading": "みじかい",
+          "zh": "短的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-87:短い",
+          "word": "短い",
+          "reading": "みじかい",
+          "zh": "短的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day8:軽い",
+      "sourceWord": "軽い",
+      "src": "images/vocab/lightweight.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-08:軽い"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-08:軽い",
+          "word": "軽い",
+          "reading": "かるい",
+          "zh": "輕的",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-33:軽い",
+          "word": "軽い",
+          "reading": "かるい",
+          "zh": "輕的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day8:明るい",
+      "sourceWord": "明るい",
+      "src": "images/vocab/bright.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-10:明るい"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-10:明るい",
+          "word": "明るい",
+          "reading": "あかるい",
+          "zh": "明亮的",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-72:明るい",
+          "word": "明るい",
+          "reading": "あかるい",
+          "zh": "明亮的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-87:明るい",
+          "word": "明るい",
+          "reading": "あかるい",
+          "zh": "明亮的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-98:明るい",
+          "word": "明るい",
+          "reading": "あかるい",
+          "zh": "明亮的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day8:暗い",
+      "sourceWord": "暗い",
+      "src": "images/vocab/dark.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-10:暗い"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-10:暗い",
+          "word": "暗い",
+          "reading": "くらい",
+          "zh": "昏暗的",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-66:暗い",
+          "word": "暗い",
+          "reading": "くらい",
+          "zh": "昏暗的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-72:暗い",
+          "word": "暗い",
+          "reading": "くらい",
+          "zh": "昏暗的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-87:暗い",
+          "word": "暗い",
+          "reading": "くらい",
+          "zh": "暗的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-98:暗い",
+          "word": "暗い",
+          "reading": "くらい",
+          "zh": "昏暗的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-124:暗い",
+          "word": "暗い",
+          "reading": "くらい",
+          "zh": "昏暗",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day8:甘い",
+      "sourceWord": "甘い",
+      "src": "images/vocab/sweet.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-43:甘い"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-43:甘い",
+          "word": "甘い",
+          "reading": "あまい",
+          "zh": "甜的",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day8:忙しい",
+      "sourceWord": "忙しい",
+      "src": "images/vocab/busy.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-03:忙しい"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-03:忙しい",
+          "word": "忙しい",
+          "reading": "いそがしい",
+          "zh": "忙碌的",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-39:忙しい",
+          "word": "忙しい",
+          "reading": "いそがしい",
+          "zh": "忙碌的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-73:忙しい",
+          "word": "忙しい",
+          "reading": "いそがしい",
+          "zh": "忙碌的",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day17:汚い",
+      "sourceWord": "汚い",
+      "src": "images/vocab/dirty.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "general-listening-03:準備",
+      "sourceWord": "準備",
+      "src": "images/vocab/preparing.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-15:準備"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-15:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-52:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-55:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-60:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-62:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-84:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-89:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-91:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-93:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-105:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-111:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-113:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-119:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-136:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-162:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-177:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-179:準備",
+          "word": "準備",
+          "reading": "じゅんび",
+          "zh": "準備",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "general-listening-20:成功",
+      "sourceWord": "成功",
+      "src": "images/vocab/success.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-125:成功"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-125:成功",
+          "word": "成功",
+          "reading": "せいこう",
+          "zh": "成功",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "general-listening-15:失敗",
+      "sourceWord": "失敗",
+      "src": "images/vocab/failure.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-63:失敗"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-63:失敗",
+          "word": "失敗",
+          "reading": "しっぱい",
+          "zh": "失敗",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-96:失敗",
+          "word": "失敗",
+          "reading": "しっぱい",
+          "zh": "失敗",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day14:まっすぐ",
+      "sourceWord": "まっすぐ",
+      "src": "images/vocab/straight.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-50:まっすぐ"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-50:まっすぐ",
+          "word": "まっすぐ",
+          "reading": "まっすぐ",
+          "zh": "直走",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day9:少し",
+      "sourceWord": "少し",
+      "src": "images/vocab/little.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": [
+        {
+          "id": "general-listening-05:少し",
+          "word": "少し",
+          "reading": "すこし",
+          "zh": "少量；稍微",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-63:少し",
+          "word": "少し",
+          "reading": "すこし",
+          "zh": "少量",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-87:少し",
+          "word": "少し",
+          "reading": "すこし",
+          "zh": "稍微",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    },
+    {
+      "sourceId": "stage0-day9:たくさん",
+      "sourceWord": "たくさん",
+      "src": "images/vocab/many.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day2:どうぞ",
+      "sourceWord": "どうぞ",
+      "src": "images/vocab/offering.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [],
+      "candidates": []
+    },
+    {
+      "sourceId": "stage0-day10:近く",
+      "sourceWord": "近く",
+      "src": "images/vocab/nearby.svg",
+      "assetOrigin": "new60",
+      "approvedIds": [
+        "general-listening-14:近く"
+      ],
+      "candidates": [
+        {
+          "id": "general-listening-14:近く",
+          "word": "近く",
+          "reading": "ちかく",
+          "zh": "附近",
+          "decision": "approved-exact-id",
+          "reason": "See per-entry context and decision in mapping CSV."
+        },
+        {
+          "id": "general-listening-50:近く",
+          "word": "近く",
+          "reading": "ちかく",
+          "zh": "附近",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        },
+        {
+          "id": "general-listening-165:近く",
+          "word": "近く",
+          "reading": "ちかく",
+          "zh": "附近",
+          "decision": "deferred-not-approved",
+          "reason": "本批未逐上下文核准，不因同字／簽章自動增加映射。"
+        }
+      ]
+    }
+  ],
+  "deferredExamples": [
+    "general-listening-168:冷たい（冷淡）",
+    "general-listening-95:返す（回覆；歸還）",
+    "general-listening-101:返す（歸還；回覆）",
+    "general-listening-05:少し（部分理解／程度）",
+    "general-listening-87:少し（稍微）"
+  ]
+}
