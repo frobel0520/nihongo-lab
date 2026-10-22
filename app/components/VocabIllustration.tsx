@@ -11,7 +11,8 @@ export function VocabIllustration({ card }: { card: Card }) {
     <img
       className="vocab-illustration"
       src={`${import.meta.env.BASE_URL}${image.src}`}
-      alt={image.alt}
+      // The adjacent answer already supplies the meaning; this image is decorative.
+      alt=""
       width={224}
       height={168}
       draggable={false}

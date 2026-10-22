@@ -1837,3 +1837,14 @@ metadata使教材chunk與引用雜湊改變，不能說產品產物與069b0f2相
 375×667新卡／複習各13詞、線上與真正斷網重載共52張卡完整重驗，包含12個全部配圖詞與無圖長詞ごちそうさま。逐卡驗證日文／讀音／翻譯中心線誤差小於1.5px、圖片在翻譯下與來源獨立間距、有圖與無圖文字位置一致、不遮住評分列、實際1倍完整播放、揭示／評分／改評、觸控滑動及v3保存。真正離線使用BrowserContext.setOffline(true)、navigator.onLine=false並reload，缺圖退化也再次確認文字置中與下一張恢復；無pageerror／水平溢位。其他三類最長無圖卡再驗長詞／長翻譯捲動、播放、評分、保存與操作區，全部通過。前次暫存預覽服務已停止，重啟同base預覽後才取得有效結果，不將連線拒絕記為產品失敗。
 
 本輪兩組置中驗證SHA-256：`t151-centered-new-result.json`：`1311c2cb3f95e03e65c22fd73be9364bef25331a5982425901c7ac086197de70`；`t151-centered-review-result.json`：`23b86a8e75f517d995b538ebf5539332576eefb93147cc0353c9eda5b4eee5d3`。PR暫轉Draft，沒有reviewer請求；先等待使用者確認麵包／地圖／無圖三張版面，才交reviewer。保持未合併、未部署，不宣稱已獲版面同意或記憶成效。最新提交CI結果另記同一PR。
+
+
+### 2026-10-22 T151 無障礙收尾與授權發布
+
+使用者已確認文字置中、小圖在翻譯下方的版面，授權本批12詞試版發布。reviewer對00bf73a未發現阻塞功能問題，指出純輔助圖在答案live region中增加冗餘圖片名稱；採用空alt，不修改版面、12張SVG／6327 bytes、義項映射、教材／ID／8535音檔、排程／同步3／離線契約。圖片描述metadata僅留作內部語義核對，不輸出為可及性名稱。
+
+修改既有SSR回歸：新卡／複習回想面無圖片或替代文字，12個真實圖片元件均輸出空alt；330 tests／check（typecheck、測試、lint）、正式/nihongo-lab/ build、原perf:bundle全部通過。main raw206768／gzip65659、CSS gzip5068、precache21347454／21500000 bytes、491去重URL、餘152546；門檻、統計範圍及必要離線資產不變。
+
+375×667隔離Chromium以合成v3進度，兩模式各12配圖＋1無圖長翻譯，線上及BrowserContext.setOffline(true)、navigator.onLine=false後實際重載，共52張完整揭示／1倍播放至ended／評分／改評／觸控滑動／保存；逐卡確認空alt及無障礙樹不含img名稱，原字詞與讀音仍可取得，文字中心線與操作區正常。未參與本批的原有合成srs紀錄逐值保持。線上圖片網路失敗與離線刪一圖退化仍可播音／評分、下一張圖片恢復；12圖真正斷網fetch逐SHA一致。零pageerror／水平溢位。實體螢幕閱讀器與真機未測，不宣稱記憶效果。
+
+本機證據：t151-publish-local-new-result.json SHA-256 `1311c2cb3f95e03e65c22fd73be9364bef25331a5982425901c7ac086197de70`；t151-publish-local-review-result.json SHA-256 `23b86a8e75f517d995b538ebf5539332576eefb93147cc0353c9eda5b4eee5d3`；t151-publish-faults-result.json SHA-256 `e690a55986612fdc03bfdb2a3e2c3052736e13fc25e93c49eba607c9febf3406`。正式build凍結536個audio/以外建置／靜態檔，含38個既有聲線預覽MP3及本批12個SVG；12圖為536檔的子集，不將兩組相加。最新commit的CI、Ready、公開暱稱author／committer檢查、正常rebase及非force快轉整合、Pages、正式站逐檔比對與375寬有圖／無圖／揭示前後／播放／評分／真正離線與進度保持，據實直接記於[同一PR #157](https://github.com/frobel0520/nihongo-lab/pull/157)，不為發布記錄再新增循環文件PR。先前Draft／未部署紀錄保留為歷史，不冒充正式站結果。
