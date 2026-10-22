@@ -794,4 +794,4 @@ T151實作：lib/vocab-illustrations.mjs以12個固定卡片ID加word／reading�
 
 ## 2026-10-22 T152 單字卡30詞配圖擴充
 
-T152在原vocab-illustrations陣列追加30筆精確映射及30張本地自製SVG；未改VocabIllustration、SrsView或CSS。42圖共22267 bytes、新增15940 bytes，521預快取URL／21368531 bytes，原21500000上限及glob不變。無新增runtime dependency。語義界線、資料ID、總覽及預覽見vocab-illustration-expansion；本輪只到PR。
+T152在原vocab-illustrations陣列追加30筆精確映射及30張本地自製SVG；未改VocabIllustration、SrsView或CSS。42圖共22267 bytes、新增15940 bytes，521預快取URL／21368531 bytes，原21500000上限及glob不變。無新增runtime dependency。語義界線、資料ID、總覽及預覽見vocab-illustration-expansion；初次交付只到PR；其後依審查與使用者授權發布，最終驗證記於PR #158。

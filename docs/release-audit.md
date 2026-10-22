@@ -1873,3 +1873,14 @@ metadata使教材chunk與引用雜湊改變，不能說產品產物與069b0f2相
 總覽PNG與5張手機截圖只在docs/previews，不加入runtime／precache。新PR精確head的CI及附加結果記於PR；等待reviewer核對語義、風格、容量與離線，本輪不合併部署或自行擴充。
 
 提交前校準牛奶／圖書館／銀行3筆不輸出的繪圖說明，42組id／word／reading／zh／src及全部SVG逐值不變；最終來源再次330 tests／check、正式build／原bundle通過（main gzip65661、precache21368531）。三圖另以最終build線上／真斷網完整播放與空alt補驗，手機牛奶／圖書館畫面重擷取；音檔依既有契約先明確下載3檔，不以播放當下載。補驗SHA-256 `ccc57e9aaef354b08b9e69ad7bafaea4d2a564131fa7895a9ddca978221e678c`。
+
+
+### T152 發布授權與審查收尾
+
+Reviewer只讀審查精確head `01d9b03e1e7e5dce55bfcfee80ca2dcc58536c07`，30張56×42語義、精確映射、空alt、安全SVG及離線契約未發現阻塞。該head的[CI 39720507214](https://github.com/frobel0520/nihongo-lab/actions/runs/39720507214) check成功，PR deploy按設計略過。另補375寬船／無圖長詞線上及真斷網重載、42圖SHA與評分保存；有效136張既有流程證據沿用。初次交付的「不部署」限制保留為歷史；使用者其後明確授權只發布現有30張，累計42張，不再擴充。
+
+音檔統計統一：8535個教材音檔（public/audio）、38個聲線預覽（public/voice-preview，32 samples＋6 comparisons），合計8573個音檔。PR基底main與head的檔案清單完全相同；教材引用、全部音檔內容與ID保持，使用者不需重答或補下載。
+
+發布前main仍0b7832b、無其他未合併PR；本次僅文件狀態更新，產品來源與已審查01d9b03相同。核對公開暱稱author／committer及正常hooks，使用正常rebase檢查與非force快轉整合，保留公開歷史。最新文件commit的CI仍需通過後才整合；不把舊CI當成新head結果。
+
+最終合併版本、精確head CI、Pages、正式站audio/以外建置／靜態檔清單與42圖子集逐byte／SHA核對、375寬四類新增詞＋無圖／舊圖、真斷網重載、既有測試下載與進度保持及實際限制，據實保存在[同一PR #158](https://github.com/frobel0520/nihongo-lab/pull/158)的「T152最終發布驗收」段。此處不預寫正式站通過，不為記錄文件本身另開循環發布；手機模擬與無障礙樹不代表真機或實體螢幕閱讀器驗收，不宣稱記憶效果。
