@@ -36,7 +36,7 @@ test('all reviewed images are local compact original vectors with no active or r
   assert.ok(total < 12000, 'keep the small pilot within its reviewed asset budget');
 });
 
-test('new and review card fronts reveal neither the illustration nor its accessible answer', async () => {
+test('card fronts hide images and revealed auxiliary images do not repeat the accessible answer', async () => {
   const { createElement } = await import('react');
   const { renderToStaticMarkup } = await import('react-dom/server');
   const { createServer } = await import('vite');
@@ -44,6 +44,7 @@ test('new and review card fronts reveal neither the illustration nor its accessi
   const server = await createServer({ configFile: false, plugins: [react()], appType: 'custom', logLevel: 'silent', server: { middlewareMode: true, hmr: false, watch: null }, optimizeDeps: { noDiscovery: true } });
   try {
     const { SrsView } = await server.ssrLoadModule('/app/views/SrsView.tsx');
+    const { VocabIllustration } = await server.ssrLoadModule('/app/components/VocabIllustration.tsx');
     const { emptyProgress } = await server.ssrLoadModule('/lib/progress.mjs');
     const { schedule, toDateString } = await server.ssrLoadModule('/lib/srs.mjs');
     const card = buildCards(stages).find(c => c.id === 'stage0-day2:傘');
@@ -55,6 +56,13 @@ test('new and review card fronts reveal neither the illustration nor its accessi
       assert.match(markup, /顯示答案/);
       assert.doesNotMatch(markup, /<img\b|images\/vocab\/|撐開的雨傘|かさ/);
       assert.doesNotMatch(markup, /<legend[^>]*>評分/);
+    }
+    for (const image of VOCAB_ILLUSTRATIONS) {
+      const illustratedCard = buildCards(stages).find(c => c.id === image.id);
+      const markup = renderToStaticMarkup(createElement(VocabIllustration, { card: illustratedCard }));
+      assert.match(markup, /<img\b/);
+      assert.match(markup, /\balt=""/);
+      assert.ok(!markup.includes(image.alt), 'decorative image must not repeat its description');
     }
   } finally { await server.close(); }
 });
