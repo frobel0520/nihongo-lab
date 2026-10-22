@@ -1848,3 +1848,28 @@ metadata使教材chunk與引用雜湊改變，不能說產品產物與069b0f2相
 375×667隔離Chromium以合成v3進度，兩模式各12配圖＋1無圖長翻譯，線上及BrowserContext.setOffline(true)、navigator.onLine=false後實際重載，共52張完整揭示／1倍播放至ended／評分／改評／觸控滑動／保存；逐卡確認空alt及無障礙樹不含img名稱，原字詞與讀音仍可取得，文字中心線與操作區正常。未參與本批的原有合成srs紀錄逐值保持。線上圖片網路失敗與離線刪一圖退化仍可播音／評分、下一張圖片恢復；12圖真正斷網fetch逐SHA一致。零pageerror／水平溢位。實體螢幕閱讀器與真機未測，不宣稱記憶效果。
 
 本機證據：t151-publish-local-new-result.json SHA-256 `1311c2cb3f95e03e65c22fd73be9364bef25331a5982425901c7ac086197de70`；t151-publish-local-review-result.json SHA-256 `23b86a8e75f517d995b538ebf5539332576eefb93147cc0353c9eda5b4eee5d3`；t151-publish-faults-result.json SHA-256 `e690a55986612fdc03bfdb2a3e2c3052736e13fc25e93c49eba607c9febf3406`。正式build凍結536個audio/以外建置／靜態檔，含38個既有聲線預覽MP3及本批12個SVG；12圖為536檔的子集，不將兩組相加。最新commit的CI、Ready、公開暱稱author／committer檢查、正常rebase及非force快轉整合、Pages、正式站逐檔比對與375寬有圖／無圖／揭示前後／播放／評分／真正離線與進度保持，據實直接記於[同一PR #157](https://github.com/frobel0520/nihongo-lab/pull/157)，不為發布記錄再新增循環文件PR。先前Draft／未部署紀錄保留為歷史，不冒充正式站結果。
+
+
+## 2026-10-22 T152 單字卡30詞配圖擴充（僅PR，不部署）
+
+基底main `0b7832b`（PR #157已合併發布、最新Pages成功），起始工作目錄乾淨且無未合併PR；另建feature/T152，保留其他材料。沿用已確認的文字置中、翻譯下方56×42小圖及空alt，不修改元件／CSS、課程頁或對話。
+
+新增30個具體名詞：食物6、日用品12、交通6、場所／自然景物6。日文、讀音、原翻譯、資料ID與理由見[新增配圖清單](vocab-illustration-expansion.md)。本批30張自製CC0 SVG／30個精確映射；連同原12張，現共42張資產／42個映射，每張目前只對應一個已核實詞條，沒有新跨課套用。29個新增映射為N5、1個為通用聽解30的船；同形／同名未核實卡不自動配圖。
+
+新增SVG15,940 bytes、總SVG22,267 bytes；precache21,347,454→21,368,531／21,500,000 bytes，+21,077，521 URL、餘131469；main gzip65661／630000、CSS5068／5800，原門檻及快取規則保持。330 tests／check、正式base build及perf:bundle通過，沒有runtime dependency。
+
+375×667隔離Chromium：N5兩模式各32卡（29新圖＋2舊圖＋1無圖長翻譯）、通用兩模式各2卡（船＋無圖長單字），線上及真正斷網重載共136張卡；本批30詞各有兩模式×兩網路狀態。逐卡揭示前無圖、揭示後空alt且無冗餘圖片名稱，文字中心線、完整1倍播放、評分／改評、觸控滑動不評分、v3保存、未參與的既有合成srs紀錄保持；42圖離線逐SHA一致，線上真正攔截圖請求與離線清HTTP快取再刪SW圖均可讀字／播音／評分、下一圖恢復，零pageerror／水平溢位。
+
+斷網證據使用BrowserContext.setOffline(true)後實際reload，並在每次離線播放前要求未快取網路探測以net::ERR_INTERNET_DISCONNECTED失敗；本環境navigator.onLine重載／CDP結束後會顯示true，但實際網路仍被阻擋，不以該旗標或命中快取判定通過，也沒有偽造旗標。初步誤判及最小案例更正見release-audit。
+
+全部5291張Card內容／ID、原12映射／SVG、curriculum與app／CSS／排程／同步／離線實作保持；全部8573 MP3（8535教材＋38聲線預覽）逐檔對照起始Git內容一致。手機實際預覽與30圖總覽供reviewer核對語義、風格、容量與離線；本輪僅交付可審查PR、等待最新CI，不合併部署或接續擴充。不宣稱記憶效果；手機模擬與無障礙樹不代表真機或實體螢幕閱讀器驗收，既有品質狀態與Android歷史保持。
+
+30張實際XML解析與放大／56×42渲染逐張檢視完成；開放線段以fill=none修正非預期黑面，銀行補硬幣輪廓、牛奶用白色液滴標記，交通與電子物品以結構差異區分而非換色。沒有新增教材或外部圖片／runtime服務。
+
+驗證腳本前置問題保留：第一輪只依navigator旗標判定失敗，最小案例證明重載及暫時CDP會話結束會將旗標改為true，但實際未快取請求始終ERR_INTERNET_DISCONNECTED；先前將其解讀成網路恢復的說法已撤回，不以此否定T151獨立快取／更新證據。本批採共用手勢CDP會話，重載後及每次離線播放前實際探測請求，失敗碼必須為ERR_INTERNET_DISCONNECTED，不偽造navigator。最初TouchEnd缺TouchStart的診斷不作結果；初次線上故障依選詞順序指定包包，實際牌序首張鉛筆，改按deck動態攔截並等待真requestfailed後通過。這些測試腳本錯誤不當產品失敗或完成證據。
+
+本機證據：t152-browser-n5-new-result.json SHA-256 `dd215656a53c77f2659a75530585aaad0700b32f4e829e8795e93dd030521cab`；t152-browser-n5-review-result.json SHA-256 `7ab8324ec0aa0c5f6adb2e45b3146c303bac891320fcc5e9037752fbdb5092b4`；t152-browser-general-new-result.json SHA-256 `e4e509af8926d52db29c7d4eaa8ed78ba9942129339ccced2ec369b65888f9d8`；t152-browser-general-review-result.json SHA-256 `19e8f57f17d94cf77389d1ee5a183c6ea9d976ebe4164ac604a87a8947418b63`。相同資料下新增30圖在兩模式×線上／離線都有紀錄，N5的故障注入先清HTTP快取、再刪除SW單圖，避免HTTP快取仍供圖而誤判故障。原12圖／映射逐值不變；音檔逐檔以起始main的Git blob比對，8535教材＋38預覽共8573檔一致；5291張Card全值與ID快照一致。開始前受限Node子程序spawn EPERM的比對沒有當成功證據，改shell讀取Git基準再比對成功。
+
+總覽PNG與5張手機截圖只在docs/previews，不加入runtime／precache。新PR精確head的CI及附加結果記於PR；等待reviewer核對語義、風格、容量與離線，本輪不合併部署或自行擴充。
+
+提交前校準牛奶／圖書館／銀行3筆不輸出的繪圖說明，42組id／word／reading／zh／src及全部SVG逐值不變；最終來源再次330 tests／check、正式build／原bundle通過（main gzip65661、precache21368531）。三圖另以最終build線上／真斷網完整播放與空alt補驗，手機牛奶／圖書館畫面重擷取；音檔依既有契約先明確下載3檔，不以播放當下載。補驗SHA-256 `ccc57e9aaef354b08b9e69ad7bafaea4d2a564131fa7895a9ddca978221e678c`。

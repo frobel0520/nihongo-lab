@@ -790,3 +790,8 @@ note與RUBY_NOTES是說明顯示，不參與音檔jp／voice內容定址；例�
 ## 2026-10-21 T151 單字卡配圖試版
 
 T151實作：lib/vocab-illustrations.mjs以12個固定卡片ID加word／reading／zh校對，VocabIllustration只在答案區掛載、以卡片ID重建並在onError退化為無圖；本批12圖使用空alt，不在答案live region重複提供圖片名稱。224×168自製SVG共6327 bytes，56×42顯示；日文／讀音／翻譯各自置中、圖片在翻譯下方、來源分開留白，有圖與無圖使用相同文字中心線；手機SRS專用版面讓卡片獨立捲動、評分列在外，其他頁不變。沿用既有svg預快取glob，491 URL／21347454 bytes、不改上限或下載語意／runtime dependency；來源及手機驗證見vocab-illustration-pilot與release-audit。
+
+
+## 2026-10-22 T152 單字卡30詞配圖擴充
+
+T152在原vocab-illustrations陣列追加30筆精確映射及30張本地自製SVG；未改VocabIllustration、SrsView或CSS。42圖共22267 bytes、新增15940 bytes，521預快取URL／21368531 bytes，原21500000上限及glob不變。無新增runtime dependency。語義界線、資料ID、總覽及預覽見vocab-illustration-expansion；本輪只到PR。

@@ -5,35 +5,41 @@ import { stages } from '../curriculum/lessons.mjs';
 import { buildCards } from '../lib/srs.mjs';
 import { VOCAB_ILLUSTRATIONS, illustrationFor } from '../lib/vocab-illustrations.mjs';
 
-test('pilot images resolve only the 12 reviewed cards and their actual senses', () => {
+test('illustrations resolve only the 42 reviewed cards and their actual senses', () => {
   const cards = buildCards(stages);
-  assert.equal(VOCAB_ILLUSTRATIONS.length, 12);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 12);
-  assert.equal(cards.filter(illustrationFor).length, 12);
+  assert.equal(VOCAB_ILLUSTRATIONS.length, 42);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 42);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 42);
+  assert.equal(cards.filter(illustrationFor).length, 42);
   for (const image of VOCAB_ILLUSTRATIONS) {
     const card = cards.find(c => c.id === image.id);
     assert.ok(card, image.id);
     assert.equal(illustrationFor(card), image);
     assert.equal(illustrationFor({ ...card, zh: '另一個義項' }), undefined);
     assert.equal(illustrationFor({ ...card, reading: '別の読み' }), undefined);
+    assert.equal(illustrationFor({ ...card, word: '別の単語' }), undefined);
     assert.equal(illustrationFor({ ...card, id: `unreviewed:${card.word}` }), undefined);
   }
   // The same spelling in another lesson is deliberately not auto-illustrated.
   assert.equal(illustrationFor(cards.find(c => c.id === 'general-listening-11:パン')), undefined);
   assert.equal(illustrationFor(cards.find(c => c.id === 'general-listening-02:鍵')), undefined);
+  assert.equal(illustrationFor(cards.find(c => c.id === 'general-listening-35:靴')), undefined);
 });
 
 test('all reviewed images are local compact original vectors with no active or remote content', async () => {
-  let total = 0;
+  let pilotBytes = 0;
+  let expansionBytes = 0;
   for (const image of VOCAB_ILLUSTRATIONS) {
     assert.match(image.src, /^images\/vocab\/[a-z]+\.svg$/);
     assert.ok(image.alt.length > 1);
     const svg = await readFile(new URL(`../public/${image.src}`, import.meta.url), 'utf8');
-    total += Buffer.byteLength(svg);
+    if (VOCAB_ILLUSTRATIONS.indexOf(image) < 12) pilotBytes += Buffer.byteLength(svg);
+    else expansionBytes += Buffer.byteLength(svg);
     assert.match(svg, /viewBox="0 0 224 168"/);
     assert.doesNotMatch(svg, /<(script|foreignObject|text|image)\b|(?:href|onload|onclick)=/i);
   }
-  assert.ok(total < 12000, 'keep the small pilot within its reviewed asset budget');
+  assert.ok(pilotBytes < 12000, 'retain the original 12-image pilot budget');
+  assert.ok(expansionBytes < 24000, 'keep the separate 30-image expansion compact');
 });
 
 test('card fronts hide images and revealed auxiliary images do not repeat the accessible answer', async () => {
