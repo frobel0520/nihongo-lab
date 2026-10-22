@@ -804,3 +804,8 @@ T152在原vocab-illustrations陣列追加30筆精確映射及30張本地自製SV
 當前產品precache21,368,531 bytes／521 URL，新預算餘5,501,298 bytes；只改設定、風險測試及文件，不增圖片或教材。330 tests／check、正式base build／perf通過，566個audio/以外產品檔逐SHA與6947ad1一致；最新CI仍待實際完成；合併部署與相同產品產物確認直接補於本PR，避免文件發布循環。
 
 T120／T122及其他舊紀錄的21,500,000仍是當時上限；以本節26,869,829為現行precache預算，不恢復時間Gate。原始基準×1.5＝26,869,828.5，向上取整至整數byte，避免隱含人工約整。配置不進入產品bundle；相同產品逐檔確認後沿用T152正式站功能證據，最新CI／Pages結果另按實際記於本PR。
+
+
+## 2026-10-22 T154 全站配圖盤點與12詞試作
+
+scripts/vocab-illustration-inventory.mjs從lessons.mjs的四類loadCategory取Card，CSV與摘要僅為docs報告，不進產品／precache；保守簽章包含word／reading／zh，候選共用與實際映射分開，詞性提示及1758未分流群不冒充人工審義。12原創SVG7962 bytes，分支總54圖／30229 bytes，precache21,379,193／26,869,829、533 URL，餘5,490,636；main gzip65661／CSS5068不變，原glob／Cache API／離線下載保持。
