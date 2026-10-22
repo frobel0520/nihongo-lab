@@ -40,10 +40,14 @@
 
 ## 本機驗證與預覽
 
-330 tests／check、正式base build／原bundle通過；兩模式各13詞線上／真正離線、缺圖退化、其他三類無圖長卡與保存回歸完成，實際範圍及前置修正見release-audit T151。真斷網重載後12張圖片逐SHA一致，沒有記憶成效實驗。三張PNG為隔離測試資料的375×667畫面，不納入runtime資產。
+330 tests／check、正式base build／原bundle通過；兩模式各13詞線上／真正離線、缺圖退化、其他三類無圖長卡與保存回歸完成，實際範圍及前置修正見release-audit T151。真斷網重載後12張圖片逐SHA一致，沒有記憶成效實驗。以下四張PNG以程式 commit `9e0cbe18fc5fc690055a964cf80b49652db7b5cc` 的正式base建置、獨立Chromium測試資料與375×667 viewport重新擷取，沒有合成或修改畫面，不納入runtime資產。該程式版本的 [CI已通過](https://github.com/frobel0520/nihongo-lab/actions/runs/39618652801)。本次只更新預覽PNG與本文件，未變更程式、教材或資產範圍。
+
+四張均保留完整卡片、播放鈕與底部操作區。揭示後可見評分列；揭示前保留實際「顯示答案」按鈕，沒有圖片或評分列。無圖卡採用長翻譯的「ごちそうさま」，用於確認換行與置中。瀏覽器擷取檢查未發現pageerror或水平溢位；這是版面預覽，不代表新增完整功能驗收。PR維持Draft，等待使用者確認後再交reviewer，不合併或部署。
 
 ![無配圖長答案置中](previews/t151-unmapped-375.png)
 
 ![麵包答案面](previews/t151-bread-375.png)
 
 ![地圖答案面](previews/t151-map-375.png)
+
+![麵包揭示前，圖片尚未出現](previews/t151-bread-front-375.png)
