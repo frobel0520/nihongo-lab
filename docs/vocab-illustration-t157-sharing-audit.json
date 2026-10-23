@@ -2482,8 +2482,8 @@
       "decision": "deferred",
       "reason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。",
       "alt": "剪刀剪開紙張，限定剪切義，不套掛斷電話。",
-      "finalCardStatus": "covered-with-new-asset",
-      "finalSrc": "images/vocab/hangingup.svg"
+      "finalCardStatus": "still-needs-design-or-evidence",
+      "finalSrc": null
     },
     {
       "id": "game-card:game:genshin:collei:skill:5ff6879e5c",
@@ -14070,8 +14070,8 @@
       "alt": "手把電話筒放回座機，連線兩端斷開，表掛斷而非剪切紙。",
       "context": "あの機械、変な音がする。見てくるね。 / 待って。そこに近づくな。まだ動いてる。 / じゃあ、電源を切ればいい？ / 勝手に切らないでください。係の人を呼びます。 / わかった。ここで待つよ。 / うん。点検が終わるまで触らないでね。",
       "origin": "new",
-      "decision": "approved",
-      "reason": "詞面、讀音、譯義與所列來源相容；手把電話筒放回座機，連線兩端斷開，表掛斷而非剪切紙。 圖為詞義的一例，不聲稱對話實際物件或結果相同。"
+      "decision": "deferred",
+      "reason": "對話明示電源を切る，是關閉電源，不是掛斷電話；發布前逐筆CSV複核撤除此誤配。"
     },
     {
       "id": "general-listening-61:見える",
@@ -15315,8 +15315,8 @@
   ],
   "prior92": {
     "reuseOld": 6,
-    "coveredByNew": 28,
-    "stillUncovered": 58
+    "coveredByNew": 27,
+    "stillUncovered": 59
   },
   "embassy": {
     "decision": "needs-design",

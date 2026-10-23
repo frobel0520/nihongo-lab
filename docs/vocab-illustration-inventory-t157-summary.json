@@ -1,14 +1,14 @@
 {
   "schema": 1,
-  "sourceCommit": "f2f343ca090f6c85b9fbf68df087a72a9d8c857e",
+  "sourceCommit": "2b639c24f9f85a9bf77c76d02870dd72655054e3",
   "countingPolicy": "Exact unnormalized word; candidate sense signature = JSON.stringify([word,reading,zh]). No automatic sharing; true senses may require translation merges or splitting multi-meaning entries.",
   "cardContractSha256": "12367d472446092bb0db65bbde0131aab2a923ae90ce5e042a60267048475d20",
   "total": {
     "cardEntries": 5909,
     "distinctWordForms": 2978,
     "senseSignatures": 3669,
-    "illustratedEntries": 2213,
-    "missingEntries": 3696
+    "illustratedEntries": 2212,
+    "missingEntries": 3697
   },
   "byCategory": {
     "n5": {
@@ -22,8 +22,8 @@
       "cardEntries": 4500,
       "distinctWordForms": 1926,
       "senseSignatures": 2407,
-      "illustratedEntries": 1755,
-      "missingEntries": 2745
+      "illustratedEntries": 1754,
+      "missingEntries": 2746
     },
     "anime": {
       "cardEntries": 80,
@@ -41,8 +41,8 @@
     }
   },
   "assetCount": 714,
-  "illustratedSenseSignatures": 1089,
-  "missingSenseSignatures": 2580,
+  "illustratedSenseSignatures": 1088,
+  "missingSenseSignatures": 2581,
   "unmappedEntriesWithCandidateExistingAsset": 31,
   "multiSignatureForms": 471,
   "designHintCounts": {

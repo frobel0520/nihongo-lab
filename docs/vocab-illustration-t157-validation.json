@@ -1,7 +1,7 @@
 {
   "task": "T157",
   "baselineCommit": "7a1ca4f67a1ccd7b20828418aef0e503cb093f6e",
-  "productCommit": "f2f343ca090f6c85b9fbf68df087a72a9d8c857e",
+  "productCommit": "2b639c24f9f85a9bf77c76d02870dd72655054e3",
   "scope": "Premerge local evidence snapshot; latest CI/merge/Pages/production results are recorded in the T157 PR final release record. No production result is predeclared.",
   "contract": {
     "baseline": "7a1ca4f67a1ccd7b20828418aef0e503cb093f6e",
@@ -23,9 +23,9 @@
     "mainJsGzipLimit": 630000,
     "cssGzipBytes": 5068,
     "cssGzipLimit": 5800,
-    "precacheBytes": 22231404,
+    "precacheBytes": 22231208,
     "precacheLimit": 26869829,
-    "headroomBytes": 4638425,
+    "headroomBytes": 4638621,
     "precacheCountedUrls": 1193
   },
   "newSvg": {
@@ -4034,6 +4034,11 @@
           "image": true
         },
         {
+          "id": "general-listening-39:切る",
+          "offline": false,
+          "image": true
+        },
+        {
           "id": "general-listening-49:制服",
           "offline": false,
           "image": true
@@ -4042,6 +4047,11 @@
           "id": "general-listening-49:普段着",
           "offline": false,
           "image": true
+        },
+        {
+          "id": "general-listening-53:切る",
+          "offline": false,
+          "image": false
         },
         {
           "id": "general-listening-56:悲しい",
@@ -4129,6 +4139,11 @@
           "image": true
         },
         {
+          "id": "general-listening-39:切る",
+          "offline": true,
+          "image": true
+        },
+        {
           "id": "general-listening-49:制服",
           "offline": true,
           "image": true
@@ -4137,6 +4152,11 @@
           "id": "general-listening-49:普段着",
           "offline": true,
           "image": true
+        },
+        {
+          "id": "general-listening-53:切る",
+          "offline": true,
+          "image": false
         },
         {
           "id": "general-listening-56:悲しい",
@@ -4174,9 +4194,9 @@
           "image": true
         }
       ],
-      "images": 19,
-      "unmapped": 0,
-      "networkProbeCount": 20,
+      "images": 20,
+      "unmapped": 1,
+      "networkProbeCount": 22,
       "sustainedNetworkBlockedBeforeEveryPlayback": true,
       "networkProbeBlocked": true,
       "sharedTouchSession": true,
@@ -4188,8 +4208,8 @@
       "centeredText": true,
       "verticalAnswerOrder": true,
       "regradeBase": true,
-      "regradedCards": 38,
-      "swipedCards": 38,
+      "regradedCards": 42,
+      "swipedCards": 42,
       "persist": true,
       "missingOfflineImage": false,
       "httpCacheClearedBeforeMissingImage": true,
@@ -4259,6 +4279,11 @@
           "image": true
         },
         {
+          "id": "general-listening-39:切る",
+          "offline": false,
+          "image": true
+        },
+        {
           "id": "general-listening-49:制服",
           "offline": false,
           "image": true
@@ -4267,6 +4292,11 @@
           "id": "general-listening-49:普段着",
           "offline": false,
           "image": true
+        },
+        {
+          "id": "general-listening-53:切る",
+          "offline": false,
+          "image": false
         },
         {
           "id": "general-listening-56:悲しい",
@@ -4354,6 +4384,11 @@
           "image": true
         },
         {
+          "id": "general-listening-39:切る",
+          "offline": true,
+          "image": true
+        },
+        {
           "id": "general-listening-49:制服",
           "offline": true,
           "image": true
@@ -4362,6 +4397,11 @@
           "id": "general-listening-49:普段着",
           "offline": true,
           "image": true
+        },
+        {
+          "id": "general-listening-53:切る",
+          "offline": true,
+          "image": false
         },
         {
           "id": "general-listening-56:悲しい",
@@ -4399,9 +4439,9 @@
           "image": true
         }
       ],
-      "images": 19,
-      "unmapped": 0,
-      "networkProbeCount": 20,
+      "images": 20,
+      "unmapped": 1,
+      "networkProbeCount": 22,
       "sustainedNetworkBlockedBeforeEveryPlayback": true,
       "networkProbeBlocked": true,
       "sharedTouchSession": true,
@@ -4413,8 +4453,8 @@
       "centeredText": true,
       "verticalAnswerOrder": true,
       "regradeBase": true,
-      "regradedCards": 38,
-      "swipedCards": 38,
+      "regradedCards": 42,
+      "swipedCards": 42,
       "persist": true,
       "missingOfflineImage": false,
       "httpCacheClearedBeforeMissingImage": true,
@@ -4783,10 +4823,10 @@
       "reducedMotion": true
     }
   },
-  "completeFlowsCount": 160,
+  "completeFlowsCount": 168,
   "representativeCardsPerMode": {
     "n5": 10,
-    "general": 19,
+    "general": 21,
     "anime": 6,
     "games": 5
   },
@@ -4802,5 +4842,38 @@
     "No demonstrated memory-effect claim",
     "No claim all remaining meanings or shared candidates are resolved",
     "Existing partial Android records retained; complete QA and sentence-by-sentence audio review remain separate"
-  ]
+  ],
+  "finalSemanticCorrection": {
+    "cardId": "general-listening-53:切る",
+    "source": "電源を切る",
+    "incorrectPhoneSharingRemoved": true,
+    "curriculumAndSvgUnchanged": true,
+    "physicalPhoneHangupStillMapped": "general-listening-39:切る",
+    "onlineAndTrueOfflineFullFlowsRetested": true,
+    "fixtureArtifactsUnchanged": "300 primary SVG bytes and binding tuples unchanged; unaffected category flows remain valid. Final general flows include both meanings."
+  },
+  "coverage": {
+    "totalCards": 5909,
+    "assets": 714,
+    "mappedBefore": 1185,
+    "mappedAfter": 2212,
+    "missingAfter": 3697,
+    "primary": 300,
+    "oldShared": 94,
+    "newShared": 633,
+    "newTotalMappings": 1027,
+    "prior92": {
+      "reuseOld": 6,
+      "coveredByNew": 27,
+      "stillUncovered": 59
+    }
+  },
+  "predeployProductionRetention": {
+    "baseline": "7a1ca4f67a1ccd7b20828418aef0e503cb093f6e",
+    "isolatedSyntheticProfile": true,
+    "oldMapGradedThroughUi": true,
+    "actualLessonDownloadUiFiles": 35,
+    "progressSnapshotSha256": "9130decd4065fba8afadd6f696dee3e570908706353a8ad1e98c44899b350f75",
+    "note": "SW installation initially exceeded a120s fixture wait. Diagnosis found installing/noHTTPerrors; retained partial cache and extended readiness observation. Installation and actual UI download completed. Postdeploy retention is not predeclared."
+  }
 }
