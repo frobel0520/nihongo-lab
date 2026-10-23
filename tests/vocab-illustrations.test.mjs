@@ -4,12 +4,12 @@ import { readFile } from 'node:fs/promises';
 import { collectInventoryCards } from '../scripts/vocab-illustration-inventory.mjs';
 import { VOCAB_ILLUSTRATIONS, illustrationFor } from '../lib/vocab-illustrations.mjs';
 
-test('illustrations resolve only the 2213 approved cards and their actual senses', async () => {
+test('illustrations resolve only the 2212 approved cards and their actual senses', async () => {
   const cards = await collectInventoryCards();
-  assert.equal(VOCAB_ILLUSTRATIONS.length, 2213);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 2213);
+  assert.equal(VOCAB_ILLUSTRATIONS.length, 2212);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 2212);
   assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 714);
-  assert.equal(cards.filter(illustrationFor).length, 2213);
+  assert.equal(cards.filter(illustrationFor).length, 2212);
   for (const image of VOCAB_ILLUSTRATIONS) {
     const card = cards.find(c => c.id === image.id);
     assert.ok(card, image.id);
