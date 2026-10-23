@@ -4,12 +4,12 @@ import { readFile } from 'node:fs/promises';
 import { collectInventoryCards } from '../scripts/vocab-illustration-inventory.mjs';
 import { VOCAB_ILLUSTRATIONS, illustrationFor } from '../lib/vocab-illustrations.mjs';
 
-test('illustrations resolve only the 3184 approved cards and their actual senses', async () => {
+test('illustrations resolve only the 4247 approved cards and their actual senses', async () => {
   const cards = await collectInventoryCards();
-  assert.equal(VOCAB_ILLUSTRATIONS.length, 3184);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 3184);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 1014);
-  assert.equal(cards.filter(illustrationFor).length, 3184);
+  assert.equal(VOCAB_ILLUSTRATIONS.length, 4247);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 4247);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 1314);
+  assert.equal(cards.filter(illustrationFor).length, 4247);
   for (const image of VOCAB_ILLUSTRATIONS) {
     const card = cards.find(c => c.id === image.id);
     assert.ok(card, image.id);
@@ -33,6 +33,7 @@ test('all reviewed images are local compact original vectors with no active or r
   let expansion300Bytes = 0;
   let second300Bytes = 0;
   let third300Bytes = 0;
+  let fourth300Bytes = 0;
   const assets = [...new Map(VOCAB_ILLUSTRATIONS.map(image => [image.src, image])).values()];
   for (const image of assets) {
     assert.match(image.src, /^images\/vocab\/[a-z]+\.svg$/);
@@ -44,7 +45,8 @@ test('all reviewed images are local compact original vectors with no active or r
     else if (assets.indexOf(image) < 114) batchBytes += Buffer.byteLength(svg);
     else if (assets.indexOf(image) < 414) expansion300Bytes += Buffer.byteLength(svg);
     else if (assets.indexOf(image) < 714) second300Bytes += Buffer.byteLength(svg);
-    else third300Bytes += Buffer.byteLength(svg);
+    else if (assets.indexOf(image) < 1014) third300Bytes += Buffer.byteLength(svg);
+    else fourth300Bytes += Buffer.byteLength(svg);
     assert.match(svg, /viewBox="0 0 224 168"/);
     assert.doesNotMatch(svg, /<(script|foreignObject|text|image)\b|(?:href|onload|onclick)=/i);
   }
@@ -55,6 +57,7 @@ test('all reviewed images are local compact original vectors with no active or r
   assert.ok(expansion300Bytes < 300000, 'retain the T156 300-asset budget');
   assert.ok(second300Bytes < 300000, 'T157 remains within its separate 1000-byte average plan');
   assert.ok(third300Bytes < 300000, 'T158 remains within its separate 1000-byte average plan');
+  assert.ok(fourth300Bytes < 300000, 'T159 remains within its separate 1000-byte average plan');
 });
 
 test('card fronts hide images and revealed auxiliary images do not repeat the accessible answer', async () => {
