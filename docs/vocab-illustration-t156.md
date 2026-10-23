@@ -342,3 +342,22 @@
 ## 自查修正
 
 初稿實際56×42總覽檢視發現動作人物重複腿線、住む人物比例及契約手部裁切；只修正本批SVG後重新渲染檢視。既有資產未改。
+
+## 實際375寬預覽
+
+擷取實際瀏覽器畫面；長答案畫面沿用原卡片內捲動，不是合成版面。完整卡片包含播放與評分，總覽是獨立SVG檢視。
+
+- [卡片1](previews/t156-card-001-375.png)
+- [卡片6](previews/t156-card-006-375.png)
+- [卡片116](previews/t156-card-116-375.png)
+- [卡片133](previews/t156-card-133-375.png)
+- [卡片183](previews/t156-card-183-375.png)
+- [卡片247](previews/t156-card-247-375.png)
+- [卡片292](previews/t156-card-292-375.png)
+- [卡片298](previews/t156-card-298-375.png)
+- [卡片299](previews/t156-card-299-375.png)
+- [卡片300](previews/t156-card-300-375.png)
+- [舊圖地圖](previews/t156-old-map-375.png)
+- [無圖卡](previews/t156-unmapped-375.png)
+
+334 tests／check、正式base build、perf及本機完整驗證見[vocab-illustration-t156-validation.json](vocab-illustration-t156-validation.json)。正式站與最新CI待核對，最終發布證據集中於本輪PR。

@@ -1,0 +1,3552 @@
+{
+  "task": "T156",
+  "baselineCommit": "a0a265666bc7836129cb615e748512965aee27e8",
+  "productCommit": "901d7d6299700bca02d5ab75c3e047163257a12e",
+  "status": "local verified; PR CI and production pending",
+  "cards": 5909,
+  "assets": 414,
+  "mapped": 1185,
+  "missing": 4724,
+  "newAssets": 300,
+  "primaryMappings": 300,
+  "oldAssetShares": 184,
+  "newAssetShares": 522,
+  "newAssetBytes": 181582,
+  "allAssetBytes": 247874,
+  "sourceCardContractSha256": "12367d472446092bb0db65bbde0131aab2a923ae90ce5e042a60267048475d20",
+  "baselineCardsExact": true,
+  "baseline179MappingsExact": true,
+  "baseline114SvgShaExact": true,
+  "unchangedCurriculumAudioAndRuntime": true,
+  "check": {
+    "tests": 334,
+    "typecheck": true,
+    "lint": true
+  },
+  "bundle": {
+    "mainJsGzipBytes": 65659,
+    "mainJsGzipLimit": 630000,
+    "cssGzipBytes": 5068,
+    "cssGzipLimit": 5800,
+    "precacheBytes": 21807800,
+    "precacheLimit": 26869829,
+    "precacheEntries": 893,
+    "headroom": 5062029
+  },
+  "viewport": "375x667 browser simulation",
+  "disconnect": "BrowserContext.setOffline(true), navigator.onLine=false, real reload and uncached fetch fails with net::ERR_INTERNET_DISCONNECTED; repeated probe before offline playback",
+  "fullFlowCases": [
+    {
+      "category": "n5",
+      "mode": "new",
+      "ids": [
+        "stage0-day3:部屋",
+        "stage0-day3:トイレ",
+        "stage0-day3:入口",
+        "stage0-day6:パン",
+        "stage0-day8:高い",
+        "stage0-day14:地図",
+        "stage0-day16:大きな",
+        "stage0-day16:小さな",
+        "stage0-day25:ふろ"
+      ],
+      "online": true,
+      "trueOffline": true,
+      "recordCount": 18,
+      "networkProbeCount": 12,
+      "missingImage": true,
+      "preserveUnrelatedProgress": true
+    },
+    {
+      "category": "n5",
+      "mode": "review",
+      "ids": [
+        "stage0-day3:部屋",
+        "stage0-day3:トイレ",
+        "stage0-day3:入口",
+        "stage0-day6:パン",
+        "stage0-day8:高い",
+        "stage0-day14:地図",
+        "stage0-day16:大きな",
+        "stage0-day16:小さな",
+        "stage0-day25:ふろ"
+      ],
+      "online": true,
+      "trueOffline": true,
+      "recordCount": 18,
+      "networkProbeCount": 12,
+      "missingImage": true,
+      "preserveUnrelatedProgress": true
+    },
+    {
+      "category": "general",
+      "mode": "new",
+      "ids": [
+        "general-listening-01:森",
+        "general-listening-06:洞窟",
+        "general-listening-07:傷",
+        "general-listening-12:鍵",
+        "general-listening-24:地図",
+        "general-listening-29:聞く",
+        "general-listening-34:地図",
+        "general-listening-119:聞く",
+        "general-listening-130:守る",
+        "general-listening-155:時計",
+        "general-listening-168:冷たい"
+      ],
+      "online": true,
+      "trueOffline": true,
+      "recordCount": 22,
+      "networkProbeCount": 12,
+      "missingImage": false,
+      "preserveUnrelatedProgress": true
+    },
+    {
+      "category": "general",
+      "mode": "review",
+      "ids": [
+        "general-listening-01:森",
+        "general-listening-06:洞窟",
+        "general-listening-07:傷",
+        "general-listening-12:鍵",
+        "general-listening-24:地図",
+        "general-listening-29:聞く",
+        "general-listening-34:地図",
+        "general-listening-119:聞く",
+        "general-listening-130:守る",
+        "general-listening-155:時計",
+        "general-listening-168:冷たい"
+      ],
+      "online": true,
+      "trueOffline": true,
+      "recordCount": 22,
+      "networkProbeCount": 12,
+      "missingImage": false,
+      "preserveUnrelatedProgress": true
+    },
+    {
+      "category": "anime",
+      "mode": "new",
+      "ids": [
+        "anime-lesson-01:来る",
+        "anime-lesson-02:肉",
+        "anime-lesson-05:剣",
+        "anime-lesson-05:盾",
+        "anime-lesson-05:弓",
+        "anime-lesson-07:理由"
+      ],
+      "online": true,
+      "trueOffline": true,
+      "recordCount": 12,
+      "networkProbeCount": 7,
+      "missingImage": false,
+      "preserveUnrelatedProgress": true
+    },
+    {
+      "category": "anime",
+      "mode": "review",
+      "ids": [
+        "anime-lesson-01:来る",
+        "anime-lesson-02:肉",
+        "anime-lesson-05:剣",
+        "anime-lesson-05:盾",
+        "anime-lesson-05:弓",
+        "anime-lesson-07:理由"
+      ],
+      "online": true,
+      "trueOffline": true,
+      "recordCount": 12,
+      "networkProbeCount": 7,
+      "missingImage": false,
+      "preserveUnrelatedProgress": true
+    },
+    {
+      "category": "games",
+      "mode": "new",
+      "ids": [
+        "game-card:game:er:hart:selection-voice:1794da56b4:1794da56b4",
+        "game-card:game:er:hart:selection-voice:4ef596e51f:4ef596e51f",
+        "game-card:game:er:xiukai:selection-voice:4ef596e51f:4ef596e51f",
+        "game-card:game:er:silvia:selection-voice:0f1f8a4534:0f1f8a4534"
+      ],
+      "online": true,
+      "trueOffline": true,
+      "recordCount": 8,
+      "networkProbeCount": 5,
+      "missingImage": false,
+      "preserveUnrelatedProgress": true
+    },
+    {
+      "category": "games",
+      "mode": "review",
+      "ids": [
+        "game-card:game:er:hart:selection-voice:1794da56b4:1794da56b4",
+        "game-card:game:er:hart:selection-voice:4ef596e51f:4ef596e51f",
+        "game-card:game:er:xiukai:selection-voice:4ef596e51f:4ef596e51f",
+        "game-card:game:er:silvia:selection-voice:0f1f8a4534:0f1f8a4534"
+      ],
+      "online": true,
+      "trueOffline": true,
+      "recordCount": 8,
+      "networkProbeCount": 5,
+      "missingImage": false,
+      "preserveUnrelatedProgress": true
+    }
+  ],
+  "inspections": [
+    {
+      "category": "n5",
+      "ids": [
+        "stage0-day3:部屋",
+        "stage0-day3:トイレ",
+        "stage0-day3:入口",
+        "stage0-day3:出口",
+        "stage0-day3:デパート",
+        "stage0-day3:会社",
+        "stage0-day4:働く",
+        "stage0-day4:休む",
+        "stage0-day4:勉強",
+        "stage0-day4:終わる",
+        "stage0-day4:始まる",
+        "stage0-day5:行く",
+        "stage0-day5:来る",
+        "stage0-day5:帰る",
+        "stage0-day5:着く",
+        "stage0-day5:地下鉄",
+        "stage0-day5:タクシー",
+        "stage0-day6:野菜",
+        "stage0-day6:果物",
+        "stage0-day6:お茶",
+        "stage0-day6:水",
+        "stage0-day6:お酒",
+        "stage0-day6:見る",
+        "stage0-day6:聞く",
+        "stage0-day6:映画",
+        "stage0-day6:音楽",
+        "stage0-day6:買い物",
+        "stage0-day6:喫茶店",
+        "stage0-day7:あげる",
+        "stage0-day7:もらう",
+        "stage0-day7:貸す",
+        "stage0-day7:借りる",
+        "stage0-day7:教える",
+        "stage0-day7:習う",
+        "stage0-day7:出す",
+        "stage0-day7:葉書",
+        "stage0-day7:荷物",
+        "stage0-day7:お金",
+        "stage0-day7:ちゃわん",
+        "stage0-day7:カップ",
+        "stage0-day7:紅茶",
+        "stage0-day7:砂糖",
+        "stage0-day7:塩",
+        "stage0-day7:しょうゆ",
+        "stage0-day7:バター",
+        "stage0-day7:お菓子",
+        "stage0-day8:新しい",
+        "stage0-day8:古い",
+        "stage0-day8:高い",
+        "stage0-day8:安い",
+        "stage0-day8:低い",
+        "stage0-day8:広い",
+        "stage0-day8:狭い",
+        "stage0-day8:おいしい",
+        "stage0-day8:まずい",
+        "stage0-day8:辛い",
+        "stage0-day8:楽しい",
+        "stage0-day8:つまらない",
+        "stage0-day8:おもしろい",
+        "stage0-day8:難しい",
+        "stage0-day8:易しい",
+        "stage0-day8:きれい",
+        "stage0-day8:有名",
+        "stage0-day8:便利",
+        "stage0-day9:好き",
+        "stage0-day9:嫌い",
+        "stage0-day9:上手",
+        "stage0-day9:下手",
+        "stage0-day9:分かる",
+        "stage0-day9:弾く",
+        "stage0-day9:ギター",
+        "stage0-day9:絵",
+        "stage0-day9:散歩",
+        "stage0-day9:旅行",
+        "stage0-day9:遊ぶ",
+        "stage0-day9:作る",
+        "stage0-day9:答える",
+        "stage0-day9:元気",
+        "stage0-day9:賑やか",
+        "stage0-day10:上",
+        "stage0-day10:下",
+        "stage0-day10:前",
+        "stage0-day10:後ろ",
+        "stage0-day10:中",
+        "stage0-day10:外",
+        "stage0-day10:隣",
+        "stage0-day10:右",
+        "stage0-day10:左",
+        "stage0-day10:家",
+        "stage0-day10:庭",
+        "stage0-day10:台所",
+        "stage0-day10:ベッド",
+        "stage0-day10:本棚",
+        "stage0-day10:ストーブ",
+        "stage0-day10:テーブル",
+        "stage0-day10:箱",
+        "stage0-day10:鳥",
+        "stage0-day11:半分",
+        "stage0-day12:雨",
+        "stage0-day12:雪",
+        "stage0-day12:風",
+        "stage0-day12:曇り",
+        "stage0-day12:晴れ",
+        "stage0-day12:空",
+        "stage0-day12:海",
+        "stage0-day12:川",
+        "stage0-day12:池",
+        "stage0-day12:木",
+        "stage0-day12:春",
+        "stage0-day12:夏",
+        "stage0-day12:秋",
+        "stage0-day12:冬",
+        "stage0-day12:暑い",
+        "stage0-day12:熱い",
+        "stage0-day12:寒い",
+        "stage0-day12:涼しい",
+        "stage0-day12:暖かい",
+        "stage0-day12:早い",
+        "stage0-day12:速い",
+        "stage0-day12:遅い",
+        "stage0-day12:遠い",
+        "stage0-day12:強い",
+        "stage0-day12:弱い",
+        "stage0-day13:靴下",
+        "stage0-day13:ネクタイ",
+        "stage0-day13:シャツ",
+        "stage0-day13:ワイシャツ",
+        "stage0-day13:セーター",
+        "stage0-day13:スカート",
+        "stage0-day13:ズボン",
+        "stage0-day13:コート",
+        "stage0-day13:ハンカチ",
+        "stage0-day13:ポケット",
+        "stage0-day13:売る",
+        "stage0-day13:映画館",
+        "stage0-day13:プール",
+        "stage0-day13:町",
+        "stage0-day13:村",
+        "stage0-day13:店",
+        "stage0-day13:八百屋",
+        "stage0-day14:持つ",
+        "stage0-day14:呼ぶ",
+        "stage0-day14:使う",
+        "stage0-day14:押す",
+        "stage0-day14:引く",
+        "stage0-day14:消す",
+        "stage0-day14:つける",
+        "stage0-day14:入れる",
+        "stage0-day14:取る",
+        "stage0-day14:見せる",
+        "stage0-day14:言う",
+        "stage0-day14:話す",
+        "stage0-day14:写真",
+        "stage0-day14:曲がる",
+        "stage0-day14:渡る",
+        "stage0-day14:乗る",
+        "stage0-day14:降りる",
+        "stage0-day14:止まる",
+        "stage0-day14:道",
+        "stage0-day14:角",
+        "stage0-day14:交差点",
+        "stage0-day14:交番",
+        "stage0-day15:医者",
+        "stage0-day15:警官",
+        "stage0-day15:大学",
+        "stage0-day15:宿題",
+        "stage0-day15:テスト",
+        "stage0-day15:住む",
+        "stage0-day15:アパート",
+        "stage0-day15:ホテル",
+        "stage0-day15:置く",
+        "stage0-day15:忘れる",
+        "stage0-day15:覚える",
+        "stage0-day16:シャワー",
+        "stage0-day16:お風呂",
+        "stage0-day16:洗濯",
+        "stage0-day16:掃除",
+        "stage0-day16:脱ぐ",
+        "stage0-day16:着る",
+        "stage0-day16:磨く",
+        "stage0-day16:切る",
+        "stage0-day16:顔",
+        "stage0-day16:頭",
+        "stage0-day16:目",
+        "stage0-day16:耳",
+        "stage0-day16:口",
+        "stage0-day16:鼻",
+        "stage0-day16:歯",
+        "stage0-day16:手",
+        "stage0-day16:足",
+        "stage0-day16:体",
+        "stage0-day16:おなか",
+        "stage0-day17:薬",
+        "stage0-day17:痛い",
+        "stage0-day17:丈夫",
+        "stage0-day17:危ない",
+        "stage0-day17:全部",
+        "stage0-day17:電気",
+        "stage0-day18:飛ぶ",
+        "stage0-day18:登る",
+        "stage0-day19:太い",
+        "stage0-day19:細い",
+        "stage0-day19:丸い",
+        "stage0-day19:暇",
+        "stage0-day19:カレンダー",
+        "stage0-day19:切符",
+        "stage0-day22:建物",
+        "stage0-day22:玄関",
+        "stage0-day22:廊下",
+        "stage0-day22:門",
+        "stage0-day22:ポスト",
+        "stage0-day22:紙",
+        "stage0-day22:万年筆",
+        "stage0-day22:マッチ",
+        "stage0-day22:灰皿",
+        "stage0-day22:スリッパ",
+        "stage0-day22:テープレコーダー",
+        "stage0-day22:レコード",
+        "stage0-day22:フィルム",
+        "stage0-day24:貼る",
+        "stage0-day24:並ぶ",
+        "stage0-day24:うるさい",
+        "stage0-day25:厚い",
+        "stage0-day25:薄い"
+      ],
+      "recordCount": 448,
+      "networkProbeCount": 1,
+      "shaAssets": 414,
+      "pageerrors": []
+    },
+    {
+      "category": "general",
+      "ids": [
+        "general-listening-01:森",
+        "general-listening-03:急ぐ",
+        "general-listening-03:眠い",
+        "general-listening-04:広場",
+        "general-listening-04:予約",
+        "general-listening-04:払う",
+        "general-listening-05:安全",
+        "general-listening-05:一部",
+        "general-listening-06:洞窟",
+        "general-listening-06:確認",
+        "general-listening-06:濡れる",
+        "general-listening-06:乾く",
+        "general-listening-07:傷",
+        "general-listening-08:運ぶ",
+        "general-listening-08:減らす",
+        "general-listening-08:分ける",
+        "general-listening-11:袋",
+        "general-listening-14:棚",
+        "general-listening-14:壁",
+        "general-listening-14:床",
+        "general-listening-16:工具",
+        "general-listening-20:画面",
+        "general-listening-21:雷",
+        "general-listening-30:港",
+        "general-listening-38:最後",
+        "general-listening-38:最初",
+        "general-listening-51:掲示板",
+        "general-listening-61:電池",
+        "general-listening-67:岩",
+        "general-listening-68:手袋",
+        "general-listening-69:旗",
+        "general-listening-70:枝",
+        "general-listening-70:影",
+        "general-listening-71:塔",
+        "general-listening-71:屋根",
+        "general-listening-72:星",
+        "general-listening-74:天井",
+        "general-listening-78:鐘",
+        "general-listening-79:端末",
+        "general-listening-116:瓶",
+        "general-listening-121:縄",
+        "general-listening-123:矢",
+        "general-listening-124:炎",
+        "general-listening-124:氷",
+        "general-listening-146:宝石"
+      ],
+      "recordCount": 90,
+      "networkProbeCount": 1,
+      "shaAssets": 414,
+      "pageerrors": []
+    },
+    {
+      "category": "anime",
+      "ids": [
+        "anime-lesson-01:戦士",
+        "anime-lesson-01:飾り",
+        "anime-lesson-02:逃げる",
+        "anime-lesson-03:笑う",
+        "anime-lesson-03:救う",
+        "anime-lesson-04:断る",
+        "anime-lesson-04:嘘",
+        "anime-lesson-04:仲間",
+        "anime-lesson-04:信じる",
+        "anime-lesson-05:剣",
+        "anime-lesson-05:盾",
+        "anime-lesson-05:弓",
+        "anime-lesson-05:槍",
+        "anime-lesson-05:斬る",
+        "anime-lesson-05:防ぐ",
+        "anime-lesson-05:避ける",
+        "anime-lesson-05:守る",
+        "anime-lesson-05:戦う",
+        "anime-lesson-06:結界",
+        "anime-lesson-06:封印",
+        "anime-lesson-06:解除",
+        "anime-lesson-06:契約",
+        "anime-lesson-07:証拠",
+        "anime-lesson-07:選ぶ",
+        "anime-lesson-07:気付く",
+        "anime-lesson-08:毒"
+      ],
+      "recordCount": 52,
+      "networkProbeCount": 1,
+      "shaAssets": 414,
+      "pageerrors": []
+    },
+    {
+      "category": "games",
+      "ids": [
+        "game-card:game:er:hart:selection-voice:1794da56b4:1794da56b4",
+        "game-card:game:er:hart:selection-voice:4ef596e51f:4ef596e51f",
+        "game-card:game:er:silvia:selection-voice:0f1f8a4534:0f1f8a4534",
+        "game-card:game:er:alonso:selection-voice:c44c74a562:c44c74a562",
+        "game-card:game:genshin:aino:burst:44b0c417c7"
+      ],
+      "recordCount": 10,
+      "networkProbeCount": 1,
+      "shaAssets": 414,
+      "pageerrors": []
+    }
+  ],
+  "smallRenderAndActualScreenshotReview": {
+    "assets": 300,
+    "overviewGroups": 25,
+    "actualScreenshotCropsReviewed": 25,
+    "screenshots": [
+      {
+        "id": "stage0-day3:部屋",
+        "sha256": "85107282c1bf2630e517162712c1285b6a16ca0de324e274f52bce7e1ee6f269"
+      },
+      {
+        "id": "stage0-day3:トイレ",
+        "sha256": "9044c159b5e397bffb58d91663581ead907b993aca9602e2294075ed27487940"
+      },
+      {
+        "id": "stage0-day3:入口",
+        "sha256": "b4f125938892e7a226688cb5f95587627f57991036c9dca17f60f19b3fcc025d"
+      },
+      {
+        "id": "stage0-day3:出口",
+        "sha256": "51d079d68a0231adf50c5cebc171f6fd189f6bfbfd434528e5a9512ee12c196d"
+      },
+      {
+        "id": "stage0-day3:デパート",
+        "sha256": "97101c345b3134d8b955b2ea3ab989f7674e2de002d7ce415d252798225a2f97"
+      },
+      {
+        "id": "general-listening-07:傷",
+        "sha256": "82ae21ef9696c55fb7248932db540b661af42ea47d7e8559573614e68c3bcbd2"
+      },
+      {
+        "id": "stage0-day3:会社",
+        "sha256": "ec67fd8cca1fbab37f96ac6572d566e917f51c90b71135ec9d17da92b563d211"
+      },
+      {
+        "id": "stage0-day5:地下鉄",
+        "sha256": "a8b2290f3b574ece1a1af7f4f14ed1f6bfff6fe2e0a06c7ac068af34a313acd6"
+      },
+      {
+        "id": "stage0-day5:タクシー",
+        "sha256": "63c7c95e34044e666bf31103bcfc6fea36870df3fb161657bb46ea2809121dc1"
+      },
+      {
+        "id": "stage0-day6:野菜",
+        "sha256": "b0dedfe0f9580b5b5c3d9bd085c8fbb84101301432af38b931e40166f6ddd509"
+      },
+      {
+        "id": "stage0-day6:果物",
+        "sha256": "8a1dccd401e6afc7a629c23de1e69818e305b83b0599e950e5837cbda8927b89"
+      },
+      {
+        "id": "stage0-day6:お茶",
+        "sha256": "22aeb62afa3fdba5f99bc037001346fc31276cf81ada0607f2f0e0263e8ab2f6"
+      },
+      {
+        "id": "stage0-day6:水",
+        "sha256": "c145a202edd9d43f855712b48902c04fc8e1d7d70746e632fbdb180f5bdecd5a"
+      },
+      {
+        "id": "stage0-day6:お酒",
+        "sha256": "f3a88501a14c7b3e75ca2b0eb5a1d45f520b49d8a28e7ab351a1f34195531c6a"
+      },
+      {
+        "id": "stage0-day6:映画",
+        "sha256": "d10768e15a4974fcf071b5e0316e2be054c0a92d7c734c3fb1b30ed281c0b60c"
+      },
+      {
+        "id": "stage0-day6:音楽",
+        "sha256": "948c4cda5d5fa200c60c6a6a318f3f9ee806c5a0954883f04eb61508bedf0376"
+      },
+      {
+        "id": "stage0-day6:喫茶店",
+        "sha256": "2df5f36a1d045908a3fe09ff2a283c4b5947e11f5568f5779debabd85ecae35d"
+      },
+      {
+        "id": "stage0-day7:葉書",
+        "sha256": "5e172fdd4f6d66695bcebd81443f197dd1385566a0652a23f122faf6a8132875"
+      },
+      {
+        "id": "stage0-day7:荷物",
+        "sha256": "e47166cd6a44d8a89fcb684d5efce38a8d84b2b5dc82ba05a9507eb429f1a1a6"
+      },
+      {
+        "id": "stage0-day7:お金",
+        "sha256": "a26ed51142580e6921aa590bf91d1b6890044fa697ef0ce7cde1c91b3f6ceabe"
+      },
+      {
+        "id": "stage0-day7:ちゃわん",
+        "sha256": "92aee0ee2be7740d414d7a71c28991a620ff6730e4abeec4a44e09e1192fdd8b"
+      },
+      {
+        "id": "stage0-day7:カップ",
+        "sha256": "fe94b91a3b7e84962cda8619800ea55b9b6f7c94429917147fe5c17a5131a686"
+      },
+      {
+        "id": "stage0-day7:紅茶",
+        "sha256": "0fc88db04f0c4ca49e8799ed655a762c12ea66eb8efb1f86a224dccf24bce27c"
+      },
+      {
+        "id": "stage0-day7:砂糖",
+        "sha256": "3ddcba3d3498a4c8824dfa0bcd0902ef070581c569d8f651c2c40cb9924677ed"
+      },
+      {
+        "id": "stage0-day7:塩",
+        "sha256": "07ca538219c5966cfa9ce9949cd216a4f9f55ec0e6e1af2fb76cd5e39a98f838"
+      },
+      {
+        "id": "stage0-day7:しょうゆ",
+        "sha256": "84c48fe06a0cbcfc36bd146a0e7bc6c41e058416343fe30f9dd3cd3c96da1757"
+      },
+      {
+        "id": "stage0-day7:バター",
+        "sha256": "7ee543f197540bedb6f6de8ae92d892f93d6af45aab2c3bec5d660c273beaa7f"
+      },
+      {
+        "id": "stage0-day7:お菓子",
+        "sha256": "aa9a82a274c5dd6a6177e8bd8d2eefa2df132eda824cd4265817994de2892c64"
+      },
+      {
+        "id": "stage0-day9:ギター",
+        "sha256": "828173197c2a68e2a02f2ddcc2c28f4fed10c570855541f627fea9cdec768b60"
+      },
+      {
+        "id": "stage0-day9:絵",
+        "sha256": "639b4c90e3227003d3dbffaf70c6379433b9ce0889bc3ebfbf29208f13683588"
+      },
+      {
+        "id": "stage0-day10:家",
+        "sha256": "f1d5e2e063fa848b2991d747bc68e1a6b56bb67abe211b6728c3c14e3a369786"
+      },
+      {
+        "id": "stage0-day10:庭",
+        "sha256": "65ec4dcdfc849d712dfe3dc336818627e363c81492f257be8af6b641702e802a"
+      },
+      {
+        "id": "stage0-day10:台所",
+        "sha256": "8a81d7b31132be61fc06d5411f36e3d8251048f80a2ca75021d491e82811b51f"
+      },
+      {
+        "id": "stage0-day10:ベッド",
+        "sha256": "a86246199cac2492c596eb5f7f864f89e2a2bbc56584f19085ef55cac571053f"
+      },
+      {
+        "id": "stage0-day10:本棚",
+        "sha256": "f40de734499e4d898f0c1204dc760f5c4cfbe48a23b08aa51d0e7fe86b5ab573"
+      },
+      {
+        "id": "stage0-day10:ストーブ",
+        "sha256": "d36b6369286fa943c3be799e8e8a69a36a0647d6b273b1463b1ce9c75e96a173"
+      },
+      {
+        "id": "stage0-day10:テーブル",
+        "sha256": "9632672a02cb2b5db71c2e3392922559131283da337538be86909a9cdb21714a"
+      },
+      {
+        "id": "stage0-day10:箱",
+        "sha256": "963e0170e503275ec8bd0286394c0a48005ea63dfbfb2fd28db9ab8fb8fa0096"
+      },
+      {
+        "id": "stage0-day10:鳥",
+        "sha256": "917ba66624bd24b90a3e02dfa4482e8bb7010e7171db2cb2a978163c387fb165"
+      },
+      {
+        "id": "stage0-day12:雨",
+        "sha256": "546da968e113858a77f6545c2d98927836935acd64b71d247fdf188f9804b1eb"
+      },
+      {
+        "id": "stage0-day12:雪",
+        "sha256": "d204c1c03470b2d97b3c84062bae590f55eb14f327dc5ad2c3f5f5de17fa01a6"
+      },
+      {
+        "id": "stage0-day12:風",
+        "sha256": "cacbfd67067dfebea51215b4a35a9b02985fc76f1ab2a546b830ef16e5905129"
+      },
+      {
+        "id": "stage0-day12:曇り",
+        "sha256": "6ac546a542a483bb42321379443eba5c3b7c4daff76f9e058e4691d900cec487"
+      },
+      {
+        "id": "stage0-day12:晴れ",
+        "sha256": "249e34f094c9464886dd9008bdb07fb63b5e9894ab3add73759e28e83b80e554"
+      },
+      {
+        "id": "stage0-day12:空",
+        "sha256": "b3e0c4a37ce1c1cb337cc4f249bb96f7b7546fa9220bb11cd148fcf0b26bb986"
+      },
+      {
+        "id": "stage0-day12:海",
+        "sha256": "3b32ca7dfdbe52eb4f7e6a8ddd0deea3473e5739f8f6563906aadb0d3a0496a3"
+      },
+      {
+        "id": "stage0-day12:川",
+        "sha256": "a6185017f17bcde6ef2c8826c79301989af64f75004f04268ee5c652224d884f"
+      },
+      {
+        "id": "stage0-day12:池",
+        "sha256": "dd45281c8cb239883603fd001f5ed7f901a3d47e2439638ed8ffd7704e71fcdb"
+      },
+      {
+        "id": "stage0-day12:木",
+        "sha256": "edc1a732cba9e24d79cefeff671bd0f13ada8d43a73c1a1344745647085a25bd"
+      },
+      {
+        "id": "stage0-day12:春",
+        "sha256": "17ea27d2bc7a15bbf25d970a3033c76f8aceb8823c10ffa3e855325d0a19afab"
+      },
+      {
+        "id": "stage0-day12:夏",
+        "sha256": "37c8d9e48c8f9e53a7260cc1bba8ad7a9fbbda88d2735dfa654b1096de0eec3c"
+      },
+      {
+        "id": "stage0-day12:秋",
+        "sha256": "3d7dbe49599af0c074d3cb8bf7f8a649653e16487355dd55468d8dbf05a3be6c"
+      },
+      {
+        "id": "stage0-day12:冬",
+        "sha256": "06d4649ac1dbc3d2b2662c1ace6a999c9bd205afa5a8ac567b71b98f5fa35295"
+      },
+      {
+        "id": "stage0-day13:靴下",
+        "sha256": "c241d97fa3b5bbaec278bdc6864c9f3cc4c7eef6e7b45d6b88a12125cdb2b6ca"
+      },
+      {
+        "id": "stage0-day13:ネクタイ",
+        "sha256": "fb2da5fb783b53a5070b625527a69f2ebb843ef1839ac039558461e9118c5d57"
+      },
+      {
+        "id": "stage0-day13:シャツ",
+        "sha256": "9516aa6bb5b49cc11be2864fdd212afe1784c28c01817174ec643350aeb28002"
+      },
+      {
+        "id": "stage0-day13:ワイシャツ",
+        "sha256": "4887549a01eae099a92ac9c6cf770383e21f9bb399b991b9a8eeb3ca5add4a24"
+      },
+      {
+        "id": "stage0-day13:セーター",
+        "sha256": "38ed91727f1af4bef45fa5bde5b865bb7ef2fc7d07db4e6c312b61bece686a20"
+      },
+      {
+        "id": "stage0-day13:スカート",
+        "sha256": "673ff1e0096d1a8e9a8f1d56226f97023ba1af806c88cd29342af410f87bdcbb"
+      },
+      {
+        "id": "stage0-day13:ズボン",
+        "sha256": "2c40c9aa06063373fd9f049054bebc7c325f7355c1feb1fa89dd5cb703fa2f1c"
+      },
+      {
+        "id": "stage0-day13:コート",
+        "sha256": "f38f79520f87583c7873596c0d9d7cdbfdcec78b283abedd7e46d8fa991a67e1"
+      },
+      {
+        "id": "stage0-day13:ハンカチ",
+        "sha256": "8c0ed3d31e287340d6cd9aaf4508bc5cc2acb806aa56b226ee046326f7fff2d2"
+      },
+      {
+        "id": "stage0-day13:ポケット",
+        "sha256": "41ef553150d07fc322c16d8429a3eb772f22ce0dbc14248c1c6070216389dc57"
+      },
+      {
+        "id": "stage0-day13:映画館",
+        "sha256": "179d35335613d5a245a8979f71ba6d7980ccb6dfe49444227e983e6c718c454a"
+      },
+      {
+        "id": "stage0-day13:プール",
+        "sha256": "61e5fffb9525d179e71c77a5468f5934b57b43589ac31f8024623dec6bc214ea"
+      },
+      {
+        "id": "stage0-day13:町",
+        "sha256": "e30f838c033976f4d3417ac75fcfb7c5b3d1d86300965792b13866a3bf536e21"
+      },
+      {
+        "id": "stage0-day13:村",
+        "sha256": "77d9d1775660463b1e1e4d8c39c0b4c4c4a2fe2c0bf7ba8a6c2fbd1c338702db"
+      },
+      {
+        "id": "stage0-day13:店",
+        "sha256": "6e5a1d84e12b6dbd1519055d3184dde3857517a1af0129869c0bdb91a69ba983"
+      },
+      {
+        "id": "stage0-day13:八百屋",
+        "sha256": "383c9fe4504a76e4a0ee76748788e5e11d44453a05f6958403a263e6390c6a86"
+      },
+      {
+        "id": "stage0-day14:写真",
+        "sha256": "5e03528aecde94d740767025bc42daeb4de8775471962222c6ecde23293f0d43"
+      },
+      {
+        "id": "stage0-day14:道",
+        "sha256": "27b376e6360b85e4f636b9e395a3d1ae7303b6d05c660784f8b95d3cfcb43598"
+      },
+      {
+        "id": "stage0-day14:角",
+        "sha256": "951dc0794655e24a1d411016c312bffc2fdeb876771a17cd60fe72ade392ff35"
+      },
+      {
+        "id": "stage0-day14:交差点",
+        "sha256": "b91d68406332a00483db21190d5ad113ec8cd641b99e74d80a3cab06168ac167"
+      },
+      {
+        "id": "stage0-day14:交番",
+        "sha256": "6ccb492c1dbdee98039bec0241118852212fc5720d87b5afcedbd2c66a962881"
+      },
+      {
+        "id": "stage0-day15:医者",
+        "sha256": "2f539faf14d2f7c23e9bc4535655b7d0e212493a6ade1429a11b19d1be5d0e56"
+      },
+      {
+        "id": "stage0-day15:警官",
+        "sha256": "cef7a8e22a191a6198f9a6ff8e914e20f6453502af09fb648b3b82e9d244ec8f"
+      },
+      {
+        "id": "stage0-day15:大学",
+        "sha256": "3bbaa67dd3c74d98987455e16ae84ac466b82e2d11a5a1b0975fe44a709dee79"
+      },
+      {
+        "id": "stage0-day15:宿題",
+        "sha256": "74da59ed3d6cbdd982e65114127d16c79ca143f8af20d921e35db19f0c086070"
+      },
+      {
+        "id": "stage0-day15:テスト",
+        "sha256": "39d3469023775bb2d12b1122717c42f7e6f4c4f6e318417789e6fe507b4b882d"
+      },
+      {
+        "id": "stage0-day15:アパート",
+        "sha256": "4430de98c6ec6e0ded6f2accd9a813df541000eff684f59dcc1305cf6a8b9931"
+      },
+      {
+        "id": "stage0-day15:ホテル",
+        "sha256": "1c8a7b169067809f32b9b04651de93a7d763ad819c58e3a54930405117e05252"
+      },
+      {
+        "id": "stage0-day16:シャワー",
+        "sha256": "377b0bf74adf1a56036f9f38134b273290f6870df727994311c3c030a308116b"
+      },
+      {
+        "id": "stage0-day16:お風呂",
+        "sha256": "d1d6026e648e0eb86bc88c635cb8db6a44c27f3b4bb1a7e1722b795558bb0e94"
+      },
+      {
+        "id": "stage0-day16:顔",
+        "sha256": "2ebc053f9269aaee21c17d31956e88e8f8afdba53516c8f7a6a3d76946f7190e"
+      },
+      {
+        "id": "stage0-day16:頭",
+        "sha256": "38ec204962f5350f852478aa0710b92725cf545e370858f5d98c6198bbb10e30"
+      },
+      {
+        "id": "stage0-day16:目",
+        "sha256": "8fa7d0aef18d107cb1eabf90b09e53bc1573be8b1ef12f3a107dd4bb64491c1c"
+      },
+      {
+        "id": "stage0-day16:耳",
+        "sha256": "0ffa74b269fc120b3baa7eb38527acf70791b200ac734dd78fb5853b5167dafa"
+      },
+      {
+        "id": "stage0-day16:口",
+        "sha256": "b6828451c9069d0d11be082a1b9056f9df59f181aca9b68aa797dd90e58c55f8"
+      },
+      {
+        "id": "stage0-day16:鼻",
+        "sha256": "7e7cc108c7e6824e316f2cb3d132a6d81f714993d41c9752944a973daf58290f"
+      },
+      {
+        "id": "stage0-day16:歯",
+        "sha256": "417c51e40487c43fccb96fde3bb097b670d4b13c1c13dfb9b7c07232e01d9ea8"
+      },
+      {
+        "id": "stage0-day16:手",
+        "sha256": "c82c780ab05e27fb14c2f4d9fee04ca51f8431c2781a8db400f4002ea56743b7"
+      },
+      {
+        "id": "stage0-day16:足",
+        "sha256": "160b6e0a0ca740f5caa42e7425525604722404e4143574341f5e9752daf1a055"
+      },
+      {
+        "id": "stage0-day16:体",
+        "sha256": "159334aa366fe1a4fd30cf2ba70f9ede33a6f1709b3fa293fef17e3576ce1593"
+      },
+      {
+        "id": "stage0-day16:おなか",
+        "sha256": "835fbcbf3759d854142a5ed5632def923a3d4622196738c8b61e6194691aab87"
+      },
+      {
+        "id": "stage0-day17:薬",
+        "sha256": "9102a1823b86df5fdf53b886419ec1280f161a7d5971aea40853c276a6885e4c"
+      },
+      {
+        "id": "stage0-day17:電気",
+        "sha256": "8352f4542b9ba52aca6060f41e65b984f74702d6c77e47463c0776ef0cae26cc"
+      },
+      {
+        "id": "stage0-day19:カレンダー",
+        "sha256": "688cad5cffeb15c9a5013e35230d7897e36354a9b81143b8db6809a24603508e"
+      },
+      {
+        "id": "stage0-day19:切符",
+        "sha256": "b3bbe8792f7efdeca4f90cccbc8d6cb312aa96ddf442ed11763b8bfa1b28a12d"
+      },
+      {
+        "id": "stage0-day22:建物",
+        "sha256": "8e00b965039138e89c2c714d01c69f4980431ca32eea54fe3e2336b0156ccd30"
+      },
+      {
+        "id": "stage0-day22:玄関",
+        "sha256": "634e7dbaa7405045150b730f8e077231425d7e5c711b4bc36f26083f1f938a12"
+      },
+      {
+        "id": "stage0-day22:廊下",
+        "sha256": "a8b697f8e85d5e09cd32194e5730f63fdaa3332cccf6907755e1b291ad52b74b"
+      },
+      {
+        "id": "stage0-day22:門",
+        "sha256": "23eed77ce46eaee5d395a593320c70f376b6a3e26c5ce8bb3348402565876cff"
+      },
+      {
+        "id": "stage0-day22:ポスト",
+        "sha256": "e45dde5598574f9579209b3c7612fc61d1960c51bd7d7808f02e61b4c3234afe"
+      },
+      {
+        "id": "stage0-day22:紙",
+        "sha256": "6909ed01407dd7f5d7a34eeec9b3f485759b26d41605dcb29aa9d60c19a8fef5"
+      },
+      {
+        "id": "stage0-day22:万年筆",
+        "sha256": "5ae8d39e154d68eb082e907a2a03d4acb0a1481e96927a60322aa229936996d9"
+      },
+      {
+        "id": "stage0-day22:マッチ",
+        "sha256": "924afa5d2b93e03805947f12a52e7d611195116c4815353df200c3cf63bb5118"
+      },
+      {
+        "id": "stage0-day22:灰皿",
+        "sha256": "89a7de7fbbe03e95e9015f8cc13d8fe3ff1336d26f8fd00e4cb3e9a3ed193908"
+      },
+      {
+        "id": "stage0-day22:スリッパ",
+        "sha256": "0a45c1b5447286de5165d5b52c4fce935a117b47df298525282d4b2cb026ed3f"
+      },
+      {
+        "id": "stage0-day22:テープレコーダー",
+        "sha256": "4cbd417f7f1aba0d21b3b589d301768db016a548bb6d9dd283f7aea5fb5013b1"
+      },
+      {
+        "id": "stage0-day22:レコード",
+        "sha256": "7b186499732e4a1e3aaa5caca58b38a1474c6c8e4c8c9e53b64aace9d05a483c"
+      },
+      {
+        "id": "stage0-day22:フィルム",
+        "sha256": "fd7d36084fe7762a620bd5b31e7cac464a624a4b0f6345c14c930694b82e2111"
+      },
+      {
+        "id": "general-listening-01:森",
+        "sha256": "ef3911c2881dd246d2199116aee00b015413a391358844fc72495ab9111526b2"
+      },
+      {
+        "id": "general-listening-06:洞窟",
+        "sha256": "9efcca79f364421af4becfd6cc4cf7242244ce47101f9cf53c30a2979a2132cd"
+      },
+      {
+        "id": "general-listening-04:広場",
+        "sha256": "5ddc9b9c4a1a89e203a16dc012e603e089a4daf3aab4fcbd390354ae1dd9105b"
+      },
+      {
+        "id": "general-listening-11:袋",
+        "sha256": "ac652125bffb6e599e40e19f750eb90513127f875eaef4d2abb99f6434b15448"
+      },
+      {
+        "id": "anime-lesson-05:剣",
+        "sha256": "93847c5d3311553e6024d478db7211569f27d08cde6620ff389f143b0b181f55"
+      },
+      {
+        "id": "anime-lesson-05:盾",
+        "sha256": "043df5c69cf4a3a6966aec6d2324040390b4eae080d0d96cd59a129c7c2ced11"
+      },
+      {
+        "id": "anime-lesson-05:弓",
+        "sha256": "c17b64e0308ec1668388fe4d53620966efed36917a36cb3046655095a8607d51"
+      },
+      {
+        "id": "anime-lesson-05:槍",
+        "sha256": "61b14dec5686ef20bdec48574c074df5e2abd5ddd7a7d77eddf2ae4c6fbcbc76"
+      },
+      {
+        "id": "general-listening-121:縄",
+        "sha256": "e97754d2a1cd1b5b378fdd503d2c26eaab8fda331e5d3666d8cf442e26e0972e"
+      },
+      {
+        "id": "stage0-day4:働く",
+        "sha256": "dc1e870e6fd588b2f8bc1b8480dd39686566977ff3426fd8c312712329bfea72"
+      },
+      {
+        "id": "stage0-day4:休む",
+        "sha256": "811961987bcad54006f17f7fa43db63106d076dfea27298e946097c24faef2fc"
+      },
+      {
+        "id": "stage0-day4:勉強",
+        "sha256": "80f6ce9de979d4dcb0e8fa7b8ee84754c85d72e37ea47ec7f38c810513c5ba4c"
+      },
+      {
+        "id": "stage0-day4:終わる",
+        "sha256": "c1848f704632572d57417371af118169ef9c7640d92b08d0cd611865db8f2c18"
+      },
+      {
+        "id": "stage0-day4:始まる",
+        "sha256": "9325f71c69573b761d2d3614c7585edbbc298fb303925df6c362e7d7cadf9cde"
+      },
+      {
+        "id": "stage0-day5:行く",
+        "sha256": "920682119004a55b01915b7273565e4551fd40fc4e1adb492e58699d1c722fa2"
+      },
+      {
+        "id": "stage0-day5:来る",
+        "sha256": "d4ac801459b4de1329ae4ad21f82b069bfd6e792938ea567e5b700b76bcaac59"
+      },
+      {
+        "id": "stage0-day5:帰る",
+        "sha256": "b0ff5b5b9e4a79e5c1fe12762e8c7f22b7020eba874ce3a1c6e97d22e60215b1"
+      },
+      {
+        "id": "stage0-day5:着く",
+        "sha256": "9e7cfb714bfad7b58a2eb00de43e37010040c9df8d0c5f486350d7687ba28aea"
+      },
+      {
+        "id": "stage0-day6:見る",
+        "sha256": "be79a5150c9c1aa0dae076a9c7f933eb336b8fe2b5045e019873255654896449"
+      },
+      {
+        "id": "stage0-day6:聞く",
+        "sha256": "1156912e129486e7c50aa6546a5f65eb414aba29e0a9d1385f9324b17f5a7aec"
+      },
+      {
+        "id": "stage0-day6:買い物",
+        "sha256": "cdd4a3c0107cf034a4b2af7920ff4c276bb62316bb53b89f367ecaac53cf934b"
+      },
+      {
+        "id": "stage0-day7:あげる",
+        "sha256": "6b12b649e382aa03218dcf1e478ac03a8efc3422e26256f58600fd7d46c5bd24"
+      },
+      {
+        "id": "stage0-day7:もらう",
+        "sha256": "4ef7a13d09a518c4fd1a5a70bd0fb4a8d0fbea1ec33263db4e5141b7272e2700"
+      },
+      {
+        "id": "stage0-day7:貸す",
+        "sha256": "592dd296207490d9a1dc1ac060ab236237ff612859dea23ab4745cf820d8dabf"
+      },
+      {
+        "id": "stage0-day7:借りる",
+        "sha256": "ffba34bd3c8456fcb3d074a25fbba3ce9bc4f2a0e2cf39baa3402ff7ee1c99f8"
+      },
+      {
+        "id": "stage0-day7:教える",
+        "sha256": "1bb906210024492c899cde3f56bcc71db13cfe49ddc5fe512fa149a1829876b6"
+      },
+      {
+        "id": "stage0-day7:習う",
+        "sha256": "a97cfb0779630411a2c31e3bc6aab71d2b7b6ac5224e1ed78db87485f55c79fd"
+      },
+      {
+        "id": "stage0-day7:出す",
+        "sha256": "63e5cdf86b95800b6a84dc64ef302940fb866593ff8b863a8b12cea60db9c98c"
+      },
+      {
+        "id": "stage0-day9:弾く",
+        "sha256": "9b4fa5b895be3ee1b22c4d76f87c198c13760183302f201ba9b7a56efaec574a"
+      },
+      {
+        "id": "stage0-day9:散歩",
+        "sha256": "46dafa3bf745989d357f728e3355a635911cfa4b4a409eb3b7ec79c7a8b50b54"
+      },
+      {
+        "id": "stage0-day9:旅行",
+        "sha256": "5fac9e084fd2b2df72a7b48df17c97ec0ef41939dbbdc4c1a026371908be17e6"
+      },
+      {
+        "id": "stage0-day9:遊ぶ",
+        "sha256": "62cb774d4d425101df5069006be557e89b26cf81208f0551930bc3659be338ff"
+      },
+      {
+        "id": "stage0-day9:作る",
+        "sha256": "23c6ab6a63343ae585763e15960686cd60f8bf6d42d1aee17ea88ed078f471e1"
+      },
+      {
+        "id": "stage0-day9:分かる",
+        "sha256": "50dbe270cd3929863abb907032b6379070e45d6665d80657475b2204562435dd"
+      },
+      {
+        "id": "stage0-day9:答える",
+        "sha256": "2b05e3a85c7ad21e6d1871df34ee96f1e6fd52a4e04f452c0a9fce04883d3513"
+      },
+      {
+        "id": "stage0-day13:売る",
+        "sha256": "8060e61f5d1eb7f0509df5c44eafc9cc63b8d4c5dac30efa1b11d75881c24799"
+      },
+      {
+        "id": "stage0-day14:持つ",
+        "sha256": "59b6eca803ee8778ad28b9214ed91a2c11a866aca53784ea1d7116c46797caf4"
+      },
+      {
+        "id": "stage0-day14:呼ぶ",
+        "sha256": "0d0ae70d2725ee49562560955328a74eaed49cf06b6ebe1f5793daa47ef3ea97"
+      },
+      {
+        "id": "stage0-day14:使う",
+        "sha256": "168abbb3b2a92b051b543c2213014dc18d5a1d78e21b0e5e962a7ba0c8e19651"
+      },
+      {
+        "id": "stage0-day14:押す",
+        "sha256": "99e23427e4172466c1913393340e526be321cf8ee04ac1a23cb9f8e49276e32e"
+      },
+      {
+        "id": "stage0-day14:引く",
+        "sha256": "3a595c2c803a8a00f2886ffab6c81f3d4345342ba77e8ec2b8950b376328fc91"
+      },
+      {
+        "id": "stage0-day14:消す",
+        "sha256": "fa424cf9fb53fc289995556f37ca26e8be9de8ee9bab95d5ea0b797abd48a3d6"
+      },
+      {
+        "id": "stage0-day14:つける",
+        "sha256": "a288e3ae351e0881c6b4d9c25acd78fc0dc0ebfecda0b3542b5205405d376814"
+      },
+      {
+        "id": "stage0-day14:入れる",
+        "sha256": "1677c400f59615c351a46f0056c016af9195188efd261d22f38a54518eed6212"
+      },
+      {
+        "id": "stage0-day14:取る",
+        "sha256": "1e03b74fe836351a2f103e81973431bc32d77f12181c23ac473e9ac26d69812e"
+      },
+      {
+        "id": "stage0-day14:見せる",
+        "sha256": "6a09ffda1fb4a7a72666b7ef0c2910223a0c28e2c18d2b88192d6809b2ead87c"
+      },
+      {
+        "id": "stage0-day14:言う",
+        "sha256": "82e1099997bc3bcbd2c26d2302e6ddf09aebccf63e0a93bcfbb16d29c11fac4a"
+      },
+      {
+        "id": "stage0-day14:話す",
+        "sha256": "11ae54f30943cc8ae3906caeb06491e4548920c170bb8b1601b8493de8836a67"
+      },
+      {
+        "id": "stage0-day14:曲がる",
+        "sha256": "b03b80b9d412c3cb6b5870140a55b4879e7e1ad5692b3e0399b47d887ba29ece"
+      },
+      {
+        "id": "stage0-day14:渡る",
+        "sha256": "a7a9bf823bd0b611732a3b0c11effba63e4b760f61d7c7d3f64619475eda0763"
+      },
+      {
+        "id": "stage0-day14:乗る",
+        "sha256": "d7f3c46e106b64d0e7d4c93d63eec95d6204f5a9463735a28189dd60727b9768"
+      },
+      {
+        "id": "stage0-day14:降りる",
+        "sha256": "34df672e5a89a8dc3f0ca5b9839b80e61b61eb74d98f04038ea49e12caf2f26d"
+      },
+      {
+        "id": "stage0-day14:止まる",
+        "sha256": "3e7b17d162dfad479422ef09237bee092be24dff11af273d408f79bce696db58"
+      },
+      {
+        "id": "stage0-day15:住む",
+        "sha256": "ec5647ebb7ffbb0789d2987a01c1ce53844c2ea43f02f202be16011369f63bdd"
+      },
+      {
+        "id": "anime-lesson-03:救う",
+        "sha256": "9901903d1cdbd49714fd342f02f68d949df3f13dea8d07c19d7c119f4c9b6b03"
+      },
+      {
+        "id": "anime-lesson-02:逃げる",
+        "sha256": "824d04a29dac16324f7255e4c8e92c84cbe61385752279a8006972dc71bf54a8"
+      },
+      {
+        "id": "stage0-day15:置く",
+        "sha256": "86cf163610ca67cfb9493695752619f0a14339b2d0306311df15c90446a6e9b7"
+      },
+      {
+        "id": "stage0-day15:忘れる",
+        "sha256": "90b446ea8d92dfdfc371bec806a190a68369774bb5d8294b6b5e37dbe9a06261"
+      },
+      {
+        "id": "stage0-day15:覚える",
+        "sha256": "86fbb373ec5464d18fb92f543d52256f96646e2f261774eb9da6449a8d79b563"
+      },
+      {
+        "id": "stage0-day16:洗濯",
+        "sha256": "590df0680a774ec9369d389e71cf25437072afb3e45542a8957df821b7313584"
+      },
+      {
+        "id": "stage0-day16:掃除",
+        "sha256": "75b6c099d1008638199659f74d4a21c9353ceed14415a6f69257690fbb4b1155"
+      },
+      {
+        "id": "stage0-day16:脱ぐ",
+        "sha256": "c542db36cf32246ee212998b0f454264b43b3ee2a4e02aae60ad880239360533"
+      },
+      {
+        "id": "stage0-day16:着る",
+        "sha256": "fbfad524ca6742744af7730d3f00383eb6ae2dad6abd98ebf5754a93e86f498b"
+      },
+      {
+        "id": "stage0-day16:磨く",
+        "sha256": "ce23bd29bbd1ba9542d837395b2a03769de65594c69f09c0a0a822c2763e8373"
+      },
+      {
+        "id": "stage0-day16:切る",
+        "sha256": "a277a9cc72e1b75565f381b688fbbe628e75ac7e5293816c315904c96a80673c"
+      },
+      {
+        "id": "stage0-day18:飛ぶ",
+        "sha256": "ee8d718893f47985654ca71c72cb191c2b596e53653873bea0e7fde034d127f8"
+      },
+      {
+        "id": "stage0-day18:登る",
+        "sha256": "b167732ed6b66c66ae0560fdb2d134a92a0cb72646ecda62cb574b3c0d58b1ac"
+      },
+      {
+        "id": "stage0-day24:並ぶ",
+        "sha256": "ec2cb004e82b5681c5a4fc02733f7a1d3a67c9b2a6f5229aa869a055a08221e8"
+      },
+      {
+        "id": "stage0-day24:貼る",
+        "sha256": "9ea530be03619e7e1b6e5b93e0d58c601935830d184231c970fca51f18d99f9f"
+      },
+      {
+        "id": "stage0-day8:新しい",
+        "sha256": "8569eb020c6a966b3d414c03556143b7665bffc952087798b443e20fb9e1c0fd"
+      },
+      {
+        "id": "stage0-day8:古い",
+        "sha256": "0f06d4a276040a5e5e8561b6f2b6dd15b9b1946ea25793ca2298482f4c001f71"
+      },
+      {
+        "id": "stage0-day8:高い",
+        "sha256": "ea43e869fc5215308819a252f1b0e67ecefc5520005be28db670b4011c2dfa7a"
+      },
+      {
+        "id": "stage0-day8:安い",
+        "sha256": "c1780bade23c6a1ca627ffb9328ce42fbbdfe80bd9dab66c502b3e54967abbbc"
+      },
+      {
+        "id": "stage0-day8:低い",
+        "sha256": "75024994f99ddd511ea5d0dbbebfd88f60337164517b59f7292e15b908f86100"
+      },
+      {
+        "id": "stage0-day8:広い",
+        "sha256": "09772256ed04f5c0506ea8e2e52ff712c5db222352e12284bb3a0693a4e00d27"
+      },
+      {
+        "id": "stage0-day8:狭い",
+        "sha256": "18fdcb4777d724baf35689e8fc19fe6e177241b1961b7fd4828be8a2f298f031"
+      },
+      {
+        "id": "stage0-day8:おいしい",
+        "sha256": "842d06ba98a7e33bf79722cf38e54b46faab03c9462bf42492424f9011c84bfe"
+      },
+      {
+        "id": "stage0-day8:まずい",
+        "sha256": "5d1b3781c43ba4aeee1e35c7aca5a714fcb9180dadf6797bd2aee40319f15972"
+      },
+      {
+        "id": "stage0-day8:辛い",
+        "sha256": "1e768a9386f76b6d6f331d792db065dc381e8987997f6bfb0eb33c0654fb50fd"
+      },
+      {
+        "id": "stage0-day8:楽しい",
+        "sha256": "e9a432f1d82c46de9f1ea1dcf3af046ff72287a73cdf91f8e00d71bae8cafa59"
+      },
+      {
+        "id": "stage0-day8:つまらない",
+        "sha256": "6eff77fd2170af8710f91b4418d69b00436e00dca7c359934fb5b4eabf54b654"
+      },
+      {
+        "id": "stage0-day8:おもしろい",
+        "sha256": "d3f23948807a01218c4d05271d46ceeaacfeadb54929c839b2fb41d95341dbc3"
+      },
+      {
+        "id": "stage0-day8:難しい",
+        "sha256": "746b7ef6cc2aa10bfab99750eda0cfa0f234e078b7c99f942f16bd4d858e011c"
+      },
+      {
+        "id": "stage0-day8:易しい",
+        "sha256": "51683a2e6411956519b2b4f174ca190b244c5a75e87a7f57852d2d7dd1e4ffd1"
+      },
+      {
+        "id": "stage0-day8:きれい",
+        "sha256": "19665941a8c23851e5772891759375195a5fd84c8628e0848adc1fd8d6b8cb60"
+      },
+      {
+        "id": "stage0-day8:有名",
+        "sha256": "47d85072e5c1b462a4da0158a70c7cbcf28aece90125b9477c6f332970f3bd22"
+      },
+      {
+        "id": "stage0-day8:便利",
+        "sha256": "261330ee78524a441a9dd47cfb8476ff992651ae2ad93f002b9806adeb2681cf"
+      },
+      {
+        "id": "stage0-day9:好き",
+        "sha256": "bc29f72d034e77af2dd6f9056923651b1f076e23dfc8a78ecb7f80809657d215"
+      },
+      {
+        "id": "stage0-day9:嫌い",
+        "sha256": "e07a8b279e1c122246d91cf50d0b688ac9ccacac0282da82ad0f725ec09c6781"
+      },
+      {
+        "id": "stage0-day9:上手",
+        "sha256": "310c477226c68bc959a5e08f54d400b0242b4fcc92fae90c0461c491db438d6c"
+      },
+      {
+        "id": "stage0-day9:下手",
+        "sha256": "65c293fd4729d15ec99b26783848ddcbdd9fdcaba3ca39357efcfea948a3a872"
+      },
+      {
+        "id": "stage0-day9:元気",
+        "sha256": "9b00fef12010a803ebe36a1973e0876313ef9f94832156e6930d8994cf5eab5c"
+      },
+      {
+        "id": "stage0-day9:賑やか",
+        "sha256": "709481cc0bb1c0b28f05d944d75654d70f83f456dfd99cbd2fb494a1f07103c8"
+      },
+      {
+        "id": "stage0-day12:暑い",
+        "sha256": "b3c345ec5ef52711bb6162fe841363a07bbcf824ca1f4be933b884e63c52ff8f"
+      },
+      {
+        "id": "stage0-day12:熱い",
+        "sha256": "ec09f8637f12711259668c881424f6fcbaaed1c14c236b98aeb5895bf126b93c"
+      },
+      {
+        "id": "stage0-day12:寒い",
+        "sha256": "570a414f7b032064660ae4b232b637eda5c65d22614cb4a3d29da9aa0121f520"
+      },
+      {
+        "id": "stage0-day12:涼しい",
+        "sha256": "0ca5498323baf2887aa3ac8b9653587b5318f7797e6c84b7b3cb60f28772456b"
+      },
+      {
+        "id": "stage0-day12:暖かい",
+        "sha256": "83165a69f7859762ea4bab4d7f99c7d9a016db1d82fa97907712f8a714d29b73"
+      },
+      {
+        "id": "stage0-day12:早い",
+        "sha256": "5881c533892dec7da3325134199e8cd5f021f27a399f153b38c392346fe98c90"
+      },
+      {
+        "id": "stage0-day12:速い",
+        "sha256": "5eb76f0a824dba0cd6d6f5d8dd1ad9bb4fa3711047fadedbe0538c363c790c47"
+      },
+      {
+        "id": "stage0-day12:遅い",
+        "sha256": "ad28851568f3fbb14f6c23b535d132cc6b56fe616416e0b03149aecccdbced43"
+      },
+      {
+        "id": "stage0-day12:遠い",
+        "sha256": "a0607c1517177b983025bbb2aa76543cb900f805227e74da8f8414ed728fc5c7"
+      },
+      {
+        "id": "stage0-day12:強い",
+        "sha256": "a0dd38b06943f8b8986bdb2c14a01789c5dc65cfd0244cd14e2921c484850a50"
+      },
+      {
+        "id": "stage0-day12:弱い",
+        "sha256": "8ffe91a30a4c88231185317739c6e3b7227b00f410a3f841e9027d7686f6c6d0"
+      },
+      {
+        "id": "stage0-day17:痛い",
+        "sha256": "eaf3367581964fe37762ac1b46c453e349cc82e106f0f205ae4ea67ffc43f10f"
+      },
+      {
+        "id": "stage0-day17:丈夫",
+        "sha256": "22f3f572a2941d51a03192ace6b1e4f127a947269c2d793090be2086bb0c2d04"
+      },
+      {
+        "id": "stage0-day17:危ない",
+        "sha256": "875381ee92df620c9396e82e86a8cc5b5e96bd77a14a332af5dff81fb2312a72"
+      },
+      {
+        "id": "stage0-day24:うるさい",
+        "sha256": "22300839d0d830474c93285949d4a09ed316e712f09a9809501619a1f627b5a9"
+      },
+      {
+        "id": "stage0-day25:厚い",
+        "sha256": "aa585ba3656222fd375ad70a121fde67f2863e21d34c9b9fd311cc8c3a9181d8"
+      },
+      {
+        "id": "stage0-day25:薄い",
+        "sha256": "a090fc4f58c373a63b6ba1543fc5da041fb156f9ec68197d1faf32fdbec579aa"
+      },
+      {
+        "id": "stage0-day19:丸い",
+        "sha256": "8e1a489ea4e2af2fb328321b3437adde91e200d6075ea4a56bc682048d438780"
+      },
+      {
+        "id": "stage0-day19:太い",
+        "sha256": "e0203e91676d459f0fad0ec6a0d0385a1a0fb8096c48af467f5d4ca339234664"
+      },
+      {
+        "id": "stage0-day19:細い",
+        "sha256": "7c12ef7863f10130a2db61789f785fb18bc2dbecb483c77876b55d47db5f7fcd"
+      },
+      {
+        "id": "stage0-day19:暇",
+        "sha256": "a5d9731790e8abe1e21c2a8fbf27e21d589f84bd0a9bdd76bb09e6db80ae9b4d"
+      },
+      {
+        "id": "general-listening-03:眠い",
+        "sha256": "632866facd03b7b01b8550f7150b361e581d98fe29516f9ca4584df2da246ee9"
+      },
+      {
+        "id": "stage0-day10:上",
+        "sha256": "6a8264b86ee1f68fd8500a4ab77eac2aa5de3a4a7603936c8269bb667a5fcbe9"
+      },
+      {
+        "id": "stage0-day10:下",
+        "sha256": "ce80217a4f44a37d85239813979367d8d21bc09dd04930123eef683d7504d036"
+      },
+      {
+        "id": "stage0-day10:中",
+        "sha256": "e566672d8305c42b53bdb703eafec787a989ea180a4301004bc8418b2918f179"
+      },
+      {
+        "id": "stage0-day10:外",
+        "sha256": "76792fda41954ded863c23715cd750be0753b8b8a3bf0898332b37454adbe81d"
+      },
+      {
+        "id": "stage0-day10:隣",
+        "sha256": "dcc81d799f2543ff50d823954f5d4af18361dae476b33a832ece12107f0fbb65"
+      },
+      {
+        "id": "stage0-day10:右",
+        "sha256": "afbf480c2727a9bf799c815e1057b13e1ef9b87d052a54549cd666131987b524"
+      },
+      {
+        "id": "stage0-day10:左",
+        "sha256": "2c79ee773d415d4b90d8f8ae69cd2d5b2e7216426c8f9ecd667fc7a32c3d9c94"
+      },
+      {
+        "id": "stage0-day10:前",
+        "sha256": "b24016012bc579a6bb792da3fcdd86b8d95ad58e20a2c41410a3ed304c9342fc"
+      },
+      {
+        "id": "stage0-day10:後ろ",
+        "sha256": "528fe03738d28de1d55f87ad6dfff03e5a50de29d2f5c74c9f2de01129458263"
+      },
+      {
+        "id": "stage0-day11:半分",
+        "sha256": "f78fb4f49d2e4bb992346a1532870640a06998222ed57d212655213b39b8d53a"
+      },
+      {
+        "id": "stage0-day17:全部",
+        "sha256": "0d940821616ab88424561f7454aeb926608e60ee26ed098e619ccb67fbce203e"
+      },
+      {
+        "id": "general-listening-05:一部",
+        "sha256": "0a2ee8da776c8406ba1c8c87cbaad35940dab2084c67c57b8bde3104a8224282"
+      },
+      {
+        "id": "general-listening-38:最初",
+        "sha256": "c8025ad1943dd340f918ae1daba30501d976666c87887f96097a9ea47c1ce2a2"
+      },
+      {
+        "id": "general-listening-38:最後",
+        "sha256": "47cccb7569f1ffdc6b8911253418b9032d5caf96e2a00ed43826eef9ef6175ef"
+      },
+      {
+        "id": "anime-lesson-01:戦士",
+        "sha256": "c7b2fe71bc4ccf85032ac724c10c03ff651c63f1198cc7134a0cab5ea16d3794"
+      },
+      {
+        "id": "anime-lesson-01:飾り",
+        "sha256": "23c2ab1be0789cb1e4b2c072fecd3d07cc89709b7bb29ac0102aaf44b16b5ddd"
+      },
+      {
+        "id": "anime-lesson-03:笑う",
+        "sha256": "0779e6d5261579eb01971dd6aa8c9fbffc83d986fca03854df6dfe8f8f84fe04"
+      },
+      {
+        "id": "anime-lesson-04:断る",
+        "sha256": "fb130497a3278ec3b1252d024315dd7cdd36256bcdfc623c091f595930b59e10"
+      },
+      {
+        "id": "anime-lesson-04:嘘",
+        "sha256": "baa94a04fa06d675cc54c8c7d08408bcc8e6f0c5dd596b7ac1b87ae658738cc4"
+      },
+      {
+        "id": "anime-lesson-04:仲間",
+        "sha256": "40f0a35be91ef7464587c5d0247cc30eea24bd4787e54f6c3a97559ee73db3ba"
+      },
+      {
+        "id": "anime-lesson-04:信じる",
+        "sha256": "4a9e281ca4c07bff1caf82e5869da4165afda2745f81aed52e504d48761f3c7c"
+      },
+      {
+        "id": "anime-lesson-05:斬る",
+        "sha256": "742f0b913fc46dc6e78cd468ef404619f56f7303f6c4287856a1fd8c007dff21"
+      },
+      {
+        "id": "anime-lesson-05:防ぐ",
+        "sha256": "de0f5c78a7bcb97d38b31d4131445d2967446c0fa866e7bd7d4c046330730fda"
+      },
+      {
+        "id": "anime-lesson-05:避ける",
+        "sha256": "8291a7c5cdd78d2607e709cba6c0690ea21dbaaf3e3f612a50cd6022588f8250"
+      },
+      {
+        "id": "anime-lesson-05:守る",
+        "sha256": "5f906345dc8fc6eebac84247d8d5e5e5fa39c1b9e14df6b86761be6736e55011"
+      },
+      {
+        "id": "anime-lesson-05:戦う",
+        "sha256": "302a4538e901b8b508b16ee7dc9964dff15415fb8d251bfc570901916569cf9e"
+      },
+      {
+        "id": "anime-lesson-06:結界",
+        "sha256": "a424095c497eb7ac13f44cccc341437ed7f9faf46165447b757bc576304c2c61"
+      },
+      {
+        "id": "anime-lesson-06:封印",
+        "sha256": "c6a45f2e18db9c1873083bafaa2c061aeaa5fe4cb7fc13b5fb117adf1b5fe443"
+      },
+      {
+        "id": "anime-lesson-06:解除",
+        "sha256": "a309d2c350ef126c91968cf78dffc3873fe83b6ae8dccdc08c94c1bde441b804"
+      },
+      {
+        "id": "anime-lesson-06:契約",
+        "sha256": "38a959ee31eae2aae799c0872999ae27250d496cf02a27eab22b1cef8ba49c3e"
+      },
+      {
+        "id": "anime-lesson-07:証拠",
+        "sha256": "a484e4ed0c099a03609e8b8f818c31bfbbe95e228415f725823b4afd9093077d"
+      },
+      {
+        "id": "anime-lesson-07:選ぶ",
+        "sha256": "0c840411a97061b671ef21308bf13b526be81438b6bd43acc881411be9d1525d"
+      },
+      {
+        "id": "anime-lesson-07:気付く",
+        "sha256": "0dd262db78d8827111952f0ad4053100c70db2518281a0ab9a72d01a089c2495"
+      },
+      {
+        "id": "anime-lesson-08:毒",
+        "sha256": "2d276bb7b42e38dba60b862646a864fb7d291bda1db3838ea919a9ef54ce43ba"
+      },
+      {
+        "id": "general-listening-14:棚",
+        "sha256": "dd1a311f954a454c36dd2a4c76cac8f1bcf6fd42933311e242eae223d1f25b05"
+      },
+      {
+        "id": "general-listening-14:壁",
+        "sha256": "db4bf9db6da36328b992b4c96eef8583eb1aaaf8eab084e6a52ec971deea7be3"
+      },
+      {
+        "id": "general-listening-14:床",
+        "sha256": "a86d0ba4c7888e9a8243eba057666c76943adaa0b4e64b9da7c566d5c51313f8"
+      },
+      {
+        "id": "general-listening-16:工具",
+        "sha256": "68c9b060c47b40b2a4360811f442c9810b6340c6eab24fee1dfa623951ed7b2f"
+      },
+      {
+        "id": "general-listening-20:画面",
+        "sha256": "76ac4ba46828196d8452c609d7c9498418a2c3f8b5d273adcc2d43b1db945b2a"
+      },
+      {
+        "id": "general-listening-21:雷",
+        "sha256": "3b6965f6570338e6b81c8e071f11b56105c975b04a38b5ac646655d9095b7d27"
+      },
+      {
+        "id": "general-listening-30:港",
+        "sha256": "ec8e76c7ffb67ed0dde04c16c7125d7a6ebcd4a01a0b5d22b4f2b370509e3759"
+      },
+      {
+        "id": "general-listening-51:掲示板",
+        "sha256": "f3ec271bfc20b33411d2d3d18071c3afc95131764d9fbbd3ef51a119321b6b85"
+      },
+      {
+        "id": "general-listening-61:電池",
+        "sha256": "db924a8e06a9d430b20f8f773505732a6a66b41362fb57c516f391fc4e961a15"
+      },
+      {
+        "id": "general-listening-67:岩",
+        "sha256": "f5b8f589cacb85c16f58aa4b8f23183913d12396b1a151b4d88a69d90fcd2b75"
+      },
+      {
+        "id": "general-listening-68:手袋",
+        "sha256": "5b6d9afde9222f153fae7890e86dd46a21014a31d0c28c979a34b27f63f68831"
+      },
+      {
+        "id": "general-listening-69:旗",
+        "sha256": "028e6cee5b67245e29dcfb702add151662ca33c06f9e03977fe7f8f10bed03d8"
+      },
+      {
+        "id": "general-listening-70:枝",
+        "sha256": "d77e63159c4c2e6b88f3968703797ae20ed3ab51c07726dc085d13b868a85702"
+      },
+      {
+        "id": "general-listening-70:影",
+        "sha256": "a80f4bbad73448d47979e6fe8de097c7415a2a6da2c89f447ee0b634be8c553b"
+      },
+      {
+        "id": "general-listening-71:塔",
+        "sha256": "33b1c668d157269cd9cde5dd2ee2e9656f60c273de88d6a93fe7a1ecc8675eea"
+      },
+      {
+        "id": "general-listening-71:屋根",
+        "sha256": "9cf56a4d6ca83ce6e95b564d92161026e343b5f7431423b07a46f5125e811319"
+      },
+      {
+        "id": "general-listening-72:星",
+        "sha256": "7775f2593b17bf1baaa6909eeb3166bd441bec3a66206ecf413964670d721552"
+      },
+      {
+        "id": "general-listening-74:天井",
+        "sha256": "8331ba1ec8dacaa17c3b235c96ffb1ebf4830abb7c00877c5baa440245d04624"
+      },
+      {
+        "id": "general-listening-78:鐘",
+        "sha256": "ae40bc1db63ef8316ef0cf2f95c286d03ba7729bb8a8dffc91680612d0298ebf"
+      },
+      {
+        "id": "general-listening-79:端末",
+        "sha256": "bff32b879573366ba6bd21094e331d89fd234f00caa81c3ced8e403401cb8045"
+      },
+      {
+        "id": "general-listening-116:瓶",
+        "sha256": "d14803d868ab3449b176e9a157d056ad8b89cefb8e0c525b062f08c021211672"
+      },
+      {
+        "id": "general-listening-123:矢",
+        "sha256": "8933775b30b06f903b8b6adba759d2caf5595047923149eb4e09f6ec336d517e"
+      },
+      {
+        "id": "general-listening-124:炎",
+        "sha256": "bf459880760c668a5d6533cd6ce4a98be3667113344465a4a886dbf39dfbedd7"
+      },
+      {
+        "id": "general-listening-124:氷",
+        "sha256": "c431fbb840057818f999ed62ebd998f5171c17043e35c01714b2a31b0865493b"
+      },
+      {
+        "id": "general-listening-146:宝石",
+        "sha256": "ed40490c371082c58cbf213b0b92319bd921595af2f6f1b33aaae76c31987874"
+      },
+      {
+        "id": "general-listening-04:予約",
+        "sha256": "0c9beef77bc844dc52d9667a013a54fe9fe6853aae55e7b6b668acf08a349a52"
+      },
+      {
+        "id": "general-listening-04:払う",
+        "sha256": "e0bcf750a4066db8ef1035efe29d7a19309f1a1fda6708e3b4279c3669bdca16"
+      },
+      {
+        "id": "general-listening-08:運ぶ",
+        "sha256": "d27225998740e6d20fd4036b18fb9fb4db2e34a9b52c3140a1b42a47f17bb8c8"
+      },
+      {
+        "id": "general-listening-08:減らす",
+        "sha256": "a3f328055f6f83ba4be5a20e9b031b3d4aa29bced0523ef75390f2feea9e5a27"
+      },
+      {
+        "id": "general-listening-08:分ける",
+        "sha256": "e720754c089b57682a751f3b21c013d0a3ed3c716bba82344cfcb384f2b7b4f7"
+      },
+      {
+        "id": "general-listening-03:急ぐ",
+        "sha256": "aeb1865ab5fed805b290c61ca8a9fc23b756ca9fa3b18d713588730109b8e21d"
+      },
+      {
+        "id": "general-listening-06:確認",
+        "sha256": "b7efa4a28fe269c2983cfc4673beb707273b3f12148decb2eac6042670b0b690"
+      },
+      {
+        "id": "general-listening-05:安全",
+        "sha256": "854a6174e007dd78f88b626339556a96e6a96033b255056d5b9eb2e2d58c0064"
+      },
+      {
+        "id": "general-listening-06:濡れる",
+        "sha256": "74f998824f2656aff95a4353b23102d5770b921c4966246c4b12de761292263c"
+      },
+      {
+        "id": "general-listening-06:乾く",
+        "sha256": "ce63bb304318fa8038d0b65f20205825cc353be68f50ae65df246603db7fa87c"
+      },
+      {
+        "id": "game-card:game:er:hart:selection-voice:4ef596e51f:4ef596e51f",
+        "sha256": "0ff2a0804fe4e4133f5ccf234c0006ea6803ed4f1f074572a3b803dbf9529d9f"
+      },
+      {
+        "id": "game-card:game:er:hart:selection-voice:1794da56b4:1794da56b4",
+        "sha256": "4cea9cf7fa344f05ffc67234a1425e0f7fbe16e429b0e466fcb814dc548efbb2"
+      },
+      {
+        "id": "game-card:game:er:silvia:selection-voice:0f1f8a4534:0f1f8a4534",
+        "sha256": "0b7c019b12466a9fc05209768da6fbb0abe623eddcf6ace1d337cdbb26a955ab"
+      },
+      {
+        "id": "game-card:game:genshin:aino:burst:44b0c417c7",
+        "sha256": "9320c0f7f232b797dbd3c8f32cad86a30007333e172b6305c88d8c6815720bde"
+      },
+      {
+        "id": "game-card:game:er:alonso:selection-voice:c44c74a562:c44c74a562",
+        "sha256": "7aadb6c2960a4f2fa00b0c826977fb6708fd4082e3ff7dd80c6f19ff27e2e296"
+      }
+    ]
+  },
+  "manifest": [
+    {
+      "id": "stage0-day3:部屋",
+      "src": "images/vocab/room.svg",
+      "bytes": 469,
+      "sha256": "5822a4eb80a8ac2666854b3da31a1d71fb2b2ef1d1fd629665fadcc983b529b5"
+    },
+    {
+      "id": "stage0-day3:トイレ",
+      "src": "images/vocab/toilet.svg",
+      "bytes": 477,
+      "sha256": "e2d3d8bb47d14fb952d1ca7d237b7ded5355efb1b0da5366ca96adb1ae4ae2c9"
+    },
+    {
+      "id": "stage0-day3:入口",
+      "src": "images/vocab/entrance.svg",
+      "bytes": 642,
+      "sha256": "a6e03e2ffe82404318a991e8e679810340e048a4191a25aab93e9a8bead8e57c"
+    },
+    {
+      "id": "stage0-day3:出口",
+      "src": "images/vocab/exit.svg",
+      "bytes": 643,
+      "sha256": "6c908240596d8b52987e8768d34d3eccb3f3eab36787f5bc473c6e2fe32e2541"
+    },
+    {
+      "id": "stage0-day3:デパート",
+      "src": "images/vocab/departmentstore.svg",
+      "bytes": 896,
+      "sha256": "c6568f7a00a82d391fed88f99a3c174e041ad9bcb4f829626c828ae6b03f1e46"
+    },
+    {
+      "id": "general-listening-07:傷",
+      "src": "images/vocab/wound.svg",
+      "bytes": 502,
+      "sha256": "6bca790a8a69c6700f581d776e9ccc2e13883ac08f9b54329c0a93cb8920e8c6"
+    },
+    {
+      "id": "stage0-day3:会社",
+      "src": "images/vocab/company.svg",
+      "bytes": 824,
+      "sha256": "427a91048ca02b7482fd3593025448872f9151913af58468b07d5bd52dc96409"
+    },
+    {
+      "id": "stage0-day5:地下鉄",
+      "src": "images/vocab/subway.svg",
+      "bytes": 620,
+      "sha256": "177c8eb62434746c6886b8ff783ca66b12855e425d078571521708fe539986df"
+    },
+    {
+      "id": "stage0-day5:タクシー",
+      "src": "images/vocab/taxi.svg",
+      "bytes": 561,
+      "sha256": "168ffba5d4092ddd1781707db64450532353a6436ac18542507b2768f7f7e061"
+    },
+    {
+      "id": "stage0-day6:野菜",
+      "src": "images/vocab/vegetables.svg",
+      "bytes": 567,
+      "sha256": "b6a72f09bf0e5edecb3c2b7bc86945b32eb05663e3385439cef1b3307b1f0179"
+    },
+    {
+      "id": "stage0-day6:果物",
+      "src": "images/vocab/fruit.svg",
+      "bytes": 490,
+      "sha256": "310bbc2524d20dd6c59422eb9f18f107de9ff683c98e6f5ba533460ceac83db2"
+    },
+    {
+      "id": "stage0-day6:お茶",
+      "src": "images/vocab/tea.svg",
+      "bytes": 422,
+      "sha256": "feacb3cdce51fd16788cf4fe366ceec05c50f1d9ad082bb6d0c5726d15f79822"
+    },
+    {
+      "id": "stage0-day6:水",
+      "src": "images/vocab/water.svg",
+      "bytes": 421,
+      "sha256": "532ef9653f4b3e704b28550b455096b016f0d449e2414660ed2f15b4fabd36c4"
+    },
+    {
+      "id": "stage0-day6:お酒",
+      "src": "images/vocab/alcohol.svg",
+      "bytes": 480,
+      "sha256": "a663b60020b21e732458ed581e4a50746b2b8092f8edd74499cd4d3e6e8404c8"
+    },
+    {
+      "id": "stage0-day6:映画",
+      "src": "images/vocab/movie.svg",
+      "bytes": 573,
+      "sha256": "6af1c836152ca5236a8676d6ecf5fe668802f9847d70f2194295193f8cc5acc3"
+    },
+    {
+      "id": "stage0-day6:音楽",
+      "src": "images/vocab/music.svg",
+      "bytes": 522,
+      "sha256": "b7a7ab7eb500860bd0f9fdf9da40fba041b8879e698d63430d3320d1f7ce9ac6"
+    },
+    {
+      "id": "stage0-day6:喫茶店",
+      "src": "images/vocab/cafe.svg",
+      "bytes": 558,
+      "sha256": "c5cbc7af56824fccc237c51cb3738c1cdfa62e56ea27d462e2c2dfd9fc480c2b"
+    },
+    {
+      "id": "stage0-day7:葉書",
+      "src": "images/vocab/postcard.svg",
+      "bytes": 504,
+      "sha256": "05d17c3e648c3b36667176955b1d48dbacf6b23451bc55c7a0cefa50a2aff5ad"
+    },
+    {
+      "id": "stage0-day7:荷物",
+      "src": "images/vocab/luggage.svg",
+      "bytes": 469,
+      "sha256": "33038b5d247f7978b25e8c618672e15fbd9baa2467829ecaa7b2c57d3097624e"
+    },
+    {
+      "id": "stage0-day7:お金",
+      "src": "images/vocab/money.svg",
+      "bytes": 524,
+      "sha256": "6312f9f9bec1f2bb5abe4aeb6f098303e4a1848b5899b8b551ab50bed6389266"
+    },
+    {
+      "id": "stage0-day7:ちゃわん",
+      "src": "images/vocab/ricebowl.svg",
+      "bytes": 475,
+      "sha256": "89af835f7f0b92d46fd12c138113f2ef941aa3a649b33a19f14725efcb598706"
+    },
+    {
+      "id": "stage0-day7:カップ",
+      "src": "images/vocab/handledcup.svg",
+      "bytes": 453,
+      "sha256": "c3462bbc7e058128c1972f720b609e640adc95466479c9b3c1317579043531b1"
+    },
+    {
+      "id": "stage0-day7:紅茶",
+      "src": "images/vocab/blacktea.svg",
+      "bytes": 617,
+      "sha256": "04e4c1d64ccc16bd03e5c4a9e7ae998eba34ed2b47fdb7dd3b35b92cc809b8c6"
+    },
+    {
+      "id": "stage0-day7:砂糖",
+      "src": "images/vocab/sugar.svg",
+      "bytes": 601,
+      "sha256": "821d0b7f4c3770f77658f57ccab264bcfc89fe0fdabaf95fea8250c55bde0097"
+    },
+    {
+      "id": "stage0-day7:塩",
+      "src": "images/vocab/salt.svg",
+      "bytes": 721,
+      "sha256": "f470c565793c24fcae810e76480cd663e0239203ab1ca14787c12cec8e6f1769"
+    },
+    {
+      "id": "stage0-day7:しょうゆ",
+      "src": "images/vocab/soysauce.svg",
+      "bytes": 548,
+      "sha256": "198cc92c50d2d8a90c5abeb666691443467fad591dac9a93c05cb288103f145f"
+    },
+    {
+      "id": "stage0-day7:バター",
+      "src": "images/vocab/butter.svg",
+      "bytes": 521,
+      "sha256": "78bf175c2a8239f7ed3f4bce7fa1531c4636c12c7e48c04ff4b2dda6ed65e31a"
+    },
+    {
+      "id": "stage0-day7:お菓子",
+      "src": "images/vocab/snacks.svg",
+      "bytes": 611,
+      "sha256": "bef160772338ab4d356120e323321cd9c5361f148ca32a9d9dd1c9e2f93cec5a"
+    },
+    {
+      "id": "stage0-day9:ギター",
+      "src": "images/vocab/guitar.svg",
+      "bytes": 519,
+      "sha256": "e85a4f505e4491838d9185f2ea14410c6ac22b073ec3b44192d976f9d468a824"
+    },
+    {
+      "id": "stage0-day9:絵",
+      "src": "images/vocab/painting.svg",
+      "bytes": 513,
+      "sha256": "7599f3528446693f20dfffa29d0040eed04d58b9439809f8dc6f068e7ee25aa8"
+    },
+    {
+      "id": "stage0-day10:家",
+      "src": "images/vocab/home.svg",
+      "bytes": 576,
+      "sha256": "730e6a0c56411a1764a93e1a4da9c56f7761710b62f9c7dd98104da30d6dd97b"
+    },
+    {
+      "id": "stage0-day10:庭",
+      "src": "images/vocab/garden.svg",
+      "bytes": 764,
+      "sha256": "70191b0761ea3a3cfb4b38c7b7ae2916ec77ceb798af3fcdbeba0f0482e543c4"
+    },
+    {
+      "id": "stage0-day10:台所",
+      "src": "images/vocab/kitchen.svg",
+      "bytes": 672,
+      "sha256": "c4e2cc4fc2ec24670e2628a1133a8cc71bf57183731e0c72a4ac4f8fec6d3143"
+    },
+    {
+      "id": "stage0-day10:ベッド",
+      "src": "images/vocab/bed.svg",
+      "bytes": 472,
+      "sha256": "f1b2b0a89f6829387cb70eb78ac039f36cb9ed362f5d2467f13d677fc675e51c"
+    },
+    {
+      "id": "stage0-day10:本棚",
+      "src": "images/vocab/bookshelf.svg",
+      "bytes": 885,
+      "sha256": "d58b120b61ed126a1a6a4fda4f81f88c87929c9f813c745037b8f578a36f4943"
+    },
+    {
+      "id": "stage0-day10:ストーブ",
+      "src": "images/vocab/heater.svg",
+      "bytes": 825,
+      "sha256": "201e98486ede032f3b757533f89e586b7ac038f13ab9e16e1b3b20a14e2adf44"
+    },
+    {
+      "id": "stage0-day10:テーブル",
+      "src": "images/vocab/table.svg",
+      "bytes": 377,
+      "sha256": "695998d231f51490197a5c80f133fb7c71e9b8131cbd522bc0bc646717eb02f8"
+    },
+    {
+      "id": "stage0-day10:箱",
+      "src": "images/vocab/boxobject.svg",
+      "bytes": 377,
+      "sha256": "a6adf7358fe8fa326bbc4474b5b868e6a1f29bb7cc48200596c966f5bcffaa3e"
+    },
+    {
+      "id": "stage0-day10:鳥",
+      "src": "images/vocab/bird.svg",
+      "bytes": 534,
+      "sha256": "4d6f132239f4ddbe76b8809f669f3ffb7e473d59a0f8b2cec57f9f9b0354c461"
+    },
+    {
+      "id": "stage0-day12:雨",
+      "src": "images/vocab/rain.svg",
+      "bytes": 687,
+      "sha256": "afaccd09d163ecc39180fc11055b01ae9af8044a6480c2e53140b0bdc1ab76b2"
+    },
+    {
+      "id": "stage0-day12:雪",
+      "src": "images/vocab/snow.svg",
+      "bytes": 533,
+      "sha256": "92025aba078bf34b97262e335feac4f571ded4661d9121608c12e3aa76a57a8a"
+    },
+    {
+      "id": "stage0-day12:風",
+      "src": "images/vocab/wind.svg",
+      "bytes": 451,
+      "sha256": "8f87c672acb6d6c90634fd80e4d95520656106a131da4ad7fa26fe35125c2c41"
+    },
+    {
+      "id": "stage0-day12:曇り",
+      "src": "images/vocab/cloudy.svg",
+      "bytes": 412,
+      "sha256": "b3e761e24a1bbe6bc3be316151e3f83aa7c9f788c73e1cfb78165d8a9aaea471"
+    },
+    {
+      "id": "stage0-day12:晴れ",
+      "src": "images/vocab/sunny.svg",
+      "bytes": 674,
+      "sha256": "89352a6ef5e2d7e71bee118e482aa52c718330adcebe8240c5cbda466c3bdcf7"
+    },
+    {
+      "id": "stage0-day12:空",
+      "src": "images/vocab/sky.svg",
+      "bytes": 730,
+      "sha256": "d72e9f59234f9ad1bb55b68459b48668ff8cabfa56c7534c87b2ae086bdc321a"
+    },
+    {
+      "id": "stage0-day12:海",
+      "src": "images/vocab/sea.svg",
+      "bytes": 873,
+      "sha256": "123a592482b261b85a6fc16816ce9763a4c772b589835c51d12ed99ab7d86929"
+    },
+    {
+      "id": "stage0-day12:川",
+      "src": "images/vocab/river.svg",
+      "bytes": 420,
+      "sha256": "3b2651e18e226bb9c2aac2d97010813138addbf221ee27e339ea84c659cf2ea2"
+    },
+    {
+      "id": "stage0-day12:池",
+      "src": "images/vocab/pond.svg",
+      "bytes": 551,
+      "sha256": "503770055f33a14e8deed4deccfac552636a78ef9b36e56a3bc077dfa7c651de"
+    },
+    {
+      "id": "stage0-day12:木",
+      "src": "images/vocab/tree.svg",
+      "bytes": 488,
+      "sha256": "d774a73f1c34419f39474327b5b2b66532e36c8d1c791994ae58c5f60f4691d1"
+    },
+    {
+      "id": "stage0-day12:春",
+      "src": "images/vocab/spring.svg",
+      "bytes": 911,
+      "sha256": "2c2dc7b36fbb2abda1006088b2d397651557907fd64373661a9b7bcc28f099c7"
+    },
+    {
+      "id": "stage0-day12:夏",
+      "src": "images/vocab/summer.svg",
+      "bytes": 820,
+      "sha256": "630a2f49289af64b6e8b7f2856a853f0c736ccc0960af04839e76384a87d0466"
+    },
+    {
+      "id": "stage0-day12:秋",
+      "src": "images/vocab/autumn.svg",
+      "bytes": 586,
+      "sha256": "428482dccc780cd50a9ef09f686c40fbcc3a1ca4dd510c56b2ed2fadbc98c61e"
+    },
+    {
+      "id": "stage0-day12:冬",
+      "src": "images/vocab/winter.svg",
+      "bytes": 686,
+      "sha256": "100086e3fe0f353263e73e1386b2615c71baf7f606a96cdc57c1582876e81f1d"
+    },
+    {
+      "id": "stage0-day13:靴下",
+      "src": "images/vocab/socks.svg",
+      "bytes": 440,
+      "sha256": "5375417e459e484a08921486e12838f894f3e02b1b6ff8a5bf77634c7a4f7419"
+    },
+    {
+      "id": "stage0-day13:ネクタイ",
+      "src": "images/vocab/necktie.svg",
+      "bytes": 411,
+      "sha256": "d85c7b65c6a1036065ace151cf8a46c075c88755fb059e4c2bfc0c5137fb38f1"
+    },
+    {
+      "id": "stage0-day13:シャツ",
+      "src": "images/vocab/shirt.svg",
+      "bytes": 384,
+      "sha256": "de0c72c8cabb327541c6e94656ce9377aa0705e9542a5bcc791854e694fdf948"
+    },
+    {
+      "id": "stage0-day13:ワイシャツ",
+      "src": "images/vocab/dressshirt.svg",
+      "bytes": 563,
+      "sha256": "efe1ebbe2db7c3a736b901db65f17974f453e98642b2fb69b07ce561684c8269"
+    },
+    {
+      "id": "stage0-day13:セーター",
+      "src": "images/vocab/sweater.svg",
+      "bytes": 540,
+      "sha256": "f61d9f73822663c3521e53976d77122d6d0fac5f1e30b2f4a575f1e45e2d5b4f"
+    },
+    {
+      "id": "stage0-day13:スカート",
+      "src": "images/vocab/skirt.svg",
+      "bytes": 425,
+      "sha256": "87f75ad18dacb226ded024122adb2dcbee1942cced247337aad0ec9c120575ad"
+    },
+    {
+      "id": "stage0-day13:ズボン",
+      "src": "images/vocab/trousers.svg",
+      "bytes": 374,
+      "sha256": "720e7e8b6ba9071ef95e2d0eaf5c396a53ce5c801e4dca7ab57ad6a3d973d92f"
+    },
+    {
+      "id": "stage0-day13:コート",
+      "src": "images/vocab/coat.svg",
+      "bytes": 482,
+      "sha256": "49bb050fee5fb2ef2e2acc07f2c719afd8e070b1e288215e6ddf6fc97827af11"
+    },
+    {
+      "id": "stage0-day13:ハンカチ",
+      "src": "images/vocab/handkerchief.svg",
+      "bytes": 384,
+      "sha256": "0a889162e25a127b07f0671a6fbad518f069c628be61003877cfe3e7ee838b82"
+    },
+    {
+      "id": "stage0-day13:ポケット",
+      "src": "images/vocab/pocket.svg",
+      "bytes": 422,
+      "sha256": "cd3845f1e35c9252d417f6183319f8aa0df1ff1495f2a3365811e417dda1b0a0"
+    },
+    {
+      "id": "stage0-day13:映画館",
+      "src": "images/vocab/cinema.svg",
+      "bytes": 900,
+      "sha256": "496a607f746b5376eaca105e77952e7158d2698b5414afc3cd0a6109535db2ae"
+    },
+    {
+      "id": "stage0-day13:プール",
+      "src": "images/vocab/pool.svg",
+      "bytes": 476,
+      "sha256": "3ee76888c2fede6a0d2829e8db9883e29194f5e7fa908f2b2e330eb003ef853c"
+    },
+    {
+      "id": "stage0-day13:町",
+      "src": "images/vocab/town.svg",
+      "bytes": 736,
+      "sha256": "55e315237b8ff60e9b8d152c1d632ca83b2dd1b98a38dcd792270571b08bbba2"
+    },
+    {
+      "id": "stage0-day13:村",
+      "src": "images/vocab/village.svg",
+      "bytes": 698,
+      "sha256": "644d686b9bab0a9f1dcb3486f7d9eb2dee2aebe0e4c1b3fa0794afc90c87e44d"
+    },
+    {
+      "id": "stage0-day13:店",
+      "src": "images/vocab/shop.svg",
+      "bytes": 648,
+      "sha256": "1a00938eadbf6995ee4649916c1a677cb63224cae35eb88fc226c18ff01dcadb"
+    },
+    {
+      "id": "stage0-day13:八百屋",
+      "src": "images/vocab/greengrocer.svg",
+      "bytes": 637,
+      "sha256": "8a010ef1a2c162ba5d98d6e782f887927bb724cea2eead828ba5ee59e823167c"
+    },
+    {
+      "id": "stage0-day14:写真",
+      "src": "images/vocab/photograph.svg",
+      "bytes": 491,
+      "sha256": "2c2e7158853b94907b4552655ab13ded8a26a863127598e01f0f86018c937d44"
+    },
+    {
+      "id": "stage0-day14:道",
+      "src": "images/vocab/road.svg",
+      "bytes": 429,
+      "sha256": "240af88eb62f9d804c99d905955222c6067c98cc97db5f80ad33c4e22e7eef83"
+    },
+    {
+      "id": "stage0-day14:角",
+      "src": "images/vocab/corner.svg",
+      "bytes": 430,
+      "sha256": "a0c36c1ea806064c2b7c33fbb0bc749f5835d38014e57a223a40167acf5591b8"
+    },
+    {
+      "id": "stage0-day14:交差点",
+      "src": "images/vocab/crossroads.svg",
+      "bytes": 448,
+      "sha256": "8448f98df4a06b050a2786a908a900d1f89ec5d8abc37c9450ebb78c423aa818"
+    },
+    {
+      "id": "stage0-day14:交番",
+      "src": "images/vocab/policebox.svg",
+      "bytes": 639,
+      "sha256": "4af664517d9ee655ac2c5d7ea3906475c13a1aeaf6d7b123a127d69034379990"
+    },
+    {
+      "id": "stage0-day15:医者",
+      "src": "images/vocab/doctor.svg",
+      "bytes": 641,
+      "sha256": "1972b2f50b88370d7fc9e4b13f3010b9d666298d92e2223820cc461881241f56"
+    },
+    {
+      "id": "stage0-day15:警官",
+      "src": "images/vocab/policeofficer.svg",
+      "bytes": 635,
+      "sha256": "8eb7943f4858df0eed2e97bf96aec638632469985579c9c7a12be7269ea4f866"
+    },
+    {
+      "id": "stage0-day15:大学",
+      "src": "images/vocab/university.svg",
+      "bytes": 550,
+      "sha256": "c0fd1028ea56d921fdb68f6f1fb14088c31358ea87dcc3e8fd4ceeca9ac68c79"
+    },
+    {
+      "id": "stage0-day15:宿題",
+      "src": "images/vocab/homework.svg",
+      "bytes": 833,
+      "sha256": "48f36267223feea4257eaa3c62831961bc1cd514c226ecabfbbf2735a4e0c489"
+    },
+    {
+      "id": "stage0-day15:テスト",
+      "src": "images/vocab/exam.svg",
+      "bytes": 781,
+      "sha256": "e4b3da33b9ce0882acb40d7be146fdfd2fc4265c6b232cf1541c3bea5e22d339"
+    },
+    {
+      "id": "stage0-day15:アパート",
+      "src": "images/vocab/apartment.svg",
+      "bytes": 830,
+      "sha256": "62292c597aca3e46c4e15c25922be06251b555664f947e718e15e8feabfda643"
+    },
+    {
+      "id": "stage0-day15:ホテル",
+      "src": "images/vocab/hotel.svg",
+      "bytes": 943,
+      "sha256": "4d28086a388ce26f6b147507aa4e60159c7d5f28d34e03c5f9ae7c3f8b0256d6"
+    },
+    {
+      "id": "stage0-day16:シャワー",
+      "src": "images/vocab/shower.svg",
+      "bytes": 711,
+      "sha256": "8a44be36749eec106289d4fcaba790a6f75b700a27faead011116bed8f6382c0"
+    },
+    {
+      "id": "stage0-day16:お風呂",
+      "src": "images/vocab/bath.svg",
+      "bytes": 467,
+      "sha256": "ea01d32fbfde3134a55b1074426cd48402b818725ccd192dd77861baa7ff6b9d"
+    },
+    {
+      "id": "stage0-day16:顔",
+      "src": "images/vocab/face.svg",
+      "bytes": 529,
+      "sha256": "ec205bf9f99029c6dd52d905c837704a44daadfa1b4443202e238eab49f0a9e0"
+    },
+    {
+      "id": "stage0-day16:頭",
+      "src": "images/vocab/head.svg",
+      "bytes": 498,
+      "sha256": "3bcfb74c92cdeba1fc650ccbb6d37ef2e0adaa9fb17a59ca4150c419d23f4933"
+    },
+    {
+      "id": "stage0-day16:目",
+      "src": "images/vocab/eye.svg",
+      "bytes": 519,
+      "sha256": "2441a543daa0056b556d8f6c95332e1c02d8ee0d8d156dd758f2dd481bc0e340"
+    },
+    {
+      "id": "stage0-day16:耳",
+      "src": "images/vocab/ear.svg",
+      "bytes": 440,
+      "sha256": "0bb08d64aad617ed4ec9357f04a5cc7bbd63b26708136884017c5d43e20f10c0"
+    },
+    {
+      "id": "stage0-day16:口",
+      "src": "images/vocab/mouth.svg",
+      "bytes": 422,
+      "sha256": "efe9651ddf12d31156f90304047fa42dadcbdfd74c0884801fb7795959eb9663"
+    },
+    {
+      "id": "stage0-day16:鼻",
+      "src": "images/vocab/nose.svg",
+      "bytes": 401,
+      "sha256": "e4546b327c7d638210f09daf6a38259a8dcb3190c8fd68433201063bb34eed13"
+    },
+    {
+      "id": "stage0-day16:歯",
+      "src": "images/vocab/tooth.svg",
+      "bytes": 423,
+      "sha256": "c4138d914e9fd334bb610cafc1960712b50cd03b7041115aa4764ec6a1f4e017"
+    },
+    {
+      "id": "stage0-day16:手",
+      "src": "images/vocab/hand.svg",
+      "bytes": 425,
+      "sha256": "49ab5d69e8ae984f5029623aa3a1fab96bf0d10f939726c45e1dbd3085c2b93d"
+    },
+    {
+      "id": "stage0-day16:足",
+      "src": "images/vocab/foot.svg",
+      "bytes": 434,
+      "sha256": "16c838bee0194e8963cc18461a6577492436d514ddd5a8d2caa926dcdbec8ffa"
+    },
+    {
+      "id": "stage0-day16:体",
+      "src": "images/vocab/body.svg",
+      "bytes": 393,
+      "sha256": "bd2e7ef28554dbbf3da664ca8d15e011d164ed9776969c84039f5ea175deed0f"
+    },
+    {
+      "id": "stage0-day16:おなか",
+      "src": "images/vocab/belly.svg",
+      "bytes": 484,
+      "sha256": "5131c9321fc05e12273c13bdd9d4c07d155ec15f35fd16cfe6a63fd7bbd8fd2f"
+    },
+    {
+      "id": "stage0-day17:薬",
+      "src": "images/vocab/medicine.svg",
+      "bytes": 587,
+      "sha256": "fcf153e2d3e05c4df929dc0dd86aef010ad97b2bae8c8bae6759c1c9923d13e3"
+    },
+    {
+      "id": "stage0-day17:電気",
+      "src": "images/vocab/electricity.svg",
+      "bytes": 458,
+      "sha256": "83821d0da27ee25824c8c0f0f13d4182b9c8b67d4c8da27c22554ec7687cec4c"
+    },
+    {
+      "id": "stage0-day19:カレンダー",
+      "src": "images/vocab/calendar.svg",
+      "bytes": 482,
+      "sha256": "90a0e94cd37359f6c6d266e30143fd6786bb3600afbf7313115ae26f70067cea"
+    },
+    {
+      "id": "stage0-day19:切符",
+      "src": "images/vocab/ticket.svg",
+      "bytes": 483,
+      "sha256": "84e3372f17ced2684941354a9f60d5ef6c14b3d1cc036c1b0fbb51bb0299bfc0"
+    },
+    {
+      "id": "stage0-day22:建物",
+      "src": "images/vocab/building.svg",
+      "bytes": 650,
+      "sha256": "26605f97049309c326ef1d1efa4c35853312ce7dda587df05fce09f191c4751e"
+    },
+    {
+      "id": "stage0-day22:玄関",
+      "src": "images/vocab/entryhall.svg",
+      "bytes": 564,
+      "sha256": "d35913b4b674d3ee05bc2f993ffe256676c7cab4d99c4ac1a4c50e4b5e2dd0e8"
+    },
+    {
+      "id": "stage0-day22:廊下",
+      "src": "images/vocab/corridor.svg",
+      "bytes": 465,
+      "sha256": "00511ac4a5f726f69703d8d4a1948eb2b883284fa1f61b39cd744eb8f3577476"
+    },
+    {
+      "id": "stage0-day22:門",
+      "src": "images/vocab/gate.svg",
+      "bytes": 507,
+      "sha256": "ab5d6bd56312454a7dea69ed1a65300cc546695f8b5a240ada7cc9c3c206d896"
+    },
+    {
+      "id": "stage0-day22:ポスト",
+      "src": "images/vocab/mailbox.svg",
+      "bytes": 550,
+      "sha256": "4423d516d133866c3a574efd452090802465efcded6682ba0f9f848554d779ac"
+    },
+    {
+      "id": "stage0-day22:紙",
+      "src": "images/vocab/paper.svg",
+      "bytes": 335,
+      "sha256": "8075d6195f78c55e7fbfa81585d56d9c8481444d6c55e512abc5e36c92c5344d"
+    },
+    {
+      "id": "stage0-day22:万年筆",
+      "src": "images/vocab/fountainpen.svg",
+      "bytes": 462,
+      "sha256": "62e6c6b0534a1cff4b35b368448cb2d8629f6cb1a245077186f1d615ba8f24d7"
+    },
+    {
+      "id": "stage0-day22:マッチ",
+      "src": "images/vocab/matches.svg",
+      "bytes": 470,
+      "sha256": "9435c996a21abc39f02668affbe310780f0e4ee585abdf33779f0b6d7805dcc2"
+    },
+    {
+      "id": "stage0-day22:灰皿",
+      "src": "images/vocab/ashtray.svg",
+      "bytes": 694,
+      "sha256": "1ffa56e0834b5245fbc072d697560d4b987a2f4c086e3a491d0cc0d8dba7a647"
+    },
+    {
+      "id": "stage0-day22:スリッパ",
+      "src": "images/vocab/slippers.svg",
+      "bytes": 458,
+      "sha256": "0b4901f4d5f47b2136953cf337c59aca4b76077d8b8340553293a46100865d34"
+    },
+    {
+      "id": "stage0-day22:テープレコーダー",
+      "src": "images/vocab/taperecorder.svg",
+      "bytes": 736,
+      "sha256": "a328db38af5d656876b8325148108163172b28d91b7fed80e80069bdf88f4463"
+    },
+    {
+      "id": "stage0-day22:レコード",
+      "src": "images/vocab/vinylrecord.svg",
+      "bytes": 563,
+      "sha256": "c2a3e8b1f80653a68c7c4db60a337dd60c57bf545445a5b1df7860c89a3b36ca"
+    },
+    {
+      "id": "stage0-day22:フィルム",
+      "src": "images/vocab/filmroll.svg",
+      "bytes": 1013,
+      "sha256": "9ce3e6253d31217a8d8bfe61ecc710e7132586b1ca51ae7f20784e5d6743a292"
+    },
+    {
+      "id": "general-listening-01:森",
+      "src": "images/vocab/forest.svg",
+      "bytes": 953,
+      "sha256": "77669cf63188f46f6aadcd6358b176ec37fccbebb4d21a0c7b19a1f09c7d7fc7"
+    },
+    {
+      "id": "general-listening-06:洞窟",
+      "src": "images/vocab/cave.svg",
+      "bytes": 425,
+      "sha256": "01d41d350c5ef0006d1815346b3cfbc30014e62f7a535fba02d7a63fc54e9c70"
+    },
+    {
+      "id": "general-listening-04:広場",
+      "src": "images/vocab/square.svg",
+      "bytes": 618,
+      "sha256": "f604ddc113a7aa94a35830148c77f60b25bdb285b3faaa40166daec3099905e8"
+    },
+    {
+      "id": "general-listening-11:袋",
+      "src": "images/vocab/bagpouch.svg",
+      "bytes": 428,
+      "sha256": "cee2073ade6d016d864bc772ee2d97299a71a9dc64e17d4744d6f07080661368"
+    },
+    {
+      "id": "anime-lesson-05:剣",
+      "src": "images/vocab/sword.svg",
+      "bytes": 500,
+      "sha256": "0084d85b00152bafad61808a7062d3cfe56273a517127a425d7bcca521467544"
+    },
+    {
+      "id": "anime-lesson-05:盾",
+      "src": "images/vocab/shield.svg",
+      "bytes": 468,
+      "sha256": "c29b74fc7ce1bcc647f30c1e03f7272cffe496a2fbf6cb84eeee8ffd2eb35b8d"
+    },
+    {
+      "id": "anime-lesson-05:弓",
+      "src": "images/vocab/bow.svg",
+      "bytes": 458,
+      "sha256": "da8dd4825a08d882a81fca6b38677847ff564b1e6c6358d9cdaf09a67eddda2d"
+    },
+    {
+      "id": "anime-lesson-05:槍",
+      "src": "images/vocab/spear.svg",
+      "bytes": 405,
+      "sha256": "0d1bea07f54674ac1d6d79935f0b2ac6f2025f6d7897282348bd8540c50f4566"
+    },
+    {
+      "id": "general-listening-121:縄",
+      "src": "images/vocab/rope.svg",
+      "bytes": 679,
+      "sha256": "cc9df14e9771f32704ea306dfe6677f0b999af260b57195dd124d05590fb681b"
+    },
+    {
+      "id": "stage0-day4:働く",
+      "src": "images/vocab/working.svg",
+      "bytes": 625,
+      "sha256": "196af8fb2170909a3225e20d672a3d89dc6e86e52c32f77daadc322a44cdfb94"
+    },
+    {
+      "id": "stage0-day4:休む",
+      "src": "images/vocab/resting.svg",
+      "bytes": 646,
+      "sha256": "b99e1e9f0f63c4216e81ee32c30e075f5260621d35c3bfbbb0b20a441484ff3a"
+    },
+    {
+      "id": "stage0-day4:勉強",
+      "src": "images/vocab/studying.svg",
+      "bytes": 694,
+      "sha256": "eaf4bf509561fab2e5492ae5f46881ec1b468544679306c872a33bdcfd68ddc0"
+    },
+    {
+      "id": "stage0-day4:終わる",
+      "src": "images/vocab/finishing.svg",
+      "bytes": 613,
+      "sha256": "800c406e668a0a91da2fb2887ccfe0a22244687eb7cba60d6bee71d1cc983e35"
+    },
+    {
+      "id": "stage0-day4:始まる",
+      "src": "images/vocab/starting.svg",
+      "bytes": 583,
+      "sha256": "5d7bca33eef3b7ef2fa110ea9319e5148a63b8e927cca0d7a46f0c5d62e586f3"
+    },
+    {
+      "id": "stage0-day5:行く",
+      "src": "images/vocab/going.svg",
+      "bytes": 768,
+      "sha256": "dac9655d9c5e5ef4a6d9f7996ef1f19ea9c263cf685449f4ff6c65499ff49c05"
+    },
+    {
+      "id": "stage0-day5:来る",
+      "src": "images/vocab/coming.svg",
+      "bytes": 760,
+      "sha256": "44ef7f6d45591e0457f60c46386358df55603c28a22c72c72de3bd1b359d88a0"
+    },
+    {
+      "id": "stage0-day5:帰る",
+      "src": "images/vocab/returnhome.svg",
+      "bytes": 706,
+      "sha256": "6ecbe1c1d099f2685c6abfceac6488a9725b015500ff037a946a7a90dc600eb4"
+    },
+    {
+      "id": "stage0-day5:着く",
+      "src": "images/vocab/arriving.svg",
+      "bytes": 763,
+      "sha256": "b7dd387dccad10394bc4f2a10090f5c8c6cb87a4112307733a1315330928e854"
+    },
+    {
+      "id": "stage0-day6:見る",
+      "src": "images/vocab/looking.svg",
+      "bytes": 581,
+      "sha256": "4cf80e9a1c1020f2b7bca5710da9dfedb0d7dd260afd34077da7b771c9f5c072"
+    },
+    {
+      "id": "stage0-day6:聞く",
+      "src": "images/vocab/listening.svg",
+      "bytes": 602,
+      "sha256": "ab6b5c7105ef798a9e11ad133dc51c07f798f7b8880ed610456314425a5de480"
+    },
+    {
+      "id": "stage0-day6:買い物",
+      "src": "images/vocab/shopping.svg",
+      "bytes": 725,
+      "sha256": "9d59e87acaf5561da321702e954914058ffa25095258b1b8abd85a2193c1d4ea"
+    },
+    {
+      "id": "stage0-day7:あげる",
+      "src": "images/vocab/giving.svg",
+      "bytes": 917,
+      "sha256": "022ee8b077b0ab5169133d2eb5586a9d9ad07dcae4d501843eb63dc4e1d44731"
+    },
+    {
+      "id": "stage0-day7:もらう",
+      "src": "images/vocab/receiving.svg",
+      "bytes": 918,
+      "sha256": "3b231137b008743a7a269a66599f2b06b8b5748a88044651605d171f58fdc799"
+    },
+    {
+      "id": "stage0-day7:貸す",
+      "src": "images/vocab/lending.svg",
+      "bytes": 1039,
+      "sha256": "32641376cc289310154676074a8a20764bafe09491f7997a573092ef02031511"
+    },
+    {
+      "id": "stage0-day7:借りる",
+      "src": "images/vocab/borrowing.svg",
+      "bytes": 1040,
+      "sha256": "001c88bdd33177469dcda9d4cfd5981718a7eff7fbee2b344bcb64359056e320"
+    },
+    {
+      "id": "stage0-day7:教える",
+      "src": "images/vocab/teaching.svg",
+      "bytes": 680,
+      "sha256": "2a9b44851fe71134db3d9b2e6a6fc0d679df9d018293387155810db310721aa7"
+    },
+    {
+      "id": "stage0-day7:習う",
+      "src": "images/vocab/learningfrom.svg",
+      "bytes": 736,
+      "sha256": "048d7b3c2a4ccf2dec9167160a512e75b618172f5450b5d17e60cb9a3c981776"
+    },
+    {
+      "id": "stage0-day7:出す",
+      "src": "images/vocab/sending.svg",
+      "bytes": 607,
+      "sha256": "f8bc62afca31b59774be761a856d62e97fbed89101778fb60819f6afac73967c"
+    },
+    {
+      "id": "stage0-day9:弾く",
+      "src": "images/vocab/playingguitar.svg",
+      "bytes": 633,
+      "sha256": "95ad26fc222fa3906f0f47ef9f802c2d2d3208f907c7f4ae27f08b97b044200e"
+    },
+    {
+      "id": "stage0-day9:散歩",
+      "src": "images/vocab/strolling.svg",
+      "bytes": 796,
+      "sha256": "5c091f46176ba925609adacd08c41145ffe4010d8b0a20c92d4089574dbe4e04"
+    },
+    {
+      "id": "stage0-day9:旅行",
+      "src": "images/vocab/travelling.svg",
+      "bytes": 642,
+      "sha256": "bc0fefd37a0b9c78280f95354daa8789c1eb07c005064ee00022840cd738aa32"
+    },
+    {
+      "id": "stage0-day9:遊ぶ",
+      "src": "images/vocab/playing.svg",
+      "bytes": 798,
+      "sha256": "9844bbd1b9d4624af6191a8f844c29a4340b6031e23bde4232d97f4edadea6eb"
+    },
+    {
+      "id": "stage0-day9:作る",
+      "src": "images/vocab/making.svg",
+      "bytes": 515,
+      "sha256": "e710255084d0f809ccd7670116bc9f6706aef7da35365435e27f99ade931e2de"
+    },
+    {
+      "id": "stage0-day9:分かる",
+      "src": "images/vocab/understanding.svg",
+      "bytes": 652,
+      "sha256": "f54616ac7bf5e0efdcc3bd4f05e73a090652fe06f2c460bafc13bf2e465b34d7"
+    },
+    {
+      "id": "stage0-day9:答える",
+      "src": "images/vocab/answering.svg",
+      "bytes": 901,
+      "sha256": "a55d31370750dd3ccc48ef3863d08821eabd12dee228274c5fa747a9dcc29e33"
+    },
+    {
+      "id": "stage0-day13:売る",
+      "src": "images/vocab/selling.svg",
+      "bytes": 906,
+      "sha256": "bf81de34ee8647aecfde93161e0cd885787f3b2464beb38961bad39d945f520d"
+    },
+    {
+      "id": "stage0-day14:持つ",
+      "src": "images/vocab/holding.svg",
+      "bytes": 569,
+      "sha256": "8885a5b7910b337769986fc4465b01ab383bb2ca769db32ac25902d8fdb3a58f"
+    },
+    {
+      "id": "stage0-day14:呼ぶ",
+      "src": "images/vocab/calling.svg",
+      "bytes": 727,
+      "sha256": "3a2f1fd8e806a2d1895fe78b0665bcbe29897d78d3a9212103f4fb39b784bbab"
+    },
+    {
+      "id": "stage0-day14:使う",
+      "src": "images/vocab/using.svg",
+      "bytes": 558,
+      "sha256": "1fa5c33a654b3cd2788342cb8c23687c6d6bd559375f183ba4baed9579ca7073"
+    },
+    {
+      "id": "stage0-day14:押す",
+      "src": "images/vocab/pushing.svg",
+      "bytes": 623,
+      "sha256": "04857e1510b41b43961112f8dd05ecaa009a7c895739903c17d1e18dd01b27d3"
+    },
+    {
+      "id": "stage0-day14:引く",
+      "src": "images/vocab/pulling.svg",
+      "bytes": 616,
+      "sha256": "6f4cc4aa4d895eefde06a6c259563a6f22612c34cfe4db3a0df37b6676723a3c"
+    },
+    {
+      "id": "stage0-day14:消す",
+      "src": "images/vocab/switchingoff.svg",
+      "bytes": 498,
+      "sha256": "d93b9c3f1984e2a6b812917928cd6eea56d77065dca08503c210b9616d257d6c"
+    },
+    {
+      "id": "stage0-day14:つける",
+      "src": "images/vocab/switchingon.svg",
+      "bytes": 588,
+      "sha256": "6b7453554d6e13ad9235af10911577ca445957549b53e1ee5330ad7cf616fe9d"
+    },
+    {
+      "id": "stage0-day14:入れる",
+      "src": "images/vocab/puttingin.svg",
+      "bytes": 547,
+      "sha256": "b57925b5b9dda4ac70846523e35cc0def7a706fa4cbce44097a1626933667745"
+    },
+    {
+      "id": "stage0-day14:取る",
+      "src": "images/vocab/taking.svg",
+      "bytes": 558,
+      "sha256": "800ad99b65c41431d5474be8ddb8a6f09e703dbf0d8aa7b3673effe4ede5d8c0"
+    },
+    {
+      "id": "stage0-day14:見せる",
+      "src": "images/vocab/showing.svg",
+      "bytes": 813,
+      "sha256": "b89383c5b82eedcef587a16cc83d33258a2b2ec5aaa9f503f2fa7a6b2edf1c27"
+    },
+    {
+      "id": "stage0-day14:言う",
+      "src": "images/vocab/saying.svg",
+      "bytes": 565,
+      "sha256": "b7d0e6933933ff242a785a0b3b79cef7d80508f44ea866b9d86766d19baf0b23"
+    },
+    {
+      "id": "stage0-day14:話す",
+      "src": "images/vocab/talking.svg",
+      "bytes": 842,
+      "sha256": "582c9095e475e67d6dcbbf6d1a3fb558b5d1c3fcb510157732816a8d93ed5e49"
+    },
+    {
+      "id": "stage0-day14:曲がる",
+      "src": "images/vocab/turning.svg",
+      "bytes": 394,
+      "sha256": "c44aa24abae1c93d89e10d077f0b1dfb38f52ea7f9e3e3d2154e5166e8b7a5d0"
+    },
+    {
+      "id": "stage0-day14:渡る",
+      "src": "images/vocab/crossing.svg",
+      "bytes": 956,
+      "sha256": "01693a6178541948463444911885518bc3087d15b34822ffe0ec79d492ff6e84"
+    },
+    {
+      "id": "stage0-day14:乗る",
+      "src": "images/vocab/boarding.svg",
+      "bytes": 711,
+      "sha256": "8a95c9067f61763444ee767ad1732ce59211478c8004c51d0175069743b36469"
+    },
+    {
+      "id": "stage0-day14:降りる",
+      "src": "images/vocab/alighting.svg",
+      "bytes": 709,
+      "sha256": "f2f41e678b232b34e3d50b68b9486f032ee9ada10c9923c06f580c18d158f23d"
+    },
+    {
+      "id": "stage0-day14:止まる",
+      "src": "images/vocab/stopping.svg",
+      "bytes": 657,
+      "sha256": "50ef32372284d0d3048a31ed85c6cb167aad1b1d6f7618e4d64826e732e1f5e3"
+    },
+    {
+      "id": "stage0-day15:住む",
+      "src": "images/vocab/livingin.svg",
+      "bytes": 776,
+      "sha256": "5442f1464d8107c807a3493cfbac596fe801ad9d1909ba97682c5ac15ab0e48f"
+    },
+    {
+      "id": "anime-lesson-03:救う",
+      "src": "images/vocab/rescuing.svg",
+      "bytes": 655,
+      "sha256": "ad6c1a9f7fb3ba8b688b0d86b64420354c7f3c9300184b08ef85216f639bc940"
+    },
+    {
+      "id": "anime-lesson-02:逃げる",
+      "src": "images/vocab/escaping.svg",
+      "bytes": 576,
+      "sha256": "a9790dee5bd691955c50e597ac336d9891d93796d6a9882ca696486d1d534995"
+    },
+    {
+      "id": "stage0-day15:置く",
+      "src": "images/vocab/placing.svg",
+      "bytes": 612,
+      "sha256": "9080dcd3ede18eec290422c1802426810ad8629c4053d24dc074eb847225002a"
+    },
+    {
+      "id": "stage0-day15:忘れる",
+      "src": "images/vocab/forgetting.svg",
+      "bytes": 650,
+      "sha256": "c1204d13abedda4fa0667e4910615e7f5e0920f7d0ad79e86f5940015d1ba7b4"
+    },
+    {
+      "id": "stage0-day15:覚える",
+      "src": "images/vocab/remembering.svg",
+      "bytes": 739,
+      "sha256": "8d9a80fb12651526c48adbf07193f5d0d2d14370c259fb59316f3da26178faf4"
+    },
+    {
+      "id": "stage0-day16:洗濯",
+      "src": "images/vocab/laundry.svg",
+      "bytes": 616,
+      "sha256": "994b8cc781d3b791144265a7b9bfa8cfbe62c44ff2c4535dc60aa6fa37973518"
+    },
+    {
+      "id": "stage0-day16:掃除",
+      "src": "images/vocab/cleaning.svg",
+      "bytes": 683,
+      "sha256": "6ea72690d323ba13f148d60b0ebb464e507b522eb7e41d3e05821c3e89bd294e"
+    },
+    {
+      "id": "stage0-day16:脱ぐ",
+      "src": "images/vocab/undressing.svg",
+      "bytes": 634,
+      "sha256": "e7c3c382c7217409aa449f1e3269b2edb2bd4ca5a744c1eb1a4d69797e7bdfbf"
+    },
+    {
+      "id": "stage0-day16:着る",
+      "src": "images/vocab/dressing.svg",
+      "bytes": 596,
+      "sha256": "7a107364000de87d9af69d7768e9d060a6685b8b9aaedee15c57a001993e2304"
+    },
+    {
+      "id": "stage0-day16:磨く",
+      "src": "images/vocab/brushingteeth.svg",
+      "bytes": 597,
+      "sha256": "3cc1125cae52b9bee8753fa85c91e8d1125fde51eb501c0a976a2312709d7e72"
+    },
+    {
+      "id": "stage0-day16:切る",
+      "src": "images/vocab/cutting.svg",
+      "bytes": 547,
+      "sha256": "5018a4e04b0615c43c60f326dec9741be3f3fa4f0bab4b6eace914a9418ec36c"
+    },
+    {
+      "id": "stage0-day18:飛ぶ",
+      "src": "images/vocab/flying.svg",
+      "bytes": 475,
+      "sha256": "10f69e641d48de16289c55377c5e185a0219780a9a893d9bf6d2d13c00cbf66d"
+    },
+    {
+      "id": "stage0-day18:登る",
+      "src": "images/vocab/climbing.svg",
+      "bytes": 574,
+      "sha256": "26667f3c9ff90f3caf660b4d659b06f02dc3678c80f751b670b296784507b56d"
+    },
+    {
+      "id": "stage0-day24:並ぶ",
+      "src": "images/vocab/queuing.svg",
+      "bytes": 877,
+      "sha256": "6561d8207bf4d9a261d6895d6cc16442092252e964fe2059530b0539c6875721"
+    },
+    {
+      "id": "stage0-day24:貼る",
+      "src": "images/vocab/sticking.svg",
+      "bytes": 574,
+      "sha256": "f93b0c686acae409fc64aaf2ea2ec170d974c1c03b781151971833c49472bde4"
+    },
+    {
+      "id": "stage0-day8:新しい",
+      "src": "images/vocab/new.svg",
+      "bytes": 702,
+      "sha256": "f493877ca1bd9fcd4857634e94c647ae423569fcdbb0d6168d6d0d05db622fa1"
+    },
+    {
+      "id": "stage0-day8:古い",
+      "src": "images/vocab/old.svg",
+      "bytes": 635,
+      "sha256": "5f2828c83ccbe51b78e107d804a67027cd22d6b5145de09218461d03f7de3185"
+    },
+    {
+      "id": "stage0-day8:高い",
+      "src": "images/vocab/tall.svg",
+      "bytes": 558,
+      "sha256": "15e6d290dbbf933f8479d0825f15f1a518290037d5b2f6876a5e94179431550b"
+    },
+    {
+      "id": "stage0-day8:安い",
+      "src": "images/vocab/inexpensive.svg",
+      "bytes": 817,
+      "sha256": "0f705d682ba9d70d07a9b8f1ffb36c3ddb4f99e5474b26a7ff7ca73aa8e0ff92"
+    },
+    {
+      "id": "stage0-day8:低い",
+      "src": "images/vocab/low.svg",
+      "bytes": 526,
+      "sha256": "27c3626ac273558082db3acff8e356b28b9e8ef4331224ebcbf0e01469fb7813"
+    },
+    {
+      "id": "stage0-day8:広い",
+      "src": "images/vocab/spacious.svg",
+      "bytes": 586,
+      "sha256": "1665f1d40a949ee088134e199ae03d99dcc13f0228308447b551dab7ba0c9323"
+    },
+    {
+      "id": "stage0-day8:狭い",
+      "src": "images/vocab/cramped.svg",
+      "bytes": 607,
+      "sha256": "238da2ccfad5f05eb0d87a29fbe95285a43c5eaf02d585566c999819ef6d2772"
+    },
+    {
+      "id": "stage0-day8:おいしい",
+      "src": "images/vocab/delicious.svg",
+      "bytes": 689,
+      "sha256": "ebcfca3d5a0f386642ccd9b1bdcc5de8e6d092c23fc6b618bde140573dee7249"
+    },
+    {
+      "id": "stage0-day8:まずい",
+      "src": "images/vocab/unpalatable.svg",
+      "bytes": 659,
+      "sha256": "1d0457ad491b421234276d9575649cea53c63e6be150c82d8ae9329c33179869"
+    },
+    {
+      "id": "stage0-day8:辛い",
+      "src": "images/vocab/spicy.svg",
+      "bytes": 584,
+      "sha256": "865467deb3f321d5fc9c31b9a7994a8b6489465e429324bb91ccc1c957275496"
+    },
+    {
+      "id": "stage0-day8:楽しい",
+      "src": "images/vocab/enjoyable.svg",
+      "bytes": 768,
+      "sha256": "6aeed55b8357b6c3a32faf9faec47d21e0555768385e1cf7350b9018799786ed"
+    },
+    {
+      "id": "stage0-day8:つまらない",
+      "src": "images/vocab/boring.svg",
+      "bytes": 578,
+      "sha256": "ca6276b01529396866708f4aa0ae3c504dccde95d7f5fd921f925f49c1ff277b"
+    },
+    {
+      "id": "stage0-day8:おもしろい",
+      "src": "images/vocab/interesting.svg",
+      "bytes": 681,
+      "sha256": "15b9b340125cc8779fd6a4dfe57d9d9606191b54b0f333b29072edbfbcef7339"
+    },
+    {
+      "id": "stage0-day8:難しい",
+      "src": "images/vocab/difficult.svg",
+      "bytes": 618,
+      "sha256": "be3f73d14703e69ef0931220c279f3912e9331381f8d105e944988626e135aad"
+    },
+    {
+      "id": "stage0-day8:易しい",
+      "src": "images/vocab/easy.svg",
+      "bytes": 612,
+      "sha256": "7176a9a56f3a52c0cf4ef80189b264bf5b50eb5032b07bfc85ed292a715a3c6e"
+    },
+    {
+      "id": "stage0-day8:きれい",
+      "src": "images/vocab/clean.svg",
+      "bytes": 509,
+      "sha256": "f458c497642b76b9766196ac589f14a2d11c185136c9e9ef799687a4d1ded977"
+    },
+    {
+      "id": "stage0-day8:有名",
+      "src": "images/vocab/famous.svg",
+      "bytes": 883,
+      "sha256": "dd05173b0e1966f4f9cd432a85b973871ead37f32604448e99c17db48daa1051"
+    },
+    {
+      "id": "stage0-day8:便利",
+      "src": "images/vocab/convenient.svg",
+      "bytes": 682,
+      "sha256": "f664d05245fc3d174b815089d99658bd9dc5ff7b5490059c30c9564d0d49d452"
+    },
+    {
+      "id": "stage0-day9:好き",
+      "src": "images/vocab/liking.svg",
+      "bytes": 603,
+      "sha256": "1154879750054beeae5c7a25cab36d198ae9cb5be3412a5c4898210ce63cdae6"
+    },
+    {
+      "id": "stage0-day9:嫌い",
+      "src": "images/vocab/disliking.svg",
+      "bytes": 656,
+      "sha256": "8ca1b333dac61d1b1da3c4d640fc73d5213d6af95ef207b7a05f2099ee7090df"
+    },
+    {
+      "id": "stage0-day9:上手",
+      "src": "images/vocab/skilled.svg",
+      "bytes": 721,
+      "sha256": "6f5cccac5132bb5f145f35eac96f41d135d700e23a5d6b94c6c0d927202d9586"
+    },
+    {
+      "id": "stage0-day9:下手",
+      "src": "images/vocab/unskilled.svg",
+      "bytes": 722,
+      "sha256": "6927a11279fd1858e535aefe8f601091c2771d10ca4705bc457594a2eaae25f3"
+    },
+    {
+      "id": "stage0-day9:元気",
+      "src": "images/vocab/energetic.svg",
+      "bytes": 756,
+      "sha256": "81ce1f923a604f13345b3a4ca5a453c34312cfeccd2bc5eb0ba309cdc02a5f8f"
+    },
+    {
+      "id": "stage0-day9:賑やか",
+      "src": "images/vocab/lively.svg",
+      "bytes": 884,
+      "sha256": "3e34ddb2cd33ef9f515efb239e3ea1b1d8bac4c0e3702659beac5b181ee47aa1"
+    },
+    {
+      "id": "stage0-day12:暑い",
+      "src": "images/vocab/hotweather.svg",
+      "bytes": 855,
+      "sha256": "10e7e84eb46616ceec78a20ea883267e81c09495abf15b3c8487c4e1d0fcff0e"
+    },
+    {
+      "id": "stage0-day12:熱い",
+      "src": "images/vocab/hotobject.svg",
+      "bytes": 658,
+      "sha256": "e37abbbe1f3af996c12120438e48ed6dded6c6985333919b5e55de1fbc6c1fd1"
+    },
+    {
+      "id": "stage0-day12:寒い",
+      "src": "images/vocab/coldweather.svg",
+      "bytes": 663,
+      "sha256": "60f8dafff89fa0ee915c0bd424ef658422117628c525a8c5f0f0d03016460de7"
+    },
+    {
+      "id": "stage0-day12:涼しい",
+      "src": "images/vocab/coolweather.svg",
+      "bytes": 624,
+      "sha256": "a445457ea6f8b21837df06fcbcf491442c6557481aa6ee7a425f731de7c9fa7e"
+    },
+    {
+      "id": "stage0-day12:暖かい",
+      "src": "images/vocab/warmweather.svg",
+      "bytes": 929,
+      "sha256": "3675119e55c48c5ecfbac9bba1be836850747f220c3d75bf2655474778cd3de6"
+    },
+    {
+      "id": "stage0-day12:早い",
+      "src": "images/vocab/early.svg",
+      "bytes": 693,
+      "sha256": "35b066657f6e41563e47880ab1cf8195172a9667d2249597d37eab2f4723b735"
+    },
+    {
+      "id": "stage0-day12:速い",
+      "src": "images/vocab/fast.svg",
+      "bytes": 694,
+      "sha256": "73e9e511ad73a4291d5d021e4c01931c26eb3b4d72d8ea9cfb5c7327c99f9726"
+    },
+    {
+      "id": "stage0-day12:遅い",
+      "src": "images/vocab/late.svg",
+      "bytes": 842,
+      "sha256": "4e35e2dba7a186542572e88821bc790f9588e238ac2cde03f3019c23db9db83b"
+    },
+    {
+      "id": "stage0-day12:遠い",
+      "src": "images/vocab/far.svg",
+      "bytes": 707,
+      "sha256": "bd10cf4a9a6e975ed11787b7a1412f6e0661826e0163bde51522f285975a0ed3"
+    },
+    {
+      "id": "stage0-day12:強い",
+      "src": "images/vocab/strong.svg",
+      "bytes": 750,
+      "sha256": "9386e7f52277bfd22ca092926eb5ebb46beb72dfabdca72f34e96627541501bc"
+    },
+    {
+      "id": "stage0-day12:弱い",
+      "src": "images/vocab/weak.svg",
+      "bytes": 639,
+      "sha256": "f8511a6f45122b7f7b3040660b2cd226803883a9d79bd1f210bea572680ca432"
+    },
+    {
+      "id": "stage0-day17:痛い",
+      "src": "images/vocab/painful.svg",
+      "bytes": 570,
+      "sha256": "a618dac9a0096ab7e4d7c8225b61040ab2479530c174ea8fa6afde44df911ea5"
+    },
+    {
+      "id": "stage0-day17:丈夫",
+      "src": "images/vocab/sturdy.svg",
+      "bytes": 581,
+      "sha256": "dd2bc41eaab131eb4b4e74f4a2f95bd34411ee750e8b0ecf85fd945de139e4e7"
+    },
+    {
+      "id": "stage0-day17:危ない",
+      "src": "images/vocab/dangerous.svg",
+      "bytes": 631,
+      "sha256": "5f0fb198481a8062f63a0fccbfe3358c96b33eefe3837b9ddd8ed7300304ce45"
+    },
+    {
+      "id": "stage0-day24:うるさい",
+      "src": "images/vocab/noisy.svg",
+      "bytes": 653,
+      "sha256": "d54cd960398eb555d2e6d08790a96ce15204d0ebbb5babe96616e3489ee39907"
+    },
+    {
+      "id": "stage0-day25:厚い",
+      "src": "images/vocab/thick.svg",
+      "bytes": 497,
+      "sha256": "a2e86a3e46a840dadce71d57076f40583182fd80eb511539260c9673f2b8aa27"
+    },
+    {
+      "id": "stage0-day25:薄い",
+      "src": "images/vocab/thin.svg",
+      "bytes": 497,
+      "sha256": "203e5e6f0840b363398211b181ca88407892d1259ce1ecfa27ff4000ac5a1925"
+    },
+    {
+      "id": "stage0-day19:丸い",
+      "src": "images/vocab/round.svg",
+      "bytes": 443,
+      "sha256": "c4c8762faacd6b4191db9c9df281b174e408533213e81356591a4d5baffeeba3"
+    },
+    {
+      "id": "stage0-day19:太い",
+      "src": "images/vocab/thickdiameter.svg",
+      "bytes": 434,
+      "sha256": "adb91d390c930d74f1a5e80752cac0d283f7d8ea5b1bfaffe10a778a5b86c4aa"
+    },
+    {
+      "id": "stage0-day19:細い",
+      "src": "images/vocab/slender.svg",
+      "bytes": 420,
+      "sha256": "e75ae369db3202d7d61cd7b379fa38a11b8440e4c74e04c86d1432b44981deec"
+    },
+    {
+      "id": "stage0-day19:暇",
+      "src": "images/vocab/freeleisure.svg",
+      "bytes": 756,
+      "sha256": "90571f78d76f4d458cbe15bb4a4b4f1646cd212c69071e75e71621f862a622ed"
+    },
+    {
+      "id": "general-listening-03:眠い",
+      "src": "images/vocab/sleepy.svg",
+      "bytes": 590,
+      "sha256": "1a140bee2ee3fa2a5f9fd592deba0f102ccb0e39575976a0828927ee1ed96f24"
+    },
+    {
+      "id": "stage0-day10:上",
+      "src": "images/vocab/above.svg",
+      "bytes": 401,
+      "sha256": "75ac948cd2a398cc7feab04d31a53820f3168fd7be9a3979038eecedd433d3ec"
+    },
+    {
+      "id": "stage0-day10:下",
+      "src": "images/vocab/below.svg",
+      "bytes": 407,
+      "sha256": "ac41338b58f0465cb217e74975f7b26a51bc27d7a79ec4fee44dc17891afb109"
+    },
+    {
+      "id": "stage0-day10:中",
+      "src": "images/vocab/inside.svg",
+      "bytes": 416,
+      "sha256": "3c1e94eaa62d621400c1061b8c9b07f0b3303245d34c4c69588a91eb7828ac62"
+    },
+    {
+      "id": "stage0-day10:外",
+      "src": "images/vocab/outside.svg",
+      "bytes": 384,
+      "sha256": "897a1f660f898e506ee3bc45630816aa1e8b70041c1574d9c41897d308b911f8"
+    },
+    {
+      "id": "stage0-day10:隣",
+      "src": "images/vocab/adjacent.svg",
+      "bytes": 651,
+      "sha256": "b079a1c6d36acaaa10c81aeec283ba65613d3a80f97f194bae8ee6dc2ae32bfe"
+    },
+    {
+      "id": "stage0-day10:右",
+      "src": "images/vocab/right.svg",
+      "bytes": 588,
+      "sha256": "bfd9416ebce73fbedfcb84abac05a217f0eb09622ad7fa82c64679ce9cd719a3"
+    },
+    {
+      "id": "stage0-day10:左",
+      "src": "images/vocab/left.svg",
+      "bytes": 586,
+      "sha256": "50fefa8c96c79316028d671e93796ab57e638a2b53551e2cb95c503494f7e4dd"
+    },
+    {
+      "id": "stage0-day10:前",
+      "src": "images/vocab/infront.svg",
+      "bytes": 656,
+      "sha256": "00611fd0edc6d542568cb6bc9e0a1fc77c7e83cab41af843ef3d550d91bcd809"
+    },
+    {
+      "id": "stage0-day10:後ろ",
+      "src": "images/vocab/behind.svg",
+      "bytes": 654,
+      "sha256": "d9c7ea273df3fba4d51c405a6d9cd4b78634b625f207b4c958de92c1b63ef615"
+    },
+    {
+      "id": "stage0-day11:半分",
+      "src": "images/vocab/half.svg",
+      "bytes": 468,
+      "sha256": "ffbcd5ac412cf6c4b61faba7d4355ec295300877b92d49ff95bb84704013556d"
+    },
+    {
+      "id": "stage0-day17:全部",
+      "src": "images/vocab/all.svg",
+      "bytes": 511,
+      "sha256": "fe3ae42364c043d6486debfe78695ed4214d1df474bd25acc058aa2417b53cd3"
+    },
+    {
+      "id": "general-listening-05:一部",
+      "src": "images/vocab/part.svg",
+      "bytes": 474,
+      "sha256": "146149254f861624bb9cd6e565bfcb50fb6e4a197c2aa9a0012120b3a55c96f9"
+    },
+    {
+      "id": "general-listening-38:最初",
+      "src": "images/vocab/first.svg",
+      "bytes": 594,
+      "sha256": "294a872783d542a77178d0108defee664ecd4139e12e058c102df617bd93b126"
+    },
+    {
+      "id": "general-listening-38:最後",
+      "src": "images/vocab/last.svg",
+      "bytes": 596,
+      "sha256": "800b33df452507ad14c14816ac2e54578f1115af1180766a4d2b83bb6c6bfddc"
+    },
+    {
+      "id": "anime-lesson-01:戦士",
+      "src": "images/vocab/warrior.svg",
+      "bytes": 647,
+      "sha256": "186b5c4695c269e6df8b5bc579d5aaf98379108c234ac7a557890a78bb899909"
+    },
+    {
+      "id": "anime-lesson-01:飾り",
+      "src": "images/vocab/decoration.svg",
+      "bytes": 584,
+      "sha256": "861bdaf045b57d855a2bf5c7924c55997434eb838227176d9f4af454a3033801"
+    },
+    {
+      "id": "anime-lesson-03:笑う",
+      "src": "images/vocab/laughing.svg",
+      "bytes": 564,
+      "sha256": "5a6ed3b251e654eedb7790ea2dd7108679b919d3df36776a9de746f6fade4f1d"
+    },
+    {
+      "id": "anime-lesson-04:断る",
+      "src": "images/vocab/refusing.svg",
+      "bytes": 711,
+      "sha256": "44cbb1801a8dc011537d623b147beaaca2fa77fa7b1c8195a9c540386e479608"
+    },
+    {
+      "id": "anime-lesson-04:嘘",
+      "src": "images/vocab/lie.svg",
+      "bytes": 697,
+      "sha256": "b31f626c9674d69eeab3dc5a2137876b64471773c8095f29d8ed5601dfd6d054"
+    },
+    {
+      "id": "anime-lesson-04:仲間",
+      "src": "images/vocab/companions.svg",
+      "bytes": 918,
+      "sha256": "19d2ec4eabad848e0434ba22f969dd1419fa7d11cfba698cdf706f6c2dea3ca3"
+    },
+    {
+      "id": "anime-lesson-04:信じる",
+      "src": "images/vocab/trusting.svg",
+      "bytes": 607,
+      "sha256": "0f7ea137ec257dd49d2d08ed4567eb08725bad9408053a17aaf7687dbeca15a3"
+    },
+    {
+      "id": "anime-lesson-05:斬る",
+      "src": "images/vocab/slashing.svg",
+      "bytes": 709,
+      "sha256": "45e6b4d216c070c7ea44e842fb30e65a699dbd52a3e1b41b7a2480461c491f74"
+    },
+    {
+      "id": "anime-lesson-05:防ぐ",
+      "src": "images/vocab/blocking.svg",
+      "bytes": 629,
+      "sha256": "155415be651348bba9a68e935ea3d5e26624ff28a71d4d3fbd2d7bb5e3fd7204"
+    },
+    {
+      "id": "anime-lesson-05:避ける",
+      "src": "images/vocab/dodging.svg",
+      "bytes": 579,
+      "sha256": "91b64ce612a8eb334f02eef9934249110333c1b7ff68fd922dad482b58b956f9"
+    },
+    {
+      "id": "anime-lesson-05:守る",
+      "src": "images/vocab/protecting.svg",
+      "bytes": 705,
+      "sha256": "9ea93af5112bca5c6cb8205b825a9f190775f57991417aa4539d80bdad90b9e1"
+    },
+    {
+      "id": "anime-lesson-05:戦う",
+      "src": "images/vocab/fighting.svg",
+      "bytes": 753,
+      "sha256": "1f9b811efc8266bb115690b460a1eaede7b2e05433f7d1cc11b361198744701a"
+    },
+    {
+      "id": "anime-lesson-06:結界",
+      "src": "images/vocab/barrier.svg",
+      "bytes": 572,
+      "sha256": "cd452dfef041c5f2a32c4dae21e36db10a89653dfbc3d29109a93a45d0a55e8d"
+    },
+    {
+      "id": "anime-lesson-06:封印",
+      "src": "images/vocab/sealing.svg",
+      "bytes": 564,
+      "sha256": "3fca9322294267b5c56905965d8d6e787b92d7c2a480bf18f8d93c5942181c0a"
+    },
+    {
+      "id": "anime-lesson-06:解除",
+      "src": "images/vocab/unbinding.svg",
+      "bytes": 651,
+      "sha256": "3da41e883a562e433623b9145b5ca38560b0a122608ff52de07c7f66bffc6220"
+    },
+    {
+      "id": "anime-lesson-06:契約",
+      "src": "images/vocab/contract.svg",
+      "bytes": 485,
+      "sha256": "97ababb405975f3f077712dfbb7fa1d997ef5e084ed50b1f2df1257cec3c5f2d"
+    },
+    {
+      "id": "anime-lesson-07:証拠",
+      "src": "images/vocab/evidence.svg",
+      "bytes": 539,
+      "sha256": "d069d17aff4f67f84566ecd44b923473ab82fc481ce3bf2271e51bb676d91619"
+    },
+    {
+      "id": "anime-lesson-07:選ぶ",
+      "src": "images/vocab/choosing.svg",
+      "bytes": 555,
+      "sha256": "bb6dc4b4ba042bff341dd7878d107f61e896833a5ec260b88512317cee7a0d74"
+    },
+    {
+      "id": "anime-lesson-07:気付く",
+      "src": "images/vocab/noticing.svg",
+      "bytes": 665,
+      "sha256": "0671cfa3e8d6faf5504b87436fde27ed5f5cf2385dfce8908a555279c1ae3394"
+    },
+    {
+      "id": "anime-lesson-08:毒",
+      "src": "images/vocab/poison.svg",
+      "bytes": 625,
+      "sha256": "a36edc7787c03d521999427b2e80971f7c7c693c269ef75238efd9a4d0c8d376"
+    },
+    {
+      "id": "general-listening-14:棚",
+      "src": "images/vocab/shelf.svg",
+      "bytes": 544,
+      "sha256": "c646d1f0d3c113fa0ecdecad0856ded18dc3b775f8f02cf4194402912b748de4"
+    },
+    {
+      "id": "general-listening-14:壁",
+      "src": "images/vocab/wall.svg",
+      "bytes": 534,
+      "sha256": "ab48f8e680d90ede6871ce93c0b02c6e61be844474599e9d8f21d972bace698a"
+    },
+    {
+      "id": "general-listening-14:床",
+      "src": "images/vocab/floor.svg",
+      "bytes": 464,
+      "sha256": "2e5da846cccaf832ab6a4716bcfb59a15b49c0ce0bd4c0c140d284d5134a087e"
+    },
+    {
+      "id": "general-listening-16:工具",
+      "src": "images/vocab/tools.svg",
+      "bytes": 509,
+      "sha256": "663796e303d31a34d91d53a250d94199bddbc8ad96bb6e5f001e528720fb8a01"
+    },
+    {
+      "id": "general-listening-20:画面",
+      "src": "images/vocab/screen.svg",
+      "bytes": 547,
+      "sha256": "2012a0eae4e452597d852cade7e8217412fb9120eee9fc983e760b3c469400ff"
+    },
+    {
+      "id": "general-listening-21:雷",
+      "src": "images/vocab/thunder.svg",
+      "bytes": 455,
+      "sha256": "65e6890777e18a12da9fd77fb47ee86293f0ab98bf8ab1b30f52873de3daf51a"
+    },
+    {
+      "id": "general-listening-30:港",
+      "src": "images/vocab/harbor.svg",
+      "bytes": 509,
+      "sha256": "29efed5bf493e250ae800adcbfbda386422bb797d43d537cfd42408db26d52ab"
+    },
+    {
+      "id": "general-listening-51:掲示板",
+      "src": "images/vocab/noticeboard.svg",
+      "bytes": 654,
+      "sha256": "693e52bb67977d1ecdab7ef3e1c10f3d5d733d8b18b2320a8d3f0122ccba0d35"
+    },
+    {
+      "id": "general-listening-61:電池",
+      "src": "images/vocab/battery.svg",
+      "bytes": 470,
+      "sha256": "4b6f7c224cda97f5d01474f0242461f2cdbdca4151233a0d7d14f638ed9b4d79"
+    },
+    {
+      "id": "general-listening-67:岩",
+      "src": "images/vocab/boulder.svg",
+      "bytes": 383,
+      "sha256": "f2153d60417444aa6f94479bff928ca25839fdf9121ae434e9e22d4f7fa5b029"
+    },
+    {
+      "id": "general-listening-68:手袋",
+      "src": "images/vocab/gloves.svg",
+      "bytes": 495,
+      "sha256": "6a5b1298976dbd702edadec33b4996a0e5533c81cb04408950b23e6323af442c"
+    },
+    {
+      "id": "general-listening-69:旗",
+      "src": "images/vocab/flag.svg",
+      "bytes": 431,
+      "sha256": "fa2ad5a4017d48cef0af2d7fd81d7cd21f9e48811697b11d1cfbcb2d4bb0c0ed"
+    },
+    {
+      "id": "general-listening-70:枝",
+      "src": "images/vocab/branch.svg",
+      "bytes": 453,
+      "sha256": "6a13618b1af0bce5c4a09432750af0a700cb665246a850bdf1188c5ae8208287"
+    },
+    {
+      "id": "general-listening-70:影",
+      "src": "images/vocab/shadow.svg",
+      "bytes": 855,
+      "sha256": "67bfb4047dd42e2e78c6fbdcf4be198a8aca511fda7965e757de4985a2b8adba"
+    },
+    {
+      "id": "general-listening-71:塔",
+      "src": "images/vocab/tower.svg",
+      "bytes": 476,
+      "sha256": "b3a3b4c71e4f3cc4d2a02530e3be2994bb34c6fb83f96a85db272b70386c2272"
+    },
+    {
+      "id": "general-listening-71:屋根",
+      "src": "images/vocab/roof.svg",
+      "bytes": 573,
+      "sha256": "b01b61556d991307024c36094ad5c2acd638a44afdf862028d1969ff85f265c3"
+    },
+    {
+      "id": "general-listening-72:星",
+      "src": "images/vocab/star.svg",
+      "bytes": 522,
+      "sha256": "e9a518dd6d5e1246a93248dcc8653c6b6814b274c06046a9877079245fd37838"
+    },
+    {
+      "id": "general-listening-74:天井",
+      "src": "images/vocab/ceiling.svg",
+      "bytes": 501,
+      "sha256": "d1369d643d2a75a7beb20fe2eb9d8dd07c3da7caeecd942400f26192343bc726"
+    },
+    {
+      "id": "general-listening-78:鐘",
+      "src": "images/vocab/bell.svg",
+      "bytes": 445,
+      "sha256": "95eeba7531dd5a7cdad48e6f62cb593303398ca17d941d9cf4aedba93221137f"
+    },
+    {
+      "id": "general-listening-79:端末",
+      "src": "images/vocab/terminal.svg",
+      "bytes": 497,
+      "sha256": "4f719bf94bedd38bd568495def25f4cec76b1218131fba69d74cdbc6e11e3230"
+    },
+    {
+      "id": "general-listening-116:瓶",
+      "src": "images/vocab/bottle.svg",
+      "bytes": 474,
+      "sha256": "4cf43afe5110019325c40865630ce088d31ae771cdcce4a397ca0db59b8b7ebf"
+    },
+    {
+      "id": "general-listening-123:矢",
+      "src": "images/vocab/arrowprojectile.svg",
+      "bytes": 440,
+      "sha256": "f45aebd65c31aa824b917fb584a61097e514e9af7eaabc1e9721bacc39c789b8"
+    },
+    {
+      "id": "general-listening-124:炎",
+      "src": "images/vocab/flame.svg",
+      "bytes": 425,
+      "sha256": "b9e7564404dac417a1cfaa67fbda60ac1431abb277ebcdc80951ba7f91b1f1d8"
+    },
+    {
+      "id": "general-listening-124:氷",
+      "src": "images/vocab/ice.svg",
+      "bytes": 457,
+      "sha256": "bb701acdd542af0569ff735870d1f70449d67e203158b5961cc0e99c987dc64f"
+    },
+    {
+      "id": "general-listening-146:宝石",
+      "src": "images/vocab/gem.svg",
+      "bytes": 380,
+      "sha256": "e3f95b1246be4b183e01ace3780203227c21067d3b69b3adbbea1809215e1bda"
+    },
+    {
+      "id": "general-listening-04:予約",
+      "src": "images/vocab/reservation.svg",
+      "bytes": 578,
+      "sha256": "12751c84a467e10deb7b18bf905a75f9095d2958a36384fcca323e59292b2bac"
+    },
+    {
+      "id": "general-listening-04:払う",
+      "src": "images/vocab/paying.svg",
+      "bytes": 552,
+      "sha256": "dc196f42fc5e78954a9fdc2307153d0175b75d1c88e6f55b7224ab18cac33183"
+    },
+    {
+      "id": "general-listening-08:運ぶ",
+      "src": "images/vocab/carrying.svg",
+      "bytes": 612,
+      "sha256": "282a24af6ffb4dff8a8217243262328878de88409f586301c8f9d252b551ca2c"
+    },
+    {
+      "id": "general-listening-08:減らす",
+      "src": "images/vocab/reducing.svg",
+      "bytes": 698,
+      "sha256": "12ee59168f6e9ff122bfcc5060f5787c1f06cfd5798705313e6eddb97455b638"
+    },
+    {
+      "id": "general-listening-08:分ける",
+      "src": "images/vocab/dividing.svg",
+      "bytes": 574,
+      "sha256": "a8cd9c80a7d2a12f516a1864fdcfeb7e62c8a08936d3283e808f1835d2bb1854"
+    },
+    {
+      "id": "general-listening-03:急ぐ",
+      "src": "images/vocab/hurrying.svg",
+      "bytes": 566,
+      "sha256": "5f8e626db351086e1d414b4ae4e9ad35ea02546a0539acc875e5114858b2bbc2"
+    },
+    {
+      "id": "general-listening-06:確認",
+      "src": "images/vocab/checking.svg",
+      "bytes": 607,
+      "sha256": "ff9512668bab5bc1a2031ae8d3d032c1b0e3d3023f6243dc29d3c9cba62e1ba3"
+    },
+    {
+      "id": "general-listening-05:安全",
+      "src": "images/vocab/safe.svg",
+      "bytes": 588,
+      "sha256": "5d1cb524afb59c7e24e1e931e5bbd828bd2424f3f29bd8de61ae61e214a74be3"
+    },
+    {
+      "id": "general-listening-06:濡れる",
+      "src": "images/vocab/gettingwet.svg",
+      "bytes": 506,
+      "sha256": "e0664d9a9b0883d85cc7bc649cc0000563982a380fe54723c87f926ae32f5a2e"
+    },
+    {
+      "id": "general-listening-06:乾く",
+      "src": "images/vocab/drying.svg",
+      "bytes": 809,
+      "sha256": "7594aaf94adfef0bd8c44e4576b8773ac4a992960eeaf987503a4d9c83e4436b"
+    },
+    {
+      "id": "game-card:game:er:hart:selection-voice:4ef596e51f:4ef596e51f",
+      "src": "images/vocab/christmasgreeting.svg",
+      "bytes": 719,
+      "sha256": "e97cdfe5a1ea78858452aac11e5e186774a68b6c26ddd66c2010bec6ac28342e"
+    },
+    {
+      "id": "game-card:game:er:hart:selection-voice:1794da56b4:1794da56b4",
+      "src": "images/vocab/loveandpeace.svg",
+      "bytes": 494,
+      "sha256": "13d325e4b0d0abda997151d090b2319476b31c0f5548f49584bc8ac6a22d8fd6"
+    },
+    {
+      "id": "game-card:game:er:silvia:selection-voice:0f1f8a4534:0f1f8a4534",
+      "src": "images/vocab/racestart.svg",
+      "bytes": 1089,
+      "sha256": "016bc8318f6c336afe452b8f219dc0574222b334fde695f75f7f0cb74acb2981"
+    },
+    {
+      "id": "game-card:game:genshin:aino:burst:44b0c417c7",
+      "src": "images/vocab/pointingrainbow.svg",
+      "bytes": 827,
+      "sha256": "95e60681f4c85779668bfc4d6c06f44dd902f20edc9eb438530e53e860839e85"
+    },
+    {
+      "id": "game-card:game:er:alonso:selection-voice:c44c74a562:c44c74a562",
+      "src": "images/vocab/recyclingtime.svg",
+      "bytes": 831,
+      "sha256": "b970f983751d1df82ece3ad8df11135f2ddfb114f48d65feea6a1f29e863d25b"
+    }
+  ],
+  "limits": [
+    "No physical-device, physical screen-reader or memory-effect acceptance",
+    "706 sharing decisions manually checked by exact source tuple/context; full browser interaction sampled, not all1185",
+    "Long answers use the existing independently scrollable card region; no layout change"
+  ],
+  "diagnostics": [
+    "Preview initially omitted VITE_BASE_PATH, so service-worker URL returned HTML; corrected preview configuration before verification",
+    "Initial long-card assertion compared unclipped content bounds with grading; verified existing scroll-region clipping/reachability instead; no product or contract change"
+  ]
+}
