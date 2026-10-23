@@ -4,12 +4,12 @@ import { readFile } from 'node:fs/promises';
 import { collectInventoryCards } from '../scripts/vocab-illustration-inventory.mjs';
 import { VOCAB_ILLUSTRATIONS, illustrationFor } from '../lib/vocab-illustrations.mjs';
 
-test('illustrations resolve only the 2212 approved cards and their actual senses', async () => {
+test('illustrations resolve only the 3184 approved cards and their actual senses', async () => {
   const cards = await collectInventoryCards();
-  assert.equal(VOCAB_ILLUSTRATIONS.length, 2212);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 2212);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 714);
-  assert.equal(cards.filter(illustrationFor).length, 2212);
+  assert.equal(VOCAB_ILLUSTRATIONS.length, 3184);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 3184);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 1014);
+  assert.equal(cards.filter(illustrationFor).length, 3184);
   for (const image of VOCAB_ILLUSTRATIONS) {
     const card = cards.find(c => c.id === image.id);
     assert.ok(card, image.id);
@@ -21,7 +21,7 @@ test('illustrations resolve only the 2212 approved cards and their actual senses
   }
   // Different senses and unapproved contexts must stay unillustrated despite the same spelling.
   assert.equal(illustrationFor(cards.find(c => c.id === 'general-listening-168:冷たい')).src, 'images/vocab/coldattitude.svg');
-  assert.equal(illustrationFor(cards.find(c => c.id === 'general-listening-95:返す')), undefined);
+  assert.equal(illustrationFor(cards.find(c => c.id === 'general-listening-95:返す')).src, 'images/vocab/replymessage.svg');
   assert.equal(illustrationFor(cards.find(c => c.id === 'general-listening-87:少し')), undefined);
 });
 
@@ -32,6 +32,7 @@ test('all reviewed images are local compact original vectors with no active or r
   let batchBytes = 0;
   let expansion300Bytes = 0;
   let second300Bytes = 0;
+  let third300Bytes = 0;
   const assets = [...new Map(VOCAB_ILLUSTRATIONS.map(image => [image.src, image])).values()];
   for (const image of assets) {
     assert.match(image.src, /^images\/vocab\/[a-z]+\.svg$/);
@@ -42,7 +43,8 @@ test('all reviewed images are local compact original vectors with no active or r
     else if (assets.indexOf(image) < 54) prototypeBytes += Buffer.byteLength(svg);
     else if (assets.indexOf(image) < 114) batchBytes += Buffer.byteLength(svg);
     else if (assets.indexOf(image) < 414) expansion300Bytes += Buffer.byteLength(svg);
-    else second300Bytes += Buffer.byteLength(svg);
+    else if (assets.indexOf(image) < 714) second300Bytes += Buffer.byteLength(svg);
+    else third300Bytes += Buffer.byteLength(svg);
     assert.match(svg, /viewBox="0 0 224 168"/);
     assert.doesNotMatch(svg, /<(script|foreignObject|text|image)\b|(?:href|onload|onclick)=/i);
   }
@@ -52,6 +54,7 @@ test('all reviewed images are local compact original vectors with no active or r
   assert.ok(batchBytes < 60000, 'retain the published sixty-asset budget');
   assert.ok(expansion300Bytes < 300000, 'retain the T156 300-asset budget');
   assert.ok(second300Bytes < 300000, 'T157 remains within its separate 1000-byte average plan');
+  assert.ok(third300Bytes < 300000, 'T158 remains within its separate 1000-byte average plan');
 });
 
 test('card fronts hide images and revealed auxiliary images do not repeat the accessible answer', async () => {
