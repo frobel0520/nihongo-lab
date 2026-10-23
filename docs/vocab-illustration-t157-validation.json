@@ -1,0 +1,4806 @@
+{
+  "task": "T157",
+  "baselineCommit": "7a1ca4f67a1ccd7b20828418aef0e503cb093f6e",
+  "productCommit": "f2f343ca090f6c85b9fbf68df087a72a9d8c857e",
+  "scope": "Premerge local evidence snapshot; latest CI/merge/Pages/production results are recorded in the T157 PR final release record. No production result is predeclared.",
+  "contract": {
+    "baseline": "7a1ca4f67a1ccd7b20828418aef0e503cb093f6e",
+    "cardEntries": 5909,
+    "oldMappingsUnchanged": 1185,
+    "oldSvgUnchanged": 414,
+    "newSvgUnique": 300,
+    "curriculumAudioSrsSyncOfflineLayoutDependenciesAndBudgetsUnchanged": true
+  },
+  "check": {
+    "tests": 335,
+    "fail": 0,
+    "typecheck": true,
+    "lint": true
+  },
+  "formalBase": "/nihongo-lab/",
+  "bundle": {
+    "mainJsGzipBytes": 65662,
+    "mainJsGzipLimit": 630000,
+    "cssGzipBytes": 5068,
+    "cssGzipLimit": 5800,
+    "precacheBytes": 22231404,
+    "precacheLimit": 26869829,
+    "headroomBytes": 4638425,
+    "precacheCountedUrls": 1193
+  },
+  "newSvg": {
+    "count": 300,
+    "bytes": 208040,
+    "originalLicensedCC0": true,
+    "safeXmlAndExactSourceTuplesChecked": true,
+    "uniqueHashes": 300,
+    "smallRenderedSemanticsReviewedIndividually": 300,
+    "actual375ScreenshotsReviewedIndividually": 300,
+    "note": "Final SVG hashes and exact id/word/reading/zh/src bindings match inspection. Internal non-rendered root-cause wording and license README were finalized before final build/full flows; decorative DOM alt remains empty."
+  },
+  "allSvg": {
+    "count": 714,
+    "bytes": 455914,
+    "trueOfflineExactSha": 714
+  },
+  "inspection": {
+    "n5": {
+      "base": "http://127.0.0.1:4207/nihongo-lab/",
+      "viewport": "375x667",
+      "rows": [
+        {
+          "id": "stage0-day1:学生",
+          "word": "学生",
+          "offline": false,
+          "src": "images/vocab/student.svg"
+        },
+        {
+          "id": "stage0-day1:先生",
+          "word": "先生",
+          "offline": false,
+          "src": "images/vocab/teacher.svg"
+        },
+        {
+          "id": "stage0-day1:会社員",
+          "word": "会社員",
+          "offline": false,
+          "src": "images/vocab/officeemployee.svg"
+        },
+        {
+          "id": "stage0-day2:お土産",
+          "word": "お土産",
+          "offline": false,
+          "src": "images/vocab/souvenir.svg"
+        },
+        {
+          "id": "stage0-day5:誕生日",
+          "word": "誕生日",
+          "offline": false,
+          "src": "images/vocab/birthday.svg"
+        },
+        {
+          "id": "stage0-day5:友達",
+          "word": "友達",
+          "offline": false,
+          "src": "images/vocab/friend.svg"
+        },
+        {
+          "id": "stage0-day6:朝ごはん",
+          "word": "朝ごはん",
+          "offline": false,
+          "src": "images/vocab/breakfast.svg"
+        },
+        {
+          "id": "stage0-day6:昼ご飯",
+          "word": "昼ご飯",
+          "offline": false,
+          "src": "images/vocab/lunch.svg"
+        },
+        {
+          "id": "stage0-day6:晩ご飯",
+          "word": "晩ご飯",
+          "offline": false,
+          "src": "images/vocab/dinner.svg"
+        },
+        {
+          "id": "stage0-day9:スポーツ",
+          "word": "スポーツ",
+          "offline": false,
+          "src": "images/vocab/sports.svg"
+        },
+        {
+          "id": "stage0-day9:料理",
+          "word": "料理",
+          "offline": false,
+          "src": "images/vocab/cookingdish.svg"
+        },
+        {
+          "id": "stage0-day9:時々",
+          "word": "時々",
+          "offline": false,
+          "src": "images/vocab/sometimes.svg"
+        },
+        {
+          "id": "stage0-day9:質問",
+          "word": "質問",
+          "offline": false,
+          "src": "images/vocab/askingquestion.svg"
+        },
+        {
+          "id": "stage0-day11:毎日",
+          "word": "毎日",
+          "offline": false,
+          "src": "images/vocab/everyday.svg"
+        },
+        {
+          "id": "stage0-day13:欲しい",
+          "word": "欲しい",
+          "offline": false,
+          "src": "images/vocab/wanting.svg"
+        },
+        {
+          "id": "stage0-day13:背広",
+          "word": "背広",
+          "offline": false,
+          "src": "images/vocab/suit.svg"
+        },
+        {
+          "id": "stage0-day15:授業",
+          "word": "授業",
+          "offline": false,
+          "src": "images/vocab/classsession.svg"
+        },
+        {
+          "id": "stage0-day15:練習",
+          "word": "練習",
+          "offline": false,
+          "src": "images/vocab/practice.svg"
+        },
+        {
+          "id": "stage0-day15:知る",
+          "word": "知る",
+          "offline": false,
+          "src": "images/vocab/learningfact.svg"
+        },
+        {
+          "id": "stage0-day15:返す",
+          "word": "返す",
+          "offline": false,
+          "src": "images/vocab/returningitem.svg"
+        },
+        {
+          "id": "stage0-day16:はく",
+          "word": "はく",
+          "offline": false,
+          "src": "images/vocab/puttingontrousers.svg"
+        },
+        {
+          "id": "stage0-day16:締める",
+          "word": "締める",
+          "offline": false,
+          "src": "images/vocab/tyingnecktie.svg"
+        },
+        {
+          "id": "stage0-day17:病気",
+          "word": "病気",
+          "offline": false,
+          "src": "images/vocab/illness.svg"
+        },
+        {
+          "id": "stage0-day17:風邪",
+          "word": "風邪",
+          "offline": false,
+          "src": "images/vocab/coldillness.svg"
+        },
+        {
+          "id": "stage0-day17:熱",
+          "word": "熱",
+          "offline": false,
+          "src": "images/vocab/fever.svg"
+        },
+        {
+          "id": "stage0-day17:疲れる",
+          "word": "疲れる",
+          "offline": false,
+          "src": "images/vocab/tired.svg"
+        },
+        {
+          "id": "stage0-day17:困る",
+          "word": "困る",
+          "offline": false,
+          "src": "images/vocab/troubled.svg"
+        },
+        {
+          "id": "stage0-day17:すぐ",
+          "word": "すぐ",
+          "offline": false,
+          "src": "images/vocab/immediately.svg"
+        },
+        {
+          "id": "stage0-day17:ちょうど",
+          "word": "ちょうど",
+          "offline": false,
+          "src": "images/vocab/exactly.svg"
+        },
+        {
+          "id": "stage0-day18:初めて",
+          "word": "初めて",
+          "offline": false,
+          "src": "images/vocab/firsttime.svg"
+        },
+        {
+          "id": "stage0-day18:趣味",
+          "word": "趣味",
+          "offline": false,
+          "src": "images/vocab/hobby.svg"
+        },
+        {
+          "id": "stage0-day18:動物",
+          "word": "動物",
+          "offline": false,
+          "src": "images/vocab/animals.svg"
+        },
+        {
+          "id": "stage0-day18:意味",
+          "word": "意味",
+          "offline": false,
+          "src": "images/vocab/meaning.svg"
+        },
+        {
+          "id": "stage0-day19:大人",
+          "word": "大人",
+          "offline": false,
+          "src": "images/vocab/adult.svg"
+        },
+        {
+          "id": "stage0-day19:子供",
+          "word": "子供",
+          "offline": false,
+          "src": "images/vocab/child.svg"
+        },
+        {
+          "id": "stage0-day19:若い",
+          "word": "若い",
+          "offline": false,
+          "src": "images/vocab/young.svg"
+        },
+        {
+          "id": "stage0-day19:かわいい",
+          "word": "かわいい",
+          "offline": false,
+          "src": "images/vocab/cute.svg"
+        },
+        {
+          "id": "stage0-day19:だんだん",
+          "word": "だんだん",
+          "offline": false,
+          "src": "images/vocab/gradually.svg"
+        },
+        {
+          "id": "stage0-day19:咲く",
+          "word": "咲く",
+          "offline": false,
+          "src": "images/vocab/blooming.svg"
+        },
+        {
+          "id": "stage0-day20:家族",
+          "word": "家族",
+          "offline": false,
+          "src": "images/vocab/family.svg"
+        },
+        {
+          "id": "stage0-day21:同じ",
+          "word": "同じ",
+          "offline": false,
+          "src": "images/vocab/same.svg"
+        },
+        {
+          "id": "stage0-day21:違う",
+          "word": "違う",
+          "offline": false,
+          "src": "images/vocab/different.svg"
+        },
+        {
+          "id": "stage0-day21:大切",
+          "word": "大切",
+          "offline": false,
+          "src": "images/vocab/precious.svg"
+        },
+        {
+          "id": "stage0-day24:並べる",
+          "word": "並べる",
+          "offline": false,
+          "src": "images/vocab/arranging.svg"
+        },
+        {
+          "id": "stage0-day1:学生",
+          "word": "学生",
+          "offline": true,
+          "src": "images/vocab/student.svg"
+        },
+        {
+          "id": "stage0-day1:先生",
+          "word": "先生",
+          "offline": true,
+          "src": "images/vocab/teacher.svg"
+        },
+        {
+          "id": "stage0-day1:会社員",
+          "word": "会社員",
+          "offline": true,
+          "src": "images/vocab/officeemployee.svg"
+        },
+        {
+          "id": "stage0-day2:お土産",
+          "word": "お土産",
+          "offline": true,
+          "src": "images/vocab/souvenir.svg"
+        },
+        {
+          "id": "stage0-day5:誕生日",
+          "word": "誕生日",
+          "offline": true,
+          "src": "images/vocab/birthday.svg"
+        },
+        {
+          "id": "stage0-day5:友達",
+          "word": "友達",
+          "offline": true,
+          "src": "images/vocab/friend.svg"
+        },
+        {
+          "id": "stage0-day6:朝ごはん",
+          "word": "朝ごはん",
+          "offline": true,
+          "src": "images/vocab/breakfast.svg"
+        },
+        {
+          "id": "stage0-day6:昼ご飯",
+          "word": "昼ご飯",
+          "offline": true,
+          "src": "images/vocab/lunch.svg"
+        },
+        {
+          "id": "stage0-day6:晩ご飯",
+          "word": "晩ご飯",
+          "offline": true,
+          "src": "images/vocab/dinner.svg"
+        },
+        {
+          "id": "stage0-day9:スポーツ",
+          "word": "スポーツ",
+          "offline": true,
+          "src": "images/vocab/sports.svg"
+        },
+        {
+          "id": "stage0-day9:料理",
+          "word": "料理",
+          "offline": true,
+          "src": "images/vocab/cookingdish.svg"
+        },
+        {
+          "id": "stage0-day9:時々",
+          "word": "時々",
+          "offline": true,
+          "src": "images/vocab/sometimes.svg"
+        },
+        {
+          "id": "stage0-day9:質問",
+          "word": "質問",
+          "offline": true,
+          "src": "images/vocab/askingquestion.svg"
+        },
+        {
+          "id": "stage0-day11:毎日",
+          "word": "毎日",
+          "offline": true,
+          "src": "images/vocab/everyday.svg"
+        },
+        {
+          "id": "stage0-day13:欲しい",
+          "word": "欲しい",
+          "offline": true,
+          "src": "images/vocab/wanting.svg"
+        },
+        {
+          "id": "stage0-day13:背広",
+          "word": "背広",
+          "offline": true,
+          "src": "images/vocab/suit.svg"
+        },
+        {
+          "id": "stage0-day15:授業",
+          "word": "授業",
+          "offline": true,
+          "src": "images/vocab/classsession.svg"
+        },
+        {
+          "id": "stage0-day15:練習",
+          "word": "練習",
+          "offline": true,
+          "src": "images/vocab/practice.svg"
+        },
+        {
+          "id": "stage0-day15:知る",
+          "word": "知る",
+          "offline": true,
+          "src": "images/vocab/learningfact.svg"
+        },
+        {
+          "id": "stage0-day15:返す",
+          "word": "返す",
+          "offline": true,
+          "src": "images/vocab/returningitem.svg"
+        },
+        {
+          "id": "stage0-day16:はく",
+          "word": "はく",
+          "offline": true,
+          "src": "images/vocab/puttingontrousers.svg"
+        },
+        {
+          "id": "stage0-day16:締める",
+          "word": "締める",
+          "offline": true,
+          "src": "images/vocab/tyingnecktie.svg"
+        },
+        {
+          "id": "stage0-day17:病気",
+          "word": "病気",
+          "offline": true,
+          "src": "images/vocab/illness.svg"
+        },
+        {
+          "id": "stage0-day17:風邪",
+          "word": "風邪",
+          "offline": true,
+          "src": "images/vocab/coldillness.svg"
+        },
+        {
+          "id": "stage0-day17:熱",
+          "word": "熱",
+          "offline": true,
+          "src": "images/vocab/fever.svg"
+        },
+        {
+          "id": "stage0-day17:疲れる",
+          "word": "疲れる",
+          "offline": true,
+          "src": "images/vocab/tired.svg"
+        },
+        {
+          "id": "stage0-day17:困る",
+          "word": "困る",
+          "offline": true,
+          "src": "images/vocab/troubled.svg"
+        },
+        {
+          "id": "stage0-day17:すぐ",
+          "word": "すぐ",
+          "offline": true,
+          "src": "images/vocab/immediately.svg"
+        },
+        {
+          "id": "stage0-day17:ちょうど",
+          "word": "ちょうど",
+          "offline": true,
+          "src": "images/vocab/exactly.svg"
+        },
+        {
+          "id": "stage0-day18:初めて",
+          "word": "初めて",
+          "offline": true,
+          "src": "images/vocab/firsttime.svg"
+        },
+        {
+          "id": "stage0-day18:趣味",
+          "word": "趣味",
+          "offline": true,
+          "src": "images/vocab/hobby.svg"
+        },
+        {
+          "id": "stage0-day18:動物",
+          "word": "動物",
+          "offline": true,
+          "src": "images/vocab/animals.svg"
+        },
+        {
+          "id": "stage0-day18:意味",
+          "word": "意味",
+          "offline": true,
+          "src": "images/vocab/meaning.svg"
+        },
+        {
+          "id": "stage0-day19:大人",
+          "word": "大人",
+          "offline": true,
+          "src": "images/vocab/adult.svg"
+        },
+        {
+          "id": "stage0-day19:子供",
+          "word": "子供",
+          "offline": true,
+          "src": "images/vocab/child.svg"
+        },
+        {
+          "id": "stage0-day19:若い",
+          "word": "若い",
+          "offline": true,
+          "src": "images/vocab/young.svg"
+        },
+        {
+          "id": "stage0-day19:かわいい",
+          "word": "かわいい",
+          "offline": true,
+          "src": "images/vocab/cute.svg"
+        },
+        {
+          "id": "stage0-day19:だんだん",
+          "word": "だんだん",
+          "offline": true,
+          "src": "images/vocab/gradually.svg"
+        },
+        {
+          "id": "stage0-day19:咲く",
+          "word": "咲く",
+          "offline": true,
+          "src": "images/vocab/blooming.svg"
+        },
+        {
+          "id": "stage0-day20:家族",
+          "word": "家族",
+          "offline": true,
+          "src": "images/vocab/family.svg"
+        },
+        {
+          "id": "stage0-day21:同じ",
+          "word": "同じ",
+          "offline": true,
+          "src": "images/vocab/same.svg"
+        },
+        {
+          "id": "stage0-day21:違う",
+          "word": "違う",
+          "offline": true,
+          "src": "images/vocab/different.svg"
+        },
+        {
+          "id": "stage0-day21:大切",
+          "word": "大切",
+          "offline": true,
+          "src": "images/vocab/precious.svg"
+        },
+        {
+          "id": "stage0-day24:並べる",
+          "word": "並べる",
+          "offline": true,
+          "src": "images/vocab/arranging.svg"
+        }
+      ],
+      "allMappingsInDeck": true,
+      "exactSourceAndWord": true,
+      "uniqueOfflineAssets": 714,
+      "trueOffline": true,
+      "networkProbeCount": 1,
+      "untouchedProgressExact": true,
+      "pageerrors": [],
+      "overflow": false
+    },
+    "general": {
+      "base": "http://127.0.0.1:4207/nihongo-lab/",
+      "viewport": "375x667",
+      "rows": [
+        {
+          "id": "general-listening-02:動く",
+          "word": "動く",
+          "offline": false,
+          "src": "images/vocab/moving.svg"
+        },
+        {
+          "id": "general-listening-03:始める",
+          "word": "始める",
+          "offline": false,
+          "src": "images/vocab/startingtask.svg"
+        },
+        {
+          "id": "general-listening-03:出発",
+          "word": "出発",
+          "offline": false,
+          "src": "images/vocab/departure.svg"
+        },
+        {
+          "id": "general-listening-03:戻る",
+          "word": "戻る",
+          "offline": false,
+          "src": "images/vocab/returningplace.svg"
+        },
+        {
+          "id": "general-listening-04:誘う",
+          "word": "誘う",
+          "offline": false,
+          "src": "images/vocab/inviting.svg"
+        },
+        {
+          "id": "general-listening-04:予定",
+          "word": "予定",
+          "offline": false,
+          "src": "images/vocab/scheduledplan.svg"
+        },
+        {
+          "id": "general-listening-04:用事",
+          "word": "用事",
+          "offline": false,
+          "src": "images/vocab/errand.svg"
+        },
+        {
+          "id": "general-listening-04:都合",
+          "word": "都合",
+          "offline": false,
+          "src": "images/vocab/availability.svg"
+        },
+        {
+          "id": "general-listening-04:残念",
+          "word": "残念",
+          "offline": false,
+          "src": "images/vocab/disappointment.svg"
+        },
+        {
+          "id": "general-listening-05:任せる",
+          "word": "任せる",
+          "offline": false,
+          "src": "images/vocab/entrusting.svg"
+        },
+        {
+          "id": "general-listening-05:案内",
+          "word": "案内",
+          "offline": false,
+          "src": "images/vocab/guiding.svg"
+        },
+        {
+          "id": "general-listening-05:看板",
+          "word": "看板",
+          "offline": false,
+          "src": "images/vocab/signboard.svg"
+        },
+        {
+          "id": "general-listening-06:必要",
+          "word": "必要",
+          "offline": false,
+          "src": "images/vocab/necessary.svg"
+        },
+        {
+          "id": "general-listening-06:変わる",
+          "word": "変わる",
+          "offline": false,
+          "src": "images/vocab/changing.svg"
+        },
+        {
+          "id": "general-listening-06:避ける",
+          "word": "避ける",
+          "offline": false,
+          "src": "images/vocab/avoidroute.svg"
+        },
+        {
+          "id": "general-listening-07:治る",
+          "word": "治る",
+          "offline": false,
+          "src": "images/vocab/healing.svg"
+        },
+        {
+          "id": "general-listening-07:希望",
+          "word": "希望",
+          "offline": false,
+          "src": "images/vocab/hope.svg"
+        },
+        {
+          "id": "general-listening-07:願う",
+          "word": "願う",
+          "offline": false,
+          "src": "images/vocab/wishing.svg"
+        },
+        {
+          "id": "general-listening-07:直す",
+          "word": "直す",
+          "offline": false,
+          "src": "images/vocab/repairing.svg"
+        },
+        {
+          "id": "general-listening-07:調べる",
+          "word": "調べる",
+          "offline": false,
+          "src": "images/vocab/investigating.svg"
+        },
+        {
+          "id": "general-listening-08:持っていく",
+          "word": "持っていく",
+          "offline": false,
+          "src": "images/vocab/takingaway.svg"
+        },
+        {
+          "id": "general-listening-08:持ってくる",
+          "word": "持ってくる",
+          "offline": false,
+          "src": "images/vocab/bringing.svg"
+        },
+        {
+          "id": "general-listening-08:負担",
+          "word": "負担",
+          "offline": false,
+          "src": "images/vocab/burden.svg"
+        },
+        {
+          "id": "general-listening-08:支える",
+          "word": "支える",
+          "offline": false,
+          "src": "images/vocab/supporting.svg"
+        },
+        {
+          "id": "general-listening-08:肩",
+          "word": "肩",
+          "offline": false,
+          "src": "images/vocab/shoulder.svg"
+        },
+        {
+          "id": "general-listening-08:背中",
+          "word": "背中",
+          "offline": false,
+          "src": "images/vocab/backbody.svg"
+        },
+        {
+          "id": "general-listening-09:触る",
+          "word": "触る",
+          "offline": false,
+          "src": "images/vocab/touching.svg"
+        },
+        {
+          "id": "general-listening-09:見学",
+          "word": "見学",
+          "offline": false,
+          "src": "images/vocab/observinglesson.svg"
+        },
+        {
+          "id": "general-listening-09:許可",
+          "word": "許可",
+          "offline": false,
+          "src": "images/vocab/permission.svg"
+        },
+        {
+          "id": "general-listening-09:禁止",
+          "word": "禁止",
+          "offline": false,
+          "src": "images/vocab/prohibition.svg"
+        },
+        {
+          "id": "general-listening-09:規則",
+          "word": "規則",
+          "offline": false,
+          "src": "images/vocab/rules.svg"
+        },
+        {
+          "id": "general-listening-09:離れる",
+          "word": "離れる",
+          "offline": false,
+          "src": "images/vocab/movingaway.svg"
+        },
+        {
+          "id": "general-listening-09:近づく",
+          "word": "近づく",
+          "offline": false,
+          "src": "images/vocab/approaching.svg"
+        },
+        {
+          "id": "general-listening-09:順番",
+          "word": "順番",
+          "offline": false,
+          "src": "images/vocab/turnorder.svg"
+        },
+        {
+          "id": "general-listening-10:近道",
+          "word": "近道",
+          "offline": false,
+          "src": "images/vocab/shortcut.svg"
+        },
+        {
+          "id": "general-listening-10:遠回り",
+          "word": "遠回り",
+          "offline": false,
+          "src": "images/vocab/longwayround.svg"
+        },
+        {
+          "id": "general-listening-10:不便",
+          "word": "不便",
+          "offline": false,
+          "src": "images/vocab/inconvenient.svg"
+        },
+        {
+          "id": "general-listening-10:坂",
+          "word": "坂",
+          "offline": false,
+          "src": "images/vocab/slope.svg"
+        },
+        {
+          "id": "general-listening-10:平ら",
+          "word": "平ら",
+          "offline": false,
+          "src": "images/vocab/flat.svg"
+        },
+        {
+          "id": "general-listening-10:比べる",
+          "word": "比べる",
+          "offline": false,
+          "src": "images/vocab/comparing.svg"
+        },
+        {
+          "id": "general-listening-11:量",
+          "word": "量",
+          "offline": false,
+          "src": "images/vocab/quantity.svg"
+        },
+        {
+          "id": "general-listening-11:追加",
+          "word": "追加",
+          "offline": false,
+          "src": "images/vocab/addition.svg"
+        },
+        {
+          "id": "general-listening-11:余る",
+          "word": "余る",
+          "offline": false,
+          "src": "images/vocab/leftover.svg"
+        },
+        {
+          "id": "general-listening-11:足りない",
+          "word": "足りない",
+          "offline": false,
+          "src": "images/vocab/insufficient.svg"
+        },
+        {
+          "id": "general-listening-12:着替える",
+          "word": "着替える",
+          "offline": false,
+          "src": "images/vocab/changingclothes.svg"
+        },
+        {
+          "id": "general-listening-12:片づける",
+          "word": "片づける",
+          "offline": false,
+          "src": "images/vocab/tidying.svg"
+        },
+        {
+          "id": "general-listening-12:連絡",
+          "word": "連絡",
+          "offline": false,
+          "src": "images/vocab/contacting.svg"
+        },
+        {
+          "id": "general-listening-13:届ける",
+          "word": "届ける",
+          "offline": false,
+          "src": "images/vocab/delivering.svg"
+        },
+        {
+          "id": "general-listening-13:届く",
+          "word": "届く",
+          "offline": false,
+          "src": "images/vocab/arrivedparcel.svg"
+        },
+        {
+          "id": "general-listening-13:受け取る",
+          "word": "受け取る",
+          "offline": false,
+          "src": "images/vocab/parcelreceiving.svg"
+        },
+        {
+          "id": "general-listening-13:書類",
+          "word": "書類",
+          "offline": false,
+          "src": "images/vocab/documents.svg"
+        },
+        {
+          "id": "general-listening-14:見つける",
+          "word": "見つける",
+          "offline": false,
+          "src": "images/vocab/finding.svg"
+        },
+        {
+          "id": "general-listening-15:落とす",
+          "word": "落とす",
+          "offline": false,
+          "src": "images/vocab/dropping.svg"
+        },
+        {
+          "id": "general-listening-15:拾う",
+          "word": "拾う",
+          "offline": false,
+          "src": "images/vocab/pickingup.svg"
+        },
+        {
+          "id": "general-listening-15:壊す",
+          "word": "壊す",
+          "offline": false,
+          "src": "images/vocab/breakingitem.svg"
+        },
+        {
+          "id": "general-listening-15:壊れる",
+          "word": "壊れる",
+          "offline": false,
+          "src": "images/vocab/broken.svg"
+        },
+        {
+          "id": "general-listening-15:破る",
+          "word": "破る",
+          "offline": false,
+          "src": "images/vocab/tearing.svg"
+        },
+        {
+          "id": "general-listening-15:破れる",
+          "word": "破れる",
+          "offline": false,
+          "src": "images/vocab/torn.svg"
+        },
+        {
+          "id": "general-listening-15:汚す",
+          "word": "汚す",
+          "offline": false,
+          "src": "images/vocab/dirtying.svg"
+        },
+        {
+          "id": "general-listening-15:汚れる",
+          "word": "汚れる",
+          "offline": false,
+          "src": "images/vocab/stained.svg"
+        },
+        {
+          "id": "general-listening-15:予備",
+          "word": "予備",
+          "offline": false,
+          "src": "images/vocab/spare.svg"
+        },
+        {
+          "id": "general-listening-15:しまう",
+          "word": "しまう",
+          "offline": false,
+          "src": "images/vocab/puttingaway.svg"
+        },
+        {
+          "id": "general-listening-15:保管",
+          "word": "保管",
+          "offline": false,
+          "src": "images/vocab/safekeeping.svg"
+        },
+        {
+          "id": "general-listening-16:お礼",
+          "word": "お礼",
+          "offline": false,
+          "src": "images/vocab/thanks.svg"
+        },
+        {
+          "id": "general-listening-16:親切",
+          "word": "親切",
+          "offline": false,
+          "src": "images/vocab/kindness.svg"
+        },
+        {
+          "id": "general-listening-16:部品",
+          "word": "部品",
+          "offline": false,
+          "src": "images/vocab/parts.svg"
+        },
+        {
+          "id": "general-listening-16:交換",
+          "word": "交換",
+          "offline": false,
+          "src": "images/vocab/exchanging.svg"
+        },
+        {
+          "id": "general-listening-17:相談",
+          "word": "相談",
+          "offline": false,
+          "src": "images/vocab/consultation.svg"
+        },
+        {
+          "id": "general-listening-17:助言",
+          "word": "助言",
+          "offline": false,
+          "src": "images/vocab/advice.svg"
+        },
+        {
+          "id": "general-listening-18:点検",
+          "word": "点検",
+          "offline": false,
+          "src": "images/vocab/inspection.svg"
+        },
+        {
+          "id": "general-listening-18:事前",
+          "word": "事前",
+          "offline": false,
+          "src": "images/vocab/beforehand.svg"
+        },
+        {
+          "id": "general-listening-18:包む",
+          "word": "包む",
+          "offline": false,
+          "src": "images/vocab/wrapping.svg"
+        },
+        {
+          "id": "general-listening-19:変更",
+          "word": "変更",
+          "offline": false,
+          "src": "images/vocab/changeplan.svg"
+        },
+        {
+          "id": "general-listening-19:突然",
+          "word": "突然",
+          "offline": false,
+          "src": "images/vocab/suddenly.svg"
+        },
+        {
+          "id": "general-listening-19:期待",
+          "word": "期待",
+          "offline": false,
+          "src": "images/vocab/expectation.svg"
+        },
+        {
+          "id": "general-listening-20:方法",
+          "word": "方法",
+          "offline": false,
+          "src": "images/vocab/method.svg"
+        },
+        {
+          "id": "general-listening-20:慣れる",
+          "word": "慣れる",
+          "offline": false,
+          "src": "images/vocab/gettingused.svg"
+        },
+        {
+          "id": "general-listening-20:押す",
+          "word": "押す",
+          "offline": false,
+          "src": "images/vocab/pressingbutton.svg"
+        },
+        {
+          "id": "general-listening-20:回す",
+          "word": "回す",
+          "offline": false,
+          "src": "images/vocab/turningknob.svg"
+        },
+        {
+          "id": "general-listening-20:説明書",
+          "word": "説明書",
+          "offline": false,
+          "src": "images/vocab/manual.svg"
+        },
+        {
+          "id": "general-listening-20:戻す",
+          "word": "戻す",
+          "offline": false,
+          "src": "images/vocab/puttingback.svg"
+        },
+        {
+          "id": "general-listening-21:予報",
+          "word": "予報",
+          "offline": false,
+          "src": "images/vocab/forecast.svg"
+        },
+        {
+          "id": "general-listening-21:湿る",
+          "word": "湿る",
+          "offline": false,
+          "src": "images/vocab/damp.svg"
+        },
+        {
+          "id": "general-listening-21:見える",
+          "word": "見える",
+          "offline": false,
+          "src": "images/vocab/visible.svg"
+        },
+        {
+          "id": "general-listening-21:避難",
+          "word": "避難",
+          "offline": false,
+          "src": "images/vocab/evacuation.svg"
+        },
+        {
+          "id": "general-listening-22:噂",
+          "word": "噂",
+          "offline": false,
+          "src": "images/vocab/rumor.svg"
+        },
+        {
+          "id": "general-listening-22:情報",
+          "word": "情報",
+          "offline": false,
+          "src": "images/vocab/information.svg"
+        },
+        {
+          "id": "general-listening-22:正確",
+          "word": "正確",
+          "offline": false,
+          "src": "images/vocab/accurate.svg"
+        },
+        {
+          "id": "general-listening-22:直接",
+          "word": "直接",
+          "offline": false,
+          "src": "images/vocab/directly.svg"
+        },
+        {
+          "id": "general-listening-23:意見",
+          "word": "意見",
+          "offline": false,
+          "src": "images/vocab/opinion.svg"
+        },
+        {
+          "id": "general-listening-23:根拠",
+          "word": "根拠",
+          "offline": false,
+          "src": "images/vocab/grounds.svg"
+        },
+        {
+          "id": "general-listening-23:予測",
+          "word": "予測",
+          "offline": false,
+          "src": "images/vocab/prediction.svg"
+        },
+        {
+          "id": "general-listening-23:確信",
+          "word": "確信",
+          "offline": false,
+          "src": "images/vocab/conviction.svg"
+        },
+        {
+          "id": "general-listening-25:目的",
+          "word": "目的",
+          "offline": false,
+          "src": "images/vocab/purpose.svg"
+        },
+        {
+          "id": "general-listening-25:迎える",
+          "word": "迎える",
+          "offline": false,
+          "src": "images/vocab/welcomingarrival.svg"
+        },
+        {
+          "id": "general-listening-25:見送る",
+          "word": "見送る",
+          "offline": false,
+          "src": "images/vocab/seeingoff.svg"
+        },
+        {
+          "id": "general-listening-25:集める",
+          "word": "集める",
+          "offline": false,
+          "src": "images/vocab/collecting.svg"
+        },
+        {
+          "id": "general-listening-25:手がかり",
+          "word": "手がかり",
+          "offline": false,
+          "src": "images/vocab/clue.svg"
+        },
+        {
+          "id": "general-listening-25:足跡",
+          "word": "足跡",
+          "offline": false,
+          "src": "images/vocab/footprints.svg"
+        },
+        {
+          "id": "general-listening-25:行方",
+          "word": "行方",
+          "offline": false,
+          "src": "images/vocab/whereabouts.svg"
+        },
+        {
+          "id": "general-listening-25:記録",
+          "word": "記録",
+          "offline": false,
+          "src": "images/vocab/record.svg"
+        },
+        {
+          "id": "general-listening-25:手帳",
+          "word": "手帳",
+          "offline": false,
+          "src": "images/vocab/pocketnotebook.svg"
+        },
+        {
+          "id": "general-listening-26:待機",
+          "word": "待機",
+          "offline": false,
+          "src": "images/vocab/standby.svg"
+        },
+        {
+          "id": "general-listening-26:往復",
+          "word": "往復",
+          "offline": false,
+          "src": "images/vocab/roundtrip.svg"
+        },
+        {
+          "id": "general-listening-26:片道",
+          "word": "片道",
+          "offline": false,
+          "src": "images/vocab/oneway.svg"
+        },
+        {
+          "id": "general-listening-26:寄り道",
+          "word": "寄り道",
+          "offline": false,
+          "src": "images/vocab/detourstop.svg"
+        },
+        {
+          "id": "general-listening-27:成長",
+          "word": "成長",
+          "offline": false,
+          "src": "images/vocab/growth.svg"
+        },
+        {
+          "id": "general-listening-27:上達",
+          "word": "上達",
+          "offline": false,
+          "src": "images/vocab/improvement.svg"
+        },
+        {
+          "id": "general-listening-27:少しずつ",
+          "word": "少しずつ",
+          "offline": false,
+          "src": "images/vocab/littlebylittle.svg"
+        },
+        {
+          "id": "general-listening-27:習慣",
+          "word": "習慣",
+          "offline": false,
+          "src": "images/vocab/habit.svg"
+        },
+        {
+          "id": "general-listening-28:優先",
+          "word": "優先",
+          "offline": false,
+          "src": "images/vocab/priority.svg"
+        },
+        {
+          "id": "general-listening-28:節約",
+          "word": "節約",
+          "offline": false,
+          "src": "images/vocab/saving.svg"
+        },
+        {
+          "id": "general-listening-28:我慢",
+          "word": "我慢",
+          "offline": false,
+          "src": "images/vocab/enduring.svg"
+        },
+        {
+          "id": "general-listening-28:空腹",
+          "word": "空腹",
+          "offline": false,
+          "src": "images/vocab/hungry.svg"
+        },
+        {
+          "id": "general-listening-29:自由",
+          "word": "自由",
+          "offline": false,
+          "src": "images/vocab/freedom.svg"
+        },
+        {
+          "id": "general-listening-30:決める",
+          "word": "決める",
+          "offline": false,
+          "src": "images/vocab/deciding.svg"
+        },
+        {
+          "id": "general-listening-30:桟橋",
+          "word": "桟橋",
+          "offline": false,
+          "src": "images/vocab/pier.svg"
+        },
+        {
+          "id": "general-listening-31:紹介",
+          "word": "紹介",
+          "offline": false,
+          "src": "images/vocab/introducing.svg"
+        },
+        {
+          "id": "general-listening-31:丁寧",
+          "word": "丁寧",
+          "offline": false,
+          "src": "images/vocab/carefulpolite.svg"
+        },
+        {
+          "id": "general-listening-31:名札",
+          "word": "名札",
+          "offline": false,
+          "src": "images/vocab/namebadge.svg"
+        },
+        {
+          "id": "general-listening-32:描く",
+          "word": "描く",
+          "offline": false,
+          "src": "images/vocab/drawing.svg"
+        },
+        {
+          "id": "general-listening-32:踊る",
+          "word": "踊る",
+          "offline": false,
+          "src": "images/vocab/dancing.svg"
+        },
+        {
+          "id": "general-listening-32:興味",
+          "word": "興味",
+          "offline": false,
+          "src": "images/vocab/interest.svg"
+        },
+        {
+          "id": "general-listening-33:遠慮",
+          "word": "遠慮",
+          "offline": false,
+          "src": "images/vocab/holdingback.svg"
+        },
+        {
+          "id": "general-listening-33:持ち上げる",
+          "word": "持ち上げる",
+          "offline": false,
+          "src": "images/vocab/lifting.svg"
+        },
+        {
+          "id": "general-listening-33:台車",
+          "word": "台車",
+          "offline": false,
+          "src": "images/vocab/trolley.svg"
+        },
+        {
+          "id": "general-listening-34:写す",
+          "word": "写す",
+          "offline": false,
+          "src": "images/vocab/copyingbyhand.svg"
+        },
+        {
+          "id": "general-listening-34:依頼",
+          "word": "依頼",
+          "offline": false,
+          "src": "images/vocab/request.svg"
+        },
+        {
+          "id": "general-listening-35:無料",
+          "word": "無料",
+          "offline": false,
+          "src": "images/vocab/freeofcharge.svg"
+        },
+        {
+          "id": "general-listening-35:有料",
+          "word": "有料",
+          "offline": false,
+          "src": "images/vocab/paidservice.svg"
+        },
+        {
+          "id": "general-listening-36:謝る",
+          "word": "謝る",
+          "offline": false,
+          "src": "images/vocab/apologizing.svg"
+        },
+        {
+          "id": "general-listening-36:反省",
+          "word": "反省",
+          "offline": false,
+          "src": "images/vocab/reflection.svg"
+        },
+        {
+          "id": "general-listening-37:乾かす",
+          "word": "乾かす",
+          "offline": false,
+          "src": "images/vocab/dryingclothes.svg"
+        },
+        {
+          "id": "general-listening-37:温かい",
+          "word": "温かい",
+          "offline": false,
+          "src": "images/vocab/warmfood.svg"
+        },
+        {
+          "id": "general-listening-37:お互い",
+          "word": "お互い",
+          "offline": false,
+          "src": "images/vocab/mutually.svg"
+        },
+        {
+          "id": "general-listening-38:はっきり",
+          "word": "はっきり",
+          "offline": false,
+          "src": "images/vocab/clearly.svg"
+        },
+        {
+          "id": "general-listening-38:騒がしい",
+          "word": "騒がしい",
+          "offline": false,
+          "src": "images/vocab/clamor.svg"
+        },
+        {
+          "id": "general-listening-39:切る",
+          "word": "切る",
+          "offline": false,
+          "src": "images/vocab/hangingup.svg"
+        },
+        {
+          "id": "general-listening-41:満席",
+          "word": "満席",
+          "offline": false,
+          "src": "images/vocab/fullseats.svg"
+        },
+        {
+          "id": "general-listening-42:高い",
+          "word": "高い",
+          "offline": false,
+          "src": "images/vocab/expensive.svg"
+        },
+        {
+          "id": "general-listening-43:メニュー",
+          "word": "メニュー",
+          "offline": false,
+          "src": "images/vocab/menu.svg"
+        },
+        {
+          "id": "general-listening-43:定食",
+          "word": "定食",
+          "offline": false,
+          "src": "images/vocab/setmeal.svg"
+        },
+        {
+          "id": "general-listening-43:スープ",
+          "word": "スープ",
+          "offline": false,
+          "src": "images/vocab/soup.svg"
+        },
+        {
+          "id": "general-listening-43:サラダ",
+          "word": "サラダ",
+          "offline": false,
+          "src": "images/vocab/salad.svg"
+        },
+        {
+          "id": "general-listening-43:苦い",
+          "word": "苦い",
+          "offline": false,
+          "src": "images/vocab/bitter.svg"
+        },
+        {
+          "id": "general-listening-45:浴室",
+          "word": "浴室",
+          "offline": false,
+          "src": "images/vocab/bathroom.svg"
+        },
+        {
+          "id": "general-listening-45:預ける",
+          "word": "預ける",
+          "offline": false,
+          "src": "images/vocab/entruststorage.svg"
+        },
+        {
+          "id": "general-listening-45:預かる",
+          "word": "預かる",
+          "offline": false,
+          "src": "images/vocab/keepforother.svg"
+        },
+        {
+          "id": "general-listening-46:運動場",
+          "word": "運動場",
+          "offline": false,
+          "src": "images/vocab/sportsfield.svg"
+        },
+        {
+          "id": "general-listening-47:喉",
+          "word": "喉",
+          "offline": false,
+          "src": "images/vocab/throat.svg"
+        },
+        {
+          "id": "general-listening-47:付き添う",
+          "word": "付き添う",
+          "offline": false,
+          "src": "images/vocab/accompanyingpatient.svg"
+        },
+        {
+          "id": "general-listening-49:制服",
+          "word": "制服",
+          "offline": false,
+          "src": "images/vocab/uniform.svg"
+        },
+        {
+          "id": "general-listening-49:普段着",
+          "word": "普段着",
+          "offline": false,
+          "src": "images/vocab/casualclothes.svg"
+        },
+        {
+          "id": "general-listening-49:守る",
+          "word": "守る",
+          "offline": false,
+          "src": "images/vocab/followingrules.svg"
+        },
+        {
+          "id": "general-listening-50:分担",
+          "word": "分担",
+          "offline": false,
+          "src": "images/vocab/sharingtasks.svg"
+        },
+        {
+          "id": "general-listening-51:間接",
+          "word": "間接",
+          "offline": false,
+          "src": "images/vocab/indirectly.svg"
+        },
+        {
+          "id": "general-listening-54:リボン",
+          "word": "リボン",
+          "offline": false,
+          "src": "images/vocab/ribbon.svg"
+        },
+        {
+          "id": "general-listening-55:途中",
+          "word": "途中",
+          "offline": false,
+          "src": "images/vocab/halfway.svg"
+        },
+        {
+          "id": "general-listening-56:悲しい",
+          "word": "悲しい",
+          "offline": false,
+          "src": "images/vocab/sad.svg"
+        },
+        {
+          "id": "general-listening-56:寂しい",
+          "word": "寂しい",
+          "offline": false,
+          "src": "images/vocab/lonely.svg"
+        },
+        {
+          "id": "general-listening-56:怖い",
+          "word": "怖い",
+          "offline": false,
+          "src": "images/vocab/afraid.svg"
+        },
+        {
+          "id": "general-listening-56:不安",
+          "word": "不安",
+          "offline": false,
+          "src": "images/vocab/anxious.svg"
+        },
+        {
+          "id": "general-listening-56:緊張",
+          "word": "緊張",
+          "offline": false,
+          "src": "images/vocab/nervous.svg"
+        },
+        {
+          "id": "general-listening-56:怒る",
+          "word": "怒る",
+          "offline": false,
+          "src": "images/vocab/angry.svg"
+        },
+        {
+          "id": "general-listening-56:驚く",
+          "word": "驚く",
+          "offline": false,
+          "src": "images/vocab/surprised.svg"
+        },
+        {
+          "id": "general-listening-56:泣く",
+          "word": "泣く",
+          "offline": false,
+          "src": "images/vocab/crying.svg"
+        },
+        {
+          "id": "general-listening-56:黙る",
+          "word": "黙る",
+          "offline": false,
+          "src": "images/vocab/silentperson.svg"
+        },
+        {
+          "id": "general-listening-56:悩む",
+          "word": "悩む",
+          "offline": false,
+          "src": "images/vocab/worrying.svg"
+        },
+        {
+          "id": "general-listening-56:自信",
+          "word": "自信",
+          "offline": false,
+          "src": "images/vocab/confidence.svg"
+        },
+        {
+          "id": "general-listening-57:慎重",
+          "word": "慎重",
+          "offline": false,
+          "src": "images/vocab/cautious.svg"
+        },
+        {
+          "id": "general-listening-61:屋上",
+          "word": "屋上",
+          "offline": false,
+          "src": "images/vocab/rooftop.svg"
+        },
+        {
+          "id": "general-listening-62:出す",
+          "word": "出す",
+          "offline": false,
+          "src": "images/vocab/takingout.svg"
+        },
+        {
+          "id": "general-listening-66:充電",
+          "word": "充電",
+          "offline": false,
+          "src": "images/vocab/charging.svg"
+        },
+        {
+          "id": "general-listening-66:なるほど",
+          "word": "なるほど",
+          "offline": false,
+          "src": "images/vocab/nowunderstand.svg"
+        },
+        {
+          "id": "general-listening-67:崖",
+          "word": "崖",
+          "offline": false,
+          "src": "images/vocab/cliff.svg"
+        },
+        {
+          "id": "general-listening-67:伏せる",
+          "word": "伏せる",
+          "offline": false,
+          "src": "images/vocab/duckingdown.svg"
+        },
+        {
+          "id": "general-listening-67:落ちる",
+          "word": "落ちる",
+          "offline": false,
+          "src": "images/vocab/falling.svg"
+        },
+        {
+          "id": "general-listening-67:崩れる",
+          "word": "崩れる",
+          "offline": false,
+          "src": "images/vocab/collapsing.svg"
+        },
+        {
+          "id": "general-listening-68:拭く",
+          "word": "拭く",
+          "offline": false,
+          "src": "images/vocab/wiping.svg"
+        },
+        {
+          "id": "general-listening-69:思い出す",
+          "word": "思い出す",
+          "offline": false,
+          "src": "images/vocab/recalling.svg"
+        },
+        {
+          "id": "general-listening-70:隠れる",
+          "word": "隠れる",
+          "offline": false,
+          "src": "images/vocab/hiding.svg"
+        },
+        {
+          "id": "general-listening-72:望遠鏡",
+          "word": "望遠鏡",
+          "offline": false,
+          "src": "images/vocab/telescope.svg"
+        },
+        {
+          "id": "general-listening-72:反射",
+          "word": "反射",
+          "offline": false,
+          "src": "images/vocab/reflectionlight.svg"
+        },
+        {
+          "id": "general-listening-72:眩しい",
+          "word": "眩しい",
+          "offline": false,
+          "src": "images/vocab/dazzling.svg"
+        },
+        {
+          "id": "general-listening-72:幕",
+          "word": "幕",
+          "offline": false,
+          "src": "images/vocab/curtain.svg"
+        },
+        {
+          "id": "general-listening-72:レバー",
+          "word": "レバー",
+          "offline": false,
+          "src": "images/vocab/lever.svg"
+        },
+        {
+          "id": "general-listening-73:名簿",
+          "word": "名簿",
+          "offline": false,
+          "src": "images/vocab/roster.svg"
+        },
+        {
+          "id": "general-listening-74:煙",
+          "word": "煙",
+          "offline": false,
+          "src": "images/vocab/smoke.svg"
+        },
+        {
+          "id": "general-listening-74:模型",
+          "word": "模型",
+          "offline": false,
+          "src": "images/vocab/model.svg"
+        },
+        {
+          "id": "general-listening-74:光源",
+          "word": "光源",
+          "offline": false,
+          "src": "images/vocab/lightsource.svg"
+        },
+        {
+          "id": "general-listening-74:揺れる",
+          "word": "揺れる",
+          "offline": false,
+          "src": "images/vocab/swaying.svg"
+        },
+        {
+          "id": "general-listening-74:追う",
+          "word": "追う",
+          "offline": false,
+          "src": "images/vocab/chasing.svg"
+        },
+        {
+          "id": "general-listening-74:そっくり",
+          "word": "そっくり",
+          "offline": false,
+          "src": "images/vocab/lookalike.svg"
+        },
+        {
+          "id": "general-listening-75:罠",
+          "word": "罠",
+          "offline": false,
+          "src": "images/vocab/trap.svg"
+        },
+        {
+          "id": "general-listening-75:区別",
+          "word": "区別",
+          "offline": false,
+          "src": "images/vocab/distinguishing.svg"
+        },
+        {
+          "id": "general-listening-75:踏む",
+          "word": "踏む",
+          "offline": false,
+          "src": "images/vocab/steppingon.svg"
+        },
+        {
+          "id": "general-listening-76:接触",
+          "word": "接触",
+          "offline": false,
+          "src": "images/vocab/contact.svg"
+        },
+        {
+          "id": "general-listening-76:自動",
+          "word": "自動",
+          "offline": false,
+          "src": "images/vocab/automatic.svg"
+        },
+        {
+          "id": "general-listening-76:手動",
+          "word": "手動",
+          "offline": false,
+          "src": "images/vocab/manualcontrol.svg"
+        },
+        {
+          "id": "general-listening-76:指",
+          "word": "指",
+          "offline": false,
+          "src": "images/vocab/finger.svg"
+        },
+        {
+          "id": "general-listening-76:外す",
+          "word": "外す",
+          "offline": false,
+          "src": "images/vocab/removing.svg"
+        },
+        {
+          "id": "general-listening-77:路地",
+          "word": "路地",
+          "offline": false,
+          "src": "images/vocab/alley.svg"
+        },
+        {
+          "id": "general-listening-77:負傷者",
+          "word": "負傷者",
+          "offline": false,
+          "src": "images/vocab/injuredperson.svg"
+        },
+        {
+          "id": "general-listening-77:包帯",
+          "word": "包帯",
+          "offline": false,
+          "src": "images/vocab/bandage.svg"
+        },
+        {
+          "id": "general-listening-77:交代",
+          "word": "交代",
+          "offline": false,
+          "src": "images/vocab/takingturns.svg"
+        },
+        {
+          "id": "general-listening-78:笛",
+          "word": "笛",
+          "offline": false,
+          "src": "images/vocab/flute.svg"
+        },
+        {
+          "id": "general-listening-78:太鼓",
+          "word": "太鼓",
+          "offline": false,
+          "src": "images/vocab/drum.svg"
+        },
+        {
+          "id": "general-listening-78:録音",
+          "word": "録音",
+          "offline": false,
+          "src": "images/vocab/recording.svg"
+        },
+        {
+          "id": "general-listening-78:再生",
+          "word": "再生",
+          "offline": false,
+          "src": "images/vocab/playback.svg"
+        },
+        {
+          "id": "general-listening-79:保存",
+          "word": "保存",
+          "offline": false,
+          "src": "images/vocab/savingdata.svg"
+        },
+        {
+          "id": "general-listening-79:複製",
+          "word": "複製",
+          "offline": false,
+          "src": "images/vocab/duplicating.svg"
+        },
+        {
+          "id": "general-listening-79:削除",
+          "word": "削除",
+          "offline": false,
+          "src": "images/vocab/deleting.svg"
+        },
+        {
+          "id": "general-listening-79:転送",
+          "word": "転送",
+          "offline": false,
+          "src": "images/vocab/forwarding.svg"
+        },
+        {
+          "id": "general-listening-79:通知",
+          "word": "通知",
+          "offline": false,
+          "src": "images/vocab/notification.svg"
+        },
+        {
+          "id": "general-listening-79:別々",
+          "word": "別々",
+          "offline": false,
+          "src": "images/vocab/separately.svg"
+        },
+        {
+          "id": "general-listening-80:舞台",
+          "word": "舞台",
+          "offline": false,
+          "src": "images/vocab/stage.svg"
+        },
+        {
+          "id": "general-listening-80:衣装",
+          "word": "衣装",
+          "offline": false,
+          "src": "images/vocab/costume.svg"
+        },
+        {
+          "id": "general-listening-81:倉庫",
+          "word": "倉庫",
+          "offline": false,
+          "src": "images/vocab/warehouse.svg"
+        },
+        {
+          "id": "general-listening-82:配る",
+          "word": "配る",
+          "offline": false,
+          "src": "images/vocab/distributing.svg"
+        },
+        {
+          "id": "general-listening-83:標本",
+          "word": "標本",
+          "offline": false,
+          "src": "images/vocab/specimen.svg"
+        },
+        {
+          "id": "general-listening-83:容器",
+          "word": "容器",
+          "offline": false,
+          "src": "images/vocab/container.svg"
+        },
+        {
+          "id": "general-listening-83:蓋",
+          "word": "蓋",
+          "offline": false,
+          "src": "images/vocab/lid.svg"
+        },
+        {
+          "id": "general-listening-83:透明",
+          "word": "透明",
+          "offline": false,
+          "src": "images/vocab/transparent.svg"
+        },
+        {
+          "id": "general-listening-83:液体",
+          "word": "液体",
+          "offline": false,
+          "src": "images/vocab/liquid.svg"
+        },
+        {
+          "id": "general-listening-96:結ぶ",
+          "word": "結ぶ",
+          "offline": false,
+          "src": "images/vocab/tyingbundle.svg"
+        },
+        {
+          "id": "general-listening-97:空",
+          "word": "空",
+          "offline": false,
+          "src": "images/vocab/empty.svg"
+        },
+        {
+          "id": "general-listening-102:転ぶ",
+          "word": "転ぶ",
+          "offline": false,
+          "src": "images/vocab/fallingover.svg"
+        },
+        {
+          "id": "general-listening-105:霧",
+          "word": "霧",
+          "offline": false,
+          "src": "images/vocab/fog.svg"
+        },
+        {
+          "id": "general-listening-121:滑る",
+          "word": "滑る",
+          "offline": false,
+          "src": "images/vocab/slipping.svg"
+        },
+        {
+          "id": "general-listening-121:深い",
+          "word": "深い",
+          "offline": false,
+          "src": "images/vocab/deep.svg"
+        },
+        {
+          "id": "general-listening-124:鎧",
+          "word": "鎧",
+          "offline": false,
+          "src": "images/vocab/armor.svg"
+        },
+        {
+          "id": "general-listening-124:燃料",
+          "word": "燃料",
+          "offline": false,
+          "src": "images/vocab/fuel.svg"
+        },
+        {
+          "id": "general-listening-124:当たる",
+          "word": "当たる",
+          "offline": false,
+          "src": "images/vocab/hittingtarget.svg"
+        },
+        {
+          "id": "general-listening-124:狙う",
+          "word": "狙う",
+          "offline": false,
+          "src": "images/vocab/aiming.svg"
+        },
+        {
+          "id": "general-listening-124:燃える",
+          "word": "燃える",
+          "offline": false,
+          "src": "images/vocab/burning.svg"
+        },
+        {
+          "id": "general-listening-126:薬草",
+          "word": "薬草",
+          "offline": false,
+          "src": "images/vocab/medicinalherbs.svg"
+        },
+        {
+          "id": "general-listening-129:磨く",
+          "word": "磨く",
+          "offline": false,
+          "src": "images/vocab/polishshield.svg"
+        },
+        {
+          "id": "general-listening-168:冷たい",
+          "word": "冷たい",
+          "offline": false,
+          "src": "images/vocab/coldattitude.svg"
+        },
+        {
+          "id": "general-listening-02:動く",
+          "word": "動く",
+          "offline": true,
+          "src": "images/vocab/moving.svg"
+        },
+        {
+          "id": "general-listening-03:始める",
+          "word": "始める",
+          "offline": true,
+          "src": "images/vocab/startingtask.svg"
+        },
+        {
+          "id": "general-listening-03:出発",
+          "word": "出発",
+          "offline": true,
+          "src": "images/vocab/departure.svg"
+        },
+        {
+          "id": "general-listening-03:戻る",
+          "word": "戻る",
+          "offline": true,
+          "src": "images/vocab/returningplace.svg"
+        },
+        {
+          "id": "general-listening-04:誘う",
+          "word": "誘う",
+          "offline": true,
+          "src": "images/vocab/inviting.svg"
+        },
+        {
+          "id": "general-listening-04:予定",
+          "word": "予定",
+          "offline": true,
+          "src": "images/vocab/scheduledplan.svg"
+        },
+        {
+          "id": "general-listening-04:用事",
+          "word": "用事",
+          "offline": true,
+          "src": "images/vocab/errand.svg"
+        },
+        {
+          "id": "general-listening-04:都合",
+          "word": "都合",
+          "offline": true,
+          "src": "images/vocab/availability.svg"
+        },
+        {
+          "id": "general-listening-04:残念",
+          "word": "残念",
+          "offline": true,
+          "src": "images/vocab/disappointment.svg"
+        },
+        {
+          "id": "general-listening-05:任せる",
+          "word": "任せる",
+          "offline": true,
+          "src": "images/vocab/entrusting.svg"
+        },
+        {
+          "id": "general-listening-05:案内",
+          "word": "案内",
+          "offline": true,
+          "src": "images/vocab/guiding.svg"
+        },
+        {
+          "id": "general-listening-05:看板",
+          "word": "看板",
+          "offline": true,
+          "src": "images/vocab/signboard.svg"
+        },
+        {
+          "id": "general-listening-06:必要",
+          "word": "必要",
+          "offline": true,
+          "src": "images/vocab/necessary.svg"
+        },
+        {
+          "id": "general-listening-06:変わる",
+          "word": "変わる",
+          "offline": true,
+          "src": "images/vocab/changing.svg"
+        },
+        {
+          "id": "general-listening-06:避ける",
+          "word": "避ける",
+          "offline": true,
+          "src": "images/vocab/avoidroute.svg"
+        },
+        {
+          "id": "general-listening-07:治る",
+          "word": "治る",
+          "offline": true,
+          "src": "images/vocab/healing.svg"
+        },
+        {
+          "id": "general-listening-07:希望",
+          "word": "希望",
+          "offline": true,
+          "src": "images/vocab/hope.svg"
+        },
+        {
+          "id": "general-listening-07:願う",
+          "word": "願う",
+          "offline": true,
+          "src": "images/vocab/wishing.svg"
+        },
+        {
+          "id": "general-listening-07:直す",
+          "word": "直す",
+          "offline": true,
+          "src": "images/vocab/repairing.svg"
+        },
+        {
+          "id": "general-listening-07:調べる",
+          "word": "調べる",
+          "offline": true,
+          "src": "images/vocab/investigating.svg"
+        },
+        {
+          "id": "general-listening-08:持っていく",
+          "word": "持っていく",
+          "offline": true,
+          "src": "images/vocab/takingaway.svg"
+        },
+        {
+          "id": "general-listening-08:持ってくる",
+          "word": "持ってくる",
+          "offline": true,
+          "src": "images/vocab/bringing.svg"
+        },
+        {
+          "id": "general-listening-08:負担",
+          "word": "負担",
+          "offline": true,
+          "src": "images/vocab/burden.svg"
+        },
+        {
+          "id": "general-listening-08:支える",
+          "word": "支える",
+          "offline": true,
+          "src": "images/vocab/supporting.svg"
+        },
+        {
+          "id": "general-listening-08:肩",
+          "word": "肩",
+          "offline": true,
+          "src": "images/vocab/shoulder.svg"
+        },
+        {
+          "id": "general-listening-08:背中",
+          "word": "背中",
+          "offline": true,
+          "src": "images/vocab/backbody.svg"
+        },
+        {
+          "id": "general-listening-09:触る",
+          "word": "触る",
+          "offline": true,
+          "src": "images/vocab/touching.svg"
+        },
+        {
+          "id": "general-listening-09:見学",
+          "word": "見学",
+          "offline": true,
+          "src": "images/vocab/observinglesson.svg"
+        },
+        {
+          "id": "general-listening-09:許可",
+          "word": "許可",
+          "offline": true,
+          "src": "images/vocab/permission.svg"
+        },
+        {
+          "id": "general-listening-09:禁止",
+          "word": "禁止",
+          "offline": true,
+          "src": "images/vocab/prohibition.svg"
+        },
+        {
+          "id": "general-listening-09:規則",
+          "word": "規則",
+          "offline": true,
+          "src": "images/vocab/rules.svg"
+        },
+        {
+          "id": "general-listening-09:離れる",
+          "word": "離れる",
+          "offline": true,
+          "src": "images/vocab/movingaway.svg"
+        },
+        {
+          "id": "general-listening-09:近づく",
+          "word": "近づく",
+          "offline": true,
+          "src": "images/vocab/approaching.svg"
+        },
+        {
+          "id": "general-listening-09:順番",
+          "word": "順番",
+          "offline": true,
+          "src": "images/vocab/turnorder.svg"
+        },
+        {
+          "id": "general-listening-10:近道",
+          "word": "近道",
+          "offline": true,
+          "src": "images/vocab/shortcut.svg"
+        },
+        {
+          "id": "general-listening-10:遠回り",
+          "word": "遠回り",
+          "offline": true,
+          "src": "images/vocab/longwayround.svg"
+        },
+        {
+          "id": "general-listening-10:不便",
+          "word": "不便",
+          "offline": true,
+          "src": "images/vocab/inconvenient.svg"
+        },
+        {
+          "id": "general-listening-10:坂",
+          "word": "坂",
+          "offline": true,
+          "src": "images/vocab/slope.svg"
+        },
+        {
+          "id": "general-listening-10:平ら",
+          "word": "平ら",
+          "offline": true,
+          "src": "images/vocab/flat.svg"
+        },
+        {
+          "id": "general-listening-10:比べる",
+          "word": "比べる",
+          "offline": true,
+          "src": "images/vocab/comparing.svg"
+        },
+        {
+          "id": "general-listening-11:量",
+          "word": "量",
+          "offline": true,
+          "src": "images/vocab/quantity.svg"
+        },
+        {
+          "id": "general-listening-11:追加",
+          "word": "追加",
+          "offline": true,
+          "src": "images/vocab/addition.svg"
+        },
+        {
+          "id": "general-listening-11:余る",
+          "word": "余る",
+          "offline": true,
+          "src": "images/vocab/leftover.svg"
+        },
+        {
+          "id": "general-listening-11:足りない",
+          "word": "足りない",
+          "offline": true,
+          "src": "images/vocab/insufficient.svg"
+        },
+        {
+          "id": "general-listening-12:着替える",
+          "word": "着替える",
+          "offline": true,
+          "src": "images/vocab/changingclothes.svg"
+        },
+        {
+          "id": "general-listening-12:片づける",
+          "word": "片づける",
+          "offline": true,
+          "src": "images/vocab/tidying.svg"
+        },
+        {
+          "id": "general-listening-12:連絡",
+          "word": "連絡",
+          "offline": true,
+          "src": "images/vocab/contacting.svg"
+        },
+        {
+          "id": "general-listening-13:届ける",
+          "word": "届ける",
+          "offline": true,
+          "src": "images/vocab/delivering.svg"
+        },
+        {
+          "id": "general-listening-13:届く",
+          "word": "届く",
+          "offline": true,
+          "src": "images/vocab/arrivedparcel.svg"
+        },
+        {
+          "id": "general-listening-13:受け取る",
+          "word": "受け取る",
+          "offline": true,
+          "src": "images/vocab/parcelreceiving.svg"
+        },
+        {
+          "id": "general-listening-13:書類",
+          "word": "書類",
+          "offline": true,
+          "src": "images/vocab/documents.svg"
+        },
+        {
+          "id": "general-listening-14:見つける",
+          "word": "見つける",
+          "offline": true,
+          "src": "images/vocab/finding.svg"
+        },
+        {
+          "id": "general-listening-15:落とす",
+          "word": "落とす",
+          "offline": true,
+          "src": "images/vocab/dropping.svg"
+        },
+        {
+          "id": "general-listening-15:拾う",
+          "word": "拾う",
+          "offline": true,
+          "src": "images/vocab/pickingup.svg"
+        },
+        {
+          "id": "general-listening-15:壊す",
+          "word": "壊す",
+          "offline": true,
+          "src": "images/vocab/breakingitem.svg"
+        },
+        {
+          "id": "general-listening-15:壊れる",
+          "word": "壊れる",
+          "offline": true,
+          "src": "images/vocab/broken.svg"
+        },
+        {
+          "id": "general-listening-15:破る",
+          "word": "破る",
+          "offline": true,
+          "src": "images/vocab/tearing.svg"
+        },
+        {
+          "id": "general-listening-15:破れる",
+          "word": "破れる",
+          "offline": true,
+          "src": "images/vocab/torn.svg"
+        },
+        {
+          "id": "general-listening-15:汚す",
+          "word": "汚す",
+          "offline": true,
+          "src": "images/vocab/dirtying.svg"
+        },
+        {
+          "id": "general-listening-15:汚れる",
+          "word": "汚れる",
+          "offline": true,
+          "src": "images/vocab/stained.svg"
+        },
+        {
+          "id": "general-listening-15:予備",
+          "word": "予備",
+          "offline": true,
+          "src": "images/vocab/spare.svg"
+        },
+        {
+          "id": "general-listening-15:しまう",
+          "word": "しまう",
+          "offline": true,
+          "src": "images/vocab/puttingaway.svg"
+        },
+        {
+          "id": "general-listening-15:保管",
+          "word": "保管",
+          "offline": true,
+          "src": "images/vocab/safekeeping.svg"
+        },
+        {
+          "id": "general-listening-16:お礼",
+          "word": "お礼",
+          "offline": true,
+          "src": "images/vocab/thanks.svg"
+        },
+        {
+          "id": "general-listening-16:親切",
+          "word": "親切",
+          "offline": true,
+          "src": "images/vocab/kindness.svg"
+        },
+        {
+          "id": "general-listening-16:部品",
+          "word": "部品",
+          "offline": true,
+          "src": "images/vocab/parts.svg"
+        },
+        {
+          "id": "general-listening-16:交換",
+          "word": "交換",
+          "offline": true,
+          "src": "images/vocab/exchanging.svg"
+        },
+        {
+          "id": "general-listening-17:相談",
+          "word": "相談",
+          "offline": true,
+          "src": "images/vocab/consultation.svg"
+        },
+        {
+          "id": "general-listening-17:助言",
+          "word": "助言",
+          "offline": true,
+          "src": "images/vocab/advice.svg"
+        },
+        {
+          "id": "general-listening-18:点検",
+          "word": "点検",
+          "offline": true,
+          "src": "images/vocab/inspection.svg"
+        },
+        {
+          "id": "general-listening-18:事前",
+          "word": "事前",
+          "offline": true,
+          "src": "images/vocab/beforehand.svg"
+        },
+        {
+          "id": "general-listening-18:包む",
+          "word": "包む",
+          "offline": true,
+          "src": "images/vocab/wrapping.svg"
+        },
+        {
+          "id": "general-listening-19:変更",
+          "word": "変更",
+          "offline": true,
+          "src": "images/vocab/changeplan.svg"
+        },
+        {
+          "id": "general-listening-19:突然",
+          "word": "突然",
+          "offline": true,
+          "src": "images/vocab/suddenly.svg"
+        },
+        {
+          "id": "general-listening-19:期待",
+          "word": "期待",
+          "offline": true,
+          "src": "images/vocab/expectation.svg"
+        },
+        {
+          "id": "general-listening-20:方法",
+          "word": "方法",
+          "offline": true,
+          "src": "images/vocab/method.svg"
+        },
+        {
+          "id": "general-listening-20:慣れる",
+          "word": "慣れる",
+          "offline": true,
+          "src": "images/vocab/gettingused.svg"
+        },
+        {
+          "id": "general-listening-20:押す",
+          "word": "押す",
+          "offline": true,
+          "src": "images/vocab/pressingbutton.svg"
+        },
+        {
+          "id": "general-listening-20:回す",
+          "word": "回す",
+          "offline": true,
+          "src": "images/vocab/turningknob.svg"
+        },
+        {
+          "id": "general-listening-20:説明書",
+          "word": "説明書",
+          "offline": true,
+          "src": "images/vocab/manual.svg"
+        },
+        {
+          "id": "general-listening-20:戻す",
+          "word": "戻す",
+          "offline": true,
+          "src": "images/vocab/puttingback.svg"
+        },
+        {
+          "id": "general-listening-21:予報",
+          "word": "予報",
+          "offline": true,
+          "src": "images/vocab/forecast.svg"
+        },
+        {
+          "id": "general-listening-21:湿る",
+          "word": "湿る",
+          "offline": true,
+          "src": "images/vocab/damp.svg"
+        },
+        {
+          "id": "general-listening-21:見える",
+          "word": "見える",
+          "offline": true,
+          "src": "images/vocab/visible.svg"
+        },
+        {
+          "id": "general-listening-21:避難",
+          "word": "避難",
+          "offline": true,
+          "src": "images/vocab/evacuation.svg"
+        },
+        {
+          "id": "general-listening-22:噂",
+          "word": "噂",
+          "offline": true,
+          "src": "images/vocab/rumor.svg"
+        },
+        {
+          "id": "general-listening-22:情報",
+          "word": "情報",
+          "offline": true,
+          "src": "images/vocab/information.svg"
+        },
+        {
+          "id": "general-listening-22:正確",
+          "word": "正確",
+          "offline": true,
+          "src": "images/vocab/accurate.svg"
+        },
+        {
+          "id": "general-listening-22:直接",
+          "word": "直接",
+          "offline": true,
+          "src": "images/vocab/directly.svg"
+        },
+        {
+          "id": "general-listening-23:意見",
+          "word": "意見",
+          "offline": true,
+          "src": "images/vocab/opinion.svg"
+        },
+        {
+          "id": "general-listening-23:根拠",
+          "word": "根拠",
+          "offline": true,
+          "src": "images/vocab/grounds.svg"
+        },
+        {
+          "id": "general-listening-23:予測",
+          "word": "予測",
+          "offline": true,
+          "src": "images/vocab/prediction.svg"
+        },
+        {
+          "id": "general-listening-23:確信",
+          "word": "確信",
+          "offline": true,
+          "src": "images/vocab/conviction.svg"
+        },
+        {
+          "id": "general-listening-25:目的",
+          "word": "目的",
+          "offline": true,
+          "src": "images/vocab/purpose.svg"
+        },
+        {
+          "id": "general-listening-25:迎える",
+          "word": "迎える",
+          "offline": true,
+          "src": "images/vocab/welcomingarrival.svg"
+        },
+        {
+          "id": "general-listening-25:見送る",
+          "word": "見送る",
+          "offline": true,
+          "src": "images/vocab/seeingoff.svg"
+        },
+        {
+          "id": "general-listening-25:集める",
+          "word": "集める",
+          "offline": true,
+          "src": "images/vocab/collecting.svg"
+        },
+        {
+          "id": "general-listening-25:手がかり",
+          "word": "手がかり",
+          "offline": true,
+          "src": "images/vocab/clue.svg"
+        },
+        {
+          "id": "general-listening-25:足跡",
+          "word": "足跡",
+          "offline": true,
+          "src": "images/vocab/footprints.svg"
+        },
+        {
+          "id": "general-listening-25:行方",
+          "word": "行方",
+          "offline": true,
+          "src": "images/vocab/whereabouts.svg"
+        },
+        {
+          "id": "general-listening-25:記録",
+          "word": "記録",
+          "offline": true,
+          "src": "images/vocab/record.svg"
+        },
+        {
+          "id": "general-listening-25:手帳",
+          "word": "手帳",
+          "offline": true,
+          "src": "images/vocab/pocketnotebook.svg"
+        },
+        {
+          "id": "general-listening-26:待機",
+          "word": "待機",
+          "offline": true,
+          "src": "images/vocab/standby.svg"
+        },
+        {
+          "id": "general-listening-26:往復",
+          "word": "往復",
+          "offline": true,
+          "src": "images/vocab/roundtrip.svg"
+        },
+        {
+          "id": "general-listening-26:片道",
+          "word": "片道",
+          "offline": true,
+          "src": "images/vocab/oneway.svg"
+        },
+        {
+          "id": "general-listening-26:寄り道",
+          "word": "寄り道",
+          "offline": true,
+          "src": "images/vocab/detourstop.svg"
+        },
+        {
+          "id": "general-listening-27:成長",
+          "word": "成長",
+          "offline": true,
+          "src": "images/vocab/growth.svg"
+        },
+        {
+          "id": "general-listening-27:上達",
+          "word": "上達",
+          "offline": true,
+          "src": "images/vocab/improvement.svg"
+        },
+        {
+          "id": "general-listening-27:少しずつ",
+          "word": "少しずつ",
+          "offline": true,
+          "src": "images/vocab/littlebylittle.svg"
+        },
+        {
+          "id": "general-listening-27:習慣",
+          "word": "習慣",
+          "offline": true,
+          "src": "images/vocab/habit.svg"
+        },
+        {
+          "id": "general-listening-28:優先",
+          "word": "優先",
+          "offline": true,
+          "src": "images/vocab/priority.svg"
+        },
+        {
+          "id": "general-listening-28:節約",
+          "word": "節約",
+          "offline": true,
+          "src": "images/vocab/saving.svg"
+        },
+        {
+          "id": "general-listening-28:我慢",
+          "word": "我慢",
+          "offline": true,
+          "src": "images/vocab/enduring.svg"
+        },
+        {
+          "id": "general-listening-28:空腹",
+          "word": "空腹",
+          "offline": true,
+          "src": "images/vocab/hungry.svg"
+        },
+        {
+          "id": "general-listening-29:自由",
+          "word": "自由",
+          "offline": true,
+          "src": "images/vocab/freedom.svg"
+        },
+        {
+          "id": "general-listening-30:決める",
+          "word": "決める",
+          "offline": true,
+          "src": "images/vocab/deciding.svg"
+        },
+        {
+          "id": "general-listening-30:桟橋",
+          "word": "桟橋",
+          "offline": true,
+          "src": "images/vocab/pier.svg"
+        },
+        {
+          "id": "general-listening-31:紹介",
+          "word": "紹介",
+          "offline": true,
+          "src": "images/vocab/introducing.svg"
+        },
+        {
+          "id": "general-listening-31:丁寧",
+          "word": "丁寧",
+          "offline": true,
+          "src": "images/vocab/carefulpolite.svg"
+        },
+        {
+          "id": "general-listening-31:名札",
+          "word": "名札",
+          "offline": true,
+          "src": "images/vocab/namebadge.svg"
+        },
+        {
+          "id": "general-listening-32:描く",
+          "word": "描く",
+          "offline": true,
+          "src": "images/vocab/drawing.svg"
+        },
+        {
+          "id": "general-listening-32:踊る",
+          "word": "踊る",
+          "offline": true,
+          "src": "images/vocab/dancing.svg"
+        },
+        {
+          "id": "general-listening-32:興味",
+          "word": "興味",
+          "offline": true,
+          "src": "images/vocab/interest.svg"
+        },
+        {
+          "id": "general-listening-33:遠慮",
+          "word": "遠慮",
+          "offline": true,
+          "src": "images/vocab/holdingback.svg"
+        },
+        {
+          "id": "general-listening-33:持ち上げる",
+          "word": "持ち上げる",
+          "offline": true,
+          "src": "images/vocab/lifting.svg"
+        },
+        {
+          "id": "general-listening-33:台車",
+          "word": "台車",
+          "offline": true,
+          "src": "images/vocab/trolley.svg"
+        },
+        {
+          "id": "general-listening-34:写す",
+          "word": "写す",
+          "offline": true,
+          "src": "images/vocab/copyingbyhand.svg"
+        },
+        {
+          "id": "general-listening-34:依頼",
+          "word": "依頼",
+          "offline": true,
+          "src": "images/vocab/request.svg"
+        },
+        {
+          "id": "general-listening-35:無料",
+          "word": "無料",
+          "offline": true,
+          "src": "images/vocab/freeofcharge.svg"
+        },
+        {
+          "id": "general-listening-35:有料",
+          "word": "有料",
+          "offline": true,
+          "src": "images/vocab/paidservice.svg"
+        },
+        {
+          "id": "general-listening-36:謝る",
+          "word": "謝る",
+          "offline": true,
+          "src": "images/vocab/apologizing.svg"
+        },
+        {
+          "id": "general-listening-36:反省",
+          "word": "反省",
+          "offline": true,
+          "src": "images/vocab/reflection.svg"
+        },
+        {
+          "id": "general-listening-37:乾かす",
+          "word": "乾かす",
+          "offline": true,
+          "src": "images/vocab/dryingclothes.svg"
+        },
+        {
+          "id": "general-listening-37:温かい",
+          "word": "温かい",
+          "offline": true,
+          "src": "images/vocab/warmfood.svg"
+        },
+        {
+          "id": "general-listening-37:お互い",
+          "word": "お互い",
+          "offline": true,
+          "src": "images/vocab/mutually.svg"
+        },
+        {
+          "id": "general-listening-38:はっきり",
+          "word": "はっきり",
+          "offline": true,
+          "src": "images/vocab/clearly.svg"
+        },
+        {
+          "id": "general-listening-38:騒がしい",
+          "word": "騒がしい",
+          "offline": true,
+          "src": "images/vocab/clamor.svg"
+        },
+        {
+          "id": "general-listening-39:切る",
+          "word": "切る",
+          "offline": true,
+          "src": "images/vocab/hangingup.svg"
+        },
+        {
+          "id": "general-listening-41:満席",
+          "word": "満席",
+          "offline": true,
+          "src": "images/vocab/fullseats.svg"
+        },
+        {
+          "id": "general-listening-42:高い",
+          "word": "高い",
+          "offline": true,
+          "src": "images/vocab/expensive.svg"
+        },
+        {
+          "id": "general-listening-43:メニュー",
+          "word": "メニュー",
+          "offline": true,
+          "src": "images/vocab/menu.svg"
+        },
+        {
+          "id": "general-listening-43:定食",
+          "word": "定食",
+          "offline": true,
+          "src": "images/vocab/setmeal.svg"
+        },
+        {
+          "id": "general-listening-43:スープ",
+          "word": "スープ",
+          "offline": true,
+          "src": "images/vocab/soup.svg"
+        },
+        {
+          "id": "general-listening-43:サラダ",
+          "word": "サラダ",
+          "offline": true,
+          "src": "images/vocab/salad.svg"
+        },
+        {
+          "id": "general-listening-43:苦い",
+          "word": "苦い",
+          "offline": true,
+          "src": "images/vocab/bitter.svg"
+        },
+        {
+          "id": "general-listening-45:浴室",
+          "word": "浴室",
+          "offline": true,
+          "src": "images/vocab/bathroom.svg"
+        },
+        {
+          "id": "general-listening-45:預ける",
+          "word": "預ける",
+          "offline": true,
+          "src": "images/vocab/entruststorage.svg"
+        },
+        {
+          "id": "general-listening-45:預かる",
+          "word": "預かる",
+          "offline": true,
+          "src": "images/vocab/keepforother.svg"
+        },
+        {
+          "id": "general-listening-46:運動場",
+          "word": "運動場",
+          "offline": true,
+          "src": "images/vocab/sportsfield.svg"
+        },
+        {
+          "id": "general-listening-47:喉",
+          "word": "喉",
+          "offline": true,
+          "src": "images/vocab/throat.svg"
+        },
+        {
+          "id": "general-listening-47:付き添う",
+          "word": "付き添う",
+          "offline": true,
+          "src": "images/vocab/accompanyingpatient.svg"
+        },
+        {
+          "id": "general-listening-49:制服",
+          "word": "制服",
+          "offline": true,
+          "src": "images/vocab/uniform.svg"
+        },
+        {
+          "id": "general-listening-49:普段着",
+          "word": "普段着",
+          "offline": true,
+          "src": "images/vocab/casualclothes.svg"
+        },
+        {
+          "id": "general-listening-49:守る",
+          "word": "守る",
+          "offline": true,
+          "src": "images/vocab/followingrules.svg"
+        },
+        {
+          "id": "general-listening-50:分担",
+          "word": "分担",
+          "offline": true,
+          "src": "images/vocab/sharingtasks.svg"
+        },
+        {
+          "id": "general-listening-51:間接",
+          "word": "間接",
+          "offline": true,
+          "src": "images/vocab/indirectly.svg"
+        },
+        {
+          "id": "general-listening-54:リボン",
+          "word": "リボン",
+          "offline": true,
+          "src": "images/vocab/ribbon.svg"
+        },
+        {
+          "id": "general-listening-55:途中",
+          "word": "途中",
+          "offline": true,
+          "src": "images/vocab/halfway.svg"
+        },
+        {
+          "id": "general-listening-56:悲しい",
+          "word": "悲しい",
+          "offline": true,
+          "src": "images/vocab/sad.svg"
+        },
+        {
+          "id": "general-listening-56:寂しい",
+          "word": "寂しい",
+          "offline": true,
+          "src": "images/vocab/lonely.svg"
+        },
+        {
+          "id": "general-listening-56:怖い",
+          "word": "怖い",
+          "offline": true,
+          "src": "images/vocab/afraid.svg"
+        },
+        {
+          "id": "general-listening-56:不安",
+          "word": "不安",
+          "offline": true,
+          "src": "images/vocab/anxious.svg"
+        },
+        {
+          "id": "general-listening-56:緊張",
+          "word": "緊張",
+          "offline": true,
+          "src": "images/vocab/nervous.svg"
+        },
+        {
+          "id": "general-listening-56:怒る",
+          "word": "怒る",
+          "offline": true,
+          "src": "images/vocab/angry.svg"
+        },
+        {
+          "id": "general-listening-56:驚く",
+          "word": "驚く",
+          "offline": true,
+          "src": "images/vocab/surprised.svg"
+        },
+        {
+          "id": "general-listening-56:泣く",
+          "word": "泣く",
+          "offline": true,
+          "src": "images/vocab/crying.svg"
+        },
+        {
+          "id": "general-listening-56:黙る",
+          "word": "黙る",
+          "offline": true,
+          "src": "images/vocab/silentperson.svg"
+        },
+        {
+          "id": "general-listening-56:悩む",
+          "word": "悩む",
+          "offline": true,
+          "src": "images/vocab/worrying.svg"
+        },
+        {
+          "id": "general-listening-56:自信",
+          "word": "自信",
+          "offline": true,
+          "src": "images/vocab/confidence.svg"
+        },
+        {
+          "id": "general-listening-57:慎重",
+          "word": "慎重",
+          "offline": true,
+          "src": "images/vocab/cautious.svg"
+        },
+        {
+          "id": "general-listening-61:屋上",
+          "word": "屋上",
+          "offline": true,
+          "src": "images/vocab/rooftop.svg"
+        },
+        {
+          "id": "general-listening-62:出す",
+          "word": "出す",
+          "offline": true,
+          "src": "images/vocab/takingout.svg"
+        },
+        {
+          "id": "general-listening-66:充電",
+          "word": "充電",
+          "offline": true,
+          "src": "images/vocab/charging.svg"
+        },
+        {
+          "id": "general-listening-66:なるほど",
+          "word": "なるほど",
+          "offline": true,
+          "src": "images/vocab/nowunderstand.svg"
+        },
+        {
+          "id": "general-listening-67:崖",
+          "word": "崖",
+          "offline": true,
+          "src": "images/vocab/cliff.svg"
+        },
+        {
+          "id": "general-listening-67:伏せる",
+          "word": "伏せる",
+          "offline": true,
+          "src": "images/vocab/duckingdown.svg"
+        },
+        {
+          "id": "general-listening-67:落ちる",
+          "word": "落ちる",
+          "offline": true,
+          "src": "images/vocab/falling.svg"
+        },
+        {
+          "id": "general-listening-67:崩れる",
+          "word": "崩れる",
+          "offline": true,
+          "src": "images/vocab/collapsing.svg"
+        },
+        {
+          "id": "general-listening-68:拭く",
+          "word": "拭く",
+          "offline": true,
+          "src": "images/vocab/wiping.svg"
+        },
+        {
+          "id": "general-listening-69:思い出す",
+          "word": "思い出す",
+          "offline": true,
+          "src": "images/vocab/recalling.svg"
+        },
+        {
+          "id": "general-listening-70:隠れる",
+          "word": "隠れる",
+          "offline": true,
+          "src": "images/vocab/hiding.svg"
+        },
+        {
+          "id": "general-listening-72:望遠鏡",
+          "word": "望遠鏡",
+          "offline": true,
+          "src": "images/vocab/telescope.svg"
+        },
+        {
+          "id": "general-listening-72:反射",
+          "word": "反射",
+          "offline": true,
+          "src": "images/vocab/reflectionlight.svg"
+        },
+        {
+          "id": "general-listening-72:眩しい",
+          "word": "眩しい",
+          "offline": true,
+          "src": "images/vocab/dazzling.svg"
+        },
+        {
+          "id": "general-listening-72:幕",
+          "word": "幕",
+          "offline": true,
+          "src": "images/vocab/curtain.svg"
+        },
+        {
+          "id": "general-listening-72:レバー",
+          "word": "レバー",
+          "offline": true,
+          "src": "images/vocab/lever.svg"
+        },
+        {
+          "id": "general-listening-73:名簿",
+          "word": "名簿",
+          "offline": true,
+          "src": "images/vocab/roster.svg"
+        },
+        {
+          "id": "general-listening-74:煙",
+          "word": "煙",
+          "offline": true,
+          "src": "images/vocab/smoke.svg"
+        },
+        {
+          "id": "general-listening-74:模型",
+          "word": "模型",
+          "offline": true,
+          "src": "images/vocab/model.svg"
+        },
+        {
+          "id": "general-listening-74:光源",
+          "word": "光源",
+          "offline": true,
+          "src": "images/vocab/lightsource.svg"
+        },
+        {
+          "id": "general-listening-74:揺れる",
+          "word": "揺れる",
+          "offline": true,
+          "src": "images/vocab/swaying.svg"
+        },
+        {
+          "id": "general-listening-74:追う",
+          "word": "追う",
+          "offline": true,
+          "src": "images/vocab/chasing.svg"
+        },
+        {
+          "id": "general-listening-74:そっくり",
+          "word": "そっくり",
+          "offline": true,
+          "src": "images/vocab/lookalike.svg"
+        },
+        {
+          "id": "general-listening-75:罠",
+          "word": "罠",
+          "offline": true,
+          "src": "images/vocab/trap.svg"
+        },
+        {
+          "id": "general-listening-75:区別",
+          "word": "区別",
+          "offline": true,
+          "src": "images/vocab/distinguishing.svg"
+        },
+        {
+          "id": "general-listening-75:踏む",
+          "word": "踏む",
+          "offline": true,
+          "src": "images/vocab/steppingon.svg"
+        },
+        {
+          "id": "general-listening-76:接触",
+          "word": "接触",
+          "offline": true,
+          "src": "images/vocab/contact.svg"
+        },
+        {
+          "id": "general-listening-76:自動",
+          "word": "自動",
+          "offline": true,
+          "src": "images/vocab/automatic.svg"
+        },
+        {
+          "id": "general-listening-76:手動",
+          "word": "手動",
+          "offline": true,
+          "src": "images/vocab/manualcontrol.svg"
+        },
+        {
+          "id": "general-listening-76:指",
+          "word": "指",
+          "offline": true,
+          "src": "images/vocab/finger.svg"
+        },
+        {
+          "id": "general-listening-76:外す",
+          "word": "外す",
+          "offline": true,
+          "src": "images/vocab/removing.svg"
+        },
+        {
+          "id": "general-listening-77:路地",
+          "word": "路地",
+          "offline": true,
+          "src": "images/vocab/alley.svg"
+        },
+        {
+          "id": "general-listening-77:負傷者",
+          "word": "負傷者",
+          "offline": true,
+          "src": "images/vocab/injuredperson.svg"
+        },
+        {
+          "id": "general-listening-77:包帯",
+          "word": "包帯",
+          "offline": true,
+          "src": "images/vocab/bandage.svg"
+        },
+        {
+          "id": "general-listening-77:交代",
+          "word": "交代",
+          "offline": true,
+          "src": "images/vocab/takingturns.svg"
+        },
+        {
+          "id": "general-listening-78:笛",
+          "word": "笛",
+          "offline": true,
+          "src": "images/vocab/flute.svg"
+        },
+        {
+          "id": "general-listening-78:太鼓",
+          "word": "太鼓",
+          "offline": true,
+          "src": "images/vocab/drum.svg"
+        },
+        {
+          "id": "general-listening-78:録音",
+          "word": "録音",
+          "offline": true,
+          "src": "images/vocab/recording.svg"
+        },
+        {
+          "id": "general-listening-78:再生",
+          "word": "再生",
+          "offline": true,
+          "src": "images/vocab/playback.svg"
+        },
+        {
+          "id": "general-listening-79:保存",
+          "word": "保存",
+          "offline": true,
+          "src": "images/vocab/savingdata.svg"
+        },
+        {
+          "id": "general-listening-79:複製",
+          "word": "複製",
+          "offline": true,
+          "src": "images/vocab/duplicating.svg"
+        },
+        {
+          "id": "general-listening-79:削除",
+          "word": "削除",
+          "offline": true,
+          "src": "images/vocab/deleting.svg"
+        },
+        {
+          "id": "general-listening-79:転送",
+          "word": "転送",
+          "offline": true,
+          "src": "images/vocab/forwarding.svg"
+        },
+        {
+          "id": "general-listening-79:通知",
+          "word": "通知",
+          "offline": true,
+          "src": "images/vocab/notification.svg"
+        },
+        {
+          "id": "general-listening-79:別々",
+          "word": "別々",
+          "offline": true,
+          "src": "images/vocab/separately.svg"
+        },
+        {
+          "id": "general-listening-80:舞台",
+          "word": "舞台",
+          "offline": true,
+          "src": "images/vocab/stage.svg"
+        },
+        {
+          "id": "general-listening-80:衣装",
+          "word": "衣装",
+          "offline": true,
+          "src": "images/vocab/costume.svg"
+        },
+        {
+          "id": "general-listening-81:倉庫",
+          "word": "倉庫",
+          "offline": true,
+          "src": "images/vocab/warehouse.svg"
+        },
+        {
+          "id": "general-listening-82:配る",
+          "word": "配る",
+          "offline": true,
+          "src": "images/vocab/distributing.svg"
+        },
+        {
+          "id": "general-listening-83:標本",
+          "word": "標本",
+          "offline": true,
+          "src": "images/vocab/specimen.svg"
+        },
+        {
+          "id": "general-listening-83:容器",
+          "word": "容器",
+          "offline": true,
+          "src": "images/vocab/container.svg"
+        },
+        {
+          "id": "general-listening-83:蓋",
+          "word": "蓋",
+          "offline": true,
+          "src": "images/vocab/lid.svg"
+        },
+        {
+          "id": "general-listening-83:透明",
+          "word": "透明",
+          "offline": true,
+          "src": "images/vocab/transparent.svg"
+        },
+        {
+          "id": "general-listening-83:液体",
+          "word": "液体",
+          "offline": true,
+          "src": "images/vocab/liquid.svg"
+        },
+        {
+          "id": "general-listening-96:結ぶ",
+          "word": "結ぶ",
+          "offline": true,
+          "src": "images/vocab/tyingbundle.svg"
+        },
+        {
+          "id": "general-listening-97:空",
+          "word": "空",
+          "offline": true,
+          "src": "images/vocab/empty.svg"
+        },
+        {
+          "id": "general-listening-102:転ぶ",
+          "word": "転ぶ",
+          "offline": true,
+          "src": "images/vocab/fallingover.svg"
+        },
+        {
+          "id": "general-listening-105:霧",
+          "word": "霧",
+          "offline": true,
+          "src": "images/vocab/fog.svg"
+        },
+        {
+          "id": "general-listening-121:滑る",
+          "word": "滑る",
+          "offline": true,
+          "src": "images/vocab/slipping.svg"
+        },
+        {
+          "id": "general-listening-121:深い",
+          "word": "深い",
+          "offline": true,
+          "src": "images/vocab/deep.svg"
+        },
+        {
+          "id": "general-listening-124:鎧",
+          "word": "鎧",
+          "offline": true,
+          "src": "images/vocab/armor.svg"
+        },
+        {
+          "id": "general-listening-124:燃料",
+          "word": "燃料",
+          "offline": true,
+          "src": "images/vocab/fuel.svg"
+        },
+        {
+          "id": "general-listening-124:当たる",
+          "word": "当たる",
+          "offline": true,
+          "src": "images/vocab/hittingtarget.svg"
+        },
+        {
+          "id": "general-listening-124:狙う",
+          "word": "狙う",
+          "offline": true,
+          "src": "images/vocab/aiming.svg"
+        },
+        {
+          "id": "general-listening-124:燃える",
+          "word": "燃える",
+          "offline": true,
+          "src": "images/vocab/burning.svg"
+        },
+        {
+          "id": "general-listening-126:薬草",
+          "word": "薬草",
+          "offline": true,
+          "src": "images/vocab/medicinalherbs.svg"
+        },
+        {
+          "id": "general-listening-129:磨く",
+          "word": "磨く",
+          "offline": true,
+          "src": "images/vocab/polishshield.svg"
+        },
+        {
+          "id": "general-listening-168:冷たい",
+          "word": "冷たい",
+          "offline": true,
+          "src": "images/vocab/coldattitude.svg"
+        }
+      ],
+      "allMappingsInDeck": true,
+      "exactSourceAndWord": true,
+      "uniqueOfflineAssets": 714,
+      "trueOffline": true,
+      "networkProbeCount": 1,
+      "untouchedProgressExact": true,
+      "pageerrors": [],
+      "overflow": false
+    },
+    "anime": {
+      "base": "http://127.0.0.1:4207/nihongo-lab/",
+      "viewport": "375x667",
+      "rows": [
+        {
+          "id": "anime-lesson-01:勝つ",
+          "word": "勝つ",
+          "offline": false,
+          "src": "images/vocab/winning.svg"
+        },
+        {
+          "id": "anime-lesson-01:頑張る",
+          "word": "頑張る",
+          "offline": false,
+          "src": "images/vocab/persevering.svg"
+        },
+        {
+          "id": "anime-lesson-02:伝わる",
+          "word": "伝わる",
+          "offline": false,
+          "src": "images/vocab/messageunderstood.svg"
+        },
+        {
+          "id": "anime-lesson-02:生きる",
+          "word": "生きる",
+          "offline": false,
+          "src": "images/vocab/living.svg"
+        },
+        {
+          "id": "anime-lesson-02:気を付ける",
+          "word": "気を付ける",
+          "offline": false,
+          "src": "images/vocab/becareful.svg"
+        },
+        {
+          "id": "anime-lesson-02:欲張り",
+          "word": "欲張り",
+          "offline": false,
+          "src": "images/vocab/greedy.svg"
+        },
+        {
+          "id": "anime-lesson-03:ねだる",
+          "word": "ねだる",
+          "offline": false,
+          "src": "images/vocab/beggingfor.svg"
+        },
+        {
+          "id": "anime-lesson-04:許す",
+          "word": "許す",
+          "offline": false,
+          "src": "images/vocab/forgiving.svg"
+        },
+        {
+          "id": "anime-lesson-06:魔法",
+          "word": "魔法",
+          "offline": false,
+          "src": "images/vocab/magic.svg"
+        },
+        {
+          "id": "anime-lesson-06:詠唱",
+          "word": "詠唱",
+          "offline": false,
+          "src": "images/vocab/spellchant.svg"
+        },
+        {
+          "id": "anime-lesson-06:発動",
+          "word": "発動",
+          "offline": false,
+          "src": "images/vocab/activation.svg"
+        },
+        {
+          "id": "anime-lesson-06:条件",
+          "word": "条件",
+          "offline": false,
+          "src": "images/vocab/condition.svg"
+        },
+        {
+          "id": "anime-lesson-07:可能性",
+          "word": "可能性",
+          "offline": false,
+          "src": "images/vocab/possibility.svg"
+        },
+        {
+          "id": "anime-lesson-07:計画",
+          "word": "計画",
+          "offline": false,
+          "src": "images/vocab/planning.svg"
+        },
+        {
+          "id": "anime-lesson-07:疑う",
+          "word": "疑う",
+          "offline": false,
+          "src": "images/vocab/doubting.svg"
+        },
+        {
+          "id": "anime-lesson-08:無駄",
+          "word": "無駄",
+          "offline": false,
+          "src": "images/vocab/waste.svg"
+        },
+        {
+          "id": "anime-lesson-01:勝つ",
+          "word": "勝つ",
+          "offline": true,
+          "src": "images/vocab/winning.svg"
+        },
+        {
+          "id": "anime-lesson-01:頑張る",
+          "word": "頑張る",
+          "offline": true,
+          "src": "images/vocab/persevering.svg"
+        },
+        {
+          "id": "anime-lesson-02:伝わる",
+          "word": "伝わる",
+          "offline": true,
+          "src": "images/vocab/messageunderstood.svg"
+        },
+        {
+          "id": "anime-lesson-02:生きる",
+          "word": "生きる",
+          "offline": true,
+          "src": "images/vocab/living.svg"
+        },
+        {
+          "id": "anime-lesson-02:気を付ける",
+          "word": "気を付ける",
+          "offline": true,
+          "src": "images/vocab/becareful.svg"
+        },
+        {
+          "id": "anime-lesson-02:欲張り",
+          "word": "欲張り",
+          "offline": true,
+          "src": "images/vocab/greedy.svg"
+        },
+        {
+          "id": "anime-lesson-03:ねだる",
+          "word": "ねだる",
+          "offline": true,
+          "src": "images/vocab/beggingfor.svg"
+        },
+        {
+          "id": "anime-lesson-04:許す",
+          "word": "許す",
+          "offline": true,
+          "src": "images/vocab/forgiving.svg"
+        },
+        {
+          "id": "anime-lesson-06:魔法",
+          "word": "魔法",
+          "offline": true,
+          "src": "images/vocab/magic.svg"
+        },
+        {
+          "id": "anime-lesson-06:詠唱",
+          "word": "詠唱",
+          "offline": true,
+          "src": "images/vocab/spellchant.svg"
+        },
+        {
+          "id": "anime-lesson-06:発動",
+          "word": "発動",
+          "offline": true,
+          "src": "images/vocab/activation.svg"
+        },
+        {
+          "id": "anime-lesson-06:条件",
+          "word": "条件",
+          "offline": true,
+          "src": "images/vocab/condition.svg"
+        },
+        {
+          "id": "anime-lesson-07:可能性",
+          "word": "可能性",
+          "offline": true,
+          "src": "images/vocab/possibility.svg"
+        },
+        {
+          "id": "anime-lesson-07:計画",
+          "word": "計画",
+          "offline": true,
+          "src": "images/vocab/planning.svg"
+        },
+        {
+          "id": "anime-lesson-07:疑う",
+          "word": "疑う",
+          "offline": true,
+          "src": "images/vocab/doubting.svg"
+        },
+        {
+          "id": "anime-lesson-08:無駄",
+          "word": "無駄",
+          "offline": true,
+          "src": "images/vocab/waste.svg"
+        }
+      ],
+      "allMappingsInDeck": true,
+      "exactSourceAndWord": true,
+      "uniqueOfflineAssets": 714,
+      "trueOffline": true,
+      "networkProbeCount": 1,
+      "untouchedProgressExact": true,
+      "pageerrors": [],
+      "overflow": false
+    },
+    "games": {
+      "base": "http://127.0.0.1:4207/nihongo-lab/",
+      "viewport": "375x667",
+      "rows": [
+        {
+          "id": "game-card:game:genshin:aloy:skill:5c2a10996f",
+          "word": "爆発するよ。",
+          "offline": false,
+          "src": "images/vocab/explosionwarning.svg"
+        },
+        {
+          "id": "game-card:game:genshin:kaveh:skill:5c678ab450",
+          "word": "スキャン！",
+          "offline": false,
+          "src": "images/vocab/scanning.svg"
+        },
+        {
+          "id": "game-card:game:genshin:aloy:skill:5c2a10996f",
+          "word": "爆発するよ。",
+          "offline": true,
+          "src": "images/vocab/explosionwarning.svg"
+        },
+        {
+          "id": "game-card:game:genshin:kaveh:skill:5c678ab450",
+          "word": "スキャン！",
+          "offline": true,
+          "src": "images/vocab/scanning.svg"
+        }
+      ],
+      "allMappingsInDeck": true,
+      "exactSourceAndWord": true,
+      "uniqueOfflineAssets": 714,
+      "trueOffline": true,
+      "networkProbeCount": 1,
+      "untouchedProgressExact": true,
+      "pageerrors": [],
+      "overflow": false
+    }
+  },
+  "representativeFlows": {
+    "n5-new": {
+      "task": "T157",
+      "base": "http://127.0.0.1:4207/nihongo-lab/",
+      "baselineCommit": "7a1ca4f67a1ccd7b20828418aef0e503cb093f6e",
+      "category": "n5",
+      "emptyAltVerified": true,
+      "accessibleImageNames": 0,
+      "unrelatedProgressPreserved": true,
+      "mode": "new",
+      "viewport": "375x667",
+      "records": [
+        {
+          "id": "stage0-day1:私",
+          "offline": false,
+          "image": false
+        },
+        {
+          "id": "stage0-day1:学生",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day1:先生",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day1:会社員",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day6:パン",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day8:高い",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day9:歌",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day14:地図",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day18:車",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day20:家庭",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day1:私",
+          "offline": true,
+          "image": false
+        },
+        {
+          "id": "stage0-day1:学生",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day1:先生",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day1:会社員",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day6:パン",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day8:高い",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day9:歌",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day14:地図",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day18:車",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day20:家庭",
+          "offline": true,
+          "image": true
+        }
+      ],
+      "images": 9,
+      "unmapped": 1,
+      "networkProbeCount": 13,
+      "sustainedNetworkBlockedBeforeEveryPlayback": true,
+      "networkProbeBlocked": true,
+      "sharedTouchSession": true,
+      "offlineImagesExactSHA": 714,
+      "online": true,
+      "offline": true,
+      "disconnect": "BrowserContext.setOffline(true); navigator.onLine=false; real reload",
+      "swipeNoGrade": true,
+      "centeredText": true,
+      "verticalAnswerOrder": true,
+      "regradeBase": true,
+      "regradedCards": 20,
+      "swipedCards": 20,
+      "persist": true,
+      "missingOfflineImage": true,
+      "httpCacheClearedBeforeMissingImage": true,
+      "pageerrors": [],
+      "overflow": false,
+      "reducedMotion": true
+    },
+    "n5-review": {
+      "task": "T157",
+      "base": "http://127.0.0.1:4207/nihongo-lab/",
+      "baselineCommit": "7a1ca4f67a1ccd7b20828418aef0e503cb093f6e",
+      "category": "n5",
+      "emptyAltVerified": true,
+      "accessibleImageNames": 0,
+      "unrelatedProgressPreserved": true,
+      "mode": "review",
+      "viewport": "375x667",
+      "records": [
+        {
+          "id": "stage0-day1:私",
+          "offline": false,
+          "image": false
+        },
+        {
+          "id": "stage0-day1:学生",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day1:先生",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day1:会社員",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day6:パン",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day8:高い",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day9:歌",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day14:地図",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day18:車",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day20:家庭",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "stage0-day1:私",
+          "offline": true,
+          "image": false
+        },
+        {
+          "id": "stage0-day1:学生",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day1:先生",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day1:会社員",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day6:パン",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day8:高い",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day9:歌",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day14:地図",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day18:車",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "stage0-day20:家庭",
+          "offline": true,
+          "image": true
+        }
+      ],
+      "images": 9,
+      "unmapped": 1,
+      "networkProbeCount": 13,
+      "sustainedNetworkBlockedBeforeEveryPlayback": true,
+      "networkProbeBlocked": true,
+      "sharedTouchSession": true,
+      "offlineImagesExactSHA": 714,
+      "online": true,
+      "offline": true,
+      "disconnect": "BrowserContext.setOffline(true); navigator.onLine=false; real reload",
+      "swipeNoGrade": true,
+      "centeredText": true,
+      "verticalAnswerOrder": true,
+      "regradeBase": true,
+      "regradedCards": 20,
+      "swipedCards": 20,
+      "persist": true,
+      "missingOfflineImage": true,
+      "httpCacheClearedBeforeMissingImage": true,
+      "pageerrors": [],
+      "overflow": false,
+      "reducedMotion": true
+    },
+    "general-new": {
+      "task": "T157",
+      "base": "http://127.0.0.1:4207/nihongo-lab/",
+      "baselineCommit": "7a1ca4f67a1ccd7b20828418aef0e503cb093f6e",
+      "category": "general",
+      "emptyAltVerified": true,
+      "accessibleImageNames": 0,
+      "unrelatedProgressPreserved": true,
+      "mode": "new",
+      "viewport": "375x667",
+      "records": [
+        {
+          "id": "general-listening-03:すぐ",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-12:鍵",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-17:聞く",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-23:根拠",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-23:可能性",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-28:多い",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-28:我慢",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-29:聞く",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-29:静かに",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-38:静かな",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-49:制服",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-49:普段着",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-56:悲しい",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-97:空",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-119:聞く",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-126:薬草",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-130:守る",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-155:時計",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-168:冷たい",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-03:すぐ",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-12:鍵",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-17:聞く",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-23:根拠",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-23:可能性",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-28:多い",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-28:我慢",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-29:聞く",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-29:静かに",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-38:静かな",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-49:制服",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-49:普段着",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-56:悲しい",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-97:空",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-119:聞く",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-126:薬草",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-130:守る",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-155:時計",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-168:冷たい",
+          "offline": true,
+          "image": true
+        }
+      ],
+      "images": 19,
+      "unmapped": 0,
+      "networkProbeCount": 20,
+      "sustainedNetworkBlockedBeforeEveryPlayback": true,
+      "networkProbeBlocked": true,
+      "sharedTouchSession": true,
+      "offlineImagesExactSHA": 714,
+      "online": true,
+      "offline": true,
+      "disconnect": "BrowserContext.setOffline(true); navigator.onLine=false; real reload",
+      "swipeNoGrade": true,
+      "centeredText": true,
+      "verticalAnswerOrder": true,
+      "regradeBase": true,
+      "regradedCards": 38,
+      "swipedCards": 38,
+      "persist": true,
+      "missingOfflineImage": false,
+      "httpCacheClearedBeforeMissingImage": true,
+      "pageerrors": [],
+      "overflow": false,
+      "reducedMotion": true
+    },
+    "general-review": {
+      "task": "T157",
+      "base": "http://127.0.0.1:4207/nihongo-lab/",
+      "baselineCommit": "7a1ca4f67a1ccd7b20828418aef0e503cb093f6e",
+      "category": "general",
+      "emptyAltVerified": true,
+      "accessibleImageNames": 0,
+      "unrelatedProgressPreserved": true,
+      "mode": "review",
+      "viewport": "375x667",
+      "records": [
+        {
+          "id": "general-listening-03:すぐ",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-12:鍵",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-17:聞く",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-23:根拠",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-23:可能性",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-28:多い",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-28:我慢",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-29:聞く",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-29:静かに",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-38:静かな",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-49:制服",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-49:普段着",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-56:悲しい",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-97:空",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-119:聞く",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-126:薬草",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-130:守る",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-155:時計",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-168:冷たい",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "general-listening-03:すぐ",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-12:鍵",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-17:聞く",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-23:根拠",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-23:可能性",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-28:多い",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-28:我慢",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-29:聞く",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-29:静かに",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-38:静かな",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-49:制服",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-49:普段着",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-56:悲しい",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-97:空",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-119:聞く",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-126:薬草",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-130:守る",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-155:時計",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "general-listening-168:冷たい",
+          "offline": true,
+          "image": true
+        }
+      ],
+      "images": 19,
+      "unmapped": 0,
+      "networkProbeCount": 20,
+      "sustainedNetworkBlockedBeforeEveryPlayback": true,
+      "networkProbeBlocked": true,
+      "sharedTouchSession": true,
+      "offlineImagesExactSHA": 714,
+      "online": true,
+      "offline": true,
+      "disconnect": "BrowserContext.setOffline(true); navigator.onLine=false; real reload",
+      "swipeNoGrade": true,
+      "centeredText": true,
+      "verticalAnswerOrder": true,
+      "regradeBase": true,
+      "regradedCards": 38,
+      "swipedCards": 38,
+      "persist": true,
+      "missingOfflineImage": false,
+      "httpCacheClearedBeforeMissingImage": true,
+      "pageerrors": [],
+      "overflow": false,
+      "reducedMotion": true
+    },
+    "anime-new": {
+      "task": "T157",
+      "base": "http://127.0.0.1:4207/nihongo-lab/",
+      "baselineCommit": "7a1ca4f67a1ccd7b20828418aef0e503cb093f6e",
+      "category": "anime",
+      "emptyAltVerified": true,
+      "accessibleImageNames": 0,
+      "unrelatedProgressPreserved": true,
+      "mode": "new",
+      "viewport": "375x667",
+      "records": [
+        {
+          "id": "anime-lesson-01:来る",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-03:支度",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-03:生徒",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-04:許す",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-07:可能性",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-07:計画",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-01:来る",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-03:支度",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-03:生徒",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-04:許す",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-07:可能性",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-07:計画",
+          "offline": true,
+          "image": true
+        }
+      ],
+      "images": 6,
+      "unmapped": 0,
+      "networkProbeCount": 7,
+      "sustainedNetworkBlockedBeforeEveryPlayback": true,
+      "networkProbeBlocked": true,
+      "sharedTouchSession": true,
+      "offlineImagesExactSHA": 714,
+      "online": true,
+      "offline": true,
+      "disconnect": "BrowserContext.setOffline(true); navigator.onLine=false; real reload",
+      "swipeNoGrade": true,
+      "centeredText": true,
+      "verticalAnswerOrder": true,
+      "regradeBase": true,
+      "regradedCards": 12,
+      "swipedCards": 12,
+      "persist": true,
+      "missingOfflineImage": false,
+      "httpCacheClearedBeforeMissingImage": true,
+      "pageerrors": [],
+      "overflow": false,
+      "reducedMotion": true
+    },
+    "anime-review": {
+      "task": "T157",
+      "base": "http://127.0.0.1:4207/nihongo-lab/",
+      "baselineCommit": "7a1ca4f67a1ccd7b20828418aef0e503cb093f6e",
+      "category": "anime",
+      "emptyAltVerified": true,
+      "accessibleImageNames": 0,
+      "unrelatedProgressPreserved": true,
+      "mode": "review",
+      "viewport": "375x667",
+      "records": [
+        {
+          "id": "anime-lesson-01:来る",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-03:支度",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-03:生徒",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-04:許す",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-07:可能性",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-07:計画",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-01:来る",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-03:支度",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-03:生徒",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-04:許す",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-07:可能性",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "anime-lesson-07:計画",
+          "offline": true,
+          "image": true
+        }
+      ],
+      "images": 6,
+      "unmapped": 0,
+      "networkProbeCount": 7,
+      "sustainedNetworkBlockedBeforeEveryPlayback": true,
+      "networkProbeBlocked": true,
+      "sharedTouchSession": true,
+      "offlineImagesExactSHA": 714,
+      "online": true,
+      "offline": true,
+      "disconnect": "BrowserContext.setOffline(true); navigator.onLine=false; real reload",
+      "swipeNoGrade": true,
+      "centeredText": true,
+      "verticalAnswerOrder": true,
+      "regradeBase": true,
+      "regradedCards": 12,
+      "swipedCards": 12,
+      "persist": true,
+      "missingOfflineImage": false,
+      "httpCacheClearedBeforeMissingImage": true,
+      "pageerrors": [],
+      "overflow": false,
+      "reducedMotion": true
+    },
+    "games-new": {
+      "task": "T157",
+      "base": "http://127.0.0.1:4207/nihongo-lab/",
+      "baselineCommit": "7a1ca4f67a1ccd7b20828418aef0e503cb093f6e",
+      "category": "games",
+      "emptyAltVerified": true,
+      "accessibleImageNames": 0,
+      "unrelatedProgressPreserved": true,
+      "mode": "new",
+      "viewport": "375x667",
+      "records": [
+        {
+          "id": "game-card:game:genshin:aloy:skill:5c2a10996f",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:amber:join:f5192fa705",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:collei:skill:5ff6879e5c",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:eula:join:cf33d47857",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:kaveh:skill:5c678ab450",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:aloy:skill:5c2a10996f",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:amber:join:f5192fa705",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:collei:skill:5ff6879e5c",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:eula:join:cf33d47857",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:kaveh:skill:5c678ab450",
+          "offline": true,
+          "image": true
+        }
+      ],
+      "images": 5,
+      "unmapped": 0,
+      "networkProbeCount": 6,
+      "sustainedNetworkBlockedBeforeEveryPlayback": true,
+      "networkProbeBlocked": true,
+      "sharedTouchSession": true,
+      "offlineImagesExactSHA": 714,
+      "online": true,
+      "offline": true,
+      "disconnect": "BrowserContext.setOffline(true); navigator.onLine=false; real reload",
+      "swipeNoGrade": true,
+      "centeredText": true,
+      "verticalAnswerOrder": true,
+      "regradeBase": true,
+      "regradedCards": 10,
+      "swipedCards": 10,
+      "persist": true,
+      "missingOfflineImage": false,
+      "httpCacheClearedBeforeMissingImage": true,
+      "pageerrors": [],
+      "overflow": false,
+      "reducedMotion": true
+    },
+    "games-review": {
+      "task": "T157",
+      "base": "http://127.0.0.1:4207/nihongo-lab/",
+      "baselineCommit": "7a1ca4f67a1ccd7b20828418aef0e503cb093f6e",
+      "category": "games",
+      "emptyAltVerified": true,
+      "accessibleImageNames": 0,
+      "unrelatedProgressPreserved": true,
+      "mode": "review",
+      "viewport": "375x667",
+      "records": [
+        {
+          "id": "game-card:game:genshin:aloy:skill:5c2a10996f",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:amber:join:f5192fa705",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:collei:skill:5ff6879e5c",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:eula:join:cf33d47857",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:kaveh:skill:5c678ab450",
+          "offline": false,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:aloy:skill:5c2a10996f",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:amber:join:f5192fa705",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:collei:skill:5ff6879e5c",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:eula:join:cf33d47857",
+          "offline": true,
+          "image": true
+        },
+        {
+          "id": "game-card:game:genshin:kaveh:skill:5c678ab450",
+          "offline": true,
+          "image": true
+        }
+      ],
+      "images": 5,
+      "unmapped": 0,
+      "networkProbeCount": 6,
+      "sustainedNetworkBlockedBeforeEveryPlayback": true,
+      "networkProbeBlocked": true,
+      "sharedTouchSession": true,
+      "offlineImagesExactSHA": 714,
+      "online": true,
+      "offline": true,
+      "disconnect": "BrowserContext.setOffline(true); navigator.onLine=false; real reload",
+      "swipeNoGrade": true,
+      "centeredText": true,
+      "verticalAnswerOrder": true,
+      "regradeBase": true,
+      "regradedCards": 10,
+      "swipedCards": 10,
+      "persist": true,
+      "missingOfflineImage": false,
+      "httpCacheClearedBeforeMissingImage": true,
+      "pageerrors": [],
+      "overflow": false,
+      "reducedMotion": true
+    }
+  },
+  "completeFlowsCount": 160,
+  "representativeCardsPerMode": {
+    "n5": 10,
+    "general": 19,
+    "anime": 6,
+    "games": 5
+  },
+  "disconnect": "BrowserContext.setOffline(true), navigator.onLine=false, real reload, each uncached probe fails ERR_INTERNET_DISCONNECTED; HTTP cache cleared and one SVG precache key deleted for missing-image fallback.",
+  "missingImageRegression": {
+    "new": true,
+    "review": true,
+    "fixtureCorrection": "Initial fixture incorrectly assumed the first card had an image; the first card is unillustrated 私. Corrected to target the first explicitly illustrated ID, reran and passed. Product unchanged."
+  },
+  "limits": [
+    "No physical-device acceptance",
+    "No physical screen-reader acceptance",
+    "No demonstrated memory-effect claim",
+    "No claim all remaining meanings or shared candidates are resolved",
+    "Existing partial Android records retained; complete QA and sentence-by-sentence audio review remain separate"
+  ]
+}
