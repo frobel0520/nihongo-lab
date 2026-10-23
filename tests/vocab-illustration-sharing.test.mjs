@@ -50,7 +50,9 @@ test('T157 separates newly covered homographs and keeps all published cards and 
     ['general-listening-129:磨く', 'polishshield'],
     ['general-listening-42:高い', 'expensive'],
   ]) assert.equal(image(id).src, `images/vocab/${expected}.svg`);
-  for (const id of ['general-listening-136:戻る', 'general-listening-178:守る', 'anime-lesson-03:括る', 'anime-lesson-03:燃やす']) assert.equal(image(id), undefined, id);
+  // T159 later gave magic recovery its own recovery picture; it must still never reuse the return-to-place image.
+  assert.notEqual(image('general-listening-136:戻る')?.src, 'images/vocab/returningplace.svg');
+  for (const id of ['general-listening-178:守る', 'anime-lesson-03:括る', 'anime-lesson-03:燃やす']) assert.equal(image(id), undefined, id);
   assert.equal(image('general-listening-124:燃える').src, 'images/vocab/burning.svg');
   assert.equal(image('general-listening-96:結ぶ').src, 'images/vocab/tyingbundle.svg');
 });
@@ -75,4 +77,24 @@ test('T158 keeps existing cards/maps and separates direction, reading, preservat
   assert.equal(image('general-listening-101:受取人').src, 'images/vocab/addressee.svg');
   assert.equal(image('general-listening-165:指す'), undefined, 'pronoun reference is not a pointing hand');
   assert.equal(image('general-listening-149:本人'), undefined, 'third-person concerned party is not I');
+});
+
+// Existing maps stay byte-identical; new shares follow context, not spelling.
+test('T159 keeps published maps and separates sound, data, time and space senses', async () => {
+  assert.equal(createHash('sha256').update(JSON.stringify(VOCAB_ILLUSTRATIONS.slice(0, 3184))).digest('hex'), '9cb0de2b0c1c3b937d36128ddee4dad1966264df59f5afc23088e883cdac9dcf');
+  const cards = await collectInventoryCards();
+  assert.equal(createHash('sha256').update(JSON.stringify(cards)).digest('hex'), '12367d472446092bb0db65bbde0131aab2a923ae90ce5e042a60267048475d20');
+  const image = id => illustrationFor(cards.find(c => c.id === id));
+  assert.equal(image('general-listening-74:似る').src, 'images/vocab/resembling.svg');
+  assert.equal(image('general-listening-78:似る'), undefined, 'similar sounds are not similar outlines');
+  assert.equal(image('general-listening-145:消える').src, 'images/vocab/vanishing.svg');
+  assert.equal(image('general-listening-79:消える'), undefined, 'lost data is not a fading object');
+  assert.equal(image('general-listening-121:続く'), undefined, 'footprints extending is spatial');
+  assert.equal(image('general-listening-36:次'), undefined, 'next time is not the next stop');
+  assert.equal(image('general-listening-143:誘う').src, 'images/vocab/drawingaway.svg', 'luring an enemy is not an invitation');
+  assert.equal(image('general-listening-126:戻す').src, 'images/vocab/recovery.svg');
+  assert.equal(image('stage0-day22:ペン').src, 'images/vocab/fountainpen.svg');
+  assert.equal(image('general-listening-77:注意').src, 'images/vocab/attractattention.svg');
+  assert.notEqual(image('general-listening-77:注意').src, image('general-listening-53:注意').src);
+  assert.equal(image('general-listening-79:開く'), undefined);
 });
