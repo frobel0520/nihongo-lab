@@ -2,7 +2,7 @@
   "task": "T156",
   "baselineCommit": "a0a265666bc7836129cb615e748512965aee27e8",
   "productCommit": "901d7d6299700bca02d5ab75c3e047163257a12e",
-  "status": "local verified; PR CI and production pending",
+  "status": "pre-merge local evidence snapshot; final release evidence in pull request",
   "cards": 5909,
   "assets": 414,
   "mapped": 1185,
@@ -3548,5 +3548,13 @@
   "diagnostics": [
     "Preview initially omitted VITE_BASE_PATH, so service-worker URL returned HTML; corrected preview configuration before verification",
     "Initial long-card assertion compared unclipped content bounds with grading; verified existing scroll-region clipping/reachability instead; no product or contract change"
-  ]
+  ],
+  "releaseRecord": "https://github.com/frobel0520/nihongo-lab/pull/162",
+  "plannedProductionScope": {
+    "outsideAudioFiles": 938,
+    "svgOverlappingSubset": 414,
+    "newSvgOverlappingSubset": 300,
+    "voicePreviewsOverlappingSubset": 38,
+    "newAudioFiles": 0
+  }
 }
