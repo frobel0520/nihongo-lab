@@ -1,16 +1,15 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { stages } from '../curriculum/lessons.mjs';
-import { buildCards } from '../lib/srs.mjs';
+import { collectInventoryCards } from '../scripts/vocab-illustration-inventory.mjs';
 import { VOCAB_ILLUSTRATIONS, illustrationFor } from '../lib/vocab-illustrations.mjs';
 
-test('illustrations resolve only the 179 approved cards and their actual senses', () => {
-  const cards = buildCards(stages);
-  assert.equal(VOCAB_ILLUSTRATIONS.length, 179);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 179);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 114);
-  assert.equal(cards.filter(illustrationFor).length, 179);
+test('illustrations resolve only the 1185 approved cards and their actual senses', async () => {
+  const cards = await collectInventoryCards();
+  assert.equal(VOCAB_ILLUSTRATIONS.length, 1185);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 1185);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 414);
+  assert.equal(cards.filter(illustrationFor).length, 1185);
   for (const image of VOCAB_ILLUSTRATIONS) {
     const card = cards.find(c => c.id === image.id);
     assert.ok(card, image.id);
@@ -31,6 +30,7 @@ test('all reviewed images are local compact original vectors with no active or r
   let expansionBytes = 0;
   let prototypeBytes = 0;
   let batchBytes = 0;
+  let expansion300Bytes = 0;
   const assets = [...new Map(VOCAB_ILLUSTRATIONS.map(image => [image.src, image])).values()];
   for (const image of assets) {
     assert.match(image.src, /^images\/vocab\/[a-z]+\.svg$/);
@@ -39,14 +39,16 @@ test('all reviewed images are local compact original vectors with no active or r
     if (assets.indexOf(image) < 12) pilotBytes += Buffer.byteLength(svg);
     else if (assets.indexOf(image) < 42) expansionBytes += Buffer.byteLength(svg);
     else if (assets.indexOf(image) < 54) prototypeBytes += Buffer.byteLength(svg);
-    else batchBytes += Buffer.byteLength(svg);
+    else if (assets.indexOf(image) < 114) batchBytes += Buffer.byteLength(svg);
+    else expansion300Bytes += Buffer.byteLength(svg);
     assert.match(svg, /viewBox="0 0 224 168"/);
     assert.doesNotMatch(svg, /<(script|foreignObject|text|image)\b|(?:href|onload|onclick)=/i);
   }
   assert.ok(pilotBytes < 12000, 'retain the original 12-image pilot budget');
   assert.ok(expansionBytes < 24000, 'retain the separate 30-image expansion budget');
   assert.ok(prototypeBytes < 12000, 'keep the separate 12-image semantic prototype compact');
-  assert.ok(batchBytes < 60000, 'the sixty new assets remain within the planned 1000-byte average');
+  assert.ok(batchBytes < 60000, 'retain the published sixty-asset budget');
+  assert.ok(expansion300Bytes < 300000, 'the 300-asset batch stays within its 1000-byte average plan');
 });
 
 test('card fronts hide images and revealed auxiliary images do not repeat the accessible answer', async () => {
@@ -60,7 +62,8 @@ test('card fronts hide images and revealed auxiliary images do not repeat the ac
     const { VocabIllustration } = await server.ssrLoadModule('/app/components/VocabIllustration.tsx');
     const { emptyProgress } = await server.ssrLoadModule('/lib/progress.mjs');
     const { schedule, toDateString } = await server.ssrLoadModule('/lib/srs.mjs');
-    const card = buildCards(stages).find(c => c.id === 'stage0-day2:傘');
+    const cards = await collectInventoryCards();
+    const card = cards.find(c => c.id === 'stage0-day2:傘');
     for (const mode of ['new', 'review']) {
       const progress = emptyProgress();
       if (mode === 'review') progress.srs[card.id] = schedule(undefined, 'again', toDateString(), new Date().toISOString());
@@ -71,7 +74,7 @@ test('card fronts hide images and revealed auxiliary images do not repeat the ac
       assert.doesNotMatch(markup, /<legend[^>]*>評分/);
     }
     for (const image of VOCAB_ILLUSTRATIONS) {
-      const illustratedCard = buildCards(stages).find(c => c.id === image.id);
+      const illustratedCard = cards.find(c => c.id === image.id);
       const markup = renderToStaticMarkup(createElement(VocabIllustration, { card: illustratedCard }));
       assert.match(markup, /<img\b/);
       assert.match(markup, /\balt=""/);
