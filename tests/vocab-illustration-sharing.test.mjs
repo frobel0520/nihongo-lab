@@ -50,7 +50,7 @@ test('T157 separates newly covered homographs and keeps all published cards and 
     ['general-listening-129:磨く', 'polishshield'],
     ['general-listening-42:高い', 'expensive'],
   ]) assert.equal(image(id).src, `images/vocab/${expected}.svg`);
-  for (const id of ['general-listening-95:返す', 'general-listening-72:届く', 'general-listening-131:届く', 'general-listening-136:戻る', 'general-listening-87:直す', 'general-listening-178:守る', 'anime-lesson-03:括る', 'anime-lesson-03:燃やす']) assert.equal(image(id), undefined, id);
+  for (const id of ['general-listening-53:切る', 'general-listening-95:返す', 'general-listening-72:届く', 'general-listening-131:届く', 'general-listening-136:戻る', 'general-listening-87:直す', 'general-listening-178:守る', 'anime-lesson-03:括る', 'anime-lesson-03:燃やす']) assert.equal(image(id), undefined, id);
   assert.equal(image('general-listening-124:燃える').src, 'images/vocab/burning.svg');
   assert.equal(image('general-listening-96:結ぶ').src, 'images/vocab/tyingbundle.svg');
 });
