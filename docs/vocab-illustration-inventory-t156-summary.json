@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "sourceCommit": "a0a265666bc7836129cb615e748512965aee27e8",
+  "sourceCommit": "901d7d6299700bca02d5ab75c3e047163257a12e",
   "countingPolicy": "Exact unnormalized word; candidate sense signature = JSON.stringify([word,reading,zh]). No automatic sharing; true senses may require translation merges or splitting multi-meaning entries.",
   "cardContractSha256": "12367d472446092bb0db65bbde0131aab2a923ae90ce5e042a60267048475d20",
   "total": {
@@ -54,5 +54,5 @@
     "verb": 805,
     "adjective": 116
   },
-  "sourceNote": "Curriculum/card baseline SHA; mapping state is T156 files alongside this snapshot, not the published baseline mapping."
+  "sourceNote": "Exact committed T156 mapping/catalog state; subsequent documentation-only commits preserve this product."
 }
