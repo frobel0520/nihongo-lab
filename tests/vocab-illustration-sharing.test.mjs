@@ -13,7 +13,7 @@ test('sharing preserves published mappings and distinguishes meaning from spelli
   assert.equal(image('stage0-day23:御飯').src, image('stage0-day6:ご飯').src);
   assert.equal(image('general-listening-09:撮る').src, image('stage0-day14:撮る').src);
   assert.equal(image('general-listening-58:静か').src, image('stage0-day8:静か').src);
-  assert.equal(image('general-listening-168:冷たい'), undefined, 'emotional coldness is not cold water');
+  assert.notEqual(image('general-listening-168:冷たい').src, image('stage0-day12:冷たい').src, 'emotional coldness is not cold water');
   assert.equal(image('general-listening-95:返す'), undefined, 'reply and physical return must not be flattened');
   assert.equal(image('general-listening-05:少し'), undefined, 'partial comprehension has not been approved for the quantity picture');
   assert.equal(image('general-listening-80:短い'), undefined, 'a brief role is not the approved physical length example');
@@ -25,7 +25,7 @@ test('T156 preserves published records and rejects homographs and incompatible m
   assert.equal(createHash('sha256').update(JSON.stringify(VOCAB_ILLUSTRATIONS.slice(0, 179))).digest('hex'), '78f0569fc4e8afc57a30126ca0cc699fa59ef40128c9e9871172e2b0c9dcb76e');
   const cards = await collectInventoryCards();
   const image = id => illustrationFor(cards.find(c => c.id === id));
-  for (const id of ['general-listening-08:空', 'general-listening-97:空', 'general-listening-89:入れる', 'general-listening-107:入れる', 'general-listening-59:聞く', 'general-listening-146:鍵', 'general-listening-49:守る', 'general-listening-105:つける', 'general-listening-39:切る', 'general-listening-129:磨く', 'general-listening-42:高い']) assert.equal(image(id), undefined, id);
+  for (const id of ['general-listening-89:入れる', 'general-listening-107:入れる', 'general-listening-146:鍵', 'general-listening-105:つける']) assert.equal(image(id), undefined, id);
   assert.equal(image('general-listening-21:空').src, 'images/vocab/sky.svg');
   assert.equal(image('general-listening-97:入れる').src, 'images/vocab/puttingin.svg');
   assert.equal(image('general-listening-130:守る').src, 'images/vocab/protecting.svg');
@@ -34,4 +34,23 @@ test('T156 preserves published records and rejects homographs and incompatible m
   const christmas = cards.filter(c => c.category === 'games' && c.word === 'メリークリスマス！');
   assert.equal(christmas.length, 2);
   assert.ok(christmas.every(c => illustrationFor(c)?.src === 'images/vocab/christmasgreeting.svg'));
+});
+
+// New pictures address actual semantic gaps; old record and card contracts stay immutable.
+test('T157 separates newly covered homographs and keeps all published cards and maps', async () => {
+  assert.equal(createHash('sha256').update(JSON.stringify(VOCAB_ILLUSTRATIONS.slice(0, 1185))).digest('hex'), '4a252552dccc9ef1c9941e6e180ee3ea3a361852b442b04606c594e33aa962a7');
+  const cards = await collectInventoryCards();
+  assert.equal(createHash('sha256').update(JSON.stringify(cards)).digest('hex'), '12367d472446092bb0db65bbde0131aab2a923ae90ce5e042a60267048475d20');
+  const image = id => illustrationFor(cards.find(c => c.id === id));
+  for (const [id, expected] of [
+    ['general-listening-97:空', 'empty'],
+    ['general-listening-49:守る', 'followingrules'],
+    ['general-listening-59:聞く', 'askingquestion'],
+    ['general-listening-39:切る', 'hangingup'],
+    ['general-listening-129:磨く', 'polishshield'],
+    ['general-listening-42:高い', 'expensive'],
+  ]) assert.equal(image(id).src, `images/vocab/${expected}.svg`);
+  for (const id of ['general-listening-95:返す', 'general-listening-72:届く', 'general-listening-131:届く', 'general-listening-136:戻る', 'general-listening-87:直す', 'general-listening-178:守る', 'anime-lesson-03:括る', 'anime-lesson-03:燃やす']) assert.equal(image(id), undefined, id);
+  assert.equal(image('general-listening-124:燃える').src, 'images/vocab/burning.svg');
+  assert.equal(image('general-listening-96:結ぶ').src, 'images/vocab/tyingbundle.svg');
 });
