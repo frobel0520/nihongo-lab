@@ -1,0 +1,114 @@
+{
+  "task": "T159",
+  "baselineCommit": "fcdf578dc2eb6c8a364a5dc22c17b0a737ce8966",
+  "productCommit": "85c90f08c969e00135f685c00e8b607716960e2f",
+  "scope": "Local premerge evidence snapshot on the formal /nihongo-lab/ build; final PR records latest CI, merge, Pages and production acceptance. No production result is predeclared.",
+  "contract": {
+    "cardEntries": 5909,
+    "oldMappingsUnchanged": 3184,
+    "oldSvgUnchanged": 1014,
+    "newSvgUnique": 300,
+    "audioFilesUnchanged": 8535,
+    "curriculumAudioSrsSyncOfflineLayoutDependenciesAndBudgetsUnchanged": true
+  },
+  "check": {
+    "tests": 337,
+    "fail": 0,
+    "typecheck": true,
+    "lint": true
+  },
+  "formalBase": "/nihongo-lab/",
+  "bundle": {
+    "mainJsGzipBytes": 65663,
+    "mainJsGzipLimit": 630000,
+    "cssGzipBytes": 5068,
+    "cssGzipLimit": 5800,
+    "precacheBytes": 23154466,
+    "precacheLimit": 26869829,
+    "headroomBytes": 3715363,
+    "precacheCountedUrls": 1793,
+    "measuredOn": "local Windows working tree; CI Linux figures recorded in the PR"
+  },
+  "newSvg": {
+    "count": 300,
+    "bytes": 250398,
+    "license": "CC0-1.0",
+    "safeNoScriptTextImageOrExternalRefs": true,
+    "uniqueHashesAcrossAll1314": true,
+    "smallRenderedSemanticsReviewedIndividually": 300,
+    "actual375CardScreenshotsReviewedIndividually": 300
+  },
+  "inventory": {
+    "cardEntries": 5909,
+    "illustratedEntries": 4247,
+    "missingEntries": 1662,
+    "illustratedSenseSignatures": 2166,
+    "missingSenseSignatures": 1503
+  },
+  "mappingCounts": {
+    "primary": 300,
+    "oldShared": 136,
+    "newShared": 627,
+    "totalAdded": 1063,
+    "crossSourceLessonShared": 751,
+    "sameSourceLessonShared": 12
+  },
+  "browser": {
+    "viewport": "375x667 @2x, BrowserContext offline for disconnect",
+    "onlinePrimaryReveals": {
+      "total": 300,
+      "ok": 300
+    },
+    "offlinePrimaryReveals": {
+      "total": 301,
+      "ok": 301
+    },
+    "offlineSha": {
+      "probe": "TypeError: Failed to fetch",
+      "total": 1314,
+      "match": 1314
+    },
+    "completeFlows": {
+      "count": 76,
+      "ok": 76,
+      "audioPlayedAt1x": 76,
+      "cards": [
+        "stage0-day5:月曜日",
+        "stage0-day20:父",
+        "stage0-day23:赤",
+        "stage0-day4:三",
+        "general-listening-05:説明",
+        "general-listening-61:合図",
+        "general-listening-36:必ず",
+        "general-listening-74:似る",
+        "general-listening-11:人数",
+        "general-listening-130:救出",
+        "general-listening-53:注意",
+        "anime-lesson-04:約束",
+        "stage0-day22:ペン",
+        "general-listening-87:少し",
+        "general-listening-131:長さ",
+        "game-card:game:genshin:beidou:join:8d827f9228",
+        "game-card:game:genshin:kujousara:skill:2ce5d65790",
+        "game-card:game:genshin:razor:skill:8c0a55dbe2",
+        "game-card:game:genshin:xianyun:skill:2ce5d65790"
+      ],
+      "covers": "n5/general/anime/games; new and review; online and offline; illustrated (old/new shared) and unillustrated; long game lines; grade, regrade via 回到最後一張, pointer swipe without grading, unrelated progress preserved"
+    },
+    "missingImageFallback": {
+      "imgPresent": false,
+      "gradesVisible": true,
+      "playVisible": true,
+      "word": "夕方",
+      "gradeSaved": true,
+      "nextImageRecovered": true
+    },
+    "pageerrors": 0,
+    "horizontalOverflow": 0
+  },
+  "limits": [
+    "Long game lines keep the image inside the existing internal card scroll; scrolled screenshots were reviewed separately.",
+    "Browser simulation is not physical-device or screen-reader acceptance.",
+    "No demonstrated memory benefit; sense-sharing judgments are editorial, not a full-site semantic audit."
+  ]
+}
