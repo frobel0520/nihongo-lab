@@ -358,6 +358,7 @@
 - [卡片299](previews/t156-card-299-375.png)
 - [卡片300](previews/t156-card-300-375.png)
 - [舊圖地圖](previews/t156-old-map-375.png)
-- [無圖卡](previews/t156-unmapped-375.png)
+- [無圖卡：冷淡義](previews/t156-unmapped-375.png)
+- [部屋揭示前](previews/t156-room-front-375.png)
 
 334 tests／check、正式base build、perf及本機完整驗證見[vocab-illustration-t156-validation.json](vocab-illustration-t156-validation.json)。正式站與最新CI待核對，最終發布證據集中於本輪PR。
