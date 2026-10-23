@@ -17,5 +17,21 @@ test('sharing preserves published mappings and distinguishes meaning from spelli
   assert.equal(image('general-listening-95:返す'), undefined, 'reply and physical return must not be flattened');
   assert.equal(image('general-listening-05:少し'), undefined, 'partial comprehension has not been approved for the quantity picture');
   assert.equal(image('general-listening-80:短い'), undefined, 'a brief role is not the approved physical length example');
-  assert.equal(image('general-listening-38:もう一度'), undefined, 'even equivalent unreviewed entries must not inherit automatically');
+  assert.equal(image('general-listening-38:もう一度').src, 'images/vocab/again.svg', 'explicitly approved repetition may now share');
+});
+
+// Different readings, physical/metaphorical senses and movement direction are the sharing risks.
+test('T156 preserves published records and rejects homographs and incompatible micro-scenes', async () => {
+  assert.equal(createHash('sha256').update(JSON.stringify(VOCAB_ILLUSTRATIONS.slice(0, 179))).digest('hex'), '78f0569fc4e8afc57a30126ca0cc699fa59ef40128c9e9871172e2b0c9dcb76e');
+  const cards = await collectInventoryCards();
+  const image = id => illustrationFor(cards.find(c => c.id === id));
+  for (const id of ['general-listening-08:空', 'general-listening-97:空', 'general-listening-89:入れる', 'general-listening-107:入れる', 'general-listening-59:聞く', 'general-listening-146:鍵', 'general-listening-49:守る', 'general-listening-105:つける', 'general-listening-39:切る', 'general-listening-129:磨く', 'general-listening-42:高い']) assert.equal(image(id), undefined, id);
+  assert.equal(image('general-listening-21:空').src, 'images/vocab/sky.svg');
+  assert.equal(image('general-listening-97:入れる').src, 'images/vocab/puttingin.svg');
+  assert.equal(image('general-listening-130:守る').src, 'images/vocab/protecting.svg');
+  assert.equal(image('general-listening-12:貸す').src, 'images/vocab/lending.svg');
+  assert.equal(image('general-listening-12:借りる').src, 'images/vocab/borrowing.svg');
+  const christmas = cards.filter(c => c.category === 'games' && c.word === 'メリークリスマス！');
+  assert.equal(christmas.length, 2);
+  assert.ok(christmas.every(c => illustrationFor(c)?.src === 'images/vocab/christmasgreeting.svg'));
 });
