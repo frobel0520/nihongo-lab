@@ -361,4 +361,4 @@
 - [無圖卡：冷淡義](previews/t156-unmapped-375.png)
 - [部屋揭示前](previews/t156-room-front-375.png)
 
-334 tests／check、正式base build、perf及本機完整驗證見[vocab-illustration-t156-validation.json](vocab-illustration-t156-validation.json)。正式站與最新CI待核對，最終發布證據集中於本輪PR。
+334 tests／check、正式base build、perf及本機完整驗證見[vocab-illustration-t156-validation.json](vocab-illustration-t156-validation.json)。正式站、最新CI及Pages的實際發布證據集中於[PR #162](https://github.com/frobel0520/nihongo-lab/pull/162)最終發布紀錄；本文件驗證清單為合併前本機證據快照。
