@@ -1,5 +1,7 @@
 # 全站單字卡SVG覆蓋盤點與分批計畫
 
+發布補充（2026-10-23）：使用者確認6bece52產品審查無阻塞並授權T155發布。下方「未合併／未部署」為初次盤點狀態；產品與數字不變，最新CI／合併／正式站結果集中於[PR #161](https://github.com/frobel0520/nihongo-lab/pull/161)，不接續下一批。
+
 ## 現行T155分支盤點（未合併／未部署）
 
 來源產品提交`b3188e047f39fd280a7509b8015a695a753cd9be`，其後只補文件／預覽；基準main84c9449正式站54圖，兩者分開。[本輪全量CSV](vocab-illustration-inventory-t155.csv)與[摘要](vocab-illustration-inventory-t155-summary.json)獨立保存，不覆寫下方T154開始時42圖歷史快照。
