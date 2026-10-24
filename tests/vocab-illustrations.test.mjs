@@ -4,12 +4,12 @@ import { readFile } from 'node:fs/promises';
 import { collectInventoryCards } from '../scripts/vocab-illustration-inventory.mjs';
 import { VOCAB_ILLUSTRATIONS, illustrationFor } from '../lib/vocab-illustrations.mjs';
 
-test('illustrations resolve only the 5039 approved cards and their actual senses', async () => {
+test('illustrations resolve all 5909 approved cards and their actual senses', async () => {
   const cards = await collectInventoryCards();
-  assert.equal(VOCAB_ILLUSTRATIONS.length, 5039);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 5039);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 1614);
-  assert.equal(cards.filter(illustrationFor).length, 5039);
+  assert.equal(VOCAB_ILLUSTRATIONS.length, 5909);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 5909);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 2242);
+  assert.equal(cards.filter(illustrationFor).length, cards.length, 'T162: every card has an approved picture');
   for (const image of VOCAB_ILLUSTRATIONS) {
     const card = cards.find(c => c.id === image.id);
     assert.ok(card, image.id);
@@ -19,10 +19,10 @@ test('illustrations resolve only the 5039 approved cards and their actual senses
     assert.equal(illustrationFor({ ...card, word: '別の単語' }), undefined);
     assert.equal(illustrationFor({ ...card, id: `unreviewed:${card.word}` }), undefined);
   }
-  // Different senses and unapproved contexts must stay unillustrated despite the same spelling.
+  // Different senses keep different pictures despite the same spelling.
   assert.equal(illustrationFor(cards.find(c => c.id === 'general-listening-168:冷たい')).src, 'images/vocab/coldattitude.svg');
   assert.equal(illustrationFor(cards.find(c => c.id === 'general-listening-95:返す')).src, 'images/vocab/replymessage.svg');
-  assert.equal(illustrationFor(cards.find(c => c.id === 'general-listening-87:少し')), undefined);
+  assert.notEqual(illustrationFor(cards.find(c => c.id === 'general-listening-87:少し')).src, 'images/vocab/little.svg', 'dimming slightly is not a small quantity');
 });
 
 test('all reviewed images are local compact original vectors with no active or remote content', async () => {
@@ -35,6 +35,7 @@ test('all reviewed images are local compact original vectors with no active or r
   let third300Bytes = 0;
   let fourth300Bytes = 0;
   let fifth300Bytes = 0;
+  let t162Bytes = 0;
   const assets = [...new Map(VOCAB_ILLUSTRATIONS.map(image => [image.src, image])).values()];
   for (const image of assets) {
     assert.match(image.src, /^images\/vocab\/[a-z]+\.svg$/);
@@ -48,7 +49,8 @@ test('all reviewed images are local compact original vectors with no active or r
     else if (assets.indexOf(image) < 714) second300Bytes += Buffer.byteLength(svg);
     else if (assets.indexOf(image) < 1014) third300Bytes += Buffer.byteLength(svg);
     else if (assets.indexOf(image) < 1314) fourth300Bytes += Buffer.byteLength(svg);
-    else fifth300Bytes += Buffer.byteLength(svg);
+    else if (assets.indexOf(image) < 1614) fifth300Bytes += Buffer.byteLength(svg);
+    else t162Bytes += Buffer.byteLength(svg);
     assert.match(svg, /viewBox="0 0 224 168"/);
     assert.doesNotMatch(svg, /<(script|foreignObject|text|image)\b|(?:href|onload|onclick)=/i);
   }
@@ -61,6 +63,7 @@ test('all reviewed images are local compact original vectors with no active or r
   assert.ok(third300Bytes < 300000, 'T158 remains within its separate 1000-byte average plan');
   assert.ok(fourth300Bytes < 300000, 'T159 remains within its separate 1000-byte average plan');
   assert.ok(fifth300Bytes < 300000, 'T160 remains within its separate 1000-byte average plan');
+  assert.ok(t162Bytes < 628000, 'T162 stays within a 1000-byte average for its 628 pictures');
 });
 
 test('card fronts hide images and revealed auxiliary images do not repeat the accessible answer', async () => {
