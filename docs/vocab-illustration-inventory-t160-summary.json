@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "sourceCommit": "3b70c28ba6c6be601dc8a641944a8b941306297d",
+  "countingPolicy": "Exact unnormalized word; candidate sense signature = JSON.stringify([word,reading,zh]). No automatic sharing; true senses may require translation merges or splitting multi-meaning entries.",
+  "cardContractSha256": "12367d472446092bb0db65bbde0131aab2a923ae90ce5e042a60267048475d20",
+  "total": {
+    "cardEntries": 5909,
+    "distinctWordForms": 2978,
+    "senseSignatures": 3669,
+    "illustratedEntries": 5039,
+    "missingEntries": 870
+  },
+  "byCategory": {
+    "n5": {
+      "cardEntries": 711,
+      "distinctWordForms": 711,
+      "senseSignatures": 711,
+      "illustratedEntries": 639,
+      "missingEntries": 72
+    },
+    "general": {
+      "cardEntries": 4500,
+      "distinctWordForms": 1926,
+      "senseSignatures": 2407,
+      "illustratedEntries": 3966,
+      "missingEntries": 534
+    },
+    "anime": {
+      "cardEntries": 80,
+      "distinctWordForms": 80,
+      "senseSignatures": 80,
+      "illustratedEntries": 65,
+      "missingEntries": 15
+    },
+    "games": {
+      "cardEntries": 618,
+      "distinctWordForms": 615,
+      "senseSignatures": 615,
+      "illustratedEntries": 369,
+      "missingEntries": 249
+    }
+  },
+  "assetCount": 1614,
+  "illustratedSenseSignatures": 2885,
+  "missingSenseSignatures": 784,
+  "unmappedEntriesWithCandidateExistingAsset": 22,
+  "multiSignatureForms": 471,
+  "designHintCounts": {
+    "needs-design": 1758,
+    "concrete-noun": 176,
+    "fixed-expression": 632,
+    "adverb": 57,
+    "abstract": 125,
+    "verb": 805,
+    "adjective": 116
+  }
+}
