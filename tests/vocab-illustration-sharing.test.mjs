@@ -76,7 +76,8 @@ test('T158 keeps existing cards/maps and separates direction, reading, preservat
   assert.equal(image('general-listening-101:差出人').src, 'images/vocab/sender.svg');
   assert.equal(image('general-listening-101:受取人').src, 'images/vocab/addressee.svg');
   assert.equal(image('general-listening-165:指す'), undefined, 'pronoun reference is not a pointing hand');
-  assert.equal(image('general-listening-149:本人'), undefined, 'third-person concerned party is not I');
+  // T160 gave the concerned party its own picture; it must never reuse the first-person image.
+  assert.notEqual(image('general-listening-149:本人')?.src, 'images/vocab/speakerself.svg', 'third-person concerned party is not I');
 });
 
 // Existing maps stay byte-identical; new shares follow context, not spelling.
@@ -90,11 +91,32 @@ test('T159 keeps published maps and separates sound, data, time and space senses
   assert.equal(image('general-listening-145:消える').src, 'images/vocab/vanishing.svg');
   assert.equal(image('general-listening-79:消える'), undefined, 'lost data is not a fading object');
   assert.equal(image('general-listening-121:続く'), undefined, 'footprints extending is spatial');
-  assert.equal(image('general-listening-36:次'), undefined, 'next time is not the next stop');
+  assert.notEqual(image('general-listening-36:次')?.src, 'images/vocab/nextinline.svg', 'next time is not the next stop');
   assert.equal(image('general-listening-143:誘う').src, 'images/vocab/drawingaway.svg', 'luring an enemy is not an invitation');
   assert.equal(image('general-listening-126:戻す').src, 'images/vocab/recovery.svg');
   assert.equal(image('stage0-day22:ペン').src, 'images/vocab/fountainpen.svg');
   assert.equal(image('general-listening-77:注意').src, 'images/vocab/attractattention.svg');
   assert.notEqual(image('general-listening-77:注意').src, image('general-listening-53:注意').src);
   assert.equal(image('general-listening-79:開く'), undefined);
+});
+
+// Whole-sentence game cards share only when the main meaning matches; counters and time senses stay separate.
+test('T160 keeps published maps and separates counters, time direction and game speech acts', async () => {
+  assert.equal(createHash('sha256').update(JSON.stringify(VOCAB_ILLUSTRATIONS.slice(0, 4247))).digest('hex'), '5ebdb1a3ac7fe82910d341e050bb56a5a650a5835cd10f3fc4865653c49dab1d');
+  const cards = await collectInventoryCards();
+  assert.equal(createHash('sha256').update(JSON.stringify(cards)).digest('hex'), '12367d472446092bb0db65bbde0131aab2a923ae90ce5e042a60267048475d20');
+  const image = id => illustrationFor(cards.find(c => c.id === id));
+  const game = word => illustrationFor(cards.find(c => c.category === 'games' && c.word === word));
+  assert.equal(image('general-listening-11:一枚').src, 'images/vocab/onesheet.svg');
+  assert.equal(image('general-listening-28:一枚'), undefined, 'coins are not sheets');
+  assert.equal(image('general-listening-124:一本'), undefined, 'a torch is not a bottle');
+  assert.equal(image('general-listening-56:発表'), undefined, 'giving a talk is not posting results');
+  assert.equal(image('general-listening-36:次').src, 'images/vocab/nexttime.svg');
+  assert.notEqual(image('general-listening-36:次').src, image('stage0-day14:次').src, 'next time is not the next stop');
+  assert.equal(image('general-listening-94:止まる').src, 'images/vocab/haltmachine.svg');
+  assert.notEqual(image('stage0-day11:先月').src, image('stage0-day11:来月').src);
+  assert.equal(game('少し体を動かすとするか。').src, 'images/vocab/warmingup.svg');
+  assert.equal(game('いち、に、準備運動終わり！大丈夫よ、後で新しいの買ってあげるから。'), undefined, 'mixed-meaning line stays deferred');
+  assert.equal(game('お出かけ？それとも…試合？'), undefined);
+  assert.equal(game('来るなッ！').src, 'images/vocab/keepaway.svg');
 });
