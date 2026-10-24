@@ -34,6 +34,13 @@ const css = await sizes(pick(/^index-.*\.css$/));
 const sw = await readFile(join(dist, 'sw.js'), 'utf8');
 const urls = [...new Set([...sw.matchAll(/url:"([^"]+)"/g)].map((m) => m[1]))];
 if (!urls.length) throw new Error('sw.js 找不到 precache 清單');
+// T161：單字圖片改為主動下載，不得回到首次安裝的 precache；APP 必要檔案仍須完整。
+const precachedImages = urls.filter((url) => url.startsWith('images/vocab/'));
+if (precachedImages.length) throw new Error(`precache 不應包含單字圖片：${precachedImages.slice(0, 3).join(', ')}`);
+for (const required of ['index.html', 'sw-update-control.js', 'sw-image-migration.js', 'manifest.webmanifest']) {
+  if (!urls.includes(required)) throw new Error(`precache 缺少必要檔案 ${required}`);
+}
+if (!sw.includes('vocab-images-v1')) throw new Error('sw.js 缺少單字圖片路由');
 let precacheBytes = 0;
 for (const url of urls) precacheBytes += (await stat(join(dist, url))).size;
 

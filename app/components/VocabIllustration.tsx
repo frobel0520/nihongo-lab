@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Card } from '../../lib/srs.mjs';
 import { illustrationFor } from '../../lib/vocab-illustrations.mjs';
+import { vocabImageUrl } from '../lib/offlineImages';
 
 /** Only mounted on the revealed answer; a failed image never blocks study. */
 export function VocabIllustration({ card }: { card: Card }) {
@@ -10,7 +11,7 @@ export function VocabIllustration({ card }: { card: Card }) {
   return (
     <img
       className="vocab-illustration"
-      src={`${import.meta.env.BASE_URL}${image.src}`}
+      src={vocabImageUrl(image.src)}
       // The adjacent answer already supplies the meaning; this image is decorative.
       alt=""
       width={224}
