@@ -53,7 +53,7 @@ export function vocabImageManifest() {
       const rows = await buildVocabImageManifestRows(dir);
       for (const [name] of rows) this.addWatchFile(join(dir, `${name}.svg`));
       if (id === RESOLVED_FINGERPRINT_ID)
-        return `export const VOCAB_IMAGE_FINGERPRINT = ${JSON.stringify(manifestFingerprint(rows))};`;
+        return `export const VOCAB_IMAGE_FINGERPRINT = ${JSON.stringify(manifestFingerprint(rows))};\nexport const VOCAB_IMAGE_TOTAL = ${rows.length};`;
       return `export const VOCAB_IMAGE_ROWS = ${JSON.stringify(rows)};`;
     },
   };
