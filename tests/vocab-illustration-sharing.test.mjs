@@ -1,8 +1,14 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { VOCAB_ILLUSTRATIONS, illustrationFor } from '../lib/vocab-illustrations.mjs';
+import { readFileSync } from 'node:fs';
+import { VOCAB_ILLUSTRATIONS as RUNTIME_ILLUSTRATIONS, illustrationFor } from '../lib/vocab-illustrations.mjs';
 import { collectInventoryCards } from '../scripts/vocab-illustration-inventory.mjs';
+
+// T163 moved the composition descriptions (alt) out of the runtime mapping into authoring data.
+// Rejoining them must reproduce every published snapshot hash below byte for byte.
+const DESCRIPTIONS = JSON.parse(readFileSync(new URL('../docs/vocab-illustration-descriptions.json', import.meta.url), 'utf8'));
+const VOCAB_ILLUSTRATIONS = RUNTIME_ILLUSTRATIONS.map((image) => ({ ...image, alt: DESCRIPTIONS[image.id] }));
 
 test('sharing preserves published mappings and distinguishes meaning from spelling', async () => {
   assert.equal(createHash('sha256').update(JSON.stringify(VOCAB_ILLUSTRATIONS.slice(0, 54))).digest('hex'), '5ce53c33eb79db257d83cad4df0e84ebdf26d6ea08cb3784a80bd632ea8b696e');
