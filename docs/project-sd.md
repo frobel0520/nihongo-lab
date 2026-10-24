@@ -1,5 +1,16 @@
 # 系統設計
 
+## T163 圖片下載工作與審查修正（2026-10-24）
+
+- 單字圖片下載改為 App 層級的單一工作（`app/lib/imageDownloadJob.ts`）：站內換頁持續下載，設定頁只顯示狀態，可取消與接續；跨分頁 Web Locks 保留。不提供關閉網站後的背景下載。
+- 網路中斷（`offline` 事件，或約一輪並行請求都在網路層失敗）整批暫停；中斷的項目不算失敗、下次接續。進度只計實際寫入快取的張數。音檔下載行為不變。
+- 圖片清單指紋由 `virtual:vocab-image-fingerprint` 提供；曾下載完的人在清單改變時看到一行可關閉的提醒，同版本一次。
+- 構圖描述（alt）移出 runtime，保存於 `docs/vocab-illustration-descriptions.json`。
+- Change Request：新增 bundle 指標 `illustrationChunkGzipBytes`，以內容定位含配圖映射的 chunk，門檻＝移除描述後基準 153,125 bytes＋20%＝183,750 bytes（沿用 T120 慣例）；任何 JS 產物含構圖描述即失敗。既有門檻不變。
+- 單字卡鍵盤操作後若焦點掉到 `<body>`，移到評分區或「顯示答案」；指標裝置不搬焦點。
+
+詳見 [T163 修正紀錄](vocab-images-review-fixes-t163.md)。
+
 ## T162 全站配圖完成（2026-10-24）
 
 5909張卡全部有逐ID核實的配圖（2242張原創CC0 SVG）。映射仍只比對凍結的ID／word／reading／zh四欄；新卡加入教材時需逐張核對後才配圖，沒有自動依字面擴散。圖片依T161契約揭示時載入或在設定頁下載，不在precache。詳見[vocab-illustration-t162.md](vocab-illustration-t162.md)。
