@@ -1,0 +1,3401 @@
+{
+  "baselineCommit": "ab1c028ee76fcd440d1a121fc09696b883a0a242",
+  "policy": "Each shared row was checked against card ID, word, reading, translation and lesson dialogue; runtime still matches the frozen four fields only. Earlier deferred cards were resolved with sense-specific new images, not by stretching a wrong asset.",
+  "approvedShares": [
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-25:名前",
+      "word": "名前",
+      "reading": "なまえ",
+      "zh": "名字",
+      "asset": "images/vocab/nametag.svg",
+      "sourceId": "stage0-day1:名前",
+      "sameSourceLesson": false,
+      "reason": "「名前と特徴をメモ」記下名字，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-31:名前",
+      "word": "名前",
+      "reading": "なまえ",
+      "zh": "名字",
+      "asset": "images/vocab/nametag.svg",
+      "sourceId": "stage0-day1:名前",
+      "sameSourceLesson": false,
+      "reason": "初次見面介紹名字，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-45:名前",
+      "word": "名前",
+      "reading": "なまえ",
+      "zh": "名字",
+      "asset": "images/vocab/nametag.svg",
+      "sourceId": "stage0-day1:名前",
+      "sameSourceLesson": false,
+      "reason": "入住登記名字，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-15:番号",
+      "word": "番号",
+      "reading": "ばんごう",
+      "zh": "號碼",
+      "asset": "images/vocab/numberedlockers.svg",
+      "sourceId": "stage0-day19:番号",
+      "sameSourceLesson": false,
+      "reason": "備用物件的號碼，同為編號"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-39:番号",
+      "word": "番号",
+      "reading": "ばんごう",
+      "zh": "號碼",
+      "asset": "images/vocab/numberedlockers.svg",
+      "sourceId": "stage0-day19:番号",
+      "sameSourceLesson": false,
+      "reason": "聯絡用號碼，號碼本義相同"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-84:番号",
+      "word": "番号",
+      "reading": "ばんごう",
+      "zh": "編號",
+      "asset": "images/vocab/numberedlockers.svg",
+      "sourceId": "stage0-day19:番号",
+      "sameSourceLesson": false,
+      "reason": "「番号を確認して」確認容器編號"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-34:すみません",
+      "word": "すみません",
+      "reading": "すみません",
+      "zh": "不好意思",
+      "asset": "images/vocab/askingattention.svg",
+      "sourceId": "stage0-day4:すみません",
+      "sameSourceLesson": false,
+      "reason": "「すみません。地図を見せて」搭話請求前的不好意思，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-72:ちょっと",
+      "word": "ちょっと",
+      "reading": "ちょっと",
+      "zh": "有一點",
+      "asset": "images/vocab/abit.svg",
+      "sourceId": "stage0-day13:ちょっと",
+      "sameSourceLesson": false,
+      "reason": "「有一點」太亮，同為程度稍微"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-22:本当",
+      "word": "本当",
+      "reading": "ほんとう",
+      "zh": "真的",
+      "asset": "images/vocab/isittrue.svg",
+      "sourceId": "stage0-day17:ほんとう",
+      "sameSourceLesson": false,
+      "reason": "聽說門會關「本当？」確認傳聞是否屬實"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-51:本当",
+      "word": "本当",
+      "reading": "ほんとう",
+      "zh": "真的",
+      "asset": "images/vocab/isittrue.svg",
+      "sourceId": "stage0-day17:ほんとう",
+      "sameSourceLesson": false,
+      "reason": "區分傳聞與目擊，確認是否真的"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-65:本当",
+      "word": "本当",
+      "reading": "ほんとう",
+      "zh": "真的",
+      "asset": "images/vocab/isittrue.svg",
+      "sourceId": "stage0-day17:ほんとう",
+      "sameSourceLesson": false,
+      "reason": "「入口が変わるって聞いたけど、本当？」"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "anime-lesson-04:本当",
+      "word": "本当",
+      "reading": "ほんとう",
+      "zh": "真的、真實",
+      "asset": "images/vocab/isittrue.svg",
+      "sourceId": "stage0-day17:ほんとう",
+      "sameSourceLesson": false,
+      "reason": "情緒課中確認「真的嗎」的用法，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-31:よろしく",
+      "word": "よろしく",
+      "reading": "よろしく",
+      "zh": "請多關照",
+      "asset": "images/vocab/pleasedtomeet.svg",
+      "sourceId": "stage0-day18:どうぞよろしく",
+      "sameSourceLesson": false,
+      "reason": "初次見面「ミナ、よろしく」請多關照，同一寒暄"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "stage0-day18:初め",
+      "word": "初め",
+      "reading": "はじめ",
+      "zh": "開始、最初",
+      "asset": "images/vocab/first.svg",
+      "sourceId": "general-listening-38:最初",
+      "sameSourceLesson": false,
+      "reason": "開始、最初，與「最初」起點圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "stage0-day20:どの",
+      "word": "どの",
+      "reading": "どの",
+      "zh": "哪個〜（後面要接名詞）",
+      "asset": "images/vocab/whichofmany.svg",
+      "sourceId": "stage0-day20:どれ",
+      "sameSourceLesson": true,
+      "reason": "三者以上中選哪一個，與「どれ」同一選擇語義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "stage0-day21:では",
+      "word": "では",
+      "reading": "では",
+      "zh": "那麼（「それでは」的簡短說法）",
+      "asset": "images/vocab/wellthen.svg",
+      "sourceId": "stage0-day21:それでは",
+      "sameSourceLesson": true,
+      "reason": "「それでは」的簡短說法，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "stage0-day21:じゃ",
+      "word": "じゃ",
+      "reading": "じゃ",
+      "zh": "那麼（「では」的口語）",
+      "asset": "images/vocab/wellthen.svg",
+      "sourceId": "stage0-day21:それでは",
+      "sameSourceLesson": true,
+      "reason": "「では」的口語，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-04:じゃあ",
+      "word": "じゃあ",
+      "reading": "じゃあ",
+      "zh": "那麼（口語）",
+      "asset": "images/vocab/wellthen.svg",
+      "sourceId": "stage0-day21:それでは",
+      "sameSourceLesson": false,
+      "reason": "「じゃあ、明日はどう？」轉換話題的那麼，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "anime-lesson-01:死ぬ",
+      "word": "死ぬ",
+      "reading": "しぬ",
+      "zh": "死亡",
+      "asset": "images/vocab/deceased.svg",
+      "sourceId": "stage0-day24:死ぬ",
+      "sameSourceLesson": false,
+      "reason": "同為死亡"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "stage0-day24:所",
+      "word": "所",
+      "reading": "ところ",
+      "zh": "地方",
+      "asset": "images/vocab/position.svg",
+      "sourceId": "general-listening-14:位置",
+      "sameSourceLesson": false,
+      "reason": "「いい所」地方，與「場所」地點同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-38:言葉",
+      "word": "言葉",
+      "reading": "ことば",
+      "zh": "語言；詞語",
+      "asset": "images/vocab/spokenwords.svg",
+      "sourceId": "anime-lesson-02:言葉",
+      "sameSourceLesson": false,
+      "reason": "聽不清楚，請再說一次：說出口的話語"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "anime-lesson-06:魔力",
+      "word": "魔力",
+      "reading": "まりょく",
+      "zh": "魔力、施展魔法的力量",
+      "asset": "images/vocab/magicpower.svg",
+      "sourceId": "general-listening-125:魔力",
+      "sameSourceLesson": false,
+      "reason": "魔力，與既有施法能量圖同詞同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-115:教える",
+      "word": "教える",
+      "reading": "おしえる",
+      "zh": "教導",
+      "asset": "images/vocab/showingway.svg",
+      "sourceId": "general-listening-17:教える",
+      "sameSourceLesson": false,
+      "reason": "「長老が道を教えてくださった」指點道路，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-34:もちろん",
+      "word": "もちろん",
+      "reading": "もちろん",
+      "zh": "當然",
+      "asset": "images/vocab/ofcourse.svg",
+      "sourceId": "general-listening-05:もちろん",
+      "sameSourceLesson": false,
+      "reason": "「もちろん。赤い印を見て」爽快答應，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-120:場合",
+      "word": "場合",
+      "reading": "ばあい",
+      "zh": "情況",
+      "asset": "images/vocab/incaseof.svg",
+      "sourceId": "general-listening-06:場合",
+      "sameSourceLesson": false,
+      "reason": "「その場合は広場に残って」條件成立時的做法，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-109:その時",
+      "word": "その時",
+      "reading": "そのとき",
+      "zh": "那時",
+      "asset": "images/vocab/atthattime.svg",
+      "sourceId": "general-listening-06:その時",
+      "sameSourceLesson": false,
+      "reason": "轉述時間的「那時」，同指某一時點"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-152:当時",
+      "word": "当時",
+      "reading": "とうじ",
+      "zh": "當時",
+      "asset": "images/vocab/atthattime.svg",
+      "sourceId": "general-listening-06:その時",
+      "sameSourceLesson": false,
+      "reason": "「當時」指過去那一時點，與時間線上標出的時刻同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-127:前",
+      "word": "前",
+      "reading": "まえ",
+      "zh": "之前",
+      "asset": "images/vocab/beforeleaving.svg",
+      "sourceId": "general-listening-12:前",
+      "sameSourceLesson": false,
+      "reason": "卡片翻譯為時間的「之前」（雨停之前），與「之前」圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-156:彼女",
+      "word": "彼女",
+      "reading": "かのじょ",
+      "zh": "她",
+      "asset": "images/vocab/sheperson.svg",
+      "sourceId": "general-listening-16:彼女",
+      "sameSourceLesson": false,
+      "reason": "「それを彼女に渡せばいい」第三人稱的她"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-175:受け入れる",
+      "word": "受け入れる",
+      "reading": "うけいれる",
+      "zh": "接受",
+      "asset": "images/vocab/acceptingrequest.svg",
+      "sourceId": "general-listening-17:受ける",
+      "sameSourceLesson": false,
+      "reason": "接受對方提議，與接下請求同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-66:事情",
+      "word": "事情",
+      "reading": "じじょう",
+      "zh": "情況緣由",
+      "asset": "images/vocab/circumstances.svg",
+      "sourceId": "general-listening-19:事情",
+      "sameSourceLesson": false,
+      "reason": "燈不亮背後的緣由"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-99:事情",
+      "word": "事情",
+      "reading": "じじょう",
+      "zh": "情況",
+      "asset": "images/vocab/circumstances.svg",
+      "sourceId": "general-listening-19:事情",
+      "sameSourceLesson": false,
+      "reason": "決定留下的情況"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-155:事情",
+      "word": "事情",
+      "reading": "じじょう",
+      "zh": "緣由",
+      "asset": "images/vocab/circumstances.svg",
+      "sourceId": "general-listening-19:事情",
+      "sameSourceLesson": false,
+      "reason": "遲到的緣由"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-164:事情",
+      "word": "事情",
+      "reading": "じじょう",
+      "zh": "情況",
+      "asset": "images/vocab/circumstances.svg",
+      "sourceId": "general-listening-19:事情",
+      "sameSourceLesson": false,
+      "reason": "不能入室的情況"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-176:事情",
+      "word": "事情",
+      "reading": "じじょう",
+      "zh": "事情",
+      "asset": "images/vocab/circumstances.svg",
+      "sourceId": "general-listening-19:事情",
+      "sameSourceLesson": false,
+      "reason": "寄錯信的事情原委"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-178:事情",
+      "word": "事情",
+      "reading": "じじょう",
+      "zh": "事情",
+      "asset": "images/vocab/circumstances.svg",
+      "sourceId": "general-listening-19:事情",
+      "sameSourceLesson": false,
+      "reason": "對方的情況原委"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-78:代わりに",
+      "word": "代わりに",
+      "reading": "かわりに",
+      "zh": "代替；取而代之",
+      "asset": "images/vocab/insteadof.svg",
+      "sourceId": "general-listening-19:代わりに",
+      "sameSourceLesson": false,
+      "reason": "「休憩の代わりに、もう一回聞きたい」改做另一件，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-85:結局",
+      "word": "結局",
+      "reading": "けっきょく",
+      "zh": "結果；終究",
+      "asset": "images/vocab/intheend.svg",
+      "sourceId": "general-listening-19:結局",
+      "sameSourceLesson": false,
+      "reason": "到頭來還是沒問，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-92:結局",
+      "word": "結局",
+      "reading": "けっきょく",
+      "zh": "結果",
+      "asset": "images/vocab/intheend.svg",
+      "sourceId": "general-listening-19:結局",
+      "sameSourceLesson": false,
+      "reason": "原本想追上去，結果沒追，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-104:結局",
+      "word": "結局",
+      "reading": "けっきょく",
+      "zh": "結果",
+      "asset": "images/vocab/intheend.svg",
+      "sourceId": "general-listening-19:結局",
+      "sameSourceLesson": false,
+      "reason": "被要求搬運，結果自己搬，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-70:様子",
+      "word": "様子",
+      "reading": "ようす",
+      "zh": "狀況",
+      "asset": "images/vocab/observingsituation.svg",
+      "sourceId": "general-listening-21:様子",
+      "sameSourceLesson": false,
+      "reason": "「少し様子を見てから決めよう」觀察情形，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-51:確実",
+      "word": "確実",
+      "reading": "かくじつ",
+      "zh": "確定可靠",
+      "asset": "images/vocab/certainsure.svg",
+      "sourceId": "general-listening-22:確実",
+      "sameSourceLesson": false,
+      "reason": "確定可靠，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-79:確実",
+      "word": "確実",
+      "reading": "かくじつ",
+      "zh": "確實",
+      "asset": "images/vocab/certainsure.svg",
+      "sourceId": "general-listening-22:確実",
+      "sameSourceLesson": false,
+      "reason": "確實（有備份），同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-131:確実",
+      "word": "確実",
+      "reading": "かくじつ",
+      "zh": "確實",
+      "asset": "images/vocab/certainsure.svg",
+      "sourceId": "general-listening-22:確実",
+      "sameSourceLesson": false,
+      "reason": "確實（夠長），同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-155:確実",
+      "word": "確実",
+      "reading": "かくじつ",
+      "zh": "確實",
+      "asset": "images/vocab/certainsure.svg",
+      "sourceId": "general-listening-22:確実",
+      "sameSourceLesson": false,
+      "reason": "「確実に届く手段」確實，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-127:確か",
+      "word": "確か",
+      "reading": "たしか",
+      "zh": "確實",
+      "asset": "images/vocab/certainsure.svg",
+      "sourceId": "general-listening-22:確実",
+      "sameSourceLesson": false,
+      "reason": "翻譯為「確實」，與確實可靠同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-70:ひょっとしたら",
+      "word": "ひょっとしたら",
+      "reading": "ひょっとしたら",
+      "zh": "說不定",
+      "asset": "images/vocab/perhapsmaybe.svg",
+      "sourceId": "general-listening-23:もしかして",
+      "sameSourceLesson": false,
+      "reason": "說不定，與もしかして同為不確定的猜測"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-27:変える",
+      "word": "変える",
+      "reading": "かえる",
+      "zh": "改變某物",
+      "asset": "images/vocab/changesetting.svg",
+      "sourceId": "general-listening-98:変える",
+      "sameSourceLesson": false,
+      "reason": "改變某物，以切換設定為一例"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-32:最近",
+      "word": "最近",
+      "reading": "さいきん",
+      "zh": "最近",
+      "asset": "images/vocab/recently.svg",
+      "sourceId": "general-listening-27:最近",
+      "sameSourceLesson": false,
+      "reason": "「最近描いた絵」最近，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-28:一枚",
+      "word": "一枚",
+      "reading": "いちまい",
+      "zh": "一張；一枚",
+      "asset": "images/vocab/onecoin.svg",
+      "sourceId": "general-listening-42:一枚",
+      "sameSourceLesson": false,
+      "reason": "此課為錢幣一枚"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-28:二枚",
+      "word": "二枚",
+      "reading": "にまい",
+      "zh": "兩張；兩枚",
+      "asset": "images/vocab/twocoins.svg",
+      "sourceId": "general-listening-42:二枚",
+      "sameSourceLesson": false,
+      "reason": "「小銭は二枚しかない」錢幣兩枚"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-102:状況",
+      "word": "状況",
+      "reading": "じょうきょう",
+      "zh": "狀況",
+      "asset": "images/vocab/situationoverview.svg",
+      "sourceId": "general-listening-30:状況",
+      "sameSourceLesson": false,
+      "reason": "事故後的狀況，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-153:申し出る",
+      "word": "申し出る",
+      "reading": "もうしでる",
+      "zh": "主動提議",
+      "asset": "images/vocab/offeringhelp.svg",
+      "sourceId": "general-listening-33:申し出",
+      "sameSourceLesson": false,
+      "reason": "主動提議協助，同義（動詞形）"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-78:ゆっくり",
+      "word": "ゆっくり",
+      "reading": "ゆっくり",
+      "zh": "慢慢地",
+      "asset": "images/vocab/speakslowly.svg",
+      "sourceId": "general-listening-38:ゆっくり",
+      "sameSourceLesson": false,
+      "reason": "練聽聲音時慢慢地（播放／說），同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-46:早朝",
+      "word": "早朝",
+      "reading": "そうちょう",
+      "zh": "清晨",
+      "asset": "images/vocab/earlymorning.svg",
+      "sourceId": "general-listening-18:朝早く",
+      "sameSourceLesson": false,
+      "reason": "清晨，與既有「一大早」天剛亮圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-162:案",
+      "word": "案",
+      "reading": "あん",
+      "zh": "構想",
+      "asset": "images/vocab/proposalplan.svg",
+      "sourceId": "general-listening-46:案",
+      "sameSourceLesson": false,
+      "reason": "「この案は賢い」方案，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-162:構想",
+      "word": "構想",
+      "reading": "こうそう",
+      "zh": "構想",
+      "asset": "images/vocab/proposalplan.svg",
+      "sourceId": "general-listening-46:案",
+      "sameSourceLesson": false,
+      "reason": "構想與方案同為提出的計畫草圖"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-14:いる",
+      "word": "いる",
+      "reading": "いる",
+      "zh": "在（有生命者）",
+      "asset": "images/vocab/creatureexists.svg",
+      "sourceId": "stage0-day10:いる",
+      "sameSourceLesson": false,
+      "reason": "「椅子の下に猫がいる」與原圖椅下的貓同一情境"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-14:ある",
+      "word": "ある",
+      "reading": "ある",
+      "zh": "有；在（物品）",
+      "asset": "images/vocab/thingexists.svg",
+      "sourceId": "stage0-day10:ある",
+      "sameSourceLesson": false,
+      "reason": "「椅子の上に鞄がある」物品存在，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-14:奥",
+      "word": "奥",
+      "reading": "おく",
+      "zh": "深處；內側",
+      "asset": "images/vocab/farback.svg",
+      "sourceId": "general-listening-50:奥",
+      "sameSourceLesson": false,
+      "reason": "深處、內側，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-03:先に",
+      "word": "先に",
+      "reading": "さきに",
+      "zh": "先做；先行",
+      "asset": "images/vocab/goahead.svg",
+      "sourceId": "general-listening-81:先に",
+      "sameSourceLesson": false,
+      "reason": "準備好了「先に行く」先行，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-61:先",
+      "word": "先",
+      "reading": "さき",
+      "zh": "前方；先行",
+      "asset": "images/vocab/goahead.svg",
+      "sourceId": "general-listening-81:先に",
+      "sameSourceLesson": false,
+      "reason": "「先に行かないで」先行，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-89:先",
+      "word": "先",
+      "reading": "さき",
+      "zh": "先；前方",
+      "asset": "images/vocab/goahead.svg",
+      "sourceId": "general-listening-81:先に",
+      "sameSourceLesson": false,
+      "reason": "「私は先に控室へ向かう」先行，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-03:先",
+      "word": "先",
+      "reading": "さき",
+      "zh": "前方；先",
+      "asset": "images/vocab/infront.svg",
+      "sourceId": "stage0-day10:前",
+      "sameSourceLesson": false,
+      "reason": "前方，空間上的前面"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-03:もう",
+      "word": "もう",
+      "reading": "もう",
+      "zh": "已經；再（依情境）",
+      "asset": "images/vocab/alreadydone.svg",
+      "sourceId": "general-listening-91:すでに",
+      "sameSourceLesson": false,
+      "reason": "「もう持ってるよ」已經"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-13:もう",
+      "word": "もう",
+      "reading": "もう",
+      "zh": "已經；再",
+      "asset": "images/vocab/alreadydone.svg",
+      "sourceId": "general-listening-91:すでに",
+      "sameSourceLesson": false,
+      "reason": "「もう手紙を送った」已經"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-04:待ち合わせ",
+      "word": "待ち合わせ",
+      "reading": "まちあわせ",
+      "zh": "約定碰面",
+      "asset": "images/vocab/meetingup.svg",
+      "sourceId": "general-listening-40:待ち合わせ",
+      "sameSourceLesson": false,
+      "reason": "「広場で待ち合わせよう」約定碰面，與原圖廣場相同"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-05:できる",
+      "word": "できる",
+      "reading": "できる",
+      "zh": "能夠；完成（依情境）",
+      "asset": "images/vocab/canability.svg",
+      "sourceId": "stage0-day18:できる",
+      "sameSourceLesson": false,
+      "reason": "能夠（讀得懂），同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-08:必ず",
+      "word": "必ず",
+      "reading": "かならず",
+      "zh": "一定；務必",
+      "asset": "images/vocab/surely.svg",
+      "sourceId": "general-listening-36:必ず",
+      "sameSourceLesson": false,
+      "reason": "一定、務必，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-11:一個",
+      "word": "一個",
+      "reading": "いっこ",
+      "zh": "一個（計數）",
+      "asset": "images/vocab/onething.svg",
+      "sourceId": "stage0-day11:一つ",
+      "sameSourceLesson": false,
+      "reason": "數東西的一個，與一つ同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-11:二個",
+      "word": "二個",
+      "reading": "にこ",
+      "zh": "兩個（計數）",
+      "asset": "images/vocab/twothings.svg",
+      "sourceId": "stage0-day11:二つ",
+      "sameSourceLesson": false,
+      "reason": "數東西的兩個，與二つ同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-19:知らせる",
+      "word": "知らせる",
+      "reading": "しらせる",
+      "zh": "告知",
+      "asset": "images/vocab/informingothers.svg",
+      "sourceId": "general-listening-65:知らせる",
+      "sameSourceLesson": false,
+      "reason": "告知，同詞同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-36:知らせる",
+      "word": "知らせる",
+      "reading": "しらせる",
+      "zh": "告知",
+      "asset": "images/vocab/informingothers.svg",
+      "sourceId": "general-listening-65:知らせる",
+      "sameSourceLesson": false,
+      "reason": "遲到時先告知，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-85:知らせる",
+      "word": "知らせる",
+      "reading": "しらせる",
+      "zh": "告知",
+      "asset": "images/vocab/informingothers.svg",
+      "sourceId": "general-listening-65:知らせる",
+      "sameSourceLesson": false,
+      "reason": "告知，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-142:知らせる",
+      "word": "知らせる",
+      "reading": "しらせる",
+      "zh": "告知",
+      "asset": "images/vocab/informingothers.svg",
+      "sourceId": "general-listening-65:知らせる",
+      "sameSourceLesson": false,
+      "reason": "告知，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-179:知らせる",
+      "word": "知らせる",
+      "reading": "しらせる",
+      "zh": "告知",
+      "asset": "images/vocab/informingothers.svg",
+      "sourceId": "general-listening-65:知らせる",
+      "sameSourceLesson": false,
+      "reason": "告知，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-69:教える",
+      "word": "教える",
+      "reading": "おしえる",
+      "zh": "告知；教導",
+      "asset": "images/vocab/informingothers.svg",
+      "sourceId": "general-listening-65:知らせる",
+      "sameSourceLesson": false,
+      "reason": "翻譯為「告知」，與把消息告訴他人同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-20:失敗する",
+      "word": "失敗する",
+      "reading": "しっぱいする",
+      "zh": "失敗",
+      "asset": "images/vocab/failure.svg",
+      "sourceId": "general-listening-15:失敗",
+      "sameSourceLesson": false,
+      "reason": "失敗，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-23:信じる",
+      "word": "信じる",
+      "reading": "しんじる",
+      "zh": "相信",
+      "asset": "images/vocab/trusting.svg",
+      "sourceId": "anime-lesson-04:信じる",
+      "sameSourceLesson": false,
+      "reason": "相信（他會回來），信任的同一語義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-52:信じる",
+      "word": "信じる",
+      "reading": "しんじる",
+      "zh": "相信",
+      "asset": "images/vocab/trusting.svg",
+      "sourceId": "anime-lesson-04:信じる",
+      "sameSourceLesson": false,
+      "reason": "相信承諾，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-23:残る",
+      "word": "残る",
+      "reading": "のこる",
+      "zh": "留下；剩下",
+      "asset": "images/vocab/stayingbehind.svg",
+      "sourceId": "general-listening-99:残る",
+      "sameSourceLesson": false,
+      "reason": "留下，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-99:残留",
+      "word": "残留",
+      "reading": "ざんりゅう",
+      "zh": "留守",
+      "asset": "images/vocab/stayingbehind.svg",
+      "sourceId": "general-listening-99:残る",
+      "sameSourceLesson": true,
+      "reason": "決定留守原地，與留下同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-79:残る",
+      "word": "残る",
+      "reading": "のこる",
+      "zh": "留下",
+      "asset": "images/vocab/remaining.svg",
+      "sourceId": "general-listening-42:残る",
+      "sameSourceLesson": false,
+      "reason": "備份應該剩下，剩下同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-97:残る",
+      "word": "残る",
+      "reading": "のこる",
+      "zh": "留下",
+      "asset": "images/vocab/remaining.svg",
+      "sourceId": "general-listening-42:残る",
+      "sameSourceLesson": false,
+      "reason": "打開後剩下的東西，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-180:残る",
+      "word": "残る",
+      "reading": "のこる",
+      "zh": "留下；剩餘",
+      "asset": "images/vocab/remaining.svg",
+      "sourceId": "general-listening-42:残る",
+      "sameSourceLesson": false,
+      "reason": "剩餘的座位，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-29:注意する",
+      "word": "注意する",
+      "reading": "ちゅういする",
+      "zh": "注意",
+      "asset": "images/vocab/becareful.svg",
+      "sourceId": "anime-lesson-02:気を付ける",
+      "sameSourceLesson": false,
+      "reason": "邊走邊聽也要注意路，與小心看路同一情境"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-30:決まる",
+      "word": "決まる",
+      "reading": "きまる",
+      "zh": "確定；被決定",
+      "asset": "images/vocab/confirmed.svg",
+      "sourceId": "general-listening-82:確定",
+      "sameSourceLesson": false,
+      "reason": "被決定、確定，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-90:決まる",
+      "word": "決まる",
+      "reading": "きまる",
+      "zh": "決定",
+      "asset": "images/vocab/confirmed.svg",
+      "sourceId": "general-listening-82:確定",
+      "sameSourceLesson": false,
+      "reason": "時間還沒決定，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-99:決まる",
+      "word": "決まる",
+      "reading": "きまる",
+      "zh": "決定下來",
+      "asset": "images/vocab/confirmed.svg",
+      "sourceId": "general-listening-82:確定",
+      "sameSourceLesson": false,
+      "reason": "決定下來，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-111:決まる",
+      "word": "決まる",
+      "reading": "きまる",
+      "zh": "決定下來",
+      "asset": "images/vocab/confirmed.svg",
+      "sourceId": "general-listening-82:確定",
+      "sameSourceLesson": false,
+      "reason": "隊伍還沒排定，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-139:決まる",
+      "word": "決まる",
+      "reading": "きまる",
+      "zh": "確定下來",
+      "asset": "images/vocab/confirmed.svg",
+      "sourceId": "general-listening-82:確定",
+      "sameSourceLesson": false,
+      "reason": "確定下來，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-31:呼ぶ",
+      "word": "呼ぶ",
+      "reading": "よぶ",
+      "zh": "稱呼；呼叫",
+      "asset": "images/vocab/calling.svg",
+      "sourceId": "stage0-day14:呼ぶ",
+      "sameSourceLesson": false,
+      "reason": "稱呼；呼叫，翻譯包含呼叫"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-34:後で",
+      "word": "後で",
+      "reading": "あとで",
+      "zh": "稍後",
+      "asset": "images/vocab/afterwards.svg",
+      "sourceId": "general-listening-03:後",
+      "sameSourceLesson": false,
+      "reason": "「後で返してください」之後再做，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-177:後で",
+      "word": "後で",
+      "reading": "あとで",
+      "zh": "之後",
+      "asset": "images/vocab/afterwards.svg",
+      "sourceId": "general-listening-03:後",
+      "sameSourceLesson": false,
+      "reason": "「印刷の後で」之後，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-39:後ほど",
+      "word": "後ほど",
+      "reading": "のちほど",
+      "zh": "稍後",
+      "asset": "images/vocab/afterwards.svg",
+      "sourceId": "general-listening-03:後",
+      "sameSourceLesson": false,
+      "reason": "稍後，與之後同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-37:気持ち",
+      "word": "気持ち",
+      "reading": "きもち",
+      "zh": "心意；心情",
+      "asset": "images/vocab/emotions.svg",
+      "sourceId": "general-listening-56:感情",
+      "sameSourceLesson": false,
+      "reason": "心情，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-40:また",
+      "word": "また",
+      "reading": "また",
+      "zh": "再；另外",
+      "asset": "images/vocab/again.svg",
+      "sourceId": "stage0-day14:もう一度",
+      "sameSourceLesson": false,
+      "reason": "「また今度」再一次，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-43:代わり",
+      "word": "代わり",
+      "reading": "かわり",
+      "zh": "代替",
+      "asset": "images/vocab/substitute.svg",
+      "sourceId": "general-listening-16:代わり",
+      "sameSourceLesson": false,
+      "reason": "代替，同詞同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-101:助け",
+      "word": "助け",
+      "reading": "たすけ",
+      "zh": "幫助",
+      "asset": "images/vocab/helping.svg",
+      "sourceId": "stage0-day24:手伝う",
+      "sameSourceLesson": false,
+      "reason": "幫助，與協助情境同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-103:一度",
+      "word": "一度",
+      "reading": "いちど",
+      "zh": "一次",
+      "asset": "images/vocab/onetime.svg",
+      "sourceId": "general-listening-78:一回",
+      "sameSourceLesson": false,
+      "reason": "一次，與一回同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-106:一度",
+      "word": "一度",
+      "reading": "いちど",
+      "zh": "一次",
+      "asset": "images/vocab/onetime.svg",
+      "sourceId": "general-listening-78:一回",
+      "sameSourceLesson": false,
+      "reason": "「只來過一次」一次，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-47:具合",
+      "word": "具合",
+      "reading": "ぐあい",
+      "zh": "狀況",
+      "asset": "images/vocab/healthcondition.svg",
+      "sourceId": "general-listening-47:体調",
+      "sameSourceLesson": true,
+      "reason": "不舒服課的「狀況」指身體狀況，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-48:覚えている",
+      "word": "覚えている",
+      "reading": "おぼえている",
+      "zh": "記得",
+      "asset": "images/vocab/remembering.svg",
+      "sourceId": "stage0-day15:覚える",
+      "sameSourceLesson": false,
+      "reason": "記得，與既有「記住」圖（合書後仍記得圖案）同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-69:確か",
+      "word": "確か",
+      "reading": "たしか",
+      "zh": "記得是；確實",
+      "asset": "images/vocab/ifirecall.svg",
+      "sourceId": "general-listening-48:確か",
+      "sameSourceLesson": false,
+      "reason": "「記得是」這個信號，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-75:確か",
+      "word": "確か",
+      "reading": "たしか",
+      "zh": "記得是",
+      "asset": "images/vocab/ifirecall.svg",
+      "sourceId": "general-listening-48:確か",
+      "sameSourceLesson": false,
+      "reason": "翻譯「記得是」，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-71:つまり",
+      "word": "つまり",
+      "reading": "つまり",
+      "zh": "也就是說",
+      "asset": "images/vocab/inotherwords.svg",
+      "sourceId": "general-listening-49:つまり",
+      "sameSourceLesson": false,
+      "reason": "換句話說，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-83:絶対",
+      "word": "絶対",
+      "reading": "ぜったい",
+      "zh": "絕對",
+      "asset": "images/vocab/absolutely.svg",
+      "sourceId": "general-listening-49:絶対",
+      "sameSourceLesson": false,
+      "reason": "絕對（不可以），同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-154:持参",
+      "word": "持参",
+      "reading": "じさん",
+      "zh": "自備",
+      "asset": "images/vocab/bringyourown.svg",
+      "sourceId": "general-listening-49:持参",
+      "sameSourceLesson": false,
+      "reason": "自備帶來，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-164:勝手",
+      "word": "勝手",
+      "reading": "かって",
+      "zh": "擅自",
+      "asset": "images/vocab/withoutpermission.svg",
+      "sourceId": "general-listening-53:勝手に",
+      "sameSourceLesson": false,
+      "reason": "「勝手に入らないで」擅自，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-98:自然に",
+      "word": "自然に",
+      "reading": "しぜんに",
+      "zh": "自然地",
+      "asset": "images/vocab/byitself.svg",
+      "sourceId": "general-listening-76:勝手に",
+      "sameSourceLesson": false,
+      "reason": "「扉は自然に開いたんじゃない」門自行打開，與沒人操作自行運作同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-178:意志",
+      "word": "意志",
+      "reading": "いし",
+      "zh": "意志",
+      "asset": "images/vocab/willpower.svg",
+      "sourceId": "general-listening-55:意志",
+      "sameSourceLesson": false,
+      "reason": "意志，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-80:本番",
+      "word": "本番",
+      "reading": "ほんばん",
+      "zh": "正式演出",
+      "asset": "images/vocab/realperformance.svg",
+      "sourceId": "general-listening-56:本番",
+      "sameSourceLesson": false,
+      "reason": "排練之後的正式演出，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-103:本番",
+      "word": "本番",
+      "reading": "ほんばん",
+      "zh": "正式上場",
+      "asset": "images/vocab/realperformance.svg",
+      "sourceId": "general-listening-56:本番",
+      "sameSourceLesson": false,
+      "reason": "正式上場，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-74:実際",
+      "word": "実際",
+      "reading": "じっさい",
+      "zh": "實際",
+      "asset": "images/vocab/inreality.svg",
+      "sourceId": "general-listening-57:実際",
+      "sameSourceLesson": false,
+      "reason": "看起來像龍，實際是投影：實際上，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-172:実際",
+      "word": "実際",
+      "reading": "じっさい",
+      "zh": "實際",
+      "asset": "images/vocab/inreality.svg",
+      "sourceId": "general-listening-57:実際",
+      "sameSourceLesson": false,
+      "reason": "實際，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-172:現状",
+      "word": "現状",
+      "reading": "げんじょう",
+      "zh": "現況",
+      "asset": "images/vocab/currentstate.svg",
+      "sourceId": "general-listening-57:現状",
+      "sameSourceLesson": false,
+      "reason": "現況，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-177:備品",
+      "word": "備品",
+      "reading": "びひん",
+      "zh": "用品",
+      "asset": "images/vocab/supplies.svg",
+      "sourceId": "general-listening-62:備品",
+      "sameSourceLesson": false,
+      "reason": "點檢用品，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-63:写す",
+      "word": "写す",
+      "reading": "うつす",
+      "zh": "抄寫；拍下",
+      "asset": "images/vocab/copyingbyhand.svg",
+      "sourceId": "general-listening-34:写す",
+      "sameSourceLesson": false,
+      "reason": "抄寫地圖，與手抄原稿圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-99:連絡係",
+      "word": "連絡係",
+      "reading": "れんらくがかり",
+      "zh": "聯絡員",
+      "asset": "images/vocab/liaison.svg",
+      "sourceId": "general-listening-65:連絡係",
+      "sameSourceLesson": false,
+      "reason": "聯絡員，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-155:連絡係",
+      "word": "連絡係",
+      "reading": "れんらくがかり",
+      "zh": "聯絡人",
+      "asset": "images/vocab/liaison.svg",
+      "sourceId": "general-listening-65:連絡係",
+      "sameSourceLesson": false,
+      "reason": "聯絡人，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-65:裏",
+      "word": "裏",
+      "reading": "うら",
+      "zh": "背面；後方",
+      "asset": "images/vocab/backdoor.svg",
+      "sourceId": "general-listening-113:裏口",
+      "sameSourceLesson": false,
+      "reason": "「裏の入口へ来て」後面入口，與既有後門圖同一情境"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-94:そのため",
+      "word": "そのため",
+      "reading": "そのため",
+      "zh": "因此",
+      "asset": "images/vocab/therefore.svg",
+      "sourceId": "general-listening-66:それで",
+      "sameSourceLesson": false,
+      "reason": "因此，與「それで」同為因果連接"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-161:そのため",
+      "word": "そのため",
+      "reading": "そのため",
+      "zh": "因此",
+      "asset": "images/vocab/therefore.svg",
+      "sourceId": "general-listening-66:それで",
+      "sameSourceLesson": false,
+      "reason": "因此，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-111:正式",
+      "word": "正式",
+      "reading": "せいしき",
+      "zh": "正式",
+      "asset": "images/vocab/official.svg",
+      "sourceId": "general-listening-71:正式",
+      "sameSourceLesson": false,
+      "reason": "等正式聯絡，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-138:正式",
+      "word": "正式",
+      "reading": "せいしき",
+      "zh": "正式",
+      "asset": "images/vocab/official.svg",
+      "sourceId": "general-listening-71:正式",
+      "sameSourceLesson": false,
+      "reason": "正式答覆，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-140:正式",
+      "word": "正式",
+      "reading": "せいしき",
+      "zh": "正式",
+      "asset": "images/vocab/official.svg",
+      "sourceId": "general-listening-71:正式",
+      "sameSourceLesson": false,
+      "reason": "正式接受委託，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-158:正式",
+      "word": "正式",
+      "reading": "せいしき",
+      "zh": "正式",
+      "asset": "images/vocab/official.svg",
+      "sourceId": "general-listening-71:正式",
+      "sameSourceLesson": false,
+      "reason": "正式恢復，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-170:正式",
+      "word": "正式",
+      "reading": "せいしき",
+      "zh": "正式",
+      "asset": "images/vocab/official.svg",
+      "sourceId": "general-listening-71:正式",
+      "sameSourceLesson": false,
+      "reason": "正式，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-71:指す",
+      "word": "指す",
+      "reading": "さす",
+      "zh": "指向；指稱",
+      "asset": "images/vocab/pointing.svg",
+      "sourceId": "general-listening-34:指す",
+      "sameSourceLesson": false,
+      "reason": "「塔ってどっち」指向那座塔，與既有手指指向塔的圖同一情境"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-103:経験",
+      "word": "経験",
+      "reading": "けいけん",
+      "zh": "經驗",
+      "asset": "images/vocab/experience.svg",
+      "sourceId": "general-listening-73:経験",
+      "sameSourceLesson": false,
+      "reason": "讓新人累積經驗，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-73:詳しい",
+      "word": "詳しい",
+      "reading": "くわしい",
+      "zh": "熟悉的；詳細的",
+      "asset": "images/vocab/detailed.svg",
+      "sourceId": "general-listening-17:詳しい",
+      "sameSourceLesson": false,
+      "reason": "熟悉的；詳細的，同詞同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-74:透ける",
+      "word": "透ける",
+      "reading": "すける",
+      "zh": "透出",
+      "asset": "images/vocab/transparent.svg",
+      "sourceId": "general-listening-83:透明",
+      "sameSourceLesson": false,
+      "reason": "「壁が透けて見える」透過看見後方，與既有透明圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-117:反応",
+      "word": "反応",
+      "reading": "はんのう",
+      "zh": "反應",
+      "asset": "images/vocab/reacting.svg",
+      "sourceId": "general-listening-76:反応",
+      "sameSourceLesson": false,
+      "reason": "「押しても反応しない」按了有無反應，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-125:反応",
+      "word": "反応",
+      "reading": "はんのう",
+      "zh": "反應",
+      "asset": "images/vocab/reacting.svg",
+      "sourceId": "general-listening-76:反応",
+      "sameSourceLesson": false,
+      "reason": "魔法陣有反應，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-132:反応",
+      "word": "反応",
+      "reading": "はんのう",
+      "zh": "反應",
+      "asset": "images/vocab/reacting.svg",
+      "sourceId": "general-listening-76:反応",
+      "sameSourceLesson": false,
+      "reason": "踏板觸發反應，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-77:無理",
+      "word": "無理",
+      "reading": "むり",
+      "zh": "勉強；不合理",
+      "asset": "images/vocab/impossible.svg",
+      "sourceId": "general-listening-40:無理",
+      "sameSourceLesson": false,
+      "reason": "勉強、做不到，同詞同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-77:それなら",
+      "word": "それなら",
+      "reading": "それなら",
+      "zh": "那樣的話",
+      "asset": "images/vocab/incaseof.svg",
+      "sourceId": "general-listening-06:場合",
+      "sameSourceLesson": false,
+      "reason": "「那樣的話」依條件改變做法，與「…的情況」同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-79:少なくとも",
+      "word": "少なくとも",
+      "reading": "すくなくとも",
+      "zh": "至少",
+      "asset": "images/vocab/atleast.svg",
+      "sourceId": "general-listening-77:せめて",
+      "sameSourceLesson": false,
+      "reason": "至少，與せめて同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-118:似る",
+      "word": "似る",
+      "reading": "にる",
+      "zh": "相似",
+      "asset": "images/vocab/similarsounds.svg",
+      "sourceId": "general-listening-78:似る",
+      "sameSourceLesson": false,
+      "reason": "「音が似ているだけ」聲音相似，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-148:開く",
+      "word": "開く",
+      "reading": "ひらく",
+      "zh": "打開",
+      "asset": "images/vocab/openingfile.svg",
+      "sourceId": "general-listening-79:開く",
+      "sameSourceLesson": false,
+      "reason": "打開文件，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-82:一応",
+      "word": "一応",
+      "reading": "いちおう",
+      "zh": "姑且；先",
+      "asset": "images/vocab/justincase.svg",
+      "sourceId": "general-listening-23:念のため",
+      "sameSourceLesson": false,
+      "reason": "姑且、以防萬一先做，與既有「念のため」帶傘備用圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-126:ラベル",
+      "word": "ラベル",
+      "reading": "ラベル",
+      "zh": "標籤",
+      "asset": "images/vocab/label.svg",
+      "sourceId": "general-listening-83:ラベル",
+      "sameSourceLesson": false,
+      "reason": "藥瓶上的標籤，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-137:行",
+      "word": "行",
+      "reading": "ぎょう",
+      "zh": "文字行列",
+      "asset": "images/vocab/textlines.svg",
+      "sourceId": "general-listening-87:行",
+      "sameSourceLesson": false,
+      "reason": "暗號信的文字行列，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-87:細い",
+      "word": "細い",
+      "reading": "ほそい",
+      "zh": "細的",
+      "asset": "images/vocab/slender.svg",
+      "sourceId": "stage0-day19:細い",
+      "sameSourceLesson": false,
+      "reason": "細的（線條），與細枝圖同為粗細的細"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-107:入れる",
+      "word": "入れる",
+      "reading": "はいれる",
+      "zh": "能進入",
+      "asset": "images/vocab/canenter.svg",
+      "sourceId": "general-listening-89:入れる",
+      "sameSourceLesson": false,
+      "reason": "「入れるはずがない」能否進入，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-93:それまで",
+      "word": "それまで",
+      "reading": "それまで",
+      "zh": "到那時為止",
+      "asset": "images/vocab/untilthen.svg",
+      "sourceId": "general-listening-89:それまで",
+      "sameSourceLesson": false,
+      "reason": "一直等到信號為止，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-92:意図",
+      "word": "意図",
+      "reading": "いと",
+      "zh": "意圖",
+      "asset": "images/vocab/intention.svg",
+      "sourceId": "general-listening-18:つもり",
+      "sameSourceLesson": false,
+      "reason": "原本想追上去的意圖，與既有「打算」未付諸行動圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-176:意図",
+      "word": "意図",
+      "reading": "いと",
+      "zh": "意圖",
+      "asset": "images/vocab/intention.svg",
+      "sourceId": "general-listening-18:つもり",
+      "sameSourceLesson": false,
+      "reason": "意圖，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-162:実行",
+      "word": "実行",
+      "reading": "じっこう",
+      "zh": "執行",
+      "asset": "images/vocab/execution.svg",
+      "sourceId": "general-listening-92:実行",
+      "sameSourceLesson": false,
+      "reason": "今夜執行，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-165:移動",
+      "word": "移動",
+      "reading": "いどう",
+      "zh": "移動",
+      "asset": "images/vocab/movinggroup.svg",
+      "sourceId": "general-listening-95:移動",
+      "sameSourceLesson": false,
+      "reason": "隊伍移動，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-97:移動",
+      "word": "移動",
+      "reading": "いどう",
+      "zh": "搬移",
+      "asset": "images/vocab/relocating.svg",
+      "sourceId": "general-listening-83:移す",
+      "sameSourceLesson": false,
+      "reason": "翻譯「搬移」，與箱子從一處搬到另一處的圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-97:ところが",
+      "word": "ところが",
+      "reading": "ところが",
+      "zh": "然而",
+      "asset": "images/vocab/butcontrast.svg",
+      "sourceId": "stage0-day8:でも",
+      "sameSourceLesson": false,
+      "reason": "然而，與既有「しかし」轉折圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-99:当初",
+      "word": "当初",
+      "reading": "とうしょ",
+      "zh": "最初",
+      "asset": "images/vocab/first.svg",
+      "sourceId": "general-listening-38:最初",
+      "sameSourceLesson": false,
+      "reason": "最初，與「最初」起點圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-169:状態",
+      "word": "状態",
+      "reading": "じょうたい",
+      "zh": "狀態",
+      "asset": "images/vocab/status.svg",
+      "sourceId": "general-listening-108:状態",
+      "sameSourceLesson": false,
+      "reason": "狀態，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-147:個人",
+      "word": "個人",
+      "reading": "こじん",
+      "zh": "個人",
+      "asset": "images/vocab/individual.svg",
+      "sourceId": "general-listening-111:個人",
+      "sameSourceLesson": false,
+      "reason": "個人，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-154:個人",
+      "word": "個人",
+      "reading": "こじん",
+      "zh": "個人",
+      "asset": "images/vocab/individual.svg",
+      "sourceId": "general-listening-111:個人",
+      "sameSourceLesson": false,
+      "reason": "「私の個人用」個人，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-117:毎回",
+      "word": "毎回",
+      "reading": "まいかい",
+      "zh": "每次",
+      "asset": "images/vocab/everytime.svg",
+      "sourceId": "general-listening-116:毎回",
+      "sameSourceLesson": false,
+      "reason": "每次，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-122:新しい",
+      "word": "新しい",
+      "reading": "あたらしい",
+      "zh": "新的",
+      "asset": "images/vocab/new.svg",
+      "sourceId": "stage0-day8:新しい",
+      "sameSourceLesson": false,
+      "reason": "新的，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-147:不明",
+      "word": "不明",
+      "reading": "ふめい",
+      "zh": "不明",
+      "asset": "images/vocab/unknown.svg",
+      "sourceId": "general-listening-127:不明",
+      "sameSourceLesson": false,
+      "reason": "「どちらかはまだ不明」不明，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-147:断定",
+      "word": "断定",
+      "reading": "だんてい",
+      "zh": "斷定",
+      "asset": "images/vocab/concluding.svg",
+      "sourceId": "general-listening-128:断定",
+      "sameSourceLesson": false,
+      "reason": "斷定，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-171:断定",
+      "word": "断定",
+      "reading": "だんてい",
+      "zh": "斷定",
+      "asset": "images/vocab/concluding.svg",
+      "sourceId": "general-listening-128:断定",
+      "sameSourceLesson": false,
+      "reason": "斷定，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-179:断定",
+      "word": "断定",
+      "reading": "だんてい",
+      "zh": "斷定",
+      "asset": "images/vocab/concluding.svg",
+      "sourceId": "general-listening-128:断定",
+      "sameSourceLesson": false,
+      "reason": "斷定，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-129:借り手",
+      "word": "借り手",
+      "reading": "かりて",
+      "zh": "借用者",
+      "asset": "images/vocab/borrowing.svg",
+      "sourceId": "stage0-day7:借りる",
+      "sameSourceLesson": false,
+      "reason": "借用者，與既有聚焦借入者的借入圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-156:借り主",
+      "word": "借り主",
+      "reading": "かりぬし",
+      "zh": "借用人",
+      "asset": "images/vocab/borrowing.svg",
+      "sourceId": "stage0-day7:借りる",
+      "sameSourceLesson": false,
+      "reason": "借用人，與借入者同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-02:聞く",
+      "word": "聞く",
+      "reading": "きく",
+      "zh": "聽；詢問",
+      "asset": "images/vocab/listening.svg",
+      "sourceId": "stage0-day6:聞く",
+      "sameSourceLesson": false,
+      "reason": "「先別打開那扇門」先聽門後聲音，聽義；與既有手靠耳邊聽的圖同詞同譯"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-70:聞く",
+      "word": "聞く",
+      "reading": "きく",
+      "zh": "聽；詢問",
+      "asset": "images/vocab/listening.svg",
+      "sourceId": "stage0-day6:聞く",
+      "sameSourceLesson": false,
+      "reason": "「是風還是人」聽聲音辨認，聽義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-134:列",
+      "word": "列",
+      "reading": "れつ",
+      "zh": "隊列",
+      "asset": "images/vocab/formation.svg",
+      "sourceId": "general-listening-133:隊列",
+      "sameSourceLesson": false,
+      "reason": "「列を崩すな」隊列，與既有整齊縱列圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-154:全体",
+      "word": "全体",
+      "reading": "ぜんたい",
+      "zh": "整體",
+      "asset": "images/vocab/wholegroup.svg",
+      "sourceId": "general-listening-134:全体",
+      "sameSourceLesson": false,
+      "reason": "整體，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-135:増える",
+      "word": "増える",
+      "reading": "ふえる",
+      "zh": "增加",
+      "asset": "images/vocab/increasing.svg",
+      "sourceId": "general-listening-116:増やす",
+      "sameSourceLesson": false,
+      "reason": "增加，與既有由少到多積塊圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-135:強い",
+      "word": "強い",
+      "reading": "つよい",
+      "zh": "強的",
+      "asset": "images/vocab/strong.svg",
+      "sourceId": "stage0-day12:強い",
+      "sameSourceLesson": false,
+      "reason": "屬性強弱的強，與既有力量強圖同詞同譯"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-135:弱い",
+      "word": "弱い",
+      "reading": "よわい",
+      "zh": "弱的",
+      "asset": "images/vocab/weak.svg",
+      "sourceId": "stage0-day12:弱い",
+      "sameSourceLesson": false,
+      "reason": "屬性強弱的弱，與既有力量弱圖同詞同譯"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-146:再利用",
+      "word": "再利用",
+      "reading": "さいりよう",
+      "zh": "再次使用",
+      "asset": "images/vocab/reusable.svg",
+      "sourceId": "general-listening-136:再使用",
+      "sameSourceLesson": false,
+      "reason": "再次使用，同譯同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-137:飾り",
+      "word": "飾り",
+      "reading": "かざり",
+      "zh": "裝飾",
+      "asset": "images/vocab/decoration.svg",
+      "sourceId": "anime-lesson-01:飾り",
+      "sameSourceLesson": false,
+      "reason": "「黒字は飾り」裝飾，同詞同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-137:混ぜる",
+      "word": "混ぜる",
+      "reading": "まぜる",
+      "zh": "混合",
+      "asset": "images/vocab/mixing.svg",
+      "sourceId": "general-listening-83:混ぜる",
+      "sameSourceLesson": false,
+      "reason": "把字混在一起，混合同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-163:検討",
+      "word": "検討",
+      "reading": "けんとう",
+      "zh": "研議",
+      "asset": "images/vocab/considering.svg",
+      "sourceId": "general-listening-138:検討",
+      "sameSourceLesson": false,
+      "reason": "研議，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-138:急ぐ",
+      "word": "急ぐ",
+      "reading": "いそぐ",
+      "zh": "趕快",
+      "asset": "images/vocab/hurrying.svg",
+      "sourceId": "general-listening-03:急ぐ",
+      "sameSourceLesson": false,
+      "reason": "趕快，同詞同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-155:合意",
+      "word": "合意",
+      "reading": "ごうい",
+      "zh": "共識",
+      "asset": "images/vocab/agreementreached.svg",
+      "sourceId": "general-listening-139:合意",
+      "sameSourceLesson": false,
+      "reason": "說好的共識，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-164:認める",
+      "word": "認める",
+      "reading": "みとめる",
+      "zh": "認可",
+      "asset": "images/vocab/approving.svg",
+      "sourceId": "general-listening-139:認める",
+      "sameSourceLesson": false,
+      "reason": "認可（入室），同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-173:認める",
+      "word": "認める",
+      "reading": "みとめる",
+      "zh": "承認",
+      "asset": "images/vocab/approving.svg",
+      "sourceId": "general-listening-139:認める",
+      "sameSourceLesson": false,
+      "reason": "翻譯「承認」，指負責方認可帶走，與認可同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-141:仕組み",
+      "word": "仕組み",
+      "reading": "しくみ",
+      "zh": "運作機制",
+      "asset": "images/vocab/mechanism.svg",
+      "sourceId": "general-listening-74:仕組み",
+      "sameSourceLesson": false,
+      "reason": "運作機制，同詞同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-141:閉じる",
+      "word": "閉じる",
+      "reading": "とじる",
+      "zh": "關閉",
+      "asset": "images/vocab/doorcloses.svg",
+      "sourceId": "stage0-day23:閉まる",
+      "sameSourceLesson": false,
+      "reason": "「石扉を通ると閉まる」門自行關上，與自動門合攏圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-142:だけ",
+      "word": "だけ",
+      "reading": "だけ",
+      "zh": "只有",
+      "asset": "images/vocab/only.svg",
+      "sourceId": "general-listening-08:だけ",
+      "sameSourceLesson": false,
+      "reason": "「渡ったのは先遣隊だけ」只有，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-145:留まる",
+      "word": "留まる",
+      "reading": "とどまる",
+      "zh": "留在原處",
+      "asset": "images/vocab/stayput.svg",
+      "sourceId": "general-listening-143:留まる",
+      "sameSourceLesson": false,
+      "reason": "留在陣內原處，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-149:了承",
+      "word": "了承",
+      "reading": "りょうしょう",
+      "zh": "同意",
+      "asset": "images/vocab/agreeing.svg",
+      "sourceId": "general-listening-40:賛成",
+      "sameSourceLesson": false,
+      "reason": "本人同意條件，與既有點頭贊成方案圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-174:了承",
+      "word": "了承",
+      "reading": "りょうしょう",
+      "zh": "同意；知悉",
+      "asset": "images/vocab/agreeing.svg",
+      "sourceId": "general-listening-40:賛成",
+      "sameSourceLesson": false,
+      "reason": "同意；知悉，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-165:指す",
+      "word": "指す",
+      "reading": "さす",
+      "zh": "指稱",
+      "asset": "images/vocab/referringto.svg",
+      "sourceId": "general-listening-151:指す",
+      "sameSourceLesson": false,
+      "reason": "電話兩端「這邊／那邊」指稱，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-175:指す",
+      "word": "指す",
+      "reading": "さす",
+      "zh": "指稱",
+      "asset": "images/vocab/referringto.svg",
+      "sourceId": "general-listening-151:指す",
+      "sameSourceLesson": false,
+      "reason": "傳言裡的「我」指稱誰，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-152:昨夜",
+      "word": "昨夜",
+      "reading": "さくや",
+      "zh": "昨晚",
+      "asset": "images/vocab/lastnight.svg",
+      "sourceId": "stage0-day19:昨夜",
+      "sameSourceLesson": false,
+      "reason": "昨晚，同詞同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-153:夜間",
+      "word": "夜間",
+      "reading": "やかん",
+      "zh": "夜間",
+      "asset": "images/vocab/nighttime.svg",
+      "sourceId": "stage0-day19:夜",
+      "sameSourceLesson": false,
+      "reason": "夜間，與既有夜晚圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-174:対象",
+      "word": "対象",
+      "reading": "たいしょう",
+      "zh": "對象",
+      "asset": "images/vocab/target.svg",
+      "sourceId": "general-listening-154:対象",
+      "sameSourceLesson": false,
+      "reason": "可帶走的對象，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-161:余分",
+      "word": "余分",
+      "reading": "よぶん",
+      "zh": "多餘",
+      "asset": "images/vocab/extra.svg",
+      "sourceId": "general-listening-154:余分",
+      "sameSourceLesson": false,
+      "reason": "多餘的箱子，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-173:証明",
+      "word": "証明",
+      "reading": "しょうめい",
+      "zh": "證明",
+      "asset": "images/vocab/proof.svg",
+      "sourceId": "general-listening-157:確証",
+      "sameSourceLesson": false,
+      "reason": "證明，與確證同為以證據證實"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-172:通常",
+      "word": "通常",
+      "reading": "つうじょう",
+      "zh": "通常",
+      "asset": "images/vocab/normally.svg",
+      "sourceId": "general-listening-158:通常",
+      "sameSourceLesson": false,
+      "reason": "通常的閉館時刻，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-161:積載",
+      "word": "積載",
+      "reading": "せきさい",
+      "zh": "裝載",
+      "asset": "images/vocab/loadingcargo.svg",
+      "sourceId": "general-listening-154:積む",
+      "sameSourceLesson": false,
+      "reason": "裝載，與既有把箱子堆上貨台圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-172:仮定",
+      "word": "仮定",
+      "reading": "かてい",
+      "zh": "假設",
+      "asset": "images/vocab/supposing.svg",
+      "sourceId": "general-listening-163:仮定",
+      "sameSourceLesson": false,
+      "reason": "過去假設，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-164:検査",
+      "word": "検査",
+      "reading": "けんさ",
+      "zh": "檢查",
+      "asset": "images/vocab/inspection.svg",
+      "sourceId": "general-listening-18:点検",
+      "sameSourceLesson": false,
+      "reason": "檢查不可省，與既有逐項檢查設備圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-165:通信機",
+      "word": "通信機",
+      "reading": "つうしんき",
+      "zh": "通訊器",
+      "asset": "images/vocab/walkietalkie.svg",
+      "sourceId": "general-listening-61:無線",
+      "sameSourceLesson": false,
+      "reason": "通訊器，與既有對講機圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-174:続き",
+      "word": "続き",
+      "reading": "つづき",
+      "zh": "後續內容",
+      "asset": "images/vocab/continuation.svg",
+      "sourceId": "general-listening-169:続き",
+      "sameSourceLesson": false,
+      "reason": "「続きを聞かせて」後續內容，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "general-listening-176:手配",
+      "word": "手配",
+      "reading": "てはい",
+      "zh": "安排",
+      "asset": "images/vocab/makingarrangements.svg",
+      "sourceId": "general-listening-170:手配",
+      "sameSourceLesson": false,
+      "reason": "「回収を手配する」安排，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-174:閉室",
+      "word": "閉室",
+      "reading": "へいしつ",
+      "zh": "關閉室內服務",
+      "asset": "images/vocab/shopcloses.svg",
+      "sourceId": "general-listening-12:閉店",
+      "sameSourceLesson": false,
+      "reason": "「閉室してから」室內服務結束，與既有閉館圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "general-listening-180:座席",
+      "word": "座席",
+      "reading": "ざせき",
+      "zh": "座位",
+      "asset": "images/vocab/seatplace.svg",
+      "sourceId": "general-listening-39:席",
+      "sameSourceLesson": false,
+      "reason": "座位數，與既有座位圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:er:fiora:selection:1003004:19cb70b73c",
+      "word": "ご主人様からの依頼だ。任務を始めよう。",
+      "reading": "ごしゅじんさまからの いらいだ。にんむを はじめよう。",
+      "zh": "這是主人交付的委託。開始執行任務吧。",
+      "asset": "images/vocab/acceptingtask.svg",
+      "sourceId": "general-listening-99:引き受ける",
+      "sameSourceLesson": false,
+      "reason": "主人交付的委託、開始任務：與既有接下任務卷軸圖同一主要語義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:er:hart:selection:1008002:11d07a5aec",
+      "word": "ふ、冬にも…ラブ、アンド、ピース！",
+      "reading": "ふ、ふゆにも…ラブ、アンド、ピース！",
+      "zh": "冬、冬天也要……Love and Peace！",
+      "asset": "images/vocab/loveandpeace.svg",
+      "sourceId": "game-card:game:er:hart:selection-voice:1794da56b4:1794da56b4",
+      "sameSourceLesson": true,
+      "reason": "冬天也要Love and Peace：主要語義與既有和平祝願圖相同"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:er:yuki:selection-voice:83e8bf57f4:83e8bf57f4",
+      "word": "さまよう魂に救いを。",
+      "reading": "さまよう たましいに すくいを。",
+      "zh": "給徬徨的靈魂救贖。",
+      "asset": "images/vocab/savingsouls.svg",
+      "sourceId": "game-card:game:er:yuki:selection:1011005:1b0f94273a",
+      "sameSourceLesson": true,
+      "reason": "與「彷徨う魂に救済を」同一句意（給徬徨的靈魂救贖）"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:er:xiukai:selection-voice:0afd7abc96:0afd7abc96",
+      "word": "どれどれ、プレゼントをもらう準備はできたかな？",
+      "reading": "どれどれ、プレゼントを もらう じゅんびは できたかな？",
+      "zh": "來看看，準備好收禮物了嗎？",
+      "asset": "images/vocab/expectation.svg",
+      "sourceId": "general-listening-19:期待",
+      "sameSourceLesson": false,
+      "reason": "準備好收禮物了嗎：期待拆禮物，與既有望著禮盒期待圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:er:chiara:selection:1014002:ad64867eed",
+      "word": "哀れな者たちを導きます…",
+      "reading": "あわれな ものたちを みちびきます…",
+      "zh": "我會引導那些可憐的人……",
+      "asset": "images/vocab/guiding.svg",
+      "sourceId": "general-listening-05:案内",
+      "sameSourceLesson": false,
+      "reason": "引導可憐的人：與既有嚮導帶路圖同為引導"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+      "word": "落ち着いてください、ウィルソン。今日はどんなお客さんが来てくれるのか、楽しみです。",
+      "reading": "おちついてください、ウィルソン。きょうは どんな おきゃくさんが きてくれるのか、たのしみです。",
+      "zh": "冷靜一點，小威。很期待今天會有哪些客人來。",
+      "asset": "images/vocab/awaitingguests.svg",
+      "sourceId": "game-card:game:er:sissela:selection:1015004:efa64af83d",
+      "sameSourceLesson": true,
+      "reason": "後半句同為期待今天的客人，前半「冷靜一點」為附帶招呼"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:er:rozzi:selection:1021003:96bc380f16",
+      "word": "メイド、ロッジ。突入準備完了。",
+      "reading": "メイド、ロッジ。とつにゅう じゅんび かんりょう。",
+      "zh": "女僕洛茲，突入準備完成。",
+      "asset": "images/vocab/standby.svg",
+      "sourceId": "general-listening-26:待機",
+      "sameSourceLesson": false,
+      "reason": "突入準備完成：與既有準備好但未開始的待命圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:er:luke:selection-voice:5876ab0905:5876ab0905",
+      "word": "さあ、何を片付けましょうか。",
+      "reading": "さあ、なにを かたづけましょうか。",
+      "zh": "來吧，要收拾什麼呢？",
+      "asset": "images/vocab/tidying.svg",
+      "sourceId": "general-listening-12:片づける",
+      "sameSourceLesson": false,
+      "reason": "要收拾什麼：收拾整理，與既有收拾圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:er:luke:selection:1022006:beb8f41ef0",
+      "word": "何を、片付けてやりましょうか？",
+      "reading": "なにを、かたづけてやりましょうか？",
+      "zh": "有什麼要我替你收拾嗎？",
+      "asset": "images/vocab/tidying.svg",
+      "sourceId": "general-listening-12:片づける",
+      "sameSourceLesson": false,
+      "reason": "有什麼要我替你收拾：同為收拾"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:er:cathy:selection-voice:76205e5443:76205e5443",
+      "word": "ああ、私ですか？",
+      "reading": "ああ、わたしですか？",
+      "zh": "啊，是我嗎？",
+      "asset": "images/vocab/didyoucall.svg",
+      "sourceId": "game-card:game:genshin:ororon:join:8949898ea6",
+      "sameSourceLesson": false,
+      "reason": "「啊，是我嗎？」被叫到時指自己確認，與既有「叫我嗎」圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:er:alex:selection-voice:e9aed2b3d6:e9aed2b3d6",
+      "word": "任務ですか。",
+      "reading": "にんむですか。",
+      "zh": "是任務嗎？",
+      "asset": "images/vocab/askingrequest.svg",
+      "sourceId": "game-card:game:er:tsubame:selection-voice:c495dcd184:c495dcd184",
+      "sameSourceLesson": false,
+      "reason": "「是任務嗎？」詢問委託內容，與既有詢問想委託什麼圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:er:alex:selection:1027003:fc023573ae",
+      "word": "ショータイムですか。",
+      "reading": "ショータイムですか。",
+      "zh": "是表演時間了嗎？",
+      "asset": "images/vocab/curtainrises.svg",
+      "sourceId": "game-card:game:genshin:furina:skill:712cebc6c6",
+      "sameSourceLesson": false,
+      "reason": "表演時間開始，與既有開幕圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:er:rio:selection:1031006:17d5eb857d",
+      "word": "私の矢は、絶対に外さない。...ピョン...",
+      "reading": "わたしの やは、ぜったいに はずさない。...ピョン...",
+      "zh": "我的箭絕不會射偏……蹦……",
+      "asset": "images/vocab/everyshothits.svg",
+      "sourceId": "game-card:game:genshin:amber:burst:dedfd4424f",
+      "sameSourceLesson": false,
+      "reason": "我的箭絕不射偏：百發百中，與既有圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:er:nicky:selection-voice:1caf0ba7a3:1caf0ba7a3",
+      "word": "さてと、どりゃ！",
+      "reading": "さてと、どりゃ！",
+      "zh": "好啦，喝啊！",
+      "asset": "images/vocab/heaveho.svg",
+      "sourceId": "game-card:game:er:tia:selection-voice:81e8b01e3f:81e8b01e3f",
+      "sameSourceLesson": false,
+      "reason": "「好啦，喝啊！」使勁時的吆喝，與既有嘿咻圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:er:johann:selection-voice:264977eed5:264977eed5",
+      "word": "これもまた試練であれば、承ります。",
+      "reading": "これも また しれんで あれば、うけたまわります。",
+      "zh": "如果這也是試煉，我便恭敬地接下。",
+      "asset": "images/vocab/acceptingtrial.svg",
+      "sourceId": "game-card:game:er:zahir:selection-voice:332664fbf6:332664fbf6",
+      "sameSourceLesson": false,
+      "reason": "「如果這也是試煉，我便接下」與接受試煉同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:er:elena:selection-voice:9b957242b1:9b957242b1",
+      "word": "指導すべき生徒が結構いますね。",
+      "reading": "しどうすべき せいとが けっこう いますね。",
+      "zh": "需要指導的學生還真不少呢。",
+      "asset": "images/vocab/coaching.svg",
+      "sourceId": "game-card:game:er:laura:selection:1047004:d680014bcd",
+      "sameSourceLesson": false,
+      "reason": "需要指導的學生不少：同為指導學生"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:er:estelle:selection:1055003:b418d32c13",
+      "word": "\"お、お主らの血の味はどんな味がするかのう\"..アハハ..",
+      "reading": "お、おぬしらの ちの あじは どんな あじが するかのう..アハハ..",
+      "zh": "你們的血嚐起來會是什麼味道呢……啊哈哈……",
+      "asset": "images/vocab/bloodtaste.svg",
+      "sourceId": "game-card:game:er:bianca:selection-voice:2598ab2e26:2598ab2e26",
+      "sameSourceLesson": false,
+      "reason": "同「お主らの血の味は…」句意，加笑聲"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:er:martina:selection-voice:bc953de51a:bc953de51a",
+      "word": "妥協はしない。記者だからね。",
+      "reading": "だきょうは しない。きしゃだからね。",
+      "zh": "我不妥協，因為我是記者。",
+      "asset": "images/vocab/nocompromisereporter.svg",
+      "sourceId": "game-card:game:er:martina:selection-voice:86f5b3ae7b:86f5b3ae7b",
+      "sameSourceLesson": true,
+      "reason": "同為記者絕不妥協"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:er:haze:selection-voice:1e79a27ed5:1e79a27ed5",
+      "word": "休暇の時でも、あたしはプロだから。",
+      "reading": "きゅうかの ときでも、あたしは プロだから。",
+      "zh": "就算是休假的時候，我也是專業的。",
+      "asset": "images/vocab/alwayspro.svg",
+      "sourceId": "game-card:game:er:haze:selection-voice:a0c7e7eddb:a0c7e7eddb",
+      "sameSourceLesson": true,
+      "reason": "休假時也是專業的，同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:er:irem:selection-voice:c0dbb606c8:c0dbb606c8",
+      "word": "どこから遊びに行こうかな？",
+      "reading": "どこから あそびに いこうかな？",
+      "zh": "先從哪裡開始玩呢？",
+      "asset": "images/vocab/whereplaynext.svg",
+      "sourceId": "game-card:game:er:irem:selection-voice:5882070cef:5882070cef",
+      "sameSourceLesson": true,
+      "reason": "先從哪裡開始玩：同為挑選遊玩地點"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:er:darko:selection-voice:d1eeee4967:d1eeee4967",
+      "word": "んじゃ、金を稼ぎに行くか。",
+      "reading": "んじゃ、かねを かせぎに いくか。",
+      "zh": "那就去賺錢吧。",
+      "asset": "images/vocab/earningmoney.svg",
+      "sourceId": "game-card:game:genshin:dori:join:851998b75c",
+      "sameSourceLesson": false,
+      "reason": "去賺錢，與既有賺錢圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:er:mirka:selection-voice:33cecb4094:33cecb4094",
+      "word": "お前ら、準備はいいか？よし、じゃあ行くぞ。",
+      "reading": "おまえら、じゅんびは いいか？よし、じゃあ いくぞ。",
+      "zh": "你們準備好了嗎？好，那就走吧。",
+      "asset": "images/vocab/readyletsgo.svg",
+      "sourceId": "game-card:game:er:leni:selection-voice:7b6dc35e8d:7b6dc35e8d",
+      "sameSourceLesson": false,
+      "reason": "準備好了嗎？那就走吧：同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:er:mirka:selection-voice:b322a22c6d:b322a22c6d",
+      "word": "小さいからってなめんなよ！",
+      "reading": "ちいさいからって なめんなよ！",
+      "zh": "別因為我個子小就小看我！",
+      "asset": "images/vocab/dontunderestimate.svg",
+      "sourceId": "game-card:game:genshin:diona:skill:c81b594e00",
+      "sameSourceLesson": false,
+      "reason": "別因為我個子小就小看我：與既有小個子挺胸圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:genshin:arlecchino:skill:0d47e1496f",
+      "word": "貫こう。",
+      "reading": "つらぬこう。",
+      "zh": "貫徹到底吧。",
+      "asset": "images/vocab/upholdjustice.svg",
+      "sourceId": "game-card:game:er:silvia:selection-voice:07b093dd39:07b093dd39",
+      "sameSourceLesson": false,
+      "reason": "「貫徹到底吧」與貫徹正義同為堅持到底"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:genshin:dahlia:burst:d27d329690",
+      "word": "神のご加護を！",
+      "reading": "かみの ごかごを！",
+      "zh": "願神賜予庇護！",
+      "asset": "images/vocab/blessing.svg",
+      "sourceId": "game-card:game:genshin:candace:burst:047e8a925a",
+      "sameSourceLesson": false,
+      "reason": "願神賜予庇護：與祝福降臨同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:genshin:dehya:skill:2bb4ee16cd",
+      "word": "手加減ナシだぜ。",
+      "reading": "てかげんなしだぜ。",
+      "zh": "我可不會手下留情。",
+      "asset": "images/vocab/noholdingback.svg",
+      "sourceId": "game-card:game:er:william:selection-voice:331bb2b949:331bb2b949",
+      "sameSourceLesson": false,
+      "reason": "我可不會手下留情：同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:genshin:hutao:join:f60241d1bc",
+      "word": "見る目ある！",
+      "reading": "みる めある！",
+      "zh": "有眼光！",
+      "asset": "images/vocab/goodeye.svg",
+      "sourceId": "game-card:game:er:laura:selection-voice:5372bd09d8:5372bd09d8",
+      "sameSourceLesson": false,
+      "reason": "有眼光，同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:genshin:kachina:skill:c47f200a9c",
+      "word": "回る時間だよ！",
+      "reading": "まわる じかんだよ！",
+      "zh": "到了轉動的時間囉！",
+      "asset": "images/vocab/spinning.svg",
+      "sourceId": "game-card:game:genshin:freminet:skill:e5038d29a7",
+      "sameSourceLesson": false,
+      "reason": "到了轉動的時間：與既有陀螺轉動圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:genshin:kaedeharakazuha:skill:64295299a7",
+      "word": "風を知れ。",
+      "reading": "かぜを しれ。",
+      "zh": "領略風吧。",
+      "asset": "images/vocab/wind.svg",
+      "sourceId": "stage0-day12:風",
+      "sameSourceLesson": false,
+      "reason": "領略風吧：風，與既有風推動樹葉圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:genshin:kaedeharakazuha:burst:369d018b65",
+      "word": "風の共、雲の行くごと。",
+      "reading": "かぜの とも、くもの ゆくごと。",
+      "zh": "與風同行，如雲行進。",
+      "asset": "images/vocab/ridewind.svg",
+      "sourceId": "game-card:game:er:yumin:selection-voice:c4cd5ea772:c4cd5ea772",
+      "sameSourceLesson": false,
+      "reason": "與風同行、如雲行進：與既有乘風飄行圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:genshin:keqing:skill:a6df9f6939",
+      "word": "行けっ！",
+      "reading": "いけっ！",
+      "zh": "去吧！",
+      "asset": "images/vocab/going.svg",
+      "sourceId": "stage0-day5:行く",
+      "sameSourceLesson": false,
+      "reason": "「去吧！」命令往前去，與既有離開近處走向遠方圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:genshin:lauma:skill:087f573b9b",
+      "word": "行け。",
+      "reading": "いけ。",
+      "zh": "去吧。",
+      "asset": "images/vocab/going.svg",
+      "sourceId": "stage0-day5:行く",
+      "sameSourceLesson": false,
+      "reason": "「去吧。」同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:genshin:lohen:burst:c696cec4a8",
+      "word": "悪あがきは――無駄だ！",
+      "reading": "わるあがきは――むだだ！",
+      "zh": "垂死掙扎也是徒勞！",
+      "asset": "images/vocab/waste.svg",
+      "sourceId": "anime-lesson-08:無駄",
+      "sameSourceLesson": false,
+      "reason": "垂死掙扎也是徒勞：與既有徒勞圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:genshin:lumine:burst:0ba5237c41",
+      "word": "風と共に去れ。",
+      "reading": "かぜと ともに され。",
+      "zh": "隨風離去吧。",
+      "asset": "images/vocab/gonewiththewind.svg",
+      "sourceId": "game-card:game:genshin:aether:burst:e6128e7c2a",
+      "sameSourceLesson": false,
+      "reason": "隨風離去吧：同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:genshin:nahida:join:bcfe58b69e",
+      "word": "ずいぶん待ってたのよ。",
+      "reading": "ずいぶん まってたのよ。",
+      "zh": "我可是等了好久喔。",
+      "asset": "images/vocab/wearyofwaiting.svg",
+      "sourceId": "game-card:game:er:jan:selection-voice:f0c3c35f4e:f0c3c35f4e",
+      "sameSourceLesson": false,
+      "reason": "我可是等了好久：與既有久候圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:genshin:noelle:burst:1ea4f11ca5",
+      "word": "戦場のお掃除の時間です。",
+      "reading": "せんじょうの おそうじの じかんです。",
+      "zh": "該清掃戰場了。",
+      "asset": "images/vocab/cleaning.svg",
+      "sourceId": "stage0-day16:掃除",
+      "sameSourceLesson": false,
+      "reason": "該清掃戰場了：清掃，與既有打掃圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:genshin:shenhe:join:9ed972624d",
+      "word": "承知した、立っていればいいのか。",
+      "reading": "しょうちした、たっていれば いいのか。",
+      "zh": "知道了，站著就行嗎？",
+      "asset": "images/vocab/standing.svg",
+      "sourceId": "stage0-day14:立つ",
+      "sameSourceLesson": false,
+      "reason": "知道了，站著就行嗎：站著，與既有站立圖同義"
+    },
+    {
+      "type": "new-shared",
+      "cardId": "game-card:game:genshin:thoma:join:ceddac1c2d",
+      "word": "今回はどこに行くんだい？",
+      "reading": "こんかいは どこに いくんだい？",
+      "zh": "這次要去哪裡？",
+      "asset": "images/vocab/whereadventure.svg",
+      "sourceId": "game-card:game:genshin:linnea:join:56fe82183f",
+      "sameSourceLesson": false,
+      "reason": "這次要去哪裡：同為詢問冒險去處"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:genshin:varka:skill:a88a507e82",
+      "word": "烈火！",
+      "reading": "れっか！",
+      "zh": "烈火！",
+      "asset": "images/vocab/burning.svg",
+      "sourceId": "general-listening-124:燃える",
+      "sameSourceLesson": false,
+      "reason": "烈火：燃燒的火，與既有木柴燃燒圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:genshin:wanderer:join:d9e59005f4",
+      "word": "僕じゃなきゃだめ？…いいだろう、仕方ない…",
+      "reading": "ぼくじゃなきゃ だめ？…いいだろう、しかたない…",
+      "zh": "非得是我嗎？……好吧，沒辦法……",
+      "asset": "images/vocab/nochoice.svg",
+      "sourceId": "general-listening-19:仕方ない",
+      "sameSourceLesson": false,
+      "reason": "非得是我嗎…好吧沒辦法：只好如此，與既有聳肩沒辦法圖同義"
+    },
+    {
+      "type": "old-shared",
+      "cardId": "game-card:game:genshin:wanderer:skill:2ab3fbeaaf",
+      "word": "風よ！",
+      "reading": "かぜよ！",
+      "zh": "風啊！",
+      "asset": "images/vocab/wind.svg",
+      "sourceId": "stage0-day12:風",
+      "sameSourceLesson": false,
+      "reason": "「風啊！」呼喚風，與既有風圖同義"
+    }
+  ],
+  "deferred": [],
+  "priorDeferredUnion": [
+    {
+      "id": "general-listening-146:鍵",
+      "word": "鍵",
+      "zh": "鑰匙",
+      "t162": {
+        "asset": "images/vocab/gemkey.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：本詞條情境或翻譯指向另一義項／動作／比喻，或不足以確認與現圖相容。"
+    },
+    {
+      "id": "general-listening-80:短い",
+      "word": "短い",
+      "zh": "短的",
+      "t162": {
+        "asset": "images/vocab/shortscene.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-87:短い",
+      "word": "短い",
+      "zh": "短的",
+      "t162": {
+        "asset": "images/vocab/shortertext.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-05:少し",
+      "word": "少し",
+      "zh": "少量；稍微",
+      "t162": {
+        "asset": "images/vocab/partlyreadable.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-87:少し",
+      "word": "少し",
+      "zh": "稍微",
+      "t162": {
+        "asset": "images/vocab/dimslightly.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "anime-lesson-02:口",
+      "word": "口",
+      "zh": "嘴巴；開口處",
+      "t162": {
+        "asset": "images/vocab/mouthopen.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：本詞條情境或翻譯指向另一義項／動作／比喻，或不足以確認與現圖相容。"
+    },
+    {
+      "id": "general-listening-02:聞く",
+      "word": "聞く",
+      "zh": "聽；詢問",
+      "t162": {
+        "asset": "images/vocab/listening.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "聽／詢問多義卡沒有對話線索，無法確認取哪一義。"
+    },
+    {
+      "id": "general-listening-70:聞く",
+      "word": "聞く",
+      "zh": "聽；詢問",
+      "t162": {
+        "asset": "images/vocab/listening.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "同上，保留。"
+    },
+    {
+      "id": "general-listening-05:教える",
+      "word": "教える",
+      "zh": "教；告訴",
+      "t162": {
+        "asset": "images/vocab/explainmeaning.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-17:教える",
+      "word": "教える",
+      "zh": "告訴；教導",
+      "t162": {
+        "asset": "images/vocab/showingway.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-69:教える",
+      "word": "教える",
+      "zh": "告知；教導",
+      "t162": {
+        "asset": "images/vocab/informingothers.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-115:教える",
+      "word": "教える",
+      "zh": "教導",
+      "t162": {
+        "asset": "images/vocab/showingway.svg",
+        "type": "new-shared"
+      },
+      "previousReason": "長老告訴路線是告知，不是課室教導。"
+    },
+    {
+      "id": "general-listening-31:呼ぶ",
+      "word": "呼ぶ",
+      "zh": "稱呼；呼叫",
+      "t162": {
+        "asset": "images/vocab/calling.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "重評仍保留：本詞條情境或翻譯指向另一義項／動作／比喻，或不足以確認與現圖相容。"
+    },
+    {
+      "id": "general-listening-105:つける",
+      "word": "つける",
+      "zh": "加上；設置",
+      "t162": {
+        "asset": "images/vocab/markingpath.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-89:入れる",
+      "word": "入れる",
+      "zh": "能進入",
+      "t162": {
+        "asset": "images/vocab/canenter.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：讀音不同且義項不同，禁止同形映射。"
+    },
+    {
+      "id": "general-listening-107:入れる",
+      "word": "入れる",
+      "zh": "能進入",
+      "t162": {
+        "asset": "images/vocab/canenter.svg",
+        "type": "new-shared"
+      },
+      "previousReason": "重評仍保留：讀音不同且義項不同，禁止同形映射。"
+    },
+    {
+      "id": "general-listening-06:降りる",
+      "word": "降りる",
+      "zh": "下來；下車",
+      "t162": {
+        "asset": "images/vocab/comingdown.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：本詞條情境或翻譯指向另一義項／動作／比喻，或不足以確認與現圖相容。"
+    },
+    {
+      "id": "general-listening-122:新しい",
+      "word": "新しい",
+      "zh": "新的",
+      "t162": {
+        "asset": "images/vocab/new.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "重評仍保留：本詞條情境或翻譯指向另一義項／動作／比喻，或不足以確認與現圖相容。"
+    },
+    {
+      "id": "general-listening-57:早い",
+      "word": "早い",
+      "zh": "早；快",
+      "t162": {
+        "asset": "images/vocab/quickersplit.svg",
+        "type": "primary"
+      },
+      "previousReason": "分組完成較快是效率，車輛速度圖不足以表達。"
+    },
+    {
+      "id": "general-listening-10:遅い",
+      "word": "遅い",
+      "zh": "慢的；晚的",
+      "t162": {
+        "asset": "images/vocab/slowmoving.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：本詞條情境或翻譯指向另一義項／動作／比喻，或不足以確認與現圖相容。"
+    },
+    {
+      "id": "general-listening-30:強い",
+      "word": "強い",
+      "zh": "強的",
+      "t162": {
+        "asset": "images/vocab/strongwind.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-68:強い",
+      "word": "強い",
+      "zh": "強烈的",
+      "t162": {
+        "asset": "images/vocab/forcefulvoice.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-135:強い",
+      "word": "強い",
+      "zh": "強的",
+      "t162": {
+        "asset": "images/vocab/strong.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-30:弱い",
+      "word": "弱い",
+      "zh": "弱的",
+      "t162": {
+        "asset": "images/vocab/weakwind.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-135:弱い",
+      "word": "弱い",
+      "zh": "弱的",
+      "t162": {
+        "asset": "images/vocab/weak.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-74:薄い",
+      "word": "薄い",
+      "zh": "薄的；淡的",
+      "t162": {
+        "asset": "images/vocab/faint.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：本詞條情境或翻譯指向另一義項／動作／比喻，或不足以確認與現圖相容。"
+    },
+    {
+      "id": "general-listening-87:細い",
+      "word": "細い",
+      "zh": "細的",
+      "t162": {
+        "asset": "images/vocab/slender.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "重評仍保留：本詞條情境或翻譯指向另一義項／動作／比喻，或不足以確認與現圖相容。"
+    },
+    {
+      "id": "general-listening-12:前",
+      "word": "前",
+      "zh": "之前；前方",
+      "t162": {
+        "asset": "images/vocab/beforeleaving.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：本詞條情境或翻譯指向另一義項／動作／比喻，或不足以確認與現圖相容。"
+    },
+    {
+      "id": "general-listening-127:前",
+      "word": "前",
+      "zh": "之前",
+      "t162": {
+        "asset": "images/vocab/beforeleaving.svg",
+        "type": "new-shared"
+      },
+      "previousReason": "重評仍保留：本詞條情境或翻譯指向另一義項／動作／比喻，或不足以確認與現圖相容。"
+    },
+    {
+      "id": "general-listening-137:飾り",
+      "word": "飾り",
+      "zh": "裝飾",
+      "t162": {
+        "asset": "images/vocab/decoration.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-23:信じる",
+      "word": "信じる",
+      "zh": "相信",
+      "t162": {
+        "asset": "images/vocab/trusting.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-52:信じる",
+      "word": "信じる",
+      "zh": "相信",
+      "t162": {
+        "asset": "images/vocab/trusting.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "重評仍保留：現圖情境較窄；抽象／多義或不同具體動作，留待獨立設計，不以字面共用。"
+    },
+    {
+      "id": "general-listening-178:守る",
+      "word": "守る",
+      "zh": "保護；遵守",
+      "t162": {
+        "asset": "images/vocab/keepingfaith.svg",
+        "type": "primary"
+      },
+      "previousReason": "重評仍保留：目前圖只表聆聽／保護；本詞條詢問或遵守義未核准。"
+    },
+    {
+      "id": "general-listening-138:急ぐ",
+      "word": "急ぐ",
+      "zh": "趕快",
+      "t162": {
+        "asset": "images/vocab/hurrying.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "重評仍保留：本詞條情境或翻譯指向另一義項／動作／比喻，或不足以確認與現圖相容。"
+    },
+    {
+      "id": "general-listening-79:残る",
+      "word": "残る",
+      "zh": "留下",
+      "t162": {
+        "asset": "images/vocab/remaining.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "備份課境中的留下對象未確認是人留守，暫不套留守圖。"
+    },
+    {
+      "id": "general-listening-97:残る",
+      "word": "残る",
+      "zh": "留下",
+      "t162": {
+        "asset": "images/vocab/remaining.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "打開才發現一課留下的主體未確認為人，暫不套留守圖。"
+    },
+    {
+      "id": "general-listening-78:似る",
+      "word": "似る",
+      "zh": "相似",
+      "t162": {
+        "asset": "images/vocab/similarsounds.svg",
+        "type": "primary"
+      },
+      "previousReason": "鐘與笛的聲音相似是聽覺相似，新圖為外形輪廓相似，保留。"
+    },
+    {
+      "id": "general-listening-118:似る",
+      "word": "似る",
+      "zh": "相似",
+      "t162": {
+        "asset": "images/vocab/similarsounds.svg",
+        "type": "new-shared"
+      },
+      "previousReason": "鈴聲相似是聽覺義，與披風外形相似圖不同。"
+    },
+    {
+      "id": "general-listening-79:消える",
+      "word": "消える",
+      "zh": "消失",
+      "t162": {
+        "asset": "images/vocab/datalost.svg",
+        "type": "primary"
+      },
+      "previousReason": "資料檔案消失是數位資料，不用實體水晶淡出圖。"
+    },
+    {
+      "id": "general-listening-23:残る",
+      "word": "残る",
+      "zh": "留下；剩下",
+      "t162": {
+        "asset": "images/vocab/stayingbehind.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "留下；剩下多義卡、例句是留晚餐（残す），兩圖皆不確定。"
+    },
+    {
+      "id": "general-listening-127:残る",
+      "word": "残る",
+      "zh": "留存",
+      "t162": {
+        "asset": "images/vocab/footprintsremain.svg",
+        "type": "primary"
+      },
+      "previousReason": "腳印留存是痕跡殘留，非物品剩下。"
+    },
+    {
+      "id": "general-listening-180:残る",
+      "word": "残る",
+      "zh": "留下；剩餘",
+      "t162": {
+        "asset": "images/vocab/remaining.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "留下；剩餘多義且無對話線索。"
+    },
+    {
+      "id": "general-listening-121:続く",
+      "word": "続く",
+      "zh": "延續",
+      "t162": {
+        "asset": "images/vocab/trailcontinues.svg",
+        "type": "primary"
+      },
+      "previousReason": "足跡往深處延續是空間延伸，非時間持續。"
+    },
+    {
+      "id": "general-listening-03:先に",
+      "word": "先に",
+      "zh": "先做；先行",
+      "t162": {
+        "asset": "images/vocab/goahead.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "先做；先行多義且無對話線索。"
+    },
+    {
+      "id": "game-card:game:genshin:nahida:join:bcfe58b69e",
+      "word": "ずいぶん待ってたのよ。",
+      "zh": "我可是等了好久喔。",
+      "t162": {
+        "asset": "images/vocab/wearyofwaiting.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "T159已暫緩：視角相反。"
+    },
+    {
+      "id": "game-card:game:genshin:gaming:skill:fe90a48ac9",
+      "word": "大当たりだぜ！",
+      "zh": "大中獎啦！",
+      "t162": {
+        "asset": "images/vocab/jackpot.svg",
+        "type": "primary"
+      },
+      "previousReason": "T159已暫緩：可能指中大獎。"
+    },
+    {
+      "id": "general-listening-93:灯り",
+      "word": "灯り",
+      "zh": "燈光",
+      "t162": {
+        "asset": "images/vocab/signallight.svg",
+        "type": "primary"
+      },
+      "previousReason": "丘上紅燈是待機信號燈，與青色出發燈號同圖會混淆顏色語義。"
+    },
+    {
+      "id": "general-listening-107:当番表",
+      "word": "当番表",
+      "zh": "值班表",
+      "t162": {
+        "asset": "images/vocab/dutyroster.svg",
+        "type": "primary"
+      },
+      "previousReason": "值班表重點是人員輪值，行程表圖以活動為主，保留。"
+    },
+    {
+      "id": "general-listening-37:気持ち",
+      "word": "気持ち",
+      "zh": "心意；心情",
+      "t162": {
+        "asset": "images/vocab/emotions.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "心意（感謝之情）不是情緒範疇圖。"
+    },
+    {
+      "id": "general-listening-54:気持ち",
+      "word": "気持ち",
+      "zh": "心意",
+      "t162": {
+        "asset": "images/vocab/smalltoken.svg",
+        "type": "primary"
+      },
+      "previousReason": "送禮的心意不是喜怒哀樂。"
+    },
+    {
+      "id": "general-listening-43:代わり",
+      "word": "代わり",
+      "zh": "代替",
+      "t162": {
+        "asset": "images/vocab/substitute.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "點餐時改換食材，與人員替代圖不同。"
+    },
+    {
+      "id": "general-listening-73:詳しい",
+      "word": "詳しい",
+      "zh": "熟悉的；詳細的",
+      "t162": {
+        "asset": "images/vocab/detailed.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "熟悉道具（人很懂）不是路線詳細圖。"
+    },
+    {
+      "id": "general-listening-176:宛名",
+      "word": "宛名",
+      "zh": "收件人姓名",
+      "t162": {
+        "asset": "images/vocab/addresslabel.svg",
+        "type": "primary"
+      },
+      "previousReason": "收件人姓名是寫在封面的名字，不是收件的人。"
+    },
+    {
+      "id": "general-listening-58:空く",
+      "word": "空く",
+      "zh": "變空；不擁擠",
+      "t162": {
+        "asset": "images/vocab/uncrowded.svg",
+        "type": "primary"
+      },
+      "previousReason": "讀すく的不擁擠與あく的空出座位讀音不同。"
+    },
+    {
+      "id": "general-listening-59:集める",
+      "word": "集める",
+      "zh": "召集；收集",
+      "t162": {
+        "asset": "images/vocab/gatheringpeople.svg",
+        "type": "primary"
+      },
+      "previousReason": "召集需有召集者，集合圖只畫到場者。"
+    },
+    {
+      "id": "general-listening-28:一枚",
+      "word": "一枚",
+      "zh": "一張；一枚",
+      "t162": {
+        "asset": "images/vocab/onecoin.svg",
+        "type": "new-shared"
+      },
+      "previousReason": "此課為錢幣一枚，紙張圖會誤導；未另畫錢幣計數。"
+    },
+    {
+      "id": "general-listening-42:一枚",
+      "word": "一枚",
+      "zh": "一枚；一張",
+      "t162": {
+        "asset": "images/vocab/onecoin.svg",
+        "type": "primary"
+      },
+      "previousReason": "找零銀幣一枚，同上。"
+    },
+    {
+      "id": "general-listening-28:二枚",
+      "word": "二枚",
+      "zh": "兩張；兩枚",
+      "t162": {
+        "asset": "images/vocab/twocoins.svg",
+        "type": "new-shared"
+      },
+      "previousReason": "錢幣兩枚，同上。"
+    },
+    {
+      "id": "general-listening-42:二枚",
+      "word": "二枚",
+      "zh": "兩枚；兩張",
+      "t162": {
+        "asset": "images/vocab/twocoins.svg",
+        "type": "primary"
+      },
+      "previousReason": "錢幣兩枚，同上。"
+    },
+    {
+      "id": "general-listening-124:一本",
+      "word": "一本",
+      "zh": "一根",
+      "t162": {
+        "asset": "images/vocab/onetorch.svg",
+        "type": "primary"
+      },
+      "previousReason": "此課是一根火把，不是一瓶。"
+    },
+    {
+      "id": "general-listening-56:発表",
+      "word": "発表",
+      "zh": "發表",
+      "t162": {
+        "asset": "images/vocab/givingpresentation.svg",
+        "type": "primary"
+      },
+      "previousReason": "此課為上台發表（簡報），不是公布結果。"
+    },
+    {
+      "id": "general-listening-77:無理",
+      "word": "無理",
+      "zh": "勉強；不合理",
+      "t162": {
+        "asset": "images/vocab/impossible.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "「不合理」義與做不到的情境不同。"
+    },
+    {
+      "id": "general-listening-47:悪い",
+      "word": "悪い",
+      "zh": "不好的",
+      "t162": {
+        "asset": "images/vocab/feelingunwell.svg",
+        "type": "primary"
+      },
+      "previousReason": "臉色不好是身體狀況，不是壞掉的食物。"
+    },
+    {
+      "id": "general-listening-05:できる",
+      "word": "できる",
+      "zh": "能夠；完成（依情境）",
+      "t162": {
+        "asset": "images/vocab/canability.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "能夠；完成多義且無對話線索。"
+    },
+    {
+      "id": "general-listening-39:かける",
+      "word": "かける",
+      "zh": "打電話；掛",
+      "t162": {
+        "asset": "images/vocab/makingcall.svg",
+        "type": "primary"
+      },
+      "previousReason": "打電話；掛上多義，與戴眼鏡不同。"
+    },
+    {
+      "id": "general-listening-40:また",
+      "word": "また",
+      "zh": "再；另外",
+      "t162": {
+        "asset": "images/vocab/again.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "再；另外多義且無線索。"
+    },
+    {
+      "id": "general-listening-172:翌日",
+      "word": "翌日",
+      "zh": "隔日",
+      "t162": {
+        "asset": "images/vocab/nextday.svg",
+        "type": "primary"
+      },
+      "previousReason": "隔日是相對於過去某天，明天圖以今天為基準。"
+    },
+    {
+      "id": "general-listening-03:先",
+      "word": "先",
+      "zh": "前方；先",
+      "t162": {
+        "asset": "images/vocab/infront.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "前方；先多義且無線索。"
+    },
+    {
+      "id": "general-listening-61:先",
+      "word": "先",
+      "zh": "前方；先行",
+      "t162": {
+        "asset": "images/vocab/goahead.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "「先に行かないで」是時間上的先，不是空間前方。"
+    },
+    {
+      "id": "general-listening-89:先",
+      "word": "先",
+      "zh": "先；前方",
+      "t162": {
+        "asset": "images/vocab/goahead.svg",
+        "type": "old-shared"
+      },
+      "previousReason": "「先に控室へ」是先行，不是前方。"
+    },
+    {
+      "id": "game-card:game:er:chloe:selection-voice:0ec71933dc:0ec71933dc",
+      "word": "いち、に、準備運動終わり！大丈夫よ、後で新しいの買ってあげるから。",
+      "zh": "一、二，暖身結束！沒關係，等一下買新的給你。",
+      "t162": {
+        "asset": "images/vocab/warmupandpromise.svg",
+        "type": "primary"
+      },
+      "previousReason": "後半是安撫並答應買新的，整句不只暖身。"
+    },
+    {
+      "id": "game-card:game:er:adela:selection-voice:c4711f3e13:c4711f3e13",
+      "word": "出番なのか。手を読んでみよう。",
+      "zh": "輪到我了嗎？來推算一下棋步吧。",
+      "t162": {
+        "asset": "images/vocab/readingmoves.svg",
+        "type": "primary"
+      },
+      "previousReason": "後半是推算棋步，整句主要語義不只輪到上場。"
+    },
+    {
+      "id": "game-card:game:genshin:varesa:join:0fe3e8de46",
+      "word": "お出かけ？それとも…試合？",
+      "zh": "要出門？還是……比賽？",
+      "t162": {
+        "asset": "images/vocab/outingormatch.svg",
+        "type": "primary"
+      },
+      "previousReason": "整句是出門或比賽的二擇，出門圖只表達一半。"
+    }
+  ]
+}
