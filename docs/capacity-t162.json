@@ -1,0 +1,86 @@
+{
+  "dist": "dist",
+  "note": "Raw served file bytes. MB = 10^6 bytes, MiB = 2^20 bytes. Browser storage adds cache metadata and file-system overhead, so device usage differs.",
+  "precache": {
+    "total": {
+      "files": 482,
+      "bytes": 22731907,
+      "MB": 22.73,
+      "MiB": 21.68
+    },
+    "byGroup": {
+      "appCode": {
+        "files": 246,
+        "bytes": 6633585,
+        "MB": 6.63,
+        "MiB": 6.33
+      },
+      "appShell": {
+        "files": 5,
+        "bytes": 5513,
+        "MB": 0.01,
+        "MiB": 0.01
+      },
+      "gamePortraits": {
+        "files": 215,
+        "bytes": 15836166,
+        "MB": 15.84,
+        "MiB": 15.1
+      },
+      "icons": {
+        "files": 13,
+        "bytes": 246651,
+        "MB": 0.25,
+        "MiB": 0.24
+      },
+      "voicePreview": {
+        "files": 3,
+        "bytes": 9992,
+        "MB": 0.01,
+        "MiB": 0.01
+      }
+    },
+    "requiredAppExcludingOptionalImagesAndAudio": {
+      "files": 482,
+      "bytes": 22731907,
+      "MB": 22.73,
+      "MiB": 21.68
+    }
+  },
+  "vocabSvgAll": {
+    "files": 2242,
+    "bytes": 1669373,
+    "MB": 1.67,
+    "MiB": 1.59
+  },
+  "lessonAudioAll": {
+    "files": 8535,
+    "bytes": 167004460,
+    "MB": 167,
+    "MiB": 159.27
+  },
+  "voicePreview": {
+    "all": {
+      "files": 43,
+      "bytes": 1101266,
+      "MB": 1.1,
+      "MiB": 1.05
+    },
+    "mp3": {
+      "files": 38,
+      "bytes": 1076432,
+      "MB": 1.08,
+      "MiB": 1.03
+    }
+  },
+  "everythingDownloaded": {
+    "files": 11259,
+    "bytes": 191405740,
+    "MB": 191.41,
+    "MiB": 182.54
+  },
+  "overlap": {
+    "svgAlsoPrecached": 0,
+    "audioAlsoPrecached": 0
+  }
+}
