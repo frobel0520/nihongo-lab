@@ -28,6 +28,7 @@ jobs:
       - run: npm run test:quality
       - run: npm run test:inference
       - run: npm run test:pwa
+      - run: npm run test:images
       - run: npm run test:pwa:updates
       - uses: actions/upload-pages-artifact@v4
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'

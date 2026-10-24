@@ -68,7 +68,8 @@ test('card fronts hide images and revealed auxiliary images do not repeat the ac
   const { renderToStaticMarkup } = await import('react-dom/server');
   const { createServer } = await import('vite');
   const { default: react } = await import('@vitejs/plugin-react');
-  const server = await createServer({ configFile: false, plugins: [react()], appType: 'custom', logLevel: 'silent', server: { middlewareMode: true, hmr: false, watch: null }, optimizeDeps: { noDiscovery: true } });
+  const { vocabImageManifest } = await import('../scripts/vocab-image-manifest.mjs');
+  const server = await createServer({ configFile: false, plugins: [react(), vocabImageManifest()], appType: 'custom', logLevel: 'silent', server: { middlewareMode: true, hmr: false, watch: null }, optimizeDeps: { noDiscovery: true } });
   try {
     const { SrsView } = await server.ssrLoadModule('/app/views/SrsView.tsx');
     const { VocabIllustration } = await server.ssrLoadModule('/app/components/VocabIllustration.tsx');
@@ -90,6 +91,8 @@ test('card fronts hide images and revealed auxiliary images do not repeat the ac
       const markup = renderToStaticMarkup(createElement(VocabIllustration, { card: illustratedCard }));
       assert.match(markup, /<img\b/);
       assert.match(markup, /\balt=""/);
+      // T161: the source carries its content version, so a revised image never reuses a stale cache entry.
+      assert.ok(markup.includes(`src="/${image.src}?v=`), image.src);
       assert.ok(!markup.includes(image.alt), 'decorative image must not repeat its description');
     }
   } finally { await server.close(); }

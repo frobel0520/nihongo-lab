@@ -6,6 +6,7 @@ import type { Progress } from '../../lib/progress.mjs';
 import type { Prefs } from '../../lib/prefs.mjs';
 import { CACHE_CLEARED_FLAG, ClearCache } from '../components/ClearCache';
 import { OfflineAudio } from '../components/OfflineAudio';
+import { OfflineImages } from '../components/OfflineImages';
 import { ProgressTransfer } from '../components/ProgressTransfer';
 import { SyncPanel } from '../components/SyncPanel';
 import type { SyncApi } from '../useSync';
@@ -112,6 +113,8 @@ export function SettingsView({
           allPaths={ALL_AUDIO_PATHS}
         />
       )}
+
+      <OfflineImages />
 
       <ClearCache />
     </>

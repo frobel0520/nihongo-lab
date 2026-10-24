@@ -4,11 +4,15 @@ import { curriculumChunks } from './scripts/curriculum-chunks.mjs';
 import { VitePWA } from 'vite-plugin-pwa';
 import { AUDIO_CACHE_NAME, AUDIO_ROUTE_PATTERN } from './lib/offline.mjs';
 import { downloadCachePolicy } from './lib/download-cache-policy.mjs';
+import { imageCachePolicy } from './lib/image-cache-policy.mjs';
+import { IMAGE_CACHE_NAME, IMAGE_ROUTE_PATTERN } from './lib/vocab-image-offline.mjs';
+import { vocabImageManifest } from './scripts/vocab-image-manifest.mjs';
 
 export default defineConfig({
   base: process.env.VITE_BASE_PATH || '/',
   plugins: [
     curriculumChunks(),
+    vocabImageManifest(),
     react(),
     VitePWA({
       registerType: 'prompt',
@@ -49,11 +53,22 @@ export default defineConfig({
       workbox: {
         skipWaiting: false,
         clientsClaim: true,
-        importScripts: ['sw-update-control.js'],
+        importScripts: ['sw-update-control.js', 'sw-image-migration.js'],
         globPatterns: ['**/*.{js,css,html,ico,png,jpg,svg}'],
         // 原始插畫只供圖示產生器使用，離線只需快取縮小後的圖示。
-        globIgnores: ['**/icon-source-jinwoo.png'],
+        // T161：單字圖片改為使用者主動下載或揭示時載入，不再列入首次安裝的 precache。
+        globIgnores: ['**/icon-source-jinwoo.png', '**/images/vocab/**'],
         runtimeCaching: [
+          {
+            urlPattern: IMAGE_ROUTE_PATTERN,
+            handler: 'CacheFirst',
+            options: {
+              // 明確下載的圖片只由頁面驗證後寫入；一般瀏覽存到另一個有上限的快取（見外掛）。
+              cacheName: IMAGE_CACHE_NAME,
+              matchOptions: { ignoreVary: true },
+              plugins: [imageCachePolicy],
+            },
+          },
           {
             urlPattern: AUDIO_ROUTE_PATTERN,
             handler: 'CacheFirst',
