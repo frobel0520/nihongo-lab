@@ -1,0 +1,197 @@
+{
+  "task": "T162",
+  "baselineCommit": "ab1c028",
+  "scope": "Local premerge evidence on the formal /nihongo-lab/ build (images on demand since T161). The PR release record maps pre-rebase commits to final main and records production checks.",
+  "contract": {
+    "cardEntries": 5909,
+    "oldMappingsUnchanged": 5039,
+    "oldSvgUnchanged": 1614,
+    "newSvgUnique": 628,
+    "uniqueHashesAll": 2242,
+    "audioFilesUnchanged": 8535,
+    "curriculumIdsSrsSync3AudioRoutesDependenciesAndBudgetsUnchanged": true,
+    "paletteOnlyExistingColours": true
+  },
+  "check": {
+    "tests": 346,
+    "fail": 0,
+    "typecheck": true,
+    "lint": true
+  },
+  "bundle": {
+    "mainJsGzipBytes": 65701,
+    "cssGzipBytes": 5068,
+    "precacheBytes": 22731907,
+    "precacheLimit": 26869829,
+    "precacheEntries": 482,
+    "vocabSvgInPrecache": 0,
+    "measuredOn": "local Windows build; CI Linux figures in the PR"
+  },
+  "newSvg": {
+    "count": 628,
+    "bytes": 497841,
+    "license": "CC0-1.0",
+    "safeNoScriptTextImageOrExternalRefs": true,
+    "reviewedIndividuallyAt224And56": 628,
+    "actual375CardsReviewedIncludingScrolled": 628,
+    "redrawnAfterReview": [
+      "reflected",
+      "negativeform",
+      "judgingsword",
+      "finaljourney",
+      "sleepstars",
+      "blackwings",
+      "gotomoonlight",
+      "gemkey",
+      "similarsounds",
+      "kanjiwriting",
+      "twentyyearsold",
+      "whichday",
+      "numeralsdisplay",
+      "alittlemore",
+      "onetorch",
+      "choiceconsequence",
+      "knowyourplace"
+    ]
+  },
+  "inventory": {
+    "cardEntries": 5909,
+    "illustratedEntries": 5909,
+    "missingEntries": 0
+  },
+  "mappingCounts": {
+    "primary": 628,
+    "oldShared": 113,
+    "newShared": 129,
+    "totalAdded": 870,
+    "crossSourceLessonShared": 231,
+    "sameSourceLessonShared": 11,
+    "priorDeferredResolved": 73,
+    "newDeferred": 0
+  },
+  "capacity": {
+    "appPrecache": {
+      "files": 482,
+      "bytes": 22731907,
+      "MB": 22.73,
+      "MiB": 21.68
+    },
+    "allVocabSvg": {
+      "files": 2242,
+      "bytes": 1669373,
+      "MB": 1.67,
+      "MiB": 1.59
+    },
+    "lessonAudio": {
+      "files": 8535,
+      "bytes": 167004460,
+      "MB": 167,
+      "MiB": 159.27
+    },
+    "voicePreview": {
+      "files": 43,
+      "bytes": 1101266,
+      "MB": 1.1,
+      "MiB": 1.05
+    },
+    "everythingDownloaded": {
+      "files": 11259,
+      "bytes": 191405740,
+      "MB": 191.41,
+      "MiB": 182.54
+    }
+  },
+  "browser": {
+    "viewport": "375x667 @2x desktop Chromium; BrowserContext offline for disconnect",
+    "firstInstall": {
+      "ms": 2124,
+      "entries": 482
+    },
+    "studyDuringInstall": {
+      "ok": true,
+      "ms": 923,
+      "swState": {
+        "i": "installing"
+      }
+    },
+    "onlinePrimaryReveals": {
+      "total": 628,
+      "ok": 628
+    },
+    "explicitImageDownload": {
+      "ms": 9700,
+      "text": "完成：新存 2242 張。"
+    },
+    "offlinePrimaryReveals": {
+      "total": 629,
+      "ok": 629
+    },
+    "offlineSha": {
+      "probe": "TypeError: Failed to fetch",
+      "total": 2242,
+      "match": 2242
+    },
+    "missingImageFallback": {
+      "imgPresent": false,
+      "gradesVisible": true,
+      "playVisible": true,
+      "word": "名前",
+      "gradeSaved": true,
+      "nextImageRecovered": true
+    },
+    "openCardRetries": 0,
+    "completeFlows": {
+      "count": 156,
+      "ok": 156,
+      "audioPlayedAt1x": 156,
+      "note": "flows rerun with an image-load wait; the first pass sampled the image before it finished loading from the network",
+      "cards": [
+        "stage0-day5:月曜日",
+        "stage0-day20:父",
+        "stage0-day23:赤",
+        "stage0-day4:三",
+        "general-listening-05:説明",
+        "general-listening-61:合図",
+        "general-listening-36:必ず",
+        "general-listening-74:似る",
+        "general-listening-11:人数",
+        "general-listening-130:救出",
+        "general-listening-53:注意",
+        "anime-lesson-04:約束",
+        "stage0-day22:ペン",
+        "general-listening-87:少し",
+        "general-listening-131:長さ",
+        "stage0-day5:七日",
+        "stage0-day3:いくら",
+        "general-listening-36:次",
+        "general-listening-28:一枚",
+        "anime-lesson-03:勝ち取る",
+        "stage0-day1:名前",
+        "stage0-day20:お父さん",
+        "stage0-day11:七つ",
+        "general-listening-28:二枚",
+        "general-listening-146:鍵",
+        "general-listening-178:守る",
+        "general-listening-49:つまり",
+        "anime-lesson-03:括る",
+        "anime-lesson-08:地獄",
+        "game-card:game:genshin:beidou:join:8d827f9228",
+        "game-card:game:genshin:eula:skill:337e2cd5a9",
+        "game-card:game:genshin:gaming:skill:fe90a48ac9",
+        "game-card:game:genshin:keqing:skill:a6df9f6939",
+        "game-card:game:genshin:kirara:burst:4580f7a625",
+        "game-card:game:genshin:kujousara:skill:2ce5d65790",
+        "game-card:game:genshin:razor:skill:8c0a55dbe2",
+        "game-card:game:genshin:tartaglia:skill:dd4b2c0aff",
+        "game-card:game:genshin:varesa:join:0fe3e8de46",
+        "game-card:game:genshin:xianyun:skill:2ce5d65790"
+      ]
+    },
+    "pageErrors": 0
+  },
+  "limits": [
+    "Desktop Chromium emulating a phone, not a real device; no screen-reader or memory-effect claim.",
+    "Operation sampling covers representative flows, not every card.",
+    "Asset/data self-review, operation sampling and device validation are separate claims."
+  ]
+}

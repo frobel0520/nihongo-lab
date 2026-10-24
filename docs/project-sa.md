@@ -1,5 +1,9 @@
 # 系統分析
 
+## T162 全站配圖完成（2026-10-24）
+
+5909張卡全部有逐ID核實的配圖（2242張原創CC0 SVG）。映射仍只比對凍結的ID／word／reading／zh四欄；新卡加入教材時需逐張核對後才配圖，沒有自動依字面擴散。圖片依T161契約揭示時載入或在設定頁下載，不在precache。詳見[vocab-illustration-t162.md](vocab-illustration-t162.md)。
+
 ## T161 單字圖片離線契約變更（2026-10-24）
 
 使用者授權：單字SVG不再列入APP precache。揭示時線上載入並存入上限400張的瀏覽快取（`vocab-images-browse-v1`）；設定頁「離線單字圖片」可主動下載全部到保留快取（`vocab-images-v1`，不按筆數或時間淘汰）。網址帶內容版本`?v=`（build時由SVG位元組算出），修訂後換網址；新版本存好才刪舊版本。舊precache圖片在新worker安裝時依內容版本搬進保留快取，activate後才清除。沒下載的圖離線時只顯示文字。音檔下載、進度、同步版本3與使用者確認更新流程不變。詳見[offline-images-t161.md](offline-images-t161.md)。
