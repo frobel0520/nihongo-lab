@@ -33,6 +33,7 @@ import { useSync } from './useSync';
 import { LessonListView } from './views/LessonListView';
 import { STUDY_CATEGORIES } from '../lib/study-categories.mjs';
 import { StudyCategoryPicker } from './components/StudyCategoryPicker';
+import { ImageUpdateHint } from './components/ImageUpdateHint';
 
 const DictationView = lazy(() =>
   import('./views/DictationView').then((m) => ({ default: m.DictationView })),
@@ -167,7 +168,7 @@ export function App() {
               {changed
                 ? '版本已切換，請完成目前作答後重新載入。'
                 : '有新版可用；可先完成目前作答，稍後再更新。更新前請關閉本網站其他分頁。'}
-              已儲存的學習進度與下載音檔會保留。
+              已儲存的學習進度、下載的音檔與單字圖片會保留；新版若有新增或修訂的圖片，可到設定頁補下載。
               {updateError && <span role="alert">{updateError}</span>}
             </span>
             <span className="row">
@@ -205,6 +206,7 @@ export function App() {
             </span>
           </div>
         )}
+        <ImageUpdateHint onSettings={route.view === 'settings'} />
         {saveError && (
           <p className="notice" role="alert">
             {saveError}
