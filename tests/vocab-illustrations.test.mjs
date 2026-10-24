@@ -100,3 +100,40 @@ test('card fronts hide images and revealed auxiliary images do not repeat the ac
     }
   } finally { await server.close(); }
 });
+
+test('T163 redraws exactly three weak pictures; the other T162 assets keep their recorded bytes', async () => {
+  const { createHash } = await import('node:crypto');
+  const { readdir } = await import('node:fs/promises');
+  // Windows checkouts may use CRLF; recorded hashes are of the committed LF bytes.
+  const sha = async (src) => createHash('sha256').update((await readFile(new URL(`../public/${src}`, import.meta.url), 'utf8')).replace(/\r\n/g, '\n')).digest('hex');
+  const revised = {
+    'images/vocab/minutehand.svg': 'a9729f63fe73453d77002fe866c36bbe5c3831c48766eb25712b5965214c4d66',
+    'images/vocab/temporarily.svg': '9a22006d68667f303530b35274c9f51e2a3b0da9d7931caed05fe2e32a2bf4b0',
+    'images/vocab/lifenotsmooth.svg': 'e1b3c3992a706bf919f46fccf1d623e4fd4dcfa775db1284a8066e8558487134',
+  };
+  const assets = JSON.parse(await readFile(new URL('../docs/vocab-illustration-t162-assets.json', import.meta.url), 'utf8'));
+  for (const asset of assets) {
+    if (revised[asset.src]) {
+      assert.notEqual(await sha(asset.src), asset.sha256, `${asset.src} was redrawn`);
+      assert.equal(await sha(asset.src), revised[asset.src]);
+    } else assert.equal(await sha(asset.src), asset.sha256, asset.src);
+  }
+  // Mappings stay: each redrawn picture still belongs to the same single card.
+  assert.deepEqual(VOCAB_ILLUSTRATIONS.filter(x => revised[x.src]).map(x => x.id).sort(), [
+    'game-card:game:er:aiden:selection-voice:eaea8b98f3:eaea8b98f3',
+    'general-listening-144:一時',
+    'stage0-day4:分',
+  ]);
+  // Redrawn pictures reuse colours that other pictures already use.
+  const colours = (svg) => new Set((svg.match(/#[0-9a-f]{6}\b/gi) ?? []).map(c => c.toLowerCase()));
+  const existing = new Set();
+  for (const file of await readdir(new URL('../public/images/vocab/', import.meta.url))) {
+    if (!file.endsWith('.svg') || revised[`images/vocab/${file}`]) continue;
+    for (const c of colours(await readFile(new URL(`../public/images/vocab/${file}`, import.meta.url), 'utf8'))) existing.add(c);
+  }
+  for (const src of Object.keys(revised)) {
+    const svg = await readFile(new URL(`../public/${src}`, import.meta.url), 'utf8');
+    assert.ok(Buffer.byteLength(svg) < 1000, src);
+    for (const c of colours(svg)) assert.ok(existing.has(c), `${src} uses existing colour ${c}`);
+  }
+});
