@@ -4,6 +4,9 @@ import { readFile } from 'node:fs/promises';
 import { collectInventoryCards } from '../scripts/vocab-illustration-inventory.mjs';
 import { VOCAB_ILLUSTRATIONS, illustrationFor } from '../lib/vocab-illustrations.mjs';
 
+// T163: per-ID composition descriptions are authoring data, not part of the runtime mapping.
+const DESCRIPTIONS = JSON.parse(await readFile(new URL('../docs/vocab-illustration-descriptions.json', import.meta.url), 'utf8'));
+
 test('illustrations resolve all 5909 approved cards and their actual senses', async () => {
   const cards = await collectInventoryCards();
   assert.equal(VOCAB_ILLUSTRATIONS.length, 5909);
@@ -39,7 +42,7 @@ test('all reviewed images are local compact original vectors with no active or r
   const assets = [...new Map(VOCAB_ILLUSTRATIONS.map(image => [image.src, image])).values()];
   for (const image of assets) {
     assert.match(image.src, /^images\/vocab\/[a-z]+\.svg$/);
-    assert.ok(image.alt.length > 1);
+    assert.ok(DESCRIPTIONS[image.id].length > 1, `${image.id} keeps its authoring description`);
     const svg = await readFile(new URL(`../public/${image.src}`, import.meta.url), 'utf8');
     if (assets.indexOf(image) < 12) pilotBytes += Buffer.byteLength(svg);
     else if (assets.indexOf(image) < 42) expansionBytes += Buffer.byteLength(svg);
@@ -96,7 +99,7 @@ test('card fronts hide images and revealed auxiliary images do not repeat the ac
       assert.match(markup, /\balt=""/);
       // T161: the source carries its content version, so a revised image never reuses a stale cache entry.
       assert.ok(markup.includes(`src="/${image.src}?v=`), image.src);
-      assert.ok(!markup.includes(image.alt), 'decorative image must not repeat its description');
+      assert.ok(!markup.includes(DESCRIPTIONS[image.id]), 'decorative image must not repeat its description');
     }
   } finally { await server.close(); }
 });
@@ -135,5 +138,15 @@ test('T163 redraws exactly three weak pictures; the other T162 assets keep their
     const svg = await readFile(new URL(`../public/${src}`, import.meta.url), 'utf8');
     assert.ok(Buffer.byteLength(svg) < 1000, src);
     for (const c of colours(svg)) assert.ok(existing.has(c), `${src} uses existing colour ${c}`);
+  }
+});
+
+test('T163: the runtime mapping carries no composition descriptions and the app never loads them', async () => {
+  const { readdir } = await import('node:fs/promises');
+  assert.ok(VOCAB_ILLUSTRATIONS.every(image => Object.keys(image).join() === 'id,word,reading,zh,src'));
+  assert.deepEqual(Object.keys(DESCRIPTIONS).sort(), VOCAB_ILLUSTRATIONS.map(image => image.id).sort());
+  const files = async (dir) => (await readdir(new URL(dir, import.meta.url), { recursive: true })).filter(f => /\.(ts|tsx|mjs)$/.test(f)).map(f => new URL(dir + f.replaceAll('\\', '/'), import.meta.url));
+  for (const file of [...await files('../app/'), ...await files('../lib/')]) {
+    assert.doesNotMatch(await readFile(file, 'utf8'), /(?:from\s*|import\(\s*|fetch\(\s*)['"`][^'"`]*vocab-illustration-descriptions/, String(file));
   }
 });
