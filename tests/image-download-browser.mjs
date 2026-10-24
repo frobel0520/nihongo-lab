@@ -149,26 +149,73 @@ try {
   await page.getByText(`共 ${rows.length} 張`, { exact: false }).waitFor();
   const retried = versioned.at(-3).split('?')[0];
   const persistent = versioned.at(-2).split('?')[0];
+  const startButton = (p) => p.getByRole('button', { name: /^下載(全部|其餘)單字圖片$/ });
+  const savedNow = () => countCache(page, 'vocab-images-v1');
+
+  // 3a (T163). Offline when pressing download: say so at once, send no request.
+  resetStats();
+  await context.setOffline(true);
+  let t0 = Date.now();
+  await startButton(page).click();
+  await page.getByText('目前沒有網路，無法下載圖片', { exact: false }).waitFor({ timeout: 2000 });
+  assert.equal(stats.imageDownloads.size, 0);
+  result.offlineStart = { ms: Date.now() - t0, requests: 0 };
+  await context.setOffline(false);
+
+  // 3b (T163). The browser says online but every request fails: pause after about one round, nothing counted as failed.
+  let aborted = 0;
+  const failAll = (route) => { aborted++; return route.abort('internetdisconnected'); };
+  await page.route(/offline-download/, failAll);
+  t0 = Date.now();
+  await startButton(page).click();
+  await page.getByText('網路中斷，下載已暫停', { exact: false }).waitFor({ timeout: 10000 });
+  assert.ok(aborted <= 12, `stopped after ${aborted} failed requests`);
+  assert.equal(await savedNow(), 0);
+  assert.doesNotMatch(await page.textContent('body'), /失敗 \d+ 張/);
+  result.connectedButFailing = { ms: Date.now() - t0, requests: aborted };
+  await page.unroute(/offline-download/, failAll);
+
+  // 3c (T163). The job outlives Settings: switching pages keeps downloading; back in Settings it shows the same job.
   downloadDelay = 15;
   resetStats();
-  await page.getByRole('button', { name: '下載全部單字圖片', exact: true }).click();
-  await page.waitForFunction(() => /下載圖片中… ([3-9]\d|\d{3,}) \//.test(document.body.innerText));
+  await startButton(page).click();
+  await page.waitForFunction(() => /本次已存 ([3-9]\d|\d{3,}) \//.test(document.body.innerText));
   // Second tab: the cross-tab lock refuses a parallel run.
   const other = await context.newPage(); observe(other);
   await other.goto(base + '#/settings');
-  await other.getByRole('button', { name: '下載其餘單字圖片', exact: true }).click();
+  await startButton(other).click();
   await other.getByText('另一個分頁正在下載圖片', { exact: false }).waitFor();
   await other.close();
-  // Leaving Settings interrupts the run; nothing is half-written.
-  await page.evaluate(() => { location.hash = '#/'; });
-  await page.waitForTimeout(500);
-  const interrupted = await countCache(page, 'vocab-images-v1');
-  assert.ok(interrupted > 0 && interrupted < rows.length, `interrupted after ${interrupted}`);
+  await page.evaluate(() => { location.hash = '#/srs'; });
+  await page.waitForTimeout(1000);
+  const whileAway = await savedNow();
+  await page.waitForTimeout(1500);
+  const later = await savedNow();
+  assert.ok(later > whileAway, `keeps downloading on other pages (${whileAway} → ${later})`);
+  await page.evaluate(() => { location.hash = '#/settings'; });
+  await page.getByText('下載中：本次已存', { exact: false }).waitFor();
+  assert.equal(await startButton(page).count(), 0, 'no second start while the job runs');
+  // Cancel keeps what was saved.
+  await page.getByRole('button', { name: '取消下載', exact: true }).click();
+  await page.getByText('已取消：本次已存', { exact: false }).waitFor({ timeout: 10000 });
+  const interrupted = await savedNow();
+  assert.ok(interrupted > later && interrupted < rows.length, `cancelled after ${interrupted}`);
+
+  // 3d (T163). Going offline mid-run pauses quickly and keeps saved images.
+  await startButton(page).click();
+  await page.waitForFunction(() => /本次已存 ([1-9]\d|\d{3,}) \//.test(document.body.innerText));
+  const beforeDrop = await savedNow();
+  t0 = Date.now();
+  await context.setOffline(true);
+  await page.getByText('網路中斷，下載已暫停', { exact: false }).waitFor({ timeout: 5000 });
+  result.offlineMidRun = { ms: Date.now() - t0, keptAtLeast: beforeDrop };
+  assert.ok(await savedNow() >= beforeDrop);
+  await context.setOffline(false);
+
   downloadDelay = 0;
   failures.set(retried, 2); // recovers through automatic retries
   failures.set(persistent, 3); // still failing after both retries
-  await page.evaluate(() => { location.hash = '#/settings'; });
-  await page.getByRole('button', { name: '下載其餘單字圖片', exact: true }).click();
+  await startButton(page).click();
   await page.getByText(/失敗 1 張/).waitFor({ timeout: 300000 });
   const repeated = [...stats.imageDownloads.entries()].filter(([path, n]) => n > 1 && !failures.has(path));
   assert.deepEqual(repeated, [], 'resumed run skips images already saved');
@@ -178,7 +225,25 @@ try {
   failures.clear();
   await page.getByRole('button', { name: '下載其餘單字圖片', exact: true }).click();
   await page.getByRole('button', { name: '單字圖片已全部存好', exact: true }).waitFor();
-  result.download = { interruptedAt: interrupted, retriedThenSaved: 1, failedThenRetried: 1, parallelTabRefused: true, requests: [...stats.imageDownloads.values()].reduce((a, b) => a + b, 0) };
+  result.download = { keptDownloadingAway: later - whileAway, interruptedAt: interrupted, retriedThenSaved: 1, failedThenRetried: 1, parallelTabRefused: true, requests: [...stats.imageDownloads.values()].reduce((a, b) => a + b, 0) };
+
+  // 3e (T163). After a finished download, a changed image list shows a one-line reminder once per version.
+  const completeKey = 'nihongo-lab:vocab-images:complete';
+  assert.ok(await page.evaluate(k => localStorage.getItem(k), completeKey), 'finishing records the downloaded version');
+  assert.equal(await page.getByText('單字圖片有新增或更新', { exact: false }).count(), 0, 'not shown on Settings');
+  await page.evaluate(k => localStorage.setItem(k, 'older0000000'), completeKey);
+  await page.goto(base + '#/');
+  await page.reload();
+  await page.getByText('單字圖片有新增或更新', { exact: false }).waitFor();
+  assert.equal(await page.getByRole('link', { name: '前往下載' }).getAttribute('href'), '#/settings');
+  await page.getByRole('button', { name: '知道了', exact: true }).click();
+  await page.reload();
+  await page.waitForSelector('nav.tabs');
+  assert.equal(await page.getByText('單字圖片有新增或更新', { exact: false }).count(), 0, 'dismissed for this version');
+  await page.goto(base + '#/settings');
+  await page.getByRole('button', { name: '單字圖片已全部存好', exact: true }).waitFor();
+  assert.notEqual(await page.evaluate(k => localStorage.getItem(k), completeKey), 'older0000000', 'Settings re-confirms the current version');
+  result.updateHint = { shownAfterChange: true, dismissedOncePerVersion: true };
 
   // 4. True offline: reload, read every image through the worker and compare content versions.
   await context.setOffline(true);

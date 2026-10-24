@@ -59,9 +59,9 @@ export function ClearCache() {
     <section className="card">
       <h3>清除快取</h3>
       <p className="muted">
-        清掉存在這個裝置上的離線音檔與程式檔（含舊版留下的快取），並重新載入取得最新版（畫面不對或版本沒更新時用）。
+        清掉存在這個裝置上的程式檔、已下載的離線音檔與離線單字圖片（含舊版留下的快取），並重新載入取得最新版（畫面不對或版本沒更新時用）。
         <strong>學習進度（單字卡、聽寫紀錄）與顯示偏好不會被清除。</strong>
-        清完需要網路重新下載；離線音檔要再到上面重新下載。
+        清完需要網路重新載入；離線音檔與單字圖片要再到上面重新下載。
       </p>
 
       {phase.kind === 'idle' && (
@@ -82,7 +82,7 @@ export function ClearCache() {
 
       {phase.kind === 'confirm' && (
         <div className="notice notice-row" role="alert">
-          <span>確定清除快取？進度會保留。</span>
+          <span>確定清除快取？已下載的離線音檔與單字圖片會一起刪除，需要重新下載；學習進度與顯示偏好會保留。</span>
           <span className="row">
             <button type="button" className="btn primary" onClick={clear}>
               確定清除

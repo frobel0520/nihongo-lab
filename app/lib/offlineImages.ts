@@ -1,4 +1,6 @@
 import { VOCAB_IMAGE_ROWS } from 'virtual:vocab-image-manifest';
+import { VOCAB_IMAGE_FINGERPRINT } from 'virtual:vocab-image-fingerprint';
+import { markImagesCompleteFor } from './imageUpdateHint';
 import { downloadUrl } from '../../lib/offline.mjs';
 import {
   IMAGE_CACHE_NAME,
@@ -76,8 +78,14 @@ async function cachedUrls() {
 }
 
 export async function readImageStatus() {
-  return imageCacheStatus(VOCAB_IMAGES, await cachedUrls(), absolute);
+  const status = imageCacheStatus(VOCAB_IMAGES, await cachedUrls(), absolute);
+  // 已確認這個版本的圖全部存好：記下來，之後圖片有新版才提醒（見 imageUpdateHint）。
+  if (status.pending === 0) markImagesComplete();
+  return status;
 }
+
+/** 這個版本的圖片已全部下載。 */
+export const markImagesComplete = () => markImagesCompleteFor(VOCAB_IMAGE_FINGERPRINT);
 
 /** 新版本已下載後才刪舊版本；不在清單的舊圖一併清掉。 */
 export async function pruneImageCache() {

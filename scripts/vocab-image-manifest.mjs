@@ -7,6 +7,17 @@ import { IMAGE_VERSION_LENGTH } from '../lib/vocab-image-offline.mjs';
 
 const VIRTUAL_ID = 'virtual:vocab-image-manifest';
 const RESOLVED_ID = '\0' + VIRTUAL_ID;
+// T163：只含清單指紋的小模組，給首頁判斷「圖片有新版」用，不把整份清單打包進主程式。
+const FINGERPRINT_ID = 'virtual:vocab-image-fingerprint';
+const RESOLVED_FINGERPRINT_ID = '\0' + FINGERPRINT_ID;
+
+/** 清單內容（檔名＋版本）的指紋；任何一張圖新增、刪除或修訂都會改變。
+ * @param {import('../lib/vocab-image-offline.mjs').VocabImageRow[]} rows */
+export const manifestFingerprint = (rows) =>
+  createHash('sha256')
+    .update(rows.map(([name, version]) => `${name}:${version}`).join('\n'))
+    .digest('hex')
+    .slice(0, IMAGE_VERSION_LENGTH);
 
 /** @param {string} [dir] @returns {Promise<import('../lib/vocab-image-offline.mjs').VocabImageRow[]>} */
 export async function buildVocabImageManifestRows(dir = 'public/images/vocab') {
@@ -34,12 +45,15 @@ export function vocabImageManifest() {
       dir = resolve(config.publicDir, 'images/vocab');
     },
     resolveId(id) {
-      return id === VIRTUAL_ID ? RESOLVED_ID : null;
+      if (id === VIRTUAL_ID) return RESOLVED_ID;
+      return id === FINGERPRINT_ID ? RESOLVED_FINGERPRINT_ID : null;
     },
     async load(id) {
-      if (id !== RESOLVED_ID) return null;
+      if (id !== RESOLVED_ID && id !== RESOLVED_FINGERPRINT_ID) return null;
       const rows = await buildVocabImageManifestRows(dir);
       for (const [name] of rows) this.addWatchFile(join(dir, `${name}.svg`));
+      if (id === RESOLVED_FINGERPRINT_ID)
+        return `export const VOCAB_IMAGE_FINGERPRINT = ${JSON.stringify(manifestFingerprint(rows))};`;
       return `export const VOCAB_IMAGE_ROWS = ${JSON.stringify(rows)};`;
     },
   };

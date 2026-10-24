@@ -10,13 +10,18 @@ import {
   IMAGE_BROWSE_CACHE_NAME,
   IMAGE_BROWSE_LIMIT,
   IMAGE_CACHE_NAME,
+  IMAGE_DOWNLOAD_CONCURRENCY,
+  IMAGE_NETWORK_STOP_AFTER,
   IMAGE_ROUTE_PATTERN,
   expandManifest,
+  formatMegabytes,
+  isNetworkFailure,
+  shouldRemindImageUpdate,
   imageCacheStatus,
   removableImageUrls,
   versionedSrc,
 } from '../lib/vocab-image-offline.mjs';
-import { buildVocabImageManifestRows } from '../scripts/vocab-image-manifest.mjs';
+import { buildVocabImageManifestRows, manifestFingerprint } from '../scripts/vocab-image-manifest.mjs';
 
 const origin = 'https://example.com/nihongo-lab/';
 const toUrl = (src) => origin + src;
@@ -189,4 +194,98 @@ test('installing worker copies precached SVGs into the retained cache by content
   let pending;
   failingInstall({ waitUntil: (p) => { pending = p; } });
   await pending;
+});
+
+test('T163: losing the network pauses the whole batch quickly, keeps what was saved and never counts it as failed', async () => {
+  const items = Array.from({ length: 2242 }, (_, i) => `img${i}`);
+  const stored = new Set();
+  let online = true;
+  let calls = 0;
+  const waits = [];
+  const store = {
+    async has(item) { return stored.has(item); },
+    async save(item) {
+      calls++;
+      if (!online) throw new TypeError('Failed to fetch');
+      stored.add(item);
+      if (stored.size === 300) online = false; // network drops mid-run
+    },
+  };
+  const progress = [];
+  const result = await downloadMissing(items, store, {
+    concurrency: IMAGE_DOWNLOAD_CONCURRENCY, retries: 2, wait: async (n) => { waits.push(n); },
+    isNetworkError: isNetworkFailure, networkStopAfter: IMAGE_NETWORK_STOP_AFTER,
+    onProgress: (p) => progress.push(p),
+  });
+  assert.equal(result.stopped, 'network');
+  assert.equal(result.downloaded, 300, 'saved counts only real cache writes');
+  assert.equal(result.failed.length, 0, 'a dropped connection is not a permanent failure');
+  assert.ok(result.deferred >= IMAGE_NETWORK_STOP_AFTER);
+  assert.ok(calls < 300 + IMAGE_NETWORK_STOP_AFTER * 2, `stops after a few network errors, not after scanning the list (${calls} calls)`);
+  assert.deepEqual(waits, [], 'network errors are not retried with back-off');
+  assert.equal(progress.at(-1).saved, 300);
+  assert.ok(progress.every((p) => p.saved <= p.done), 'processed and saved stay separate');
+
+  // Back online: the next run resumes from what is missing only.
+  online = true; calls = 0;
+  const resumed = await downloadMissing(items, store, { concurrency: 6, isNetworkError: isNetworkFailure });
+  assert.equal(resumed.skipped, 300);
+  assert.equal(resumed.downloaded, 1942);
+  assert.equal(calls, 1942);
+  assert.equal(resumed.stopped, undefined);
+});
+
+test('T163: offline from the start stops within about one round of requests; HTTP errors still retry and fail', async () => {
+  let calls = 0;
+  const offline = await downloadMissing(Array.from({ length: 500 }, (_, i) => i), {
+    async has() { return false; },
+    async save() { calls++; throw new TypeError('Failed to fetch'); },
+  }, { concurrency: 6, retries: 2, wait: async () => {}, isNetworkError: isNetworkFailure, networkStopAfter: 6 });
+  assert.equal(offline.stopped, 'network');
+  assert.equal(offline.downloaded, 0);
+  assert.equal(offline.failed.length, 0);
+  assert.ok(calls <= 12, `about one round of parallel requests, not 500 × 3 (${calls})`);
+
+  const tries = [];
+  const http = await downloadMissing(['a'], {
+    async has() { return false; },
+    async save(i) { tries.push(i); throw new Error('HTTP 503'); },
+  }, { retries: 2, wait: async () => {}, isNetworkError: isNetworkFailure });
+  assert.equal(tries.length, 3);
+  assert.equal(http.failed.length, 1);
+  assert.equal(http.stopped, undefined);
+
+  // Cancelling reports why the batch ended early.
+  const controller = new AbortController();
+  const cancelled = await downloadMissing(['x', 'y', 'z'], {
+    async has() { return false; },
+    async save() { controller.abort(); },
+  }, { concurrency: 1, signal: controller.signal, isNetworkError: isNetworkFailure });
+  assert.equal(cancelled.stopped, 'aborted');
+});
+
+test('T163: audio downloads keep their original result shape', async () => {
+  const result = await downloadMissing(['a'], { async has() { return false; }, async save() { throw new TypeError('Failed to fetch'); } });
+  assert.deepEqual(result, { total: 1, skipped: 0, downloaded: 0, failed: [{ path: 'a', message: 'Failed to fetch' }] });
+});
+
+test('T163: small non-zero sizes are shown in KB, never as 0.00 MB', () => {
+  assert.equal(formatMegabytes(0), '0.00 MB');
+  assert.equal(formatMegabytes(708), '0.7 KB');
+  assert.equal(formatMegabytes(30), '0.1 KB');
+  assert.equal(formatMegabytes(9_999), '10.0 KB');
+  assert.equal(formatMegabytes(10_000), '0.01 MB');
+  assert.equal(formatMegabytes(1_668_359), '1.67 MB');
+});
+
+test('T163: image update reminder only for people who finished a download, once per version', () => {
+  assert.equal(shouldRemindImageUpdate('new', null, null), false, 'never downloaded everything: no nagging');
+  assert.equal(shouldRemindImageUpdate('same', 'same', null), false);
+  assert.equal(shouldRemindImageUpdate('new', 'old', null), true);
+  assert.equal(shouldRemindImageUpdate('new', 'old', 'new'), false, 'dismissed for this version');
+  assert.equal(shouldRemindImageUpdate('newer', 'old', 'new'), true, 'a later version reminds again');
+  const rows = [['a', '111111111111', 1], ['b', '222222222222', 2]];
+  assert.equal(manifestFingerprint(rows), manifestFingerprint(rows.map((r) => [...r])));
+  assert.notEqual(manifestFingerprint(rows), manifestFingerprint([rows[0], ['b', '333333333333', 2]]));
+  assert.match(manifestFingerprint(rows), /^[0-9a-f]{12}$/);
 });
