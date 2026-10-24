@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState, type MouseEvent } from 'react';
 import { isInteractive, isTextEntry, type KeyTarget } from '../../lib/keys.mjs';
 import { recordReviewSequence, type Progress } from '../../lib/progress.mjs';
 import { studyHash, viewHash } from '../../lib/route.mjs';
@@ -135,6 +135,15 @@ export function SrsView({
   );
   const [revealed, setRevealed] = useState(false);
   const [reviewed, setReviewed] = useState(0);
+  // T163：鍵盤揭示或評分後，被按的按鈕會從畫面上消失，焦點掉到 <body>。
+  // 只在鍵盤操作、而且焦點真的掉了時，移到下一個操作位置（揭示後→評分區；換卡後→「顯示答案」）。
+  // 滑鼠與觸控點擊（event.detail > 0）不搬焦點。
+  const keyboardAction = useRef(false);
+  const gradesRef = useRef<HTMLFieldSetElement>(null);
+  const revealRef = useRef<HTMLButtonElement>(null);
+  const fromKeyboard = (event: MouseEvent) => {
+    if (event.detail === 0) keyboardAction.current = true;
+  };
   const current = currentCard(session);
   const total = session.deck.length;
   // 進度 = 這一輪已評「記得」的張數，答「還不會」不會讓進度倒退。
@@ -180,6 +189,14 @@ export function SrsView({
   };
 
   useEffect(() => {
+    if (!keyboardAction.current) return;
+    keyboardAction.current = false;
+    const active = document.activeElement;
+    if (active && active !== document.body) return;
+    (revealed ? gradesRef : revealRef).current?.focus({ preventScroll: true });
+  }, [revealed, session]);
+
+  useEffect(() => {
     if (!current) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
@@ -188,12 +205,15 @@ export function SrsView({
         // 焦點在按鈕或連結上時，空白鍵是「按下去」，不能搶來翻卡。
         if (isInteractive(target)) return;
         e.preventDefault();
+        keyboardAction.current = true;
         setRevealed(true);
       } else if (revealed && ['1', '2'].includes(e.key)) {
         if (isTextEntry(target)) return;
+        keyboardAction.current = true;
         grade(GRADES[Number(e.key) - 1]);
       } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
         if (isTextEntry(target)) return;
+        keyboardAction.current = true;
         moveTo(step(session, e.key === 'ArrowLeft' ? -1 : 1));
       }
     };
@@ -357,7 +377,7 @@ export function SrsView({
 
       <div className="actions" data-no-swipe>
         {revealed ? (
-          <fieldset className="grades">
+          <fieldset className="grades" ref={gradesRef} tabIndex={-1}>
             <legend className="sr-only">評分</legend>
             {GRADES.map((g, i) => (
               <button
@@ -366,7 +386,10 @@ export function SrsView({
                 className={`grade grade-${g}`}
                 aria-label={`${GRADE_LABEL[g]}，${preview(g)}（按 ${i + 1}）`}
                 title={`${GRADE_LABEL[g]}（按 ${i + 1}）`}
-                onClick={() => grade(g)}
+                onClick={(event) => {
+                  fromKeyboard(event);
+                  grade(g);
+                }}
               >
                 {g === 'again' ? <CloseIcon /> : <CheckIcon />}
                 <span>{GRADE_LABEL[g]}</span>
@@ -378,7 +401,11 @@ export function SrsView({
           <button
             type="button"
             className="btn primary big block"
-            onClick={() => setRevealed(true)}
+            ref={revealRef}
+            onClick={(event) => {
+              fromKeyboard(event);
+              setRevealed(true);
+            }}
           >
             顯示答案
           </button>
