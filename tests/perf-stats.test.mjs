@@ -56,9 +56,15 @@ test('bundle 預算固定原始基準＋50%，其他上限保持且正確處理�
   assert.deepEqual(BUNDLE_BUDGETS, [
     { metric: 'mainJsGzipBytes', limit: 630_000, unit: 'bytes' },
     { metric: 'cssGzipBytes', limit: 5_800, unit: 'bytes' },
+    { metric: 'illustrationChunkGzipBytes', limit: 183_750, unit: 'bytes' },
     { metric: 'precacheBytes', limit: 26_869_829, unit: 'bytes' },
   ]);
   const precache = BUNDLE_BUDGETS.filter(b => b.metric === 'precacheBytes');
   assert.equal(gatePassed(evaluateBudgets({ precacheBytes: 26_869_829 }, precache)), true);
   assert.equal(gatePassed(evaluateBudgets({ precacheBytes: 26_869_830 }, precache)), false);
+  // T163：配圖映射 chunk 依移除描述後的 153,125 bytes＋20%；描述回流（約 +150 KB）會超標。
+  const illustration = BUNDLE_BUDGETS.filter(b => b.metric === 'illustrationChunkGzipBytes');
+  assert.equal(gatePassed(evaluateBudgets({ illustrationChunkGzipBytes: 183_750 }, illustration)), true);
+  assert.equal(gatePassed(evaluateBudgets({ illustrationChunkGzipBytes: 183_751 }, illustration)), false);
+  assert.equal(gatePassed(evaluateBudgets({ illustrationChunkGzipBytes: 307_085 }, illustration)), false);
 });
