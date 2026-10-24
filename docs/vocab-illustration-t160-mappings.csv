@@ -1,0 +1,793 @@
+type,cardId,category,word,reading,zh,asset,sourceId,reason,sourceContext
+primary,stage0-day5:一日,n5,一日,ついたち,一號（也唸「いちにち」＝一整天）,images/vocab/firstofmonth.svg,stage0-day5:一日,月曆從左上第一格起算，第1格被填色圈出，表該月1號；圖以日期為例，「1天」的期間義不在圖中。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day5:二日,n5,二日,ふつか,二號、兩天,images/vocab/secondofmonth.svg,stage0-day5:二日,月曆從左上第一格起算，第2格被填色圈出，表該月2號；圖以日期為例，「2天」的期間義不在圖中。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day5:三日,n5,三日,みっか,三號、三天,images/vocab/thirdofmonth.svg,stage0-day5:三日,月曆從左上第一格起算，第3格被填色圈出，表該月3號；圖以日期為例，「3天」的期間義不在圖中。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day5:四日,n5,四日,よっか,四號、四天,images/vocab/fourthofmonth.svg,stage0-day5:四日,月曆從左上第一格起算，第4格被填色圈出，表該月4號；圖以日期為例，「4天」的期間義不在圖中。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day5:五日,n5,五日,いつか,五號、五天,images/vocab/fifthofmonth.svg,stage0-day5:五日,月曆從左上第一格起算，第5格被填色圈出，表該月5號；圖以日期為例，「5天」的期間義不在圖中。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day5:六日,n5,六日,むいか,六號、六天,images/vocab/sixthofmonth.svg,stage0-day5:六日,月曆從左上第一格起算，第6格被填色圈出，表該月6號；圖以日期為例，「6天」的期間義不在圖中。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day5:七日,n5,七日,なのか,七號、七天,images/vocab/seventhofmonth.svg,stage0-day5:七日,月曆從左上第一格起算，第7格被填色圈出，表該月7號；圖以日期為例，「7天」的期間義不在圖中。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day5:八日,n5,八日,ようか,八號、八天,images/vocab/eighthofmonth.svg,stage0-day5:八日,月曆從左上第一格起算，第8格被填色圈出，表該月8號；圖以日期為例，「8天」的期間義不在圖中。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day5:九日,n5,九日,ここのか,九號、九天,images/vocab/ninthofmonth.svg,stage0-day5:九日,月曆從左上第一格起算，第9格被填色圈出，表該月9號；圖以日期為例，「9天」的期間義不在圖中。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day5:十日,n5,十日,とおか,十號、十天,images/vocab/tenthofmonth.svg,stage0-day5:十日,月曆從左上第一格起算，第10格被填色圈出，表該月10號；圖以日期為例，「10天」的期間義不在圖中。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day5:二十日,n5,二十日,はつか,二十號、二十天,images/vocab/twentiethofmonth.svg,stage0-day5:二十日,月曆從左上第一格起算，第20格被填色圈出，表該月20號；圖以日期為例，「20天」的期間義不在圖中。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day3:百,n5,百,ひゃく,百（三百、六百、八百的唸法會變）,images/vocab/hundred.svg,stage0-day3:百,十乘十的方格拼成一整片，一百個小格表數目一百；不寫數字。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day3:千,n5,千,せん,千（三千、八千的唸法會變）,images/vocab/thousand.svg,stage0-day3:千,十片百格方板疊成一個立方體，表一千；旁邊一片百格板作比較。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day3:万,n5,万,まん,萬（一萬要說「いちまん」）,images/vocab/tenthousand.svg,stage0-day3:万,十個千格立方體排成兩列，表一萬。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day3:円,n5,円,えん,日圓,images/vocab/yencoins.svg,stage0-day3:円,中間有孔的硬幣、一般硬幣與紙鈔並列，表日圓這種貨幣；不寫面額。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day3:いくら,n5,いくら,いくら,多少錢,images/vocab/howmuch.svg,stage0-day3:いくら,顧客指著貼空白價牌的字典，心中的錢幣只有虛線輪廓，表詢問多少錢。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day4:何時,n5,何時,なんじ,幾點,images/vocab/whattime.svg,stage0-day4:何時,人物看著沒有指針的時鐘，歪頭詢問，表幾點。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day5:何曜日,n5,何曜日,なんようび,星期幾,images/vocab/whatweekday.svg,stage0-day5:何曜日,一週七格都空白，上方一個虛線圈在格間移動找位置，人物思考，表星期幾。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day5:いつ,n5,いつ,いつ,什麼時候,images/vocab/whenquestion.svg,stage0-day5:いつ,人物心中浮現只有虛線輪廓的日曆與時鐘，日期和時刻都未定，表什麼時候。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day3:どこ,n5,どこ,どこ,哪裡,images/vocab/wherequestion.svg,stage0-day3:どこ,人物攤開地圖左右張望，地圖上數個虛線候選點和懸空的定位針，表哪裡。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-01:どこ,general,どこ,どこ,哪裡,images/vocab/wherequestion.svg,stage0-day3:どこ,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day20:どっち,n5,どっち,どっち,哪邊、哪一個（どちら的口語）,images/vocab/whichoftwo.svg,stage0-day20:どっち,人物面前兩家店，手指在兩者間猶豫，兩個虛線箭頭，表兩者中哪一個。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day20:どれ,n5,どれ,どれ,哪一個（三個以上）,images/vocab/whichofmany.svg,stage0-day20:どれ,傘架上三把以上的傘，人物指尖在其間移動找自己的那把，表哪一個（三者以上）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day9:どうして,n5,どうして,どうして,為什麼,images/vocab/whyquestion.svg,stage0-day9:どうして,開關按了燈卻不亮，人物看著燈泡，線索從燈連回一個看不見內容的問題盒，表為什麼。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-66:どうして,general,どうして,どうして,為什麼,images/vocab/whyquestion.svg,stage0-day9:どうして,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day8:どう,n5,どう,どう,怎麼樣,images/vocab/howisit.svg,stage0-day8:どう,一人遞出相機詢問看法，另一人手托下巴端詳評估，表怎麼樣。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day11:いくつ,n5,いくつ,いくつ,幾個,images/vocab/howmany.svg,stage0-day11:いくつ,一堆蘋果旁的人用手指逐一點算，上方計數框還是空的，表幾個。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day8:でも,n5,でも,でも,可是、不過,images/vocab/butcontrast.svg,stage0-day8:でも,左邊相機閃亮（優點），彎折箭頭轉到右邊同一台相機旁一大疊錢（缺點），表「可是」的轉折。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day21:など,n5,など,など,等等,images/vocab/etcetera.svg,stage0-day21:など,蘋果、麵包、牛奶排成一列，後面接三個逐漸變淡的物件輪廓，表「等等」還有其他。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day25:もし,n5,もし,もし,如果、假如,images/vocab/ifcondition.svg,stage0-day25:もし,人物心想「若天晴」：泡泡中的太陽連到登山小旗，旁邊雨雲那條路被淡化，表如果的條件。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day6:毎朝,n5,毎朝,まいあさ,每天早上,images/vocab/everymorning.svg,stage0-day6:毎朝,一週七格每一格都有一顆初升太陽，表每天早上。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day6:毎晩,n5,毎晩,まいばん,每天晚上,images/vocab/everynight.svg,stage0-day6:毎晩,一週七格每一格都有一枚月亮，表每天晚上。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day11:毎週,n5,毎週,まいしゅう,每週,images/vocab/everyweek.svg,stage0-day11:毎週,四列週曆中同一欄（星期）每列都被標記，表每週。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day11:毎月,n5,毎月,まいつき,每個月,images/vocab/everymonth.svg,stage0-day11:毎月,四張月曆頁上同一天都被圈起，表每個月。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day11:毎年,n5,毎年,まいとし,每年,images/vocab/everyyear.svg,stage0-day11:毎年,三個以四季標記的年份區塊，每年的同一季節都放著同一個生日蛋糕，表每年。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day11:今月,n5,今月,こんげつ,這個月,images/vocab/thismonth.svg,stage0-day11:今月,三張月曆頁中，含今天紅點的中間那張被填色，表這個月。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day11:先月,n5,先月,せんげつ,上個月,images/vocab/lastmonth.svg,stage0-day11:先月,三張月曆頁中，箭頭從今天所在頁指向左邊已翻過的一頁，表上個月。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day11:来月,n5,来月,らいげつ,下個月,images/vocab/nextmonth.svg,stage0-day11:来月,三張月曆頁中，箭頭從今天所在頁指向右邊還沒到的一頁，表下個月。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day11:今年,n5,今年,ことし,今年,images/vocab/thisyear.svg,stage0-day11:今年,三個四季年份區塊中，含今天紅點的中間一年被填色，表今年。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day11:去年,n5,去年,きょねん,去年,images/vocab/lastyear.svg,stage0-day11:去年,三個四季年份區塊中，箭頭從今年指向左邊過去的一年，表去年。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day11:来年,n5,来年,らいねん,明年,images/vocab/nextyear.svg,stage0-day11:来年,三個四季年份區塊中，箭頭從今年指向右邊的下一年，表明年。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day19:昨夜,n5,昨夜,ゆうべ,昨晚,images/vocab/lastnight.svg,stage0-day19:昨夜,昨天那一格是夜空與月亮，人物在床上睡覺，箭頭從今天指回去，表昨晚。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day11:枚,n5,枚,まい,張（數紙、切手等薄的東西）,images/vocab/flatcounter.svg,stage0-day11:枚,幾張扁平的郵票與紙片攤開疊放，表數薄平物件的「枚」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day11:回,n5,回,かい,次、回,images/vocab/timescount.svg,stage0-day11:回,一週七格裡有三天畫著走向圖書館的小人與打勾，表次數（一週三次）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day11:かかる,n5,かかる,かかる,花（時間、金錢）,images/vocab/takestime.svg,stage0-day11:かかる,從家到圖書館的路線上，時鐘扇形標出花掉的一段時間，旁邊錢幣掉出，表花費（時間、金錢）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day12:いちばん,n5,いちばん,いちばん,最（一番）,images/vocab/mostbest.svg,stage0-day12:いちばん,春夏秋冬四根長條中，秋天那根最高並被圈出，表最。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day15:はい,n5,はい,はい,是,images/vocab/nodyes.svg,stage0-day15:はい,人物點頭、舉手回應，頭部上下的動作弧線，表「是」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day8:悪い,n5,悪い,わるい,不好的、壞的,images/vocab/badspoiled.svg,stage0-day8:悪い,發黑長斑的壞掉水果上有蒼蠅與臭味線，旁邊新鮮的作對比，表不好的、壞的。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day8:とても,n5,とても,とても,非常,images/vocab/veryintense.svg,stage0-day8:とても,同一辣度計，指針一路衝到頂端紅區還冒火花，表「非常」的程度。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day10:ある,n5,ある,ある,有、在（物品、植物等；禮貌形：あります）,images/vocab/thingexists.svg,stage0-day10:ある,架上有一個箱子（物品）被圈出，表物品「有、在」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day10:いる,n5,いる,いる,有、在（人與動物；禮貌形：います）,images/vocab/creatureexists.svg,stage0-day10:いる,椅子底下有一隻貓（有生命者）被圈出，表人或動物「在」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day25:たて,n5,たて,たて,縱、直（和「よこ」相對）,images/vocab/vertical.svg,stage0-day25:たて,高瘦的門板旁一條粗的上下雙向箭頭，橫向的淡化，表縱、直（與橫相對）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day25:グラム,n5,グラム,グラム,公克,images/vocab/gram.svg,stage0-day25:グラム,廚房秤上放一盒肉片，指針只轉了一小格，表公克這種重量單位。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day25:ゼロ,n5,ゼロ,ゼロ,零（外來語念法）,images/vocab/zeroitems.svg,stage0-day25:ゼロ,空空的籃子裡只有虛線輪廓，一個東西都沒有，表零。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day25:温い,n5,温い,ぬるい,微溫的（不夠熱或不夠冰）,images/vocab/lukewarm.svg,stage0-day25:温い,杯子只冒一絲淡淡熱氣，溫度計停在中間，表微溫（不熱也不冰）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day18:作文,n5,作文,さくぶん,作文（作文を書きます）,images/vocab/essaywriting.svg,stage0-day18:作文,人物坐在書桌前用鉛筆把長段文字寫在稿紙上，表寫作文。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day18:文章,n5,文章,ぶんしょう,文章,images/vocab/paragraph.svg,stage0-day18:文章,紙上有分段縮排的行線，一段被框出，表文章。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day18:話,n5,話,はなし,話、故事,images/vocab/storytelling.svg,stage0-day18:話,說話者向兩名聽者講話，泡泡裡是城堡和人物的故事場景，表話、故事。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day18:できる,n5,できる,できる,會、能夠（禮貌形：できます）,images/vocab/canability.svg,stage0-day18:できる,人物順利彈奏吉他，音符般的弧線與打勾，表會、能夠做到。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day24:なる,n5,なる,なる,變成（禮貌形：なります）,images/vocab/becoming.svg,stage0-day24:なる,毛毛蟲經過蛹變成蝴蝶，兩段箭頭，表「變成」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day15:外国,n5,外国,がいこく,外國,images/vocab/foreigncountry.svg,stage0-day15:外国,地球上本國標記與遠方另一國之間有飛機弧線，遠方國家被圈出，表外國。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day1:国,n5,国,くに,國家,images/vocab/country.svg,stage0-day1:国,地圖上一塊有明確國界線的領土被填色，界內插著旗竿，表國家。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day2:日本,n5,日本,にほん,日本,images/vocab/japan.svg,stage0-day2:日本,由北到南的四個主要島嶼弧形排列在海中，本州上有一座雪頂山，表日本。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day2:何,n5,何,なに,什麼（單獨讀なに；在「何ですか」中讀なん）,images/vocab/whatquestion.svg,stage0-day2:何,人物指著蓋著布、看不出形狀的東西，泡泡中只有虛線輪廓，表「什麼」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day3:ください,n5,ください,ください,請給我（〜をください）,images/vocab/pleasegive.svg,stage0-day3:ください,顧客指著櫃上的麵包並向店員伸出掌心，店員準備遞出，表「請給我」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day16:かける,n5,かける,かける,戴（眼鏡）、掛上（て形：かけて）,images/vocab/puttingonglasses.svg,stage0-day16:かける,人物雙手把眼鏡往臉上戴，箭頭指向眼睛，表戴上眼鏡。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,stage0-day18:自分,n5,自分,じぶん,自己,images/vocab/oneself.svg,stage0-day18:自分,人物手指自己胸口，鏡中映出同一個人，表自己。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-16:自分,general,自分,じぶん,自己,images/vocab/oneself.svg,stage0-day18:自分,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-33:自分,general,自分,じぶん,自己,images/vocab/oneself.svg,stage0-day18:自分,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,anime-lesson-05:武器,anime,武器,ぶき,武器；比喻有利的本領,images/vocab/weapons.svg,anime-lesson-05:武器,武器架上掛著劍、長槍、弓與盾，表武器（實物一例）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,anime-lesson-03:勝ち取る,anime,勝ち取る,かちとる,爭取到、贏得,images/vocab/wintrophy.svg,anime-lesson-03:勝ち取る,人物伸長雙手從高處一把抓下獎盃，表爭取到、贏得。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,anime-lesson-08:高める,anime,高める,たかめる,提高、提升,images/vocab/raisinglevel.svg,anime-lesson-08:高める,人物把桿子往上推，旁邊刻度條從低提升到高，向上箭頭，表提高。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:aya:selection-voice:84354f8cfd:84354f8cfd,games,一緒に花火を見に行きましょう。,いっしょに はなびを みに いきましょう。,一起去看煙火吧。,images/vocab/fireworks.svg,game-card:game:er:aya:selection-voice:84354f8cfd:84354f8cfd,夜空中煙火綻開，兩人並肩抬頭觀看，表一起去看煙火。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:aya:selection-voice:6baf70e37c:6baf70e37c,games,悪人はどこですか？,あくにんは どこですか？,壞人在哪裡？,images/vocab/seekingfoe.svg,game-card:game:er:aya:selection-voice:6baf70e37c:6baf70e37c,人物持劍以手遮眼四處搜尋，草叢後只露出敵人的角與紅眼，表找壞人在哪。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:vodyanitsa:burst:6efa3068d3,games,みんな、歌いましょう！,みんな、うたいましょう！,大家一起唱吧！,images/vocab/singtogether.svg,game-card:game:genshin:vodyanitsa:burst:6efa3068d3,一排人一起張口歌唱，音波線在上方合在一起，表大家一起唱。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:nadine:selection-voice:089b7ff647:089b7ff647,games,一狩り始めるか。,ひとかり はじめるか。,來狩獵一場吧。,images/vocab/hunting.svg,game-card:game:er:nadine:selection-voice:089b7ff647:089b7ff647,獵人拉弓瞄準遠處的鹿（有鹿角與四腿），表狩獵。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:lidailin:selection:1010005:3096dc95d4,games,さて...海にでも行って遊んでみよっか～,さて...うみにでも いって あそんでみよっか～,那麼……去海邊玩玩如何～,images/vocab/beachouting.svg,game-card:game:er:lidailin:selection:1010005:3096dc95d4,兩人帶著游泳圈與沙灘球走向海邊，表一起去海邊玩。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:lenox:selection-voice:f5c4bd1fb9:f5c4bd1fb9,games,さて、今日はどんな魚にありつけるかな。,さて、きょうは どんな さかなに ありつけるかな。,那麼，今天能弄到什麼樣的魚呢？,images/vocab/fishing.svg,game-card:game:er:lenox:selection-voice:f5c4bd1fb9:f5c4bd1fb9,人物坐在岸邊握著釣竿，釣線垂入水中，水下有魚游近，表釣魚。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:emma:selection-voice:6bbda2dee4:6bbda2dee4,games,マジシャン登場！見たことのないステージを見せてあげる！,マジシャン とうじょう！みたことの ない ステージを みせてあげる！,魔術師登場！讓你看看從沒見過的舞台！,images/vocab/magicshow.svg,game-card:game:er:emma:selection-voice:6bbda2dee4:6bbda2dee4,戴高帽的魔術師揮杖，帽中跳出兔子與閃光，表魔術表演。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:tsubame:selection-voice:c495dcd184:c495dcd184,games,依頼したいものは何だ？,いらい したい ものは なんだ？,你想委託的是什麼？,images/vocab/askingrequest.svg,game-card:game:er:tsubame:selection-voice:c495dcd184:c495dcd184,受託者在櫃檯後攤手詢問，委託人拿著一張空白委託單，表詢問想委託什麼。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:eleven:selection:1030004:46e9d6cd81,games,配信開始だよ！今日の配信テーマは幸せな結婚式！,はいしん かいしだよ！きょうの はいしんテーマは しあわせな けっこんしき！,直播開始囉！今天的直播主題是幸福的婚禮！,images/vocab/livestream.svg,game-card:game:er:eleven:selection:1030004:46e9d6cd81,主播面前架著手機鏡頭，畫面上顯示直播中紅點與觀看人數圖示，表直播開始。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:rio:selection-voice:beacaa5c90:beacaa5c90,games,ダーツはいかがですか？,ダーツは いかがですか？,要不要玩飛鏢？,images/vocab/darts.svg,game-card:game:er:rio:selection-voice:beacaa5c90:beacaa5c90,飛鏢正飛向牆上的標靶，旁人手比邀請，表玩飛鏢。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:chloe:selection:1040003:b7edf66575,games,今回は海の近くで人形劇をやるつもりだけど、見に来る？,こんかいは うみの ちかくで にんぎょうげきを やるつもりだけど、みにくる？,這次打算在海邊附近演傀儡戲，你要來看嗎？,images/vocab/puppetshow.svg,game-card:game:er:chloe:selection:1040003:b7edf66575,小舞台上兩個提線人偶，上方操作的手拉著線，觀眾坐在前方，表人偶劇。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:lohen:join:b58a222e95,games,少し体を動かすとするか。,すこし からだを うごかすとするか。,稍微活動一下身體吧。,images/vocab/warmingup.svg,game-card:game:genshin:lohen:join:b58a222e95,人物伸展手臂、扭轉身體做暖身動作，表活動身體。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:klee:skill:58fcc41d40,games,弾けろ！,はじけろ！,炸開吧！,images/vocab/explosion.svg,game-card:game:genshin:klee:skill:58fcc41d40,圓形物體炸開，碎片與光芒向四周飛散，表炸開、爆炸。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:mai:selection-voice:f897e38f0a:f897e38f0a,games,本当にやりたくないんですけど…,ほんとうに やりたくないんですけど…,我真的不想做耶……,images/vocab/reluctant.svg,game-card:game:er:mai:selection-voice:f897e38f0a:f897e38f0a,人物被任務單往前拉，卻身體後仰、腳跟抵地不想去，表真的不想做。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:karla:selection-voice:5f98347e3e:5f98347e3e,games,失せろ、あんたの言うことなんか聞いてる暇はないから。,うせろ、あんたの いうことなんか きいてる ひまは ないから。,滾開，我可沒空聽你說話。,images/vocab/goaway.svg,game-card:game:er:karla:selection-voice:5f98347e3e:5f98347e3e,人物轉身不理並揮手趕走對方，對方被趕開的箭頭朝外，表「滾開」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:layla:skill:3e2b9c1788,games,邪魔しないで！,じゃましないで！,不要打擾我！,images/vocab/dontinterfere.svg,game-card:game:genshin:layla:skill:3e2b9c1788,專心工作的人一手擋住伸手過來打擾的人，表不要打擾、別妨礙。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:haze:selection:1058002:413f60b648,games,久しぶりの休暇だ。存分に楽しんでおかないと。,ひさしぶりの きゅうかだ。ぞんぶんに たのしんでおかないと。,好久沒放假了。得好好享受才行。,images/vocab/vacation.svg,game-card:game:er:haze:selection:1058002:413f60b648,人物躺在海灘躺椅上，旁有陽傘與飲料，表悠閒的假期。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:irem:selection:1061003:6238f2dd90,games,待ってたよ！一緒に金魚すくいに行こう！,まってたよ！いっしょに きんぎょすくいに いこう！,我等你好久了！一起去撈金魚吧！,images/vocab/goldfishscooping.svg,game-card:game:er:irem:selection:1061003:6238f2dd90,祭典的水槽中有金魚，孩子拿著紙網撈起一條，表撈金魚。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:tartaglia:skill:dd4b2c0aff,games,来い！,こい！,來吧！,images/vocab/comehere.svg,game-card:game:genshin:tartaglia:skill:dd4b2c0aff,人物朝自己方向用力招手，地上箭頭從對方指向自己，表「過來」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:leni:selection:1069001:df5d48d852,games,ジャジャーン！レニのマーチングバンド出撃！,ジャジャーン！レニの マーチングバンド しゅつげき！,鏘鏘！雷妮行進樂隊出擊！,images/vocab/marchingband.svg,game-card:game:er:leni:selection:1069001:df5d48d852,行進樂隊成員打鼓吹號、整齊前進，表行進樂隊出擊。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:dori:join:851998b75c,games,さあさあ、一儲けしに行きますの！,さあさあ、ひともうけしに いきますの！,走吧走吧，去賺一筆囉！,images/vocab/earningmoney.svg,game-card:game:genshin:dori:join:851998b75c,人物雙手捧著一疊剛賺到的錢幣，旁邊錢袋鼓起，表去賺錢。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:yumin:selection-voice:c4cd5ea772:c4cd5ea772,games,風に乗って、さあ行こう。,かぜに のって、さあ いこう。,乘著風，來吧，出發。,images/vocab/ridewind.svg,game-card:game:er:yumin:selection-voice:c4cd5ea772:c4cd5ea772,人物乘著滑翔翼隨風線飄行，表乘風出發。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:justyna:selection-voice:707ebef378:707ebef378,games,正義のヒーロー、ユスティナ、ここに参上！,せいぎの ヒーロー、ユスティナ、ここに さんじょう！,正義的英雄尤斯蒂娜，在此登場！,images/vocab/heroentrance.svg,game-card:game:er:justyna:selection-voice:707ebef378:707ebef378,披風英雄在光芒中擺出登場姿勢，雙手叉腰，表英雄登場。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:niah:selection-voice:a92bad0ddc:a92bad0ddc,games,ゲーム、一緒にやろう。,ゲーム、いっしょに やろう。,一起玩遊戲吧。,images/vocab/videogame.svg,game-card:game:er:niah:selection-voice:a92bad0ddc:a92bad0ddc,兩人並坐拿著遊戲手把看同一個螢幕，表一起玩遊戲。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:diona:skill:c81b594e00,games,あたしを甘く見ないで！,あたしを あまく みないで！,別小看我！,images/vocab/dontunderestimate.svg,game-card:game:genshin:diona:skill:c81b594e00,個子小的人面對高大的人仍挺胸舉拳，地上影子比對方還大，表別小看我。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:er:bihyung:selection-voice:671e7f6098:671e7f6098,games,今、宴だと言ったよね！どこ？どこで？,いま、うたげだと いったよね！どこ？どこで？,你剛剛說有宴會對吧！在哪？在哪裡？,images/vocab/feast.svg,game-card:game:er:bihyung:selection-voice:671e7f6098:671e7f6098,長桌上擺滿烤肉、大盤菜與酒杯，表宴會。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:aino:skill:790cbc5cc6,games,くらえー！,くらえー！,接招吧！,images/vocab/attacking.svg,game-card:game:genshin:aino:skill:790cbc5cc6,人物向前揮出拳頭／武器，衝擊線向前方的目標，表攻擊、接招。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:bennett:join:3f62f9b2b9,games,すごいなぁ！,すごいなぁ！,真厲害啊！,images/vocab/amazed.svg,game-card:game:genshin:bennett:join:3f62f9b2b9,人物瞪大眼張開嘴、雙手舉起，看著前方閃亮的作品，表「真厲害」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:escoffier:join:3fb7917853,games,カトラリーの準備も完了！,カトラリーの じゅんびも かんりょう！,餐具也準備好了！,images/vocab/tablesetting.svg,game-card:game:genshin:escoffier:join:3fb7917853,餐墊上盤子兩側整齊擺好刀、叉、湯匙，表餐具準備好了。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:freminet:skill:e5038d29a7,games,回って。,まわって。,轉動吧。,images/vocab/spinning.svg,game-card:game:genshin:freminet:skill:e5038d29a7,陀螺在地上快速旋轉，周圍環繞的轉動箭頭，表轉動。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:gaming:burst:ec9fb22350,games,開運招福～,かいうんしょうふく～,開運招福～,images/vocab/goodfortune.svg,game-card:game:genshin:gaming:burst:ec9fb22350,舉手招福的貓偶旁堆著金幣與福袋，光點環繞，表開運招福。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:jean:skill:1516e791d2,games,いざ…勝負！,いざ…しょうぶ！,來吧……一決勝負！,images/vocab/duel.svg,game-card:game:genshin:jean:skill:1516e791d2,兩人隔著中線舉劍對峙，表一決勝負。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:kamisatoayaka:burst:e28600a7d8,games,櫻吹雪。,さくらふぶき。,櫻花吹雪。,images/vocab/cherryblizzard.svg,game-card:game:genshin:kamisatoayaka:burst:e28600a7d8,櫻花樹下大量花瓣隨風捲起飛舞，表櫻花吹雪。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:kirara:skill:a4bb3ae2f9,games,ちょっと失礼～！,ちょっと しつれい～！,稍微失禮一下～！,images/vocab/excuseme.svg,game-card:game:genshin:kirara:skill:a4bb3ae2f9,人物側身微微低頭、一手立掌在前，從兩人之間穿過，表「借過、失禮」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:lyney:skill:b7beb3d284,games,サプライズだよ。,サプライズだよ。,是個驚喜喔。,images/vocab/surprisegift.svg,game-card:game:genshin:lyney:skill:b7beb3d284,打開的禮盒中彈出彩帶與星星，收禮者嚇一跳，表驚喜。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:manekin:join-order:f08d589226,games,命令をどうぞ！,めいれいをどうぞ！,請下命令！,images/vocab/awaitingorders.svg,game-card:game:genshin:manekin:join-order:f08d589226,隊員立正敬禮站在指揮者前等待，指揮者泡泡還是空白，表請下命令。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:yelan:skill:0530970200,games,捕まえた。,つかまえた。,抓到了。,images/vocab/caught.svg,game-card:game:genshin:yelan:skill:0530970200,人物伸出的網子罩住逃走的兔子，表抓到了。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:xingqiu:join:80ac8faeea,games,雨垂れ石をも穿つ。,あまだれ いしをも うがつ。,滴水也能穿石。,images/vocab/dripstone.svg,game-card:game:genshin:xingqiu:join:80ac8faeea,屋簷持續滴下的水滴，把下方石頭打出凹洞，表滴水穿石。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,game-card:game:genshin:yelan:burst:6cefb3312d,games,どの目が出るかしら？,どの めが でるかしら？,會出現哪個點數呢？,images/vocab/dice.svg,game-card:game:genshin:yelan:burst:6cefb3312d,兩顆骰子正在滾動，點數面朝不同方向，表擲骰看出幾點。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-65:本人,general,本人,ほんにん,本人,images/vocab/personhimself.svg,general-listening-65:本人,證件上的照片與站在一旁的當事人臉形一致，虛線相連並圈出本人，表本人。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-128:本人,general,本人,ほんにん,本人,images/vocab/personhimself.svg,general-listening-65:本人,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-149:本人,general,本人,ほんにん,本人,images/vocab/personhimself.svg,general-listening-65:本人,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-156:本人,general,本人,ほんにん,本人,images/vocab/personhimself.svg,general-listening-65:本人,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-171:本人,general,本人,ほんにん,本人,images/vocab/personhimself.svg,general-listening-65:本人,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-82:確定,general,確定,かくてい,確定,images/vocab/confirmed.svg,general-listening-82:確定,計畫書上蓋下「確定」的勾章，旁邊另一張草案被收走，表確定。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-152:確定,general,確定,かくてい,確定,images/vocab/confirmed.svg,general-listening-82:確定,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-163:確定,general,確定,かくてい,確定,images/vocab/confirmed.svg,general-listening-82:確定,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-180:確定,general,確定,かくてい,確定,images/vocab/confirmed.svg,general-listening-82:確定,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-81:先に,general,先に,さきに,先行,images/vocab/goahead.svg,general-listening-81:先に,一人先沿路往前走在前方，其他人還留在起點，表先行。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-90:先に,general,先に,さきに,先行,images/vocab/goahead.svg,general-listening-81:先に,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-91:先に,general,先に,さきに,先行,images/vocab/goahead.svg,general-listening-81:先に,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-104:先に,general,先に,さきに,先行,images/vocab/goahead.svg,general-listening-81:先に,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-23:考える,general,考える,かんがえる,思考,images/vocab/thinking.svg,general-listening-23:考える,人物手托下巴，泡泡中幾個選項之間有連線，表思考。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-56:考える,general,考える,かんがえる,思考,images/vocab/thinking.svg,general-listening-23:考える,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-138:考える,general,考える,かんがえる,思考,images/vocab/thinking.svg,general-listening-23:考える,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-51:最新,general,最新,さいしん,最新,images/vocab/latest.svg,general-listening-51:最新,同一份公告疊了數張，最上面最新的一張閃亮並被圈出，舊的往後淡出，表最新。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-152:最新,general,最新,さいしん,最新,images/vocab/latest.svg,general-listening-51:最新,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-158:最新,general,最新,さいしん,最新,images/vocab/latest.svg,general-listening-51:最新,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-78:一回,general,一回,いっかい,一次,images/vocab/onetime.svg,general-listening-78:一回,門上只敲了一下，一道敲擊線與一枚計次記號，表一次。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-116:一回,general,一回,いっかい,一次,images/vocab/onetime.svg,general-listening-78:一回,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-146:一回,general,一回,いっかい,一次,images/vocab/onetime.svg,general-listening-78:一回,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-150:未確認,general,未確認,みかくにん,未確認,images/vocab/unconfirmed.svg,general-listening-150:未確認,報告書上一欄仍是空白虛線框並旁附沙漏，其他欄已打勾，表未確認。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-157:未確認,general,未確認,みかくにん,未確認,images/vocab/unconfirmed.svg,general-listening-150:未確認,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-179:未確認,general,未確認,みかくにん,未確認,images/vocab/unconfirmed.svg,general-listening-150:未確認,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-09:作品,general,作品,さくひん,作品,images/vocab/artwork.svg,general-listening-09:作品,展示台上的雕塑與牆上的畫作由圍欄隔開，表作品。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-35:作品,general,作品,さくひん,作品,images/vocab/artwork.svg,general-listening-09:作品,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-11:二杯,general,二杯,にはい,兩杯,images/vocab/twocups.svg,general-listening-11:二杯,桌上並排兩杯裝滿的水，表兩杯。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-43:二杯,general,二杯,にはい,兩杯,images/vocab/twocups.svg,general-listening-11:二杯,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-24:曜日,general,曜日,ようび,星期,images/vocab/dayofweek.svg,general-listening-24:曜日,七格週曆依序放著日月火水木金土的元素符號，表星期（曜日）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-41:曜日,general,曜日,ようび,星期,images/vocab/dayofweek.svg,general-listening-24:曜日,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-40:無理,general,無理,むり,勉強；不可能,images/vocab/impossible.svg,general-listening-40:無理,人物面對比自己大好幾倍的巨石，雙手交叉搖頭，表做不到、勉強。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-53:無理,general,無理,むり,勉強；不可能,images/vocab/impossible.svg,general-listening-40:無理,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-53:止める,general,止める,とめる,停止某物,images/vocab/haltmachine.svg,general-listening-53:止める,手把機器的拉桿拉到停止位置，齒輪的轉動線消失，表使機器停止。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-88:止める,general,止める,とめる,停止某物,images/vocab/haltmachine.svg,general-listening-53:止める,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-54:贈り物,general,贈り物,おくりもの,禮物,images/vocab/giftbox.svg,general-listening-54:贈り物,包裝好的禮盒繫著緞帶與蝴蝶結，旁附一張小卡，表禮物。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-176:贈り物,general,贈り物,おくりもの,禮物,images/vocab/giftbox.svg,general-listening-54:贈り物,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-55:今から,general,今から,いまから,從現在起,images/vocab/fromnow.svg,general-listening-55:今から,時間線上現在的紅點起，一條粗箭頭向未來延伸並開始做事，表從現在起。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-108:今から,general,今から,いまから,從現在起,images/vocab/fromnow.svg,general-listening-55:今から,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-72:手元,general,手元,てもと,手邊,images/vocab/athand.svg,general-listening-72:手元,人物坐在桌前，伸手就拿得到的範圍被圈出，裡面放著工具，表手邊。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-165:手元,general,手元,てもと,手邊,images/vocab/athand.svg,general-listening-72:手元,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-82:仮,general,仮,かり,暫定,images/vocab/provisional.svg,general-listening-82:仮,行程表用虛線鉛筆暫時填上，旁邊放著橡皮擦，表暫定。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-180:仮,general,仮,かり,暫定,images/vocab/provisional.svg,general-listening-82:仮,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-82:見直す,general,見直す,みなおす,重新檢視,images/vocab/reviewagain.svg,general-listening-82:見直す,人物拿放大鏡重新檢視同一份表，回轉箭頭表再看一次，表重新檢視。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-152:見直す,general,見直す,みなおす,重新檢視,images/vocab/reviewagain.svg,general-listening-82:見直す,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-86:控室,general,控室,ひかえしつ,休息室,images/vocab/waitingroom.svg,general-listening-86:控室,房間內一排椅子上坐著等待的人，牆上掛鐘，表休息室、候診室。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-89:控室,general,控室,ひかえしつ,休息室,images/vocab/waitingroom.svg,general-listening-86:控室,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-99:自分で,general,自分で,じぶんで,自己,images/vocab/byoneself.svg,general-listening-99:自分で,人物獨自完成搬運，旁人只在遠處看，被圈出的那位一手指向自己，表自己（親自）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-103:自分で,general,自分で,じぶんで,自己,images/vocab/byoneself.svg,general-listening-99:自分で,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-113:正面,general,正面,しょうめん,正面,images/vocab/frontside.svg,general-listening-113:正面,一棟建築的正面立面被圈出，人物正面面對它，側面淡化，表正面。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-124:正面,general,正面,しょうめん,正面,images/vocab/frontside.svg,general-listening-113:正面,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-125:動かす,general,動かす,うごかす,移動,images/vocab/movingobject.svg,general-listening-125:動かす,人物雙手把水晶從原位推到另一個位置，原位留虛線輪廓，表移動（使移動）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-132:動かす,general,動かす,うごかす,移動,images/vocab/movingobject.svg,general-listening-125:動かす,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-134:作戦,general,作戦,さくせん,戰術,images/vocab/battleplan.svg,general-listening-134:作戦,桌上攤開地圖，箭頭與標記畫出進攻路線，旁人指點，表作戰計畫、戰術。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-143:作戦,general,作戦,さくせん,戰術,images/vocab/battleplan.svg,general-listening-134:作戦,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-136:消費,general,消費,しょうひ,消耗,images/vocab/consumption.svg,general-listening-136:消費,能量條隨使用一格格被耗掉，往下的箭頭與用掉的部分變淡，表消耗。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-140:消費,general,消費,しょうひ,消耗,images/vocab/consumption.svg,general-listening-136:消費,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-145:術者,general,術者,じゅつしゃ,施術者,images/vocab/caster.svg,general-listening-145:術者,站在魔法陣中央、手持杖發動結界的人物被圈出，表施術者。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-150:術者,general,術者,じゅつしゃ,施術者,images/vocab/caster.svg,general-listening-145:術者,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-153:補う,general,補う,おぎなう,補足,images/vocab/supplement.svg,general-listening-153:補う,一排物品中的空缺被補上缺少的那一個，箭頭把它放進去，表補足。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-166:補う,general,補う,おぎなう,補足,images/vocab/supplement.svg,general-listening-153:補う,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-153:明朝,general,明朝,みょうちょう,明天早上,images/vocab/tomorrowmorning.svg,general-listening-153:明朝,日曆箭頭指向明天那一格，格內是初升太陽，表明天早上。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-160:明朝,general,明朝,みょうちょう,明天早上,images/vocab/tomorrowmorning.svg,general-listening-153:明朝,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-154:省略,general,省略,しょうりゃく,省略,images/vocab/omission.svg,general-listening-154:省略,步驟條中間一步被虛線框起跳過，箭頭從前一步直接連到後一步，表省略。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-167:省略,general,省略,しょうりゃく,省略,images/vocab/omission.svg,general-listening-154:省略,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-167:部数,general,部数,ぶすう,份數,images/vocab/copiescount.svg,general-listening-167:部数,印好的同一份資料疊成數疊，人物逐疊點數份數，表份數。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-177:部数,general,部数,ぶすう,份數,images/vocab/copiescount.svg,general-listening-167:部数,同詞同讀同譯的相同義項，逐ID核對上下文後共用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-03:持ち物,general,持ち物,もちもの,攜帶的物品,images/vocab/belongings.svg,general-listening-03:持ち物,出發前把水壺、地圖、手電筒等隨身物品排在背包旁，表攜帶的物品。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-08:食料,general,食料,しょくりょう,糧食,images/vocab/provisions.svg,general-listening-08:食料,麻袋裝的米、乾糧與水壺堆在一起，表糧食。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-08:だけ,general,だけ,だけ,只有；僅,images/vocab/only.svg,general-listening-08:だけ,一排空位中只剩一個放著東西並被圈出，表只有、僅。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-08:忘れ物,general,忘れ物,わすれもの,遺忘的物品,images/vocab/lostitem.svg,general-listening-08:忘れ物,人已離開的座位上留下一把傘，失物被圈出，表遺忘的物品、失物。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-11:一枚,general,一枚,いちまい,一張,images/vocab/onesheet.svg,general-listening-11:一枚,桌上只有一張薄紙，表一張。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-11:二枚,general,二枚,にまい,兩張,images/vocab/twosheets.svg,general-listening-11:二枚,桌上兩張薄紙並排，表兩張。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-11:一本,general,一本,いっぽん,一根；一瓶,images/vocab/onebottle.svg,general-listening-11:一本,桌上只有一瓶水，表一瓶（細長物一根）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-11:二本,general,二本,にほん,兩根；兩瓶,images/vocab/twobottles.svg,general-listening-11:二本,桌上兩瓶水並排，表兩瓶（細長物兩根）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-15:メモ,general,メモ,メモ,筆記；便條,images/vocab/memonote.svg,general-listening-15:メモ,牆上貼著一張小便條，上有幾行手寫線與圖釘，表便條、筆記。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-18:朝早く,general,朝早く,あさはやく,一大早,images/vocab/earlymorning.svg,general-listening-18:朝早く,天還暗、地平線剛透出微光，鬧鐘響、人物起身，表一大早。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-18:夜遅く,general,夜遅く,よるおそく,深夜,images/vocab/latenight.svg,general-listening-18:夜遅く,窗外深夜的月亮高掛，人物仍坐在桌燈下打哈欠，表深夜。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-19:仕方ない,general,仕方ない,しかたない,沒辦法,images/vocab/nochoice.svg,general-listening-19:仕方ない,人物面對關著的店門聳肩攤手，表沒辦法、只好如此。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-21:雨具,general,雨具,あまぐ,雨具,images/vocab/raingear.svg,general-listening-21:雨具,雨傘、雨衣與雨靴並排，表雨具。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-22:管理人,general,管理人,かんりにん,管理員,images/vocab/caretaker.svg,general-listening-22:管理人,拿著一串鑰匙與掃帚、站在建築入口的管理員，表管理員。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-23:昼間,general,昼間,ひるま,白天,images/vocab/daytime.svg,general-listening-23:昼間,整段天空弧線從日出到日落都被標亮，太陽在中間，與夜晚分開，表白天。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-24:営業時間,general,営業時間,えいぎょうじかん,營業時間,images/vocab/openinghours.svg,general-listening-24:営業時間,店門旁的時鐘以扇形標出開店到關店的時段，表營業時間。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-24:知らない,general,知らない,しらない,不知道,images/vocab/dontknow.svg,general-listening-24:知らない,人物聳肩、泡泡裡是一片空白並有虛線問號形邊框，表不知道。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-25:会いに行く,general,会いに行く,あいにいく,去見面,images/vocab/goingtomeet.svg,general-listening-25:会いに行く,人物沿箭頭走去，目的地那端有正在等待的朋友，表去見面。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-25:聞きに行く,general,聞きに行く,ききにいく,去詢問,images/vocab/goingtoask.svg,general-listening-25:聞きに行く,人物沿箭頭走向情報站櫃檯，泡泡是要問的事，表去詢問。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-25:買いに行く,general,買いに行く,かいにいく,去購買,images/vocab/goingtobuy.svg,general-listening-25:買いに行く,人物拿著錢包沿箭頭走向藥店，表去購買。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-26:走っていく,general,走っていく,はしっていく,跑著離去,images/vocab/runningaway.svg,general-listening-26:走っていく,說話者站在原地，另一人跑著離開、背影朝遠方，箭頭向外，表跑著離去。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-26:歩いてくる,general,歩いてくる,あるいてくる,走著過來,images/vocab/walkingtoward.svg,general-listening-26:歩いてくる,說話者站在原地，另一人從遠處正面走向說話者，箭頭向內，表走著過來。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-26:あとで,general,あとで,あとで,待會兒,images/vocab/later.svg,general-listening-26:あとで,時鐘往後撥一小段，待辦卡片被推到之後的格子，表待會兒、稍後。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-27:読める,general,読める,よめる,能讀,images/vocab/canread.svg,general-listening-27:読める,人物看著告示上的字形，頭上亮燈並打勾，表能讀、讀得懂。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-27:読めない,general,読めない,よめない,讀不懂,images/vocab/cannotread.svg,general-listening-27:読めない,人物看著同一張告示上的字形，頭上打叉、歪頭困惑，表讀不懂。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-27:話せる,general,話せる,はなせる,能說,images/vocab/canspeak.svg,general-listening-27:話せる,人物順暢地說話，泡泡中句子線連續流出並打勾，對方點頭，表能說。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-27:以前,general,以前,いぜん,以前,images/vocab/formerly.svg,general-listening-27:以前,時間線上過去那一段被圈出，泡泡中的人物站在左側舊時位置，表以前。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-27:今まで,general,今まで,いままで,直到現在,images/vocab/untilnow.svg,general-listening-27:今まで,一條粗線從過去的起點一路延伸到現在的紅點並在此停住，表直到現在。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-27:簡単になる,general,簡単になる,かんたんになる,變簡單,images/vocab/gettingeasier.svg,general-listening-27:簡単になる,同一座山從陡峭變成平緩，箭頭由左到右，人物腳步輕鬆，表變簡單。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-27:強くなる,general,強くなる,つよくなる,變強,images/vocab/gettingstronger.svg,general-listening-27:強くなる,同一人從舉不起的小啞鈴到輕鬆舉起大啞鈴，箭頭表變強。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-28:買える,general,買える,かえる,買得起；能買,images/vocab/canbuy.svg,general-listening-28:買える,手中的錢幣夠付麵包的價牌，打勾，表買得起、能買。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-28:買えない,general,買えない,かえない,買不了,images/vocab/cannotbuy.svg,general-listening-28:買えない,手中只有一枚錢幣，不夠付價牌上的三枚，打叉，表買不起、買不了。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-29:周り,general,周り,まわり,周圍,images/vocab/surroundings.svg,general-listening-29:周り,人物站在中央，周圍一圈的樹、房子與路都被環形虛線圍住，表周圍。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-32:演奏,general,演奏,えんそう,演奏,images/vocab/performingmusic.svg,general-listening-32:演奏,演奏者拉小提琴，音色弧線傳向前排聽眾，表演奏。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-36:次,general,次,つぎ,下次；下一個,images/vocab/nexttime.svg,general-listening-36:次,月曆上今天的事件格打勾，箭頭跳到下一次同類事件的格子並圈出，表下次。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-38:繰り返す,general,繰り返す,くりかえす,重複,images/vocab/repeating.svg,general-listening-38:繰り返す,同一動作沿環形箭頭一圈又一圈，表重複。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-38:九時,general,九時,くじ,九點,images/vocab/nineoclock.svg,general-listening-38:九時,時鐘短針指在九、長針指在十二，表九點。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-38:七時,general,七時,しちじ,七點,images/vocab/sevenoclock.svg,general-listening-38:七時,時鐘短針指在七、長針指在十二，表七點。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-41:一時,general,一時,いちじ,一點,images/vocab/oneoclock.svg,general-listening-41:一時,時鐘短針指在一、長針指在十二，表一點。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-45:三時,general,三時,さんじ,三點,images/vocab/threeoclock.svg,general-listening-45:三時,時鐘短針指在三、長針指在十二，表三點。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-45:八時,general,八時,はちじ,八點,images/vocab/eightoclock.svg,general-listening-45:八時,時鐘短針指在八、長針指在十二，表八點。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-38:聞き間違い,general,聞き間違い,ききまちがい,聽錯,images/vocab/mishearing.svg,general-listening-38:聞き間違い,對方說的是鐘的聲音，聽者心中卻成了笛子，兩者打叉，表聽錯。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-38:発音,general,発音,はつおん,發音,images/vocab/pronunciation.svg,general-listening-38:発音,張開的嘴型與舌位剖面，音波從口中出來，表發音。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-44:快速,general,快速,かいそく,快速列車,images/vocab/rapidtrain.svg,general-listening-44:快速,快速列車沿路線越過中間幾個小站不停，只停大站，表快速列車。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-44:各駅,general,各駅,かくえき,各站,images/vocab/localtrain.svg,general-listening-44:各駅,普通列車在路線上的每一站都停，每站都有小弧線，表各站停車。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-44:発車,general,発車,はっしゃ,發車,images/vocab/departingtrain.svg,general-listening-44:発車,列車離開月台向前開動，車門關上、速度線在後，表發車。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-45:一泊,general,一泊,いっぱく,一晚,images/vocab/onenight.svg,general-listening-45:一泊,旅館床上一個夜晚的月亮與一個行李箱，表住一晚。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-45:二泊,general,二泊,にはく,兩晚,images/vocab/twonights.svg,general-listening-45:二泊,旅館床上方有兩輪月亮，表住兩晚。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-45:記入,general,記入,きにゅう,填寫,images/vocab/fillingform.svg,general-listening-45:記入,手握筆在表格欄位中逐格填寫，表填寫。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-47:無理する,general,無理する,むりする,勉強自己,images/vocab/overexerting.svg,general-listening-47:無理する,臉色不好、冒冷汗的人仍硬撐著搬重箱，膝蓋發抖，表勉強自己。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-49:不要,general,不要,ふよう,不需要,images/vocab/notneeded.svg,general-listening-49:不要,清單上一個項目被劃掉、對應的物品被放回架上，表不需要。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-50:手前,general,手前,てまえ,前面；尚未到達處,images/vocab/nearside.svg,general-listening-50:手前,人物站在橋的這一頭，靠近自己這側的岸邊被圈出，對岸淡化，表前面（近側）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-51:発表,general,発表,はっぴょう,發布,images/vocab/announcement.svg,general-listening-51:発表,人員在公告板上貼出結果，大家圍過來看，表發布、公布。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-54:祝い,general,祝い,いわい,祝賀,images/vocab/celebration.svg,general-listening-54:祝い,大家舉杯，蛋糕與彩帶，表祝賀。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-54:記念,general,記念,きねん,紀念,images/vocab/commemoration.svg,general-listening-54:記念,大家在活動招牌前排排站拍紀念照，相機閃光，表紀念。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-57:分ける,general,分ける,わける,分組,images/vocab/grouping.svg,general-listening-57:分ける,一群人被分成兩組，分隔線與兩個框，表分組。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-60:調整,general,調整,ちょうせい,協調,images/vocab/adjusting.svg,general-listening-60:調整,兩人的行事曆對照，把各自的時段挪動到重疊的同一格，表協調、調整。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-60:買い出し,general,買い出し,かいだし,採買,images/vocab/groceryrun.svg,general-listening-60:買い出し,人物提著裝滿蔬菜麵包的購物袋從市場走回，表採買。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-60:食材,general,食材,しょくざい,食材,images/vocab/ingredients.svg,general-listening-60:食材,砧板上排列著生的蔬菜、肉與蛋，尚未料理，表食材。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-60:会場,general,会場,かいじょう,活動場地,images/vocab/venue.svg,general-listening-60:会場,搭好舞台、旗幟與座位的活動場地全景，表活動場地。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-60:設営,general,設営,せつえい,場地搭設,images/vocab/settingup.svg,general-listening-60:設営,人們一起把帳篷立起、拉繩固定樁，表場地搭設。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-65:通行止め,general,通行止め,つうこうどめ,禁止通行,images/vocab/roadclosed.svg,general-listening-65:通行止め,道路中央擺著紅白條紋的禁止通行柵欄，行人的箭頭被擋，表禁止通行。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-66:つく,general,つく,つく,燈亮起,images/vocab/lightson.svg,general-listening-66:つく,天花板的燈從暗到亮，光線向下散開，表燈亮起（點燈）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-88:消灯,general,消灯,しょうとう,熄燈,images/vocab/lightsoff.svg,general-listening-88:消灯,同一盞燈熄滅變暗，室內變灰，表熄燈。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-66:持ち歩く,general,持ち歩く,もちあるく,隨身攜帶,images/vocab/carryingaround.svg,general-listening-66:持ち歩く,人物腰間掛著小提燈與水壺走動，箭頭表到哪都帶著，表隨身攜帶。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-67:緊急,general,緊急,きんきゅう,緊急,images/vocab/emergency.svg,general-listening-67:緊急,救護車紅燈閃爍、急速駛來，人們讓路，表緊急。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-73:技師,general,技師,ぎし,技師,images/vocab/engineer.svg,general-listening-73:技師,戴安全帽、拿設計圖對照機械的技師，表技師。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-73:整備士,general,整備士,せいびし,維修技師,images/vocab/mechanic.svg,general-listening-73:整備士,穿工作服、手持扳手修理車輪的維修技師，表維修技師。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-74:本物,general,本物,ほんもの,真品,images/vocab/genuine.svg,general-listening-74:本物,同樣兩個龍形，一個是發光投影（虛線），一個是有影子的實體並被圈出，表真品、真的。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-74:形,general,形,かたち,形狀,images/vocab/shape.svg,general-listening-74:形,一團煙的輪廓被粗線描出外形，旁有圓、三角、方塊示例，表形狀。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-74:映像,general,映像,えいぞう,影像,images/vocab/footage.svg,general-listening-74:映像,投影機投出光束，牆上的畫面裡有移動的影像（連續畫格），表影像。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-74:仕組み,general,仕組み,しくみ,機制,images/vocab/mechanism.svg,general-listening-74:仕組み,機器外殼剖開，露出內部互相咬合的齒輪與連桿，表機制、運作方式。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-78:二回,general,二回,にかい,兩次,images/vocab/twice.svg,general-listening-78:二回,門上敲了兩下，兩道敲擊線與兩枚計次記號，表兩次。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-78:鳴らす,general,鳴らす,ならす,使鳴響,images/vocab/ringingbell.svg,general-listening-78:鳴らす,人物拉繩敲響鐘，聲波向外擴散，表使鳴響。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-79:更新,general,更新,こうしん,更新,images/vocab/updating.svg,general-listening-79:更新,公告板上舊表被換成新表，旁邊環形更新箭頭，表更新。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-80:稽古,general,稽古,けいこ,排練,images/vocab/rehearsal.svg,general-listening-80:稽古,空座位的舞台上，演員拿著劇本走位，導演在旁指示，表排練。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-81:取ってくる,general,取ってくる,とってくる,去拿回來,images/vocab/fetching.svg,general-listening-81:取ってくる,人物走去架上拿繃帶，再沿迴轉箭頭帶回原處，表去拿回來。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-83:移す,general,移す,うつす,移動；轉移,images/vocab/relocating.svg,general-listening-83:移す,箱子從左邊房間沿箭頭被搬到右邊的另一處，原處留虛線，表移動、轉移。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-84:放送,general,放送,ほうそう,廣播,images/vocab/broadcast.svg,general-listening-84:放送,柱上的擴音喇叭播出聲音，聲波傳向多處，表廣播。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-86:褒められる,general,褒められる,ほめられる,被稱讚,images/vocab/beingpraised.svg,general-listening-86:褒められる,他人摸頭並豎拇指稱讚，被稱讚的一方被圈出、臉紅開心，表被稱讚。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-87:速さ,general,速さ,はやさ,速度,images/vocab/speed.svg,general-listening-87:速さ,速度計的指針從低處擺到中間，旁有速度線，表速度。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-88:秒,general,秒,びょう,秒,images/vocab/seconds.svg,general-listening-88:秒,碼錶秒針快速走過一小段，滴答聲線，表秒。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-89:開門,general,開門,かいもん,開門,images/vocab/gateopening.svg,general-listening-89:開門,大門左右兩扇向外打開，人們準備通過，表開門（啟用通行）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-92:止める,general,止める,とめる,制止,images/vocab/stopsomeone.svg,general-listening-92:止める,一人伸手拉住正要衝出去的同伴手臂，把他攔下，表制止。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-93:以内,general,以内,いない,以內,images/vocab/within.svg,general-listening-93:以内,時間線上一段期限框起，事件點落在框內而非框外，表以內。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-94:復旧,general,復旧,ふっきゅう,恢復,images/vocab/restoration.svg,general-listening-94:復旧,停電的電線修好後，燈再度亮起、指針回到正常，表恢復運作。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-99:任務,general,任務,にんむ,任務,images/vocab/mission.svg,general-listening-99:任務,蓋有封印的任務卷軸展開，上有地圖與目標標記，表任務。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-102:押される,general,押される,おされる,被推,images/vocab/beingpushed.svg,general-listening-102:押される,被推的一方被圈出、身體前傾踉蹌，推的手從後方來，箭頭朝被推者，表被推。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-103:使わせる,general,使わせる,つかわせる,讓使用,images/vocab/lettinguse.svg,general-listening-103:使わせる,隊長把裝置遞給新人並點頭允許，新人開始操作，表讓（某人）使用。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-104:運ばされる,general,運ばされる,はこばされる,被要求搬運,images/vocab/madetocarry.svg,general-listening-104:運ばされる,班長指著木箱下令，被要求的人不情願地扛著木箱，表被要求搬運。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-105:高台,general,高台,たかだい,高地,images/vocab/highground.svg,general-listening-105:高台,人物爬上高起的台地，從上方眺望下面的村子，表高地。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-105:視界,general,視界,しかい,視野,images/vocab/fieldofview.svg,general-listening-105:視界,人物眼睛前方展開扇形視野範圍，範圍內的樹被看見，外面的淡化，表視野。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-106:期間,general,期間,きかん,期間,images/vocab/period.svg,general-listening-106:期間,日曆上連續幾天的一段被括號框起，起點到終點的雙箭頭，表期間。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-107:詰所,general,詰所,つめしょ,值班室,images/vocab/guardpost.svg,general-listening-107:詰所,大門旁的值班小屋，窗內有值班人員與鑰匙架，表值班室。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-110:異常,general,異常,いじょう,異常,images/vocab/abnormality.svg,general-listening-110:異常,儀表的指針衝進紅區、警示燈閃紅，表異常。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-111:未定,general,未定,みてい,未定,images/vocab/undecided.svg,general-listening-111:未定,日曆的某一格只有虛線框，兩個候選日之間的箭頭來回，表未定。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-113:裏口,general,裏口,うらぐち,後門,images/vocab/backdoor.svg,general-listening-113:裏口,倉庫後側的小門被圈出，正面大門在另一邊淡化，表後門。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-114:訪問,general,訪問,ほうもん,拜訪,images/vocab/visiting.svg,general-listening-114:訪問,人物帶著伴手禮來到別人家門口按門鈴，屋主出來迎接，表拜訪。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-116:見回り,general,見回り,みまわり,巡視,images/vocab/patrol.svg,general-listening-116:見回り,提燈的巡邏者沿著虛線環路繞行城鎮，表巡視、巡查。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-116:増やす,general,増やす,ふやす,增加,images/vocab/increasing.svg,general-listening-116:増やす,三堆積塊由少到多排列，向上的箭頭，表增加。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-120:連れていく,general,連れていく,つれていく,帶往,images/vocab/takingalong.svg,general-listening-120:連れていく,人物牽著村民的手一起走向山丘，前方帶路、後方跟著，表帶往。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-121:方角,general,方角,ほうがく,方向,images/vocab/direction.svg,general-listening-121:方角,人物手持指南針，粗箭頭指向前方某個方向，表方向、方角。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-123:射手,general,射手,しゃしゅ,射手,images/vocab/archer.svg,general-listening-123:射手,拉滿弓的射手站在城牆上，被圈出，表射手。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-123:味方,general,味方,みかた,我方,images/vocab/ally.svg,general-listening-123:味方,同色臂章的隊友並肩站在同一側，被圈為我方，對面是敵人，表我方。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-126:解毒,general,解毒,げどく,解毒,images/vocab/antidote.svg,general-listening-126:解毒,綠色藥瓶讓中毒變紫的手恢復正常膚色，表解毒。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-126:体力,general,体力,たいりょく,體力,images/vocab/stamina.svg,general-listening-126:体力,人物旁的體力條是滿的紅色心形計量，跑步有勁，表體力。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-127:流す,general,流す,ながす,沖走,images/vocab/washaway.svg,general-listening-127:流す,雨水沖過地面，把原本的腳印沖淡沖走，箭頭順水流，表沖走。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-127:止む,general,止む,やむ,雨停,images/vocab/rainstops.svg,general-listening-127:止む,雲間的雨絲停住，雲後露出太陽，傘被收起，表雨停。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-127:現れる,general,現れる,あらわれる,出現,images/vocab/appearing.svg,general-listening-127:現れる,原本空著的地面上，腳印從無到有地出現，閃光表示出現。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-128:見間違える,general,見間違える,みまちがえる,看錯,images/vocab/misseeing.svg,general-listening-128:見間違える,遠處其實是披斗篷的陌生人，看的人心中卻以為是隊長（戴帽），兩者打叉，表看錯。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-128:隠す,general,隠す,かくす,藏起,images/vocab/hidingobject.svg,general-listening-128:隠す,人物用兜帽與手把臉遮住、物品被藏在身後，表藏起。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-128:被る,general,被る,かぶる,戴上,images/vocab/puttingonhat.svg,general-listening-128:被る,人物雙手把帽子往頭上戴，向下箭頭，表戴上（帽子等）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-128:通り過ぎる,general,通り過ぎる,とおりすぎる,走過,images/vocab/passingby.svg,general-listening-128:通り過ぎる,披斗篷的人從看的人面前橫越走過，不停下，虛線軌跡從一側到另一側，表走過。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-131:下りる,general,下りる,おりる,往下走,images/vocab/goingdownstairs.svg,general-listening-131:下りる,人物抓著繩索沿岩壁往下爬，向下箭頭，表往下走、下去。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-133:隊列,general,隊列,たいれつ,隊列,images/vocab/formation.svg,general-listening-133:隊列,隊員排成整齊的縱列沿同一方向前進，表隊列。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-133:先頭,general,先頭,せんとう,隊伍最前方,images/vocab/headofline.svg,general-listening-133:先頭,隊列最前方的成員被圈出，表隊伍最前方（先頭）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-133:最後尾,general,最後尾,さいこうび,隊伍最後方,images/vocab/endofline.svg,general-listening-133:最後尾,隊列最後方的成員被圈出，表隊伍最後方（最後尾）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-133:治療役,general,治療役,ちりょうやく,治療人員,images/vocab/healer.svg,general-listening-133:治療役,帶著藥箱、手發出治療光芒的隊員被圈出，表治療人員。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-133:護衛,general,護衛,ごえい,護衛,images/vocab/bodyguard.svg,general-listening-133:護衛,持盾的護衛站在被保護者身旁、面向外側警戒，表護衛。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-134:三歩,general,三歩,さんぽ,三步,images/vocab/threesteps.svg,general-listening-134:三歩,人物後退，地上三個腳印間距相等，表三步。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-134:崩す,general,崩す,くずす,打亂,images/vocab/breakformation.svg,general-listening-134:崩す,原本整齊的隊列被打亂，成員散向各處，表打亂（隊形）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-134:叫ぶ,general,叫ぶ,さけぶ,大喊,images/vocab/shouting.svg,general-listening-134:叫ぶ,人物雙手圍在嘴邊大聲喊叫，粗大的聲波向遠方，表大喊。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-135:損害,general,損害,そんがい,損傷,images/vocab/damage.svg,general-listening-135:損害,鎧甲表面出現裂痕與缺口，生命條被扣掉一段，表損傷、損害。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-135:無効,general,無効,むこう,無效,images/vocab/noeffect.svg,general-listening-135:無効,火焰打在防護罩上整個彈開，被保護者毫髮無傷，表無效。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-136:待ち時間,general,待ち時間,まちじかん,等待時間,images/vocab/waitingtime.svg,general-listening-136:待ち時間,人物坐著等待，旁邊沙漏與時鐘標出要等的一段時間，表等待時間。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-136:三分,general,三分,さんぷん,三分鐘,images/vocab/threeminutes.svg,general-listening-136:三分,時鐘長針只走過一小格扇形（約三分鐘），表三分鐘。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-136:五分,general,五分,ごふん,五分鐘,images/vocab/fiveminutes.svg,general-listening-136:五分,時鐘長針走過一格大格扇形（五分鐘），表五分鐘。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-139:同盟,general,同盟,どうめい,同盟,images/vocab/alliance.svg,general-listening-139:同盟,兩支不同旗幟的隊伍握手結盟，旗桿交叉，表同盟。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-142:先遣隊,general,先遣隊,せんけんたい,先遣隊,images/vocab/advanceparty.svg,general-listening-142:先遣隊,少數幾人已先過橋到對岸，本隊仍在這頭，先行的一組被圈出，表先遣隊。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-142:後続,general,後続,こうぞく,後續隊伍,images/vocab/followingparty.svg,general-listening-142:後続,前面隊伍已出發，之後還在岸邊等待跟上的一組被圈出，表後續隊伍。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-142:本隊,general,本隊,ほんたい,主隊,images/vocab/mainforce.svg,general-listening-142:本隊,人數最多的主要隊伍集中在中央，旗手在其中，被大圈圈出，表主隊。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-142:偵察,general,偵察,ていさつ,偵察,images/vocab/scouting.svg,general-listening-142:偵察,偵察者伏低身子、拿望遠鏡從岩石後窺看敵營，表偵察。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-143:防衛線,general,防衛線,ぼうえいせん,防線,images/vocab/defenseline.svg,general-listening-143:防衛線,一排盾牌與木柵連成一條橫線，敵人被擋在線外，表防線。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-143:囮,general,囮,おとり,誘餌,images/vocab/decoy.svg,general-listening-143:囮,一個人偶誘餌插在空地吸引敵人，真正的隊伍躲在旁邊，表誘餌。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-143:境界,general,境界,きょうかい,界線,images/vocab/boundary.svg,general-listening-143:境界,地面上一條界線把兩區分開，人物停在線的這一側不越過，表界線。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-144:停戦,general,停戦,ていせん,停火,images/vocab/ceasefire.svg,general-listening-144:停戦,兩方放下武器，中間插著白旗，表停火。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-144:捨てる,general,捨てる,すてる,丟棄,images/vocab/throwaway.svg,general-listening-144:捨てる,人物把東西丟進垃圾桶，向下的拋物箭頭，表丟棄。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-145:通す,general,通す,とおす,使通過,images/vocab/lettingthrough.svg,general-listening-145:通す,人物讓到旁邊並伸手示意，同伴從讓出的門口通過，表讓人通過。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-146:砕ける,general,砕ける,くだける,碎裂,images/vocab/shattering.svg,general-listening-146:砕ける,寶石受力後碎裂成多片四散，碎片與裂線，表碎裂。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-147:配達員,general,配達員,はいたついん,配送員,images/vocab/courier.svg,general-listening-147:配達員,戴帽背郵包、手拿包裹的配送員，表配送員。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-154:担ぐ,general,担ぐ,かつぐ,扛著,images/vocab/shouldering.svg,general-listening-154:担ぐ,人物把一捆毛毯扛在肩上走，表扛著。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-155:責める,general,責める,せめる,責備,images/vocab/blaming.svg,general-listening-155:責める,一人指著對方生氣責備，被指的人低頭縮肩，表責備。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-157:積荷,general,積荷,つみに,貨物,images/vocab/cargo.svg,general-listening-157:積荷,貨車上蓋著布的貨物堆，表貨物。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-158:許可証,general,許可証,きょかしょう,許可證,images/vocab/permit.svg,general-listening-158:許可証,蓋著官印、繫著繩的通行許可證，出示給門衛看，表許可證。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-159:独り言,general,独り言,ひとりごと,自言自語,images/vocab/talkingtoself.svg,general-listening-159:独り言,人物獨自一人低聲說話，泡泡繞回自己身上，周圍沒有聽者，表自言自語。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-161:積み直す,general,積み直す,つみなおす,重新裝載,images/vocab/reloading.svg,general-listening-161:積み直す,箱子被從貨台卸下後換個位置重新堆上，環形箭頭，表重新裝載。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-161:降ろす,general,降ろす,おろす,卸下,images/vocab/unloading.svg,general-listening-161:降ろす,人物把箱子從船上卸到碼頭，向下箭頭，表卸下。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-162:明晩,general,明晩,みょうばん,明晚,images/vocab/tomorrownight.svg,general-listening-162:明晩,日曆箭頭指向明天那一格，格內是月亮與星星，表明晚。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-164:救護室,general,救護室,きゅうごしつ,救護室,images/vocab/firstaidroom.svg,general-listening-164:救護室,有病床、藥櫃與擔架的救護房間，表救護室。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-166:逆,general,逆,ぎゃく,相反,images/vocab/reverse.svg,general-listening-166:逆,同樣兩個事件，原本的順序被調換，交叉的箭頭表相反。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-167:手書き,general,手書き,てがき,手寫,images/vocab/handwriting.svg,general-listening-167:手書き,手握筆一筆一畫地寫，紙上是彎曲的手寫線（不是印刷字），表手寫。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-168:同僚,general,同僚,どうりょう,同事,images/vocab/colleague.svg,general-listening-168:同僚,同一間辦公室同樣識別證的兩人並肩工作，表同事。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-168:親しい,general,親しい,したしい,親近,images/vocab/closefriends.svg,general-listening-168:親しい,兩人勾肩搭背、笑著靠近，距離很近，表親近。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-170:夜道,general,夜道,よみち,夜路,images/vocab/nightroad.svg,general-listening-170:夜道,夜晚的山路上路燈稀疏，只有一盞照亮一小段，表夜路。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-172:過去,general,過去,かこ,過去,images/vocab/past.svg,general-listening-172:過去,時間線上現在紅點以左的整段被淡色標出，回頭的箭頭，表過去。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-172:早める,general,早める,はやめる,提早,images/vocab/movingearlier.svg,general-listening-172:早める,日曆上的預定從較晚的格子被拉到前面的格子，向左箭頭，表提早。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-174:途切れる,general,途切れる,とぎれる,中斷,images/vocab/cutoff.svg,general-listening-174:途切れる,說話中途泡泡被截斷，句子線斷開，表中斷。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-176:やり直す,general,やり直す,やりなおす,重新做,images/vocab/redo.svg,general-listening-176:やり直す,做錯的一份被打叉放到旁邊，回轉箭頭指向重新開始的新一份，表重新做。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-179:電波,general,電波,でんぱ,電波,images/vocab/signalwaves.svg,general-listening-179:電波,天線塔向外發出一圈圈電波，表電波。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-179:圏外,general,圏外,けんがい,收訊範圍外,images/vocab/nosignal.svg,general-listening-179:圏外,手機訊號格全空並打叉，遠處的電波到不了，表收訊範圍外。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-178:犯人,general,犯人,はんにん,犯人,images/vocab/culprit.svg,general-listening-178:犯人,戴面罩抱著偷來的袋子溜走的人，腳印與追查的放大鏡，表犯人。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-178:漏らす,general,漏らす,もらす,洩漏,images/vocab/leakingsecret.svg,general-listening-178:漏らす,原本上鎖的盒子開了縫，紙條從縫中飄出傳給外人，表洩漏（秘密）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-178:裏切る,general,裏切る,うらぎる,背叛,images/vocab/betrayal.svg,general-listening-178:裏切る,並肩的同伴之一轉身把情報交給對方陣營，原本相連的繩斷開，表背叛。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-171:別人,general,別人,べつじん,別人,images/vocab/differentperson.svg,general-listening-171:別人,兩個穿同樣披風的人，帽子下的臉不同，中間打叉表示不是同一個，表別人（不是同一人）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+primary,general-listening-173:本人確認,general,本人確認,ほんにんかくにん,身分核對,images/vocab/idverification.svg,general-listening-173:本人確認,櫃檯人員拿著對方的證件，對照照片與本人的臉，打勾，表身分核對。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-24:いつ,general,いつ,いつ,何時,images/vocab/whenquestion.svg,stage0-day5:いつ,「何時」是同一疑問詞，例句問店明天是否營業的時間。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,stage0-day9:なぜ,n5,なぜ,なぜ,為什麼（比較正式）,images/vocab/whyquestion.svg,stage0-day9:どうして,なぜ與どうして同為詢問原因。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,stage0-day21:いかが,n5,いかが,いかが,如何（「どう」的禮貌說法）,images/vocab/howisit.svg,stage0-day8:どう,いかが是どう的禮貌說法，同樣詢問感受或狀況。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,stage0-day3:どちら,n5,どちら,どちら,哪邊、哪位（禮貌）,images/vocab/whichoftwo.svg,stage0-day20:どっち,どちら問哪一邊（出口在哪邊、哪條路），與兩者擇一同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-10:どちら,general,どちら,どちら,哪一邊,images/vocab/whichoftwo.svg,stage0-day20:どっち,どちら問哪一邊（出口在哪邊、哪條路），與兩者擇一同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,stage0-day21:しかし,n5,しかし,しかし,但是（比「でも」正式）,images/vocab/butcontrast.svg,stage0-day8:でも,しかし與でも同為轉折「但是」，只差正式程度。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,stage0-day6:ええ,n5,ええ,ええ,是、嗯（比「はい」隨和）,images/vocab/nodyes.svg,stage0-day15:はい,ええ、うん、肯定都是表示同意的「是」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,stage0-day20:うん,n5,うん,うん,嗯（肯定，隨性）,images/vocab/nodyes.svg,stage0-day15:はい,ええ、うん、肯定都是表示同意的「是」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-169:肯定,general,肯定,こうてい,肯定,images/vocab/nodyes.svg,stage0-day15:はい,ええ、うん、肯定都是表示同意的「是」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-06:もし,general,もし,もし,如果,images/vocab/ifcondition.svg,stage0-day25:もし,「如果」條件，例句是天氣條件與沒收到回覆的條件。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-95:もし,general,もし,もし,如果,images/vocab/ifcondition.svg,stage0-day25:もし,「如果」條件，例句是天氣條件與沒收到回覆的條件。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,stage0-day25:零,n5,零,れい,零（漢字念法，用在電話號碼、成績）,images/vocab/zeroitems.svg,stage0-day25:ゼロ,零與ゼロ同為零的數量。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-144:武器,general,武器,ぶき,武器,images/vocab/weapons.svg,anime-lesson-05:武器,例句「武器を受付に預ける」是武器實物。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:haze:selection-voice:e0241227db:e0241227db,games,武器ならいくらでもある。,ぶきなら いくらでも ある。,武器的話要多少有多少。,images/vocab/weapons.svg,anime-lesson-05:武器,例句「武器を受付に預ける」是武器實物。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-08:無理,general,無理,むり,勉強；做不到,images/vocab/impossible.svg,general-listening-40:無理,「做不到、勉強」：今晚無法、只靠食物和水以外搬不動。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-153:無理,general,無理,むり,勉強,images/vocab/impossible.svg,general-listening-40:無理,「做不到、勉強」：今晚無法、只靠食物和水以外搬不動。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-103:止める,general,止める,とめる,停止,images/vocab/haltmachine.svg,general-listening-53:止める,裝置停下：例句是停止裝置、停電後裝置停止與停止操作（T158暫緩的止まる／停止）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-159:止める,general,止める,とめる,停止,images/vocab/haltmachine.svg,general-listening-53:止める,裝置停下：例句是停止裝置、停電後裝置停止與停止操作（T158暫緩的止まる／停止）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-61:止まる,general,止まる,とまる,停止,images/vocab/haltmachine.svg,general-listening-53:止める,裝置停下：例句是停止裝置、停電後裝置停止與停止操作（T158暫緩的止まる／停止）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-94:止まる,general,止まる,とまる,停止,images/vocab/haltmachine.svg,general-listening-53:止める,裝置停下：例句是停止裝置、停電後裝置停止與停止操作（T158暫緩的止まる／停止）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-84:停止,general,停止,ていし,停止,images/vocab/haltmachine.svg,general-listening-53:止める,裝置停下：例句是停止裝置、停電後裝置停止與停止操作（T158暫緩的止まる／停止）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-166:停止,general,停止,ていし,停止,images/vocab/haltmachine.svg,general-listening-53:止める,裝置停下：例句是停止裝置、停電後裝置停止與停止操作（T158暫緩的止まる／停止）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-16:プレゼント,general,プレゼント,プレゼント,禮物,images/vocab/giftbox.svg,general-listening-54:贈り物,プレゼント與贈り物同為禮物。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-27:これから,general,これから,これから,從現在起,images/vocab/fromnow.svg,general-listening-55:今から,これから與今から同為「從現在起／接下來」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-55:これから,general,これから,これから,接下來,images/vocab/fromnow.svg,general-listening-55:今から,これから與今から同為「從現在起／接下來」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-110:これから,general,これから,これから,接下來,images/vocab/fromnow.svg,general-listening-55:今から,これから與今から同為「從現在起／接下來」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-170:暫定,general,暫定,ざんてい,暫定,images/vocab/provisional.svg,general-listening-82:仮,暫定與仮同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-69:見直す,general,見直す,みなおす,重新查看,images/vocab/reviewagain.svg,general-listening-82:見直す,重新查看與重新檢視同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-164:待合室,general,待合室,まちあいしつ,候診室,images/vocab/waitingroom.svg,general-listening-86:控室,待合室與控室同為等候的房間。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-122:正面,general,正面,しょうめん,正前方,images/vocab/frontside.svg,general-listening-113:正面,正前方、建築正面（表＝正面入口）同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-65:表,general,表,おもて,正面,images/vocab/frontside.svg,general-listening-113:正面,正前方、建築正面（表＝正面入口）同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-124:作戦,general,作戦,さくせん,作戰計畫,images/vocab/battleplan.svg,general-listening-134:作戦,作戰計畫與戰術同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-119:省く,general,省く,はぶく,省略,images/vocab/omission.svg,general-listening-154:省略,省く與省略同義（省掉信號、省掉謄寫）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-167:省く,general,省く,はぶく,省去,images/vocab/omission.svg,general-listening-154:省略,省く與省略同義（省掉信號、省掉謄寫）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-18:準備物,general,準備物,じゅんびぶつ,準備物品,images/vocab/belongings.svg,general-listening-03:持ち物,準備物品與攜帶物品同義（T158暫緩項目）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-157:食料,general,食料,しょくりょう,食物,images/vocab/provisions.svg,general-listening-08:食料,例句「薬か食料か」是糧食。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-48:忘れ物,general,忘れ物,わすれもの,遺留物,images/vocab/lostitem.svg,general-listening-08:忘れ物,遺留物、失物與遺忘的物品同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-48:落とし物,general,落とし物,おとしもの,失物,images/vocab/lostitem.svg,general-listening-08:忘れ物,遺留物、失物與遺忘的物品同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-107:メモ,general,メモ,めも,便條,images/vocab/memonote.svg,general-listening-15:メモ,例句是桌上的便條。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-116:二本,general,二本,にほん,兩瓶,images/vocab/twobottles.svg,general-listening-11:二本,例句「水を二本ずつ」是兩瓶。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-167:記入,general,記入,きにゅう,填入,images/vocab/fillingform.svg,general-listening-45:記入,填入與填寫同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-112:手前,general,手前,てまえ,前方近側,images/vocab/nearside.svg,general-listening-50:手前,手前（前方近側、近側）同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-132:手前,general,手前,てまえ,近側,images/vocab/nearside.svg,general-listening-50:手前,手前（前方近側、近側）同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-90:発表,general,発表,はっぴょう,公布,images/vocab/announcement.svg,general-listening-51:発表,發布與公布同義（發表結果）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-143:鳴らす,general,鳴らす,ならす,使發聲,images/vocab/ringingbell.svg,general-listening-78:鳴らす,吹笛發聲同屬「使發出聲響」。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-97:移す,general,移す,うつす,移往,images/vocab/relocating.svg,general-listening-83:移す,把道具移到別室。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-166:復旧,general,復旧,ふっきゅう,恢復運作,images/vocab/restoration.svg,general-listening-94:復旧,恢復運作與恢復同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-153:見回り,general,見回り,みまわり,巡查,images/vocab/patrol.svg,general-listening-116:見回り,巡查與巡視同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:vesna:join:66dd4f2967,games,見回りの時間ね！,みまわりの じかんね！,巡視時間到了！,images/vocab/patrol.svg,general-listening-116:見回り,巡查與巡視同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-158:通す,general,通す,とおす,讓人通過,images/vocab/lettingthrough.svg,general-listening-145:通す,讓人通過與使通過同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-88:点灯,general,点灯,てんとう,亮燈,images/vocab/lightson.svg,general-listening-66:つく,點燈（亮燈）與燈亮起同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-179:途絶える,general,途絶える,とだえる,中斷；斷絕,images/vocab/cutoff.svg,general-listening-174:途切れる,通訊斷絕與中斷同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-155:今度,general,今度,こんど,下次,images/vocab/nexttime.svg,general-listening-36:次,今度、次回都是下次。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-155:次回,general,次回,じかい,下回,images/vocab/nexttime.svg,general-listening-36:次,今度、次回都是下次。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-154:補足,general,補足,ほそく,補充,images/vocab/supplement.svg,general-listening-153:補う,補充與補足同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-82:最新版,general,最新版,さいしんばん,最新版,images/vocab/latest.svg,general-listening-51:最新,最新版與最新同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-23:思う,general,思う,おもう,認為；想,images/vocab/thinking.svg,general-listening-23:考える,思う、考え為想法與思考。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-57:考え,general,考え,かんがえ,想法,images/vocab/thinking.svg,general-listening-23:考える,思う、考え為想法與思考。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-32:物語,general,物語,ものがたり,故事,images/vocab/storytelling.svg,stage0-day18:話,物語是故事。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-114:伺う,general,伺う,うかがう,拜訪；前往的謙讓語,images/vocab/visiting.svg,general-listening-114:訪問,伺う是拜訪的謙讓語。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,general-listening-123:攻撃,general,攻撃,こうげき,攻擊,images/vocab/attacking.svg,game-card:game:genshin:aino:skill:790cbc5cc6,攻擊與接招、出招同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:xiangling:burst:f1c81a3376,games,師匠の技を食らいなさい！,ししょうの わざを くらいなさい！,接下師父的招式吧！,images/vocab/attacking.svg,game-card:game:genshin:aino:skill:790cbc5cc6,攻擊與接招、出招同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:odette:skill:03a16ae3d3,games,行きますわよ。,いきますわよ。,我要出招了。,images/vocab/attacking.svg,game-card:game:genshin:aino:skill:790cbc5cc6,攻擊與接招、出招同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:garnet:selection-voice:18b15d673c:18b15d673c,games,私と一緒に花火、見に行く？,わたしと いっしょに はなび、みに いく？,要和我一起去看煙火嗎？,images/vocab/fireworks.svg,game-card:game:er:aya:selection-voice:84354f8cfd:84354f8cfd,都是看煙火或煙火開始。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:aya:selection:1002002:6beac65e1c,games,バンバーン！花火の始まりですよ！,バンバーン！ はなびの はじまりですよ！,砰砰！煙火要開始囉！,images/vocab/fireworks.svg,game-card:game:er:aya:selection-voice:84354f8cfd:84354f8cfd,都是看煙火或煙火開始。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:fiora:selection-voice:b3ab960a9b:b3ab960a9b,games,私の敵はどこだ？,わたしの てきは どこだ？,我的敵人在哪裡？,images/vocab/seekingfoe.svg,game-card:game:er:aya:selection-voice:6baf70e37c:6baf70e37c,同為尋找敵人在哪。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:alyosha:join:a2689f1b6f,games,狩りの時間だ。,かりの じかんだ。,狩獵時間到了。,images/vocab/hunting.svg,game-card:game:er:nadine:selection-voice:089b7ff647:089b7ff647,都是狩獵。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:bernice:selection-voice:e7caa894f2:e7caa894f2,games,僕はただ、獣を狩るだけだ。,ぼくは ただ、けものを かるだけだ。,我只是在狩獵野獸而已。,images/vocab/hunting.svg,game-card:game:er:nadine:selection-voice:089b7ff647:089b7ff647,都是狩獵。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:xuelin:selection:1082002:81a799901c,games,夏の海…一緒に見に行きませんか？,なつの うみ…いっしょに みに いきませんか？,要不要一起去看看夏日的海？,images/vocab/beachouting.svg,game-card:game:er:lidailin:selection:1010005:3096dc95d4,邀約一起去看海。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:emma:selection:1019004:ef0fce59b4,games,お待たせ～！夏限定マジックショー、始まるよ～！,おまたせ～！なつげんてい マジックショー、はじまるよ～！,久等啦！夏季限定魔術秀要開始囉！,images/vocab/magicshow.svg,game-card:game:er:emma:selection-voice:6bbda2dee4:6bbda2dee4,魔術秀與小把戲。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:emma:selection-voice:8f3c15e7eb:8f3c15e7eb,games,今日のマジックショーは海でやるからね！,きょうの マジックショーは うみで やるからね！,今天的魔術秀要在海邊表演喔！,images/vocab/magicshow.svg,game-card:game:er:emma:selection-voice:6bbda2dee4:6bbda2dee4,魔術秀與小把戲。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:lynette:skill:7a7f6c013c,games,ちょっとしたトリック。,ちょっとした トリック。,一點小把戲。,images/vocab/magicshow.svg,game-card:game:er:emma:selection-voice:6bbda2dee4:6bbda2dee4,魔術秀與小把戲。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:dehya:join:97b1f9b36a,games,何か依頼があるのか？,なにか いらいが あるのか？,有什麼委託嗎？,images/vocab/askingrequest.svg,game-card:game:er:tsubame:selection-voice:c495dcd184:c495dcd184,同為詢問對方有什麼委託。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:jahoda:join:58db6368dc,games,仕事の依頼か？,しごとの いらいか？,是工作的委託嗎？,images/vocab/askingrequest.svg,game-card:game:er:tsubame:selection-voice:c495dcd184:c495dcd184,同為詢問對方有什麼委託。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:eleven:selection-voice:bbd1f83e04:bbd1f83e04,games,イレブンの結婚式配信、始まるよ～！,イレブンの けっこんしき はいしん、はじまるよ～！,Eleven 的婚禮直播要開始囉～！,images/vocab/livestream.svg,game-card:game:er:eleven:selection:1030004:46e9d6cd81,直播開始。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:faruzan:join:27478cac58,games,体を動かすのは久しぶりじゃ。,からだを うごかすのは ひさしぶりじゃ。,好久沒活動筋骨了。,images/vocab/warmingup.svg,game-card:game:genshin:lohen:join:b58a222e95,活動身體暖身。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:celine:selection-voice:e252acb428:e252acb428,games,大体の問題は爆発で解決できる。,だいたいの もんだいは ばくはつで かいけつできる。,大部分的問題都能用爆炸解決。,images/vocab/explosion.svg,game-card:game:genshin:klee:skill:58fcc41d40,用爆炸解決問題，主要語義為爆炸。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:mika:skill:986315cbb8,games,立ち去ってください！,たちさってください！,請離開這裡！,images/vocab/goaway.svg,game-card:game:er:karla:selection-voice:5f98347e3e:5f98347e3e,同為要對方離開。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:chongyun:burst:841b8103f3,games,妖魔め、立ち去れ！,ようまめ、たちされ！,妖魔，給我退下！,images/vocab/goaway.svg,game-card:game:er:karla:selection-voice:5f98347e3e:5f98347e3e,同為要對方離開。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:kukishinobu:burst:68e5fd333e,games,邪魔をするな。,じゃまを するな。,別來妨礙。,images/vocab/dontinterfere.svg,game-card:game:genshin:layla:skill:3e2b9c1788,同為不要妨礙。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:diluc:idle:c206b3dd24,games,たまにはノンビリするのも悪くないな。,たまには ノンビリするのも わるくないな。,偶爾悠閒一下也不錯。,images/vocab/vacation.svg,game-card:game:er:haze:selection:1058002:413f60b648,悠閒放鬆的假期感。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:adriana:selection:1017004:36275fa953,games,こっちにおいで...私を...温かくして...,こっちに おいで...わたしを...あたたかくして...,到我這邊來……讓我……暖和起來……,images/vocab/comehere.svg,game-card:game:genshin:tartaglia:skill:dd4b2c0aff,同為叫對方過來。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:yumin:selection-voice:d3d1239d53:d3d1239d53,games,風と雲に乗って。では、参ろう！,かぜと くもに のって。では、まいろう！,乘著風與雲。那麼，出發吧！,images/vocab/ridewind.svg,game-card:game:er:yumin:selection-voice:c4cd5ea772:c4cd5ea772,乘風而行。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:justyna:selection-voice:05be2850af:05be2850af,games,ジャジャーン！スーパーヒーロー登場！あなたの夢を叶えてあげる！,ジャジャーン！スーパーヒーロー とうじょう！あなたの ゆめを かなえてあげる！,鏘鏘！超級英雄登場！我來實現你的夢想！,images/vocab/heroentrance.svg,game-card:game:er:justyna:selection-voice:707ebef378:707ebef378,英雄登場。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:charlotte:selection:1073002:058f683c2f,games,さあ、一緒に楽しみましょう。この世界の最高の遊戯を。,さあ、いっしょに たのしみましょう。この せかいの さいこうの ゆうぎを。,來吧，一起享受這個世界最棒的遊戲。,images/vocab/videogame.svg,game-card:game:er:niah:selection-voice:a92bad0ddc:a92bad0ddc,一起享受遊戲。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:linnea:skill:49fad97ead,games,舐めないでください！,なめないでください！,請別小看我！,images/vocab/dontunderestimate.svg,game-card:game:genshin:diona:skill:c81b594e00,同為別小看我。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:manekina:join-order:c63c16c1d9,games,命令を出して？,めいれいを だして？,請給我指令好嗎？,images/vocab/awaitingorders.svg,game-card:game:genshin:manekin:join-order:f08d589226,同為等待指示、詢問能做什麼。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:manekina:join-request:707429e2cf,games,指示をちょうだい,しじをちょうだい,給我指示吧。,images/vocab/awaitingorders.svg,game-card:game:genshin:manekin:join-order:f08d589226,同為等待指示、詢問能做什麼。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:manekin:join-request:54221ffa95,games,何でも言ってくれ！,なんでも いってくれ！,有什麼儘管說！,images/vocab/awaitingorders.svg,game-card:game:genshin:manekin:join-order:f08d589226,同為等待指示、詢問能做什麼。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:zhongli:join:189162ae9e,games,何をすればいい…,なにを すれば いい…,我該做什麼呢……,images/vocab/awaitingorders.svg,game-card:game:genshin:manekin:join-order:f08d589226,同為等待指示、詢問能做什麼。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:nilou:join:096a1cf742,games,何か私にできることはない？,なにか わたしに できる ことは ない？,有沒有我能做的事？,images/vocab/awaitingorders.svg,game-card:game:genshin:manekin:join-order:f08d589226,同為等待指示、詢問能做什麼。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:lanyan:burst:9ecd3759b6,games,福を運んできたよ！,ふくを はこんできたよ！,我把福氣帶來了喔！,images/vocab/goodfortune.svg,game-card:game:genshin:gaming:burst:ec9fb22350,帶來福氣。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:sethos:skill:09a215e766,games,失礼！,しつれい！,失禮了！,images/vocab/excuseme.svg,game-card:game:genshin:kirara:skill:a4bb3ae2f9,借過、失禮。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:sethos:burst:f6d6177bea,games,ごめん、ちょっと退いてくれる？,ごめん、ちょっと どいてくれる？,抱歉，可以稍微讓一下嗎？,images/vocab/excuseme.svg,game-card:game:genshin:kirara:skill:a4bb3ae2f9,借過、失禮。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:aya:selection-voice:ff44ffb6bd:ff44ffb6bd,games,鈴木アヤ、皆さんのために歌います！,すずき アヤ、みなさんの ために うたいます！,鈴木綾，要為大家獻唱！,images/vocab/singtogether.svg,game-card:game:genshin:vodyanitsa:burst:6efa3068d3,為大家獻唱。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:er:priya:selection-voice:165eec9546:165eec9546,games,私の心が込められた演奏を皆に聞かせたいです。,わたしの こころが こめられた えんそうを みなに きかせたいです。,我想讓大家聽聽傾注了我心意的演奏。,images/vocab/performingmusic.svg,general-listening-32:演奏,讓大家聽演奏。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:alhaitham:skill:f9431e14c6,games,もらった。,もらった。,得手了。,images/vocab/caught.svg,game-card:game:genshin:yelan:skill:0530970200,抓到了。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+new-shared,game-card:game:genshin:mona:join:7e04f74768,games,仕方ありませんね。,しかたありませんね。,真是沒辦法呢。,images/vocab/nochoice.svg,general-listening-19:仕方ない,真是沒辦法。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day20:どなた,n5,どなた,どなた,哪一位（誰的禮貌說法）,images/vocab/whoquestion.svg,stage0-day10:誰,どなた是誰的禮貌說法；遊戲台詞問想見我的是哪位。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:abigail:selection-voice:65ca97e5cd:65ca97e5cd,games,私に会おうとするのは、どなた様ですか？,わたしに あおうと するのは、どなたさまですか？,想見我的是哪一位呢？,images/vocab/whoquestion.svg,stage0-day10:誰,どなた是誰的禮貌說法；遊戲台詞問想見我的是哪位。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day21:みんな,n5,みんな,みんな,大家、全部,images/vocab/everyone.svg,general-listening-111:全員,みんな、皆さん、皆都是「大家」；皆さん為禮貌稱呼。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day21:皆さん,n5,皆さん,みなさん,各位、大家（禮貌）,images/vocab/everyone.svg,general-listening-111:全員,みんな、皆さん、皆都是「大家」；皆さん為禮貌稱呼。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,anime-lesson-01:皆,anime,皆,みな,大家、全部,images/vocab/everyone.svg,general-listening-111:全員,みんな、皆さん、皆都是「大家」；皆さん為禮貌稱呼。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:yaoyao:skill:a519818ada,games,動かないでねっ！,うごかないでねっ！,不要動喔！,images/vocab/dontmove.svg,game-card:game:genshin:prune:skill:f69935c83c,要對方別動（T159新圖）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:kaeya:skill:488723cc66,games,おとなしくしやがれ！,おとなしくしやがれ！,給我老實點！,images/vocab/dontmove.svg,game-card:game:genshin:prune:skill:f69935c83c,要對方別動（T159新圖）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:yanfei:skill:ec58d5ba70,games,下がれ！,さがれ！,退下！,images/vocab/keepaway.svg,game-card:game:genshin:kachina:burst:2bdef2fb77,退下，與不要靠近同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:estelle:selection-voice:cec78fc060:cec78fc060,games,火災に気をつけてください。あとは私が何とかしますから。,かさいに きを つけてください。あとは わたしが なんとか しますから。,請小心火災。之後就交給我處理。,images/vocab/mindthefire.svg,game-card:game:genshin:thoma:skill:0709b6de1c,小心火災。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:yoimiya:skill:a53fa28ecb,games,火の用心～,ひの ようじん～,小心用火～,images/vocab/mindthefire.svg,game-card:game:genshin:thoma:skill:0709b6de1c,小心火災。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:vodyanitsa:join:7e3b9c6fe2,games,呼んだ？,よんだ？,叫我了嗎？,images/vocab/didyoucall.svg,game-card:game:genshin:ororon:join:8949898ea6,叫我嗎。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:amber:skill:f6be3ee39b,games,ウサギ伯爵、出撃！,ウサギはくしゃく、しゅつげき！,兔兔伯爵，出擊！,images/vocab/deploying.svg,game-card:game:genshin:chevreuse:join:73b3b5d34c,出擊。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:xuelin:selection-voice:d9ec0079bc:d9ec0079bc,games,今のは私たちだけの秘密にしてください。,いまのは わたしたちだけの ひみつに してください。,剛剛的事，請當作我們之間的秘密。,images/vocab/secret.svg,general-listening-178:秘密,保密。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:nicole:burst:ed1de15ef3,games,みんなには内緒よ。,みんなには ないしょよ。,要對大家保密喔。,images/vocab/secret.svg,general-listening-178:秘密,保密。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:niah:selection-voice:0d44de4aec:0d44de4aec,games,ピロローン！ニアの体力が回復しました。,ピロローン！ニアの たいりょくが かいふくしました。,叮咚！妮婭的體力恢復了。,images/vocab/recovery.svg,general-listening-07:回復,體力恢復。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:blair:selection-voice:3b2445d104:3b2445d104,games,跡形もなく全て消してあげる。,あとかたも なく すべて けしてあげる。,我會把一切消除得無影無蹤。,images/vocab/vanishing.svg,general-listening-145:消える,把一切消除無蹤。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:alex:selection-voice:cb7a4847a2:cb7a4847a2,games,新しい任務ですか。引き受けましょう。,あたらしい にんむですか。ひきうけましょう。,有新任務嗎？我接下了。,images/vocab/acceptingtask.svg,general-listening-99:引き受ける,接下委託或任務。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:tsubame:selection-voice:50799f8c51:50799f8c51,games,その依頼、受けてやろう。,その いらい、うけてやろう。,那個委託，我就接下吧。,images/vocab/acceptingtask.svg,general-listening-99:引き受ける,接下委託或任務。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:katja:selection-voice:4f8a880ad5:4f8a880ad5,games,面白そうな依頼だね。引き受けるよ。,おもしろそうな いらいだね。ひきうけるよ。,看起來是有趣的委託呢。我接了。,images/vocab/acceptingtask.svg,general-listening-99:引き受ける,接下委託或任務。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:nicky:selection:1033006:9e41081ae9,games,勝てるよな？俺が応援するのは、お前だけなんだから！,かてるよな？おれが おうえんするのは、おまえだけなんだから！,你會贏的，對吧？因為我支持的只有你！,images/vocab/cheering.svg,general-listening-56:応援,只支持你。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:henry:selection-voice:a97741f079:a97741f079,games,時間は無情に過ぎていく。,じかんは むじょうに すぎていく。,時間無情地流逝。,images/vocab/timeduration.svg,stage0-day4:時間,時間流逝。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:mai:selection-voice:e64da752b1:e64da752b1,games,私のサインですか？アイドルとしてのサインなら…はい！,わたしの サインですか？アイドルとしての サインなら…はい！,要我的簽名嗎？如果是以偶像身分簽的話……好的！,images/vocab/signing.svg,general-listening-148:署名,偶像簽名。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:theodore:selection-voice:70781f9fc0:70781f9fc0,games,後ろはこっちに任せろ。,うしろは こっちに まかせろ。,後面就交給我。,images/vocab/rearguard.svg,general-listening-123:後衛,後方交給我。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:kenneth:selection-voice:10d8048a50:10d8048a50,games,命令には従おう。約束さえ守ってくれれば。,めいれいには したがおう。やくそくさえ まもってくれれば。,我會服從命令。只要你遵守約定。,images/vocab/command.svg,general-listening-53:命令,服從命令、下令。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:shenhe:burst:952546ec0c,games,律令に従え！,りつりょうに したがえ！,遵從律令！,images/vocab/command.svg,general-listening-53:命令,服從命令、下令。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:yunjin:burst:93a620eb43,games,命に応えよ！,めいに こたえよ！,回應命令！,images/vocab/command.svg,general-listening-53:命令,服從命令、下令。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:qiqi:burst:55a136af3b,games,聞き給え、ここにて命ずる。,ききたまえ、ここにて めいずる。,聽令，在此下達命令。,images/vocab/command.svg,general-listening-53:命令,服從命令、下令。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:shenhe:skill:16d4d77878,games,命ずる！,めいずる！,下令！,images/vocab/command.svg,general-listening-53:命令,服從命令、下令。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:nefer:join:ecd1bc629c,games,商売の話かい？,しょうばいの はなしかい？,是生意上的事嗎？,images/vocab/merchant.svg,general-listening-157:商人,生意的事。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:iansan:burst:1737b0cb1d,games,合図を待てよな！,あいずを まてよな！,等我的信號！,images/vocab/givingsignal.svg,general-listening-61:合図,等信號、以鈴聲為信號。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:prune:burst:68458ee238,games,鈴の音を合図に。,すずの ねを あいずに。,以鈴聲為信號。,images/vocab/givingsignal.svg,general-listening-61:合図,等信號、以鈴聲為信號。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:illuga:burst:b22544450c,games,黎明の光を！,れいめいの ひかりを！,迎來黎明之光！,images/vocab/dawn.svg,general-listening-153:夜明け,黎明之光。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:manekin:join-ready:5ea861f015,games,スタンバイ完了！,スタンバイかんりょう！,待命準備完成！,images/vocab/standby.svg,general-listening-26:待機,待命完成。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:manekina:join-ready:03bdf91f1b,games,スタンバイできたよ,スタンバイできたよ,我準備好待命了喔。,images/vocab/standby.svg,general-listening-26:待機,待命完成。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:sissela:selection-voice:adc32d5484:adc32d5484,games,逃げられないのでしょう。,にげられないのでしょう。,是逃不掉的吧。,images/vocab/noescaperoute.svg,game-card:game:genshin:cyno:skill:e1f6bdfce6,逃不掉。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-10:通る,general,通る,とおる,通過,images/vocab/passingthrough.svg,general-listening-51:通行,通る、通過都是穿過通道或關卡。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-120:通る,general,通る,とおる,通行,images/vocab/passingthrough.svg,general-listening-51:通行,通る、通過都是穿過通道或關卡。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-122:通る,general,通る,とおる,通過,images/vocab/passingthrough.svg,general-listening-51:通行,通る、通過都是穿過通道或關卡。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-141:通る,general,通る,とおる,通過,images/vocab/passingthrough.svg,general-listening-51:通行,通る、通過都是穿過通道或關卡。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-44:通過,general,通過,つうか,通過,images/vocab/passingthrough.svg,general-listening-51:通行,通る、通過都是穿過通道或關卡。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-142:通過,general,通過,つうか,通過,images/vocab/passingthrough.svg,general-listening-51:通行,通る、通過都是穿過通道或關卡。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-150:通過,general,通過,つうか,通過,images/vocab/passingthrough.svg,general-listening-51:通行,通る、通過都是穿過通道或關卡。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-91:その後,general,その後,そのあと,之後,images/vocab/afterwards.svg,general-listening-03:後,その後與後同為之後。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-102:その後,general,その後,そのあと,之後,images/vocab/afterwards.svg,general-listening-03:後,その後與後同為之後。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-152:その後,general,その後,そのあと,之後,images/vocab/afterwards.svg,general-listening-03:後,その後與後同為之後。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-04:明後日,general,明後日,あさって,後天,images/vocab/dayaftertomorrow.svg,stage0-day11:あさって,明後日與あさって同為後天。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-52:明後日,general,明後日,あさって,後天,images/vocab/dayaftertomorrow.svg,stage0-day11:あさって,明後日與あさって同為後天。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-21:天候,general,天候,てんこう,天候,images/vocab/weatherconditions.svg,stage0-day12:天気,天候與天氣同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-161:天候,general,天候,てんこう,天候,images/vocab/weatherconditions.svg,stage0-day12:天気,天候與天氣同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-59:欠席,general,欠席,けっせき,缺席,images/vocab/absent.svg,general-listening-73:不在,缺席與不在同為人沒到場。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-85:欠席,general,欠席,けっせき,缺席,images/vocab/absent.svg,general-listening-73:不在,缺席與不在同為人沒到場。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-73:手順,general,手順,てじゅん,步驟,images/vocab/sequenceorder.svg,general-listening-12:順序,手順（步驟、程序）是依序的步驟。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-125:手順,general,手順,てじゅん,步驟,images/vocab/sequenceorder.svg,general-listening-12:順序,手順（步驟、程序）是依序的步驟。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-159:手順,general,手順,てじゅん,程序,images/vocab/sequenceorder.svg,general-listening-12:順序,手順（步驟、程序）是依序的步驟。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-167:手順,general,手順,てじゅん,程序,images/vocab/sequenceorder.svg,general-listening-12:順序,手順（步驟、程序）是依序的步驟。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-77:役目,general,役目,やくめ,職責,images/vocab/incharge.svg,general-listening-71:担当,職責、負責（受け持つ）與負責圖同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-145:役目,general,役目,やくめ,職責,images/vocab/incharge.svg,general-listening-71:担当,職責、負責（受け持つ）與負責圖同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-154:受け持つ,general,受け持つ,うけもつ,負責,images/vocab/incharge.svg,general-listening-71:担当,職責、負責（受け持つ）與負責圖同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-167:受け持つ,general,受け持つ,うけもつ,負責承擔,images/vocab/incharge.svg,general-listening-71:担当,職責、負責（受け持つ）與負責圖同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-36:間違い,general,間違い,まちがい,錯誤,images/vocab/makingmistake.svg,general-listening-36:間違える,錯誤、弄錯對象與弄錯同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-65:間違い,general,間違い,まちがい,錯誤,images/vocab/makingmistake.svg,general-listening-36:間違える,錯誤、弄錯對象與弄錯同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-85:間違い,general,間違い,まちがい,錯誤,images/vocab/makingmistake.svg,general-listening-36:間違える,錯誤、弄錯對象與弄錯同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-176:間違い,general,間違い,まちがい,錯誤,images/vocab/makingmistake.svg,general-listening-36:間違える,錯誤、弄錯對象與弄錯同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-151:取り違える,general,取り違える,とりちがえる,弄錯對象,images/vocab/makingmistake.svg,general-listening-36:間違える,錯誤、弄錯對象與弄錯同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-175:取り違える,general,取り違える,とりちがえる,弄錯,images/vocab/makingmistake.svg,general-listening-36:間違える,錯誤、弄錯對象與弄錯同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-176:取り違える,general,取り違える,とりちがえる,弄錯,images/vocab/makingmistake.svg,general-listening-36:間違える,錯誤、弄錯對象與弄錯同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-167:誤り,general,誤り,あやまり,錯誤,images/vocab/makingmistake.svg,general-listening-36:間違える,錯誤、弄錯對象與弄錯同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-122:現在,general,現在,げんざい,現在,images/vocab/presentmoment.svg,stage0-day4:今,現在與今同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-152:現在,general,現在,げんざい,現在,images/vocab/presentmoment.svg,stage0-day4:今,現在與今同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-14:場所,general,場所,ばしょ,場所,images/vocab/position.svg,general-listening-14:位置,場所、地點是位置。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-34:場所,general,場所,ばしょ,地點,images/vocab/position.svg,general-listening-14:位置,場所、地點是位置。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-58:場所,general,場所,ばしょ,地方,images/vocab/position.svg,general-listening-14:位置,場所、地點是位置。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-168:場所,general,場所,ばしょ,地點,images/vocab/position.svg,general-listening-14:位置,場所、地點是位置。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-17:住民,general,住民,じゅうみん,居民,images/vocab/villagers.svg,general-listening-17:村人,住民是居住的人。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-15:失くす,general,失くす,なくす,弄丟,images/vocab/losingitem.svg,stage0-day17:無くす,失くす、なくす同為弄丟。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-48:なくす,general,なくす,なくす,弄丟,images/vocab/losingitem.svg,stage0-day17:無くす,失くす、なくす同為弄丟。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-16:助かる,general,助かる,たすかる,得救；獲得幫助,images/vocab/helpedrelief.svg,general-listening-33:助かる,得救、獲得幫助。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-31:案内役,general,案内役,あんないやく,嚮導,images/vocab/guiding.svg,general-listening-05:案内,嚮導、引導員是帶路的人。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-73:案内人,general,案内人,あんないにん,嚮導,images/vocab/guiding.svg,general-listening-05:案内,嚮導、引導員是帶路的人。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-180:案内係,general,案内係,あんないがかり,引導員,images/vocab/guiding.svg,general-listening-05:案内,嚮導、引導員是帶路的人。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-105:道標,general,道標,みちしるべ,路標,images/vocab/signboard.svg,general-listening-05:看板,路標與指示牌。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-122:案内板,general,案内板,あんないばん,指示牌,images/vocab/signboard.svg,general-listening-05:看板,路標與指示牌。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-102:手当て,general,手当て,てあて,處置傷勢,images/vocab/treatment.svg,general-listening-126:治療,處置傷勢；遊戲台詞為替人療傷。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:baizhu:join:f798e372e1,games,傷ならば私が手当てしましょう。,きずならば わたしが てあてしましょう。,如果是傷口，就由我來處理吧。,images/vocab/treatment.svg,general-listening-126:治療,處置傷勢；遊戲台詞為替人療傷。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:baizhu:burst:aa692db3af,games,すぐに治してあげましょう。,すぐに なおして あげましょう。,我馬上替你治療吧。,images/vocab/treatment.svg,general-listening-126:治療,處置傷勢；遊戲台詞為替人療傷。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:yaoyao:burst:686de4d2e2,games,いたいの飛んでけ～,いたいの とんでけ～,痛痛飛走～,images/vocab/treatment.svg,general-listening-126:治療,處置傷勢；遊戲台詞為替人療傷。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-126:治す,general,治す,なおす,治療好,images/vocab/healing.svg,general-listening-07:治る,治療好與療癒。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-146:癒やす,general,癒やす,いやす,療癒,images/vocab/healing.svg,general-listening-07:治る,治療好與療癒。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-146:修復,general,修復,しゅうふく,修復,images/vocab/repairing.svg,general-listening-07:直す,修復。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-146:不足,general,不足,ふそく,不足,images/vocab/insufficient.svg,general-listening-11:足りない,不足。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-147:身元,general,身元,みもと,身分,images/vocab/identitycard.svg,general-listening-45:身分証,身分。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-172:開館,general,開館,かいかん,開館,images/vocab/shopopens.svg,general-listening-12:開店,開館、營業、開始營業。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-19:営業,general,営業,えいぎょう,營業,images/vocab/shopopens.svg,general-listening-12:開店,開館、營業、開始營業。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-51:営業,general,営業,えいぎょう,營業,images/vocab/shopopens.svg,general-listening-12:開店,開館、營業、開始營業。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:haze:selection-voice:65e3a64b5b:65e3a64b5b,games,こちら異常なし。営業開始する。,こちら いじょう なし。えいぎょう かいし する。,這邊沒有異常。開始營業。,images/vocab/shopopens.svg,general-listening-12:開店,開館、營業、開始營業。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-172:閉館,general,閉館,へいかん,閉館,images/vocab/shopcloses.svg,general-listening-12:閉店,閉館。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-173:貸出,general,貸出,かしだし,借出,images/vocab/lending.svg,stage0-day7:貸す,借出。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-174:貸し出す,general,貸し出す,かしだす,借出,images/vocab/lending.svg,stage0-day7:貸す,借出。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-174:沈黙,general,沈黙,ちんもく,沉默,images/vocab/silentperson.svg,general-listening-56:黙る,沉默。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-174:図書室,general,図書室,としょしつ,圖書室,images/vocab/library.svg,stage0-day3:図書館,圖書室。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-175:保管庫,general,保管庫,ほかんこ,保管室,images/vocab/warehouse.svg,general-listening-81:倉庫,保管室。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-152:回想,general,回想,かいそう,回憶,images/vocab/recalling.svg,general-listening-69:思い出す,回憶、回顧。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-91:振り返る,general,振り返る,ふりかえる,回顧,images/vocab/recalling.svg,general-listening-69:思い出す,回憶、回顧。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-152:問い合わせる,general,問い合わせる,といあわせる,詢問,images/vocab/askingquestion.svg,stage0-day9:質問,詢問、提問。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-169:問い,general,問い,とい,提問,images/vocab/askingquestion.svg,stage0-day9:質問,詢問、提問。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-178:問いかける,general,問いかける,といかける,提出問題,images/vocab/askingquestion.svg,stage0-day9:質問,詢問、提問。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-169:既に,general,既に,すでに,已經,images/vocab/alreadydone.svg,general-listening-91:すでに,已經。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day7:もう,n5,もう,もう,已經,images/vocab/alreadydone.svg,general-listening-91:すでに,已經。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-61:もう,general,もう,もう,已經,images/vocab/alreadydone.svg,general-listening-91:すでに,已經。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-83:もう,general,もう,もう,已經,images/vocab/alreadydone.svg,general-listening-91:すでに,已經。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-169:もう,general,もう,もう,已經,images/vocab/alreadydone.svg,general-listening-91:すでに,已經。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,anime-lesson-01:もう,anime,もう,もう,已經；再、更多（依上下文）,images/vocab/alreadydone.svg,general-listening-91:すでに,已經。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-170:区切り,general,区切り,くぎり,分段界線,images/vocab/segmenting.svg,general-listening-87:区切る,分段界線。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-171:伝聞,general,伝聞,でんぶん,傳聞,images/vocab/rumor.svg,general-listening-22:噂,傳聞、聽來的消息。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-22:聞いた話,general,聞いた話,きいたはなし,聽到的消息,images/vocab/rumor.svg,general-listening-22:噂,傳聞、聽來的消息。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-178:信用,general,信用,しんよう,信任,images/vocab/trusting.svg,anime-lesson-04:信じる,信任。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-178:拒む,general,拒む,こばむ,拒絕,images/vocab/refusing.svg,anime-lesson-04:断る,拒絕；結構です為婉拒。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day17:結構,n5,結構,けっこう,很好、夠了（「結構です」＝不用了）,images/vocab/refusing.svg,anime-lesson-04:断る,拒絕；結構です為婉拒。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-179:通信,general,通信,つうしん,通訊,images/vocab/contacting.svg,general-listening-12:連絡,通訊。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-177:数量,general,数量,すうりょう,數量,images/vocab/quantity.svg,general-listening-11:量,數量。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-177:手分け,general,手分け,てわけ,分工,images/vocab/sharingtasks.svg,general-listening-50:分担,分工。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-177:撤回,general,撤回,てっかい,撤回,images/vocab/cancelling.svg,general-listening-41:取り消す,撤回。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-176:配達,general,配達,はいたつ,配送,images/vocab/delivering.svg,general-listening-13:届ける,配送；遊戲台詞為送包裹。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:kirara:join:c6353a3a9c,games,お荷物の配送ですか？,おにもつの はいそうですか？,是要配送包裹嗎？,images/vocab/delivering.svg,general-listening-13:届ける,配送；遊戲台詞為送包裹。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:kirara:burst:4580f7a625,games,お荷物です～,おにもつです～,您的包裹～,images/vocab/delivering.svg,general-listening-13:届ける,配送；遊戲台詞為送包裹。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:silvia:selection-voice:b5c0c97274:b5c0c97274,games,どこでも速やかに配達します！でも先払いですよ！,どこでも すみやかに はいたつします！でも さきばらいですよ！,不管哪裡都迅速送達！不過要先付款喔！,images/vocab/delivering.svg,general-listening-13:届ける,配送；遊戲台詞為送包裹。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-175:見届ける,general,見届ける,みとどける,見證到底,images/vocab/watchover.svg,general-listening-80:見守る,見證到底。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-168:受付係,general,受付係,うけつけがかり,接待人員,images/vocab/receptiondesk.svg,general-listening-12:受付,接待人員、窗口。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-175:受付係,general,受付係,うけつけがかり,接待員,images/vocab/receptiondesk.svg,general-listening-12:受付,接待人員、窗口。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-149:窓口,general,窓口,まどぐち,聯絡窗口,images/vocab/receptiondesk.svg,general-listening-12:受付,接待人員、窗口。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-158:窓口,general,窓口,まどぐち,窗口,images/vocab/receptiondesk.svg,general-listening-12:受付,接待人員、窗口。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-148:所在,general,所在,しょざい,所在之處,images/vocab/whereabouts.svg,general-listening-25:行方,所在。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-165:所在,general,所在,しょざい,所在位置,images/vocab/whereabouts.svg,general-listening-25:行方,所在。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-113:持ち出す,general,持ち出す,もちだす,攜出,images/vocab/takingaway.svg,general-listening-08:持っていく,攜出、帶離。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-173:持ち出す,general,持ち出す,もちだす,帶離,images/vocab/takingaway.svg,general-listening-08:持っていく,攜出、帶離。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-115:持ち出し,general,持ち出し,もちだし,攜出,images/vocab/takingaway.svg,general-listening-08:持っていく,攜出、帶離。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-150:預かり人,general,預かり人,あずかりにん,代管者,images/vocab/keepforother.svg,general-listening-45:預かる,代管者。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-150:手渡す,general,手渡す,てわたす,親手交付,images/vocab/handing.svg,stage0-day14:渡す,親手交付。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-114:出迎え,general,出迎え,でむかえ,迎接,images/vocab/welcomingarrival.svg,general-listening-25:迎える,迎接。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-114:先ほど,general,先ほど,さきほど,剛才的禮貌說法,images/vocab/justnow.svg,general-listening-13:さっき,剛才、就在剛才。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-155:先ほど,general,先ほど,さきほど,剛才,images/vocab/justnow.svg,general-listening-13:さっき,剛才、就在剛才。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-108:たった今,general,たった今,たったいま,就在剛才,images/vocab/justnow.svg,general-listening-13:さっき,剛才、就在剛才。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-115:原本,general,原本,げんぽん,原本,images/vocab/originaldocument.svg,general-listening-148:原本,原本。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-115:資料室,general,資料室,しりょうしつ,資料室,images/vocab/bookstorage.svg,general-listening-168:書庫,資料室為存放資料的房間。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-117:たまに,general,たまに,たまに,偶爾,images/vocab/sometimes.svg,stage0-day9:時々,偶爾。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-118:手掛かり,general,手掛かり,てがかり,線索,images/vocab/clue.svg,general-listening-25:手がかり,線索。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-118:名乗る,general,名乗る,なのる,自報姓名身分,images/vocab/selfintroduction.svg,general-listening-31:自己紹介,自報姓名；遊戲台詞為自我介紹。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:lucia:selection-voice:d6f472210d:d6f472210d,games,わたくし、ルチアと申しますわ。,わたくし、ルチアと もうしますわ。,我名叫露西婭。,images/vocab/selfintroduction.svg,general-listening-31:自己紹介,自報姓名；遊戲台詞為自我介紹。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:durin:join:534dd1bee5,games,ドゥリンだよ、よろしくね。,ドゥリンだよ、よろしくね。,我是杜林，請多關照。,images/vocab/selfintroduction.svg,general-listening-31:自己紹介,自報姓名；遊戲台詞為自我介紹。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:kamisatoayaka:join:c1a23fc007,games,ふふ、よろしくお願いいたします。,ふふ、よろしく おねがいいたします。,呵呵，請多多指教。,images/vocab/selfintroduction.svg,general-listening-31:自己紹介,自報姓名；遊戲台詞為自我介紹。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:shoichi:selection-voice:76e7082f4c:76e7082f4c,games,よろしくお願いいたします。普通の会社員です。,よろしく おねがい いたします。ふつうの かいしゃいんです。,請多指教。我是普通的上班族。,images/vocab/selfintroduction.svg,general-listening-31:自己紹介,自報姓名；遊戲台詞為自我介紹。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-121:探検,general,探検,たんけん,探險,images/vocab/exploringtogether.svg,game-card:game:genshin:albedo:join:7f0f2274c7,探險。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-123:物陰,general,物陰,ものかげ,遮蔽物後,images/vocab/hiding.svg,general-listening-70:隠れる,遮蔽物後。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-123:耐える,general,耐える,たえる,忍耐,images/vocab/enduring.svg,general-listening-28:我慢,忍耐；遊戲台詞為能否承受。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:dehya:burst:444f05d847,games,耐えられるかな？,たえられるかな？,你能承受得住嗎？,images/vocab/enduring.svg,general-listening-28:我慢,忍耐；遊戲台詞為能否承受。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-124:観察,general,観察,かんさつ,觀察,images/vocab/investigating.svg,general-listening-07:調べる,觀察；遊戲台詞為直接觀察。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:istvan:selection-voice:8602eccd33:8602eccd33,games,予測できないなら、直接観察してみるしかない。,よそく できないなら、ちょくせつ かんさつしてみるしか ない。,既然無法預測，只能直接觀察看看了。,images/vocab/investigating.svg,general-listening-07:調べる,觀察；遊戲台詞為直接觀察。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-125:唱える,general,唱える,となえる,唸誦,images/vocab/spellchant.svg,anime-lesson-06:詠唱,唸誦咒文。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-125:解く,general,解く,とく,解開,images/vocab/unbinding.svg,anime-lesson-06:解除,解開封印。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-126:一口,general,一口,ひとくち,一口,images/vocab/tasteonebite.svg,game-card:game:er:tsubame:selection-voice:08779643a3:08779643a3,一口。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-126:症状,general,症状,しょうじょう,症狀,images/vocab/illness.svg,stage0-day17:病気,症狀。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-127:推理,general,推理,すいり,推理,images/vocab/inference.svg,general-listening-70:推測,推理。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-131:深さ,general,深さ,ふかさ,深度,images/vocab/deep.svg,general-listening-121:深い,深度。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-132:仕掛け,general,仕掛け,しかけ,機關,images/vocab/trap.svg,general-listening-75:罠,機關。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-134:陣地,general,陣地,じんち,陣地,images/vocab/basecamp.svg,general-listening-81:拠点,陣地。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-134:間合い,general,間合い,まあい,交手距離,images/vocab/distancebetween.svg,general-listening-10:距離,交手距離。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-134:前線,general,前線,ぜんせん,前線,images/vocab/vanguard.svg,general-listening-123:前衛,前線。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-134:後方,general,後方,こうほう,後方,images/vocab/rearguard.svg,general-listening-123:後衛,後方。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-134:下がる,general,下がる,さがる,退後,images/vocab/retreating.svg,general-listening-123:撤退,「三歩下がれ」是有序後退。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:nicole:skill:fa60186426,games,退却。,たいきゃく。,撤退。,images/vocab/retreating.svg,general-listening-123:撤退,「三歩下がれ」是有序後退。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-136:整える,general,整える,ととのえる,整備,images/vocab/preparing.svg,general-listening-03:準備,整備行李；遊戲台詞為準備就緒。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:hisui:selection-voice:bc90e58d35:bc90e58d35,games,ヒスイ、いつでも準備OK！,ヒスイ、いつでも じゅんび OK！,翡翠，隨時準備好了！,images/vocab/preparing.svg,general-listening-03:準備,整備行李；遊戲台詞為準備就緒。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:xianyun:join:c70ea6b9e3,games,食糧はきちんと用意しておるな？,しょくりょうは きちんと よういしておるな？,糧食有好好準備了吧？,images/vocab/preparing.svg,general-listening-03:準備,整備行李；遊戲台詞為準備就緒。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-137:暗号,general,暗号,あんごう,暗號,images/vocab/decoding.svg,general-listening-137:解読,暗號；遊戲台詞為解謎。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:nefer:burst:ceefebdae5,games,さあ、謎を解こう。,さあ、なぞを とこう。,來，解開謎團吧。,images/vocab/decoding.svg,general-listening-137:解読,暗號；遊戲台詞為解謎。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-137:正しい,general,正しい,ただしい,正確的,images/vocab/accurate.svg,general-listening-22:正確,正確的。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-138:承諾,general,承諾,しょうだく,接受；同意,images/vocab/agreeing.svg,general-listening-40:賛成,接受、同意。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-140:承諾,general,承諾,しょうだく,接受,images/vocab/agreeing.svg,general-listening-40:賛成,接受、同意。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-139:分配,general,分配,ぶんぱい,分配,images/vocab/fairdistribution.svg,general-listening-139:公平,分配。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-139:話し合う,general,話し合う,はなしあう,討論,images/vocab/meetingdiscussion.svg,general-listening-41:会議,討論。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-139:互い,general,互い,たがい,彼此,images/vocab/mutually.svg,general-listening-37:お互い,彼此。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-141:経路,general,経路,けいろ,路徑,images/vocab/transportroute.svg,general-listening-44:路線,路徑、路線。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-163:経路,general,経路,けいろ,路線,images/vocab/transportroute.svg,general-listening-44:路線,路徑、路線。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-180:経路,general,経路,けいろ,路線,images/vocab/transportroute.svg,general-listening-44:路線,路徑、路線。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-141:進入,general,進入,しんにゅう,進入,images/vocab/entrance.svg,stage0-day3:入口,進入。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-143:追撃,general,追撃,ついげき,追擊,images/vocab/chasing.svg,general-listening-74:追う,追擊、追蹤。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-92:追跡,general,追跡,ついせき,追蹤,images/vocab/chasing.svg,general-listening-74:追う,追擊、追蹤。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-143:引き付ける,general,引き付ける,ひきつける,吸引過來,images/vocab/drawingaway.svg,general-listening-77:誘導,把敵人吸引到廣場，與誘離同義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-145:持続,general,持続,じぞく,持續,images/vocab/continuing.svg,general-listening-27:続く,持續。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-88:継続,general,継続,けいぞく,持續,images/vocab/continuing.svg,general-listening-27:続く,持續。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-144:示す,general,示す,しめす,出示,images/vocab/showing.svg,stage0-day14:見せる,出示憑證。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-147:見分ける,general,見分ける,みわける,辨別,images/vocab/distinguishing.svg,general-listening-75:区別,辨別、分辨。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-171:見分ける,general,見分ける,みわける,分辨,images/vocab/distinguishing.svg,general-listening-75:区別,辨別、分辨。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-150:敵影,general,敵影,てきえい,敵方身影,images/vocab/enemy.svg,general-listening-123:敵,敵方身影。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-152:船着き場,general,船着き場,ふなつきば,碼頭,images/vocab/pier.svg,general-listening-30:桟橋,碼頭。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-156:便り,general,便り,たより,書信,images/vocab/letter.svg,stage0-day7:手紙,書信。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-156:取り次ぐ,general,取り次ぐ,とりつぐ,代為轉達,images/vocab/relayedmessage.svg,general-listening-22:伝言,代為轉達。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-157:決めつける,general,決めつける,きめつける,武斷認定,images/vocab/fixedassumption.svg,general-listening-79:思い込む,武斷認定、先入為主。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-174:決めつける,general,決めつける,きめつける,認定；妄下結論,images/vocab/fixedassumption.svg,general-listening-79:思い込む,武斷認定、先入為主。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-107:思い込み,general,思い込み,おもいこみ,先入為主的認定,images/vocab/fixedassumption.svg,general-listening-79:思い込む,武斷認定、先入為主。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-167:作成,general,作成,さくせい,製作,images/vocab/making.svg,stage0-day9:作る,製作。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-169:出発済み,general,出発済み,しゅっぱつずみ,已出發,images/vocab/departure.svg,general-listening-03:出発,已出發；遊戲台詞為踏上新旅程。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:nathapon:selection-voice:fa1fe340da:fa1fe340da,games,新しい旅に出る時間だ。,あたらしい たびに でる じかんだ。,是踏上新旅程的時候了。,images/vocab/departure.svg,general-listening-03:出発,已出發；遊戲台詞為踏上新旅程。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-32:好み,general,好み,このみ,喜好,images/vocab/liking.svg,stage0-day9:好き,喜好。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-32:小説,general,小説,しょうせつ,小說,images/vocab/book.svg,stage0-day2:本,小說是書。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-40:誘い,general,誘い,さそい,邀約,images/vocab/inviting.svg,general-listening-04:誘う,邀約。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-40:楽しみ,general,楽しみ,たのしみ,期待；樂趣,images/vocab/expectation.svg,general-listening-19:期待,期待；遊戲台詞為很期待。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:kaeya:join:3fbe527f4c,games,楽しみだな。,たのしみだな。,真令人期待啊。,images/vocab/expectation.svg,general-listening-19:期待,期待；遊戲台詞為很期待。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-41:今週,general,今週,こんしゅう,本週,images/vocab/thisweek.svg,stage0-day11:今週,本週。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-41:可能,general,可能,かのう,可能；可行,images/vocab/possibility.svg,anime-lesson-07:可能性,可能。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-42:サイズ,general,サイズ,サイズ,尺寸,images/vocab/size.svg,general-listening-42:大きさ,尺寸。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-57:おそらく,general,おそらく,おそらく,恐怕；大概,images/vocab/probably.svg,general-listening-21:たぶん,恐怕、大概。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-57:相談する,general,相談する,そうだんする,商量,images/vocab/consultation.svg,general-listening-17:相談,商量。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-58:会話,general,会話,かいわ,對話,images/vocab/talking.svg,stage0-day14:話す,對話。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-55:着替え,general,着替え,きがえ,換洗衣物；換裝,images/vocab/changingclothes.svg,general-listening-12:着替える,換裝。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-56:嬉しい,general,嬉しい,うれしい,高興的,images/vocab/rejoicing.svg,general-listening-54:喜ぶ,高興；遊戲台詞為好開心。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:noelle:join:1161faf91d,games,うれしい…あ、いえ。,うれしい…あ、いえ。,好開心…啊，不，沒什麼。,images/vocab/rejoicing.svg,general-listening-54:喜ぶ,高興；遊戲台詞為好開心。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-68:汚れ,general,汚れ,よごれ,髒污,images/vocab/stained.svg,general-listening-15:汚れる,髒污。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-68:指導,general,指導,しどう,指導,images/vocab/teaching.svg,stage0-day7:教える,指導；遊戲台詞為親自教育、教你。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:katja:selection-voice:64982201e7:64982201e7,games,僕が直接教育してあげる。,ぼくが ちょくせつ きょういく してあげる。,我來親自教育你。,images/vocab/teaching.svg,stage0-day7:教える,指導；遊戲台詞為親自教育、教你。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:nicole:join:30e4a7a00e,games,さあ、教えてあげる。,さあ、おしえてあげる。,來，我告訴你。,images/vocab/teaching.svg,stage0-day7:教える,指導；遊戲台詞為親自教育、教你。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-70:正体,general,正体,しょうたい,真面目,images/vocab/truthrevealed.svg,anime-lesson-07:真実,真面目；遊戲台詞為真實。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:coraline:selection-voice:35de6324fd:35de6324fd,games,真実こそ美しさなのよ。,しんじつこそ うつくしさなのよ。,真實才是美。,images/vocab/truthrevealed.svg,anime-lesson-07:真実,真面目；遊戲台詞為真實。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-78:響き,general,響き,ひびき,迴響；聲響,images/vocab/echoing.svg,general-listening-88:響く,迴響。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-78:聴く,general,聴く,きく,聆聽,images/vocab/listening.svg,stage0-day6:聞く,聆聽；遊戲台詞為讓我聽、仔細聽。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:lenore:selection-voice:29dbfa6db8:29dbfa6db8,games,あなたのメロディーを、私に聞かせて。,あなたの メロディーを、わたしに きかせて。,讓我聽聽你的旋律。,images/vocab/listening.svg,stage0-day6:聞く,聆聽；遊戲台詞為讓我聽、仔細聽。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:vodyanitsa:skill:648de5b0f7,games,耳を澄まして。,みみを すまして。,仔細聆聽。,images/vocab/listening.svg,stage0-day6:聞く,聆聽；遊戲台詞為讓我聽、仔細聽。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-78:正解,general,正解,せいかい,正確答案,images/vocab/answersheet.svg,general-listening-24:答え,正確答案。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-80:台詞,general,台詞,せりふ,台詞,images/vocab/scriptbook.svg,general-listening-80:台本,台詞。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-84:原稿,general,原稿,げんこう,稿件,images/vocab/manuscript.svg,general-listening-167:原稿,稿件。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-82:予定表,general,予定表,よていひょう,時程表,images/vocab/schedulechart.svg,general-listening-12:予定表,時程表。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-84:台,general,台,だい,台座,images/vocab/pedestal.svg,general-listening-125:台座,台座。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-29:楽しむ,general,楽しむ,たのしむ,享受,images/vocab/enjoyable.svg,stage0-day8:楽しい,享受。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-28:足す,general,足す,たす,增加,images/vocab/addition.svg,general-listening-11:追加,增加。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-28:十分,general,十分,じゅうぶん,足夠；充分,images/vocab/enoughsupply.svg,general-listening-07:足りる,足夠、充分。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-140:十分,general,十分,じゅうぶん,充分,images/vocab/enoughsupply.svg,general-listening-07:足りる,足夠、充分。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-162:十分,general,十分,じゅうぶん,充足,images/vocab/enoughsupply.svg,general-listening-07:足りる,足夠、充分。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-95:変える,general,変える,かえる,改變,images/vocab/changeplan.svg,general-listening-19:変更,改變預定。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-22:電話する,general,電話する,でんわする,打電話,images/vocab/telephone.svg,stage0-day3:電話,打電話。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-23:きっと,general,きっと,きっと,一定；多半,images/vocab/surely.svg,general-listening-36:必ず,一定、想必。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-52:きっと,general,きっと,きっと,一定；想必,images/vocab/surely.svg,general-listening-36:必ず,一定、想必。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-24:表,general,表,ひょう,表格,images/vocab/listtable.svg,general-listening-24:一覧,表格。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-24:日付,general,日付,ひづけ,日期,images/vocab/calendar.svg,stage0-day19:カレンダー,日期。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day9:いつも,n5,いつも,いつも,總是、經常,images/vocab/everyday.svg,stage0-day11:毎日,いつも（總是）以每天固定做同事表達。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day17:嫌,n5,嫌,いや,討厭、不願意（な形容詞）,images/vocab/disliking.svg,stage0-day9:嫌い,討厭、不願意。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day10:横,n5,横,よこ,旁邊、橫向,images/vocab/adjacent.svg,stage0-day10:隣,橫（旁邊）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-14:横,general,横,よこ,旁邊,images/vocab/adjacent.svg,stage0-day10:隣,橫（旁邊）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day10:そば,n5,そば,そば,附近、旁邊,images/vocab/nearby.svg,stage0-day10:近く,そば（附近、身旁）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-86:そば,general,そば,そば,旁邊,images/vocab/nearby.svg,stage0-day10:近く,そば（附近、身旁）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-103:そば,general,そば,そば,身旁,images/vocab/nearby.svg,stage0-day10:近く,そば（附近、身旁）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day10:向こう,n5,向こう,むこう,對面、另一邊,images/vocab/oppositebank.svg,general-listening-100:対岸,向こう（對面、另一側）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-19:向こう,general,向こう,むこう,另一邊,images/vocab/oppositebank.svg,general-listening-100:対岸,向こう（對面、另一側）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-50:向こう,general,向こう,むこう,另一邊,images/vocab/oppositebank.svg,general-listening-100:対岸,向こう（對面、另一側）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-86:向こう,general,向こう,むこう,對面；那一邊,images/vocab/oppositebank.svg,general-listening-100:対岸,向こう（對面、另一側）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-112:向こう,general,向こう,むこう,對面,images/vocab/oppositebank.svg,general-listening-100:対岸,向こう（對面、另一側）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-132:向こう,general,向こう,むこう,另一側,images/vocab/oppositebank.svg,general-listening-100:対岸,向こう（對面、另一側）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day24:先,n5,先,さき,前面、前方、先,images/vocab/infront.svg,stage0-day10:前,先（前面、前方）的空間義。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day24:要る,n5,要る,いる,需要（禮貌形：要ります）,images/vocab/necessary.svg,general-listening-06:必要,要る是需要。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day25:より,n5,より,より,比（比較的基準；也是「から」的書面說法）,images/vocab/comparing.svg,general-listening-10:比べる,より是比較的基準。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day25:メートル,n5,メートル,メートル,公尺,images/vocab/length.svg,general-listening-87:長さ,メートル是長度單位，以長度一例表達。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day21:また,n5,また,また,又、再、下次,images/vocab/again.svg,stage0-day14:もう一度,また（又、再）；例句是再來。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,stage0-day4:晩,n5,晩,ばん,晚上,images/vocab/nighttime.svg,stage0-day19:夜,晚是晚上。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-20:動かす,general,動かす,うごかす,使移動；操作,images/vocab/operatingcontrols.svg,general-listening-20:操作,使移動；操作。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-108:動かす,general,動かす,うごかす,使運轉,images/vocab/startingtask.svg,general-listening-03:始める,啟動、使運轉裝置；遊戲台詞為演算開始、執行任務。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-159:動かす,general,動かす,うごかす,啟動,images/vocab/startingtask.svg,general-listening-03:始める,啟動、使運轉裝置；遊戲台詞為演算開始、執行任務。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:sandrone:burst:839bfca362,games,演算、開始。,えんざん、かいし。,演算開始。,images/vocab/startingtask.svg,general-listening-03:始める,啟動、使運轉裝置；遊戲台詞為演算開始、執行任務。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:ineffa:join:8dcf60a502,games,任務を実行します。,にんむを じっこうします。,執行任務。,images/vocab/startingtask.svg,general-listening-03:始める,啟動、使運轉裝置；遊戲台詞為演算開始、執行任務。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,general-listening-88:点ける,general,点ける,つける,開燈,images/vocab/switchingon.svg,stage0-day14:つける,開燈；遊戲台詞為點亮燈光。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:lynette:burst:3198154c88,games,ライトアップ。,ライトアップ。,點亮燈光。,images/vocab/switchingon.svg,stage0-day14:つける,開燈；遊戲台詞為點亮燈光。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:hyunwoo:selection:1007005:c1f25c1f7a,games,んじゃ、やってみるか。,んじゃ、やってみるか。,那就來試試吧。,images/vocab/tryingout.svg,general-listening-20:試す,試試看。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:yuki:selection-voice:b2a055bb61:b2a055bb61,games,では僕の番ですね。,では ぼくの ばんですね。,那麼，輪到我了呢。,images/vocab/turnorder.svg,general-listening-09:順番,輪到我。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:elena:selection-voice:604742a5d5:604742a5d5,games,私の番ですか？ そうなんですね。,わたしの ばんですか？ そうなんですね。,輪到我了嗎？原來如此。,images/vocab/turnorder.svg,general-listening-09:順番,輪到我。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:xiukai:selection-voice:5ee1ad5e4e:5ee1ad5e4e,games,一気に調理してやる！,いっきに ちょうりしてやる！,一口氣料理掉！,images/vocab/cookingdish.svg,stage0-day9:料理,料理。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:escoffier:burst:6076d32396,games,最高の一品よ！,さいこうの いっぴんよ！,最棒的一道佳餚！,images/vocab/cookingdish.svg,stage0-day9:料理,料理。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:alex:selection-voice:85de5a7c01:85de5a7c01,games,ターゲット確認しました。,ターゲット かくにんしました。,已確認目標。,images/vocab/aiming.svg,general-listening-124:狙う,確認目標。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:eva:selection-voice:8cfbcbd399:8cfbcbd399,games,素敵な一日になるといいね。,すてきな いちにちに なると いいね。,希望會是美好的一天。,images/vocab/wishing.svg,general-listening-07:願う,祈願、祝願。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:furina:join:7db263041b,games,楽しい旅になるといいね。,たのしい たびに なると いいね。,希望會是一趟愉快的旅程呢。,images/vocab/wishing.svg,general-listening-07:願う,祈願、祝願。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:lauma:burst:779c9f0fcd,games,皆のために祈ろう。,みなのために いのろう。,為大家祈禱吧。,images/vocab/wishing.svg,general-listening-07:願う,祈願、祝願。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:bianca:selection-voice:7c6f2d22ee:7c6f2d22ee,games,お主か、わらわを永眠から目覚めさせたのは。,おぬしか、わらわを えいみんから めざめさせたのは。,是你嗎，把妾身從長眠中喚醒的人。,images/vocab/waking.svg,stage0-day4:起きる,被喚醒、叫人起床。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:debimarlene:selection-voice:47bdba2ecf:47bdba2ecf,games,起きて！授業もう終わったから。私、寝てた？,おきて！じゅぎょう もう おわったから。わたし、ねてた？,起來！已經下課了。……我剛剛睡著了？,images/vocab/waking.svg,stage0-day4:起きる,被喚醒、叫人起床。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:tia:selection-voice:e52dd253e1:e52dd253e1,games,私に…描いてほしいものとか…ある？,わたしに…かいて ほしい ものとか…ある？,有沒有……想讓我畫的東西……？,images/vocab/drawing.svg,general-listening-32:描く,畫畫。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:tia:selection-voice:c3f141022e:c3f141022e,games,今日は他の描き方で絵を描いてみるね。,きょうは ほかの かきかたで えを かいてみるね。,今天試試用別的畫法來畫畫。,images/vocab/drawing.svg,general-listening-32:描く,畫畫。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:charlotte:skill:1257c315b7,games,はい、チーズ。,はい、チーズ。,好，說茄子！,images/vocab/photographing.svg,stage0-day14:撮る,拍照。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:martina:selection-voice:536ddf7fb3:536ddf7fb3,games,よし！いいもの撮れたよ！,よし！いい もの とれたよ！,好！拍到好東西了！,images/vocab/photographing.svg,stage0-day14:撮る,拍照。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:aino:join:d7eafd681e,games,遊びに行こー！,あそびに いこー！,去玩吧！,images/vocab/playing.svg,stage0-day9:遊ぶ,去玩、陪你玩。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:vesna:burst:2df370af8e,games,遊んであげるわ！,あそんであげるわ！,我來陪你們玩玩！,images/vocab/playing.svg,stage0-day9:遊ぶ,去玩、陪你玩。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:theodore:selection-voice:1bbaa50555:1bbaa50555,games,装備の手入れは終わった。行こう。,そうびの ていれは おわった。いこう。,裝備保養好了。走吧。,images/vocab/equipment.svg,general-listening-121:装備,裝備保養完成。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:mika:join:7717e56dab,games,装備の点検完了…すべて揃っています。,そうびの てんけんかんりょう…すべて そろっています。,裝備檢查完畢…全部都備齊了。,images/vocab/inspection.svg,general-listening-18:点検,裝備檢查完畢。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:lyanh:selection:1063003:0bc9a6a498,games,もうすぐ、始まります。 楽しい楽しいお祭りが、ね...,もうすぐ、はじまります。たのしい たのしい おまつりが、ね...,馬上就要開始了。好開心、好開心的祭典呢……,images/vocab/festival.svg,general-listening-40:祭り,祭典。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:garnet:selection:1076002:fb9179ba8a,games,行こう。私たち二人だけのお祭りへ。,いこう。わたしたち ふたりだけの おまつりへ。,走吧，前往只屬於我們兩人的祭典。,images/vocab/festival.svg,general-listening-40:祭り,祭典。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:arda:selection-voice:a15dd720a5:a15dd720a5,games,人はみんな自分の痕跡を残すものだ。,ひとは みんな じぶんの こんせきを のこす ものだ。,人總會留下自己的痕跡。,images/vocab/footprints.svg,general-listening-25:足跡,留下痕跡。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:chiori:join:e9b800942c,games,ようこそ「千織屋」へ。,ようこそ「ちおりや」へ。,歡迎光臨「千織屋」。,images/vocab/shopwelcome.svg,game-card:game:genshin:candace:skill:05de4836dc,歡迎光臨。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:hyejin:selection-voice:aaeff61b15:aaeff61b15,games,いらっしゃいませ、ご主人…よ、よくあることです。,いらっしゃいませ、ごしゅじん…よ、よく ある ことです。,歡迎光臨，主人……這、這是常有的事。,images/vocab/shopwelcome.svg,game-card:game:genshin:candace:skill:05de4836dc,歡迎光臨。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:leni:selection-voice:b4fb260d72:b4fb260d72,games,じゃーん！見て見て！レニの限定チェキ！かわいいでしょ！,じゃーん！みて みて！レニの げんてい チェキ！かわいいでしょ！,鏘鏘！看看看！雷妮的限定拍立得！很可愛吧！,images/vocab/photograph.svg,stage0-day14:写真,展示限定拍立得照片。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:kenneth:selection-voice:70ee7a5f81:70ee7a5f81,games,面倒なのは全部燃やす。,めんどうなのは ぜんぶ もやす。,麻煩的東西全部燒掉。,images/vocab/burning.svg,general-listening-124:燃える,燒掉。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:katja:selection:1072002:383634599b,games,はい、僕に注目してー。,はい、ぼくに ちゅうもくしてー。,好，請看我這邊——,images/vocab/attractattention.svg,general-listening-77:引きつける,請看我這邊、注意看。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:mualani:burst:ea7c954d4f,games,注目～！君に幸あれ！,ちゅうもく～！きみに さちあれ！,注意～！願你幸福！,images/vocab/attractattention.svg,general-listening-77:引きつける,請看我這邊、注意看。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:tartaglia:join:42e789c5c0,games,しっかり見ててくれよな！,しっかり みててくれよな！,好好看著喔！,images/vocab/attractattention.svg,general-listening-77:引きつける,請看我這邊、注意看。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:beidou:burst:eb95e10970,games,よく見ておけ！,よく みておけ！,給我看清楚！,images/vocab/attractattention.svg,general-listening-77:引きつける,請看我這邊、注意看。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:nilou:burst:eb0f985ad7,games,見逃さないでね。,みのがさないでね。,別錯過喔。,images/vocab/attractattention.svg,general-listening-77:引きつける,請看我這邊、注意看。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:charlotte:selection-voice:db9aa250d9:db9aa250d9,games,この光が、あなたの希望になりますように。,この ひかりが、あなたの きぼうに なりますように。,願這道光能成為你的希望。,images/vocab/hope.svg,general-listening-07:希望,願光成為希望。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:hisui:selection-voice:64657cc555:64657cc555,games,形がなくても、この剣で切れないものはない。,かたちが なくても、この けんで きれない ものは ない。,就算沒有形體，也沒有這把劍斬不斷的東西。,images/vocab/slashing.svg,anime-lesson-05:斬る,以劍斬開。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:xuelin:selection-voice:d46bfe65cf:d46bfe65cf,games,この剣で、道を切り開きましょう。,この けんで、みちを きりひらきましょう。,就用這把劍開出一條路吧。,images/vocab/slashing.svg,anime-lesson-05:斬る,以劍斬開。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:seres:selection-voice:e59ca38ec6:e59ca38ec6,games,あなたを守る剣となりましょう。,あなたを まもる けんと なりましょう。,我將成為守護你的劍。,images/vocab/protecting.svg,anime-lesson-05:守る,成為守護之劍。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:lucia:selection-voice:3151391772:3151391772,games,わたくしの旅路にご一緒してくださいますか？,わたくしの たびじに ごいっしょ してくださいますか？,您願意與我一同踏上旅程嗎？,images/vocab/travelling.svg,stage0-day9:旅行,一同旅行。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:albedo:skill:9589043f82,games,咲け。,さけ。,綻放吧。,images/vocab/blooming.svg,stage0-day19:咲く,綻放。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:alhaitham:burst:0b3fe21f1a,games,散乱。,さんらん。,散亂。,images/vocab/scatter.svg,game-card:game:genshin:kujousara:skill:2ce5d65790,散亂。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:charlotte:burst:37179029c0,games,シャルロットが、報道します！,しゃるろっとが、ほうどうします！,由夏洛蒂來報導！,images/vocab/newsbroadcast.svg,stage0-day21:ニュース,報導。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:chasca:skill:e4f3f54f03,games,風が立つぞ。,かぜが たつぞ。,起風了。,images/vocab/wind.svg,stage0-day12:風,起風、是風。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:venti:burst:a7f82b4960,games,風だ～,かぜだ～,是風喔～,images/vocab/wind.svg,stage0-day12:風,起風、是風。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:chongyun:join:a6746eb7f1,games,心得た。,こころえた。,我明白了。,images/vocab/understanding.svg,stage0-day9:分かる,明白了。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:citlali:skill:6a9c2e4e50,games,さ、働きなさい！,さ、はたらきなさい！,來，工作吧！,images/vocab/working.svg,stage0-day4:働く,工作。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:ganyu:join:0496f2287c,games,仕事の時間ですか？,しごとの じかんですか？,到了工作的時間嗎？,images/vocab/working.svg,stage0-day4:働く,工作。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:rosaria:join:245e015afe,games,また新しい仕事？,また あたらしい しごと？,又有新工作？,images/vocab/working.svg,stage0-day4:働く,工作。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:wriothesley:join:fa8b547baa,games,外の仕事か？行こう。,そとの しごとか？いこう。,外面的工作嗎？走吧。,images/vocab/working.svg,stage0-day4:働く,工作。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:collei:burst:c005f778b0,games,頼むよ、コレアンバー！,たのむよ、コレアンバー！,拜託你了，柯里安柏！,images/vocab/request.svg,general-listening-34:依頼,拜託。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:illuga:skill:02b5f27e00,games,頼んだよ！,たのんだよ！,拜託你了！,images/vocab/request.svg,general-listening-34:依頼,拜託。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:cyno:join:2f6fea1f5f,games,最善を尽くそう。,さいぜんを つくそう。,盡力而為吧。,images/vocab/persevering.svg,anime-lesson-01:頑張る,盡力而為。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:dahlia:join:227c82ef18,games,私も来ちゃいました！,わたしも きちゃいました！,我也來了！,images/vocab/coming.svg,stage0-day5:来る,我也來了。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:dahlia:skill:6146df3c15,games,面白くなってきた。,おもしろくなってきた。,開始變得有趣了。,images/vocab/interesting.svg,stage0-day8:おもしろい,變得有趣。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:diluc:join:ec7aca473a,games,行こうか。,いこうか。,走吧。,images/vocab/going.svg,stage0-day5:行く,一起出發走吧。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:zibai:join:cfbdf8d703,games,行きましょうか。,いきましょうか。,要一起走嗎？,images/vocab/going.svg,stage0-day5:行く,一起出發走吧。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:shikanoinheizou:join:afe4823ece,games,さあ行こう、相棒。,さあ いこう、あいぼう。,走吧，搭檔。,images/vocab/going.svg,stage0-day5:行く,一起出發走吧。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:kachina:join:0d891b05c0,games,やった！一緒に行こう。,やった！いっしょに いこう。,太好了！一起去吧。,images/vocab/going.svg,stage0-day5:行く,一起出發走吧。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:kaedeharakazuha:join:b4f0d45f92,games,いざ、参ろう。,いざ、まいろう。,那麼，出發吧。,images/vocab/going.svg,stage0-day5:行く,一起出發走吧。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:razor:join:be33cbc496,games,オレが行く。,オレが いく。,由我前往。,images/vocab/going.svg,stage0-day5:行く,一起出發走吧。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:diona:burst:79b848681f,games,反省しなさい、酔っぱらいさん！,はんせいしなさい、よっぱらいさん！,好好反省吧，醉鬼先生！,images/vocab/reflection.svg,general-listening-36:反省,反省。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:faruzan:skill:a299557fd1,games,後悔しても遅いぞ。,こうかいしても おそいぞ。,就算後悔也太遲了。,images/vocab/regret.svg,general-listening-85:後悔,後悔。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:flins:burst:105559422c,games,暗闇は怖いですか？,くらやみは こわいですか？,害怕黑暗嗎？,images/vocab/afraid.svg,general-listening-56:怖い,怕黑嗎。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:furina:burst:f247565652,games,光り輝くがいい！,ひかりかがやくが いい！,盡情閃耀吧！,images/vocab/glowing.svg,general-listening-88:光る,閃耀。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:iansan:skill:c53e3b2a91,games,呼吸を整えよう。,こきゅうを ととのえよう。,調整呼吸吧。,images/vocab/calmingdown.svg,general-listening-53:落ち着く,調整呼吸、放鬆。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:sigewinne:burst:cff3ea5f67,games,力を抜いて、リラックスするのよ。,ちからを ぬいて、リラックスするのよ。,放鬆力氣，放輕鬆。,images/vocab/calmingdown.svg,general-listening-53:落ち着く,調整呼吸、放鬆。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:kaveh:burst:e9f49def0b,games,着工だ！,ちゃっこうだ！,開工了！,images/vocab/constructionwork.svg,general-listening-51:工事,開工。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:kukishinobu:skill:bd5f2db760,games,しっかり立ってな。,しっかり たってな。,站穩一點。,images/vocab/standing.svg,stage0-day14:立つ,站穩。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:layla:join:61f077f2d8,games,どうせ眠れないから、お散歩しようっと。,どうせ ねむれないから、おさんぽしようっと。,反正睡不著，就去散散步吧。,images/vocab/strolling.svg,stage0-day9:散歩,散步。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:er:abigail:selection:1067003:fbaab3d235,games,一緒に、夜の海を散歩しませんか？,いっしょに、よるの うみを さんぽしませんか？,要不要一起去夜晚的海邊散步？,images/vocab/strolling.svg,stage0-day9:散歩,散步。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:nefer:skill:b42aea4a88,games,嘘はいけないね。,うそはいけないね。,不可以說謊喔。,images/vocab/lie.svg,anime-lesson-04:嘘,不可說謊。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:ororon:burst:48cc343457,games,周りを見張っててくれ。,まわりを みはっててくれ。,幫我看守周圍。,images/vocab/lookout.svg,general-listening-77:見張り,看守周圍。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:qiqi:join:9a785ee4c6,games,メモ…持ってる。,メモ…もってる。,筆記……帶著。,images/vocab/pocketnotebook.svg,general-listening-25:手帳,帶著筆記。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:sayu:skill:586beb63f8,games,捕まらないぞ。,つかまらないぞ。,不會被抓到的。,images/vocab/escaping.svg,anime-lesson-02:逃げる,不會被抓到。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:varesa:burst:7fed0a2adb,games,きみの負けだよっ！,きみの まけだよっ！,你輸了喔！,images/vocab/winning.svg,anime-lesson-01:勝つ,你輸了（我贏）。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:venti:skill:e12ab4c4a5,games,ここだよ。,ここだよ。,在這裡喔。,images/vocab/hereplace.svg,stage0-day3:ここ,在這裡。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:vesna:skill:d3087cf105,games,整列。,せいれつ。,列隊。,images/vocab/queuing.svg,stage0-day24:並ぶ,列隊。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:xiao:join:2c21cf3145,games,召喚に応じ参上する。,しょうかんに おうじ さんじょうする。,應召前來。,images/vocab/summoning.svg,general-listening-39:呼び出す,應召前來。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:xiao:skill:5156a56463,games,無駄だ。,むだだ。,沒用的。,images/vocab/waste.svg,anime-lesson-08:無駄,沒用的。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:yaoyao:join:4443645e86,games,ヨォーヨがいるから、心配しなくていいよ～,ヨォーヨが いるから、しんぱいしなくて いいよ～,瑤瑤在，所以不用擔心喔～,images/vocab/relief.svg,general-listening-15:安心,不用擔心。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:yumemizukimizuki:skill:92c55fd06f,games,顔が曇ってるぞ。,かおが くもってるぞ。,你的臉色陰沉喔。,images/vocab/sad.svg,general-listening-56:悲しい,臉色陰沉。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:yunjin:skill:47eb84d93c,games,旗よ、ここに！,はたよ、ここに！,旗幟啊，來此！,images/vocab/flag.svg,general-listening-69:旗,旗幟。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:xinyan:skill:fce9cc4fda,games,リズムに乗れるかい？,リズムに のれるかい？,跟得上節奏嗎？,images/vocab/dancing.svg,general-listening-32:踊る,跟上節奏。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:xinyan:burst:26cd27df66,games,ロックの時間だぞ！,ロックの じかんだぞ！,搖滾時間到！,images/vocab/playingguitar.svg,stage0-day9:弾く,搖滾時間。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
+old-shared,game-card:game:genshin:candace:join:6b093ecfda,games,あなたの安全は私が保証します。,あなたの あんぜんは わたしが ほしょうします。,你的安全由我來保證。,images/vocab/safe.svg,general-listening-05:安全,保證安全。,原教材精確詞條與義項的一例；非原作場景重製，不改原文／讀音。
