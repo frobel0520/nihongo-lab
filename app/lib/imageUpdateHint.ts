@@ -31,5 +31,25 @@ export const markImagesCompleteFor = (fingerprint: string) => {
 export const dismissImageUpdateHint = (fingerprint: string) =>
   write(DISMISSED_KEY, fingerprint);
 
+/** 這個瀏覽器還沒有「完成紀錄」（T163 以前下載的人都沒有）。 */
+export const hasImageCompleteRecord = () => read(COMPLETE_KEY) !== null;
+
+/**
+ * T163 以前已下載完全部圖片的人沒有完成紀錄。沒有紀錄時才在閒置時數一次明確下載快取的筆數：
+ * 筆數達到目前總張數（舊版本也算一筆），視為曾經下載完，記成「舊版」以便提醒補下載新圖。
+ * 只讀 keys 數量，不讀內容；之後有紀錄就不再檢查。
+ */
+export async function adoptEarlierCompleteDownload(total: number, cacheName: string) {
+  if (hasImageCompleteRecord() || typeof caches === 'undefined') return false;
+  try {
+    const keys = await (await caches.open(cacheName)).keys();
+    if (keys.length < total) return false;
+    write(COMPLETE_KEY, 'before-t163');
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export const shouldShowImageUpdateHint = (fingerprint: string) =>
   shouldRemindImageUpdate(fingerprint, read(COMPLETE_KEY), read(DISMISSED_KEY));
