@@ -1,19 +1,41 @@
-import { useState } from 'react';
-import { VOCAB_IMAGE_FINGERPRINT } from 'virtual:vocab-image-fingerprint';
-import { viewHash } from '../../lib/route.mjs';
+import { useEffect, useState } from 'react';
 import {
+  VOCAB_IMAGE_FINGERPRINT,
+  VOCAB_IMAGE_TOTAL,
+} from 'virtual:vocab-image-fingerprint';
+import { viewHash } from '../../lib/route.mjs';
+import { IMAGE_CACHE_NAME } from '../../lib/vocab-image-offline.mjs';
+import {
+  adoptEarlierCompleteDownload,
   dismissImageUpdateHint,
+  hasImageCompleteRecord,
   shouldShowImageUpdateHint,
 } from '../lib/imageUpdateHint';
 
 /**
  * 圖片有新版的提醒（T163）：只給曾經下載完全部圖片的人，一行、可關閉，同一版本按過「知道了」就不再出現。
- * 不開 Cache API、不掃描快取，不擋住學習。設定頁本身有圖片狀態，不重複顯示。
+ * 平常只讀 localStorage；沒有完成紀錄時才在載入後閒置時數一次快取筆數（見 adoptEarlierCompleteDownload）。
+ * 不擋住學習。設定頁本身有圖片狀態，不重複顯示。
  */
 export function ImageUpdateHint({ onSettings }: { onSettings: boolean }) {
   const [visible, setVisible] = useState(() =>
     shouldShowImageUpdateHint(VOCAB_IMAGE_FINGERPRINT),
   );
+
+  useEffect(() => {
+    if (hasImageCompleteRecord()) return;
+    let cancelled = false;
+    const timer = window.setTimeout(() => {
+      void adoptEarlierCompleteDownload(VOCAB_IMAGE_TOTAL, IMAGE_CACHE_NAME).then((adopted) => {
+        if (adopted && !cancelled) setVisible(shouldShowImageUpdateHint(VOCAB_IMAGE_FINGERPRINT));
+      });
+    }, 3000);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timer);
+    };
+  }, []);
+
   if (!visible || onSettings) return null;
   const dismiss = () => {
     dismissImageUpdateHint(VOCAB_IMAGE_FINGERPRINT);
