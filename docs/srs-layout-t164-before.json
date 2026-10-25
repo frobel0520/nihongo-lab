@@ -1,0 +1,1066 @@
+[
+  {
+    "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+    "category": "games",
+    "word": "落ち着いてください、ウィルソン。今日はどんなお客さんが来てくれるのか、楽しみです。",
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "rootFontPercent": 100,
+    "revealPointerBlocked": false,
+    "before": {
+      "area": {
+        "x": 12,
+        "y": 272.203125,
+        "width": 296,
+        "height": 161.796875,
+        "scrollHeight": 527,
+        "clientHeight": 162,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 272.203125,
+        "width": 296,
+        "height": 497.453125,
+        "scrollHeight": 493,
+        "clientHeight": 493,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 34,
+        "y": 306.203125,
+        "width": 252,
+        "height": 349.453125,
+        "scrollHeight": 350,
+        "clientHeight": 349,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 442,
+        "width": 296,
+        "height": 54,
+        "scrollHeight": 54,
+        "clientHeight": 54,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 161.796875,
+      "pageHeight": 568,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "38.4px"
+    },
+    "after": {
+      "area": {
+        "x": 12,
+        "y": 272.203125,
+        "width": 296,
+        "height": 125.609375,
+        "scrollHeight": 769,
+        "clientHeight": 126,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 272.203125,
+        "width": 296,
+        "height": 740.09375,
+        "scrollHeight": 736,
+        "clientHeight": 736,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 82,
+        "y": 286.203125,
+        "width": 156,
+        "height": 457.53125,
+        "scrollHeight": 458,
+        "clientHeight": 458,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 405.8125,
+        "width": 296,
+        "height": 90.1875,
+        "scrollHeight": 90,
+        "clientHeight": 90,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 125.609375,
+      "pageHeight": 568,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "32px"
+    },
+    "readingWindow": {
+      "area": {
+        "x": 12,
+        "y": 272.203125,
+        "width": 296,
+        "height": 125.609375,
+        "scrollHeight": 769,
+        "clientHeight": 126,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 272.203125,
+        "width": 296,
+        "height": 740.09375,
+        "scrollHeight": 736,
+        "clientHeight": 736,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 82,
+        "y": 286.203125,
+        "width": 156,
+        "height": 457.53125,
+        "scrollHeight": 458,
+        "clientHeight": 458,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 405.8125,
+        "width": 296,
+        "height": 90.1875,
+        "scrollHeight": 90,
+        "clientHeight": 90,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 125.609375,
+      "pageHeight": 568,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "32px"
+    }
+  },
+  {
+    "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+    "category": "games",
+    "word": "落ち着いてください、ウィルソン。今日はどんなお客さんが来てくれるのか、楽しみです。",
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "rootFontPercent": 130,
+    "revealPointerBlocked": false,
+    "before": {
+      "area": {
+        "x": 12,
+        "y": 323.4375,
+        "width": 296,
+        "height": 110.5625,
+        "scrollHeight": 768,
+        "clientHeight": 111,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 323.4375,
+        "width": 296,
+        "height": 732.015625,
+        "scrollHeight": 728,
+        "clientHeight": 728,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 34,
+        "y": 357.4375,
+        "width": 252,
+        "height": 584.015625,
+        "scrollHeight": 585,
+        "clientHeight": 584,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 442,
+        "width": 296,
+        "height": 54,
+        "scrollHeight": 54,
+        "clientHeight": 54,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 110.5625,
+      "pageHeight": 568,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "49.92px"
+    },
+    "after": {
+      "area": {
+        "x": 12,
+        "y": 323.4375,
+        "width": 296,
+        "height": 60.53125,
+        "scrollHeight": 1203,
+        "clientHeight": 61,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 323.4375,
+        "width": 296,
+        "height": 1166.65625,
+        "scrollHeight": 1163,
+        "clientHeight": 1163,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 82,
+        "y": 337.4375,
+        "width": 156,
+        "height": 756.875,
+        "scrollHeight": 758,
+        "clientHeight": 757,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 391.96875,
+        "width": 296,
+        "height": 104.03125,
+        "scrollHeight": 104,
+        "clientHeight": 104,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 60.53125,
+      "pageHeight": 568,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "41.6px"
+    },
+    "readingWindow": {
+      "area": {
+        "x": 12,
+        "y": 323.4375,
+        "width": 296,
+        "height": 60.53125,
+        "scrollHeight": 1203,
+        "clientHeight": 61,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 323.4375,
+        "width": 296,
+        "height": 1166.65625,
+        "scrollHeight": 1163,
+        "clientHeight": 1163,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 82,
+        "y": 337.4375,
+        "width": 156,
+        "height": 756.875,
+        "scrollHeight": 758,
+        "clientHeight": 757,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 391.96875,
+        "width": 296,
+        "height": 104.03125,
+        "scrollHeight": 104,
+        "clientHeight": 104,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 60.53125,
+      "pageHeight": 568,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "41.6px"
+    }
+  },
+  {
+    "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+    "category": "games",
+    "word": "落ち着いてください、ウィルソン。今日はどんなお客さんが来てくれるのか、楽しみです。",
+    "viewport": {
+      "width": 375,
+      "height": 667
+    },
+    "rootFontPercent": 100,
+    "revealPointerBlocked": false,
+    "before": {
+      "area": {
+        "x": 12,
+        "y": 272.203125,
+        "width": 351,
+        "height": 260.796875,
+        "scrollHeight": 587,
+        "clientHeight": 261,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 272.203125,
+        "width": 351,
+        "height": 557.5,
+        "scrollHeight": 554,
+        "clientHeight": 554,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 34,
+        "y": 306.203125,
+        "width": 307,
+        "height": 409.5,
+        "scrollHeight": 410,
+        "clientHeight": 410,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 541,
+        "width": 351,
+        "height": 54,
+        "scrollHeight": 54,
+        "clientHeight": 54,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 260.796875,
+      "pageHeight": 667,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "45px"
+    },
+    "after": {
+      "area": {
+        "x": 12,
+        "y": 272.203125,
+        "width": 351,
+        "height": 224.609375,
+        "scrollHeight": 595,
+        "clientHeight": 225,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 272.203125,
+        "width": 351,
+        "height": 565.9375,
+        "scrollHeight": 562,
+        "clientHeight": 562,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 82,
+        "y": 286.203125,
+        "width": 211,
+        "height": 307.125,
+        "scrollHeight": 307,
+        "clientHeight": 307,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 504.8125,
+        "width": 351,
+        "height": 90.1875,
+        "scrollHeight": 90,
+        "clientHeight": 90,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 224.609375,
+      "pageHeight": 667,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "33.75px"
+    },
+    "readingWindow": {
+      "area": {
+        "x": 12,
+        "y": 272.203125,
+        "width": 351,
+        "height": 224.609375,
+        "scrollHeight": 595,
+        "clientHeight": 225,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 272.203125,
+        "width": 351,
+        "height": 565.9375,
+        "scrollHeight": 562,
+        "clientHeight": 562,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 82,
+        "y": 286.203125,
+        "width": 211,
+        "height": 307.125,
+        "scrollHeight": 307,
+        "clientHeight": 307,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 504.8125,
+        "width": 351,
+        "height": 90.1875,
+        "scrollHeight": 90,
+        "clientHeight": 90,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 224.609375,
+      "pageHeight": 667,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "33.75px"
+    }
+  },
+  {
+    "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+    "category": "games",
+    "word": "落ち着いてください、ウィルソン。今日はどんなお客さんが来てくれるのか、楽しみです。",
+    "viewport": {
+      "width": 375,
+      "height": 667
+    },
+    "rootFontPercent": 130,
+    "revealPointerBlocked": false,
+    "before": {
+      "area": {
+        "x": 12,
+        "y": 323.4375,
+        "width": 351,
+        "height": 209.5625,
+        "scrollHeight": 638,
+        "clientHeight": 210,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 323.4375,
+        "width": 351,
+        "height": 602.234375,
+        "scrollHeight": 598,
+        "clientHeight": 598,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 34,
+        "y": 357.4375,
+        "width": 307,
+        "height": 454.234375,
+        "scrollHeight": 455,
+        "clientHeight": 454,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 541,
+        "width": 351,
+        "height": 54,
+        "scrollHeight": 54,
+        "clientHeight": 54,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 209.5625,
+      "pageHeight": 667,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "49.92px"
+    },
+    "after": {
+      "area": {
+        "x": 12,
+        "y": 323.4375,
+        "width": 351,
+        "height": 159.53125,
+        "scrollHeight": 902,
+        "clientHeight": 160,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 323.4375,
+        "width": 351,
+        "height": 865.46875,
+        "scrollHeight": 861,
+        "clientHeight": 861,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 82,
+        "y": 337.4375,
+        "width": 211,
+        "height": 486.5625,
+        "scrollHeight": 488,
+        "clientHeight": 487,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 490.96875,
+        "width": 351,
+        "height": 104.03125,
+        "scrollHeight": 104,
+        "clientHeight": 104,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 159.53125,
+      "pageHeight": 667,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "41.6px"
+    },
+    "readingWindow": {
+      "area": {
+        "x": 12,
+        "y": 323.4375,
+        "width": 351,
+        "height": 159.53125,
+        "scrollHeight": 902,
+        "clientHeight": 160,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 323.4375,
+        "width": 351,
+        "height": 865.46875,
+        "scrollHeight": 861,
+        "clientHeight": 861,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 82,
+        "y": 337.4375,
+        "width": 211,
+        "height": 486.5625,
+        "scrollHeight": 488,
+        "clientHeight": 487,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 490.96875,
+        "width": 351,
+        "height": 104.03125,
+        "scrollHeight": 104,
+        "clientHeight": 104,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 159.53125,
+      "pageHeight": 667,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "41.6px"
+    }
+  },
+  {
+    "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+    "category": "games",
+    "word": "落ち着いてください、ウィルソン。今日はどんなお客さんが来てくれるのか、楽しみです。",
+    "viewport": {
+      "width": 320,
+      "height": 480
+    },
+    "rootFontPercent": 150,
+    "revealPointerBlocked": false,
+    "before": {
+      "area": {
+        "x": 12,
+        "y": 342.15625,
+        "width": 296,
+        "height": 3.84375,
+        "scrollHeight": 1012,
+        "clientHeight": 4,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 342.15625,
+        "width": 296,
+        "height": 971.453125,
+        "scrollHeight": 967,
+        "clientHeight": 967,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 34,
+        "y": 376.15625,
+        "width": 252,
+        "height": 823.453125,
+        "scrollHeight": 825,
+        "clientHeight": 823,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 354,
+        "width": 296,
+        "height": 54,
+        "scrollHeight": 54,
+        "clientHeight": 54,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 3.84375,
+      "pageHeight": 480,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "57.6px"
+    },
+    "after": {
+      "area": {
+        "x": 12,
+        "y": 342.15625,
+        "width": 296,
+        "height": 0,
+        "scrollHeight": 1456,
+        "clientHeight": 0,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 342.15625,
+        "width": 296,
+        "height": 1415,
+        "scrollHeight": 1411,
+        "clientHeight": 1411,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 82,
+        "y": 356.15625,
+        "width": 156,
+        "height": 873.46875,
+        "scrollHeight": 874,
+        "clientHeight": 873,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 350.15625,
+        "width": 296,
+        "height": 113.28125,
+        "scrollHeight": 113,
+        "clientHeight": 113,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 0,
+      "pageHeight": 480,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "48px"
+    },
+    "readingWindow": {
+      "area": {
+        "x": 12,
+        "y": 342.15625,
+        "width": 296,
+        "height": 0,
+        "scrollHeight": 1456,
+        "clientHeight": 0,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 342.15625,
+        "width": 296,
+        "height": 1415,
+        "scrollHeight": 1411,
+        "clientHeight": 1411,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 82,
+        "y": 356.15625,
+        "width": 156,
+        "height": 873.46875,
+        "scrollHeight": 874,
+        "clientHeight": 873,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 350.15625,
+        "width": 296,
+        "height": 113.28125,
+        "scrollHeight": 113,
+        "clientHeight": 113,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 0,
+      "pageHeight": 480,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "48px"
+    }
+  },
+  {
+    "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+    "category": "games",
+    "word": "落ち着いてください、ウィルソン。今日はどんなお客さんが来てくれるのか、楽しみです。",
+    "viewport": {
+      "width": 667,
+      "height": 375
+    },
+    "rootFontPercent": 100,
+    "revealPointerBlocked": false,
+    "before": {
+      "area": {
+        "x": 29.5,
+        "y": 362.203125,
+        "width": 608,
+        "height": 536.8125,
+        "scrollHeight": 537,
+        "clientHeight": 537,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "card": {
+        "x": 29.5,
+        "y": 362.203125,
+        "width": 608,
+        "height": 501.59375,
+        "scrollHeight": 498,
+        "clientHeight": 498,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 51.5,
+        "y": 396.203125,
+        "width": 564,
+        "height": 353.59375,
+        "scrollHeight": 355,
+        "clientHeight": 354,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 29.5,
+        "y": 305,
+        "width": 608,
+        "height": 54,
+        "scrollHeight": 54,
+        "clientHeight": 54,
+        "overflow": "visible",
+        "position": "sticky"
+      },
+      "visibleCardHeight": 0,
+      "pageHeight": 1017,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "54.4px"
+    },
+    "after": {
+      "area": {
+        "x": 29.5,
+        "y": 362.203125,
+        "width": 608,
+        "height": 454.046875,
+        "scrollHeight": 454,
+        "clientHeight": 454,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "card": {
+        "x": 29.5,
+        "y": 362.203125,
+        "width": 608,
+        "height": 418.828125,
+        "scrollHeight": 415,
+        "clientHeight": 415,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 99.5,
+        "y": 376.203125,
+        "width": 468,
+        "height": 216.25,
+        "scrollHeight": 217,
+        "clientHeight": 216,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 29.5,
+        "y": 268.8125,
+        "width": 608,
+        "height": 90.1875,
+        "scrollHeight": 90,
+        "clientHeight": 90,
+        "overflow": "visible",
+        "position": "sticky"
+      },
+      "visibleCardHeight": 0,
+      "pageHeight": 970,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "41.6px"
+    },
+    "readingWindow": {
+      "area": {
+        "x": 29.5,
+        "y": 0.203125,
+        "width": 608,
+        "height": 454.046875,
+        "scrollHeight": 454,
+        "clientHeight": 454,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "card": {
+        "x": 29.5,
+        "y": 0.203125,
+        "width": 608,
+        "height": 418.828125,
+        "scrollHeight": 415,
+        "clientHeight": 415,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 99.5,
+        "y": 14.203125,
+        "width": 468,
+        "height": 216.25,
+        "scrollHeight": 217,
+        "clientHeight": 216,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 29.5,
+        "y": 268.8125,
+        "width": 608,
+        "height": 90.1875,
+        "scrollHeight": 90,
+        "clientHeight": 90,
+        "overflow": "visible",
+        "position": "sticky"
+      },
+      "visibleCardHeight": 212.8125,
+      "pageHeight": 970,
+      "scrollY": 362,
+      "overflowX": false,
+      "font": "41.6px"
+    }
+  },
+  {
+    "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+    "category": "games",
+    "word": "落ち着いてください、ウィルソン。今日はどんなお客さんが来てくれるのか、楽しみです。",
+    "viewport": {
+      "width": 568,
+      "height": 320
+    },
+    "rootFontPercent": 130,
+    "revealPointerBlocked": true,
+    "before": {
+      "area": {
+        "x": 12,
+        "y": 293.25,
+        "width": 544,
+        "height": 0,
+        "scrollHeight": 716,
+        "clientHeight": 0,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 293.25,
+        "width": 544,
+        "height": 679.5625,
+        "scrollHeight": 676,
+        "clientHeight": 676,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 34,
+        "y": 327.25,
+        "width": 500,
+        "height": 531.5625,
+        "scrollHeight": 533,
+        "clientHeight": 532,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 301.25,
+        "width": 544,
+        "height": 54,
+        "scrollHeight": 54,
+        "clientHeight": 54,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 0,
+      "pageHeight": 355,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "68.16px"
+    },
+    "after": {
+      "area": {
+        "x": 12,
+        "y": 293.25,
+        "width": 544,
+        "height": 0,
+        "scrollHeight": 741,
+        "clientHeight": 0,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 293.25,
+        "width": 544,
+        "height": 704.53125,
+        "scrollHeight": 701,
+        "clientHeight": 701,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 82,
+        "y": 307.25,
+        "width": 404,
+        "height": 398.71875,
+        "scrollHeight": 400,
+        "clientHeight": 399,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 301.25,
+        "width": 544,
+        "height": 104.03125,
+        "scrollHeight": 104,
+        "clientHeight": 104,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 0,
+      "pageHeight": 405,
+      "scrollY": 0,
+      "overflowX": false,
+      "font": "51.12px"
+    },
+    "readingWindow": {
+      "area": {
+        "x": 12,
+        "y": 208.25,
+        "width": 544,
+        "height": 0,
+        "scrollHeight": 741,
+        "clientHeight": 0,
+        "overflow": "auto",
+        "position": "static"
+      },
+      "card": {
+        "x": 12,
+        "y": 208.25,
+        "width": 544,
+        "height": 704.53125,
+        "scrollHeight": 701,
+        "clientHeight": 701,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "word": {
+        "x": 82,
+        "y": 222.25,
+        "width": 404,
+        "height": 398.71875,
+        "scrollHeight": 400,
+        "clientHeight": 399,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "actions": {
+        "x": 12,
+        "y": 216.25,
+        "width": 544,
+        "height": 104.03125,
+        "scrollHeight": 104,
+        "clientHeight": 104,
+        "overflow": "visible",
+        "position": "static"
+      },
+      "visibleCardHeight": 0,
+      "pageHeight": 405,
+      "scrollY": 85,
+      "overflowX": false,
+      "font": "51.12px"
+    }
+  }
+]

@@ -1,5 +1,9 @@
 # 系統設計
 
+## T164 F10 長句單字卡（2026-10-25，待定點審查）
+
+SRS頁使用min-height，不固定height或讓flashcard-area內捲；actions為static，與其他頁面原有sticky操作分離。長於16個Unicode字元的詞面使用has-long-word排列，揭示後跨滿grid寬，播放保持上列。換卡後若已捲動以scroll-margin對齊新卡，鍵盤操作才恢復焦點並捲到可見處。新增test:srs-layout正式build行為回歸並納入CI；全部原容量門檻保持。詳見[根因、取捨與驗證](srs-layout-t164.md)。
+
 ## T163 圖片下載工作與審查修正（2026-10-24）
 
 - 單字圖片下載改為 App 層級的單一工作（`app/lib/imageDownloadJob.ts`）：站內換頁持續下載，設定頁只顯示狀態，可取消與接續；跨分頁 Web Locks 保留。不提供關閉網站後的背景下載。

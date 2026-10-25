@@ -858,46 +858,55 @@ a {
   width: 100%;
 }
 
+/* A sentence needs the full text width; keep audio in its own row above it.
+   The ordinary short-word layout and every font size remain unchanged. */
+.flashcard.is-revealed.has-long-word > .flash-word {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
 .flashcard.is-revealed .flash-reading { line-height: 1.35; }
 .flashcard.is-revealed .flash-zh { line-height: 1.4; }
 .flashcard.is-revealed .chip { margin-top: 4px; }
 
-/* Keep the SRS controls outside the independently scrollable card on phones. */
+/* Let long answers use the page scroll instead of competing with fixed controls.
+   A minimum (not fixed) page height keeps short-card actions near the bottom. */
+.screen.srs-page {
+  flex: none;
+  min-height: calc(100dvh - var(--stack-top));
+}
+
+.srs-page .actions {
+  position: static;
+  flex: none;
+  scroll-margin-block: calc(var(--stack-top) + 8px) calc(var(--tabbar-h) + env(safe-area-inset-bottom) + 12px);
+}
+
+.srs-page .flashcard-area {
+  justify-content: flex-start;
+}
+
+.srs-page .flashcard {
+  flex: none;
+  scroll-margin-top: calc(var(--stack-top) + 8px);
+}
+
 @media (max-width: 640px) {
   .screen.srs-page {
-    flex: none;
-    height: calc(100dvh - var(--stack-top));
-    min-height: 0;
     padding: 6px 12px calc(var(--tabbar-h) + env(safe-area-inset-bottom) + 8px);
     gap: 8px;
   }
 
   .srs-page .srs-screen {
-    min-height: 0;
     gap: 8px;
   }
 
   .srs-page .flashcard-area {
-    min-height: 0;
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-    justify-content: flex-start;
     gap: 6px;
   }
 
-  .srs-page .flashcard {
-    flex: none;
+  .srs-page .flashcard:not(.is-revealed) {
     min-height: 240px;
-  }
-
-  .srs-page .flashcard.is-revealed {
-    min-height: 0;
-  }
-
-  .srs-page .actions {
-    position: static;
-    flex: none;
-    margin-top: 0;
   }
 }
 
