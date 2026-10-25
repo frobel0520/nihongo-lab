@@ -1,4 +1,10 @@
-import { useEffect, useRef, useState, type MouseEvent } from 'react';
+import {
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type MouseEvent,
+} from 'react';
 import { isInteractive, isTextEntry, type KeyTarget } from '../../lib/keys.mjs';
 import { recordReviewSequence, type Progress } from '../../lib/progress.mjs';
 import { studyHash, viewHash } from '../../lib/route.mjs';
@@ -141,8 +147,8 @@ export function SrsView({
   const keyboardAction = useRef(false);
   const gradesRef = useRef<HTMLFieldSetElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
-  const previousCardId = useRef(currentCard(session)?.id);
-  const revealRef = useRef<HTMLButtonElement>(null);
+  const wordRef = useRef<HTMLDivElement>(null);
+  const presentedSession = useRef(session);
   const fromKeyboard = (event: MouseEvent) => {
     if (event.detail === 0) keyboardAction.current = true;
   };
@@ -161,7 +167,10 @@ export function SrsView({
    * 答過「還不會」、一輪後自動繞回來的卡先蓋住答案，再考一次。
    */
   const moveTo = (next: Session) => {
-    if (next === session) return;
+    if (next === session) {
+      keyboardAction.current = false;
+      return;
+    }
     setSession(next);
     const card = currentCard(next);
     setRevealed(
@@ -190,23 +199,31 @@ export function SrsView({
     buzz();
   };
 
-  // Long cards now scroll with the page. Start a different card at its beginning,
-  // rather than leaving it at the previous answer's scroll position.
-  useEffect(() => {
-    if (previousCardId.current !== current?.id && window.scrollY > 0) {
-      cardRef.current?.scrollIntoView({ block: 'start' });
-    }
-    previousCardId.current = current?.id;
-  }, [current?.id]);
-
-  useEffect(() => {
-    if (!keyboardAction.current) return;
+  // session 只由導航／評分轉換；同 ID 的再次作答也是新的呈現。
+  // 在同一個 DOM commit 內先安排不捲動的焦點，再做唯一一次閱讀定位。
+  useLayoutEffect(() => {
+    const presenting = presentedSession.current !== session;
+    presentedSession.current = session;
+    const keyboard = keyboardAction.current;
     keyboardAction.current = false;
     const active = document.activeElement;
-    if (active && active !== document.body) return;
-    const target = (revealed ? gradesRef : revealRef).current;
-    target?.focus();
-    target?.scrollIntoView({ block: 'nearest' });
+    if (
+      keyboard &&
+      (presenting ||
+        !active ||
+        active === document.body ||
+        active === wordRef.current)
+    ) {
+      // 換卡先讀句首：Space 揭示；Tab 可依 DOM 順序到播放與作答。
+      // 一般揭示仍給評分區焦點，但不替使用者改變正在閱讀的位置。
+      const target = presenting
+        ? wordRef.current
+        : revealed
+          ? gradesRef.current
+          : wordRef.current;
+      target?.focus({ preventScroll: true });
+    }
+    if (presenting) cardRef.current?.scrollIntoView({ block: 'start' });
   }, [revealed, session]);
 
   useEffect(() => {
@@ -362,7 +379,7 @@ export function SrsView({
           className={`flashcard${revealed ? ' is-revealed' : ''}${Array.from(current.word).length > 16 ? ' has-long-word' : ''}`}
           aria-live="polite"
         >
-          <div className="flash-word" lang="ja">
+          <div className="flash-word" ref={wordRef} tabIndex={-1} lang="ja">
             {current.word}
           </div>
           {current.audioReady ? (
@@ -418,7 +435,6 @@ export function SrsView({
           <button
             type="button"
             className="btn primary big block"
-            ref={revealRef}
             onClick={(event) => {
               fromKeyboard(event);
               setRevealed(true);

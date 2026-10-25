@@ -587,5 +587,17 @@
     "merged": false,
     "deployed": false,
     "latestCi": "see PR latest commit"
+  },
+  "p2Followup": {
+    "report": "srs-presentation-t164-p2.md",
+    "before": "srs-presentation-t164-p2-before.json",
+    "after": "srs-presentation-t164-p2-after.json",
+    "presentations": 64,
+    "notVisibleBefore": 41,
+    "notVisibleAfter": 0,
+    "normalRevealChecks": 4,
+    "latestCi": "see PR171 latest commit",
+    "merged": false,
+    "deployed": false
   }
 }

@@ -148,7 +148,7 @@ try {
   // instead of falling to <body>. Mouse clicks do not move focus. Covers reveal, grade, next card and a relearn round.
   {
     const pair = illustrated.filter(c => c.category === 'n5').slice(0, 2);
-    const focused = () => page.evaluate(() => { const a = document.activeElement; return a === document.body ? 'body' : a.matches('fieldset.grades') ? 'grades' : (a.getAttribute('aria-label') ?? a.textContent).trim().slice(0, 8); });
+    const focused = () => page.evaluate(() => { const a = document.activeElement; return a === document.body ? 'body' : a.matches('fieldset.grades') ? 'grades' : a.matches('.flash-word') ? '句首' : (a.getAttribute('aria-label') ?? a.textContent).trim().slice(0, 8); });
     await page.evaluate(([k, v]) => localStorage.setItem(k, v), ['nihongo-lab:progress:v1', (() => { const p = emptyProgress(); for (const c of pair) p.srs[c.id] = schedule(undefined, 'again', today, new Date().toISOString()); return serializeProgress(p); })()]);
     await page.goto(base + '#/srs?category=n5');
     await page.reload();
@@ -161,16 +161,16 @@ try {
     assert.match(await focused(), /^還不會/, 'Tab reaches the first grade');
     await page.keyboard.press('Enter'); // 還不會: this card comes back later in the round
     assert.notEqual(await page.textContent('.flash-word'), first);
-    assert.equal(await focused(), '顯示答案', 'next card: focus returns to Show answer');
+    assert.equal(await focused(), '句首', 'next presentation: focus starts at the reading text');
     await page.keyboard.press(' ');
     assert.equal(await focused(), 'grades');
     await page.keyboard.press('2');
     assert.equal(await page.textContent('.flash-word'), first, 'the relearn card comes back covered');
-    assert.equal(await focused(), '顯示答案', 'relearn round keeps keyboard focus');
+    assert.equal(await focused(), '句首', 'relearn round keeps focus at the reading start');
     // Mouse and touch keep the browser's own behaviour: no focus is moved.
     await page.getByRole('button', { name: '顯示答案', exact: true }).click();
     assert.notEqual(await focused(), 'grades', 'pointer clicks do not move focus');
-    result.keyboardFocus = { reveal: 'grades', afterGrade: '顯示答案', relearn: true, pointerUnchanged: true };
+    result.keyboardFocus = { reveal: 'grades', afterGrade: '句首', relearn: true, pointerUnchanged: true };
   }
 
   // 3. Explicit download with retries, a persistent failure, an interruption and a resume.

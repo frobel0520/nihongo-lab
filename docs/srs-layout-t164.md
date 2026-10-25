@@ -1,5 +1,7 @@
 # T164：F10 長句單字卡閱讀空間
 
+> P2後續：審查確認同ID重練及鍵盤焦點覆蓋句首，已補[呈現／焦點修正與幾何回歸](srs-presentation-t164-p2.md)，待原reviewer定點複核；下列初版歷史證據保留。
+
 ## 同步與範圍
 
 基準為最新遠端main `d7ce2d8fec1d9d03e97bd2887b3114743bd8d989`。開工時本機停在已合併T158、唯一worktree、沒有未提交變更；已保留舊分支與材料，以最新main建立`feature/T164`。遠端無未合併PR。[#169](https://github.com/frobel0520/nihongo-lab/pull/169)已合併；T163／[#170](https://github.com/frobel0520/nihongo-lab/pull/170)與安全修補的文件均已同步，未假設可讀取其他開發環境未推送的內容。依最新lock安裝依賴，未恢復舊套件或重做安全調查。

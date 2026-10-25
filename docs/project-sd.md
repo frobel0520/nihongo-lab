@@ -1,5 +1,9 @@
 # 系統設計
 
+## T164 P2 呈現與焦點協調
+
+用session導航／作答轉換判斷新呈現，包含同ID重練；單一useLayoutEffect先focus preventScroll、再一次卡片開頭定位，普通揭示不重設。鍵盤新呈現焦點在句首（tabIndex -1），Space揭示或Tab到播放／揭示。無timer／重試捲動，CSS、資料與下載安全契約不變。詳見[P2證據](srs-presentation-t164-p2.md)。
+
 ## T164 F10 長句單字卡（2026-10-25，待定點審查）
 
 SRS頁使用min-height，不固定height或讓flashcard-area內捲；actions為static，與其他頁面原有sticky操作分離。長於16個Unicode字元的詞面使用has-long-word排列，揭示後跨滿grid寬，播放保持上列。換卡後若已捲動以scroll-margin對齊新卡，鍵盤操作才恢復焦點並捲到可見處。新增test:srs-layout正式build行為回歸並納入CI；全部原容量門檻保持。詳見[根因、取捨與驗證](srs-layout-t164.md)。
