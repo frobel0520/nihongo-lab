@@ -60,7 +60,7 @@
 - 五張代表卡×新卡／複習×線上／真正離線＝20次完整流程：圖片揭示、原音檔1倍播放、評分、改評不重複推進FSRS、重練回蓋答案、鍵盤揭示焦點到評分區、保存及重載一致。另測垂直觸控閱讀不換卡／不評分、水平觸控換卡及新卡起點可見、慢圖與缺圖仍可評分。設定頁實際開始全量圖片下載後站內切到單字卡，快取繼續增加，回設定同一工作完成。
 - 真正離線使用`BrowserContext.setOffline(true)`、確認`navigator.onLine=false`並重載；未快取探針失敗`net::ERR_INTERNET_DISCONNECTED`後才執行離線流程，不以命中快取推定斷網。代表卡音檔依既有明確下載快取契約保存。
 - `test:images`既有T163回歸通過：首次安裝不抓單字圖、全2242圖經worker真正離線讀取SHA一致、跨分頁鎖、中斷接續、換頁繼續下載、版本提醒、只補修訂圖、缺圖退化、鍵盤焦點及指標不搬焦點保持。所有瀏覽器案例pageerror 0。
-- [結構化驗證證據](srs-layout-t164-validation.json)。首次受限sandbox的check中，來源盤點子程序stderr未被接收；同一份程式在正常執行環境四項通過，完整check再通過，沒有修改無關測試或降低判定。測試腳本開發中也修正過空缺圖條件攔首頁、同URL案例未重載與空牌組前置資料；未將未執行項目記為通過。
+- [結構化驗證證據](srs-layout-t164-validation.json)。首次受限sandbox的check中，來源盤點子程序stderr未被接收；同一份程式在正常執行環境四項通過，完整check再通過，沒有修改無關測試或降低判定。測試腳本開發中也修正過空缺圖條件攔首頁、同URL案例未重載與空牌組前置資料；未將未執行項目記為通過。首個PR CI在新增重擷取工具的checkJs型別缺漏處失敗；後續只補工具的JSDoc、請求／port／DOM空值檢查，產品產物不變，最新CI以PR後續commit為準。
 
 重現：`npm ci`、`VITE_BASE_PATH=/nihongo-lab/ npm run build`、`npm run check`、`npm run perf:bundle`、`npm run test:srs-layout`、`npm run test:images`。精確重擷取：`node scripts/capture-srs-layout.mjs --dist <該版本build目錄> --label before --out .cache/f10-before --measurements .cache/f10-before.json`；修改版改用`--label after`與不同輸出目錄。基準build為`d7ce2d8`，可在獨立checkout建置；勿覆蓋現有工作目錄。工具只用隔離合成進度、同一遊戲卡與七組幾何，輸出揭示前／後、閱讀位置及修改後評分區。`CHROME_PATH`可指定已安裝Chromium。前後量測資料、截圖及本段結果隨PR保存；最新commit CI以PR實際結果為準。
 
