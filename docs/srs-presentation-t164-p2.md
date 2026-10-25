@@ -41,6 +41,12 @@ Sissela：`game-card:game:er:sissela:selection-voice:992579e355:992579e355`；Ev
 
 本機四次一般揭示均為top -119.6→-87.6px（150%時-119.8→-87.8），視覺差32px、實際行高64.9／74.9px，只有preventScroll焦點、0次scrollIntoView。這是保留句中閱讀與既有排版變化，不宣稱所有瀏覽器的scrollY數值完全不變。新資料保存readingBefore與revealEvents，可由原reviewer直接查證。
 
+## 離線案例載入診斷
+
+第二次CI（a799cf4／run40176265808）通過一般揭示檢查，並在最後一組離線重載時由共用ImportBoundary顯示「教材載入失敗」。該boundary同時捕捉匯入與渲染錯誤，當時沒有browser console詳情，**尚無法確認原始原因**；沒有據此修改產品、下載或FSRS。
+
+本機150次離線重載及6倍CPU節流40次未重現。測試前置原本先goto路由再立即reload，會啟動兩次載入；改為只準備下一個文件的hash與合成進度，再做一次真正reload，避免測試自己中斷尚未結束的懶載入。保留所有每案離線重載、64次幾何斷言及原5秒逾時，不新增重試。另先檢查全部必要JS已在既有precache，沒有補抓或寫入資產掩蓋缺漏；失敗時輸出console、失敗路徑、controller及cache筆數，以便辨別真因。單次載入版已在本機通過全部64／4觀察，產品與已保存位置數據不變，最新CI仍以PR實際結果為準。
+
 ## 前後預覽
 
 | 情境 | 修正前 | 修正後 |

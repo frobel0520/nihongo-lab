@@ -96,6 +96,21 @@ const page = await context.newPage(),
   errors = [],
   observations = [];
 page.on('pageerror', (e) => errors.push(e.message));
+const loadFailures = [],
+  browserErrors = [];
+context.on('requestfailed', (request) => {
+  loadFailures.push({
+    path: new URL(request.url()).pathname,
+    error: request.failure()?.errorText,
+  });
+  if (loadFailures.length > 20) loadFailures.shift();
+});
+page.on('console', (message) => {
+  if (message.type() === 'error') {
+    browserErrors.push(message.text().slice(0, 1000));
+    if (browserErrors.length > 10) browserErrors.shift();
+  }
+});
 const progress = () =>
   page.evaluate((k) => JSON.parse(localStorage.getItem(k)), key);
 let offline = false,
@@ -116,10 +131,17 @@ async function open(deck) {
       }),
   );
   await page.evaluate(
-    ([key, value]) => localStorage.setItem(key, value),
+    ([key, value]) => {
+      localStorage.setItem(key, value);
+      // 只準備下一次載入的路由，不先啟動又立即中斷一次React懶載入。
+      history.replaceState(
+        null,
+        '',
+        location.pathname + '#/srs?category=games',
+      );
+    },
     [key, serializeProgress(p)],
   );
-  await page.goto(base + '#/srs?category=games');
   await page.reload({ waitUntil: offline ? 'load' : 'networkidle' });
   await page
     .waitForFunction(
@@ -133,6 +155,18 @@ async function open(deck) {
         word: await page.locator('.flash-word').allTextContents(),
         body: (await page.locator('body').innerText()).slice(0, 350),
         stored: await progress(),
+        loadFailures,
+        browserErrors,
+        offlineState: await page.evaluate(async () => ({
+          online: navigator.onLine,
+          controller: !!navigator.serviceWorker.controller,
+          cacheEntries: await Promise.all(
+            (await caches.keys()).map(async (key) => ({
+              key,
+              count: (await (await caches.open(key)).keys()).length,
+            })),
+          ),
+        })),
       });
       throw error;
     });
@@ -263,6 +297,18 @@ try {
   await page.evaluate(() => navigator.serviceWorker.ready);
   await page.reload();
   await page.waitForFunction(() => navigator.serviceWorker.controller);
+  // 檢查既有precache的所有JS已備妥；不補寫或掩蓋缺少的必要資產。
+  const sw = await readFile(resolve(root, 'sw.js'), 'utf8');
+  const expectedJs = [...sw.matchAll(/url:"(assets\/[^"]+\.js)"/g)].map(
+    (match) => match[1],
+  );
+  assert.ok(expectedJs.length > 0);
+  await page.evaluate(async (paths) => {
+    for (const path of paths) {
+      if (!(await caches.match(new URL(path, location.href))))
+        throw Error('precache missing JS: ' + path);
+    }
+  }, expectedJs);
   // 只準備本測試三張卡的實際圖片；不更改圖片下載契約。
   const images = [sissela, eva, short].map((c) => {
     const src = illustrationFor(c).src,
