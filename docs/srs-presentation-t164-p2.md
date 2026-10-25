@@ -1,5 +1,7 @@
 # T164／PR #171：P2 作答後句首定位
 
+> 結案更新：原reviewer已對`cee05211291d9751cc4be49d69eb6aadbf3bdfb1`確認F10／原P2可結案、無新增阻塞，必要CI成功。使用者已授權發布；實際Pages與正式站驗收見[PR #171最終發布紀錄](https://github.com/frobel0520/nihongo-lab/pull/171)。以下保留原審查、修正、待複核及限制的歷史，桌面模擬不代表真機／實體螢幕閱讀器通過。
+
 ## 範圍與審查依據
 
 本輪基準為審查版本`8f4ddc04d4bab059220dfb39994d078d23c319ae`；遠端main仍為`d7ce2d8`，PR #171為Draft、未合併、未部署。開工工作目錄乾淨、保留既有材料；GitHub reviews、行內comments及issue留言查詢均為空，repo未找到另一份完整review，因此依使用者本輪提供的P2重現與修正要求處理，沒有宣稱讀取到未同步的報告。

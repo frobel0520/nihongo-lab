@@ -1,5 +1,9 @@
 # 系統設計
 
+## T164 發布收尾與審查結案
+
+F10與原P2已由原reviewer對精確版本`cee0521`複核結案；本輪只補發布與驗收，不擴充UX。最新實際發布證據集中於[PR #171](https://github.com/frobel0520/nihongo-lab/pull/171)，保留以下歷史設計與待審階段記錄；正式產物須由最終版本重新build，不能沿用未知版本的dist。真機／實體螢幕閱讀器及原人工語音待辦未結案。
+
 ## T164 P2 呈現與焦點協調
 
 用session導航／作答轉換判斷新呈現，包含同ID重練；單一useLayoutEffect先focus preventScroll、再一次卡片開頭定位，普通揭示不重設。鍵盤新呈現焦點在句首（tabIndex -1），Space揭示或Tab到播放／揭示。無timer／重試捲動，CSS、資料與下載安全契約不變。詳見[P2證據](srs-presentation-t164-p2.md)。

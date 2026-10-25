@@ -1,5 +1,7 @@
 # T163：單字圖片審查修正（F1–F9、F11）
 
+> 結案更新：原reviewer已對`cee05211291d9751cc4be49d69eb6aadbf3bdfb1`確認F10／原P2可結案、無新增阻塞，必要CI成功。使用者已授權發布；實際Pages與正式站驗收見[PR #171最終發布紀錄](https://github.com/frobel0520/nihongo-lab/pull/171)。以下保留原審查、修正、待複核及限制的歷史，桌面模擬不代表真機／實體螢幕閱讀器通過。
+
 基準 main `64e7175`（T162）。依 [圖片與 UX 審查報告](vocab-images-ux-review.md) 逐項核實後修正；F10 保留觀察。開工時唯一未合併 PR 是安全修補草稿 [#169](https://github.com/frobel0520/nihongo-lab/pull/169)（只改 `package.json`、lock 與安全報告），本輪不混入其內容。
 
 ## 下載工作（F1、F2、F11）
