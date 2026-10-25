@@ -7,6 +7,7 @@ import { resolve, extname } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { emptyProgress, serializeProgress } from '../lib/progress.mjs';
 import { schedule, toDateString } from '../lib/srs.mjs';
+/** @param {string} name @param {string} fallback */
 const arg = (name, fallback) =>
   process.argv.includes(name)
     ? process.argv[process.argv.indexOf(name) + 1]
@@ -19,7 +20,7 @@ if (!['before', 'after'].includes(phase))
   throw Error('label must be before or after');
 const server = createServer(async (req, res) => {
   try {
-    const p = new URL(req.url, 'http://localhost').pathname.replace(
+    const p = new URL(req.url ?? '/', 'http://localhost').pathname.replace(
       /^\/nihongo-lab\//,
       '',
     );
@@ -42,8 +43,11 @@ const server = createServer(async (req, res) => {
     res.writeHead(404).end();
   }
 });
-await new Promise((r) => server.listen(0, '127.0.0.1', r));
-const base = `http://127.0.0.1:${server.address().port}/nihongo-lab/`;
+await new Promise((r) => server.listen(0, '127.0.0.1', () => r(undefined)));
+const address = server.address();
+if (!address || typeof address === 'string')
+  throw Error('missing local server port');
+const base = `http://127.0.0.1:${address.port}/nihongo-lab/`;
 const cards = await collectInventoryCards();
 const game = cards
   .filter((x) => x.category === 'games')
@@ -94,8 +98,16 @@ try {
     await p.waitForTimeout(250);
     const measure = () =>
       p.evaluate(() => {
+        /** @param {string} selector */
+        const element = (selector) => {
+          const el = document.querySelector(selector);
+          if (!(el instanceof HTMLElement))
+            throw Error('missing layout element: ' + selector);
+          return el;
+        };
+        /** @param {string} s */
         const r = (s) => {
-          const el = document.querySelector(s),
+          const el = element(s),
             b = el.getBoundingClientRect();
           return {
             x: b.x,
@@ -110,12 +122,10 @@ try {
         };
         const a = r('.flashcard-area'),
           card = r('.flashcard'),
-          top = document
-            .querySelector('.appbar')
-            .getBoundingClientRect().bottom,
-          nav = document.querySelector('.tabs').getBoundingClientRect();
+          top = element('.appbar').getBoundingClientRect().bottom,
+          nav = element('.tabs').getBoundingClientRect();
         const bottom = nav.y > top ? Math.min(innerHeight, nav.y) : innerHeight;
-        const clipped = document.querySelector('.flashcard-area');
+        const clipped = element('.flashcard-area');
         const constrained = ['auto', 'scroll', 'hidden'].includes(
           getComputedStyle(clipped).overflowY,
         );
@@ -141,8 +151,7 @@ try {
           pageHeight: document.documentElement.scrollHeight,
           scrollY,
           overflowX: document.documentElement.scrollWidth > innerWidth,
-          font: getComputedStyle(document.querySelector('.flash-word'))
-            .fontSize,
+          font: getComputedStyle(element('.flash-word')).fontSize,
         };
       });
     const before = await measure();
