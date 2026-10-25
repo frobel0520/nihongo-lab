@@ -140,6 +140,8 @@ export function SrsView({
   // 滑鼠與觸控點擊（event.detail > 0）不搬焦點。
   const keyboardAction = useRef(false);
   const gradesRef = useRef<HTMLFieldSetElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const previousCardId = useRef(currentCard(session)?.id);
   const revealRef = useRef<HTMLButtonElement>(null);
   const fromKeyboard = (event: MouseEvent) => {
     if (event.detail === 0) keyboardAction.current = true;
@@ -188,12 +190,23 @@ export function SrsView({
     buzz();
   };
 
+  // Long cards now scroll with the page. Start a different card at its beginning,
+  // rather than leaving it at the previous answer's scroll position.
+  useEffect(() => {
+    if (previousCardId.current !== current?.id && window.scrollY > 0) {
+      cardRef.current?.scrollIntoView({ block: 'start' });
+    }
+    previousCardId.current = current?.id;
+  }, [current?.id]);
+
   useEffect(() => {
     if (!keyboardAction.current) return;
     keyboardAction.current = false;
     const active = document.activeElement;
     if (active && active !== document.body) return;
-    (revealed ? gradesRef : revealRef).current?.focus({ preventScroll: true });
+    const target = (revealed ? gradesRef : revealRef).current;
+    target?.focus();
+    target?.scrollIntoView({ block: 'nearest' });
   }, [revealed, session]);
 
   useEffect(() => {
@@ -344,7 +357,11 @@ export function SrsView({
       </div>
 
       <div className="flashcard-area">
-        <div className={`flashcard${revealed ? ' is-revealed' : ''}`} aria-live="polite">
+        <div
+          ref={cardRef}
+          className={`flashcard${revealed ? ' is-revealed' : ''}${Array.from(current.word).length > 16 ? ' has-long-word' : ''}`}
+          aria-live="polite"
+        >
           <div className="flash-word" lang="ja">
             {current.word}
           </div>

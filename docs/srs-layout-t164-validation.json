@@ -1,0 +1,591 @@
+{
+  "measurements": [
+    {
+      "id": "stage0-day14:地図",
+      "width": 320,
+      "height": 568,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day25:ふろ",
+      "width": 320,
+      "height": 568,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "anime-lesson-03:腹",
+      "width": 320,
+      "height": 568,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "general-listening-87:聞き取りにくい",
+      "width": 320,
+      "height": 568,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+      "width": 320,
+      "height": 568,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day14:地図",
+      "width": 320,
+      "height": 568,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day25:ふろ",
+      "width": 320,
+      "height": 568,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "anime-lesson-03:腹",
+      "width": 320,
+      "height": 568,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "general-listening-87:聞き取りにくい",
+      "width": 320,
+      "height": 568,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+      "width": 320,
+      "height": 568,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day14:地図",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day25:ふろ",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "anime-lesson-03:腹",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "general-listening-87:聞き取りにくい",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day14:地図",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day25:ふろ",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "anime-lesson-03:腹",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "general-listening-87:聞き取りにくい",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day14:地図",
+      "width": 320,
+      "height": 480,
+      "rootFontPercent": 150,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day25:ふろ",
+      "width": 320,
+      "height": 480,
+      "rootFontPercent": 150,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "anime-lesson-03:腹",
+      "width": 320,
+      "height": 480,
+      "rootFontPercent": 150,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "general-listening-87:聞き取りにくい",
+      "width": 320,
+      "height": 480,
+      "rootFontPercent": 150,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+      "width": 320,
+      "height": 480,
+      "rootFontPercent": 150,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day14:地図",
+      "width": 667,
+      "height": 375,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day25:ふろ",
+      "width": 667,
+      "height": 375,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "anime-lesson-03:腹",
+      "width": 667,
+      "height": 375,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "general-listening-87:聞き取りにくい",
+      "width": 667,
+      "height": 375,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+      "width": 667,
+      "height": 375,
+      "rootFontPercent": 100,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day14:地図",
+      "width": 568,
+      "height": 320,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day25:ふろ",
+      "width": 568,
+      "height": 320,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "anime-lesson-03:腹",
+      "width": 568,
+      "height": 320,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "general-listening-87:聞き取りにくい",
+      "width": 568,
+      "height": 320,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+      "width": 568,
+      "height": 320,
+      "rootFontPercent": 130,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day14:地図",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 200,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "stage0-day25:ふろ",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 200,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "anime-lesson-03:腹",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 200,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "general-listening-87:聞き取りにくい",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 200,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    },
+    {
+      "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+      "width": 375,
+      "height": 667,
+      "rootFontPercent": 200,
+      "allTextReachable": true,
+      "gradesHitTestable": true,
+      "overflow": false
+    }
+  ],
+  "flows": [
+    {
+      "id": "stage0-day14:地図",
+      "mode": "new",
+      "offline": false,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "stage0-day25:ふろ",
+      "mode": "new",
+      "offline": false,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "anime-lesson-03:腹",
+      "mode": "new",
+      "offline": false,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "general-listening-87:聞き取りにくい",
+      "mode": "new",
+      "offline": false,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+      "mode": "new",
+      "offline": false,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "stage0-day14:地図",
+      "mode": "review",
+      "offline": false,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "stage0-day25:ふろ",
+      "mode": "review",
+      "offline": false,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "anime-lesson-03:腹",
+      "mode": "review",
+      "offline": false,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "general-listening-87:聞き取りにくい",
+      "mode": "review",
+      "offline": false,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+      "mode": "review",
+      "offline": false,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "stage0-day14:地図",
+      "mode": "new",
+      "offline": true,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "stage0-day25:ふろ",
+      "mode": "new",
+      "offline": true,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "anime-lesson-03:腹",
+      "mode": "new",
+      "offline": true,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "general-listening-87:聞き取りにくい",
+      "mode": "new",
+      "offline": true,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+      "mode": "new",
+      "offline": true,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "stage0-day14:地図",
+      "mode": "review",
+      "offline": true,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "stage0-day25:ふろ",
+      "mode": "review",
+      "offline": true,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "anime-lesson-03:腹",
+      "mode": "review",
+      "offline": true,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "general-listening-87:聞き取りにくい",
+      "mode": "review",
+      "offline": true,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    },
+    {
+      "id": "game-card:game:er:sissela:selection-voice:992579e355:992579e355",
+      "mode": "review",
+      "offline": true,
+      "play": true,
+      "regrade": true,
+      "relearn": true,
+      "persist": true
+    }
+  ],
+  "downloadContinuedAcrossRoute": true,
+  "slowImage": true,
+  "missingImage": true,
+  "keyboardFocus": true,
+  "verticalReadWithoutGrade": true,
+  "horizontalNavigation": true,
+  "trueOffline": true,
+  "probe": "ERR_INTERNET_DISCONNECTED",
+  "pageerrors": [],
+  "scope": "Desktop Chromium touch/viewport and root-font emulation; not real device, browser zoom, OS font or physical screen reader.",
+  "task": "T164",
+  "baseline": "d7ce2d8fec1d9d03e97bd2887b3114743bd8d989",
+  "check": {
+    "tests": 353,
+    "typecheck": true,
+    "lint": true
+  },
+  "bundle": {
+    "mainJsGzipBytes": 65975,
+    "cssGzipBytes": 5133,
+    "illustrationChunkGzipBytes": 153390,
+    "precacheBytes": 22197012,
+    "precacheEntries": 483
+  },
+  "existingImageRegression": {
+    "images": 2242,
+    "offlineShaMismatches": 0,
+    "pageerrors": 0
+  },
+  "unchanged": {
+    "curriculum": true,
+    "ids": true,
+    "scheduling": true,
+    "syncVersion": 3,
+    "illustrationMappings": true,
+    "svgCount": 2242,
+    "teachingMp3": 8535,
+    "previewMp3": 38,
+    "downloadAndUpdateImplementation": true
+  },
+  "release": {
+    "merged": false,
+    "deployed": false,
+    "latestCi": "see PR latest commit"
+  }
+}
