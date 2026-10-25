@@ -16,7 +16,7 @@
 
 ## 操作後幾何
 
-同一份教材、兩種視窗／根字級，桌面Chromium touch模擬，DPR1、safe-area0。測試在操作完成與瀏覽器焦點穩定後直接量測，**量測前沒有focus或scroll補位**。判定不只看焦點：句首top須在標頭bottom以下，且第一行的bottom不可落到固定底部分頁列後面。
+同一份教材、兩種視窗／根字級，桌面Chromium touch模擬，DPR1、safe-area0。測試在操作完成與瀏覽器焦點穩定後直接量測，**量測前沒有focus或scroll補位**。新呈現判定保持不變、不只看焦點：句首top須在標頭bottom以下，且第一行的bottom不可落到固定底部分頁列後面。
 
 | 視窗／根字級 | 操作 | 修正前句首top | 修正後句首top | 標頭bottom | 修正後焦點 |
 |---|---|---|---|---|---|
@@ -30,6 +30,16 @@
 單位CSS px。線上／真正離線結果均有保存：[基準68次觀察](srs-presentation-t164-p2-before.json)／[修正後68次觀察](srs-presentation-t164-p2-after.json)。其中64次是新呈現：基準41次句首不可見，修正後64／64可見；32次鍵盤新呈現焦點均在句首。另4次是刻意停在句中再揭示，`requiresVisibleStart:false`，保留原閱讀位置；其top為負不是P2失敗，也不能為了數字通過而強制回頂。
 
 Sissela：`game-card:game:er:sissela:selection-voice:992579e355:992579e355`；Eva：`game-card:game:er:eva:selection-voice:1b4ea5830e:1b4ea5830e`；短卡使用既有柯萊「飛べ。」。只用隔離的合成到期進度排出測試順序，沒有更改教材或真實使用者進度。
+
+## 一般揭示的閱讀位置與CI修正
+
+首個P2 CI（7a5e7b1／run40159768302）已通過check、build、bundle、quality、inference、PWA、images與原40／20回歸；新定位測試的第一組換卡座標及焦點也通過，但在「一般揭示後scrollY必須完全相同」失敗。這個斷言把既有揭示前後的字級／grid重排與瀏覽器捲動錨點，混成了產品主動定位；不能只固定scrollY來代表閱讀位置。
+
+後續只修測試，產品與CSS不變：一般揭示量測前後句首視覺座標，差值須在一個**實際計算行高**內，且刻意閱讀中的句首仍在標頭上方，不能重設到段首；同時監測scrollIntoView及focus呼叫，要求一般揭示不發送定位、焦點均為preventScroll。64次新呈現仍維持原本嚴格的句首／第一行可見性斷言，沒有降低，也沒有更動任何容量門檻。
+
+[額外揭示診斷資料](srs-presentation-t164-p2-reading.json)另記錄原版會呼叫未preventScroll的focus及scrollIntoView；此附加探針不是先前64次基準記錄，不混用其起始位置或失敗數。
+
+本機四次一般揭示均為top -119.6→-87.6px（150%時-119.8→-87.8），視覺差32px、實際行高64.9／74.9px，只有preventScroll焦點、0次scrollIntoView。這是保留句中閱讀與既有排版變化，不宣稱所有瀏覽器的scrollY數值完全不變。新資料保存readingBefore與revealEvents，可由原reviewer直接查證。
 
 ## 前後預覽
 

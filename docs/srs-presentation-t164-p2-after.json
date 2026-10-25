@@ -322,7 +322,18 @@
       "focus": "grades",
       "focusAtWord": false,
       "revealed": true,
-      "image": true
+      "image": true,
+      "readingBefore": {
+        "scrollY": 477,
+        "top": -119.5625,
+        "lineHeight": 64.896
+      },
+      "revealEvents": [
+        {
+          "type": "focus",
+          "preventScroll": true
+        }
+      ]
     },
     {
       "label": "same-id-pointer",
@@ -645,7 +656,18 @@
       "focus": "grades",
       "focusAtWord": false,
       "revealed": true,
-      "image": true
+      "image": true,
+      "readingBefore": {
+        "scrollY": 477,
+        "top": -119.5625,
+        "lineHeight": 64.896
+      },
+      "revealEvents": [
+        {
+          "type": "focus",
+          "preventScroll": true
+        }
+      ]
     },
     {
       "label": "same-id-pointer",
@@ -968,7 +990,18 @@
       "focus": "grades",
       "focusAtWord": false,
       "revealed": true,
-      "image": true
+      "image": true,
+      "readingBefore": {
+        "scrollY": 496,
+        "top": -119.84375,
+        "lineHeight": 74.88
+      },
+      "revealEvents": [
+        {
+          "type": "focus",
+          "preventScroll": true
+        }
+      ]
     },
     {
       "label": "same-id-pointer",
@@ -1291,7 +1324,18 @@
       "focus": "grades",
       "focusAtWord": false,
       "revealed": true,
-      "image": true
+      "image": true,
+      "readingBefore": {
+        "scrollY": 496,
+        "top": -119.84375,
+        "lineHeight": 74.88
+      },
+      "revealEvents": [
+        {
+          "type": "focus",
+          "preventScroll": true
+        }
+      ]
     }
   ],
   "trueOffline": true,
