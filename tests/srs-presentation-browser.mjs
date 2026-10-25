@@ -411,7 +411,36 @@ try {
       // 明確閱讀至卡內段落後，揭示不應被當成新一輪，也不應改寫定位。
       await page.locator('.flash-word').focus();
       await page.evaluate(() => window.scrollBy(0, 120));
-      const at = await page.evaluate(() => scrollY);
+      const reading = await page.evaluate(() => {
+        const word = document.querySelector('.flash-word');
+        const events = [];
+        const scroll = Element.prototype.scrollIntoView;
+        const focus = HTMLElement.prototype.focus;
+        Element.prototype.scrollIntoView = function (...args) {
+          events.push({ type: 'scrollIntoView' });
+          return scroll.apply(this, args);
+        };
+        HTMLElement.prototype.focus = function (options) {
+          events.push({
+            type: 'focus',
+            preventScroll: options?.preventScroll === true,
+          });
+          return focus.call(this, options);
+        };
+        window.presentationReadingProbe = {
+          events,
+          restore() {
+            Element.prototype.scrollIntoView = scroll;
+            HTMLElement.prototype.focus = focus;
+          },
+        };
+        return {
+          scrollY,
+          top: word.getBoundingClientRect().top,
+          lineHeight: parseFloat(getComputedStyle(word).lineHeight),
+        };
+      });
+      const at = reading.scrollY;
       await page.keyboard.press('ArrowLeft');
       if (!recording)
         assert.equal(
@@ -427,11 +456,44 @@ try {
         false,
         false,
       );
-      if (!recording)
+      const revealEvents = await page.evaluate(() => {
+        const probe = window.presentationReadingProbe;
+        probe.restore();
+        return probe.events;
+      });
+      // 揭示會改字級／grid與瀏覽器捲動錨點；驗視覺閱讀位置，不釘住 scrollY。
+      observations.at(-1).readingBefore = reading;
+      observations.at(-1).revealEvents = revealEvents;
+      console.log(
+        'reading-position evidence',
+        JSON.stringify({
+          before: reading,
+          afterTop: revealed.top,
+          afterScrollY: revealed.scrollY,
+          events: revealEvents,
+        }),
+      );
+      if (!recording) {
         assert.ok(
-          Math.abs(revealed.scrollY - at) < 1,
-          'normal reveal preserves reading scroll',
+          Math.abs(revealed.top - reading.top) <= reading.lineHeight,
+          'reveal keeps the reading paragraph within one actual text line',
         );
+        assert.ok(
+          revealed.top < revealed.headerBottom,
+          'revealing while reading mid-paragraph must not reset to its start',
+        );
+        assert.equal(
+          revealEvents.filter((x) => x.type === 'scrollIntoView').length,
+          0,
+          'reveal must not request a presentation scroll',
+        );
+        assert.ok(
+          revealEvents
+            .filter((x) => x.type === 'focus')
+            .every((x) => x.preventScroll),
+          'reveal focus must prevent automatic scrolling',
+        );
+      }
       // 圖片／進度同步與一般重繪，不可重新把卡片拉回句首。
       await page.evaluate(() => window.scrollBy(0, 120));
       const readingAt = await page.evaluate(() => scrollY);

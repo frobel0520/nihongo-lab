@@ -1,0 +1,165 @@
+{
+  "scope": "Additional ordinary-reveal diagnostic; not the original64-presentation baseline. Original41-failure capture remains in the before JSON. Compare explicit focus/scroll calls; initial visual positions differ because8f word was not focusable.",
+  "baselineCommit": "8f4ddc0",
+  "productCommit": "7a5e7b1",
+  "before": [
+    {
+      "height": 568,
+      "rootFontPercent": 130,
+      "offline": false,
+      "readingBefore": {
+        "scrollY": 120,
+        "top": 237.4375,
+        "lineHeight": 64.896
+      },
+      "top": -426.5625,
+      "scrollY": 816,
+      "revealEvents": [
+        {
+          "type": "focus",
+          "preventScroll": false
+        },
+        {
+          "type": "scrollIntoView"
+        }
+      ]
+    },
+    {
+      "height": 568,
+      "rootFontPercent": 130,
+      "offline": true,
+      "readingBefore": {
+        "scrollY": 120,
+        "top": 237.4375,
+        "lineHeight": 64.896
+      },
+      "top": -426.5625,
+      "scrollY": 816,
+      "revealEvents": [
+        {
+          "type": "focus",
+          "preventScroll": false
+        },
+        {
+          "type": "scrollIntoView"
+        }
+      ]
+    },
+    {
+      "height": 480,
+      "rootFontPercent": 150,
+      "offline": false,
+      "readingBefore": {
+        "scrollY": 120,
+        "top": 256.15625,
+        "lineHeight": 74.88
+      },
+      "top": -842.84375,
+      "scrollY": 1251,
+      "revealEvents": [
+        {
+          "type": "focus",
+          "preventScroll": false
+        },
+        {
+          "type": "scrollIntoView"
+        }
+      ]
+    },
+    {
+      "height": 480,
+      "rootFontPercent": 150,
+      "offline": true,
+      "readingBefore": {
+        "scrollY": 120,
+        "top": 256.15625,
+        "lineHeight": 74.88
+      },
+      "top": -842.84375,
+      "scrollY": 1251,
+      "revealEvents": [
+        {
+          "type": "focus",
+          "preventScroll": false
+        },
+        {
+          "type": "scrollIntoView"
+        }
+      ]
+    }
+  ],
+  "after": [
+    {
+      "height": 568,
+      "rootFontPercent": 130,
+      "offline": false,
+      "readingBefore": {
+        "scrollY": 477,
+        "top": -119.5625,
+        "lineHeight": 64.896
+      },
+      "top": -87.5625,
+      "scrollY": 477,
+      "revealEvents": [
+        {
+          "type": "focus",
+          "preventScroll": true
+        }
+      ]
+    },
+    {
+      "height": 568,
+      "rootFontPercent": 130,
+      "offline": true,
+      "readingBefore": {
+        "scrollY": 477,
+        "top": -119.5625,
+        "lineHeight": 64.896
+      },
+      "top": -87.5625,
+      "scrollY": 477,
+      "revealEvents": [
+        {
+          "type": "focus",
+          "preventScroll": true
+        }
+      ]
+    },
+    {
+      "height": 480,
+      "rootFontPercent": 150,
+      "offline": false,
+      "readingBefore": {
+        "scrollY": 496,
+        "top": -119.84375,
+        "lineHeight": 74.88
+      },
+      "top": -87.84375,
+      "scrollY": 496,
+      "revealEvents": [
+        {
+          "type": "focus",
+          "preventScroll": true
+        }
+      ]
+    },
+    {
+      "height": 480,
+      "rootFontPercent": 150,
+      "offline": true,
+      "readingBefore": {
+        "scrollY": 496,
+        "top": -119.84375,
+        "lineHeight": 74.88
+      },
+      "top": -87.84375,
+      "scrollY": 496,
+      "revealEvents": [
+        {
+          "type": "focus",
+          "preventScroll": true
+        }
+      ]
+    }
+  ]
+}
