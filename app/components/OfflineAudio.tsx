@@ -1,12 +1,19 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { countCached, downloadAudio } from '../../lib/offline.mjs';
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react';
+import { countCached } from '../../lib/offline.mjs';
 import { createAudioStore, offlineSupported } from '../lib/offlineAudio';
 
-type Status =
-  | { kind: 'idle' }
-  | { kind: 'busy'; done: number; total: number }
-  | { kind: 'result'; downloaded: number; failed: number; reason?: string }
-  | { kind: 'error'; message: string };
+import {
+  cancelAudioDownload,
+  getAudioJob,
+  startAudioDownload,
+  subscribeAudioJob,
+} from '../lib/audioDownloadJob';
 
 const errorText = (error: unknown) =>
   error instanceof Error ? error.message : String(error);
@@ -30,7 +37,8 @@ export function OfflineAudio({
   const [counts, setCounts] = useState<{ lesson: number; all: number } | null>(
     null,
   );
-  const [status, setStatus] = useState<Status>({ kind: 'idle' });
+  const status = useSyncExternalStore(subscribeAudioJob, getAudioJob);
+  const [checkError, setCheckError] = useState<string | null>(null);
   const alive = useRef(true);
 
   useEffect(() => {
@@ -47,41 +55,23 @@ export function OfflineAudio({
         countCached(lessonPaths, store),
         countCached(allPaths, store),
       ]);
-      if (alive.current) setCounts({ lesson, all });
+      if (alive.current) {
+        setCounts({ lesson, all });
+        setCheckError(null);
+      }
     } catch (error) {
       if (alive.current) {
-        setStatus({ kind: 'error', message: errorText(error) });
+        setCheckError(errorText(error));
       }
     }
   }, [lessonPaths, allPaths]);
 
   useEffect(() => {
-    if (supported) void refresh();
+    if (supported && status.kind !== 'running') void refresh();
+  }, [supported, refresh, status.kind]);
+  useEffect(() => {
+    if (supported && getAudioJob().kind === 'running') void refresh();
   }, [supported, refresh]);
-
-  const run = async (paths: string[]) => {
-    setStatus({ kind: 'busy', done: 0, total: 0 });
-    try {
-      const result = await downloadAudio(paths, createAudioStore(), {
-        onProgress: ({ done, total }) => {
-          if (alive.current) setStatus({ kind: 'busy', done, total });
-        },
-      });
-      if (alive.current) {
-        setStatus({
-          kind: 'result',
-          downloaded: result.downloaded,
-          failed: result.failed.length,
-          reason: result.failed[0]?.message,
-        });
-      }
-    } catch (error) {
-      if (alive.current) {
-        setStatus({ kind: 'error', message: errorText(error) });
-      }
-    }
-    await refresh();
-  };
 
   if (!supported) {
     return (
@@ -95,7 +85,7 @@ export function OfflineAudio({
     );
   }
 
-  const busy = status.kind === 'busy';
+  const busy = status.kind === 'running';
   const lessonDone = counts !== null && counts.lesson >= lessonPaths.length;
   const allDone = counts !== null && counts.all >= allPaths.length;
 
@@ -103,18 +93,28 @@ export function OfflineAudio({
     <section className="card">
       <h3>離線音檔</h3>
       <p className="muted">
-        播放不會自動存檔；要在沒有網路時聽音檔，請先在有網路時下載。文字內容本來就能離線閱讀。
+        播放不會自動存檔；要在沒有網路時聽音檔，請先在有網路時下載。文字內容本來就能離線閱讀。下載期間可以切到其他頁面；重新整理、關閉本網站或被系統終止會中斷，下次再按從缺少的接續。
         已下載音檔不會因播放其他音檔而由本網站自動刪除；瀏覽器或系統清除儲存空間後仍需重新下載。
         {counts &&
           `　已存：${lessonPaths.length > 0 ? `${lessonLabel} ${counts.lesson} / ${lessonPaths.length}，` : ''}${allLabel} ${counts.all} / ${allPaths.length}。`}
       </p>
       <div className="row">
+        {busy && (
+          <button
+            type="button"
+            className="btn"
+            disabled={status.cancelling}
+            onClick={cancelAudioDownload}
+          >
+            取消音檔下載
+          </button>
+        )}
         {lessonPaths.length > 0 && (
           <button
             type="button"
             className="btn"
             disabled={busy || lessonDone}
-            onClick={() => run(lessonPaths)}
+            onClick={() => void startAudioDownload(lessonPaths)}
           >
             {lessonDone
               ? `${lessonLabel}音檔已全部存好`
@@ -125,24 +125,35 @@ export function OfflineAudio({
           type="button"
           className="btn"
           disabled={busy || allDone}
-          onClick={() => run(allPaths)}
+          onClick={() => void startAudioDownload(allPaths)}
         >
           {allDone ? `${allLabel}音檔已存好` : `下載${allLabel}音檔`}
         </button>
-        <button type="button" className="btn" disabled={busy} onClick={() => void refresh()}>
+        <button
+          type="button"
+          className="btn"
+          disabled={busy}
+          onClick={() => void refresh()}
+        >
           重新檢查下載狀態
         </button>
       </div>
       <output className="muted status-line">
-        {status.kind === 'busy' && `下載中… ${status.done} / ${status.total}`}
-        {status.kind === 'result' &&
-          (status.failed === 0
-            ? `完成：新存 ${status.downloaded} 個。`
-            : `新存 ${status.downloaded} 個，失敗 ${status.failed} 個（${status.reason}）。再按一次只會補抓失敗的。`)}
+        {status.kind === 'running' &&
+          `${status.cancelling ? '正在停止' : '音檔下載中'}… 本次已存 ${status.saved} / ${status.total}，失敗 ${status.failed} 個。可以切到其他頁面繼續學習。`}
+        {status.kind === 'done' &&
+          `完成：新存 ${status.saved} 個，失敗 ${status.failed} 個。${status.failed ? `（${status.reason}）再按一次補抓失敗與缺少的。` : ''}`}
+        {status.kind === 'paused' &&
+          `${status.why === 'network' ? '網路中斷，下載已暫停' : '已取消音檔下載'}：本次已存 ${status.saved} 個，失敗 ${status.failed} 個；已存的會保留，再按一次從缺少的接續。`}
+        {status.kind === 'offline' &&
+          '目前沒有網路，無法下載音檔；連線後再按一次。'}
+        {status.kind === 'locked' &&
+          '另一個分頁正在下載音檔，完成後再按「重新檢查下載狀態」。'}
       </output>
-      {status.kind === 'error' && (
+      {(status.kind === 'error' || checkError) && (
         <p className="error" role="alert">
-          離線音檔發生錯誤：{status.message}
+          離線音檔發生錯誤：
+          {status.kind === 'error' ? status.message : checkError}
         </p>
       )}
     </section>
