@@ -387,6 +387,7 @@ export function GameStudyView({
         <OfflineAudio
           lessonPaths={[]}
           allPaths={ALL_AUDIO}
+          allScope={{ id: 'games:all', label: '全部遊戲' }}
           allLabel="全部遊戲"
         />
       </>
@@ -631,7 +632,12 @@ export function GameStudyView({
         <summary>下載此角色音檔供離線使用</summary>
         <OfflineAudio
           lessonPaths={audio}
+          lessonScope={{
+            id: `game:${game.id}:${character.id}`,
+            label: `${game.title}・${character.name}`,
+          }}
           allPaths={ALL_AUDIO}
+          allScope={{ id: 'games:all', label: '全部遊戲' }}
           lessonLabel="此角色"
           allLabel="全部遊戲"
         />

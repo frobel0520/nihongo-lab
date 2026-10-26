@@ -19,10 +19,18 @@ import { lessonAudioPaths } from '../../lib/offline.mjs';
 const CourseOfflineAudio = lazy(async () => {
   const paths = await loadStageAudioPaths('stage-1');
   return {
-    default: ({ lessonPaths }: { lessonPaths: string[] }) => (
+    default: ({
+      lessonPaths,
+      lesson,
+    }: {
+      lessonPaths: string[];
+      lesson: Lesson;
+    }) => (
       <OfflineAudio
         lessonPaths={lessonPaths}
         allPaths={paths}
+        lessonScope={{ id: `lesson:${lesson.id}`, label: lesson.title }}
+        allScope={{ id: 'stage:stage-1', label: '通用聽解全部課程' }}
         allLabel="通用聽解全部課程"
       />
     ),
@@ -244,7 +252,7 @@ export function SceneListening({
         <summary>下載本課音檔供離線使用</summary>
         {offlineOpened && (
           <Suspense fallback={<output>正在準備離線下載…</output>}>
-            <CourseOfflineAudio lessonPaths={lessonPaths} />
+            <CourseOfflineAudio lessonPaths={lessonPaths} lesson={lesson} />
           </Suspense>
         )}
       </details>
