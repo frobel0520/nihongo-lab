@@ -153,7 +153,12 @@ export function DictationView({
   };
 
   // 回饋沿頁面內容流可達，不再要求零高度的內層視窗自行捲動。
+  const feedbackState = useRef({ picked, result });
   useEffect(() => {
+    const previous = feedbackState.current;
+    feedbackState.current = { picked, result };
+    // 返回既有回饋不是重新作答；讓歷史項目還原使用者最後閱讀的位置。
+    if (previous.picked === picked && previous.result === result) return;
     if (picked !== null || result !== null) {
       feedbackRef.current?.scrollIntoView({
         block: 'nearest',
