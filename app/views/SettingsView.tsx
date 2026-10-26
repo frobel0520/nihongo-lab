@@ -111,6 +111,7 @@ export function SettingsView({
         <OfflineAudio
           lessonPaths={NO_LESSON_PATHS}
           allPaths={ALL_AUDIO_PATHS}
+          allScope={{ id: 'curriculum:all', label: '全部課程' }}
         />
       )}
 
