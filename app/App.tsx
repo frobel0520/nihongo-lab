@@ -148,7 +148,7 @@ export function App() {
 
       <main
         className={`screen${route.view === 'dictation' && category ? ' dictation-page' : ''}${route.view === 'srs' && category ? ' srs-page' : ''}`}
-        key={routeKey}
+        key={entry.id}
       >
         {updated && (
           <output className="notice notice-row">
