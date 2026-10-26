@@ -1,5 +1,6 @@
 import {
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
   type FormEvent,
@@ -100,33 +101,22 @@ export function DictationView({
   const [picked, setPicked] = useState<string | null>(null);
   const feedbackRef = useRef<HTMLOutputElement>(null);
   const workspaceRef = useRef<HTMLDivElement>(null);
-  const controlsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const controls = controlsRef.current;
-    const page = controls?.closest('main');
-    const tabs = document.querySelector('.tabs');
-    if (!controls || !page || !tabs) return;
-    const measure = () => {
-      page.style.setProperty(
-        '--dictation-nav-height',
-        `${tabs.getBoundingClientRect().height}px`,
-      );
-      page.style.setProperty(
-        '--dictation-controls-height',
-        `${controls.getBoundingClientRect().height}px`,
-      );
-    };
-    const observer = new ResizeObserver(measure);
-    observer.observe(controls);
-    observer.observe(tabs);
-    measure();
-    return () => observer.disconnect();
-  }, []);
+  const navigation = useRef<'keyboard' | 'pointer' | null>(null);
+  useLayoutEffect(() => {
+    if (!navigation.current) return;
+    const screen = workspaceRef.current?.parentElement;
+    if (navigation.current === 'keyboard')
+      screen
+        ?.querySelector<HTMLElement>('.stepper strong')
+        ?.focus({ preventScroll: true });
+    screen?.scrollIntoView({ block: 'start', behavior: 'instant' });
+    navigation.current = null;
+  }, [index]);
 
   const sentence: Sentence | undefined = SENTENCES[index];
 
-  const go = (next: number) => {
+  const go = (next: number, keyboard = false) => {
+    navigation.current = keyboard ? 'keyboard' : 'pointer';
     const nextIndex = (next + SENTENCES.length) % SENTENCES.length;
     setIndex(nextIndex);
     setOptions(pickChoices(SENTENCES[nextIndex], SENTENCES));
@@ -154,21 +144,15 @@ export function DictationView({
     );
   };
 
-  // 長題目只捲動作答區；手機的播放和切題按鈕始終留在底部。
+  // 回饋沿頁面內容流可達，不再要求零高度的內層視窗自行捲動。
   useEffect(() => {
     if (picked !== null || result !== null) {
-      if (window.matchMedia('(max-width: 640px)').matches) {
-        const workspace = workspaceRef.current;
-        workspace?.scrollTo({
-          top: workspace.scrollHeight,
-          behavior: 'smooth',
-        });
-      } else {
-        feedbackRef.current?.scrollIntoView({
-          block: 'nearest',
-          behavior: 'smooth',
-        });
-      }
+      feedbackRef.current?.scrollIntoView({
+        block: 'nearest',
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+          ? 'instant'
+          : 'smooth',
+      });
     }
   }, [picked, result]);
 
@@ -193,7 +177,7 @@ export function DictationView({
         if (option) pick(option);
       } else if (e.key === 'Enter' || e.key === 'ArrowRight') {
         e.preventDefault();
-        go(index + 1);
+        go(index + 1, true);
       }
     };
     window.addEventListener('keydown', onKey);
@@ -255,12 +239,12 @@ export function DictationView({
           type="button"
           className="icon-btn"
           aria-label="上一句"
-          onClick={() => go(index - 1)}
+          onClick={(event) => go(index - 1, event.detail === 0)}
         >
           <PrevIcon />
         </button>
         <span className="stepper-label">
-          <strong>
+          <strong tabIndex={-1}>
             第 {index + 1} / {SENTENCES.length} 句
           </strong>
           <span className="muted">
@@ -274,7 +258,7 @@ export function DictationView({
           type="button"
           className="icon-btn"
           aria-label="跳過這句"
-          onClick={() => go(index + 1)}
+          onClick={(event) => go(index + 1, event.detail === 0)}
         >
           <NextIcon />
         </button>
@@ -295,6 +279,24 @@ export function DictationView({
         ))}
       </fieldset>
 
+      <div className="dictation-audio" data-no-swipe>
+        <PlayButton
+          key={sentence.audio}
+          audio={sentence.audio}
+          label="播放這句"
+          caption
+        />
+        {!result && !answered && (
+          <button
+            type="button"
+            className="btn ghost"
+            aria-pressed={showHint}
+            onClick={() => setShowHint(!showHint)}
+          >
+            {showHint ? '收起中文提示' : '看中文提示'}
+          </button>
+        )}
+      </div>
       <div className="dictation-workspace" ref={workspaceRef}>
         {showHint && !result && !answered && (
           <p className="line-zh">
@@ -421,34 +423,13 @@ export function DictationView({
         )}
       </div>
 
-      <div
-        className="dictation-controls"
-        ref={controlsRef}
-        aria-label="播放與作答操作"
-        data-no-swipe
-      >
-        <PlayButton
-          key={sentence.audio}
-          audio={sentence.audio}
-          label="播放這句"
-          caption
-        />
+      <div className="dictation-controls" aria-label="作答操作" data-no-swipe>
         <div className="dictation-controls-actions">
-          {!result && !answered && (
-            <button
-              type="button"
-              className="btn ghost"
-              aria-pressed={showHint}
-              onClick={() => setShowHint(!showHint)}
-            >
-              {showHint ? '收起中文提示' : '看中文提示'}
-            </button>
-          )}
           {(mode === 'choice' && answered) || (mode === 'type' && result) ? (
             <button
               type="button"
               className="btn primary"
-              onClick={() => go(index + 1)}
+              onClick={(event) => go(index + 1, event.detail === 0)}
             >
               下一句
             </button>

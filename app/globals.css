@@ -1153,6 +1153,18 @@ a {
   margin-top: auto;
 }
 
+.dictation-audio {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.dictation-screen {
+  scroll-margin-top: calc(var(--stack-top) + 12px);
+}
+
 .dictation-controls-actions {
   display: flex;
   flex-direction: column;
@@ -1162,9 +1174,8 @@ a {
 @media (max-width: 640px) {
   .screen.dictation-page {
     flex: none;
-    height: calc(100dvh - var(--stack-top));
-    min-height: 0;
-    padding: 6px 12px calc(var(--dictation-nav-height, calc(var(--tabbar-h) + env(safe-area-inset-bottom))) + var(--dictation-controls-height, 102px) + 8px);
+    min-height: calc(100dvh - var(--stack-top));
+    padding: 6px 12px calc(var(--tabbar-h) + env(safe-area-inset-bottom) + 16px);
     gap: 8px;
   }
 
@@ -1187,11 +1198,9 @@ a {
   }
 
   .dictation-workspace {
-    flex: 1;
+    flex: none;
     min-height: 0;
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-    scrollbar-width: thin;
+    overflow: visible;
   }
 
   .dictation-workspace .choices {
@@ -1228,34 +1237,17 @@ a {
   }
 
   .dictation-controls {
-    position: fixed;
-    z-index: 20;
-    bottom: var(--dictation-nav-height, calc(var(--tabbar-h) + env(safe-area-inset-bottom)));
-    left: 0;
-    right: 0;
-    min-height: 102px;
-    padding: 8px 16px;
-    border-top: 1px solid var(--rule);
-    background: var(--surface);
+    margin-top: 0;
+    padding: 8px 0;
   }
 
-  .dictation-controls .play-big {
+  .dictation-audio .play-big {
     width: 60px;
     height: 60px;
   }
 
-  .dictation-controls .play > .muted {
+  .dictation-audio .play > .muted {
     font-size: 0.75rem;
-  }
-
-  .dictation-controls .play .error {
-    position: absolute;
-    bottom: 100%;
-    left: 12px;
-    right: 12px;
-    padding: 8px;
-    background: var(--surface);
-    border: 1px solid var(--danger);
   }
 }
 
