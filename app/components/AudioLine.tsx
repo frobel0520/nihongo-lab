@@ -138,7 +138,7 @@ export function PlayButton({
   };
 
   return (
-    <span className="play">
+    <span className="play" data-failed={failed || undefined}>
       <button
         type="button"
         className="play-big"
