@@ -1,3 +1,4 @@
+import { usePageState } from '../lib/pageContext';
 import {
   curriculumSummary,
   generalListeningRoadmap,
@@ -49,6 +50,10 @@ export function LessonListView({
   progress: Progress;
   stageId?: string;
 }) {
+  const [openGroups, setOpenGroups] = usePageState<number[]>(
+    'lesson.groups',
+    [0],
+  );
   const stats = summarizeIds(CARD_IDS, progress.srs, toDateString());
   const byLesson = indexedLessonProgress(curriculumSummary, progress);
   const selected = stages.filter((stage) => stage.id === stageId);
@@ -217,7 +222,21 @@ export function LessonListView({
                 },
                 (_, i) => i * GENERAL_LISTENING_GROUP_SIZE,
               ).map((start, i) => (
-                <details className="card" key={start} open={start === 0}>
+                <details
+                  className="card"
+                  key={start}
+                  open={openGroups.includes(start)}
+                  onToggle={(event) => {
+                    const open = event.currentTarget.open;
+                    setOpenGroups((previous) =>
+                      open
+                        ? previous.includes(start)
+                          ? previous
+                          : [...previous, start]
+                        : previous.filter((group) => group !== start),
+                    );
+                  }}
+                >
                   <summary>
                     第 {start + 1}～
                     {Math.min(
