@@ -99,16 +99,6 @@ export function OfflineAudio({
           `　最近檢查已存：${lessonPaths.length > 0 ? `${lessonLabel} ${counts.lesson} / ${lessonPaths.length}，` : ''}${allLabel} ${counts.all} / ${allPaths.length}。`}
       </p>
       <div className="row">
-        {busy && (
-          <button
-            type="button"
-            className="btn"
-            disabled={status.cancelling}
-            onClick={cancelAudioDownload}
-          >
-            取消音檔下載
-          </button>
-        )}
         {lessonPaths.length > 0 && (
           <button
             type="button"
@@ -150,6 +140,18 @@ export function OfflineAudio({
         {status.kind === 'locked' &&
           '另一個分頁正在下載音檔，完成後再按「重新檢查下載狀態」。'}
       </output>
+      <div className="row">
+        {busy && (
+          <button
+            type="button"
+            className="btn"
+            disabled={status.cancelling}
+            onClick={cancelAudioDownload}
+          >
+            取消音檔下載
+          </button>
+        )}
+      </div>
       {(status.kind === 'error' || checkError) && (
         <p className="error" role="alert">
           離線音檔發生錯誤：
