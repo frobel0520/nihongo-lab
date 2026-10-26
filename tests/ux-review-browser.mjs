@@ -4,6 +4,7 @@ import { createServer } from 'node:http';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { resolve, extname } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { assetPath, staticFile } from './helpers/static-file.mjs';
 import { chromium } from 'playwright-core';
 import { loadCategory, loadGameData } from '../curriculum/lessons.mjs';
 import {
@@ -12,6 +13,7 @@ import {
   serializeProgress,
 } from '../lib/progress.mjs';
 import { gameLines } from '../lib/game-study.mjs';
+import { PAGE_HISTORY_LIMIT } from '../lib/page-history.mjs';
 import { schedule } from '../lib/srs.mjs';
 const arg = (key, fallback = '') =>
   process.argv.includes(key)
@@ -36,9 +38,8 @@ let delay = 0,
 const server = createServer(async (req, res) => {
   try {
     const u = new URL(req.url, 'http://localhost'),
-      path = decodeURIComponent(u.pathname).replace(/^\/nihongo-lab\//, '');
-    const file = resolve(root, path || 'index.html');
-    assert.ok(file.startsWith(root + '/'));
+      path = assetPath(req.url);
+    const file = staticFile(root, path);
     if (missingPlayback && path === missingPlayback) {
       res.writeHead(404).end();
       return;
@@ -79,7 +80,13 @@ const executablePath =
   ['chromium', 'google-chrome']
     .map((name) => {
       try {
-        return execFileSync('which', [name], { encoding: 'utf8' }).trim();
+        return execFileSync(
+          process.platform === 'win32' ? 'where' : 'which',
+          [name],
+          { encoding: 'utf8' },
+        )
+          .trim()
+          .split(/\r?\n/)[0];
       } catch {
         return '';
       }
@@ -501,6 +508,129 @@ try {
     );
     await c.close();
   }
+  // Separate actual history entries with the same parsed route; online + real offline.
+  if (!before && (area === 'all' || area === 'context')) {
+    result.contextReturn.entryIsolation = [];
+    for (const disconnected of [false, true]) {
+      const c = await context(),
+        p = await c.newPage();
+      errors(p);
+      await goto(p, '#/dictation?category=n5');
+      const oldId = n5.sentences.at(-1).id;
+      const old = recordDictation(
+        emptyProgress(),
+        oldId,
+        false,
+        '2026-01-01T00:00:00.000Z',
+      );
+      await p.evaluate(
+        ([key, text]) => localStorage.setItem(key, text),
+        [key, serializeProgress(old)],
+      );
+      await p.reload();
+      await warm(p);
+      if (disconnected) await offline(c, p);
+      await p.getByRole('radio', { name: '輸入', exact: true }).press('Space');
+      const input = p.locator('#dictation-input');
+      await p.getByRole('button', { name: '跳過這句', exact: true }).click();
+      await input.fill('entry-A');
+      const entryA = await p.evaluate(() => history.state.nihongoPageEntry);
+      await goto(p, '#/dictation?category=n5&from=link');
+      await p.waitForFunction(
+        (id) => history.state.nihongoPageEntry !== id,
+        entryA,
+      );
+      await p
+        .locator('.stepper strong')
+        .filter({ hasText: '第 1 /' })
+        .waitFor();
+      assert.equal(await input.inputValue(), '');
+      await input.fill('entry-B');
+      await p.goBack();
+      await p
+        .locator('.stepper strong')
+        .filter({ hasText: '第 2 /' })
+        .waitFor();
+      assert.equal(await input.inputValue(), 'entry-A');
+      await p.goForward();
+      await p.waitForFunction(
+        () => document.querySelector('#dictation-input')?.value === 'entry-B',
+      );
+      await goto(p, '#/dictation?category=general');
+      await p.locator('.stepper strong').waitFor();
+      assert.equal(await input.inputValue(), '');
+      await p.goBack();
+      await p.waitForFunction(
+        () => document.querySelector('#dictation-input')?.value === 'entry-B',
+      );
+      // More than the retention bound, each with a distinguishable unsubmitted draft.
+      for (let i = 1; i <= PAGE_HISTORY_LIMIT + 2; i++) {
+        const previous = await p.evaluate(() => history.state.nihongoPageEntry);
+        await goto(p, '#/dictation?category=n5&visit=' + i);
+        await p.waitForFunction(
+          (id) => history.state.nihongoPageEntry !== id,
+          previous,
+        );
+        await input.fill('visit-' + i);
+      }
+      await p.evaluate((n) => history.go(-(n - 1)), PAGE_HISTORY_LIMIT);
+      await p.waitForFunction(
+        () => document.querySelector('#dictation-input')?.value === 'visit-3',
+      );
+      await p.goBack(); // visit-2 was evicted, and must safely start fresh.
+      await p.waitForFunction(() => location.hash.endsWith('visit=2'));
+      await settled(p);
+      assert.equal(await input.inputValue(), '');
+      await p
+        .locator('.stepper strong')
+        .filter({ hasText: '第 1 /' })
+        .waitFor();
+      await p.goForward();
+      await p.waitForFunction(
+        () => document.querySelector('#dictation-input')?.value === 'visit-3',
+      );
+      assert.equal(
+        await p.evaluate((key) => localStorage.getItem(key), key),
+        serializeProgress(old),
+      );
+      await input.fill('wrong-new-attempt');
+      await p.getByRole('button', { name: '檢查', exact: true }).click();
+      await p.locator('.feedback').waitFor();
+      const after = JSON.parse(
+        await p.evaluate((key) => localStorage.getItem(key), key),
+      );
+      assert.deepEqual(
+        after.dictation[oldId],
+        JSON.parse(serializeProgress(old)).dictation[oldId],
+      );
+      const saved = JSON.stringify(after);
+      await p.goBack();
+      await p.locator('.dictation-workspace').waitFor();
+      await p.goForward();
+      await p.locator('.feedback').waitFor();
+      assert.equal(
+        await p.evaluate((key) => localStorage.getItem(key), key),
+        saved,
+      );
+      assert.equal(
+        await p.evaluate(() =>
+          [...document.querySelectorAll('audio')].some((a) => !a.paused),
+        ),
+        false,
+      );
+      result.contextReturn.entryIsolation.push({
+        trueOffline: disconnected,
+        retained: 40,
+        evictedDefaults: true,
+        oldAttemptUnchanged: true,
+        noResubmit: true,
+      });
+      await c.close();
+    }
+    console.log(
+      'U3 entry isolation / bounded retention / old progress PASS (online + true offline)',
+    );
+  }
   // U4 and true-offline dictation: APP cached, audio deliberately absent.
   if (area === 'all' || area === 'offline') {
     const c = await context(),
@@ -632,6 +762,59 @@ try {
         : 'readable error/reconnect/play/dictation/retained progress PASS',
     );
   }
+  if (!before && (area === 'all' || area === 'downloads')) {
+    result.audioJob.doubleStart = [];
+    for (const width of [375, 1280]) {
+      const c = await context(width, 800),
+        p = await c.newPage();
+      errors(p);
+      delay = 200;
+      await goto(p, '#/settings');
+      const section = p
+        .getByRole('heading', { name: '離線音檔', exact: true })
+        .locator('..');
+      const start = section.getByRole('button', {
+        name: '下載全部課程音檔',
+        exact: true,
+      });
+      await start.scrollIntoViewIfNeeded();
+      const box = await start.boundingBox();
+      await p.mouse.dblclick(box.x + box.width / 2, box.y + box.height / 2, {
+        delay: 50,
+      });
+      await section
+        .locator('output')
+        .filter({ hasText: '音檔下載中' })
+        .waitFor();
+      const cancel = section.getByRole('button', {
+        name: '取消音檔下載',
+        exact: true,
+      });
+      const cancelBox = await cancel.boundingBox();
+      assert.ok(
+        cancelBox.y >= box.y + box.height,
+        'cancel does not occupy original start hit area',
+      );
+      assert.equal(await start.isDisabled(), true);
+      // Re-touch the same physical start location; no inverse action.
+      await p.touchscreen.tap(box.x + box.width / 2, box.y + box.height / 2);
+      assert.match(await section.locator('output').innerText(), /音檔下載中/);
+      await cancel.focus();
+      await p.keyboard.press('Enter');
+      await section
+        .locator('output')
+        .filter({ hasText: '已取消音檔下載' })
+        .waitFor();
+      result.audioJob.doubleStart.push({
+        width,
+        doubleClick: true,
+        retouch: true,
+        explicitKeyboardCancel: true,
+      });
+      await c.close();
+    }
+    delay = 0;
+  }
   // U2: real cache writes, no full-library download or dummy media.
   if (area === 'all' || area === 'downloads') {
     const c = await context(),
@@ -663,7 +846,7 @@ try {
         .getByRole('button', { name: '下載全部課程音檔', exact: true })
         .isEnabled();
     await screenshot(p, `t165-${before ? 'before' : 'after'}-audio-return`);
-    result.audioJob = { cacheAtReturn, status, buttonEnabled };
+    Object.assign(result.audioJob, { cacheAtReturn, status, buttonEnabled });
     if (!before) {
       assert.match(status, /音檔下載中/);
       assert.equal(buttonEnabled, false);
@@ -681,6 +864,15 @@ try {
         .filter({ hasText: '另一個分頁正在下載音檔' })
         .waitFor();
       await second.close();
+      await goto(p, '#/games/genshin/collei');
+      await p.getByText('下載此角色音檔供離線使用', { exact: true }).click();
+      await p
+        .getByRole('heading', { name: '離線音檔', exact: true })
+        .locator('..')
+        .locator('output')
+        .filter({ hasText: '全部課程：音檔下載中' })
+        .waitFor();
+      await tab(p, '設定').click();
       await section
         .getByRole('button', { name: '取消音檔下載', exact: true })
         .click();
@@ -697,6 +889,56 @@ try {
         .waitFor();
       assert.equal(await count(p), afterCancel);
       result.audioJob.cancelledCache = afterCancel;
+      await goto(p, '#/games/genshin/collei');
+      await p.getByText('下載此角色音檔供離線使用', { exact: true }).click();
+      const foreign = p
+        .getByRole('heading', { name: '離線音檔', exact: true })
+        .locator('..');
+      assert.equal(
+        await foreign.locator('output').innerText(),
+        '',
+        'all-course cancellation is not this character result',
+      );
+      await goto(p, '#/lesson/general-listening-01');
+      await p.getByText('下載本課音檔供離線使用', { exact: true }).click();
+      const course = p
+        .getByRole('heading', { name: '離線音檔', exact: true })
+        .locator('..');
+      await course.waitFor();
+      assert.equal(
+        await course.locator('output').innerText(),
+        '',
+        'all-course cancellation is not this lesson result',
+      );
+      await course
+        .getByRole('button', { name: '下載本課音檔', exact: true })
+        .click();
+      const lessonRunning = await course.locator('output').innerText();
+      assert.match(lessonRunning, /音檔下載中/);
+      await tab(p, '設定').click();
+      await section
+        .locator('output')
+        .filter({ hasText: '音檔下載中' })
+        .waitFor();
+      assert.ok(
+        (await section.locator('output').innerText()).startsWith(
+          lessonRunning.split('：')[0],
+        ),
+      );
+      await section
+        .getByRole('button', { name: '取消音檔下載', exact: true })
+        .click();
+      // The job remains in memory, but this settings scope must not claim its result.
+      await section
+        .getByRole('button', { name: '取消音檔下載', exact: true })
+        .waitFor({ state: 'detached' });
+      assert.equal(await section.locator('output').innerText(), '');
+      await goto(p, '#/lesson/general-listening-01');
+      await p.getByText('下載本課音檔供離線使用', { exact: true }).click();
+      await course
+        .locator('output')
+        .filter({ hasText: '已取消音檔下載' })
+        .waitFor();
       // A separate, real three-clip character batch covers completion, partial failure and resume.
       delay = 0;
       await p.evaluate(async (paths) => {
@@ -727,10 +969,21 @@ try {
         .waitFor();
       assert.equal(downloads - requestsBefore, 1);
       await tab(p, '設定').click();
-      await section
+      assert.equal(await section.locator('output').innerText(), '');
+      await goto(p, '#/games/genshin/amber');
+      await p.getByText('下載此角色音檔供離線使用', { exact: true }).click();
+      assert.equal(
+        await character.locator('output').innerText(),
+        '',
+        'different character has same display label but not same scope',
+      );
+      await goto(p, '#/games/genshin/collei');
+      await p.getByText('下載此角色音檔供離線使用', { exact: true }).click();
+      await character
         .locator('output')
         .filter({ hasText: '完成：新存 1 個，失敗 0 個' })
         .waitFor();
+      await tab(p, '設定').click();
       await c.setOffline(true);
       await section
         .getByRole('button', { name: '下載全部課程音檔', exact: true })
@@ -784,6 +1037,7 @@ try {
         partialFailure: true,
         resumeOnlyMissing: 1,
         completionSurvivesRoute: true,
+        scopeIsolation: true,
         offlineStart: true,
       });
     }
