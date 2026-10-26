@@ -115,13 +115,14 @@ export function RestorePagePosition({ ready }: { ready: boolean }) {
   useLayoutEffect(() => {
     if (!ready || !entry || entry.positioned) return;
     const view = parseRoute(entry.hash).view;
-    // SRS已有呈現／焦點定位協定，不覆蓋它的layout effect。
-    if (view === 'srs') {
+    // 只讓已掛載的學習卡使用SRS呈現／焦點定位；類別選擇與空牌組仍是一般頁面。
+    if (view === 'srs' && document.querySelector('.srs-screen .flashcard')) {
       entry.positioned = true;
       return;
     }
     const top =
-      entry.returning && (view === 'lessons' || view === 'dictation')
+      entry.returning &&
+      (view === 'lessons' || view === 'dictation' || view === 'srs')
         ? entry.scrollY
         : 0;
     const frame = requestAnimationFrame(() => {
