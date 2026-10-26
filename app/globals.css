@@ -847,6 +847,24 @@ a {
   grid-row: 1;
 }
 
+/* A playback error belongs to the whole card, not the 44px button column. */
+.flashcard.is-revealed > .play[data-failed] {
+  display: contents;
+}
+.flashcard.is-revealed > .play[data-failed] > .play-big {
+  grid-column: 3;
+  grid-row: 1;
+}
+.flashcard.is-revealed > .play[data-failed] > .error {
+  grid-column: 1 / -1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.flashcard.is-revealed.has-long-word > .play[data-failed] > .play-big {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
 .flashcard.is-revealed .play-big {
   width: 44px;
   height: 44px;
