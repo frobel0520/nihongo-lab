@@ -148,6 +148,34 @@ async function goto(p, hash) {
 }
 const tab = (p, name) =>
   p.locator('nav.tabs').getByRole('link', { name, exact: true });
+// Hash navigation can resolve before React replaces the previous audio panel.
+// Wait for the destination identity and its controls, never inspect a generic old panel.
+async function settingsAudioPanel(p) {
+  await p
+    .locator('.appbar-title')
+    .filter({ hasText: /^設定$/ })
+    .waitFor();
+  await p.getByRole('heading', { name: '學習進度備份', exact: true }).waitFor();
+  const panel = p
+    .getByRole('heading', { name: '離線音檔', exact: true })
+    .locator('..');
+  await panel
+    .getByRole('button', { name: '重新檢查下載狀態', exact: true })
+    .waitFor();
+  await panel.locator('output.status-line').waitFor({ state: 'attached' });
+  return panel;
+}
+async function characterAudioPanel(p, name) {
+  await p.getByRole('heading', { name: new RegExp('^' + name) }).waitFor();
+  await p.getByText('下載此角色音檔供離線使用', { exact: true }).click();
+  const panel = p
+    .getByRole('heading', { name: '離線音檔', exact: true })
+    .locator('..');
+  await panel
+    .getByRole('button', { name: '下載此角色音檔', exact: true })
+    .waitFor();
+  return panel;
+}
 async function visible(p, el) {
   await el.evaluate((e) =>
     e.scrollIntoView({ block: 'center', behavior: 'instant' }),
@@ -482,6 +510,74 @@ try {
         : 'group/section/scroll/question/draft/result/back/forward/new/reload PASS',
     );
   }
+  // A new SRS category picker is not a study card with its own positioning effect.
+  if (!before && (area === 'all' || area === 'context')) {
+    const c = await context(),
+      p = await c.newPage();
+    errors(p);
+    await goto(p, '#/lesson/general-listening-121');
+    await p.getByRole('tab', { name: /^文法/ }).click();
+    await p.evaluate(() =>
+      window.scrollTo(0, document.documentElement.scrollHeight),
+    );
+    await settled(p);
+    assert.ok(await p.evaluate(() => scrollY > 0));
+    await tab(p, '單字卡').click();
+    const heading = p.getByRole('heading', {
+      name: '選擇教材類別',
+      exact: true,
+    });
+    await heading.waitFor();
+    await settled(p);
+    assert.equal(
+      await p.evaluate(() => scrollY),
+      0,
+      'new category picker starts at the top',
+    );
+    assert.ok(
+      await heading.evaluate(
+        (e) =>
+          e.getBoundingClientRect().top >=
+          document.querySelector('.appbar').getBoundingClientRect().bottom,
+      ),
+    );
+    const game = p.getByRole('link', { name: /^遊戲角色/ });
+    await game.scrollIntoViewIfNeeded();
+    await settled(p);
+    const pickerY = await p.evaluate(() => scrollY);
+    await game.click();
+    await p.locator('.flash-word').waitFor();
+    const readable = () =>
+      p.locator('.flash-word').evaluate((e) => {
+        const r = e.getBoundingClientRect();
+        return (
+          r.top >=
+            document.querySelector('.appbar').getBoundingClientRect().bottom &&
+          r.top < innerHeight
+        );
+      });
+    assert.ok(await readable(), 'actual study card starts visibly');
+    await p.goBack();
+    await heading.waitFor();
+    await settled(p);
+    assert.ok(
+      Math.abs((await p.evaluate(() => scrollY)) - pickerY) < 4,
+      'Back restores category reading position',
+    );
+    await p.goForward();
+    await p.locator('.flash-word').waitFor();
+    await settled(p);
+    assert.ok(
+      await readable(),
+      'Forward retains readable study-card positioning',
+    );
+    result.contextReturn.srsPicker = {
+      newEntryAtTop: true,
+      backRestored: true,
+      forwardCardReadable: true,
+    };
+    await c.close();
+  }
   // U5: reopen synthetic wrong-only records, do not write another attempt.
   if (area === 'all' || area === 'counts') {
     const c = await context(),
@@ -770,6 +866,7 @@ try {
       errors(p);
       delay = 200;
       await goto(p, '#/settings');
+      await settingsAudioPanel(p);
       const section = p
         .getByRole('heading', { name: '離線音檔', exact: true })
         .locator('..');
@@ -822,6 +919,7 @@ try {
     errors(p);
     delay = 100;
     await goto(p, '#/settings');
+    await settingsAudioPanel(p);
     const section = p
       .getByRole('heading', { name: '離線音檔', exact: true })
       .locator('..');
@@ -834,6 +932,7 @@ try {
     );
     await tab(p, '單字卡').click();
     await tab(p, '設定').click();
+    await settingsAudioPanel(p);
     await section.waitFor();
     await p.waitForFunction(
       async () =>
@@ -853,6 +952,7 @@ try {
       const second = await c.newPage();
       errors(second);
       await goto(second, '#/settings');
+      await settingsAudioPanel(second);
       const other = second
         .getByRole('heading', { name: '離線音檔', exact: true })
         .locator('..');
@@ -865,7 +965,7 @@ try {
         .waitFor();
       await second.close();
       await goto(p, '#/games/genshin/collei');
-      await p.getByText('下載此角色音檔供離線使用', { exact: true }).click();
+      await characterAudioPanel(p, '柯萊');
       await p
         .getByRole('heading', { name: '離線音檔', exact: true })
         .locator('..')
@@ -873,6 +973,7 @@ try {
         .filter({ hasText: '全部課程：音檔下載中' })
         .waitFor();
       await tab(p, '設定').click();
+      await settingsAudioPanel(p);
       await section
         .getByRole('button', { name: '取消音檔下載', exact: true })
         .click();
@@ -883,6 +984,7 @@ try {
       const afterCancel = await count(p);
       await tab(p, '單字卡').click();
       await tab(p, '設定').click();
+      await settingsAudioPanel(p);
       await section
         .locator('output')
         .filter({ hasText: '已取消音檔下載' })
@@ -890,7 +992,7 @@ try {
       assert.equal(await count(p), afterCancel);
       result.audioJob.cancelledCache = afterCancel;
       await goto(p, '#/games/genshin/collei');
-      await p.getByText('下載此角色音檔供離線使用', { exact: true }).click();
+      await characterAudioPanel(p, '柯萊');
       const foreign = p
         .getByRole('heading', { name: '離線音檔', exact: true })
         .locator('..');
@@ -900,6 +1002,10 @@ try {
         'all-course cancellation is not this character result',
       );
       await goto(p, '#/lesson/general-listening-01');
+      await p
+        .locator('.appbar-title')
+        .filter({ hasText: /^通用聽解 01/ })
+        .waitFor();
       await p.getByText('下載本課音檔供離線使用', { exact: true }).click();
       const course = p
         .getByRole('heading', { name: '離線音檔', exact: true })
@@ -916,6 +1022,7 @@ try {
       const lessonRunning = await course.locator('output').innerText();
       assert.match(lessonRunning, /音檔下載中/);
       await tab(p, '設定').click();
+      await settingsAudioPanel(p);
       await section
         .locator('output')
         .filter({ hasText: '音檔下載中' })
@@ -934,6 +1041,10 @@ try {
         .waitFor({ state: 'detached' });
       assert.equal(await section.locator('output').innerText(), '');
       await goto(p, '#/lesson/general-listening-01');
+      await p
+        .locator('.appbar-title')
+        .filter({ hasText: /^通用聽解 01/ })
+        .waitFor();
       await p.getByText('下載本課音檔供離線使用', { exact: true }).click();
       await course
         .locator('output')
@@ -947,7 +1058,7 @@ try {
       }, smallAudio);
       failAudio = smallAudio[1];
       await goto(p, '#/games/genshin/collei');
-      await p.getByText('下載此角色音檔供離線使用', { exact: true }).click();
+      await characterAudioPanel(p, '柯萊');
       const character = p
         .getByRole('heading', { name: '離線音檔', exact: true })
         .locator('..');
@@ -969,21 +1080,23 @@ try {
         .waitFor();
       assert.equal(downloads - requestsBefore, 1);
       await tab(p, '設定').click();
+      await settingsAudioPanel(p);
       assert.equal(await section.locator('output').innerText(), '');
       await goto(p, '#/games/genshin/amber');
-      await p.getByText('下載此角色音檔供離線使用', { exact: true }).click();
+      await characterAudioPanel(p, '安柏');
       assert.equal(
         await character.locator('output').innerText(),
         '',
         'different character has same display label but not same scope',
       );
       await goto(p, '#/games/genshin/collei');
-      await p.getByText('下載此角色音檔供離線使用', { exact: true }).click();
+      await characterAudioPanel(p, '柯萊');
       await character
         .locator('output')
         .filter({ hasText: '完成：新存 1 個，失敗 0 個' })
         .waitFor();
       await tab(p, '設定').click();
+      await settingsAudioPanel(p);
       await c.setOffline(true);
       await section
         .getByRole('button', { name: '下載全部課程音檔', exact: true })
@@ -1011,6 +1124,7 @@ try {
       const paused = await count(p);
       await tab(p, '單字卡').click();
       await tab(p, '設定').click();
+      await settingsAudioPanel(p);
       await section
         .locator('output')
         .filter({ hasText: '網路中斷，下載已暫停' })
