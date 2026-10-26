@@ -96,7 +96,7 @@ export function OfflineAudio({
         播放不會自動存檔；要在沒有網路時聽音檔，請先在有網路時下載。文字內容本來就能離線閱讀。下載期間可以切到其他頁面；重新整理、關閉本網站或被系統終止會中斷，下次再按從缺少的接續。
         已下載音檔不會因播放其他音檔而由本網站自動刪除；瀏覽器或系統清除儲存空間後仍需重新下載。
         {counts &&
-          `　已存：${lessonPaths.length > 0 ? `${lessonLabel} ${counts.lesson} / ${lessonPaths.length}，` : ''}${allLabel} ${counts.all} / ${allPaths.length}。`}
+          `　最近檢查已存：${lessonPaths.length > 0 ? `${lessonLabel} ${counts.lesson} / ${lessonPaths.length}，` : ''}${allLabel} ${counts.all} / ${allPaths.length}。`}
       </p>
       <div className="row">
         {busy && (
