@@ -60,7 +60,7 @@ try {
   }, paths[0]);
   await page.reload();
   await page.getByRole('button', { name: '下載全部課程音檔', exact: true }).click();
-  await page.getByText(/失敗 1 個/).waitFor({ timeout: 180000 });
+  await page.getByText(/^完成：.*失敗 1 個/).waitFor({ timeout: 180000 });
   assert.equal(await page.evaluate(async () => (await (await caches.open('lesson-audio-v5')).keys()).length), paths.length - 1);
   const beforeRetry = [...downloads.values()].reduce((a, b) => a + b, 0);
   await page.getByRole('button', { name: '下載全部課程音檔', exact: true }).click();
@@ -130,7 +130,7 @@ try {
   });
   await q.getByText('下載本課音檔供離線使用', { exact: true }).click();
   await q.getByRole('button', { name: '下載本課音檔', exact: true }).click();
-  await q.getByText(/失敗 1 個/).waitFor();
+  await q.getByText(/^完成：.*失敗 1 個/).waitFor();
   assert.equal(await q.getByRole('button', { name: '本課音檔已全部存好', exact: true }).count(), 0);
   await q.getByRole('button', { name: '下載本課音檔', exact: true }).click();
   await q.getByRole('button', { name: '本課音檔已全部存好', exact: true }).waitFor();
