@@ -21,6 +21,7 @@ import { CheckIcon, CloseIcon, NextIcon, PrevIcon } from '../components/Icons';
 import { ProgressBar } from '../components/ProgressBar';
 import { Ruby, RubyText, useRuby } from '../components/Ruby';
 import { useSwipeNavigation } from '../lib/useSwipeNavigation';
+import { usePageState } from '../lib/pageContext';
 
 function Marks({ marks }: { marks: Mark[] }) {
   return (
@@ -90,15 +91,22 @@ export function DictationView({
     const first = SENTENCES.findIndex((s) => !progress.dictation[s.id]?.passed);
     return first === -1 ? 0 : first;
   });
-  const [index, setIndex] = useState(start);
-  const [input, setInput] = useState('');
-  const [result, setResult] = useState<DictationResult | null>(null);
-  const [showHint, setShowHint] = useState(false);
-  // 選擇題的選項在「換題」時抽好、存起來：作答前後與重新渲染時都要保持不變，下一題才重抽。
-  const [options, setOptions] = useState<Sentence[]>(() =>
-    SENTENCES[start] ? pickChoices(SENTENCES[start], SENTENCES) : [],
+  const [index, setIndex] = usePageState('dictation.index', start);
+  const [input, setInput] = usePageState('dictation.input', '');
+  const [result, setResult] = usePageState<DictationResult | null>(
+    'dictation.result',
+    null,
   );
-  const [picked, setPicked] = useState<string | null>(null);
+  const [showHint, setShowHint] = usePageState('dictation.hint', false);
+  // 選擇題的選項在「換題」時抽好、存起來：作答前後與重新渲染時都要保持不變，下一題才重抽。
+  const [options, setOptions] = usePageState<Sentence[]>(
+    'dictation.options',
+    () => (SENTENCES[start] ? pickChoices(SENTENCES[start], SENTENCES) : []),
+  );
+  const [picked, setPicked] = usePageState<string | null>(
+    'dictation.picked',
+    null,
+  );
   const feedbackRef = useRef<HTMLOutputElement>(null);
   const workspaceRef = useRef<HTMLDivElement>(null);
   const navigation = useRef<'keyboard' | 'pointer' | null>(null);
