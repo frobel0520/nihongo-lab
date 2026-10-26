@@ -7,6 +7,7 @@ import {
 } from '../../curriculum/lessons.mjs';
 import {
   indexedLessonProgress,
+  hasLessonActivity,
   summarizeIds,
 } from '../../lib/curriculum-summary.mjs';
 import type { LessonIndex } from '../../lib/curriculum-index.mjs';
@@ -132,8 +133,8 @@ export function LessonListView({
               .filter((stage) => stage.lessons.length > 0)
               .map((stage) => {
                 const track = TRACKS[stage.id];
-                const started = stage.lessons.filter(
-                  (lesson) => byLesson[lesson.id].ratio > 0,
+                const started = stage.lessons.filter((lesson) =>
+                  hasLessonActivity(lesson, progress),
                 ).length;
                 return (
                   <li key={stage.id}>
