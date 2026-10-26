@@ -1,18 +1,10 @@
-import {
-  lazy,
-  useEffect,
-  useRef,
-  useState,
-  type MouseEvent,
-  type ReactNode,
-} from 'react';
+import { lazy, useState, type MouseEvent, type ReactNode } from 'react';
 import { curriculumSummary } from '../curriculum/lessons.mjs';
 import { LoadBoundary } from './components/LoadBoundary';
 import { useRouteData } from './useRouteData';
 import type { DictationMode } from '../lib/prefs.mjs';
 import {
   backNavigation,
-  parseRoute,
   stageHash,
   viewHash,
   type ViewId,
@@ -34,6 +26,11 @@ import { LessonListView } from './views/LessonListView';
 import { STUDY_CATEGORIES } from '../lib/study-categories.mjs';
 import { StudyCategoryPicker } from './components/StudyCategoryPicker';
 import { ImageUpdateHint } from './components/ImageUpdateHint';
+import {
+  PageContext,
+  RestorePagePosition,
+  usePageNavigation,
+} from './lib/pageContext';
 
 const DictationView = lazy(() =>
   import('./views/DictationView').then((m) => ({ default: m.DictationView })),
@@ -68,14 +65,19 @@ const stages = curriculumSummary.stages;
 const LESSONS = stages.flatMap((stage) => stage.lessons);
 
 export function App() {
-  const [route, setRoute] = useState(() => parseRoute(window.location.hash));
+  const { route, entry, previousHash } = usePageNavigation();
   const { progress, getProgress, update, warning, saveError, dismissWarning } =
     useProgress();
   const sync = useSync({ progress, getProgress, update });
   const [prefs, setPrefs] = useState(loadPrefs);
-  const { updated, changed, applying, error: updateError, dismiss: dismissUpdate, reload } = useSwUpdate();
-  // 上一頁的 hash：返回鍵據此決定退回歷史或換頁（見 lib/route.mjs backNavigation）。
-  const previousHash = useRef<string | null>(null);
+  const {
+    updated,
+    changed,
+    applying,
+    error: updateError,
+    dismiss: dismissUpdate,
+    reload,
+  } = useSwUpdate();
 
   const setFurigana = (furigana: boolean) => {
     const next = { ...prefs, furigana };
@@ -87,15 +89,6 @@ export function App() {
     setPrefs(next);
     savePrefs(next);
   };
-
-  useEffect(() => {
-    const onHashChange = (event: HashChangeEvent) => {
-      previousHash.current = new URL(event.oldURL).hash;
-      setRoute(parseRoute(window.location.hash));
-    };
-    window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
-  }, []);
 
   const lesson =
     route.view === 'lessons' && route.lessonId
@@ -116,11 +109,6 @@ export function App() {
       : undefined,
   );
   const catalog = data.catalog;
-
-  // 換頁時回到頁首，不停在上一頁滑到一半的位置。
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [routeKey]);
 
   const backTarget = parentStage
     ? stageHash(parentStage.id)
@@ -172,8 +160,17 @@ export function App() {
               {updateError && <span role="alert">{updateError}</span>}
             </span>
             <span className="row">
-              <button type="button" className="btn primary" disabled={applying} onClick={() => void reload()}>
-                {applying ? '正在套用更新…' : changed ? '重新載入' : '更新並重新載入'}
+              <button
+                type="button"
+                className="btn primary"
+                disabled={applying}
+                onClick={() => void reload()}
+              >
+                {applying
+                  ? '正在套用更新…'
+                  : changed
+                    ? '重新載入'
+                    : '更新並重新載入'}
               </button>
               <button type="button" className="btn" onClick={dismissUpdate}>
                 稍後
@@ -213,92 +210,100 @@ export function App() {
           </p>
         )}
 
-        <LoadBoundary>
-          {data.error && (
-            <section className="card" role="alert">
-              <p>教材載入失敗。請連線後重新載入；已快取的教材仍可離線使用。</p>
-              <button className="btn" onClick={() => window.location.reload()}>
-                重新載入
-              </button>
-            </section>
-          )}
-          {!data.ready && !data.error && (lesson || category) && (
-            <output className="notice">正在載入教材…</output>
-          )}
-          {route.view === 'lessons' &&
-            (lesson ? (
-              data.lesson && (
-                <LessonView
-                  lesson={data.lesson}
-                  progress={progress}
-                  update={update}
-                />
-              )
-            ) : (
-              <LessonListView progress={progress} stageId={stage?.id} />
-            ))}
-          {route.view === 'games' && (
-            <GameStudyView
-              key={`${route.gameId ?? ''}:${route.characterId ?? ''}`}
-              gameId={route.gameId}
-              characterId={route.characterId}
-              progress={progress}
-              update={update}
-            />
-          )}
-          {['srs', 'dictation', 'shadowing'].includes(route.view) &&
-            (category ? (
-              <section className="study-context" aria-label="目前教材">
-                <div className="row">
-                  <strong>{category.title}</strong>
-                  <a className="btn" href={viewHash(route.view)}>
-                    更換教材類別
-                  </a>
-                </div>
-                {category.id === 'games' && route.view === 'srs' && (
-                  <p className="muted">
-                    本類別使用角色短台詞卡，練習原句與意思。
-                  </p>
-                )}
+        <PageContext.Provider value={entry}>
+          <LoadBoundary>
+            {data.error && (
+              <section className="card" role="alert">
+                <p>
+                  教材載入失敗。請連線後重新載入；已快取的教材仍可離線使用。
+                </p>
+                <button
+                  className="btn"
+                  onClick={() => window.location.reload()}
+                >
+                  重新載入
+                </button>
               </section>
-            ) : (
-              <StudyCategoryPicker
-                view={route.view}
-                mode={route.srsMode}
+            )}
+            {!data.ready && !data.error && (lesson || category) && (
+              <output className="notice">正在載入教材…</output>
+            )}
+            {route.view === 'lessons' &&
+              (lesson ? (
+                data.lesson && (
+                  <LessonView
+                    lesson={data.lesson}
+                    progress={progress}
+                    update={update}
+                  />
+                )
+              ) : (
+                <LessonListView progress={progress} stageId={stage?.id} />
+              ))}
+            {route.view === 'games' && (
+              <GameStudyView
+                key={`${route.gameId ?? ''}:${route.characterId ?? ''}`}
+                gameId={route.gameId}
+                characterId={route.characterId}
                 progress={progress}
+                update={update}
               />
-            ))}
-          {route.view === 'srs' && catalog && category && (
-            <SrsView
-              progress={progress}
-              update={update}
-              mode={route.srsMode ?? 'review'}
-              cards={catalog.cards}
-              categoryId={category.id}
-            />
-          )}
-          {route.view === 'shadowing' && catalog && (
-            <ShadowingView sentences={catalog.sentences} />
-          )}
-          {route.view === 'dictation' && catalog && (
-            <DictationView
-              progress={progress}
-              update={update}
-              mode={prefs.dictationMode}
-              setMode={setDictationMode}
-              sentences={catalog.sentences}
-            />
-          )}
-          {route.view === 'settings' && (
-            <SettingsView
-              progress={progress}
-              update={update}
-              sync={sync}
-              prefs={prefs}
-              setFurigana={setFurigana}
-            />
-          )}
-        </LoadBoundary>
+            )}
+            {['srs', 'dictation', 'shadowing'].includes(route.view) &&
+              (category ? (
+                <section className="study-context" aria-label="目前教材">
+                  <div className="row">
+                    <strong>{category.title}</strong>
+                    <a className="btn" href={viewHash(route.view)}>
+                      更換教材類別
+                    </a>
+                  </div>
+                  {category.id === 'games' && route.view === 'srs' && (
+                    <p className="muted">
+                      本類別使用角色短台詞卡，練習原句與意思。
+                    </p>
+                  )}
+                </section>
+              ) : (
+                <StudyCategoryPicker
+                  view={route.view}
+                  mode={route.srsMode}
+                  progress={progress}
+                />
+              ))}
+            {route.view === 'srs' && catalog && category && (
+              <SrsView
+                progress={progress}
+                update={update}
+                mode={route.srsMode ?? 'review'}
+                cards={catalog.cards}
+                categoryId={category.id}
+              />
+            )}
+            {route.view === 'shadowing' && catalog && (
+              <ShadowingView sentences={catalog.sentences} />
+            )}
+            {route.view === 'dictation' && catalog && (
+              <DictationView
+                progress={progress}
+                update={update}
+                mode={prefs.dictationMode}
+                setMode={setDictationMode}
+                sentences={catalog.sentences}
+              />
+            )}
+            {route.view === 'settings' && (
+              <SettingsView
+                progress={progress}
+                update={update}
+                sync={sync}
+                prefs={prefs}
+                setFurigana={setFurigana}
+              />
+            )}
+            <RestorePagePosition ready={data.ready} />
+          </LoadBoundary>
+        </PageContext.Provider>
       </main>
 
       <nav className="tabs" aria-label="功能">

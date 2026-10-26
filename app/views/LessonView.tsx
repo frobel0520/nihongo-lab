@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { usePageState } from '../lib/pageContext';
 import type { Lesson } from '../../curriculum/lessons.mjs';
 import { AudioLine } from '../components/AudioLine';
 import { RubyText } from '../components/Ruby';
@@ -49,7 +50,10 @@ export function LessonView({
   progress: Progress;
   update: (change: (prev: Progress) => Progress) => void;
 }) {
-  const [sectionId, setSectionId] = useState<SectionId | null>(null);
+  const [sectionId, setSectionId] = usePageState<SectionId | null>(
+    'lesson.section',
+    null,
+  );
   const pending = lesson.audioReady === false;
 
   const sections: { id: SectionId; label: string; count: number }[] = [
