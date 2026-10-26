@@ -36,6 +36,25 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         with:
           path: dist
+  ux-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: node --test tests/static-file.test.mjs tests/page-history.test.mjs
+      - run: npm run build
+        env:
+          VITE_BASE_PATH: /${{ github.event.repository.name }}/
+      - run: npm run test:ux -- --area context
+        env:
+          CHROME_PATH: C:\Program Files\Google\Chrome\Application\chrome.exe
+      - run: npm run test:ux -- --area downloads
+        env:
+          CHROME_PATH: C:\Program Files\Google\Chrome\Application\chrome.exe
   deploy:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     needs: check
