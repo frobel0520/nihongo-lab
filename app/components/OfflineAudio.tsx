@@ -13,6 +13,7 @@ import {
   getAudioJob,
   startAudioDownload,
   subscribeAudioJob,
+  type AudioJobScope,
 } from '../lib/audioDownloadJob';
 
 const errorText = (error: unknown) =>
@@ -27,9 +28,13 @@ export function OfflineAudio({
   allPaths,
   lessonLabel = '本課',
   allLabel = '全部課程',
+  lessonScope,
+  allScope,
 }: {
   lessonPaths: string[];
   allPaths: string[];
+  lessonScope?: AudioJobScope;
+  allScope: AudioJobScope;
   lessonLabel?: string;
   allLabel?: string;
 }) {
@@ -85,6 +90,10 @@ export function OfflineAudio({
     );
   }
 
+  const ownResult =
+    status.kind !== 'idle' &&
+    (status.scope.id === lessonScope?.id || status.scope.id === allScope.id);
+  const visibleStatus = status.kind === 'running' || ownResult;
   const busy = status.kind === 'running';
   const lessonDone = counts !== null && counts.lesson >= lessonPaths.length;
   const allDone = counts !== null && counts.all >= allPaths.length;
@@ -104,7 +113,7 @@ export function OfflineAudio({
             type="button"
             className="btn"
             disabled={busy || lessonDone}
-            onClick={() => void startAudioDownload(lessonPaths)}
+            onClick={() => void startAudioDownload(lessonPaths, lessonScope!)}
           >
             {lessonDone
               ? `${lessonLabel}音檔已全部存好`
@@ -115,7 +124,7 @@ export function OfflineAudio({
           type="button"
           className="btn"
           disabled={busy || allDone}
-          onClick={() => void startAudioDownload(allPaths)}
+          onClick={() => void startAudioDownload(allPaths, allScope)}
         >
           {allDone ? `${allLabel}音檔已存好` : `下載${allLabel}音檔`}
         </button>
@@ -129,15 +138,21 @@ export function OfflineAudio({
         </button>
       </div>
       <output className="muted status-line">
-        {status.kind === 'running' &&
+        {visibleStatus && `${status.scope.label}：`}
+        {visibleStatus &&
+          status.kind === 'running' &&
           `${status.cancelling ? '正在停止' : '音檔下載中'}… 本次已存 ${status.saved} / ${status.total}，失敗 ${status.failed} 個。可以切到其他頁面繼續學習。`}
-        {status.kind === 'done' &&
+        {visibleStatus &&
+          status.kind === 'done' &&
           `完成：新存 ${status.saved} 個，失敗 ${status.failed} 個。${status.failed ? `（${status.reason}）再按一次補抓失敗與缺少的。` : ''}`}
-        {status.kind === 'paused' &&
+        {visibleStatus &&
+          status.kind === 'paused' &&
           `${status.why === 'network' ? '網路中斷，下載已暫停' : '已取消音檔下載'}：本次已存 ${status.saved} 個，失敗 ${status.failed} 個；已存的會保留，再按一次從缺少的接續。`}
-        {status.kind === 'offline' &&
+        {visibleStatus &&
+          status.kind === 'offline' &&
           '目前沒有網路，無法下載音檔；連線後再按一次。'}
-        {status.kind === 'locked' &&
+        {visibleStatus &&
+          status.kind === 'locked' &&
           '另一個分頁正在下載音檔，完成後再按「重新檢查下載狀態」。'}
       </output>
       <div className="row">
@@ -152,10 +167,12 @@ export function OfflineAudio({
           </button>
         )}
       </div>
-      {(status.kind === 'error' || checkError) && (
+      {((ownResult && status.kind === 'error') || checkError) && (
         <p className="error" role="alert">
           離線音檔發生錯誤：
-          {status.kind === 'error' ? status.message : checkError}
+          {visibleStatus && status.kind === 'error'
+            ? status.message
+            : checkError}
         </p>
       )}
     </section>

@@ -3,8 +3,11 @@ import { isNetworkFailure } from '../../lib/vocab-image-offline.mjs';
 import { createAudioStore } from './offlineAudio';
 
 /** 同一App的音檔工作；重整／關閉後中斷，已存的仍由原快取保留。 */
+export type AudioJobScope = { id: string; label: string };
 export type AudioJobState =
   | { kind: 'idle' }
+  | ({ scope: AudioJobScope } & AudioJobResult);
+type AudioJobResult =
   | {
       kind: 'running';
       saved: number;
@@ -46,15 +49,26 @@ export function cancelAudioDownload() {
   set({ ...state, cancelling: true });
   controller.abort();
 }
-export async function startAudioDownload(paths: string[]) {
+export async function startAudioDownload(
+  paths: string[],
+  scope: AudioJobScope,
+) {
   if (state.kind === 'running') return;
+  scope = { ...scope };
   if (!navigator.onLine) {
-    set({ kind: 'offline' });
+    set({ kind: 'offline', scope });
     return;
   }
   controller = new AbortController();
   stopping = null;
-  set({ kind: 'running', saved: 0, total: 0, failed: 0, cancelling: false });
+  set({
+    scope,
+    kind: 'running',
+    saved: 0,
+    total: 0,
+    failed: 0,
+    cancelling: false,
+  });
   window.addEventListener('offline', offline);
   try {
     const run = () =>
@@ -76,7 +90,7 @@ export async function startAudioDownload(paths: string[]) {
         )
       : await run();
     if (!result) {
-      set({ kind: 'locked' });
+      set({ kind: 'locked', scope });
       return;
     }
     const saved = result.downloaded,
@@ -88,11 +102,18 @@ export async function startAudioDownload(paths: string[]) {
         : null);
     set(
       why
-        ? { kind: 'paused', saved, failed, why }
-        : { kind: 'done', saved, failed, reason: result.failed[0]?.message },
+        ? { kind: 'paused', scope, saved, failed, why }
+        : {
+            kind: 'done',
+            scope,
+            saved,
+            failed,
+            reason: result.failed[0]?.message,
+          },
     );
   } catch (error) {
     set({
+      scope,
       kind: 'error',
       message: error instanceof Error ? error.message : String(error),
     });
