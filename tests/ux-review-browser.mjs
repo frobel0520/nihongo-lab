@@ -76,7 +76,16 @@ const base = `http://127.0.0.1:${server.address().port}/nihongo-lab/`,
   key = 'nihongo-lab:progress:v1';
 const executablePath =
   process.env.CHROME_PATH ||
-  execFileSync('which', ['chromium'], { encoding: 'utf8' }).trim();
+  ['chromium', 'google-chrome']
+    .map((name) => {
+      try {
+        return execFileSync('which', [name], { encoding: 'utf8' }).trim();
+      } catch {
+        return '';
+      }
+    })
+    .find(Boolean);
+assert.ok(executablePath, 'Chromium or Google Chrome must be available');
 const browser = await chromium.launch({
   executablePath,
   headless: true,
