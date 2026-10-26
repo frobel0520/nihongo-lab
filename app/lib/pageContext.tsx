@@ -8,6 +8,7 @@ import {
   type Dispatch,
   type SetStateAction,
 } from 'react';
+import { rememberPageEntry } from '../../lib/page-history.mjs';
 import { parseRoute } from '../../lib/route.mjs';
 
 type Entry = {
@@ -43,7 +44,7 @@ export function usePageNavigation() {
       returning: false,
       positioned: false,
     };
-    entries.current.set(id, entry);
+    rememberPageEntry(entries.current, entry);
     return entry;
   };
   const [entry, setEntry] = useState(fresh);
@@ -69,6 +70,7 @@ export function usePageNavigation() {
         candidate.hash === location.hash
           ? candidate
           : fresh(active.current.hash);
+      rememberPageEntry(entries.current, next);
       previousHash.current = next.parentHash;
       next.returning = next === candidate;
       next.positioned = false;
