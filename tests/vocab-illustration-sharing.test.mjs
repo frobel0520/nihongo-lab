@@ -6,9 +6,18 @@ import { VOCAB_ILLUSTRATIONS as RUNTIME_ILLUSTRATIONS, illustrationFor } from '.
 import { collectInventoryCards } from '../scripts/vocab-illustration-inventory.mjs';
 
 // T163 moved the composition descriptions (alt) out of the runtime mapping into authoring data.
-// Rejoining them must reproduce every published snapshot hash below byte for byte.
+// Rejoining them reproduces the historical snapshots. T166 intentionally splits six src values;
+// only those exact IDs project back here. Current src values are asserted separately in vocab-artwork-revision.test.mjs.
 const DESCRIPTIONS = JSON.parse(readFileSync(new URL('../docs/vocab-illustration-descriptions.json', import.meta.url), 'utf8'));
-const VOCAB_ILLUSTRATIONS = RUNTIME_ILLUSTRATIONS.map((image) => ({ ...image, alt: DESCRIPTIONS[image.id] }));
+const HISTORICAL_SRC = {
+  'general-listening-34:丁寧な': 'images/vocab/carefulpolite.svg',
+  'general-listening-68:丁寧': 'images/vocab/carefulpolite.svg',
+  'general-listening-168:丁寧': 'images/vocab/carefulpolite.svg',
+  'game-card:game:genshin:xiao:skill:5156a56463': 'images/vocab/waste.svg',
+  'game-card:game:genshin:lohen:burst:c696cec4a8': 'images/vocab/waste.svg',
+  'stage0-day25:メートル': 'images/vocab/length.svg',
+};
+const VOCAB_ILLUSTRATIONS = RUNTIME_ILLUSTRATIONS.map((image) => ({ ...image, src: HISTORICAL_SRC[image.id] ?? image.src, alt: DESCRIPTIONS[image.id] }));
 
 test('sharing preserves published mappings and distinguishes meaning from spelling', async () => {
   assert.equal(createHash('sha256').update(JSON.stringify(VOCAB_ILLUSTRATIONS.slice(0, 54))).digest('hex'), '5ce53c33eb79db257d83cad4df0e84ebdf26d6ea08cb3784a80bd632ea8b696e');

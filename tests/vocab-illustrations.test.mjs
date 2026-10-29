@@ -7,11 +7,11 @@ import { VOCAB_ILLUSTRATIONS, illustrationFor } from '../lib/vocab-illustrations
 // T163: per-ID composition descriptions are authoring data, not part of the runtime mapping.
 const DESCRIPTIONS = JSON.parse(await readFile(new URL('../docs/vocab-illustration-descriptions.json', import.meta.url), 'utf8'));
 
-test('illustrations resolve all 5909 approved cards and their actual senses', async () => {
+test('illustrations resolve all 5909 card identities through exact approved mappings', async () => {
   const cards = await collectInventoryCards();
   assert.equal(VOCAB_ILLUSTRATIONS.length, 5909);
   assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 5909);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 2242);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 2245);
   assert.equal(cards.filter(illustrationFor).length, cards.length, 'T162: every card has an approved picture');
   for (const image of VOCAB_ILLUSTRATIONS) {
     const card = cards.find(c => c.id === image.id);
@@ -104,7 +104,7 @@ test('card fronts hide images and revealed auxiliary images do not repeat the ac
   } finally { await server.close(); }
 });
 
-test('T163 redraws exactly three weak pictures; the other T162 assets keep their recorded bytes', async () => {
+test('T163 published revisions keep their bytes while later artwork revisions remain versioned', async () => {
   const { createHash } = await import('node:crypto');
   const { readdir } = await import('node:fs/promises');
   // Windows checkouts may use CRLF; recorded hashes are of the committed LF bytes.
@@ -114,13 +114,8 @@ test('T163 redraws exactly three weak pictures; the other T162 assets keep their
     'images/vocab/temporarily.svg': '9a22006d68667f303530b35274c9f51e2a3b0da9d7931caed05fe2e32a2bf4b0',
     'images/vocab/lifenotsmooth.svg': 'e1b3c3992a706bf919f46fccf1d623e4fd4dcfa775db1284a8066e8558487134',
   };
-  const assets = JSON.parse(await readFile(new URL('../docs/vocab-illustration-t162-assets.json', import.meta.url), 'utf8'));
-  for (const asset of assets) {
-    if (revised[asset.src]) {
-      assert.notEqual(await sha(asset.src), asset.sha256, `${asset.src} was redrawn`);
-      assert.equal(await sha(asset.src), revised[asset.src]);
-    } else assert.equal(await sha(asset.src), asset.sha256, asset.src);
-  }
+  // Complete current asset integrity is pinned in vocab-artwork-revision.test.mjs.
+  for (const [src, expected] of Object.entries(revised)) assert.equal(await sha(src), expected, src);
   // Mappings stay: each redrawn picture still belongs to the same single card.
   assert.deepEqual(VOCAB_ILLUSTRATIONS.filter(x => revised[x.src]).map(x => x.id).sort(), [
     'game-card:game:er:aiden:selection-voice:eaea8b98f3:eaea8b98f3',
