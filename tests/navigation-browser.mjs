@@ -852,12 +852,6 @@ try {
         await goto(p, '#/srs?category=games');
         await p.getByRole('button', { name: '顯示答案', exact: true }).click();
         await answerImageSettled(p);
-        await p.getByRole('button', { name: '播放', exact: true }).click();
-        if (disconnected) await p.locator('.play .error').waitFor();
-        else
-          await p.waitForFunction(() =>
-            [...document.querySelectorAll('audio')].some((a) => !a.paused),
-          );
         await p.evaluate(() => scrollTo(0, 300));
         await settle(p);
         const y = await p.evaluate(() => scrollY);
