@@ -2,7 +2,7 @@
 
 ## T167 返回導航契約
 
-T167以entry ID、parent ID與相對歷史位置追蹤留存祖先；只沿該實際鏈計算負向history.go，找不到時replace內部父頁。popstate／hashchange讀取目前history.state並去重，避免快速前後切換的過期事件。Map仍LRU 40；頁面以entry ID隔離，題目可用固定scope槽位隔離目前草稿，避免依題數無界增長。教材ready及Suspense掛載後以useLayoutEffect一次還原，不使用sleep／反覆捲動；圖片預留尺寸，一般重繪不搬閱讀。SRS返回保留session／揭示面與改評基準，新呈現仍走原焦點協定。窄矮遊戲頁操作列採內容流，避免長離線錯誤覆蓋正文。test:navigation對實際座標、草稿／評分及真正斷網做回歸，列入Linux／Windows CI。
+T167以entry ID、parent ID與相對歷史位置追蹤留存祖先；只沿該實際鏈計算負向history.go，找不到時replace內部父頁。popstate／hashchange讀取目前history.state並去重，避免快速前後切換的過期事件。Map仍LRU 40；頁面以entry ID隔離，題目可用固定scope槽位隔離目前草稿，避免依題數無界增長。教材ready及Suspense掛載後以useLayoutEffect一次還原，不使用sleep／反覆捲動；圖片預留尺寸，一般重繪不搬閱讀。SRS返回保留session／揭示面、改評基準與同一到訪的已知音訊錯誤版面，避免錯誤提示晚到時先夾住定位；明確重試清除錯誤，不保存播放。被replace的entry立即失效，Forward項目不能沿舊ID走錯父頁。新呈現仍走原焦點協定。窄矮遊戲頁操作列採內容流，避免長離線錯誤覆蓋正文。test:navigation對實際座標、草稿／評分及真正斷網做回歸，列入Linux／Windows CI。
 
 以下為既有設計與歷史紀錄；本節為目前返回行為。
 
