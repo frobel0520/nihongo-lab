@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
+import { usePageState } from '../lib/pageContext';
 import type {
   AnimeTraining as Training,
   ListeningClip,
@@ -22,16 +23,20 @@ function ListeningClipView({
   update: (change: (prev: Progress) => Progress) => void;
   review: boolean;
 }) {
-  const [plays, setPlays] = useState(0);
-  const [familiar, setFamiliar] = useState(false);
-  const [answers, setAnswers] = useState<Record<string, number>>({});
-  const submitted = useRef(new Set<string>());
-  const [reading, setReading] = useState(false);
-  const [result, setResult] = useState<{
+  const stateKey = `training.${review ? 'review' : 'learn'}.${clip.quote.audio}`;
+  const [plays, setPlays] = usePageState(stateKey + '.plays', 0);
+  const [familiar, setFamiliar] = usePageState(stateKey + '.familiar', false);
+  const [answers, setAnswers] = usePageState<Record<string, number>>(
+    stateKey + '.answers',
+    {},
+  );
+  const submitted = useRef(new Set(Object.keys(answers)));
+  const [reading, setReading] = usePageState(stateKey + '.reading', false);
+  const [result, setResult] = usePageState<{
     correct: boolean;
     plays: number;
     familiar: boolean;
-  } | null>(null);
+  } | null>(stateKey + '.result', null);
   const question = clip.questions.find((q) => answers[q.id] === undefined);
   const revealed = !question;
 

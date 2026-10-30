@@ -1,10 +1,5 @@
-import {
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-  type MouseEvent,
-} from 'react';
+import { usePageState } from '../lib/pageContext';
+import { useEffect, useLayoutEffect, useRef, type MouseEvent } from 'react';
 import { isInteractive, isTextEntry, type KeyTarget } from '../../lib/keys.mjs';
 import { recordReviewSequence, type Progress } from '../../lib/progress.mjs';
 import { studyHash, viewHash } from '../../lib/route.mjs';
@@ -136,11 +131,11 @@ export function SrsView({
   // 日期每次渲染都重算：畫面停在單字卡過了午夜，評分與預告仍用「現在」的日期，不會排出偏一天的到期日。
   const today = toDateString();
   // 牌組只在進入畫面（或換區）時排一次；一輪的流程（上一張／下一張、評分後跳到哪一張）見 lib/srs-session.mjs。
-  const [session, setSession] = useState<Session>(() =>
+  const [session, setSession] = usePageState<Session>('srs.session', () =>
     createSession(buildDeck(mode, CARDS, progress.srs, toDateString())),
   );
-  const [revealed, setRevealed] = useState(false);
-  const [reviewed, setReviewed] = useState(0);
+  const [revealed, setRevealed] = usePageState('srs.revealed', false);
+  const [reviewed, setReviewed] = usePageState('srs.reviewed', 0);
   // T163：鍵盤揭示或評分後，被按的按鈕會從畫面上消失，焦點掉到 <body>。
   // 只在鍵盤操作、而且焦點真的掉了時，移到下一個操作位置（揭示後→評分區；換卡後→「顯示答案」）。
   // 滑鼠與觸控點擊（event.detail > 0）不搬焦點。

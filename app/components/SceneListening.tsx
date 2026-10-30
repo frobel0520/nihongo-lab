@@ -1,3 +1,4 @@
+import { usePageState } from '../lib/pageContext';
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import type { Lesson } from '../../curriculum/lessons.mjs';
 import type { Progress } from '../../lib/progress.mjs';
@@ -46,19 +47,27 @@ export function SceneListening({
 }) {
   const audio = useRef<HTMLAudioElement>(null);
   const control = useRef({ run: 0, cursor: null as number | null });
-  const submitted = useRef(new Set<string>());
   const [lineIndex, setLineIndex] = useState<number | null>(null);
-  const [heard, setHeard] = useState(false);
+  const [heard, setHeard] = usePageState('scene.heard', false);
   const [error, setError] = useState(false);
-  const [answers, setAnswers] = useState<Record<string, number>>({});
-  const [offlineOpened, setOfflineOpened] = useState(false);
+  const [answers, setAnswers] = usePageState<Record<string, number>>(
+    'scene.answers',
+    {},
+  );
+  const [offlineOpened, setOfflineOpened] = usePageState(
+    'scene.offlinePanel',
+    false,
+  );
   const scene = lesson.scene!;
   const lessonPaths = useMemo(() => lessonAudioPaths(lesson), [lesson]);
   const speakers = useMemo(
     () => sceneSpeakerLabels(lesson.dialogue, getVoice),
     [lesson],
   );
-  const [choices, setChoices] = useState(() => scene.questions.map((q) => listeningChoices(q)));
+  const [choices, setChoices] = usePageState('scene.choices', () =>
+    scene.questions.map((q) => listeningChoices(q)),
+  );
+  const submitted = useRef(new Set(Object.keys(answers)));
   const lineCount = lesson.dialogue.length;
   const questionCount = scene.questions.length;
   const question = scene.questions.find((q) => answers[q.id] === undefined);
@@ -182,17 +191,19 @@ export function SceneListening({
             <RubyText text={question.prompt} />
           </p>
           <div className="anime-options">
-            {choices[scene.questions.indexOf(question)].map(({ text, index }) => (
-              <button
-                type="button"
-                className="btn block"
-                key={index}
-                disabled={!heard}
-                onClick={() => choose(index)}
-              >
-                {text}
-              </button>
-            ))}
+            {choices[scene.questions.indexOf(question)].map(
+              ({ text, index }) => (
+                <button
+                  type="button"
+                  className="btn block"
+                  key={index}
+                  disabled={!heard}
+                  onClick={() => choose(index)}
+                >
+                  {text}
+                </button>
+              ),
+            )}
           </div>
         </div>
       )}

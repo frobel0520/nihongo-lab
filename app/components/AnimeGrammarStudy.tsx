@@ -1,3 +1,4 @@
+import { usePageState } from '../lib/pageContext';
 import { useRef, useState } from 'react';
 import type { Lesson, Line } from '../../curriculum/lessons.mjs';
 import type { GrammarQuestion } from '../../curriculum/anime-grammar-study.mjs';
@@ -59,8 +60,14 @@ function SilentExample({
   line: Line;
   referenceUrl?: string;
 }) {
-  const [reading, setReading] = useState(false);
-  const [translation, setTranslation] = useState(false);
+  const [reading, setReading] = usePageState(
+    'grammar.reading.' + line.audio,
+    false,
+  );
+  const [translation, setTranslation] = usePageState(
+    'grammar.translation.' + line.audio,
+    false,
+  );
   return (
     <div className="grammar-example">
       <div className="line-jp" lang="ja">
@@ -116,12 +123,18 @@ function SilentExample({
 function QuestionView({
   question,
   onAnswer,
+  presentation,
 }: {
+  presentation: number;
   question: GrammarQuestion;
   onAnswer: (choice: number) => void;
 }) {
-  const [choice, setChoice] = useState<number | null>(null);
-  const submitted = useRef(false);
+  const [choice, setChoice] = usePageState<number | null>(
+    'grammar.choice',
+    null,
+    `${presentation}:${question.id}`,
+  );
+  const submitted = useRef(choice !== null);
   const answer = (i: number) => {
     if (submitted.current) return;
     submitted.current = true;
@@ -194,9 +207,19 @@ export function AnimeGrammarStudy({
       questionIndex,
     })),
   ]);
-  const [position, setPosition] = useState<number | null>(null);
+  const [position, setPosition] = usePageState<number | null>(
+    'grammar.position',
+    null,
+  );
   const [bookmark, setBookmark] = useState(() => readBookmark(lesson, units));
-  const [review, setReview] = useState<number[] | null>(null);
+  const [review, setReview] = usePageState<number[] | null>(
+    'grammar.review',
+    null,
+  );
+  const [presentation, setPresentation] = usePageState(
+    'grammar.presentation',
+    0,
+  );
   const summary = grammarSummary(lesson, progress);
   const activeIndex =
     position === null ? null : review ? review[position] : position;
@@ -204,6 +227,7 @@ export function AnimeGrammarStudy({
   const count = review ? review.length : units.length;
   const open = (index: number, reviewing: number[] | null = review) => {
     const actual = reviewing ? reviewing[index] : index;
+    setPresentation((n) => n + 1);
     setReview(reviewing);
     setPosition(index);
     if (actual !== undefined) {
@@ -338,7 +362,8 @@ export function AnimeGrammarStudy({
         </h2>
         {question ? (
           <QuestionView
-            key={`${review ? 'review' : 'study'}:${activeIndex}`}
+            presentation={presentation}
+            key={`${presentation}:${review ? 'review' : 'study'}:${activeIndex}`}
             question={question}
             onAnswer={(choice) => {
               const id = grammarRecordId(lesson.id, point, question);
