@@ -3,12 +3,7 @@ import { curriculumSummary } from '../curriculum/lessons.mjs';
 import { LoadBoundary } from './components/LoadBoundary';
 import { useRouteData } from './useRouteData';
 import type { DictationMode } from '../lib/prefs.mjs';
-import {
-  backNavigation,
-  stageHash,
-  viewHash,
-  type ViewId,
-} from '../lib/route.mjs';
+import { srsHash, stageHash, viewHash, type ViewId } from '../lib/route.mjs';
 import {
   BackIcon,
   BookIcon,
@@ -27,7 +22,7 @@ import { STUDY_CATEGORIES } from '../lib/study-categories.mjs';
 import { StudyCategoryPicker } from './components/StudyCategoryPicker';
 import { ImageUpdateHint } from './components/ImageUpdateHint';
 import {
-  PageContext,
+  PageProvider,
   RestorePagePosition,
   usePageNavigation,
 } from './lib/pageContext';
@@ -65,7 +60,7 @@ const stages = curriculumSummary.stages;
 const LESSONS = stages.flatMap((stage) => stage.lessons);
 
 export function App() {
-  const { route, entry, previousHash } = usePageNavigation();
+  const { route, entry, back } = usePageNavigation();
   const { progress, getProgress, update, warning, saveError, dismissWarning } =
     useProgress();
   const sync = useSync({ progress, getProgress, update });
@@ -112,12 +107,14 @@ export function App() {
 
   const backTarget = parentStage
     ? stageHash(parentStage.id)
-    : viewHash('lessons');
+    : ['srs', 'dictation', 'shadowing'].includes(route.view) && category
+      ? route.view === 'srs'
+        ? srsHash(route.srsMode ?? 'review')
+        : viewHash(route.view)
+      : viewHash('lessons');
   const goBack = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
-    if (backNavigation(previousHash.current, backTarget) === 'back')
-      window.history.back();
-    else window.location.replace(backTarget);
+    back(backTarget, !lesson && !stage);
   };
 
   const title =
@@ -131,10 +128,14 @@ export function App() {
   return (
     <PrefsContext.Provider value={prefs}>
       <header className="appbar">
-        {(lesson || stage) && (
+        {(lesson ||
+          stage ||
+          ['srs', 'dictation', 'shadowing'].includes(route.view)) && (
           <a
             className="icon-btn"
-            aria-label={lesson ? '返回課程清單' : '返回課程首頁'}
+            aria-label={
+              lesson ? '返回課程清單' : stage ? '返回課程首頁' : '返回上一頁'
+            }
             href={backTarget}
             onClick={goBack}
           >
@@ -210,7 +211,7 @@ export function App() {
           </p>
         )}
 
-        <PageContext.Provider value={entry}>
+        <PageProvider entry={entry} back={back}>
           <LoadBoundary>
             {data.error && (
               <section className="card" role="alert">
@@ -303,7 +304,7 @@ export function App() {
             )}
             <RestorePagePosition ready={data.ready} />
           </LoadBoundary>
-        </PageContext.Provider>
+        </PageProvider>
       </main>
 
       <nav className="tabs" aria-label="功能">
