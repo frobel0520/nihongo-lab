@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { usePageState } from '../lib/pageContext';
+import { PageDetails, usePageState } from '../lib/pageContext';
 import type { Lesson } from '../../curriculum/lessons.mjs';
 import { AudioLine } from '../components/AudioLine';
 import { RubyText } from '../components/Ruby';
@@ -18,7 +17,7 @@ type SectionId =
   | 'practice';
 
 function PracticeItemView({ q, a }: { q: string; a: string }) {
-  const [revealed, setRevealed] = useState(false);
+  const [revealed, setRevealed] = usePageState('lesson.practice.' + q, false);
   return (
     <li className="practice-item">
       <p>
@@ -93,7 +92,7 @@ export function LessonView({
       )}
 
       {lesson.references && (
-        <details className="card">
+        <PageDetails stateKey="lesson.references" className="card">
           <summary>教材來源與用例說明</summary>
           <p className="muted">
             動畫台詞標明作品；詞彙與句型補充另列教學來源，自編例句會明確標示。
@@ -110,7 +109,7 @@ export function LessonView({
               </li>
             ))}
           </ul>
-        </details>
+        </PageDetails>
       )}
 
       <div className="section-tabs" role="tablist" aria-label="課程內容">

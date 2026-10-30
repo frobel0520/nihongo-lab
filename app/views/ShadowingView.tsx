@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { usePageState } from '../lib/pageContext';
 import { type Sentence } from '../../lib/dictation.mjs';
 import { gapMs } from '../../lib/shadowing.mjs';
 import { audioUrl } from '../components/AudioLine';
@@ -9,8 +10,8 @@ type Phase = 'idle' | 'playing' | 'gap';
 
 export function ShadowingView({ sentences }: { sentences: Sentence[] }) {
   const SENTENCES = sentences;
-  const [index, setIndex] = useState(0);
-  const [showText, setShowText] = useState(false);
+  const [index, setIndex] = usePageState('shadowing.index', 0);
+  const [showText, setShowText] = usePageState('shadowing.text', false);
   const [phase, setPhase] = useState<Phase>('idle');
   const [round, setRound] = useState(0);
   const [failed, setFailed] = useState(false);

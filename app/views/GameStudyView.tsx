@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
+import { BackLink, PageDetails, usePageState } from '../lib/pageContext';
 import { loadGameData } from '../../curriculum/lessons.mjs';
 const { gameCharacterStudy, genshinActionCoverage, genshinSupplement } =
   await loadGameData();
@@ -26,7 +27,7 @@ import {
   gameListeningRecordId,
   gameListeningDone,
 } from '../../lib/game-study.mjs';
-import { gameHash } from '../../lib/route.mjs';
+import { gameHash, viewHash } from '../../lib/route.mjs';
 import { getVoice } from '../../curriculum/voices.mjs';
 import { useSwipeNavigation } from '../lib/useSwipeNavigation';
 import { JpLine, RubyText } from '../components/Ruby';
@@ -114,6 +115,7 @@ function StudyLine({
   line,
   character,
   listening,
+  scope,
   done,
   onDone,
   plays,
@@ -123,17 +125,26 @@ function StudyLine({
   line: GameLine;
   character: GameCharacter;
   listening: boolean;
+  scope: string;
   done: boolean;
   onDone: () => void;
   plays: number;
   onAnswer: (correct: boolean) => void;
   onRestart: () => void;
 }) {
-  const [revealed, setRevealed] = useState(!listening);
-  const [choice, setChoice] = useState<number | null>(null);
-  const [peeked, setPeeked] = useState(false);
-  const submitted = useRef(false);
-  const [baseline, setBaseline] = useState(plays);
+  const [revealed, setRevealed] = usePageState(
+    'game.revealed',
+    !listening,
+    scope,
+  );
+  const [choice, setChoice] = usePageState<number | null>(
+    'game.choice',
+    null,
+    scope,
+  );
+  const [peeked, setPeeked] = usePageState('game.peeked', false, scope);
+  const submitted = useRef(choice !== null);
+  const [baseline, setBaseline] = usePageState('game.baseline', plays, scope);
   const heard = Math.max(0, plays - baseline);
   const isSelectionLine = line.category === '角色選擇';
   const canListen = line.audioReady !== false;
@@ -278,7 +289,7 @@ function StudyLine({
         {getVoice(line.voice).name} · 非遊戲原配音
       </p>
       {line.officialSources && (
-        <details>
+        <PageDetails stateKey="game.officialSources" scope={line.id}>
           <summary>官方音檔對照（{line.officialSources.length} 段）</summary>
           <p>
             本次官方日文
@@ -293,7 +304,7 @@ function StudyLine({
               </li>
             ))}
           </ul>
-        </details>
+        </PageDetails>
       )}
     </section>
   );
@@ -306,11 +317,17 @@ export function GameStudyView({
   update,
 }: Props) {
   const game = gameCharacterStudy.find((g) => g.id === gameId);
-  const [category, setCategory] = useState(gameId === 'er' ? '角色選擇' : '');
-  const [index, setIndex] = useState(0);
-  const [listening, setListening] = useState(true);
-  const [plays, setPlays] = useState<Record<string, number>>({});
-  const [attempt, setAttempt] = useState(0);
+  const [category, setCategory] = usePageState(
+    'game.category',
+    gameId === 'er' ? '角色選擇' : '',
+  );
+  const [index, setIndex] = usePageState('game.index', 0);
+  const [listening, setListening] = usePageState('game.listening', true);
+  const [plays, setPlays] = usePageState<Record<string, number>>(
+    'game.plays',
+    {},
+  );
+  const [attempt, setAttempt] = usePageState('game.attempt', 0);
   const character = game?.characters.find((c) => c.id === characterId);
   const items = game
     ? gameLines(gameCharacterStudy, game.id, character?.id, category)
@@ -334,6 +351,7 @@ export function GameStudyView({
     return (
       <>
         <section className="card">
+          <BackLink href={viewHash('lessons')}>返回課程首頁</BackLink>
           <h2>遊戲角色語音</h2>
           <p>
             從角色短句學日文。角色選擇、編隊加入與技能分開分類；所有音檔均為
@@ -396,7 +414,7 @@ export function GameStudyView({
     return (
       <>
         <section className="card">
-          <a href={gameHash()}>所有遊戲</a>
+          <BackLink href={gameHash()}>所有遊戲</BackLink>
           <h2>{game.title}</h2>
           <p>{game.scope}</p>
           <p className="muted">
@@ -432,7 +450,7 @@ export function GameStudyView({
             </a>
           ))}
         </div>
-        <details className="card">
+        <PageDetails stateKey="game.portraits" className="card">
           <summary>頭像來源</summary>
           <p className="muted">
             頭像為遊戲角色圖像；僅作學習選單識別。作品權利屬於各遊戲權利人。
@@ -448,13 +466,13 @@ export function GameStudyView({
               {c.name}頭像來源
             </a>
           ))}
-        </details>
+        </PageDetails>
       </>
     );
   if (!character.lines.length)
     return (
       <section className="card empty-character">
-        <a href={gameHash(game.id)}>返回{game.title}角色清單</a>
+        <BackLink href={gameHash(game.id)}>返回{game.title}角色清單</BackLink>
         <img
           className="empty-character-portrait"
           src={`${import.meta.env.BASE_URL}${character.portrait}`}
@@ -508,7 +526,7 @@ export function GameStudyView({
   return (
     <div className="game-study" {...swipe}>
       <section className="card">
-        <a href={gameHash(game.id)}>返回{game.title}角色清單</a>
+        <BackLink href={gameHash(game.id)}>返回{game.title}角色清單</BackLink>
         <h2>
           {character.name}{' '}
           <small lang="ja">
@@ -528,7 +546,7 @@ export function GameStudyView({
           · {at + 1}/{items.length} 句
         </p>
         {game.id === 'er' && (
-          <details>
+          <PageDetails stateKey="game.erSources">
             <summary>
               本次官方素材庫：
               {
@@ -552,7 +570,7 @@ export function GameStudyView({
                   </li>
                 ))}
             </ul>
-          </details>
+          </PageDetails>
         )}
         {game.id === 'er' && erSelectionCoverage[character.id] && (
           <p className="muted">
@@ -599,7 +617,8 @@ export function GameStudyView({
       </section>
       {current && (
         <StudyLine
-          key={`${current.line.id}:${listening}`}
+          key={`${current.line.id}:${listening}:${category}`}
+          scope={`${current.line.id}:${listening}:${category}`}
           line={current.line}
           character={character}
           listening={listening}
@@ -628,7 +647,7 @@ export function GameStudyView({
           }
         />
       )}
-      <details className="card">
+      <PageDetails stateKey="game.download" className="card">
         <summary>下載此角色音檔供離線使用</summary>
         <OfflineAudio
           lessonPaths={audio}
@@ -641,7 +660,7 @@ export function GameStudyView({
           lessonLabel="此角色"
           allLabel="全部遊戲"
         />
-      </details>
+      </PageDetails>
       <p className="muted swipe-hint">左滑下一句 · 右滑上一句</p>
       <div className="game-controls" data-no-swipe>
         <button

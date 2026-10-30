@@ -1628,6 +1628,11 @@ rt {
   .game-study { padding-bottom: 110px; }
   .game-controls { position: fixed; bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom)); left: 0; right: 0; z-index: 25; background: var(--surface); border-top: 1px solid var(--rule); }
 }
+/* 矮螢幕與大字／離線錯誤不讓固定工具列佔滿可操作區。 */
+@media (max-width: 640px) and (max-height: 600px) {
+  .game-study { padding-bottom: 20px; }
+  .game-controls { position: static; }
+}
 
 /* T58：用頭像直接選角色，手機不需叫出鍵盤。 */
 .character-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(98px, 1fr)); gap: 12px; }
