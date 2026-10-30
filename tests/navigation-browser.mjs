@@ -161,6 +161,15 @@ async function assertPosition(p, expected) {
   assert.ok(actual.top < actual.viewport && actual.top + actual.height > 60);
   return actual;
 }
+async function answerImageSettled(p) {
+  await p.locator('.flash-zh').waitFor();
+  // Sample a reading coordinate after the actual initial answer layout exists;
+  // a missing illustration can disappear while Playwright is clicking a link.
+  await p.waitForFunction(() => {
+    const image = document.querySelector('.vocab-illustration');
+    return !image || (image.complete && image.naturalWidth > 0);
+  });
+}
 async function noPlayback(p) {
   assert.equal(
     await p.locator('audio').evaluateAll((a) => a.every((e) => e.paused)),
@@ -603,6 +612,7 @@ try {
         );
         await p.getByRole('button', { name: /^記得，/ }).click();
         await p.getByRole('button', { name: '顯示答案', exact: true }).click();
+        await answerImageSettled(p);
         await p.evaluate(() => scrollTo(0, 300));
         await settle(p);
         const y = await p.evaluate(() => scrollY),
@@ -614,6 +624,7 @@ try {
           .click();
         await p.goBack();
         await p.locator('.flash-word').waitFor();
+        await answerImageSettled(p);
         await p.waitForFunction((y) => Math.abs(scrollY - y) < 3, y);
         assert.equal(await p.locator('.flash-word').textContent(), word);
         assert.equal(
@@ -656,6 +667,86 @@ try {
         });
         await c.close();
       }
+    // Force the image failure to occur AFTER restoration, independently of
+    // OS/network timing. It must not move an established reading position.
+    for (const [width, height, font] of [
+      [375, 667, 100],
+      [320, 480, 150],
+    ]) {
+      const c = await browser.newContext({
+        viewport: { width, height },
+        serviceWorkers: 'block',
+        reducedMotion: 'reduce',
+      });
+      await c.addInitScript(
+        (font) =>
+          document.addEventListener(
+            'DOMContentLoaded',
+            () => (document.documentElement.style.fontSize = font + '%'),
+          ),
+        font,
+      );
+      let delaying = false,
+        release,
+        requested;
+      const gate = new Promise((r) => (release = r)),
+        pending = new Promise((r) => (requested = r));
+      await c.route('**/images/vocab/**', async (route) => {
+        if (delaying) {
+          requested();
+          await gate;
+        }
+        await route.abort();
+      });
+      const p = await c.newPage();
+      p.on('pageerror', (e) => result.pageerrors.push(e.message));
+      try {
+        await goto(p, '#/settings');
+        const progress = emptyProgress(),
+          card = longCards[1];
+        progress.srs[card.id] = schedule(
+          undefined,
+          'again',
+          toDateString(),
+          new Date().toISOString(),
+        );
+        await p.evaluate(({ key, s }) => localStorage.setItem(key, s), {
+          key,
+          s: serializeProgress(progress),
+        });
+        await p.reload();
+        await goto(p, '#/srs?category=games');
+        await p.getByRole('button', { name: '顯示答案', exact: true }).click();
+        await answerImageSettled(p);
+        await p.evaluate(() => scrollTo(0, 300));
+        await settle(p);
+        const y = await p.evaluate(() => scrollY);
+        await p
+          .getByRole('navigation', { name: '功能' })
+          .getByRole('link', { name: '設定', exact: true })
+          .click();
+        delaying = true;
+        await p.goBack();
+        await p.locator('.flash-word').waitFor();
+        await pending;
+        await settle(p);
+        assert.equal(await p.evaluate(() => scrollY), y);
+        release();
+        await answerImageSettled(p);
+        await settle(p);
+        assert.equal(await p.evaluate(() => scrollY), y);
+        await noPlayback(p);
+        result.study.push({
+          delayedImageFailureAfterRestore: true,
+          width,
+          font,
+          readingY: y,
+        });
+      } finally {
+        release();
+        await c.close();
+      }
+    }
     // An evicted entry gets fresh state and an internal replace fallback. The
     // browser entry metadata is observed, not fabricated or persisted elsewhere.
     {
