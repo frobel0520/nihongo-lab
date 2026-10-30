@@ -10,6 +10,26 @@ import {
 } from '../scripts/vocab-image-manifest.mjs';
 const digest = (value) => createHash('sha256').update(value).digest('hex');
 
+test('semantic follow-up retains exactly the six intended card-to-artwork relationships', () => {
+  const expected = {
+    genuine: ['general-listening-74:本物'],
+    antidote: ['general-listening-126:解毒'],
+    politeaddress: ['stage0-day1:〜さん'],
+    absolutely: ['general-listening-49:絶対', 'general-listening-83:絶対'],
+    rhetoricalquestion: ['general-listening-178:反問'],
+  };
+  for (const [name, ids] of Object.entries(expected)) {
+    assert.deepEqual(
+      VOCAB_ILLUSTRATIONS.filter(
+        (card) => card.src === `images/vocab/${name}.svg`,
+      )
+        .map((card) => card.id)
+        .sort(),
+      [...ids].sort(),
+    );
+  }
+});
+
 test('artwork updates keep all card identities and split only incompatible shared senses', () => {
   assert.equal(
     digest(
@@ -64,7 +84,7 @@ test('current artwork bytes generate content versions and preserve the approved 
   // Integrity snapshot only: this is not a semantic or user-recognition test.
   assert.equal(
     digest(entries.join('\n')),
-    '778771769a8a1a786085a8dc436f203eda8aea76433be746cc257078787c152c',
+    '29eadac8abd8ae841f61cc3ce7ecd9e8ef6cad785a4fbea4d75998266648d7fe',
   );
   assert.equal(files.length, 2245);
   const rows = await buildVocabImageManifestRows(fileURLToPath(dir));
