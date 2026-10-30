@@ -193,6 +193,9 @@ export function usePageNavigation() {
     );
     if (delta !== null) history.go(delta);
     else {
+      // replace removes this actual browser entry. Retained forward entries
+      // must not follow its obsolete ID to a different page at that position.
+      entries.current.delete(current.id);
       replacing.current = true;
       window.location.replace(fallback);
     }
