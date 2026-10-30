@@ -30,6 +30,7 @@ jobs:
       - run: npm run test:pwa
       - run: npm run test:images
       - run: npm run test:ux
+      - run: npm run test:navigation
       - run: npm run test:srs-layout
       - run: npm run test:pwa:updates
       - uses: actions/upload-pages-artifact@v4
@@ -53,6 +54,9 @@ jobs:
         env:
           CHROME_PATH: C:\Program Files\Google\Chrome\Application\chrome.exe
       - run: npm run test:ux -- --area downloads
+        env:
+          CHROME_PATH: C:\Program Files\Google\Chrome\Application\chrome.exe
+      - run: npm run test:navigation
         env:
           CHROME_PATH: C:\Program Files\Google\Chrome\Application\chrome.exe
   deploy:

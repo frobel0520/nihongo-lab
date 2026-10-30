@@ -1,5 +1,11 @@
 # 系統設計
 
+## T167 返回導航契約
+
+T167以entry ID、parent ID與相對歷史位置追蹤留存祖先；只沿該實際鏈計算負向history.go，找不到時replace內部父頁。popstate／hashchange讀取目前history.state並去重，避免快速前後切換的過期事件。Map仍LRU 40；頁面以entry ID隔離，題目可用固定scope槽位隔離目前草稿，避免依題數無界增長。教材ready及Suspense掛載後以useLayoutEffect一次還原，不使用sleep／反覆捲動；圖片預留尺寸，一般重繪不搬閱讀。SRS返回保留session／揭示面與改評基準，新呈現仍走原焦點協定。窄矮遊戲頁操作列採內容流，避免長離線錯誤覆蓋正文。test:navigation對實際座標、草稿／評分及真正斷網做回歸，列入Linux／Windows CI。
+
+以下為既有設計與歷史紀錄；本節為目前返回行為。
+
 ## T165 收尾範圍與定位契約
 
 新進入類別頁回頂；Back／Forward保留歷史閱讀位置。只有已掛載的實際SRS學習卡排除共用定位，維持原長卡／焦點協定。下載測試等待目的面板後才斷言。兩項收尾通過自查與最新必要CI後於同一PR #172合併發布；最終結果集中PR發布紀錄，以下為歷史查證快照。
