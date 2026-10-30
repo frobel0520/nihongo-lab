@@ -717,11 +717,20 @@ try {
   // Keep actionable cross-platform failures in check annotations as well as
   // stdout; no screenshots, progress payloads or private evidence are uploaded.
   if (process.env.GITHUB_ACTIONS === 'true') {
-    const message = `${process.platform}: ${e.message}`
-      .slice(0, 2200)
-      .replaceAll('%', '%25')
-      .replaceAll('\r', '%0D')
-      .replaceAll('\n', '%0A');
+    const callsites = [
+      ...new Set(e.stack?.match(/navigation-browser\.mjs:\d+:\d+/g) ?? []),
+    ].join(', ');
+    const completed = JSON.stringify({
+      lists: result.longLists.map((x) => x.label),
+      study: result.study.map((x) => Object.keys(x)),
+      fallback: result.fallback,
+    });
+    const message =
+      `${process.platform} ${callsites}: ${e.message}; completed=${completed}`
+        .slice(0, 2200)
+        .replaceAll('%', '%25')
+        .replaceAll('\r', '%0D')
+        .replaceAll('\n', '%0A');
     console.error(`::error file=tests/navigation-browser.mjs::${message}`);
   }
   for (const c of browser.contexts())
