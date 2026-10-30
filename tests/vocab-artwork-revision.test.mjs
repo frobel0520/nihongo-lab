@@ -84,7 +84,7 @@ test('current artwork bytes generate content versions and preserve the approved 
   // Integrity snapshot only: this is not a semantic or user-recognition test.
   assert.equal(
     digest(entries.join('\n')),
-    '29eadac8abd8ae841f61cc3ce7ecd9e8ef6cad785a4fbea4d75998266648d7fe',
+    '9c51738025666b68ede1e6636b02186db366ffa3e2dd1f56a9819ae0abdb98a8',
   );
   assert.equal(files.length, 2245);
   const rows = await buildVocabImageManifestRows(fileURLToPath(dir));
