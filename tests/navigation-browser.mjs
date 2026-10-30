@@ -714,6 +714,16 @@ try {
       : 'PASS navigation geometry/context/lineage/eviction and real-offline regressions',
   );
 } catch (e) {
+  // Keep actionable cross-platform failures in check annotations as well as
+  // stdout; no screenshots, progress payloads or private evidence are uploaded.
+  if (process.env.GITHUB_ACTIONS === 'true') {
+    const message = `${process.platform}: ${e.message}`
+      .slice(0, 2200)
+      .replaceAll('%', '%25')
+      .replaceAll('\r', '%0D')
+      .replaceAll('\n', '%0A');
+    console.error(`::error file=tests/navigation-browser.mjs::${message}`);
+  }
   for (const c of browser.contexts())
     for (const p of c.pages()) if (!p.isClosed()) await shot(p, 'failure');
   if (out)
