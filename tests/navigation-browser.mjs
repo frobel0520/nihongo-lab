@@ -161,6 +161,17 @@ async function assertPosition(p, expected) {
   assert.ok(actual.top < actual.viewport && actual.top + actual.height > 60);
   return actual;
 }
+async function srsGeometry(p) {
+  return p.evaluate(() => ({
+    y: scrollY,
+    height: document.documentElement.scrollHeight,
+    viewport: innerHeight,
+    cardHeight: document.querySelector('.flashcard')?.getBoundingClientRect()
+      .height,
+    wordTop: document.querySelector('.flash-word')?.getBoundingClientRect().top,
+    image: !!document.querySelector('.vocab-illustration'),
+  }));
+}
 async function answerImageSettled(p) {
   await p.locator('.flash-zh').waitFor();
   // Sample a reading coordinate after the actual initial answer layout exists;
@@ -615,17 +626,43 @@ try {
         await answerImageSettled(p);
         await p.evaluate(() => scrollTo(0, 300));
         await settle(p);
-        const y = await p.evaluate(() => scrollY),
+        const sampled = await srsGeometry(p);
+        const y = sampled.y,
           word = await p.locator('.flash-word').textContent(),
           saved = await p.evaluate((key) => localStorage.getItem(key), key);
         await p
           .getByRole('navigation', { name: '功能' })
           .getByRole('link', { name: '設定', exact: true })
+          .evaluate((link) =>
+            link.addEventListener(
+              'click',
+              () => (window.__testLeavingY = scrollY),
+              { once: true },
+            ),
+          );
+        await p
+          .getByRole('navigation', { name: '功能' })
+          .getByRole('link', { name: '設定', exact: true })
           .click();
+        const leaving = await p.evaluate(() => window.__testLeavingY);
         await p.goBack();
         await p.locator('.flash-word').waitFor();
         await answerImageSettled(p);
-        await p.waitForFunction((y) => Math.abs(scrollY - y) < 3, y);
+        try {
+          await p.waitForFunction((y) => Math.abs(scrollY - y) < 3, y);
+        } catch {
+          throw new Error(
+            JSON.stringify({
+              case: 'srs-return',
+              offline: disconnected,
+              width,
+              font,
+              sampled,
+              leaving,
+              returned: await srsGeometry(p),
+            }),
+          );
+        }
         assert.equal(await p.locator('.flash-word').textContent(), word);
         assert.equal(
           await p
@@ -746,6 +783,44 @@ try {
         release();
         await c.close();
       }
+    }
+    {
+      const { c, p } = await create();
+      await goto(p, '#/games');
+      await p.locator('a[href="#/games/genshin"]').click();
+      await readyList(p);
+      await tile(p).click();
+      await p.getByLabel('語音情境').waitFor();
+      for (let i = 0; i < 38; i++) {
+        const id = await p.evaluate(() => history.state.nihongoPageEntry);
+        await p.evaluate(
+          (i) => (location.hash = '#/settings?replaced-parent=' + i),
+          i,
+        );
+        await p.waitForFunction(
+          (id) => history.state.nihongoPageEntry !== id,
+          id,
+        );
+        await settle(p);
+      }
+      await p.evaluate(() => history.go(-38));
+      await p.getByLabel('語音情境').waitFor();
+      await p.goBack();
+      await readyList(p);
+      await p.getByRole('link', { name: '所有遊戲', exact: true }).click();
+      await p.waitForURL((u) => u.hash === '#/games');
+      await p.goForward();
+      await p.getByLabel('語音情境').waitFor();
+      const length = await p.evaluate(() => history.length);
+      await p.getByRole('link', { name: /返回.*角色清單/ }).click();
+      await readyList(p);
+      assert.equal(await p.evaluate(() => location.hash), '#/games/genshin');
+      assert.equal(await p.evaluate(() => history.length), length);
+      result.fallback.push({
+        replacedAncestorInvalidated: true,
+        forwardEntrySafeParent: true,
+      });
+      await c.close();
     }
     // An evicted entry gets fresh state and an internal replace fallback. The
     // browser entry metadata is observed, not fabricated or persisted elsewhere.
