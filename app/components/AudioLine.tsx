@@ -105,14 +105,21 @@ export function PlayButton({
   label = '播放',
   caption = false,
   onPlayed,
+  failureState,
 }: {
   audio: string;
   label?: string;
   caption?: boolean;
   onPlayed?: () => void;
+  // A returning SRS entry retains its known error layout, never playback.
+  failureState?: readonly [string | null, (audio: string | null) => void];
 }) {
   const ref = useRef<HTMLAudioElement>(null);
-  const [failedAudio, setFailedAudio] = useState<string | null>(null);
+  const [localFailure, setLocalFailure] = useState<string | null>(null);
+  const [failedAudio, setFailedAudio] = failureState ?? [
+    localFailure,
+    setLocalFailure,
+  ];
   const [playing, setPlaying] = useState(false);
   const counted = useRef(false);
   const failed = failedAudio === audio;

@@ -170,6 +170,7 @@ async function srsGeometry(p) {
       .height,
     wordTop: document.querySelector('.flash-word')?.getBoundingClientRect().top,
     image: !!document.querySelector('.vocab-illustration'),
+    audioError: !!document.querySelector('.play[data-failed]'),
   }));
 }
 async function answerImageSettled(p) {
@@ -624,6 +625,12 @@ try {
         await p.getByRole('button', { name: /^記得，/ }).click();
         await p.getByRole('button', { name: '顯示答案', exact: true }).click();
         await answerImageSettled(p);
+        await p.getByRole('button', { name: '播放', exact: true }).click();
+        if (disconnected) await p.locator('.play .error').waitFor();
+        else
+          await p.waitForFunction(() =>
+            [...document.querySelectorAll('audio')].some((a) => !a.paused),
+          );
         await p.evaluate(() => scrollTo(0, 300));
         await settle(p);
         const sampled = await srsGeometry(p);
@@ -704,6 +711,96 @@ try {
         });
         await c.close();
       }
+    for (const [width, height, font] of [
+      [375, 667, 100],
+      [320, 480, 150],
+    ]) {
+      const c = await browser.newContext({
+        viewport: { width, height },
+        serviceWorkers: 'block',
+        reducedMotion: 'reduce',
+      });
+      await c.addInitScript(
+        (font) =>
+          document.addEventListener(
+            'DOMContentLoaded',
+            () => (document.documentElement.style.fontSize = font + '%'),
+          ),
+        font,
+      );
+      await c.route('**/images/vocab/**', (route) => route.abort());
+      let delaying = false,
+        release;
+      const gate = new Promise((r) => (release = r));
+      const failAudio = async (route) => {
+        if (delaying) await gate;
+        await route.abort();
+      };
+      await c.route('**/audio/**', failAudio);
+      const p = await c.newPage();
+      p.on('pageerror', (e) => result.pageerrors.push(e.message));
+      try {
+        await goto(p, '#/settings');
+        const progress = emptyProgress(),
+          card = longCards[1];
+        progress.srs[card.id] = schedule(
+          undefined,
+          'again',
+          toDateString(),
+          new Date().toISOString(),
+        );
+        await p.evaluate(({ key, s }) => localStorage.setItem(key, s), {
+          key,
+          s: serializeProgress(progress),
+        });
+        await p.reload();
+        await goto(p, '#/srs?category=games');
+        await p.getByRole('button', { name: '顯示答案', exact: true }).click();
+        await p.getByRole('button', { name: '播放', exact: true }).click();
+        await p.locator('.play .error').waitFor();
+        await answerImageSettled(p);
+        await p.evaluate(() => scrollTo(0, 300));
+        await settle(p);
+        const y = await p.evaluate(() => scrollY),
+          saved = await p.evaluate((key) => localStorage.getItem(key), key);
+        await p
+          .getByRole('navigation', { name: '功能' })
+          .getByRole('link', { name: '設定', exact: true })
+          .click();
+        delaying = true;
+        await p.goBack();
+        await p.locator('.flash-word').waitFor();
+        await settle(p);
+        assert.equal(await p.locator('.play .error').count(), 1);
+        assert.equal(await p.evaluate(() => scrollY), y);
+        release();
+        await settle(p);
+        assert.equal(await p.evaluate(() => scrollY), y);
+        await noPlayback(p);
+        await c.unroute('**/audio/**', failAudio);
+        await p.getByRole('button', { name: '播放', exact: true }).click();
+        await p.waitForFunction(() =>
+          [...document.querySelectorAll('audio')].some(
+            (a) => !a.paused && a.currentTime > 0,
+          ),
+        );
+        assert.equal(await p.locator('.play .error').count(), 0);
+        assert.equal(
+          await p.evaluate((key) => localStorage.getItem(key), key),
+          saved,
+        );
+        result.study.push({
+          delayedAudioErrorLayout: true,
+          width,
+          font,
+          readingY: y,
+          explicitRetryRecovered: true,
+        });
+      } finally {
+        release();
+        await c.close();
+      }
+    }
     // Force the image failure to occur AFTER restoration, independently of
     // OS/network timing. It must not move an established reading position.
     for (const [width, height, font] of [
@@ -755,6 +852,12 @@ try {
         await goto(p, '#/srs?category=games');
         await p.getByRole('button', { name: '顯示答案', exact: true }).click();
         await answerImageSettled(p);
+        await p.getByRole('button', { name: '播放', exact: true }).click();
+        if (disconnected) await p.locator('.play .error').waitFor();
+        else
+          await p.waitForFunction(() =>
+            [...document.querySelectorAll('audio')].some((a) => !a.paused),
+          );
         await p.evaluate(() => scrollTo(0, 300));
         await settle(p);
         const y = await p.evaluate(() => scrollY);
