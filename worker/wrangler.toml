@@ -1,4 +1,6 @@
-# 同步 Worker（T29）：Google 登入 + KV。部署：wrangler deploy -c worker/wrangler.toml
+# 同步 Worker（T29）：Google 登入 + KV，並以 static assets 提供網頁（public/nihongo-lab/）。
+# 網頁與 API 同源，session 放 HttpOnly cookie（SEC-P1-20261031）。部署由 CI（.github/workflows/ci.yml）
+# 建置網頁後執行；手動部署前要先 npm run build 並把 dist 複製到 worker/public/nihongo-lab。
 # 帳號 email（ALLOWED_EMAIL）與 session 簽名金鑰（SESSION_SECRET）是 secret，不寫在這裡：
 #   wrangler secret put ALLOWED_EMAIL -c worker/wrangler.toml
 #   wrangler secret put SESSION_SECRET -c worker/wrangler.toml
@@ -9,8 +11,10 @@ compatibility_date = "2026-09-01"
 [vars]
 # Google OAuth 網頁用戶端 ID（公開值，網頁原始碼本來就看得到）
 GOOGLE_CLIENT_ID = "44081305799-ue51eubceqcnmmotp49b67rkgi6qu33v.apps.googleusercontent.com"
-# 允許呼叫的網頁來源（正式站與本機開發）
-ALLOWED_ORIGINS = "https://frobel0520.github.io,http://localhost:5183,http://localhost:5173"
+
+[assets]
+# 網頁 build 輸出放在 public/nihongo-lab/（路徑維持 /nihongo-lab/）；_headers 設 CSP，_redirects 把 / 導到 /nihongo-lab/。
+directory = "./public"
 
 [[kv_namespaces]]
 binding = "PROGRESS"
