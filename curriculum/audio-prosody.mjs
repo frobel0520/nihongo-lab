@@ -8,6 +8,50 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T169：僅新增本批已核對的文脈覆寫，原有音檔與覆寫保持。
+"audio/games/genshin/gram-50bd33a98e.mp3": {
+    "text": "我に光を。",
+    "reading": "われにひかりを。",
+    "kana": "ワ'レニ/_ヒカリ'オ",
+    "reason": "T169：我に在此讀われに，接收光者為說話者；光を的原始片語保持。 本覆寫僅為文脈讀音與原未受影響片語保持，不表示逐句人耳或原配音重音已驗收。",
+    "reference": "voicevox"
+  },
+  "audio/games/genshin/gram-58fcef534d.mp3": {
+    "text": "結霜せよ。",
+    "reading": "けっそうせよ。",
+    "kana": "ケッソオ'/セ'ヨ",
+    "reason": "T169：結霜為けっそう，並非ゆいしも；保留原せよ命令片語。 本覆寫僅為文脈讀音與原未受影響片語保持，不表示逐句人耳或原配音重音已驗收。",
+    "reference": "voicevox"
+  },
+  "audio/games/genshin/gram-b8ca38aee9.mp3": {
+    "text": "歌え、僕の名の下に！",
+    "reading": "うたえ、ぼくのなのもとに！",
+    "kana": "ウタエ'、ボ'クノ/ナノ'/モト'ニ",
+    "reason": "T169：名の下に為名義／權威下，讀なのもとに；只替換下に，前三個片語及逗點保持。 本覆寫僅為文脈讀音與原未受影響片語保持，不表示逐句人耳或原配音重音已驗收。",
+    "reference": "voicevox"
+  },
+  "audio/games/genshin/gram-8277c423f9.mp3": {
+    "text": "結陣！",
+    "reading": "けつじん！",
+    "kana": "ケツ'ジン",
+    "reason": "T169：結陣為けつじん，不取結字孤立的ゆい讀音。 本覆寫僅為文脈讀音與原未受影響片語保持，不表示逐句人耳或原配音重音已驗收。",
+    "reference": "voicevox"
+  },
+  "audio/games/genshin/gram-cd628915cc.mp3": {
+    "text": "迅影の如く！",
+    "reading": "じんえいのごとく！",
+    "kana": "ジンエイノ'/ゴ'トク",
+    "reason": "T169：迅影按じんえい，避免把影孤立讀かげ；保留原如く片語。 本覆寫僅為文脈讀音與原未受影響片語保持，不表示逐句人耳或原配音重音已驗收。",
+    "reference": "voicevox"
+  },
+  "audio/games/genshin/gram-1c5fae8485.mp3": {
+    "text": "瞬くまに。",
+    "reading": "またたくまに。",
+    "kana": "マタタ'クマニ",
+    "reason": "T169：瞬くまに的慣用語讀またたくまに；控制查詢以間提供分詞語境，不改原教材ま的字面。 本覆寫僅為文脈讀音與原未受影響片語保持，不表示逐句人耳或原配音重音已驗收。",
+    "reference": "voicevox"
+  },
+
 // T168：只補新音檔的已核對文脈讀音；既有覆寫保持。
 
   "audio/games/genshin/gram-9988226272.mp3": {

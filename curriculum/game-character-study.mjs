@@ -12,6 +12,7 @@ import { getErCasting } from './er-voice-casting.mjs';
 import { genshinRoster } from './genshin-character-roster.mjs';
 import { genshinSupplement } from './genshin-supplement.mjs';
 import { genshinActionExpansion } from './genshin-action-expansion.mjs';
+import { genshinActionExpansionNext } from './genshin-action-expansion-next.mjs';
 import { genshinQuoteSources } from './genshin-quote-sources.mjs';
 import { audioPath, contentHash } from './author.mjs';
 import { eternalReturnRoster } from './game-character-roster.mjs';
@@ -3727,7 +3728,7 @@ for (const source of genshinSupplement) {
   target.lines = [...target.lines, ...addedLines];
 }
 // Preserve existing entries and progress IDs; each new phrase has its own source ID.
-for (const { characterId, key, choices: _choices, sourceItemId, ...row } of genshinActionExpansion) {
+for (const { characterId, key, choices: _choices, sourceItemId, ...row } of [...genshinActionExpansion, ...genshinActionExpansionNext]) {
   const target = genshin.characters.find((c) => c.id === characterId);
   if (!target?.voice) throw new Error(`Missing expansion character: ${characterId}`);
   const id = `genshin:${characterId}:${key}`;
