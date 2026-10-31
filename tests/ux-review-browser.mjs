@@ -27,10 +27,17 @@ const root = resolve(arg('--dist', 'dist')),
 if (shots) await mkdir(shots, { recursive: true });
 const n5 = await loadCategory('n5'),
   { gameCharacterStudy } = await loadGameData();
-const smallAudio = gameLines(gameCharacterStudy, 'genshin', 'collei').map(
-  (x) => x.line.audio,
+// Use the character's actual unique audio scope: adding verified phrases must
+// not invalidate these downloader regressions or leave new files untested.
+const smallAudio = [
+  ...new Set(
+    gameLines(gameCharacterStudy, 'genshin', 'collei').map((x) => x.line.audio),
+  ),
+];
+assert.ok(
+  smallAudio.length >= 3,
+  'partial failure fixture needs multiple real clips',
 );
-assert.equal(smallAudio.length, 3);
 let delay = 0,
   failAudio = '',
   missingPlayback = '',
@@ -1050,7 +1057,7 @@ try {
         .locator('output')
         .filter({ hasText: '已取消音檔下載' })
         .waitFor();
-      // A separate, real three-clip character batch covers completion, partial failure and resume.
+      // The complete real character scope covers completion, partial failure and resume.
       delay = 0;
       await p.evaluate(async (paths) => {
         const c = await caches.open('lesson-audio-v5');
@@ -1067,7 +1074,7 @@ try {
         .click();
       await character
         .locator('output')
-        .filter({ hasText: /完成：新存 2 個，失敗 1 個/ })
+        .filter({ hasText: `完成：新存 ${smallAudio.length - 1} 個，失敗 1 個` })
         .waitFor();
       failAudio = '';
       const requestsBefore = downloads;
