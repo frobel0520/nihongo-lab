@@ -100,7 +100,10 @@ jobs:
           if npx --yes wrangler@4.152.0 deploy --config wrangler.toml > ../wrangler.log 2>&1; then
             echo "WORKER_PUBLICATION deployed"
           else
-            echo "WORKER_PUBLICATION failed"; exit 1
+            echo "WORKER_PUBLICATION failed"
+            # 只印錯誤段落找原因；本 Worker 的 vars 只有公開的 Google Client ID，secret 不會出現在 wrangler 輸出。
+            grep -E -A20 '\[ERROR\]|✘' ../wrangler.log | head -60 || echo "(wrangler 沒有輸出可辨識的錯誤段落)"
+            exit 1
           fi
 
   deploy-pages-redirect:
