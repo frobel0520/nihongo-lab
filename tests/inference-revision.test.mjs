@@ -1,9 +1,10 @@
+import { historicalGameCharacterStudy as gameCharacterStudy } from './helpers/before-action-expansion.mjs';
 import { beforeReviewCloseout } from './helpers/review-closeout-baseline.mjs';
 import { test } from 'node:test';
 import { beforeFollowupInference } from './helpers/followup-inference-baseline.mjs';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { stages, gameCharacterStudy, curriculumSummary } from '../curriculum/lessons.mjs';
+import { stages, curriculumSummary } from '../curriculum/lessons.mjs';
 import { createStudyCatalog } from '../lib/catalog-build.mjs';
 import { sceneRecordId } from '../lib/scene-listening.mjs';
 import { emptyProgress, recordDictation, parseProgress, serializeProgress } from '../lib/progress.mjs';

@@ -1,3 +1,4 @@
+import { genshinActionExpansion } from './genshin-action-expansion.mjs';
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
@@ -1035,3 +1036,9 @@ export const gameMeaningDistractors = {
   'genshin:keqing:join': ['時間多得用不完。', '邀請對方繼續等待。'],
   'genshin:keqing:skill': ['禁止對方前進。', '對方已經回來了。'],
 };
+
+for (const line of genshinActionExpansion) {
+  const id = `genshin:${line.characterId}:${line.key}`;
+  if (gameMeaningDistractors[id]) throw new Error(`Duplicate question: ${id}`);
+  gameMeaningDistractors[id] = /** @type {[string, string]} */ (line.choices);
+}

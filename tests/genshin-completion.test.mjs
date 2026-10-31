@@ -1,5 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { genshinActionExpansion } from '../curriculum/genshin-action-expansion.mjs';
 import {
   gameCharacterStudy,
   genshinActionCoverage,
@@ -161,7 +162,7 @@ test('固定來源96位與日文Wiki補錄角色分別核對；缺句角色保�
   );
   assert.equal(
     collected.flatMap((c) => c.lines).length,
-    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0),
+    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length,
   );
   for (const c of collected) {
     const expected = c.id.startsWith('manekin')
@@ -176,8 +177,8 @@ test('固定來源96位與日文Wiki補錄角色分別核對；缺句角色保�
           ]
         : ['元素技能', '元素爆發', '編隊加入'];
     assert.deepEqual(
-      c.lines.map((l) => l.category).sort(),
-      expected.sort(),
+      [...new Set(c.lines.map((l) => l.category))].sort(),
+      [...new Set(expected)].sort(),
       c.id,
     );
   }

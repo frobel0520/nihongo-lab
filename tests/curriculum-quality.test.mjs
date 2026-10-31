@@ -1,9 +1,10 @@
+import { historicalGameCharacterStudy as gameCharacterStudy } from './helpers/before-action-expansion.mjs';
 import { test } from 'node:test';
 import { beforeInference } from './helpers/inference-baseline.mjs';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { stages, gameCharacterStudy } from '../curriculum/lessons.mjs';
+import { stages } from '../curriculum/lessons.mjs';
 import { sceneRecordId } from '../lib/scene-listening.mjs';
 const baseline = JSON.parse(readFileSync(new URL('./fixtures/curriculum-cfea830-quality.json', import.meta.url), 'utf8'));
 const historicalStages = beforeInference(stages);

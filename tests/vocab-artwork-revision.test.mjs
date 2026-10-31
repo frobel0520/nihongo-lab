@@ -1,4 +1,10 @@
 import test from 'node:test';
+import { genshinActionExpansion } from '../curriculum/genshin-action-expansion.mjs';
+import { gameCharacterStudy } from '../curriculum/lessons.mjs';
+import { gameRecordId } from '../lib/game-study.mjs';
+const expansionIds = new Set(genshinActionExpansion.map(x => `genshin:${x.characterId}:${x.key}`));
+const expansionCardIds = new Set(gameCharacterStudy.flatMap(g => g.characters.flatMap(c => c.lines)).filter(line => expansionIds.has(line.id)).map(line => 'game-card:' + gameRecordId(line)));
+
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
@@ -34,7 +40,7 @@ test('artwork updates keep all card identities and split only incompatible share
   assert.equal(
     digest(
       JSON.stringify(
-        VOCAB_ILLUSTRATIONS.map(({ src: _src, ...identity }) => identity),
+        VOCAB_ILLUSTRATIONS.filter(card => !expansionCardIds.has(card.id)).map(({ src: _src, ...identity }) => identity),
       ),
     ),
     'db0ca719f1a65972d41538a6894c9a614330c3982802ac08726fc5f15223e0bb',
@@ -72,8 +78,11 @@ test('artwork updates keep all card identities and split only incompatible share
 test('current artwork bytes generate content versions and preserve the approved complete asset set', async () => {
   const dir = new URL('../public/images/vocab/', import.meta.url);
   const files = (await readdir(dir)).filter((f) => f.endsWith('.svg')).sort();
+  const publishedFiles = files.filter(f => !f.startsWith('action'));
+  assert.equal(publishedFiles.length, 2245);
+  assert.equal(files.length - publishedFiles.length, 42);
   const entries = [];
-  for (const file of files)
+  for (const file of publishedFiles)
     entries.push(
       file +
         ':' +
@@ -86,7 +95,7 @@ test('current artwork bytes generate content versions and preserve the approved 
     digest(entries.join('\n')),
     '9c51738025666b68ede1e6636b02186db366ffa3e2dd1f56a9819ae0abdb98a8',
   );
-  assert.equal(files.length, 2245);
+  assert.equal(files.length, 2287);
   const rows = await buildVocabImageManifestRows(fileURLToPath(dir));
   assert.equal(rows.length, files.length);
   const actual = new Map(rows.map(([name, version]) => [name, version]));

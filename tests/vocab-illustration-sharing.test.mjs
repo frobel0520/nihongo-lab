@@ -3,7 +3,9 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { VOCAB_ILLUSTRATIONS as RUNTIME_ILLUSTRATIONS, illustrationFor } from '../lib/vocab-illustrations.mjs';
-import { collectInventoryCards } from '../scripts/vocab-illustration-inventory.mjs';
+import { collectInventoryCards as collectCurrentInventoryCards } from '../scripts/vocab-illustration-inventory.mjs';
+import { publishedCards } from './helpers/before-action-expansion.mjs';
+const collectInventoryCards = async () => publishedCards(await collectCurrentInventoryCards());
 
 // T163 moved the composition descriptions (alt) out of the runtime mapping into authoring data.
 // Rejoining them reproduces the historical snapshots. T166 intentionally splits six src values;

@@ -1,8 +1,8 @@
+import { historicalGameCharacterStudy as gameCharacterStudy, historicalSummary as curriculumSummary, historicalAudioPaths as loadAllAudioPaths, historicalCatalog as STUDY_CATALOG } from './helpers/before-action-expansion.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { stages, gameCharacterStudy, curriculumSummary, loadAllAudioPaths } from '../curriculum/lessons.mjs';
-import { STUDY_CATALOG } from '../lib/study-catalog.mjs';
+import { stages } from '../curriculum/lessons.mjs';
 import { sceneRecordId } from '../lib/scene-listening.mjs';
 import { grammarRecordId } from '../lib/grammar-study.mjs';
 import { listeningRecordId, trainingClips } from '../lib/anime-training.mjs';

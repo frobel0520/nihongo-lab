@@ -8,6 +8,44 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T168：只補新音檔的已核對文脈讀音；既有覆寫保持。
+
+  "audio/games/genshin/gram-9988226272.mp3": {
+    "text": "此処より昇る。",
+    "reading": "ここよりのぼる。",
+    "kana": "ココヨ'リ/ノボル'",
+    "reason": "T168：依本文及ruby核對此処（ここ）、皆（みんな）、全弾（ぜんだん）或命令義的命（めい）；只重查錯讀片語，保留其餘原查詢重音與句界，不推定原配音演技或人耳驗收。",
+    "reference": "voicevox"
+  },
+  "audio/games/genshin/gram-ac50c17370.mp3": {
+    "text": "皆を守るからね！",
+    "reading": "みんなをまもるからね！",
+    "kana": "ミンナ'オ/マモ'ルカラネ",
+    "reason": "T168：依本文及ruby核對此処（ここ）、皆（みんな）、全弾（ぜんだん）或命令義的命（めい）；只重查錯讀片語，保留其餘原查詢重音與句界，不推定原配音演技或人耳驗收。",
+    "reference": "voicevox"
+  },
+  "audio/games/genshin/gram-ebcd998718.mp3": {
+    "text": "皆、頑張ってね！",
+    "reading": "みんな、がんばってね！",
+    "kana": "ミンナ'、ガンバ'ッテネ",
+    "reason": "T168：依本文及ruby核對此処（ここ）、皆（みんな）、全弾（ぜんだん）或命令義的命（めい）；只重查錯讀片語，保留其餘原查詢重音與句界，不推定原配音演技或人耳驗收。",
+    "reference": "voicevox"
+  },
+  "audio/games/genshin/gram-ca7b63cf9f.mp3": {
+    "text": "全弾…発射！",
+    "reading": "ぜんだん…はっしゃ！",
+    "kana": "ゼン'ダン、ハッシャ'",
+    "reason": "T168：依本文及ruby核對此処（ここ）、皆（みんな）、全弾（ぜんだん）或命令義的命（めい）；只重查錯讀片語，保留其餘原查詢重音與句界，不推定原配音演技或人耳驗收。",
+    "reference": "voicevox"
+  },
+  "audio/games/genshin/gram-16e850a50c.mp3": {
+    "text": "わが命を聞きたまえ。",
+    "reading": "わがめいをききたまえ。",
+    "kana": "ワ'ガ/メ'イオ/_キキタマエ'",
+    "reason": "T168：依本文及ruby核對此処（ここ）、皆（みんな）、全弾（ぜんだん）或命令義的命（めい）；只重查錯讀片語，保留其餘原查詢重音與句界，不推定原配音演技或人耳驗收。",
+    "reference": "voicevox"
+  }
+,
 // T135：同字同讀音重音及文脈查詢；機械核對非逐句人工試聽。
 "audio/stage-1/general-listening-172/vocab-39e309f2d1.mp3":{"text":"十分","reading":"じゅっぷん","kana":"ジュ'ッ/プ'ン","reason":"T135：教材讀音重查；讀音及重音機械核對不等於逐句人耳驗收。","reference":"voicevox"},
 "audio/stage-1/general-listening-172/gram-6b2cf382a5.mp3":{"text":"もっと早く着いたら、入れたかな。","reading":"もっと はやく ついたら、はいれたかな。","kana":"モ'ット/ハ'ヤ_クツイタラ、ハイレ'タカナ","reason":"T135：依本課文脈改查歧義片語；按序保留未受影響片語的原始JSON，不由孤立詞推定整句重音；讀音及重音機械核對不等於逐句人耳驗收。","reference":"voicevox"},

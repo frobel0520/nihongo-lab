@@ -1,3 +1,4 @@
+import { historicalGameCharacterStudy as gameCharacterStudy } from './helpers/before-action-expansion.mjs';
 import { test } from 'node:test';
 import { beforeInference } from './helpers/inference-baseline.mjs';
 import assert from 'node:assert/strict';
@@ -5,7 +6,6 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import {
   stages,
-  gameCharacterStudy,
   curriculumSummary,
   loadLesson,
   loadCategory,
@@ -56,10 +56,7 @@ test('T121: every pre-split progress identity and authored content matches 557fe
     ),
   }));
   const originalLessons = originalStages.flatMap((stage) => stage.lessons);
-  const originalCatalog = createStudyCatalog(
-    originalStages,
-    gameCharacterStudy,
-  );
+  const originalCatalog = createStudyCatalog(originalStages, gameCharacterStudy);
   const ids = {};
   for (const [k, c] of Object.entries(originalCatalog)) {
     ids[k + '.cards'] = c.cards.map((x) => x.id);
