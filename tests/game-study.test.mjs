@@ -1,3 +1,4 @@
+import { genshinActionExpansionNext } from '../curriculum/genshin-action-expansion-next.mjs';
 import { test } from 'node:test';
 import { genshinActionExpansion } from '../curriculum/genshin-action-expansion.mjs';
 import assert from 'node:assert/strict';
@@ -44,7 +45,7 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
   // ER 55句官方選角與191句逐字稿，另收錄原神286句。
   assert.equal(
     lines.length,
-    532 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length,
+    532 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length,
   );
   assert.equal(new Set(lines.map((l) => l.id)).size, lines.length);
   assert.equal(new Set(lines.map(gameRecordId)).size, lines.length);

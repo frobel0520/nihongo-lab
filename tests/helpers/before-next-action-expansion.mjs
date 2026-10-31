@@ -1,0 +1,83 @@
+// T169: explicit cohort projection keeps published integrity snapshots intact.
+// Current catalog/payload checks still operate on the complete current data.
+import { gameCharacterStudy } from '../../curriculum/lessons.mjs';
+import { genshinActionExpansionNext } from '../../curriculum/genshin-action-expansion-next.mjs';
+import { gameRecordId } from '../../lib/game-study.mjs';
+export const nextLineIds = new Set(genshinActionExpansionNext.map(row => `genshin:${row.characterId}:${row.key}`));
+export const nextCardIds = new Set(gameCharacterStudy.flatMap(game => game.characters.flatMap(character => character.lines)).filter(line => nextLineIds.has(line.id)).map(line => 'game-card:' + gameRecordId(line)));
+export const beforeNextGameCharacterStudy = gameCharacterStudy.map(game => ({
+  ...game,
+  characters: game.characters.map(character => ({ ...character, lines: character.lines.filter(line => !nextLineIds.has(line.id)) })),
+}));
+export const beforeNextCards = cards => cards.filter(card => !nextCardIds.has(card.id));
+
+// Exact new asset names; published ability.svg is intentionally not included.
+export const nextAssetNames = new Set([
+  "abilityadvanceattack.svg",
+  "abilityaskmoment.svg",
+  "abilityatone.svg",
+  "abilityattackdefence.svg",
+  "abilityburnaway.svg",
+  "abilitychallengeme.svg",
+  "abilityclearobstacle.svg",
+  "abilityclench.svg",
+  "abilitycoldfront.svg",
+  "abilitycomeatme.svg",
+  "abilitycrush.svg",
+  "abilitydedicate.svg",
+  "abilitydiveready.svg",
+  "abilitydonttouch.svg",
+  "abilitydust.svg",
+  "abilityendwrongdoing.svg",
+  "abilityeternalinstant.svg",
+  "abilityfallglass.svg",
+  "abilityfarewell.svg",
+  "abilityfervor.svg",
+  "abilityflamebind.svg",
+  "abilityfollowwind.svg",
+  "abilityformation.svg",
+  "abilityfreeze.svg",
+  "abilityfrost.svg",
+  "abilityheatflash.svg",
+  "abilityhere.svg",
+  "abilityinstant.svg",
+  "abilityisolate.svg",
+  "abilityjudgment.svg",
+  "abilitykindlelight.svg",
+  "abilitymagiclamp.svg",
+  "abilitymagicstart.svg",
+  "abilitymining.svg",
+  "abilitymorningstar.svg",
+  "abilityoverdrink.svg",
+  "abilityovergrow.svg",
+  "abilitypraise.svg",
+  "abilityprey.svg",
+  "abilitypurge.svg",
+  "abilitypurify.svg",
+  "abilityrapids.svg",
+  "abilityreceivelight.svg",
+  "abilityreconstruct.svg",
+  "abilityremovethreat.svg",
+  "abilityscratch.svg",
+  "abilitysettle.svg",
+  "abilityshockwave.svg",
+  "abilityshopthanks.svg",
+  "abilitysinginname.svg",
+  "abilitysnowdance.svg",
+  "abilityspecialdrink.svg",
+  "abilitysplitbamboo.svg",
+  "abilityspotlight.svg",
+  "abilitysprout.svg",
+  "abilitysweep.svg",
+  "abilityswiftshadow.svg",
+  "abilityswordorder.svg",
+  "abilitythunder.svg",
+  "abilitytrap.svg",
+  "abilityunveil.svg",
+  "abilitywaitandsee.svg",
+  "abilitywhirlpool.svg",
+  "abilitywilddance.svg",
+  "abilitywind.svg",
+  "abilitywindguide.svg",
+  "abilitywindrespond.svg"
+]);
