@@ -1,7 +1,8 @@
+import { beforeNextGameCharacterStudy as gameCharacterStudy } from './helpers/before-next-action-expansion.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { gameCharacterStudy, genshinActionCoverage, loadCategory } from '../curriculum/lessons.mjs';
+import { genshinActionCoverage, loadCategory } from '../curriculum/lessons.mjs';
 import { genshinActionExpansion } from '../curriculum/genshin-action-expansion.mjs';
 import { gameListeningQuestion, gameRecordId } from '../lib/game-study.mjs';
 import { illustrationFor } from '../lib/vocab-illustrations.mjs';
