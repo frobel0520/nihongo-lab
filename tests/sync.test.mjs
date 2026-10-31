@@ -6,6 +6,7 @@ import {
   describeLastSync,
   loadSyncState,
   requestSession,
+  requestSignOut,
   requestSync,
   saveSyncState,
   shouldSyncOnForeground,
@@ -28,25 +29,27 @@ const withCard = (id = 'l:a') => recordReview(emptyProgress(), id, 'good', '2026
 test('登入狀態：存了讀得回來；沒有、壞掉、欄位不對都當成沒登入（不丟錯）', () => {
   const storage = fakeStorage();
   assert.equal(loadSyncState(storage), null);
-  assert.equal(saveSyncState(storage, { token: 't', email: 'me@example.com', lastSyncAt: 5 }), true);
-  assert.deepEqual(loadSyncState(storage), { token: 't', email: 'me@example.com', lastSyncAt: 5 });
+  assert.equal(saveSyncState(storage, { email: 'me@example.com', lastSyncAt: 5 }), true);
+  assert.deepEqual(loadSyncState(storage), { email: 'me@example.com', lastSyncAt: 5 });
+  // session 本體在 HttpOnly cookie：存檔裡不該有 token
+  assert.equal(JSON.parse(storage.getItem(SYNC_STATE_KEY)).token, undefined);
 
-  for (const raw of ['{壞掉', '[]', 'null', '{}', JSON.stringify({ token: '', email: 'x' }), JSON.stringify({ token: 't' })]) {
+  for (const raw of ['{壞掉', '[]', 'null', '{}', JSON.stringify({ email: '' }), JSON.stringify({ token: 't' })]) {
     assert.equal(loadSyncState(fakeStorage({ [SYNC_STATE_KEY]: raw })), null, raw);
   }
   // lastSyncAt 不是數字就當沒同步過，但登入狀態仍有效
   assert.equal(
-    loadSyncState(fakeStorage({ [SYNC_STATE_KEY]: JSON.stringify({ token: 't', email: 'e', lastSyncAt: 'x' }) })).lastSyncAt,
+    loadSyncState(fakeStorage({ [SYNC_STATE_KEY]: JSON.stringify({ email: 'e', lastSyncAt: 'x' }) })).lastSyncAt,
     null,
   );
   assert.equal(loadSyncState(null), null);
 });
 
 test('登入狀態：寫入失敗回 false；登出清得掉', () => {
-  assert.equal(saveSyncState(fakeStorage({}, { failSet: true }), { token: 't', email: 'e', lastSyncAt: null }), false);
-  assert.equal(saveSyncState(null, { token: 't', email: 'e', lastSyncAt: null }), false);
+  assert.equal(saveSyncState(fakeStorage({}, { failSet: true }), { email: 'e', lastSyncAt: null }), false);
+  assert.equal(saveSyncState(null, { email: 'e', lastSyncAt: null }), false);
   const storage = fakeStorage();
-  saveSyncState(storage, { token: 't', email: 'e', lastSyncAt: null });
+  saveSyncState(storage, { email: 'e', lastSyncAt: null });
   clearSyncState(storage);
   assert.equal(loadSyncState(storage), null);
 });
@@ -64,9 +67,9 @@ test('shouldSyncOnForeground 與 describeLastSync', () => {
   assert.equal(describeLastSync(now - 2 * 24 * 3600_000, now), '2 天前');
 });
 
-test('requestSession：成功回 token 與 email；各種失敗有固定的種類與說明', async () => {
-  const ok = await requestSession({ idToken: 'g', fetchImpl: reply(200, { token: 'T', email: 'me@example.com' }) });
-  assert.deepEqual(ok, { ok: true, token: 'T', email: 'me@example.com' });
+test('requestSession：成功回 email（session 由 Worker 設在 HttpOnly cookie）；各種失敗有固定的種類與說明', async () => {
+  const ok = await requestSession({ idToken: 'g', fetchImpl: reply(200, { email: 'me@example.com' }) });
+  assert.deepEqual(ok, { ok: true, email: 'me@example.com' });
 
   const stranger = await requestSession({ idToken: 'g', fetchImpl: reply(403, { error: 'not_allowed' }) });
   assert.equal(stranger.ok, false);
@@ -80,23 +83,23 @@ test('requestSession：成功回 token 與 email；各種失敗有固定的種�
   const origin = await requestSession({ idToken: 'g', fetchImpl: reply(403, { error: 'origin_not_allowed' }) });
   assert.match(origin.message, /網址沒有被允許/);
 
-  const malformed = await requestSession({ idToken: 'g', fetchImpl: reply(200, { token: 1 }) });
+  const malformed = await requestSession({ idToken: 'g', fetchImpl: reply(200, { email: 1 }) });
   assert.equal(malformed.ok, false);
 });
 
-test('requestSync：帶 Bearer、送整份進度，回應的進度驗證後回傳；換發的 token 一併帶回', async () => {
+test('requestSync：同源帶 cookie、不帶 Authorization，送整份進度，回應的進度驗證後回傳', async () => {
   const seen = [];
   const remote = withCard('l:cloud');
   const fetchImpl = async (url, init) => {
     seen.push({ url, init });
-    return new Response(JSON.stringify({ progress: remote, changed: true, token: 'NEW' }), { status: 200 });
+    return new Response(JSON.stringify({ progress: remote, changed: true }), { status: 200 });
   };
-  const result = await requestSync({ url: 'https://w.example', token: 'T', progress: withCard(), fetchImpl });
+  const result = await requestSync({ progress: withCard(), fetchImpl });
   assert.equal(result.ok, true);
   assert.deepEqual(result.progress, remote);
-  assert.equal(result.token, 'NEW');
-  assert.equal(seen[0].url, 'https://w.example/sync');
-  assert.equal(seen[0].init.headers.Authorization, 'Bearer T');
+  assert.equal(seen[0].url, '/sync');
+  assert.equal(seen[0].init.credentials, 'same-origin');
+  assert.equal(seen[0].init.headers.Authorization, undefined);
   assert.deepEqual(JSON.parse(seen[0].init.body).progress, withCard());
   assert.equal(seen[0].init.method, 'POST');
 });
@@ -159,4 +162,17 @@ test('requestSync：雲端回的進度格式不對（壞資料、版本太新、
     assert.equal(result.kind, 'server');
   }
   assert.equal((await run(emptyProgress())).ok, true);
+});
+
+test('requestSignOut：請 Worker 清 cookie；連不上時回失敗讓呼叫端維持登入', async () => {
+  const seen = [];
+  const ok = await requestSignOut({ fetchImpl: async (url, init) => { seen.push({ url, init }); return new Response('{"ok":true}', { status: 200 }); } });
+  assert.deepEqual(ok, { ok: true });
+  assert.equal(seen[0].url, '/logout');
+  assert.equal(seen[0].init.method, 'POST');
+  assert.equal(seen[0].init.credentials, 'same-origin');
+
+  const offline = await requestSignOut({ fetchImpl: async () => { throw new TypeError('offline'); } });
+  assert.equal(offline.ok, false);
+  assert.equal(offline.kind, 'offline');
 });

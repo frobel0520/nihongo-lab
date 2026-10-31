@@ -13,13 +13,18 @@ const flush = () => new Promise((resolve) => setImmediate(resolve));
 
 /** 假的同步伺服器：與上傳的進度合併後整份回傳（跟真的 Worker 一樣，鍵順序也可能不同）。 */
 function makeServer(initial = emptyProgress()) {
-  const server = { progress: initial, calls: 0, mode: 'ok', renew: null, gate: null };
+  const server = { progress: initial, calls: 0, mode: 'ok', gate: null, logouts: 0, logoutFails: false };
   server.handle = async (url, init) => {
     server.calls++;
     if (server.gate) await server.gate;
     if (url.endsWith('/auth')) {
       if (server.mode === 'forbidden') return json(403, { error: 'not_allowed' });
-      return json(200, { token: 'SESSION', email: 'me@example.com' });
+      return json(200, { email: 'me@example.com' });
+    }
+    if (url.endsWith('/logout')) {
+      if (server.logoutFails) throw new TypeError('Failed to fetch');
+      server.logouts++;
+      return json(200, { ok: true });
     }
     if (server.mode === 'offline') throw new TypeError('Failed to fetch');
     if (server.mode === 'expired') return json(401, { error: 'unauthorized' });
@@ -32,7 +37,7 @@ function makeServer(initial = emptyProgress()) {
       srs: Object.fromEntries(Object.entries(server.progress.srs).reverse()),
       dictation: Object.fromEntries(Object.entries(server.progress.dictation).reverse()),
     };
-    return json(200, { progress: reversed, changed: true, ...(server.renew ? { token: server.renew } : {}) });
+    return json(200, { progress: reversed, changed: true });
   };
   return server;
 }
@@ -59,7 +64,7 @@ function harness({ saved = null, local = emptyProgress(), server = makeServer(),
   h.fireTimers = async () => { for (const [id, t] of Array.from(h.timers)) { h.timers.delete(id); t.fn(); } await flush(); };
   return h;
 }
-const SAVED = { token: 'T0', email: 'me@example.com', lastSyncAt: null };
+const SAVED = { email: 'me@example.com', lastSyncAt: null };
 
 test('沒有登入：啟動不連網，各種通知都不做事', async () => {
   const h = harness();
@@ -175,7 +180,8 @@ test('登入：成功就存 session 並立刻同步；帳號不被允許則什�
   assert.equal(h.ctl.getStatus().signingIn, false);
   assert.equal(h.server.calls, 2); // /auth + /sync
   assert.ok(h.server.progress.srs['l:a']);
-  assert.equal(loadSyncState(h.storage).token, 'SESSION');
+  // session 在 HttpOnly cookie（由瀏覽器保管），本機只記 email
+  assert.deepEqual(loadSyncState(h.storage), { email: 'me@example.com', lastSyncAt: h.time });
 
   const denied = harness({ server: Object.assign(makeServer(), { mode: 'forbidden' }) });
   assert.equal(await denied.ctl.signIn('x'), false);
@@ -237,13 +243,19 @@ test('瀏覽器回報離線時不送請求；雲端存檔異常（500）顯示�
   assert.equal(corrupt.ctl.getStatus().signedIn, true);
 });
 
-test('伺服器換發新的 session 會存起來', async () => {
+test('同步請求不帶 token：session 由同源 cookie 送出', async () => {
+  const seen = [];
   const server = makeServer();
-  server.renew = 'RENEWED';
+  const handle = server.handle;
+  server.handle = async (url, init) => { seen.push(init); return handle(url, init); };
   const h = harness({ saved: SAVED, server });
   h.ctl.start();
   await h.ctl.syncNow();
-  assert.equal(loadSyncState(h.storage).token, 'RENEWED');
+  assert.ok(seen.length > 0);
+  for (const init of seen) {
+    assert.equal(init.headers.Authorization, undefined);
+    assert.equal(init.credentials, 'same-origin');
+  }
 });
 
 test('回到前景：距離上次嘗試不到 2 分鐘不同步，夠久才同步', async () => {
@@ -288,9 +300,11 @@ test('登出：清掉登入狀態與排程；同步途中登出，回來的結�
   h.server.gate = new Promise((resolve) => { release = resolve; });
   h.ctl.start();
   await flush();
-  h.ctl.signOut();
+  const signingOut = h.ctl.signOut();
   release();
+  assert.equal(await signingOut, true);
   await flush(); await flush();
+  assert.equal(h.server.logouts, 1);
   assert.equal(h.ctl.getStatus().signedIn, false);
   assert.equal(loadSyncState(h.storage), null);
   assert.equal(h.current.srs['l:cloud'], undefined, '登出後不再把雲端內容併進本機');
@@ -314,7 +328,7 @@ test('另一個分頁登入或登出（storage 事件）時，這一頁跟著變
   h.ctl.notifyStorageChanged();
   assert.equal(h.ctl.getStatus().signedIn, false);
 
-  h.storage.setItem(SYNC_STATE_KEY, JSON.stringify({ token: 'T9', email: 'me@example.com', lastSyncAt: null }));
+  h.storage.setItem(SYNC_STATE_KEY, JSON.stringify({ email: 'me@example.com', lastSyncAt: null }));
   h.ctl.notifyStorageChanged();
   await h.ctl.syncNow();
   assert.equal(h.ctl.getStatus().signedIn, true);
@@ -327,4 +341,16 @@ test('start 重複呼叫（React StrictMode）只同步一次；聽寫紀錄也�
   assert.equal(h.server.calls, 1);
   assert.equal(h.server.progress.dictation['s.mp3'].passed, true);
   assert.equal(fingerprintProgress(h.current), fingerprintProgress(h.server.progress));
+});
+
+test('登出時 Worker 連不上：維持登入並顯示錯誤，不假裝已登出', async () => {
+  const server = makeServer();
+  server.logoutFails = true;
+  const h = harness({ saved: SAVED, server });
+  h.ctl.start();
+  await h.ctl.syncNow();
+  assert.equal(await h.ctl.signOut(), false);
+  assert.equal(h.ctl.getStatus().signedIn, true);
+  assert.match(h.ctl.getStatus().error, /登出失敗/);
+  assert.deepEqual(loadSyncState(h.storage)?.email, 'me@example.com');
 });

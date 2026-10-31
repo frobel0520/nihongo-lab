@@ -1,14 +1,15 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { encodeBase64Url, encodeJson } from '../worker/base64url.mjs';
-import { MAX_SYNC_BYTES, handleRequest } from '../worker/handler.mjs';
+import { MAX_SYNC_BYTES, SESSION_COOKIE, handleRequest } from '../worker/handler.mjs';
 import { signSession, SESSION_TTL_MS } from '../worker/session.mjs';
 import { emptyProgress, recordDictation, recordReview } from '../lib/progress.mjs';
 
 const NOW = Date.UTC(2026, 9, 1, 12, 0, 0);
 const SECRET = 'a-long-enough-secret-value';
 const CLIENT_ID = 'client-123.apps.googleusercontent.com';
-const ORIGIN = 'https://frobel0520.github.io';
+// 網頁與 API 同源（Worker 也提供 /nihongo-lab/ 網頁）
+const ORIGIN = 'https://sync.example.workers.dev';
 
 function fakeKv(initial = {}) {
   const data = new Map(Object.entries(initial));
@@ -25,7 +26,6 @@ const makeEnv = (kv = fakeKv(), over = {}) => ({
   GOOGLE_CLIENT_ID: CLIENT_ID,
   ALLOWED_EMAIL: 'me@example.com',
   SESSION_SECRET: SECRET,
-  ALLOWED_ORIGINS: `${ORIGIN}, http://localhost:5183`,
   ...over,
 });
 
@@ -57,13 +57,20 @@ const call = (env, path, { method = 'POST', body, token, origin = ORIGIN, now = 
     method,
     headers: {
       ...(origin ? { Origin: origin } : {}),
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...(token ? { Cookie: `${SESSION_COOKIE}=${token}` } : {}),
       ...(body !== undefined ? { 'Content-Type': 'application/json' } : {}),
       ...headers,
     },
   };
   if (body !== undefined) init.body = typeof body === 'string' ? body : JSON.stringify(body);
   return handleRequest(new Request(`https://sync.example.workers.dev${path}`, init), env, deps(now));
+};
+
+/** 從 Set-Cookie 取出 session 值；沒有就回 null。 */
+const cookieToken = (response) => {
+  const header = response.headers.get('Set-Cookie');
+  const match = header && new RegExp(`^${SESSION_COOKIE}=([^;]*);`).exec(header);
+  return match ? match[1] : null;
 };
 
 const session = (over = {}) => signSession({ sub: 'user-1', email: 'me@example.com' }, SECRET, NOW + (over.issuedAt ?? 0));
@@ -77,25 +84,42 @@ test('/health：不需要憑證，也不洩漏設定', async () => {
   assert.deepEqual(await response.json(), { ok: true });
 });
 
-test('CORS：白名單裡的網頁拿到對應的 Allow-Origin；預檢回 204；不在白名單的來源直接 403', async () => {
+test('同源：不開 CORS；跨站與同站其他 Worker 的 POST 直接 403；沒有來源證據也擋；同源才進得去', async () => {
   const env = makeEnv();
-  const ok = await call(env, '/health', { method: 'GET', origin: 'http://localhost:5183' });
-  assert.equal(ok.headers.get('Access-Control-Allow-Origin'), 'http://localhost:5183');
-  assert.equal(ok.headers.get('Vary'), 'Origin');
+  const health = await call(env, '/health', { method: 'GET', origin: 'https://frobel0520.github.io' });
+  assert.equal(health.headers.get('Access-Control-Allow-Origin'), null);
 
-  const preflight = await call(env, '/sync', { method: 'OPTIONS' });
-  assert.equal(preflight.status, 204);
-  assert.equal(preflight.headers.get('Access-Control-Allow-Origin'), ORIGIN);
-  assert.match(preflight.headers.get('Access-Control-Allow-Headers'), /Authorization/);
+  const preflight = await call(env, '/sync', { method: 'OPTIONS', origin: 'https://frobel0520.github.io' });
+  assert.equal(preflight.headers.get('Access-Control-Allow-Origin'), null);
 
-  const evil = await call(env, '/sync', { origin: 'https://evil.example', body: {} });
-  assert.equal(evil.status, 403);
-  assert.equal(evil.headers.get('Access-Control-Allow-Origin'), null);
+  const token = await session();
+  for (const origin of ['https://frobel0520.github.io', 'https://other.example.workers.dev', 'https://evil.example']) {
+    const response = await call(env, '/sync', { origin, token, body: { progress: emptyProgress() } });
+    assert.equal(response.status, 403, origin);
+    assert.deepEqual(await response.json(), { error: 'origin_not_allowed' });
+  }
+  // 沒有 Origin 時看 Sec-Fetch-Site：同源才放行，其餘一律擋
+  assert.equal((await call(env, '/sync', { origin: null, token, body: { progress: emptyProgress() } })).status, 403);
+  assert.equal((await call(env, '/sync', { origin: null, token, headers: { 'Sec-Fetch-Site': 'same-site' }, body: { progress: emptyProgress() } })).status, 403);
+  assert.equal((await call(env, '/sync', { origin: null, token, headers: { 'Sec-Fetch-Site': 'same-origin' }, body: { progress: emptyProgress() } })).status, 200);
+});
 
-  // 沒有 Origin（curl、伺服器端）不帶 CORS 標頭，但沒有憑證一樣進不去
-  const noOrigin = await call(env, '/sync', { origin: null, body: {} });
-  assert.equal(noOrigin.status, 401);
-  assert.equal(noOrigin.headers.get('Access-Control-Allow-Origin'), null);
+test('Bearer 不再被接受：舊版存在共用網域 localStorage 的 token 帶過來也是 401', async () => {
+  const env = makeEnv();
+  const token = await session();
+  const response = await call(env, '/sync', { headers: { Authorization: `Bearer ${token}` }, body: { progress: emptyProgress() } });
+  assert.equal(response.status, 401);
+});
+
+test('/logout：清掉 HttpOnly session cookie', async () => {
+  const response = await call(makeEnv(), '/logout');
+  assert.equal(response.status, 200);
+  const header = response.headers.get('Set-Cookie');
+  assert.match(header, new RegExp(`^${SESSION_COOKIE}=;`));
+  assert.match(header, /HttpOnly/);
+  assert.match(header, /Secure/);
+  assert.match(header, /SameSite=Strict/);
+  assert.match(header, /Max-Age=0/);
 });
 
 test('未知路徑與錯誤方法回 404', async () => {
@@ -109,8 +133,15 @@ test('/auth：本人的 Google 憑證換到 session，用它可以同步', async
   const env = makeEnv();
   const response = await call(env, '/auth', { body: { idToken: await issuer.sign(claims()) } });
   assert.equal(response.status, 200);
-  const { token, email } = await response.json();
-  assert.equal(email, 'me@example.com');
+  const body = await response.json();
+  assert.deepEqual(body, { email: 'me@example.com' });
+  const header = response.headers.get('Set-Cookie');
+  assert.match(header, /HttpOnly/);
+  assert.match(header, /Secure/);
+  assert.match(header, /SameSite=Strict/);
+  assert.match(header, /Path=\//);
+  const token = cookieToken(response);
+  assert.equal(typeof token, 'string');
 
   const sync = await call(env, '/sync', { token, body: { progress: emptyProgress() } });
   assert.equal(sync.status, 200);
@@ -132,7 +163,7 @@ test('/auth：別人的帳號 403、無效憑證 401、本文格式不對 400、
     const broken = makeEnv(fakeKv(), { [missing]: '' });
     const response = await call(broken, '/auth', { body: { idToken: await issuer.sign(claims()) } });
     assert.equal(response.status, 500, missing);
-    assert.equal((await response.json()).token, undefined);
+    assert.equal(response.headers.get('Set-Cookie'), null);
   }
 });
 
@@ -235,13 +266,16 @@ test('/sync：雲端存檔壞掉時不覆蓋它，回 500', async () => {
 test('/sync：session 剩不到 15 天時換發新的，剩得多就不換', async () => {
   const env = makeEnv();
   const fresh = await session();
-  const noRenew = await (await call(env, '/sync', { token: fresh, body: { progress: emptyProgress() } })).json();
-  assert.equal(noRenew.token, undefined);
+  const noRenew = await call(env, '/sync', { token: fresh, body: { progress: emptyProgress() } });
+  assert.equal(noRenew.headers.get('Set-Cookie'), null);
+  assert.equal((await noRenew.json()).token, undefined);
 
   const later = NOW + 20 * 24 * 60 * 60 * 1000; // 簽發後 20 天，剩 10 天
-  const renewed = await (await call(env, '/sync', { token: fresh, now: later, body: { progress: emptyProgress() } })).json();
-  assert.equal(typeof renewed.token, 'string');
-  const again = await call(env, '/sync', { token: renewed.token, now: later, body: { progress: emptyProgress() } });
+  const renewedResponse = await call(env, '/sync', { token: fresh, now: later, body: { progress: emptyProgress() } });
+  assert.equal((await renewedResponse.json()).token, undefined);
+  const renewed = cookieToken(renewedResponse);
+  assert.equal(typeof renewed, 'string');
+  const again = await call(env, '/sync', { token: renewed, now: later, body: { progress: emptyProgress() } });
   assert.equal(again.status, 200);
 });
 
