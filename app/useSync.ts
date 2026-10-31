@@ -85,9 +85,10 @@ export function useSync({
   const actions = useMemo(
     () => ({
       signIn: (idToken: string) => controller.signIn(idToken),
-      signOut: () => {
-        controller.signOut();
-        disableGoogleAutoSelect();
+      signOut: async () => {
+        const signedOut = await controller.signOut();
+        if (signedOut) disableGoogleAutoSelect();
+        return signedOut;
       },
       syncNow: () => controller.syncNow(),
       dismissAttention: () => controller.dismissAttention(),
