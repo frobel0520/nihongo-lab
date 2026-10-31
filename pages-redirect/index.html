@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#f5f6f3">
+<title>かなの日本語 搬家了</title>
+<!--
+  舊 GitHub Pages 網址（frobel0520.github.io/nihongo-lab/）的引導頁，由 .github/workflows/ci.yml 發布；
+  __APP_URL__ 會換成 repository variable NIHONGO_APP_URL。
+  - 先清掉舊版存在共用網域 localStorage 的同步 token（SEC-P1-20261031）。
+  - 這台裝置沒有本機進度：直接轉到新網址。
+  - 有本機進度：不自動跳走，提供「下載進度檔」，到新網址的設定頁匯入（新網址讀不到舊網址的 localStorage）。
+-->
+<style>
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "PingFang TC", "Noto Sans TC", sans-serif; background: #f5f6f3; color: #1f2522; }
+  main { max-width: 34rem; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+  h1 { font-size: 1.8rem; margin: 0 0 1rem; }
+  h2 { font-size: 1.2rem; margin: 1.6rem 0 0.4rem; }
+  p, li { font-size: 1.1rem; line-height: 1.7; }
+  ol { padding-left: 1.4rem; }
+  strong { color: #2f6b4f; }
+  .button { display: block; width: 100%; box-sizing: border-box; text-align: center; font-size: 1.2rem; font-weight: 700; padding: 0.95rem; border-radius: 0.8rem; margin: 0.8rem 0; text-decoration: none; border: 2px solid #2f6b4f; cursor: pointer; }
+  .primary { background: #2f6b4f; color: #fff; }
+  .secondary { background: #fff; color: #2f6b4f; }
+  .note { font-size: 0.95rem; color: #55605a; }
+  .guide { display: none; }
+  .has-progress .guide { display: block; }
+  .has-progress .moving { display: none; }
+</style>
+<script>
+  (function () {
+    var target = "__APP_URL__";
+    var PROGRESS_KEY = "nihongo-lab:progress:v1";
+    var SYNC_STATE_KEY = "nihongo-lab:sync:v1";
+    // 舊版把 30 天同步 token 存在這個共用網域，先清掉；學習進度保留給下面的下載用。
+    try { localStorage.removeItem(SYNC_STATE_KEY); } catch (error) { /* 無法存取 localStorage 時也沒有 token 可清 */ }
+    var progress = null;
+    try { progress = localStorage.getItem(PROGRESS_KEY); } catch (error) { progress = null; }
+    window.__nihongoProgress = progress;
+    if (progress) {
+      document.documentElement.className = "has-progress";
+    } else {
+      location.replace(target + location.hash);
+    }
+  })();
+</script>
+</head>
+<body>
+<main>
+  <section class="moving">
+    <h1>かなの日本語 搬家了</h1>
+    <p>正在帶你到新網址…如果沒有自動跳轉，請點：</p>
+    <a class="button primary" href="__APP_URL__">打開新網址</a>
+  </section>
+
+  <section class="guide">
+    <h1>かなの日本語 搬家了</h1>
+    <p>新網址讀不到這裡的學習進度，請照你的情況做一次：</p>
+
+    <h2>有登入「跨裝置同步」</h2>
+    <p>直接打開新網址，到設定頁用同一個 Google 帳號登入，進度會從雲端自動回來。</p>
+
+    <h2>沒有登入同步（只存在這台裝置）</h2>
+    <ol>
+      <li>按下面的「下載學習進度檔」。</li>
+      <li>打開新網址，到 <strong>設定</strong> → <strong>「匯入進度」</strong>，選剛下載的檔案。</li>
+    </ol>
+    <button type="button" class="button secondary" id="download">下載學習進度檔</button>
+    <p class="note" id="downloaded" hidden>已下載。匯入是合併，不會蓋掉新網址上已有的紀錄。</p>
+
+    <a class="button primary" href="__APP_URL__">打開新網址</a>
+    <p class="note">離線下載的音檔與圖片需要在新網址重新下載；主畫面圖示請從新網址重新加入，舊圖示可以刪掉。</p>
+  </section>
+</main>
+<script>
+  (function () {
+    var button = document.getElementById("download");
+    var done = document.getElementById("downloaded");
+    button.addEventListener("click", function () {
+      var raw = window.__nihongoProgress;
+      var progress;
+      try { progress = JSON.parse(raw); } catch (error) {
+        done.textContent = "這台裝置的進度資料讀不懂，沒有產生檔案。請改用新網址的同步功能，或聯絡作者。";
+        done.hidden = false;
+        return;
+      }
+      // 與 App 內「匯出進度」相同的格式（lib/progress-transfer.mjs），新網址的「匯入進度」可以直接讀。
+      var now = new Date();
+      var text = JSON.stringify({ format: "nihongo-lab-progress", exportedAt: now.toISOString(), progress: progress }, null, 2);
+      var pad = function (n) { return n < 10 ? "0" + n : String(n); };
+      var name = "nihongo-progress-" + now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate()) + ".json";
+      var url = URL.createObjectURL(new Blob([text], { type: "application/json" }));
+      var link = document.createElement("a");
+      link.href = url;
+      link.download = name;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      done.hidden = false;
+    });
+  })();
+</script>
+</body>
+</html>
