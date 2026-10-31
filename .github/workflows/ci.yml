@@ -87,6 +87,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      # Worker 會打包 lib/ 裡的程式，需要 ts-fsrs 等相依套件。
+      - run: npm ci
       - name: Publish Worker with web assets
         working-directory: worker
         env:
