@@ -1,3 +1,4 @@
+import { genshinActionExpansionNext } from '../curriculum/genshin-action-expansion-next.mjs';
 import { genshinActionExpansion } from '../curriculum/genshin-action-expansion.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -154,7 +155,7 @@ test('原神固定名冊 124 筆，已收錄角色有短句，其餘明確待收
   assert.equal(game.characters.filter((c) => c.voiceReferenceUrl).length, 109);
   assert.equal(
     lines.length,
-    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length,
+    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length,
   );
   for (const c of game.characters) {
     if (/[\p{Script=Han}々]/u.test(c.nameJa)) {
@@ -183,11 +184,14 @@ test('少量台詞保留確切語音識別或獨立Wiki來源，不編造缺失�
       assert.ok(line.sourceTitle && line.checkedAt && line.variant);
       continue;
     }
-    if (genshinActionExpansion.some(row => line.id === `genshin:${row.characterId}:${row.key}`)) assert.match(line.variant, /按法未細分/);
+    if ([...genshinActionExpansion, ...genshinActionExpansionNext].some(row => line.id === `genshin:${row.characterId}:${row.key}`)) assert.match(line.variant, /按法未細分/);
     else assert.equal(line.variant, '預設造型');
     assert.ok(Number.isInteger(line.voicelineId));
     assert.ok(line.sourceTitle && line.voicefile);
-    assert.doesNotMatch(line.voicefile, /suit_aristocrat/);
+    if (['genshin:diluc:burst-8167', 'genshin:diluc:burst-8169'].includes(line.id)) {
+      assert.match(line.voicefile, /^VO_gameplay\/VO_diluc\/vo_diluc_suit_aristocrat_skill3_0[13]$/);
+      assert.match(line.variant, /造型語音差分/);
+    } else assert.doesNotMatch(line.voicefile, /suit_aristocrat/);
   }
   const diluc = lines.find((l) => l.id === 'genshin:diluc:burst');
   assert.equal(diluc.jp, '判決を、下す！');
