@@ -6,7 +6,7 @@
 
 ## 現況
 
-- 已上線：GitHub Pages 正式站（GitHub Actions 自動部署）。
+- 已上線：`https://nihongo-sync.curio-lab.workers.dev/nihongo-lab/`（同步 Worker 一併提供網頁，GitHub Actions 自動部署）；舊 GitHub Pages 網址改為引導頁。
 - Repository：GitHub repository（public）。
 - 動漫／遊戲通用聽解：六階段180課教材與6300個VOICEVOX音檔已提供；4500詞條、360文法點、720例句、1080句對話、540理解題與540句型練習。條目數包含複習；內容交付不等於逐句人耳、完整真機或作品理解率驗收，詳見progress與release-audit。
 - 專案骨架（T01）與第 0 階段 25 課教材（T02，主題對應《大家的日本語》第一冊第 1～25 課，單字、文法點、對話、練習與 VOICEVOX 語音都完成）已完成；N5 單字 670／674、漢字 84／84、文法 81／81。

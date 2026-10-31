@@ -4,6 +4,8 @@
 
 ## 目前狀態
 
+**SEC-P1-20261031（進行中）**：網頁搬離共用的 github.io，改由 nihongo-sync Worker 同源提供、同步 session 改 HttpOnly cookie；舊網址改為引導頁（含進度檔下載）。程式、測試與本機模擬驗證完成，待 PR、擁有者設定（Google OAuth 授權來源、`CLOUDFLARE_API_TOKEN`／`CLOUDFLARE_ACCOUNT_ID` secrets、`NIHONGO_APP_URL` variable）與正式部署驗收；正式環境頁面載入與同步延遲待量測。詳見 docs/project-sd.md 變更紀錄。
+
 正式站已完成T168第一批，產品main `604cde2`，PR #177與main CI／Pages成功，正式站產物／流程驗收完成；T167第一階段PR #175／#176已結案並保留歷史。以下450組已知待補、9組待核及未知來源仍未完成。
 
 ## T168：原神戰技／爆發第一批（第一批已發布，後續待補保持）

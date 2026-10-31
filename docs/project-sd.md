@@ -174,21 +174,30 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 
 方向（2026-10-01 定案）：Google 登入只放行本人 + Cloudflare Worker + KV。程式在 `worker/`，純邏輯在 `handler.mjs`、`google-token.mjs`、`session.mjs`（KV、時間、Google 簽章金鑰都由呼叫端注入，用 `node --test` 驗證），`index.mjs` 只負責接線與 Google 金鑰快取。
 
-- **端點**：`POST /auth { idToken }`（Google 憑證通過驗證且 email 在白名單，換發同步用 session）、`POST /sync { progress }`（與雲端合併後存回，把合併結果整份還給裝置；`Authorization: Bearer <session>`）、`GET /health`。一次 `/sync` 同時是上傳與下載；沒有新內容時不寫 KV。
+- **端點**：`POST /auth { idToken }`（Google 憑證通過驗證且 email 在白名單，以 `__Host-nihongo_session` HttpOnly cookie 換發 session，回應只含 email）、`POST /sync { progress }`（session 從 cookie 讀；與雲端合併後存回，把合併結果整份還給裝置）、`POST /logout`（清除 cookie）、`GET /health`。一次 `/sync` 同時是上傳與下載；沒有新內容時不寫 KV。
 - **Google 憑證驗證**（`google-token.mjs`）：RS256 簽名（金鑰來自 Google 的 JWKS，找不到 `kid` 時重抓一次，5 分鐘內最多強制重抓一次）、`iss`、`aud` 必須是本 App 的 Client ID、`exp`、`iat` 不在未來、`email_verified` 必須是布林 `true`，最後 email 比對白名單（不分大小寫）。不在白名單回 403，其他一律 401，兩者的訊息不洩漏白名單內容。
-- **Session**（`session.mjs`）：Google 憑證一小時就過期，所以驗證過一次後由 Worker 自己發 HMAC-SHA256 簽名的憑證，有效 30 天，剩不到 15 天時在 `/sync` 的回應裡換發新的（常用的裝置不用重新登入）。簽名金鑰是 Worker secret。
+- **Session**（`session.mjs`）：Google 憑證一小時就過期，所以驗證過一次後由 Worker 自己發 HMAC-SHA256 簽名的憑證，有效 30 天，剩不到 15 天時在 `/sync` 回應的 `Set-Cookie` 換發新的（常用的裝置不用重新登入）。cookie 為 `HttpOnly; Secure; SameSite=Strict; Path=/`，頁面腳本讀不到。簽名金鑰是 Worker secret。
 - **資料**：每個 Google 帳號（`sub`）一筆 KV：`progress:<sub>`，內容是版本 2 的進度 JSON。送上來的進度先用 `parseProgress` 驗證（版本 1 也收，自動轉換），格式不對 400，超過 2MB 413。**雲端的存檔讀不懂時不覆蓋，回 500**，寧可這次同步失敗也不蓋壞唯一的雲端副本。
 - **一致性**：KV 是最終一致，兩台裝置幾乎同時同步時，後寫的可能基於舊的讀取結果。因為每次同步都是整份上傳、整份取回，且合併滿足交換律／結合律／冪等（T28），下一次同步就會補回，不會永久遺失。
-- **CORS**：只放行 `ALLOWED_ORIGINS` 裡的網頁來源（正式站與本機開發網址）；帶 `Origin` 但不在名單內直接 403。沒有 `Origin`（curl）不帶 CORS 標頭，沒有 session 一樣進不來。
-- **設定與 secret**：`worker/wrangler.toml` 只放公開值（Google Client ID、允許的網頁來源、KV 綁定）。白名單 email（`ALLOWED_EMAIL`）與 session 簽名金鑰（`SESSION_SECRET`）是 secret，用 `wrangler secret put` 設定，**不進公開 repo**。部署：`wrangler deploy -c worker/wrangler.toml`（用全域安裝的 wrangler，不加成專案相依套件）。目前部署在 `https://nihongo-sync.curio-lab.workers.dev`（2026-10-01）。
-- **Google Cloud 端**：專案 `nihongo-sync`（已停用計費，不依賴免費試用帳戶）、OAuth 同意畫面為「外部、測試中」，只有加進「測試使用者」的帳號能登入；網頁用戶端的授權 JavaScript 來源是正式站與兩個本機開發網址。不使用重新導向 URI（用 Google 登入按鈕取得身分憑證）。
+- **同源（SEC-P1-20261031，2026-10-31）**：網頁改由同一個 Worker 的 static assets 提供（`worker/public/nihongo-lab/`，路徑維持 `/nihongo-lab/`），與 API 同源，不開 CORS。所有 POST 必須帶本站的 `Origin`（沒有 `Origin` 時要 `Sec-Fetch-Site: same-origin`），否則 403；這也擋住同站（`*.workers.dev`）其他 Worker 的頁面。不再接受 `Authorization: Bearer`。
+- **設定與 secret**：`worker/wrangler.toml` 只放公開值（Google Client ID、static assets 目錄、KV 綁定）；`worker/public/_headers` 設 CSP 等標頭，`_redirects` 把 `/` 導到 `/nihongo-lab/`。白名單 email（`ALLOWED_EMAIL`）與 session 簽名金鑰（`SESSION_SECRET`）是 secret，用 `wrangler secret put` 設定，**不進公開 repo**。部署：push 到 main 由 CI 的 `deploy-worker` job 把 build 複製到 `worker/public/nihongo-lab` 後執行固定版本的 `npx wrangler deploy`（需要 repository secrets `CLOUDFLARE_API_TOKEN`、`CLOUDFLARE_ACCOUNT_ID`；wrangler 仍不加成專案相依套件）。網址 `https://nihongo-sync.curio-lab.workers.dev/nihongo-lab/`。
+- **Google Cloud 端**：專案 `nihongo-sync`（已停用計費，不依賴免費試用帳戶）、OAuth 同意畫面為「外部、測試中」，只有加進「測試使用者」的帳號能登入；網頁用戶端的授權 JavaScript 來源是 `https://nihongo-sync.curio-lab.workers.dev`（2026-10-31 起；舊的 GitHub Pages 來源在家人與使用者轉移後可移除）與本機開發網址。不使用重新導向 URI（用 Google 登入按鈕取得身分憑證）。
+
+### 變更紀錄：網頁搬離共用的 github.io（SEC-P1-20261031，2026-10-31）
+
+- **原因**：`frobel0520.github.io` 由帳號下所有 GitHub Pages 專案共用同一個來源，任何一個 Pages 站被注入腳本就能讀走存在 `localStorage` 的 30 天同步 token，並以本人身分讀寫雲端進度。
+- **做法**：網頁改由 `nihongo-sync` Worker 的 static assets 提供（免費的 `*.workers.dev` 網址，不購買網域），session 改 HttpOnly cookie；前端 build 約 11,400 檔／213MB，在 Workers 免費方案每版 20,000 檔、單檔 25 MiB 上限內，靜態檔請求不計費，符合零月費。
+- **舊網址**：GitHub Pages 只發布引導頁（`pages-redirect/`）：清除舊 token；本機沒有進度就直接轉到新網址，有進度則提供與 App 匯出相同格式的進度檔下載，到新網址設定頁「匯入進度」。另發布替換用 `sw.js`，讓舊版 service worker 自行清快取、解除註冊並重新載入，使用者才看得到引導頁。
+- **上線順序**：CI 先 `deploy-worker`，成功後 `deploy-pages-redirect` 才換掉舊站；缺 secrets 或 `NIHONGO_APP_URL` 時對應 job 失敗，舊站維持原樣。
+- **使用者影響**：需重新登入同步、重新加入主畫面；離線音檔與圖片快取、顯示偏好存在舊來源，需在新網址重新下載／設定。
+- **Rollback**：`wrangler rollback` 回上一版 Worker，並 revert 本變更讓 CI 重新以舊流程發布 GitHub Pages。
 
 ## 跨裝置同步的前端（T30）
 
 純邏輯在 `lib/sync.mjs`（請求、登入狀態儲存、狀態文字）與 `lib/sync-controller.mjs`（流程控制），網路、儲存空間、計時器、進度的讀取與套用都由呼叫端注入，用 `node --test` 驗證；畫面端是 `app/useSync.ts`（接事件）、`app/lib/googleSignIn.ts`（載入 Google 登入）、`app/components/SyncPanel.tsx`（設定頁面板），App 最上方另有「登入已過期」的提示。
 
 - **登入**：Google 的腳本（Google Identity Services）只在使用者按「用 Google 登入」才載入，載入後畫出 Google 官方的按鈕，再按一次完成登入（彈出視窗）；拿到身分憑證後送 `POST /auth` 換 session。沒登入時完全不連 Google 或同步伺服器（開發版實測網路請求確認）。
-- **登入狀態**存在 `localStorage` 的 `nihongo-lab:sync:v1`（`{ token, email, lastSyncAt }`），與學習進度分開，匯出進度時不會帶出去。注意 GitHub Pages 的 `帳號.github.io` 是同一個來源，同帳號底下其他網站的頁面讀得到這個來源的 `localStorage`；這個 session 只能存取學習進度，風險有限，但要知道。
+- **登入狀態**存在 `localStorage` 的 `nihongo-lab:sync:v1`（`{ email, lastSyncAt }`，只供顯示與排程），session 本體是 HttpOnly cookie，頁面腳本讀不到。原本 token 存在 `帳號.github.io` 這個所有 Pages 專案共用的來源，同帳號其他網站讀得到，因此 2026-10-31 改為同源 Worker 提供網頁（SEC-P1-20261031）。登出時要等 Worker 清掉 cookie 才算登出，失敗會維持登入並提示。
 - **一次同步**：把整份本機進度送 `POST /sync`，拿回與雲端合併後的整份，再用 `mergeProgress` 併進本機（不是覆蓋，所以同步途中答的題不會被蓋掉）。回應的進度會再驗證一次格式，有任何問題就不套用。
 - **同步時機**：已登入時開啟 App；回到前景（距離上次嘗試 2 分鐘以上）；離開前景或 `pagehide` 時有未上傳的變更就立刻送；網路恢復；進度變動後延遲 8 秒（連續答題只送一次）；設定頁的「立即同步」。
 - **不會無限同步**：「有沒有未上傳的變更」用內容指紋判斷（`fingerprintProgress`：鍵排序後的內容，與物件鍵的順序無關）——比對「現在的進度」與「上次雲端回傳的進度」。併回雲端內容後兩者相同，就不會再排下一次。測試與實測都用「雲端回傳時鍵順序故意倒過來」確認過。

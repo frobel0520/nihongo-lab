@@ -1,5 +1,14 @@
 # Release audit — 0.1.0
 
+## SEC-P1-20261031：網頁搬離共用 github.io（2026-10-31，待 PR 與正式驗收）
+
+- 變更：網頁改由 nihongo-sync Worker static assets 同源提供，同步 session 改 HttpOnly cookie，移除 CORS 與 Bearer；舊 GitHub Pages 網址改為引導頁（清舊 token、進度檔下載、替換用 sw.js）。設計見 project-sd.md 變更紀錄。
+- 機器檢查：worker-handler／worker-token／sync／sync-controller 共 41 項通過（新增同源 403、Bearer 被拒、登出清 cookie、登出失敗維持登入、同步不帶 Authorization 等回歸）；typecheck、lint 通過；`npm run check` 與 `/nihongo-lab/` build 結果見本 PR CI。
+- 本機模擬（wrangler dev，fixture，非正式環境）：`/` 302 到 `/nihongo-lab/`、CSP 標頭存在、頁面與設定頁同步區塊在 CSP 下載入無違規、service worker 註冊；跨源 POST 403。
+- 舊網址模擬：舊版 build 已安裝 service worker 且有本機進度時，換成引導頁後重新開啟，舊 service worker 解除、引導頁顯示、舊 token 清除；下載的進度檔可被 `parseImport` 讀回（dropped 0）。本機沒有進度時直接轉向新網址。
+- 限制：Google 登入、正式 KV 同步與正式環境頁面載入／同步延遲未測（`pending`）；測試用 Python 伺服器以檔案時間判斷 304，曾造成舊頁面被沿用的假象，正式 GitHub Pages 以 ETag／max-age=600 判斷，最遲約 10 分鐘看得到引導頁。
+- 擁有者待辦：Google OAuth 授權 JavaScript 來源加 `https://nihongo-sync.curio-lab.workers.dev`；repository secrets `CLOUDFLARE_API_TOKEN`、`CLOUDFLARE_ACCOUNT_ID`；variable `NIHONGO_APP_URL`。
+
 ## T168 第一批正式發布結案（2026-10-31）
 
 [PR #177](https://github.com/frobel0520/nihongo-lab/pull/177) 已由reviewer對精確head `604cde2df626e13677a1461d9a944c881b041879` 放行，正常rebase確認／fast-forward合併，未改寫公開歷史；[main必要Linux／Windows CI與Pages](https://github.com/frobel0520/nihongo-lab/actions/runs/41186247794) 全部成功。原神教材本批新增60句，累計432句；這不代表全原作語音收錄完整。
