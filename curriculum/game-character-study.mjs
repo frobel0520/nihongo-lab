@@ -11,6 +11,7 @@
 import { getErCasting } from './er-voice-casting.mjs';
 import { genshinRoster } from './genshin-character-roster.mjs';
 import { genshinSupplement } from './genshin-supplement.mjs';
+import { genshinActionExpansion } from './genshin-action-expansion.mjs';
 import { genshinQuoteSources } from './genshin-quote-sources.mjs';
 import { audioPath, contentHash } from './author.mjs';
 import { eternalReturnRoster } from './game-character-roster.mjs';
@@ -3725,5 +3726,18 @@ for (const source of genshinSupplement) {
   }));
   target.lines = [...target.lines, ...addedLines];
 }
+// Preserve existing entries and progress IDs; each new phrase has its own source ID.
+for (const { characterId, key, choices: _choices, sourceItemId, ...row } of genshinActionExpansion) {
+  const target = genshin.characters.find((c) => c.id === characterId);
+  if (!target?.voice) throw new Error(`Missing expansion character: ${characterId}`);
+  const id = `genshin:${characterId}:${key}`;
+  if (target.lines.some((line) => line.id === id)) throw new Error(`Duplicate expansion: ${id}`);
+  target.lines.push({
+    ...row, id, kind: 'quote', voice: target.voice,
+    audio: audioPath('audio/games/genshin', 'gram', row.jp, target.voice),
+    voicelineId: sourceItemId,
+    referenceNote: '固定版本日文角色語音表；逐句補錄戰技／爆發，不代表所有形態與造型完整。',
+  });
+}
 const genshinLearnable = genshin.characters.filter((c) => c.lines.length);
-genshin.scope = `固定來源名冊共 ${genshin.characters.length} 筆角色條目，包含旅行者與人偶的不同版本。${genshinLearnable.length} 位角色收錄 ${genshinLearnable.reduce((n, c) => n + c.lines.length, 0)} 句短台詞與 VOICEVOX 朗讀；其餘 ${genshin.characters.length - genshinLearnable.length} 筆仍待教材。迪盧克的技能來源只有喊聲，沒有編造完整台詞；未加入劇情。`;
+genshin.scope = `固定來源名冊共 ${genshin.characters.length} 筆角色條目，包含旅行者與人偶的不同版本。${genshinLearnable.length} 位角色收錄 ${genshinLearnable.reduce((n, c) => n + c.lines.length, 0)} 句短台詞與 VOICEVOX 朗讀；其餘 ${genshin.characters.length - genshinLearnable.length} 筆仍待教材。戰技／爆發持續依來源核實，角色已有教材不等於該類台詞完整；來源待確認項目不猜測補錄。未加入劇情。`;

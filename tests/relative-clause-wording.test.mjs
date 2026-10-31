@@ -1,7 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { stages, gameCharacterStudy } from '../curriculum/lessons.mjs';
+import { stages } from '../curriculum/lessons.mjs';
+import { historicalGameCharacterStudy as gameCharacterStudy } from './helpers/before-action-expansion.mjs';
 import { wordingBaseline as baseline, beforeRelativeClauseWording } from './helpers/relative-clause-baseline.mjs';
 
 test('T141: the explanatory note is the only authored change from e356eb4', () => {

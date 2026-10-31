@@ -1,3 +1,4 @@
+import { genshinActionExpansion } from '../curriculum/genshin-action-expansion.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
@@ -118,7 +119,7 @@ test('新角色三類短句與既有情境補齊；未核對讀音的技能喊�
     );
   }
   for (const id of ['amber', 'bennett', 'kaeya', 'keqing', 'raiden']) {
-    assert.equal(game.characters.find((c) => c.id === id).lines.length, 3);
+    assert.equal(game.characters.find((c) => c.id === id).lines.filter(l => ['join','skill','burst'].some(key => l.id === `genshin:${id}:${key}`)).length, 3);
   }
   for (const id of ['diluc', 'hutao']) {
     assert.equal(
@@ -153,7 +154,7 @@ test('原神固定名冊 124 筆，已收錄角色有短句，其餘明確待收
   assert.equal(game.characters.filter((c) => c.voiceReferenceUrl).length, 109);
   assert.equal(
     lines.length,
-    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0),
+    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length,
   );
   for (const c of game.characters) {
     if (/[\p{Script=Han}々]/u.test(c.nameJa)) {
@@ -182,7 +183,8 @@ test('少量台詞保留確切語音識別或獨立Wiki來源，不編造缺失�
       assert.ok(line.sourceTitle && line.checkedAt && line.variant);
       continue;
     }
-    assert.equal(line.variant, '預設造型');
+    if (genshinActionExpansion.some(row => line.id === `genshin:${row.characterId}:${row.key}`)) assert.match(line.variant, /按法未細分/);
+    else assert.equal(line.variant, '預設造型');
     assert.ok(Number.isInteger(line.voicelineId));
     assert.ok(line.sourceTitle && line.voicefile);
     assert.doesNotMatch(line.voicefile, /suit_aristocrat/);

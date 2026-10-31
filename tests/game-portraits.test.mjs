@@ -1,3 +1,4 @@
+import { genshinActionExpansion } from '../curriculum/genshin-action-expansion.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
@@ -54,7 +55,7 @@ test('角色清單保留已編排音檔；未收錄角色不指定配音', () =>
   );
   assert.equal(
     lines.filter((l) => l.category !== '角色選擇').length,
-    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0),
+    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length,
   );
   const bennett = lines.find((l) => l.id === 'genshin:bennett:skill');
   assert.equal(bennett.audio, 'audio/games/genshin/gram-641caa85ab-ro-v1.mp3');

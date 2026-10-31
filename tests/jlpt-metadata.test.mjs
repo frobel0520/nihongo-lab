@@ -1,8 +1,9 @@
+import { historicalGameCharacterStudy as gameCharacterStudy, historicalSummary as curriculumSummary, historicalAudioPaths as loadAllAudioPaths } from './helpers/before-action-expansion.mjs';
 import { beforeReviewCloseout } from './helpers/review-closeout-baseline.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { stages, gameCharacterStudy, curriculumSummary, loadAllAudioPaths } from '../curriculum/lessons.mjs';
+import { stages } from '../curriculum/lessons.mjs';
 import { createStudyCatalog } from '../lib/catalog-build.mjs';
 import { sceneRecordId } from '../lib/scene-listening.mjs';
 import { grammarRecordId } from '../lib/grammar-study.mjs';

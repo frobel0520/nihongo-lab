@@ -1,3 +1,4 @@
+import { genshinActionExpansion } from '../curriculum/genshin-action-expansion.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
@@ -81,6 +82,6 @@ test('124筆都有三類來源狀態；無來源、空語音表與有來源的�
   );
   assert.equal(
     g.characters.flatMap((c) => c.lines).length,
-    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0),
+    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length,
   );
 });
