@@ -9,3 +9,5 @@ scripts/audio-jobs.json
 
 # 網頁 build 複製到 Worker static assets 的位置（CI 產生）
 worker/public/nihongo-lab/
+# wrangler dev 的本機狀態
+.wrangler/
