@@ -1,3 +1,4 @@
+import { genshinActionExpansionFourth } from '../curriculum/genshin-action-expansion-fourth.mjs';
 import { genshinActionExpansionThird } from '../curriculum/genshin-action-expansion-third.mjs';
 import { genshinActionExpansionNext } from '../curriculum/genshin-action-expansion-next.mjs';
 import { genshinActionExpansion } from '../curriculum/genshin-action-expansion.mjs';
@@ -156,7 +157,7 @@ test('原神固定名冊 124 筆，已收錄角色有短句，其餘明確待收
   assert.equal(game.characters.filter((c) => c.voiceReferenceUrl).length, 109);
   assert.equal(
     lines.length,
-    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length,
+    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length,
   );
   for (const c of game.characters) {
     if (/[\p{Script=Han}々]/u.test(c.nameJa)) {
@@ -185,7 +186,7 @@ test('少量台詞保留確切語音識別或獨立Wiki來源，不編造缺失�
       assert.ok(line.sourceTitle && line.checkedAt && line.variant);
       continue;
     }
-    if ([...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird].some(row => line.id === `genshin:${row.characterId}:${row.key}`)) assert.match(line.variant, /按法未細分/);
+    if ([...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth].some(row => line.id === `genshin:${row.characterId}:${row.key}`)) assert.match(line.variant, /按法(?:未細分|、形態及造型未作全量核實)/);
     else assert.equal(line.variant, '預設造型');
     assert.ok(Number.isInteger(line.voicelineId));
     assert.ok(line.sourceTitle && line.voicefile);
