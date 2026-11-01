@@ -1,3 +1,4 @@
+import { genshinActionExpansionThird } from '../curriculum/genshin-action-expansion-third.mjs';
 import { genshinActionExpansionNext } from '../curriculum/genshin-action-expansion-next.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -163,7 +164,7 @@ test('固定來源96位與日文Wiki補錄角色分別核對；缺句角色保�
   );
   assert.equal(
     collected.flatMap((c) => c.lines).length,
-    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length,
+    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length,
   );
   for (const c of collected) {
     const expected = c.id.startsWith('manekin')
