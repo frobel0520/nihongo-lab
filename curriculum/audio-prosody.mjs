@@ -8,6 +8,15 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T171：僅新增本批文語誤分詞覆寫，保留原有所有設定。
+"audio/games/genshin/gram-4489e65745.mp3": {
+  "text": "高き者を、私は蔑む。",
+  "reading": "たかきものを、わたしはさげすむ。",
+  "kana": "タ'カキ/モノ'オ、ワタシワ'/サゲス'ム",
+  "reason": "T171：高き為文語高し（たかし）的連體形，者指人；修正引擎誤分詞，私は／蔑む的原片語與句界保持。此為字面文法與字音覆寫，不表示原配音或人耳重音已驗收。",
+  "reference": "voicevox"
+},
+
 // T169：僅新增本批已核對的文脈覆寫，原有音檔與覆寫保持。
 "audio/games/genshin/gram-50bd33a98e.mp3": {
     "text": "我に光を。",
