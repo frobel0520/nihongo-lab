@@ -1,11 +1,12 @@
+import { beforeThirdGameCharacterStudy as gameCharacterStudy, beforeThirdIllustrations as VOCAB_ILLUSTRATIONS, beforeThirdCards, thirdAssetNames } from './helpers/before-third-action-expansion.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFile, readdir } from 'node:fs/promises';
-import { gameCharacterStudy, genshinActionCoverage, loadCategory } from '../curriculum/lessons.mjs';
+import { genshinActionCoverage, loadCategory } from '../curriculum/lessons.mjs';
 import { genshinActionExpansionNext } from '../curriculum/genshin-action-expansion-next.mjs';
 import { gameListeningQuestion, gameRecordId } from '../lib/game-study.mjs';
-import { VOCAB_ILLUSTRATIONS, illustrationFor } from '../lib/vocab-illustrations.mjs';
+import { illustrationFor } from '../lib/vocab-illustrations.mjs';
 import { collectInventoryCards } from '../scripts/vocab-illustration-inventory.mjs';
 import { beforeNextGameCharacterStudy, beforeNextCards, nextCardIds, nextLineIds, nextAssetNames } from './helpers/before-next-action-expansion.mjs';
 
@@ -28,7 +29,7 @@ test('T169 all 120 fixed-source additions reach learning, unique questions, audi
   const game = gameCharacterStudy.find(item => item.id === 'genshin');
   const catalog = await loadCategory('games');
   assert.equal(game.characters.flatMap(character => character.lines).length, 552);
-  assert.equal(catalog.cards.length, 798);
+  assert.equal(beforeThirdCards(catalog.cards).length, 798);
   for (const row of genshinActionExpansionNext) {
     const character = game.characters.find(item => item.id === row.characterId);
     const line = character.lines.find(item => item.id === `genshin:${row.characterId}:${row.key}`);
@@ -57,7 +58,7 @@ test('T169 adds only its own 67 vectors; every older vector remains byte-identic
   const dir = new URL('../public/images/vocab/', import.meta.url);
   const names = (await readdir(dir)).filter(name => name.endsWith('.svg')).sort();
   const current = names.filter(name => nextAssetNames.has(name));
-  const old = names.filter(name => !nextAssetNames.has(name));
+  const old = names.filter(name => !nextAssetNames.has(name) && !thirdAssetNames.has(name));
   assert.equal(current.length, 67);
   assert.equal(old.length, 2287);
   const entries = await Promise.all(old.map(async name => name + ':' + sha((await readFile(new URL(name, dir), 'utf8')).replace(/\r\n/g, '\n'))));

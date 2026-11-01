@@ -1,6 +1,6 @@
 // T169: explicit cohort projection keeps published integrity snapshots intact.
 // Current catalog/payload checks still operate on the complete current data.
-import { gameCharacterStudy } from '../../curriculum/lessons.mjs';
+import { beforeThirdGameCharacterStudy as gameCharacterStudy, beforeThirdCards } from './before-third-action-expansion.mjs';
 import { genshinActionExpansionNext } from '../../curriculum/genshin-action-expansion-next.mjs';
 import { gameRecordId } from '../../lib/game-study.mjs';
 export const nextLineIds = new Set(genshinActionExpansionNext.map(row => `genshin:${row.characterId}:${row.key}`));
@@ -9,7 +9,7 @@ export const beforeNextGameCharacterStudy = gameCharacterStudy.map(game => ({
   ...game,
   characters: game.characters.map(character => ({ ...character, lines: character.lines.filter(line => !nextLineIds.has(line.id)) })),
 }));
-export const beforeNextCards = cards => cards.filter(card => !nextCardIds.has(card.id));
+export const beforeNextCards = cards => beforeThirdCards(cards).filter(card => !nextCardIds.has(card.id));
 
 // Exact new asset names; published ability.svg is intentionally not included.
 export const nextAssetNames = new Set([

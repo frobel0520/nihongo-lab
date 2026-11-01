@@ -7,10 +7,10 @@ const card = (id, word, reading, zh) => ({ id, word, reading, zh, audio: 'audio/
 test('inventory includes the real game sentence cards, not just stage vocabulary', async () => {
   const cards = await collectInventoryCards();
   const inventory = buildIllustrationInventory(cards, 'synthetic');
-  assert.equal(inventory.total.cardEntries, 6089);
-  assert.equal(inventory.byCategory.games.cardEntries, 798);
+  assert.equal(inventory.total.cardEntries, 6149);
+  assert.equal(inventory.byCategory.games.cardEntries, 858);
   assert.ok(cards.some(c => c.category === 'games' && c.id.startsWith('game-card:') && c.word.length > 12));
-  assert.equal(inventory.total.distinctWordForms, 3139);
+  assert.equal(inventory.total.distinctWordForms, 3197);
 });
 
 test('inventory separates readings and senses without extending exact image mappings', () => {
