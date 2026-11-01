@@ -1,5 +1,11 @@
 # Release audit — 0.1.0
 
+## T170：下載雙擊回歸的起點前置條件
+
+文件PR #193的main CI再次於下載狀態等待逾時，Worker／Pages未執行，不能當正式部署。受控延後初始音檔快取掃描後，在375寬重現計數文字新增使開始鈕下移約23.22px，舊實體座標點到區塊而非按鈕，下載沒有開始；1280寬無該位移。原CI缺點擊追蹤，不能冒稱還原當次座標，但同型競態已有實證。修正僅讓測試先等待可見快取計數，再量物理雙擊位置；未延長逾時、加固定sleep、忽略失敗或修改產品／斷言。375與1280下，雙擊、原位置重觸不取消、明確鍵盤取消的斷言保持。完整原始失敗、受控前後座標及畫面只作Private保全；CI日誌交接副本的絕對路徑去識別化另有指紋對照。
+
+以下正式產品驗收仍對應精確產品fe1ecd5；文件及本測試修訂的runtime、SW與媒體相同，最終部署另按精確head CI及產物SHA核對，不無故重跑相同正式功能或新增文件收尾循環。
+
 ## T170：第三批已發布與正式站收尾（2026-11-01，Asia/Taipei）
 
 [PR #192](https://github.com/frobel0520/nihongo-lab/pull/192) 由reviewer對精確head `fe1ecd5c7658d8de536b8ceb77ee627f6ed8b9e0`放行，與最新main無額外產品差異，正常fast-forward發布；未force或改寫歷史。必要[PR CI](https://github.com/frobel0520/nihongo-lab/actions/runs/41294925213)與[main Linux／Windows、Worker／Pages](https://github.com/frobel0520/nihongo-lab/actions/runs/41317241967)全部成功，安全、導航與下載修補保持。首次main Linux在下載UX等待狀態逾時，部署未執行；同精確版本的正式downloads定點回歸全過後只重跑一次，保留首次失敗日誌，未修改產品或斷言來製造通過。正式App在同源Worker；舊Pages仍僅引導。

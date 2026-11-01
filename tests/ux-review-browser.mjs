@@ -881,6 +881,12 @@ try {
         name: '下載全部課程音檔',
         exact: true,
       });
+      // 初始快取掃描會在按鈕上方補上計數文字；等它可見後，
+      // 才量測真正要雙擊的實體位置，避免點到掃描前的舊座標。
+      await section
+        .locator('p.muted')
+        .filter({ hasText: '最近檢查已存：' })
+        .waitFor();
       await start.scrollIntoViewIfNeeded();
       const box = await start.boundingBox();
       await p.mouse.dblclick(box.x + box.width / 2, box.y + box.height / 2, {
