@@ -1,11 +1,14 @@
 # 專案進度
 
-## #199：工作流精簡（進行中）
+## #199：工作流精簡已合併
 
-本輪只改CI驗證範圍與交接規則，#198教材保持獨立、尚待其原審查。新增保守docs/content/full分流：文件不重部署；教材保留全量資料／單元檢查、build／容量及適用媒體／離線回歸；核心與不明變更仍完整Linux／Windows驗證。必要狀態、main／owner／environment、Worker先於Pages及rollback保持，規則見project-sd的#199決策。
+[PR #200](https://github.com/frobel0520/nihongo-lab/pull/200)產品整合版本為13866d7fb9ba1bd7ec8fa55e15a43d2f46ecf90f；分類器、文件／媒體檢查及CI契約測試已落地，未混入#198教材。docs只驗文件且不部署；content保留完整check、build、原容量、變更MP3解碼與圖片下載／接續／真正離線檢查；核心、依賴、CI、不明範圍與手動執行採full。必要check／ux-windows狀態、main／owner／environment、Worker先於Pages與rollback均保持。
 
-分類、工作流條件與錯誤路徑測試正進行；未宣稱CI、部署或正式效能驗收已通過。PR／最終版本與結果在完成後更新，不把未完成項目寫成已發布。人耳、真機、正式效能等既有待辦保持。
+完整PR CI [42456144701](https://github.com/frobel0520/nihongo-lab/actions/runs/42456144701)與合併後主分支 [42457853487](https://github.com/frobel0520/nihongo-lab/actions/runs/42457853487)的最終結果依Actions查核。合併後完整Linux／Windows、Worker與Pages引導發布均成功。391項測試（含12項分流／工作流契約）、正式build及原容量門檻通過，precache22,550,564／26,869,829 bytes；#198的102個實際路徑在唯讀分類演練中選content，沒有重跑其教材驗收，也不把演練稱成content範圍的正式CI執行。
 
+本次文件收尾僅改此Progress，應以本PR與合併後Actions確認docs關卡執行、產品build／artifact／Worker／Pages均未執行；不再為記錄相同結果重部署產品。詳細規則見project-sd的#199決策，後續worker先讀預設分支Progress再接手；完整內部日誌留repo外，不公開附件。
+
+本輪獨立正式站瀏覽器讀回未完成，未記為互動驗收通過；發布成功依上述Actions，不能替代正式站功能證據。本輪未改runtime、教材、媒體、ID、同步或快取。正式效能基準、人耳／真機／SR與原神未核範圍仍依既有待辦，不因工作流精簡標成通過。
 
 ## T171：第四批已發布（2026-11-02，Asia/Taipei）
 
