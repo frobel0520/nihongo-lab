@@ -8,6 +8,43 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T172：只新增本批五項字面讀音覆寫，原有設定保持。
+"audio/games/genshin/gram-3ee4b52931.mp3": {
+  "text": "寒星！",
+  "reading": "かんせい！",
+  "kana": "カンセイ'",
+  "reason": "T172：依公開日文詞條核實寒星的文脈標準讀音かんせい，修正引擎誤分詞；其餘原字句保持。本覆寫不表示原配音、人耳重音或聲學自然度已驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-6a261e2700.mp3": {
+  "text": "生生流転。",
+  "reading": "しょうじょうるてん。",
+  "kana": "ショオジョオル'テン",
+  "reason": "T172：依公開日文詞條核實生生流転的文脈標準讀音しょうじょうるてん，修正引擎誤分詞；其餘原字句保持。本覆寫不表示原配音、人耳重音或聲學自然度已驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-c8fa7cb4c2.mp3": {
+  "text": "念の氷像！",
+  "reading": "ねんのひょうぞう！",
+  "kana": "ネンノ'/ヒョウ'ゾウ",
+  "reason": "T172：依公開日文詞條核實氷像的文脈標準讀音ひょうぞう，修正引擎誤分詞；其餘原字句保持。本覆寫不表示原配音、人耳重音或聲學自然度已驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-a86f174080.mp3": {
+  "text": "止水の矢！",
+  "reading": "しすいのや！",
+  "kana": "_シスイノ'/ヤ'",
+  "reason": "T172：依公開日文詞條核實止水的文脈標準讀音しすい，修正引擎誤分詞；其餘原字句保持。本覆寫不表示原配音、人耳重音或聲學自然度已驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-c095ef34b9.mp3": {
+  "text": "頭が高いぞ。",
+  "reading": "ずがたかいぞ。",
+  "kana": "ズ'ガ/タカ'イゾ",
+  "reason": "T172：依公開日文詞條核實頭的文脈標準讀音ず，修正引擎誤分詞；其餘原字句保持。本覆寫不表示原配音、人耳重音或聲學自然度已驗收。",
+  "reference": "voicevox"
+},
+
 // T171：僅新增本批文語誤分詞覆寫，保留原有所有設定。
 "audio/games/genshin/gram-4489e65745.mp3": {
   "text": "高き者を、私は蔑む。",

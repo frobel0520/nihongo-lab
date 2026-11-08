@@ -1,12 +1,11 @@
 // T171: remove only the explicit fourth cohort from older integrity snapshots.
-import { gameCharacterStudy } from '../../curriculum/lessons.mjs';
+import { beforeFifthGameCharacterStudy as gameCharacterStudy, beforeFifthCards, beforeFifthIllustrations as VOCAB_ILLUSTRATIONS } from './before-fifth-action-expansion.mjs';
 import { genshinActionExpansionFourth } from '../../curriculum/genshin-action-expansion-fourth.mjs';
-import { VOCAB_ILLUSTRATIONS } from '../../lib/vocab-illustrations.mjs';
 import { gameRecordId } from '../../lib/game-study.mjs';
 export const fourthLineIds = new Set(genshinActionExpansionFourth.map(r => `genshin:${r.characterId}:${r.key}`));
 export const fourthCardIds = new Set(gameCharacterStudy.flatMap(g=>g.characters.flatMap(c=>c.lines)).filter(l=>fourthLineIds.has(l.id)).map(l=>'game-card:'+gameRecordId(l)));
 export const beforeFourthGameCharacterStudy = gameCharacterStudy.map(g=>({...g,characters:g.characters.map(c=>({...c,lines:c.lines.filter(l=>!fourthLineIds.has(l.id))}))}));
-export const beforeFourthCards = cards => cards.filter(c=>!fourthCardIds.has(c.id));
+export const beforeFourthCards = cards => beforeFifthCards(cards).filter(c=>!fourthCardIds.has(c.id));
 export const beforeFourthIllustrations = VOCAB_ILLUSTRATIONS.filter(c=>!fourthCardIds.has(c.id));
 export const fourthAssetNames = new Set(["abilityappearcall.svg","abilityblindingscreen.svg","abilityboomingarrival.svg","abilitybubbles.svg","abilitycalminchaos.svg","abilitycanescape.svg","abilitycheckdistance.svg","abilityclaimlife.svg","abilityclonetechnique.svg","abilitycommandwaves.svg","abilitycountshots.svg","abilitydontescape.svg","abilityfirststrike.svg","abilityflameshield.svg","abilitygiveuporder.svg","abilitygoorder.svg","abilityinjectionresult.svg","abilityknightpoise.svg","abilitylightfloating.svg","abilitymaidmanners.svg","abilitymedicalvow.svg","abilitymomentaryopening.svg","abilityninjavanishing.svg","abilityreadattack.svg","abilityreinforcement.svg","abilityrequesthelp.svg","abilityrockreassure.svg","abilityscornlofty.svg","abilityseapact.svg","abilityshowmerequest.svg","abilitysimulatewind.svg","abilitysoul.svg","abilitystaynear.svg","abilitysuncommand.svg","abilitythreadcrossing.svg","abilityuproot.svg","abilitywatchstep.svg","abilitywavedance.svg","abilitywisdompeak.svg"]);
 

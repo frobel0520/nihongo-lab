@@ -400,3 +400,20 @@ test('deployment needs all gates, docs never publish, and owner/main/permissions
     true,
   );
 });
+
+test('changed-audio gate has a decoder on fresh runners before decoding', () => {
+  const steps = workflow.jobs.check.steps;
+  const install = steps.findIndex(
+    (s) => s.name === 'Ensure MP3 decoder is available',
+  );
+  const decode = steps.findIndex((s) =>
+    s.run?.includes('node scripts/ci/media-check.mjs'),
+  );
+  assert.ok(install >= 0 && install < decode);
+  assert.equal(enabled(steps[install], 'docs'), false);
+  for (const profile of ['content', 'full'])
+    assert.equal(enabled(steps[install], profile), true);
+  assert.match(steps[install].run, /command -v ffmpeg/);
+  assert.match(steps[install].run, /apt-get install[^\n]* ffmpeg/);
+  assert.match(steps[install].run, /ffmpeg -version/);
+});

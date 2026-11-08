@@ -1,5 +1,9 @@
 # 系統設計
 
+## T172：第五批候選契約
+
+只在作者資料genshin-action-expansion-fifth.mjs追加45筆，經既有study/questions組裝並由curriculum/lessons.mjs唯一入口按需載入；新增五個逐音檔讀音覆寫、45個精確四欄圖義映射。構圖描述仍為作者資料、不進runtime；空alt、揭示後小圖、按需快取、明確增量下載及舊資料保留不變。所有原bundle門檻保持，無新runtime dependency。 詳細範圍、驗證與限制見release-audit的T172條目；本批未合併部署。
+
 ## T171：第四批發布狀態
 
 PR #195精確產品4351527已發布，main必要CI／Worker／Pages及正式站SHA、代表線上／真正離線驗收成功。現行672句／6209卡／2432圖、8834教材MP3＋38預覽；210已知待補、原9待核、action-0740與未知來源獨立保留。既有教材／ID／媒體／安全／導航／SRS／下載及同步3保持。

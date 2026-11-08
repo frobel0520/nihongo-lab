@@ -1,5 +1,16 @@
 # 任務拆解
 
+## T172：第五批原神戰技／爆發候選（未發布）
+
+- Goal／owner：worker交付來源可追溯的45句候選，集中交reviewer；不在本輪合併部署。
+- depends_on／input：T171已發布，最新main `c1804f0`與既有210組清單、固定日文來源；9組待核及未知範圍不減。
+- Output：45句／45個自製VOICEVOX MP3／29張CC0 SVG／45精確映射；新增素材與舊圖共用分開統計，詳release-audit。
+- Acceptance：來源／讀音／語義自查、完整解碼與SHA、舊資料不變、45句／90卡瀏覽器及真正離線、增量下載、導航／SRS回歸、正式build／原bundle與精確head Linux／Windows CI。
+- Fixture／evidence：獨立瀏覽器與合成舊進度；舊音檔快取fixture不冒正式站證據。完整報告與證據留repo外並以Private CLI保存／restore核驗／register；產品媒體另由Git固定commit復原。
+- Out of scope：其他教材、版面、同步／排程、下載／安全契約及容量門檻不改；未選／待核項目不硬補。
+
+正式仍210待補；本批通過審查並發布後才可記165。當前不以CI或SHA代替語義與人耳驗收，未開始下一批。
+
 ## T171：第四批已發布（2026-11-02，Asia/Taipei）
 
 [PR #195](https://github.com/frobel0520/nihongo-lab/pull/195) 的精確產品`4351527`已由reviewer放行並正常整合，保留公開提交身分、舊安全／Worker／Pages／導航／SRS／下載修補；沒有實質整合差異或歷史改寫。[main Linux／Windows、Worker及Pages引導](https://github.com/frobel0520/nihongo-lab/actions/runs/41376633223)全部成功。
