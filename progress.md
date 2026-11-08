@@ -1,5 +1,12 @@
 # 專案進度
 
+## 本專案協作規則：reviewer由使用者明確啟動（2026-11-08）
+
+平時由master與worker推進開發、自查及適用驗證；只有使用者明確要求本次review／審查時才交reviewer，不固定逐批安排，也不把Ready、CI成功或舊任務授權當作觸發。必要CI、內容正確性、發布驗收及main授權保持；細節見AGENTS的「Reviewer啟動規則」。僅nihongo-lab適用，其他專案與Harbor共用規範不變。
+
+#198既有放行證據保持，本次只改協作文件，不重做其審查、不修改或發布其教材。歷史集中review紀錄保留為當時狀態，不代表下一批自動啟動reviewer。
+
+
 ## #199：工作流精簡已合併
 
 [PR #200](https://github.com/frobel0520/nihongo-lab/pull/200)產品整合版本為13866d7fb9ba1bd7ec8fa55e15a43d2f46ecf90f；分類器、文件／媒體檢查及CI契約測試已落地，未混入#198教材。docs只驗文件且不部署；content保留完整check、build、原容量、變更MP3解碼與圖片下載／接續／真正離線檢查；核心、依賴、CI、不明範圍與手動執行採full。必要check／ux-windows狀態、main／owner／environment、Worker先於Pages與rollback均保持。
