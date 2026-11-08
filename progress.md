@@ -1,5 +1,12 @@
 # 專案進度
 
+## #199：工作流精簡（進行中）
+
+本輪只改CI驗證範圍與交接規則，#198教材保持獨立、尚待其原審查。新增保守docs/content/full分流：文件不重部署；教材保留全量資料／單元檢查、build／容量及適用媒體／離線回歸；核心與不明變更仍完整Linux／Windows驗證。必要狀態、main／owner／environment、Worker先於Pages及rollback保持，規則見project-sd的#199決策。
+
+分類、工作流條件與錯誤路徑測試正進行；未宣稱CI、部署或正式效能驗收已通過。PR／最終版本與結果在完成後更新，不把未完成項目寫成已發布。人耳、真機、正式效能等既有待辦保持。
+
+
 ## T171：第四批已發布（2026-11-02，Asia/Taipei）
 
 [PR #195](https://github.com/frobel0520/nihongo-lab/pull/195) 的精確產品`4351527`已由reviewer放行並正常整合，保留公開提交身分、舊安全／Worker／Pages／導航／SRS／下載修補；沒有實質整合差異或歷史改寫。[main Linux／Windows、Worker及Pages引導](https://github.com/frobel0520/nihongo-lab/actions/runs/41376633223)全部成功。
@@ -132,6 +139,8 @@ check 364項、正式base path build、完整UX／導航／SRS及原bundle門檻
 第二階段接續全量盤點原神戰技／爆發有語意台詞；目前尚未核實有語意總數及精確缺漏，不以來源音檔記錄數宣稱完整。
 
 ## 待辦
+
+- [ ] 【中】權威規範差距：補齊現行正式頁面／API效能基準、適用門檻及Release Gate證據；bundle通過不代替。#199不改runtime與資料，只做相關容量回歸，未宣稱此項完成。
 
 
 - [ ] 【中】待外部：逐句人耳審聽與重音／情緒驗收；既有局部人工回報不代表全量8535個教材音檔通過。

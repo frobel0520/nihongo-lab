@@ -8,10 +8,15 @@ permissions:
   contents: read
 concurrency:
   group: pages-${{ github.ref }}
-  cancel-in-progress: true
+  # A document push must not interrupt an active production publication.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
-  check:
+  changes:
     runs-on: ubuntu-latest
+    outputs:
+      profile: ${{ steps.plan.outputs.profile }}
+      base: ${{ steps.plan.outputs.base }}
+      paths: ${{ steps.plan.outputs.paths }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -20,59 +25,123 @@ jobs:
         with:
           node-version: '22'
           cache: npm
+      # The classifier uses the existing TypeScript parser; no install hooks needed.
+      - run: npm ci --ignore-scripts
+      - id: plan
+        run: node scripts/ci/plan.mjs
+  check:
+    needs: changes
+    # A failed classifier must fail the stable required check, not skip it.
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require a successful, known validation scope
+        env:
+          PLAN_RESULT: ${{ needs.changes.result }}
+          PLAN_PROFILE: ${{ needs.changes.outputs.profile }}
+        run: |
+          test "$PLAN_RESULT" = success
+          case "$PLAN_PROFILE" in docs|content|full) ;; *) exit 1 ;; esac
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Document gate (no product build or publication)
+        if: needs.changes.outputs.profile == 'docs'
+        env:
+          CI_BASE_SHA: ${{ needs.changes.outputs.base }}
+          CI_CHANGED_PATHS: ${{ needs.changes.outputs.paths }}
+        run: |
+          git fetch --no-tags --depth=1 origin "$CI_BASE_SHA"
+          node scripts/ci/docs-check.mjs
       - run: npm ci
+        if: needs.changes.outputs.profile != 'docs'
       - name: Dependency audit (high/critical fails)
+        if: needs.changes.outputs.profile != 'docs'
         run: npm audit --audit-level=high
       - run: npm run check
+        if: needs.changes.outputs.profile != 'docs'
+      - name: Decode all identified changed audio
+        if: needs.changes.outputs.profile != 'docs'
+        env:
+          CI_CHANGED_PATHS: ${{ needs.changes.outputs.paths }}
+        run: node scripts/ci/media-check.mjs
       - run: npm run build
+        if: needs.changes.outputs.profile != 'docs'
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
-      # 保留 bundle 大小迴歸檢查；不要求操作與頁面載入計時。
       - run: npm run perf:bundle
-      - run: npm run test:quality
-      - run: npm run test:inference
-      - run: npm run test:pwa
+        if: needs.changes.outputs.profile != 'docs'
+      # This real-build test checks image inventory, all image SHA, representative
+      # cards, download/resume and true offline reload for content as well as code.
       - run: npm run test:images
+        if: needs.changes.outputs.profile != 'docs'
+      - run: npm run test:quality
+        if: needs.changes.outputs.profile == 'full'
+      - run: npm run test:inference
+        if: needs.changes.outputs.profile == 'full'
+      - run: npm run test:pwa
+        if: needs.changes.outputs.profile == 'full'
       - run: npm run test:ux
+        if: needs.changes.outputs.profile == 'full'
       - run: npm run test:navigation
+        if: needs.changes.outputs.profile == 'full'
       - run: npm run test:srs-layout
+        if: needs.changes.outputs.profile == 'full'
       - run: npm run test:pwa:updates
-      # 網頁改由同步 Worker 的 static assets 提供（SEC-P1-20261031），把 build 交給 deploy-worker。
+        if: needs.changes.outputs.profile == 'full'
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && needs.changes.outputs.profile != 'docs'
         with:
           name: site-dist
           path: dist
           retention-days: 3
           if-no-files-found: error
+  # Keep the required check name present even when Windows UI is not applicable.
   ux-windows:
+    needs: changes
     runs-on: windows-latest
     steps:
+      - name: Report validation scope
+        if: needs.changes.outputs.profile != 'full'
+        shell: bash
+        run: echo 'Windows UI not exercised for this profile; Linux content/document checks remain required.' >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/checkout@v6
+        if: needs.changes.outputs.profile == 'full'
         with:
           persist-credentials: false
       - uses: actions/setup-node@v4
+        if: needs.changes.outputs.profile == 'full'
         with:
           node-version: '22'
           cache: npm
       - run: npm ci
+        if: needs.changes.outputs.profile == 'full'
       - run: node --test tests/static-file.test.mjs tests/page-history.test.mjs
+        if: needs.changes.outputs.profile == 'full'
       - run: npm run build
+        if: needs.changes.outputs.profile == 'full'
         env:
           VITE_BASE_PATH: /${{ github.event.repository.name }}/
       - run: npm run test:ux -- --area context
+        if: needs.changes.outputs.profile == 'full'
         env:
           CHROME_PATH: C:\Program Files\Google\Chrome\Application\chrome.exe
       - run: npm run test:ux -- --area downloads
+        if: needs.changes.outputs.profile == 'full'
         env:
           CHROME_PATH: C:\Program Files\Google\Chrome\Application\chrome.exe
       - run: npm run test:navigation
+        if: needs.changes.outputs.profile == 'full'
         env:
           CHROME_PATH: C:\Program Files\Google\Chrome\Application\chrome.exe
   deploy-worker:
     # 網頁與同步 API 一起發布到 nihongo-sync Worker（路徑維持 /nihongo-lab/），session 用 HttpOnly cookie。
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    needs: check
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && needs.changes.outputs.profile != 'docs'
+    needs: [changes, check, ux-windows]
     runs-on: ubuntu-latest
     environment: production
     concurrency:
