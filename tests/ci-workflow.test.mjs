@@ -145,6 +145,28 @@ test('controlled expansion wiring accepts only matching literal source exports',
   );
 });
 
+test('bundler and type directives cannot hide inside a data-only AST comparison', () => {
+  const file = 'lib/vocab-illustrations.mjs';
+  const before = 'export const VOCAB_ILLUSTRATIONS = [];';
+  for (const comment of [
+    '/* @vite-ignore */',
+    '// @ts-nocheck\n',
+    '/* #__PURE__ */',
+  ])
+    assert.equal(
+      classify([file], { [file]: before }, { [file]: comment + before }),
+      'full',
+    );
+  assert.equal(
+    classify(
+      [file],
+      { [file]: before },
+      { [file]: '// ordinary author note\n' + before },
+    ),
+    'content',
+  );
+});
+
 test('content unit tests run with content; browser/tooling changes remain full', () => {
   const media = 'public/images/vocab/new.svg';
   assert.equal(

@@ -18,6 +18,34 @@ const mixedModules = new Set([
   'curriculum/game-character-questions.mjs',
 ]);
 
+/** Build/type directives are executable inputs. @param {string} text */
+function directives(text) {
+  const scanner = ts.createScanner(
+    ts.ScriptTarget.Latest,
+    false,
+    ts.LanguageVariant.Standard,
+    text,
+  );
+  const found = [];
+  for (
+    let kind = scanner.scan();
+    kind !== ts.SyntaxKind.EndOfFileToken;
+    kind = scanner.scan()
+  ) {
+    if (
+      [
+        ts.SyntaxKind.SingleLineCommentTrivia,
+        ts.SyntaxKind.MultiLineCommentTrivia,
+      ].includes(kind) &&
+      /@vite-|webpack|[@#]__PURE__|@ts-|@jsx|sourceMappingURL|sourceURL/i.test(
+        scanner.getTokenText(),
+      )
+    )
+      found.push(scanner.getTokenText());
+  }
+  return JSON.stringify(found);
+}
+
 /** No calls, getters, spreads or executable expressions. @param {ts.Node} node @returns {boolean} */
 export function isLiteralData(node) {
   if (ts.isStringLiteral(node) || ts.isNumericLiteral(node)) return true;
@@ -272,6 +300,7 @@ export function classifyChanges(changes, read) {
           if (
             before === null ||
             after === null ||
+            directives(before) !== directives(after) ||
             executableShape(file, before, (p) => read('base', p)) !==
               executableShape(file, after, (p) => read('head', p))
           )
