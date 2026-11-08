@@ -64,6 +64,14 @@ jobs:
         run: npm audit --audit-level=high
       - run: npm run check
         if: needs.changes.outputs.profile != 'docs'
+      - name: Ensure MP3 decoder is available
+        if: needs.changes.outputs.profile != 'docs'
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          ffmpeg -version
       - name: Decode all identified changed audio
         if: needs.changes.outputs.profile != 'docs'
         env:

@@ -10,7 +10,7 @@
 
 375寬45句播放／作答、45卡各在線上與真正離線揭示／評分共90次，29新圖224×168與56×42及45張實際卡片自查完成；代表新卡鍵盤、改評、滑動、保存、320×480／150%及離線缺圖退化通過。以BrowserContext.setOffline(true)、重載及未快取probe的ERR_INTERNET_DISCONNECTED確認真正斷網；29圖＋45音檔74項SHA一致，另三句有新native play事件且時間前進，pageerror0。真實舊新版build更新需確認後只補29圖，2432舊圖keys、3舊音檔SHA及有效合成進度保持；舊音檔為獨立測試快取fixture，非本輪正式站下載。導航與SRS既有正式回歸通過。
 
-原候選完整check（382項測試／型別／lint）、正式base path build、原bundle及當時Linux／Windows CI已通過；一筆干擾選項譯名統一另補線上／真正離線定點驗證。整合僅同步工作流、開發用依賴及文件，45句／45 MP3／29新SVG／45映射、既有runtime與ID保持；沿用45句／90次卡片、離線與增量下載的有效證據。整合後依新分類器執行適用check、build、原容量、變更媒體及圖片流程，精確head與結果以[PR #198](https://github.com/frobel0520/nihongo-lab/pull/198)的最新CI為準，不把content的Windows必要狀態當成重跑Windows UI。維持Ready待集中內容審查，未合併、未部署；工程檢查不取代來源、語義與人耳驗收。原Private凍結包不變，僅補版本／證據有效範圍對照；容量維持原上限，未恢復T122計時Gate。
+原候選完整check（382項測試／型別／lint）、正式base path build、原bundle及當時Linux／Windows CI已通過；一筆干擾選項譯名統一另補線上／真正離線定點驗證。整合僅同步工作流、開發用依賴及文件，45句／45 MP3／29新SVG／45映射、既有runtime與ID保持；沿用45句／90次卡片、離線與增量下載的有效證據。整合後依新分類器執行適用check、build、原容量、變更媒體及圖片流程，精確head與結果以[PR #198](https://github.com/frobel0520/nihongo-lab/pull/198)的最新CI為準，不把content的Windows必要狀態當成重跑Windows UI。首次content CI在音檔解碼步驟因runner缺少ffmpeg而失敗，非音檔錯誤；本PR補齊解碼器安裝及契約測試，因此最新分類應為full，依完整CI結果核對，不改分類器或跳過關卡。維持Ready待集中內容審查，未合併、未部署；工程檢查不取代來源、語義與人耳驗收。原Private凍結包不變，僅補版本／證據有效範圍對照；容量維持原上限，未恢復T122計時Gate。
 
 完整工程報告、來源CSV、畫面及JSON僅Private存檔。執行通道中斷、部分run、原錯讀與隔離缺件均保留，不把未完成紀錄補寫成功。MP3以產品Git固定commit／逐檔SHA交接，不繞過Private ZIP格式白名單。人耳0，本批真機、原生縮放／系統字型鍵盤、實體螢幕閱讀器及學習效果未驗；既有Android歷史及Windows403原失敗log缺件保持。無排程、未合併、未部署，不宣稱全量完成。
 
