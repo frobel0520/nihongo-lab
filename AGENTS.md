@@ -44,7 +44,7 @@
 - 原神長任務依目前授權的可驗收大批次進行，不再固定每批3位。每批先核對最新main、未合併PR及既有缺漏清單，避免重做；來源未知與未完成分列。建立分支前先 `git fetch origin main`，正式站驗證綁定實際發布版本。
 - 維持 docs/project-plan.md、project-sa.md、project-sd.md 與 task-breakdown.md 的專案契約。
 - 課程資料以 curriculum/lessons.mjs 為唯一來源。
-- 原神教材分批擴充，來源、讀音、VOICEVOX、配圖與隱私逐項自查，階段完成後集中審查。main合併／發布依Harbor權威規範與使用者本次明確授權；未獲本批發布授權時停在Ready，不把審查放行當成授權。
+- 原神教材分批擴充，來源、讀音、VOICEVOX、配圖與隱私逐項自查；只有使用者明確要求本次review時才交reviewer，不把批次完成當作自動審查觸發。main合併／發布依Harbor權威規範與使用者本次明確授權；未獲本批發布授權時停在Ready，不把審查放行當成授權。
 - 原神長任務每批完成並核對部署後，直接開始下一批；自動接續先確認遠端main與進度，避免重複及併發。完成所有可核對角色後停止自動化；來源缺失者明確保留待收錄原因。
 - 第 3 天起每天一個檔案：`curriculum/days/dayNN.mjs`，用 `curriculum/author.mjs` 的 `defineLesson` 編寫（音檔路徑由內容雜湊自動決定），再由 lessons.mjs 匯入；對外仍只有 lessons.mjs 一個入口。
 - 核心教材（例句、單字、文法說明）可由 Claude 或 GPT 編寫，需一次寫完整；不要設計成使用者需中途填空或貼台詞才能使用。
@@ -66,6 +66,15 @@
 
 先讀預設分支的progress.md，再依其中版本與證據位置切到工作分支。不要用工具memory、本機路徑或Harbor存檔代替主進度；內部報告／截圖仍留Private，公開進度只放必要狀態與定位。
 
-CI範圍與證據沿用規則見docs/project-sd.md的「CI驗證分流（#199）」。worker負責新增內容完整自查，reviewer獨立審內容與疑點，工程證據依有效範圍沿用；版本、工具、依賴、設定或外部狀態改變時先判斷效力。未知範圍升級full，不自行放寬關卡。純教材追加不重寫未改動的Plan／SA／SD，不為補同一份敘述另建多份摘要；每批更新實際變更的來源覆蓋、Progress及必要驗收紀錄。
+CI範圍與證據沿用規則見docs/project-sd.md的「CI驗證分流（#199）」。worker負責新增內容完整自查；使用者明確啟動review時，reviewer才獨立審內容與疑點。工程證據依有效範圍沿用；版本、工具、依賴、設定或外部狀態改變時先判斷效力。未知範圍升級full，不自行放寬關卡。純教材追加不重寫未改動的Plan／SA／SD，不為補同一份敘述另建多份摘要；每批更新實際變更的來源覆蓋、Progress及必要驗收紀錄。
 
 素材README等public檔案屬發布資產，應併入教材PR準備；發布後只補必要的進度／驗收紀錄，避免把public變更誤稱純文件。正式驗收詳細結果沿單一紀錄與Private證據定位，不反覆抄寫相同限制。
+
+
+## Reviewer 啟動規則（僅適用 nihongo-lab）
+
+- 只有使用者明確要求對本次工作做review／審查時，才啟動、指派或交接任務給reviewer。平時由master與worker協作，worker完成開發、自查及適用驗證，不固定每批送reviewer。
+- 批次完成、PR轉Ready、CI成功、舊prompt、舊待辦或舊排程，都不代表新的review授權；前一批曾要求review也不延伸到下一批。未要求review時不額外等待reviewer放行。
+- Worker自查、來源／讀音／配圖正確性、必要CI、資安與適用發布驗收照常；合併main、部署及設定變更仍依既有授權規則。不把自查寫成獨立reviewer審查。
+- 已完成的審查與放行證據保持有效，歷史紀錄不改寫；使用者要求review後，再明確指定當次範圍、版本及疑點。
+- 這是本專案的協作例外，不同步到Harbor共用規範、全域設定或其他repo；其他專案維持原規則。
