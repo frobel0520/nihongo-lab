@@ -1434,3 +1434,20 @@ PR152已合併為`4d7d196`，精確head CI39385558545及Pages39387551841成功�
 - 原文字置中、56×42、空alt、揭示時機及資料／離線契約不變；未修改元件或CSS。
 - 330 tests／check、正式build／原bundle、375寬136卡流程、持續網路阻擋及42圖SHA完成；容量與證據見release-audit。
 - 建立並附加PR，等待最新CI，供reviewer檢查語義／風格／容量／離線，停在PR，不合併部署或擴大下一批。
+
+
+## #199：CI驗證分流與發布文件去重
+
+| 契約 | 內容 |
+| --- | --- |
+| Task ID／owner | #199／本輪工作流實作者；不混入#198教材 |
+| Goal | 降低重複檢查，同時保留內容完整性與產品級發布守門 |
+| Input contract | GitHub事件、精確base／HEAD、變更路徑及可解析的教材AST |
+| Output artifact | docs/content/full分流、穩定必要狀態、工作流契約測試及SD決策 |
+| depends_on | 現行check、TypeScript parser、Linux／Windows與Worker／Pages流程；無循環依賴 |
+| Out of scope | 教材、媒體、UI、同步與下載功能；不降低容量或效能要求，不修改Harbor權威文件 |
+| Acceptance checks | 文件不build／部署；內容全量check與適用媒體／離線驗證；未知／核心採full；分類錯誤fail closed；既有部署權限與順序保持 |
+| Fixture or test data | 合成docs／內容／程式差異、rename／delete／symlink／缺失base、AST注入與工作流條件矩陣 |
+| Evidence path | 本PR CI與工作摘要；詳細本機記錄存repo外。最終發布狀態在progress，不建立重複摘要 |
+
+驗證流程：定點測試→完整check／正式build／原bundle→本PR full CI→合併後full CI與正式產物代表核對。內容與文件分流另以合成差異及既有教材候選驗證選擇結果；合成測試不冒充正式站或真機。Rollback與成本／效能影響見project-sd的#199段落。

@@ -41,10 +41,10 @@
 ## 專案開發規則
 
 - 工作分支採 feature/<task-id>，修改前確認目前分支。
-- 原神長任務完成一批3位並核對正式站後，直接接續下一批；自動接續時先核對遠端main、未合併PR及進度，避免重複或併發部署。環境／額度限制時保存進度；未具來源的角色保持待收錄。 每次建立批次分支前先 `git fetch origin main` 並以最新main為基底；正式站音檔驗證也要讀最新main，避免追蹤ref過期。
+- 原神長任務依目前授權的可驗收大批次進行，不再固定每批3位。每批先核對最新main、未合併PR及既有缺漏清單，避免重做；來源未知與未完成分列。建立分支前先 `git fetch origin main`，正式站驗證綁定實際發布版本。
 - 維持 docs/project-plan.md、project-sa.md、project-sd.md 與 task-breakdown.md 的專案契約。
 - 課程資料以 curriculum/lessons.mjs 為唯一來源。
-- 原神教材分批擴充，每批 3 位角色；自行完成來源、讀音、VOICEVOX、功能與隱私檢查，PR check 通過後直接部署，毋須逐批要求確認。每批保存已上線／待收錄狀態，下次從未完成角色接續，目標為全角色教材；缺乏可核對來源者保持待收錄，不編造作品台詞。
+- 原神教材分批擴充，來源、讀音、VOICEVOX、配圖與隱私逐項自查，階段完成後集中審查。main合併／發布依Harbor權威規範與使用者本次明確授權；未獲本批發布授權時停在Ready，不把審查放行當成授權。
 - 原神長任務每批完成並核對部署後，直接開始下一批；自動接續先確認遠端main與進度，避免重複及併發。完成所有可核對角色後停止自動化；來源缺失者明確保留待收錄原因。
 - 第 3 天起每天一個檔案：`curriculum/days/dayNN.mjs`，用 `curriculum/author.mjs` 的 `defineLesson` 編寫（音檔路徑由內容雜湊自動決定），再由 lessons.mjs 匯入；對外仍只有 lessons.mjs 一個入口。
 - 核心教材（例句、單字、文法說明）可由 Claude 或 GPT 編寫，需一次寫完整；不要設計成使用者需中途填空或貼台詞才能使用。
@@ -54,9 +54,18 @@
 - 課程標題、文法句型與說明、練習題與答案、名句出處與解說、翻譯裡夾的日文，沒有 `reading` 欄位，讀音標記放在 `curriculum/ruby-notes.mjs`（`{漢字|よみ}`，去掉標記要與原字串一致）。新增或修改這類字串後，`npm test` 會列出還沒檢查的字串；逐一決定要標的日文漢字（只標日文，不標中文詞；文字裡已緊接著寫了讀音的不重複標；人名、作品名的讀音要查證），沒有要標的也加一筆與原字串相同的項目代表看過了。
 - 寫新課時：每個文法點標 `jlpt`（OpenJLPT 文法 id，用 `npm run coverage -- --missing` 查還沒涵蓋的項目與 id），單字以每課 25～30 個為目標；寫完跑 `npm run coverage`，把數字記進 release-audit.md。OpenJLPT 資料（CC BY-SA 4.0）不得複製進 repo，`.cache/` 保持在 .gitignore。
 - 含漢字的句子，`reading` 必須與原文字面一致（假名、標點照抄，詞與詞之間用空白），畫面才能自動把讀音標在漢字上方；漢字段之間若只隔標點或空白，讀音裡也要有同樣的標點或空白。對不起來（例如含阿拉伯數字）就加 `ruby` 手動標，格式 `{原文|讀音}`；`npm test` 會檢查每一句都標得出來。
-- 只有完整型別檢查、測試與 lint 通過才記錄完成；不把未執行的驗證寫成通過，重要限制寫入 release-audit.md。
+- 產品與教材依CI分流完成完整型別／單元測試／lint、build及適用回歸後才記錄完成；純文件依docs關卡驗證，不重建或部署未變的產品。不把未執行的Windows UI、人耳或正式效能寫成通過，重要限制保留於release-audit。
 - 修改功能需執行 npm test、npm run typecheck、npm run lint；交付前執行 npm run build。
 - 不把 generated assets 或 credentials 加入 Git。
 - 個人句庫與匯入的台詞只存在使用者瀏覽器或私人檔案，不放進公開 repo（見 draft 第 8 節版權原則）。
 - 已公開部署：repository 是 GitHub repository（public），push 到 main 由 GitHub Actions 跑 `npm run check` 與 `npm run build` 後部署到同步 Worker（網頁與 API 同源，見 docs/project-sd.md 的 SEC-P1-20261031 變更紀錄），舊 GitHub Pages 網址只放引導頁；PR 上也會跑同一個 check，合併前要等它通過。
 - 教材（含名句解說）裡不要用「前面的例句」「上一句」這種相對位置的說法，順序調整就會失效；要對照別句時直接寫作品與台詞。事實性的說明（獎項、年份、出處）只寫查證過的內容，並把出處記進 release-audit.md；查不到就不寫。
+
+
+## 工作流與跨 session 接手
+
+先讀預設分支的progress.md，再依其中版本與證據位置切到工作分支。不要用工具memory、本機路徑或Harbor存檔代替主進度；內部報告／截圖仍留Private，公開進度只放必要狀態與定位。
+
+CI範圍與證據沿用規則見docs/project-sd.md的「CI驗證分流（#199）」。worker負責新增內容完整自查，reviewer獨立審內容與疑點，工程證據依有效範圍沿用；版本、工具、依賴、設定或外部狀態改變時先判斷效力。未知範圍升級full，不自行放寬關卡。純教材追加不重寫未改動的Plan／SA／SD，不為補同一份敘述另建多份摘要；每批更新實際變更的來源覆蓋、Progress及必要驗收紀錄。
+
+素材README等public檔案屬發布資產，應併入教材PR準備；發布後只補必要的進度／驗收紀錄，避免把public變更誤稱純文件。正式驗收詳細結果沿單一紀錄與Private證據定位，不反覆抄寫相同限制。

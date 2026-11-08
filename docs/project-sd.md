@@ -940,3 +940,22 @@ check333 tests、正式base build、perf及375寬／真正離線回歸通過；6
 
 
 T155發布收尾（2026-10-23）：使用者確認6bece52產品審查無阻塞並授權本批合併部署，上節未合併狀態保留為初次交付歷史。本輪僅文件校正：歷史71項JLPT盤點已結案，41補／30無可靠對應／0未決；T149另撤第151課1標後，現行31無可靠對應、待核實0，不列為31個待補缺漏。產品不改，最新CI與相同產物驗證後才發布；最終Pages及正式站結果記於同一PR #161，不新增圖片或下一批。
+
+
+## CI 驗證分流（#199）
+
+決策：保留產品級PR、必要狀態與Release Gate，按實際變更採docs／content／full三種範圍。原流程讓文件、教材與核心變更都執行相同全套瀏覽器回歸並部署，文件收尾因此重複發布產品。沿用現行工具，新增的YAML parser只供工作流契約測試，不進runtime；沒有新服務或持續費用。
+
+- docs：僅限根目錄README／AGENTS／progress與docs內Markdown。檢查UTF-8、衝突及新增本地連結；不以此宣稱人工文件正確性或外部連結已驗。無產品build、artifact或部署。
+- content：明確允許的教材資料、配圖映射、作者描述JSON、MP3／SVG及相關內容單元測試。完整typecheck、所有單元測試、lint、high／critical依賴稽核、正式build、原bundle Gate及真實build的圖片下載／接續／真正離線回歸仍執行；已識別的變更MP3逐檔解碼。未改動的歷史聽解、導航、SRS、跨版更新與Windows UI不重跑。單元測試與歷史投影fixture仍全部執行，修改其斷言不等於來源／內容已核准。
+- full：核心、依賴、瀏覽器工具、CI／部署、不明檔案、缺失比較基準、symlink／submodule及可執行結構變更。執行原完整Linux／Windows回歸；手動workflow_dispatch也採full。
+
+分類讀取Git事件的精確base與受測HEAD，重新命名看新舊路徑。混合JS模組透過既有TypeScript AST比較所有可執行結構，只有經驗證的literal資料與限定的教材匯入清單可以不同；語法、來源或模式無法確認就升級full。public內README是實際發布檔案，歸content而非純文件。新增教材格式未明確支援時也採full，不用副檔名推測。
+
+穩定的check與ux-windows狀態保留。分類失敗必須讓check失敗，不能以skipped冒充成功；content／docs的Windows狀態只回報不適用，不得記為已執行Windows UI驗收。正式發布等待分類、check及Windows狀態全部成功，保留main／owner／environment與最小權限；Worker成功後才更新Pages引導。PR新提交可以取消舊CI，main文件推送不能中斷正在發布的產品。
+
+工作分工：worker對新增內容、來源及配圖全量自查，reviewer獨立審內容與疑點，工程證據確認版本／依賴／工具／設定仍適用後沿用；正式站核對發布版本、變更資產及代表流程。人工正確性、機械驗證、fixture、正式站與人耳／真機結果分列，未測仍待驗。純教材追加不重寫未改的架構契約；預設分支progress是跨session入口，Private證據只作引用，不代替進度。
+
+效能與完整性：保留所有現有容量門檻，不以bundle代替權威文件要求的適用正式效能驗收；既有正式載入／API量測缺口仍須追蹤。沒有引入跨run測試成績快取或放寬依賴稽核；內容改動後仍在PR／main執行其適用檢查。此階段先減少不相關回歸與文件重部署。
+
+Rollback：經本次PR的完整回歸及實際main執行驗證後發布；若分流出現漏檢，以revert本PR恢復原完整工作流，再依權威文件核准main操作。產品教材、資料schema、同步與快取契約不變。規則與狀態契約由tests/ci-workflow.test.mjs驗證；完整工程記錄留repo外，不公開附件。
