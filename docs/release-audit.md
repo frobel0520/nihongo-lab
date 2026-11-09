@@ -1,5 +1,19 @@
 # Release audit — 0.1.0
 
+## T173：第六批正式驗收（2026-11-09）
+
+產品為 `f2edd4c2ea856cf57dc41659b71105b753cbe198`，[main CI／Worker／Pages](https://github.com/frobel0520/nihongo-lab/actions/runs/42544356781)成功；現行交付數與待補數以[Progress](../progress.md)為準。content關卡完成398項測試／型別／lint、變更MP3全檔解碼、正式build、原bundle及圖片下載回歸；ux-windows依分流回報成功，不冒稱重跑完整Windows UI。本批依使用者授權直接發布，沒有啟動reviewer。
+
+正式站核對76個互斥變更檔，大小／SHA一致、失敗0：15個建置／public metadata與版本檔、32新MP3、29新SVG。正式origin正常Chromium取得，不關閉HTTPS驗證或變更站點保護；不是全站舊媒體重驗。原32句來源／分類、讀音／翻譯及答案、29圖雙尺寸／32映射、32音檔解碼及固定Git讀回證據綁定相同產品，直接沿用。
+
+375寬抽驗愛諾玩水短喊、娜維婭岩元素讀音覆寫及沃雅妮莎較長台詞，3句與3卡各在線上／真正離線播放、作答或評分與保存，圖片僅揭示後出現、空alt；沃雅妮莎長角色清單返回的線上／離線座標還原且項目可見。舊有效N5 FSRS及錯答紀錄保持，parse丟棄0，pageerror0、無水平溢位。根字級／SRS未變的既有回歸沿用，不重做全站導航。
+
+現行正式App使用2461張舊圖與3舊音檔的已驗build bytes獨立cache fixture，29新圖由App UI下載；舊圖key、3舊音檔SHA及合成進度保持，圖片下載跨頁持續。不把fixture混稱UI下載。等待確認更新沿用相同產品的本機真實舊新版有效證據；本次正式跨版完整流程曾中斷，未列為通過。最終正式增量／離線補驗另行通過，中斷原因與原件僅Private保留。真正離線採BrowserContext.setOffline(true)、reload與未快取probe ERR_INTERNET_DISCONNECTED；29增量圖及代表音檔離線SHA一致。
+
+precache22,650,891／26,869,829（餘4,218,938）、JS gzip66,111／630,000、CSS5,141／5,800、配圖chunk173,358／183,750（餘10,392）bytes。沒有改容量、離線契約、分類器或T122 Gate。Cloudflare官方倉庫現行限制核對免費靜態資產20,000檔／單檔25MiB；本版11,930檔、最大1,740,406 bytes，沿用既有免費部署，不新增服務或付費方案。
+
+完整worker來源與工程凍結包保持不可變；本次正式驗收報告、畫面／JSON僅repo外Private保存。人耳0、本批真機、原生縮放／系統鍵盤、實體螢幕閱讀器及學習效果未驗，歷史日誌／截圖／reviewer原件缺件保持。相同產品的文件收尾只驗docs與不部署，不製造重複驗收或反覆產品發布。
+
 ## T173：第六批候選驗證（2026-11-09，未發布）
 
 數量與來源範圍以[Progress](../progress.md)為單一現況；本批沒有改動既有教材、媒體、進度ID、FSRS、同步3、runtime依賴或下載實作。原717句、6254卡與映射、375筆讀音設定依開工快照投影核SHA；舊2461張SVG bytes及既有音檔Git blobs保持。測試只排除明確新增cohort，保留前批既有golden hashes，沒有重建舊基準。社群來源以角色加table-row組成唯一識別，不把不同角色相同表格列號混為同一原音。
