@@ -1,5 +1,17 @@
 # Release audit — 0.1.0
 
+## T174：第七批正式驗收（2026-11-09）
+
+產品為`103875e492f5652914df6d1c86b271ae4f7822d3`，[main CI／Worker／Pages](https://github.com/frobel0520/nihongo-lab/actions/runs/42571717173)成功；數量與待補狀態以[Progress](../progress.md)為準。依本批授權正常FF，無整合差異，原工程包與內容自查不重做。content關卡完成check、變更音檔解碼、正式build、原bundle與圖片下載回歸；ux-windows成功不冒稱完整Windows UI重跑。未啟動reviewer或排程。
+
+正式站68個互斥變更檔大小與SHA一致、失敗0：15個build／public metadata與版本錨點、27新MP3、26新SVG；不是全站舊媒體重驗。正常HTTPS／Chromium取得，不關TLS驗證或站點防護。原27句／26圖／27映射、27音檔Git固定commit讀回及401項測試等證據綁定相同產品，直接沿用。
+
+375寬抽驗白朮苦盡甘來、賽諾秤量／後置受詞長句與沃雅妮莎尾巴社群台詞，3句與3卡各在線上／真正離線播放、作答或評分／保存；1倍播放、揭示前無圖與空alt、無水平溢位，pageerror0。長角色清單返回的座標與原項目可見、舊有效N5 FSRS及錯答保持，未改動的SRS／導航核心沿用既有證據。真正離線採BrowserContext.setOffline(true)、重載及未快取probe ERR_INTERNET_DISCONNECTED；不是原生縮放、真機或實體螢幕閱讀器驗收。
+
+正式App使用已核舊build的2490圖與3舊音檔獨立cache fixture，新增26圖由App UI明確下載；只請求26新圖、舊key及3音檔SHA／合成進度保持，跨頁工作持續。fixture不混稱正式UI下載；等待確認更新沿用相同產品本機真實舊新版的有效證據。本次新增正式證據依Private流程保存，原工程包不重打包；本次部署原始日誌下載403，未取得marker原文，成功job與正式產物SHA是獨立證據；歷史缺件與一份被掃描隔離的搜尋回應仍分列，不冒恢復。
+
+precache22,690,750／26,869,829（餘4,179,079）、JS gzip66,108／630,000、CSS5,141／5,800、配圖chunk175,363／183,750（餘8,387）bytes，原門檻保持。部署前從Cloudflare官方倉庫重新核對免費上限20,000靜態檔／單檔25MiB，本版11,983檔，未新增付費服務。人耳0、真機、實體SR與學習效果未驗；來源未知及9組待核不歸零。純文件收尾依docs關卡，產品檔未變即沿用本次正式證據，不重建重部署。
+
 ## T174：第七批候選驗證（2026-11-09，未發布）
 
 本批數量、來源範圍與待補狀態以[Progress](../progress.md)為單一現況。原749句、6286卡及精確映射、376筆讀音設定以開工快照投影核SHA，2490張舊SVG逐位元組與舊媒體Git blobs保持；歷史golden hashes不改，只排除明確新增cohort。教材、ID、FSRS、同步3、runtime依賴與導航／下載核心未變。社群來源以角色＋表格列號隔離，未偽造原音數字ID或將未知按法／形態當成已核實。
