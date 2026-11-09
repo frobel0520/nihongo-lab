@@ -1,7 +1,6 @@
+import { beforeSeventhGameCharacterStudy, beforeSeventhCards, beforeSeventhIllustrations, beforeSeventhProsody } from './before-seventh-action-expansion.mjs';
 // T173: remove this explicit cohort only when evaluating immutable published snapshots.
 import { gameCharacterStudy } from '../../curriculum/lessons.mjs';
-import { VOCAB_ILLUSTRATIONS } from '../../lib/vocab-illustrations.mjs';
-import { AUDIO_PROSODY } from '../../curriculum/audio-prosody.mjs';
 import { gameRecordId } from '../../lib/game-study.mjs';
 export const sixthLineIds = new Set([
   'genshin:aino:skill-table-50-0',
@@ -77,7 +76,7 @@ export const sixthCardIds = new Set(
     .filter((l) => sixthLineIds.has(l.id))
     .map((l) => 'game-card:' + gameRecordId(l)),
 );
-export const beforeSixthGameCharacterStudy = gameCharacterStudy.map((g) => ({
+export const beforeSixthGameCharacterStudy = beforeSeventhGameCharacterStudy.map((g) => ({
   ...g,
   characters: g.characters.map((c) => ({
     ...c,
@@ -85,12 +84,12 @@ export const beforeSixthGameCharacterStudy = gameCharacterStudy.map((g) => ({
   })),
 }));
 export const beforeSixthCards = (cards) =>
-  cards.filter((c) => !sixthCardIds.has(c.id));
-export const beforeSixthIllustrations = VOCAB_ILLUSTRATIONS.filter(
+  beforeSeventhCards(cards).filter((c) => !sixthCardIds.has(c.id));
+export const beforeSixthIllustrations = beforeSeventhIllustrations.filter(
   (c) => !sixthCardIds.has(c.id),
 );
 export const beforeSixthProsody = Object.fromEntries(
-  Object.entries(AUDIO_PROSODY).filter(
+  Object.entries(beforeSeventhProsody).filter(
     ([path]) => !sixthProsodyPaths.has(path),
   ),
 );

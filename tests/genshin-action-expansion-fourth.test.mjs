@@ -1,3 +1,4 @@
+import { seventhAssetNames } from './helpers/before-seventh-action-expansion.mjs';
 import { sixthAssetNames, beforeSixthProsody } from './helpers/before-sixth-action-expansion.mjs';
 import { fifthAssetNames, fifthProsodyPaths, beforeFifthIllustrations } from './helpers/before-fifth-action-expansion.mjs';
 import test from 'node:test';
@@ -41,7 +42,7 @@ test('T171 source additions are unique, correctly classified and reachable in al
 test('T171 leaves every one of the 2393 old vector assets intact while adding only the explicit 39 assets',async()=>{
  const dir=new URL('../public/images/vocab/',import.meta.url),names=(await readdir(dir)).filter(n=>n.endsWith('.svg')).sort();
  assert.equal(names.filter(n=>fourthAssetNames.has(n)).length,39);
- const old=names.filter(n=>!fourthAssetNames.has(n) && !fifthAssetNames.has(n) && !sixthAssetNames.has(n));assert.equal(old.length,2393);
+ const old=names.filter(n=>!fourthAssetNames.has(n) && !fifthAssetNames.has(n) && !sixthAssetNames.has(n) && !seventhAssetNames.has(n));assert.equal(old.length,2393);
  const entries=await Promise.all(old.map(async n=>n+':'+sha((await readFile(new URL(n,dir),'utf8')).replace(/\r\n/g,'\n'))));
  assert.equal(sha(entries.join('\n')),'a623532b35d91bfc4eaaea005e8b9efa3bca06da9b0b46267133399217966819');
 });

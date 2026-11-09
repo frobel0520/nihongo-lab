@@ -4,9 +4,16 @@ import { genshinActionExpansionThird } from './genshin-action-expansion-third.mj
 import { genshinActionExpansionFourth } from './genshin-action-expansion-fourth.mjs';
 import { genshinActionExpansionFifth } from './genshin-action-expansion-fifth.mjs';
 import { genshinActionExpansionSixth } from './genshin-action-expansion-sixth.mjs';
+import { genshinActionExpansionSeventh } from './genshin-action-expansion-seventh.mjs';
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:alyosha:burst-table-51-0": ["我自己已經回來了。", "圖加林，留在原地別動！"],
+"genshin:alyosha:burst-table-52-0": ["圖加林，不准有任何活動！", "我已經玩完回來了。"],
+"genshin:skirk:burst-table-52-0": ["浮到海面上來。", "我已經離開深海了。"],
+"genshin:vesna:burst-table-60-0": ["女皇陛下已經把禮物送給我了。", "不要向女皇陛下獻上任何東西。"],
+"genshin:vodyanitsa:skill-table-53-0": ["別看，我沒有要展示任何東西。", "那是別人的尾巴，與我無關。"],
+
 "genshin:aino:skill-table-50-0": ["周圍完全沒有聲音。", "有人正在輕聲唱歌。"],
 "genshin:aino:skill-table-51-0": ["你剛才去了哪裡？", "我已經收到你的答覆了。"],
 "genshin:aino:skill-table-52-0": ["完全不看目標，隨意亂射！", "收起武器，停止瞄準！"],
@@ -1072,7 +1079,7 @@ export const gameMeaningDistractors = {
   'genshin:keqing:skill': ['禁止對方前進。', '對方已經回來了。'],
 };
 
-for (const line of [...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth, ...genshinActionExpansionSixth]) {
+for (const line of [...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth, ...genshinActionExpansionSixth, ...genshinActionExpansionSeventh]) {
   const id = `genshin:${line.characterId}:${line.key}`;
   if (gameMeaningDistractors[id]) throw new Error(`Duplicate question: ${id}`);
   gameMeaningDistractors[id] = /** @type {[string, string]} */ (line.choices);

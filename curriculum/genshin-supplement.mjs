@@ -2068,5 +2068,133 @@ export const genshinSupplement = [
       "variant": "來源未標示造型差分"
     }
   ]
+},
+{
+  "id": "alyosha",
+  "name": "阿羅夏",
+  "nameJa": "アリョーシャ",
+  "gender": "male",
+  "voice": "nemo2",
+  "referenceUrl": "https://wiki.biligame.com/ys/%E9%98%BF%E7%BD%97%E5%A4%8F%E8%AF%AD%E9%9F%B3",
+  "sourceSha256": "6cfe882ce75115364855d9d6bc270403285c876686860905441b6ce33ec31045",
+  "checkedAt": "2026-11-09",
+  "lines": [
+    {
+      "key": "burst-table-51-0",
+      "category": "元素爆發",
+      "jp": "行け、トゥガリン！",
+      "reading": "いけ、トゥガリン！",
+      "ruby": "{行|い}け、トゥガリン！",
+      "zh": "去吧，圖加林！",
+      "note": "行け是對被呼喚的圖加林發出的前進命令；與留在原地的指令相反。",
+      "choices": [
+        "我自己已經回來了。",
+        "圖加林，留在原地別動！"
+      ],
+      "sourceTitle": "元素爆发·其一",
+      "sourceCondition": "來源表未細分短按／長按、形態或造型。",
+      "variant": "來源未標示造型差分"
+    },
+    {
+      "key": "burst-table-52-0",
+      "category": "元素爆發",
+      "jp": "トゥガリン、思う存分遊んでこい！",
+      "reading": "トゥガリン、おもうぞんぶんあそんでこい！",
+      "ruby": "トゥガリン、{思|おも}う{存分|ぞんぶん}{遊|あそ}んでこい！",
+      "zh": "圖加林，盡情去玩吧！",
+      "note": "思う存分是盡情，遊んでこい帶去做某事的命令；受令者是圖加林，不是說自己已經玩完回來。",
+      "choices": [
+        "圖加林，不准有任何活動！",
+        "我已經玩完回來了。"
+      ],
+      "sourceTitle": "元素爆发·其二",
+      "sourceCondition": "來源表未細分短按／長按、形態或造型。",
+      "variant": "來源未標示造型差分"
+    }
+  ]
+},
+{
+  "id": "skirk",
+  "name": "絲柯克",
+  "nameJa": "スカーク",
+  "gender": "female",
+  "voice": "sayo",
+  "referenceUrl": "https://wiki.biligame.com/ys/%E4%B8%9D%E6%9F%AF%E5%85%8B%E8%AF%AD%E9%9F%B3",
+  "sourceSha256": "9afc2bd92cc3b940ee173afa04c4cb51e3f0eb7cc9d54fe2835cc07fb7d46987",
+  "checkedAt": "2026-11-09",
+  "lines": [
+    {
+      "key": "burst-table-52-0",
+      "category": "元素爆發",
+      "jp": "淵海に沈め。",
+      "reading": "えんかいにしずめ。",
+      "ruby": "{淵海|えんかい}に{沈|しず}め。",
+      "zh": "沉入深海吧。",
+      "note": "淵海呈現深邃海域，沈め在此是沈む的命令形，要求對方沉下；不是說海面正在上升或自己已經浮起。",
+      "choices": [
+        "浮到海面上來。",
+        "我已經離開深海了。"
+      ],
+      "sourceTitle": "元素爆发·其一",
+      "sourceCondition": "來源表未細分短按／長按、形態或造型。",
+      "variant": "來源未標示造型差分"
+    }
+  ]
+},
+{
+  "id": "vesna",
+  "name": "薇斯納",
+  "nameJa": "ヴェスナ",
+  "gender": "female",
+  "voice": "sayo",
+  "referenceUrl": "https://wiki.biligame.com/ys/%E8%96%87%E6%96%AF%E7%BA%B3%E8%AF%AD%E9%9F%B3",
+  "sourceSha256": "eef47b70897f6b3243fd9fcc13cdc52366cd74cce4b5381ad647c1718ea8dc0a",
+  "checkedAt": "2026-11-09",
+  "lines": [
+    {
+      "key": "burst-table-60-0",
+      "category": "元素爆發",
+      "jp": "女皇陛下に捧げましょう——",
+      "reading": "じょこうへいかにささげましょう——",
+      "ruby": "{女皇陛下|じょこうへいか}に{捧|ささ}げましょう——",
+      "zh": "獻給女皇陛下吧——",
+      "note": "に標示獻上的對象是女皇陛下；ましょう表示提議、意向。不要反轉成女皇陛下把東西送給說話者，也不補出未明示的供物。",
+      "choices": [
+        "女皇陛下已經把禮物送給我了。",
+        "不要向女皇陛下獻上任何東西。"
+      ],
+      "sourceTitle": "元素爆发·其三",
+      "sourceCondition": "來源表未細分短按／長按、形態或造型。",
+      "variant": "來源未標示造型差分"
+    }
+  ]
+},
+{
+  "id": "vodyanitsa",
+  "name": "沃雅妮莎",
+  "nameJa": "ヴォジャニーツァ",
+  "gender": "female",
+  "voice": "hau",
+  "referenceUrl": "https://wiki.biligame.com/ys/%E6%B2%83%E9%9B%85%E5%A6%AE%E8%8E%8E%E8%AF%AD%E9%9F%B3",
+  "sourceSha256": "9ee9154f9f916053fd1e00dca0086eddb20fe3f573348f8064073b18f111a7c8",
+  "checkedAt": "2026-11-09",
+  "lines": [
+    {
+      "key": "skill-table-53-0",
+      "category": "元素技能",
+      "jp": "見て見て、あたしの「しっぽ」。",
+      "reading": "みてみて、あたしの「しっぽ」。",
+      "ruby": "{見|み}て{見|み}て、あたしの「しっぽ」。",
+      "zh": "看呀看呀，我的「尾巴」。",
+      "note": "重複見て是邀請注意，あたしの標示屬於說話者的「尾巴」；あたし是女性角色常用的口語自稱，引號保留「しっぽ」原本的語感。",
+      "choices": [
+        "別看，我沒有要展示任何東西。",
+        "那是別人的尾巴，與我無關。"
+      ],
+      "sourceTitle": "元素战技·其五",
+      "sourceCondition": "來源表未細分短按／長按、形態或造型。",
+      "variant": "來源未標示造型差分"
+    }
+  ]
 }
 ];

@@ -1,3 +1,5 @@
+import { beforeSeventhIllustrations } from './helpers/before-seventh-action-expansion.mjs';
+import { seventhAssetNames } from './helpers/before-seventh-action-expansion.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
@@ -5,7 +7,6 @@ import { readFile, readdir } from 'node:fs/promises';
 import { gameCharacterStudy, loadCategory } from '../curriculum/lessons.mjs';
 import { gameListeningQuestion, gameRecordId } from '../lib/game-study.mjs';
 import {
-  VOCAB_ILLUSTRATIONS,
   illustrationFor,
 } from '../lib/vocab-illustrations.mjs';
 import { collectInventoryCards } from '../scripts/vocab-illustration-inventory.mjs';
@@ -378,7 +379,7 @@ test('T173 source identities remain character-scoped and new E/Q lines reach bot
     );
   }
   assert.equal(
-    VOCAB_ILLUSTRATIONS.length - beforeSixthIllustrations.length,
+    beforeSeventhIllustrations.length - beforeSixthIllustrations.length,
     32,
   );
 });
@@ -386,8 +387,8 @@ test('T173 adds only 29 safe originals and preserves all 2461 released SVGs byte
   const dir = new URL('../public/images/vocab/', import.meta.url),
     names = (await readdir(dir)).filter((n) => n.endsWith('.svg')).sort();
   assert.equal(sixthAssetNames.size, 29);
-  assert.equal(names.length, 2490);
-  const originals = names.filter((n) => !sixthAssetNames.has(n));
+  assert.equal(names.filter(n => !seventhAssetNames.has(n)).length, 2490);
+  const originals = names.filter((n) => !sixthAssetNames.has(n) && !seventhAssetNames.has(n));
   assert.equal(originals.length, 2461);
   const hashBytes = (v) => createHash('sha256').update(v).digest('hex');
   const entries = await Promise.all(

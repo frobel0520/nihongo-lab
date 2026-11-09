@@ -8,6 +8,91 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T174：本批已核字面讀音；原有376筆覆寫保持。
+"audio/games/genshin/gram-0a69d84e21.mp3": {
+  "text": "さあ、苦尽甘来です。",
+  "reading": "さあ、くじんかんらいです。",
+  "kana": "サ'ア、クジンカン'ライデ_ス",
+  "reason": "T174：苦尽甘来くじんかんらい：yoji-jukugo.com/苦尽甘来/ 的完整詞條；不採Jisho僅命中苦字的結果。 字面/句界逐mora核對；明示本次音調與停頓選定，不冒稱人耳或原配音重音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-5dbb85907b.mp3": {
+  "text": "堅氷、怨を絶つ！",
+  "reading": "けんぴょう、うらみをたつ！",
+  "kana": "ケンピョウ'、ウラミ'オ/タ'ツ",
+  "reason": "T174：堅氷けんぴょう：Kotobank/デジタル大辞泉；怨取怨みうらみ的名詞訓讀，動詞絶つ的受詞為怨恨，非姓名。 字面/句界逐mora核對；明示本次音調與停頓選定，不冒稱人耳或原配音重音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-f8a51dc17c.mp3": {
+  "text": "先声後実！",
+  "reading": "せんせいこうじつ！",
+  "kana": "センセイコ'オジ/ツ'",
+  "reason": "T174：先声後実せんせいこうじつ：jitenon完整四字熟語詞條，先聲勢後實際武力的語境。 字面/句界逐mora核對；明示本次音調與停頓選定，不冒稱人耳或原配音重音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-e2b2ad8980.mp3": {
+  "text": "神里流…霜滅！",
+  "reading": "かみさとりゅう…そうめつ！",
+  "kana": "カ'ミ/サ'ト/リュ'ウ、ソ'ウメ/ツ'",
+  "reason": "T174：神里流・霜滅かみさとりゅう・そうめつ：chikach.net原神讀音表；來源原文仍為固定DB的同一招式喊名。 字面/句界逐mora核對；明示本次音調與停頓選定，不冒稱人耳或原配音重音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-1ef58ece4e.mp3": {
+  "text": "神里流…水囿！",
+  "reading": "かみさとりゅう…すいゆう！",
+  "kana": "カ'ミ/サ'ト/リュ'ウ、ス'イ/ユ'ウ",
+  "reason": "T174：神里流・水囿かみさとりゅう・すいゆう：chikach.net原神讀音表，與固定DB/日文Wiki招式名交叉核對。 字面/句界逐mora核對；明示本次音調與停頓選定，不冒稱人耳或原配音重音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-febadb6bdf.mp3": {
+  "text": "避けられる？",
+  "reading": "よけられる？",
+  "kana": "ヨ'/ケラレル'？",
+  "reason": "T174：避けるよける是躲閃義，沿既有已核實詞條；可能形よけられる，不用迴避接觸義さける。 字面/句界逐mora核對；明示本次音調與停頓選定，不冒稱人耳或原配音重音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-ecffa7f08c.mp3": {
+  "text": "頭を垂れろ。",
+  "reading": "こうべをたれろ。",
+  "kana": "コ'オベオ/タ'レロ",
+  "reason": "T174：頭を垂れるこうべをたれる：JapanDict完整固定表達；命令形たれろ，非垂れるしだれる。 字面/句界逐mora核對；明示本次音調與停頓選定，不冒稱人耳或原配音重音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-aee13476ea.mp3": {
+  "text": "お互い、一歩退かないか？",
+  "reading": "おたがい、いっぽひかないか？",
+  "kana": "オ'タガ/イ'、イッ'ポヒカ/ナ'イカ？",
+  "reason": "T174：一歩退くひく的後退／讓步義及否定邀請形；不是誤把動詞改成しりぞく的書面長音節。 字面/句界逐mora核對；明示本次音調與停頓選定，不冒稱人耳或原配音重音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-381d46eef3.mp3": {
+  "text": "古華奥義。",
+  "reading": "こかおうぎ。",
+  "kana": "コカオオ'ギ",
+  "reason": "T174：古華こか為古華派武學名稱，奥義おうぎ為一般詞；不把古華當作古い花的こはな。 字面/句界逐mora核對；明示本次音調與停頓選定，不冒稱人耳或原配音重音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-0b511c97cf.mp3": {
+  "text": "丹書鉄契！",
+  "reading": "たんしょてっけい！",
+  "kana": "タ'ン/ショテッ'ケイ",
+  "reason": "T174：丹書鉄契たんしょてっけい：jitenon完整四字熟語詞條，不逐字誤讀丹/書/契。 字面/句界逐mora核對；明示本次音調與停頓選定，不冒稱人耳或原配音重音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-8fa4e91799.mp3": {
+  "text": "行け、トゥガリン！",
+  "reading": "いけ、トゥガリン！",
+  "kana": "イケ'、トゥガ'リン",
+  "reason": "T174：來源原文字面トゥガリン保留拗音トゥ，不以引擎分詞產生的トオ替代；來源自帶片假名。 字面/句界逐mora核對；明示本次音調與停頓選定，不冒稱人耳或原配音重音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-b4b47c29c7.mp3": {
+  "text": "淵海に沈め。",
+  "reading": "えんかいにしずめ。",
+  "kana": "エン'カイニ/シズメ'",
+  "reason": "T174：淵為音エン、海為カイ；淵海えんかい作深海，參照漢字ペディア淵所列淵海及日文えんかい同字詞用例，不讀ふちかい。 字面/句界逐mora核對；明示本次音調與停頓選定，不冒稱人耳或原配音重音驗收。",
+  "reference": "voicevox"
+},
 // T173：只新增本批岩元素字面讀音覆寫，舊設定保持。
 "audio/games/genshin/gram-700ff68461.mp3": {
   "text": "ファイアー！ま、岩元素なんだけどね。",

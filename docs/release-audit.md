@@ -1,5 +1,17 @@
 # Release audit — 0.1.0
 
+## T174：第七批候選驗證（2026-11-09，未發布）
+
+本批數量、來源範圍與待補狀態以[Progress](../progress.md)為單一現況。原749句、6286卡及精確映射、376筆讀音設定以開工快照投影核SHA，2490張舊SVG逐位元組與舊媒體Git blobs保持；歷史golden hashes不改，只排除明確新增cohort。教材、ID、FSRS、同步3、runtime依賴與導航／下載核心未變。社群來源以角色＋表格列號隔離，未偽造原音數字ID或將未知按法／形態當成已核實。
+
+27個最終MP3全檔解碼／非靜音／metadata及逐mora檢查通過。原引擎12句未符合已核實字面，使用既有明示profile流程修正；保留原查詢、假名／kana查詢及重音差異，沒有改checker放行。トゥガリン改從kana API取得真正トゥ mora，不只改標籤。字面及機械核對不等同原作配音或人耳試聽；人耳0。四個保留項具體原因僅Private，其中一個已合成草稿因圖義不足仍不進產品、不計27檔；9組來源待核不因本批增加或清零。
+
+375寬逐27句播放與作答、27張卡線上／真正離線各揭示評分共54次；26張新SVG完成224×168／56×42及實卡自查。代表新卡於375×667／100%與320×480／150%根字級檢查鍵盤揭示、1倍播放、改評、滑動往返與保存；離線缺圖仍可閱讀、播放及評分，pageerror0、無水平溢位。這是桌面Chromium模擬，不是原生瀏覽器縮放、真機鍵盤或實體螢幕閱讀器驗收。
+
+真正斷網採BrowserContext.setOffline(true)、reload及未快取probe的ERR_INTERNET_DISCONNECTED；27 MP3＋26 SVG共53項離線SHA一致，3代表句確認新native play事件與時間前進。舊T173真實build先對照76個已驗變更檔SHA，等待使用者確認更新後只補26圖，保留2490個舊圖片cache keys、3舊音檔SHA及合成進度，角色音檔下載跨頁持續。舊圖由舊本機App明確下載，3舊音檔為隔離cache fixture，非全站歷史媒體或候選正式站驗收。
+
+完整check的401項測試／型別／lint及正式base path build通過；原容量實測：precache22,690,750／26,869,829（餘4,179,079）、JS gzip66,108／630,000、CSS5,141／5,800、配圖chunk175,363／183,750（餘8,387）bytes。沒有提高預算、改收錄範圍、恢復T122 Gate或修改分類器。精確head適用CI依PR核實；只有使用者本次明確要求時才啟動reviewer，本批自行驗證後停Ready，未合併部署，不以工程檢查代替語義或人耳驗收。完整來源、矩陣、CSV、JSON及截圖只留Private；沿用原缺件／掃描隔離限制，不宣稱補回或全量完成。
+
 ## T173：第六批正式驗收（2026-11-09）
 
 產品為 `f2edd4c2ea856cf57dc41659b71105b753cbe198`，[main CI／Worker／Pages](https://github.com/frobel0520/nihongo-lab/actions/runs/42544356781)成功；現行交付數與待補數以[Progress](../progress.md)為準。content關卡完成398項測試／型別／lint、變更MP3全檔解碼、正式build、原bundle及圖片下載回歸；ux-windows依分流回報成功，不冒稱重跑完整Windows UI。本批依使用者授權直接發布，沒有啟動reviewer。
