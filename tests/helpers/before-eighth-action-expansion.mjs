@@ -1,7 +1,10 @@
 // T175: explicit cohort removed only for immutable published snapshot checks.
-import { gameCharacterStudy } from '../../curriculum/lessons.mjs';
-import { VOCAB_ILLUSTRATIONS } from '../../lib/vocab-illustrations.mjs';
-import { AUDIO_PROSODY } from '../../curriculum/audio-prosody.mjs';
+import {
+  beforeNinthGameCharacterStudy as gameCharacterStudy,
+  beforeNinthCards,
+  beforeNinthIllustrations as VOCAB_ILLUSTRATIONS,
+  beforeNinthProsody as AUDIO_PROSODY,
+} from './before-ninth-action-expansion.mjs';
 import { gameRecordId } from '../../lib/game-study.mjs';
 export const eighthLineIds = new Set([
   'genshin:citlali:skill-107044',
@@ -108,7 +111,7 @@ export const beforeEighthGameCharacterStudy = gameCharacterStudy.map((g) => ({
   })),
 }));
 export const beforeEighthCards = (cards) =>
-  cards.filter((c) => !eighthCardIds.has(c.id));
+  beforeNinthCards(cards).filter((c) => !eighthCardIds.has(c.id));
 export const beforeEighthIllustrations = VOCAB_ILLUSTRATIONS.filter(
   (c) => !eighthCardIds.has(c.id),
 );

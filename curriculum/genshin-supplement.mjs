@@ -2280,5 +2280,33 @@ export const genshinSupplement = [
       "variant": "來源未標示造型差分"
     }
   ]
+},
+{
+  "id": "skirk",
+  "name": "絲柯克",
+  "nameJa": "スカーク",
+  "gender": "female",
+  "voice": "sayo",
+  "referenceUrl": "https://wiki.biligame.com/ys/%E4%B8%9D%E6%9F%AF%E5%85%8B%E8%AF%AD%E9%9F%B3",
+  "sourceSha256": "9afc2bd92cc3b940ee173afa04c4cb51e3f0eb7cc9d54fe2835cc07fb7d46987",
+  "checkedAt": "2026-11-09",
+  "lines": [
+    {
+      "key": "skill-table-51-0",
+      "category": "元素技能",
+      "jp": "刃舞。",
+      "reading": "じんぶ。",
+      "ruby": "{刃舞|じんぶ}。",
+      "zh": "刃舞。",
+      "note": "刃舞以刀刃與舞動組合成招式稱呼；不是普通人空手跳舞，也沒有說已停止揮刃。",
+      "choices": [
+        "普通的空手舞蹈。",
+        "刀刃已經全部靜止不動。"
+      ],
+      "sourceTitle": "元素战技·其五",
+      "sourceCondition": "來源表未細分短按／長按、形態或造型。",
+      "variant": "來源元素組：冰；其他按法／形態／造型未全量核實。"
+    }
+  ]
 }
 ];

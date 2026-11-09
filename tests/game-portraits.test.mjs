@@ -1,3 +1,4 @@
+import { genshinActionExpansionNinth } from '../curriculum/genshin-action-expansion-ninth.mjs';
 import { genshinActionExpansionEighth } from '../curriculum/genshin-action-expansion-eighth.mjs';
 import { genshinActionExpansionSeventh } from '../curriculum/genshin-action-expansion-seventh.mjs';
 import { genshinActionExpansionFifth } from '../curriculum/genshin-action-expansion-fifth.mjs';
@@ -62,7 +63,7 @@ test('角色清單保留已編排音檔；未收錄角色不指定配音', () =>
   );
   assert.equal(
     lines.filter((l) => l.category !== '角色選擇').length,
-    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length,
+    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length,
   );
   const bennett = lines.find((l) => l.id === 'genshin:bennett:skill');
   assert.equal(bennett.audio, 'audio/games/genshin/gram-641caa85ab-ro-v1.mp3');

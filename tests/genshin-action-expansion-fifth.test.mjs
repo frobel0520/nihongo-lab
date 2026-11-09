@@ -1,3 +1,4 @@
+import { ninthAssetNames } from './helpers/before-ninth-action-expansion.mjs';
 import { eighthAssetNames } from './helpers/before-eighth-action-expansion.mjs';
 import { seventhAssetNames } from './helpers/before-seventh-action-expansion.mjs';
 import { sixthAssetNames, beforeSixthProsody, beforeSixthIllustrations } from './helpers/before-sixth-action-expansion.mjs';
@@ -28,5 +29,5 @@ test('T172 unique fixed-source E/Q additions reach cards, dictation and shadowin
  assert.equal(beforeSixthIllustrations.length-beforeFifthIllustrations.length,45);
 });
 test('T172 keeps all 2432 published vector assets byte-equivalent while adding only 29 explicit originals',async()=>{
- const dir=new URL('../public/images/vocab/',import.meta.url),names=(await readdir(dir)).filter(n=>n.endsWith('.svg')).sort();assert.equal(names.filter(n=>fifthAssetNames.has(n)).length,29);const old=names.filter(n=>!fifthAssetNames.has(n) && !sixthAssetNames.has(n) && !seventhAssetNames.has(n) && !eighthAssetNames.has(n));assert.equal(old.length,2432);const entries=await Promise.all(old.map(async n=>n+':'+sha((await readFile(new URL(n,dir),'utf8')).replace(/\r\n/g,'\n'))));assert.equal(sha(entries.join('\n')),"330047db1a3eefe417661c666e7c414ac98a3e432fe367b802def0cb536e6f2e");
+ const dir=new URL('../public/images/vocab/',import.meta.url),names=(await readdir(dir)).filter(n=>n.endsWith('.svg') && !ninthAssetNames.has(n)).sort();assert.equal(names.filter(n=>fifthAssetNames.has(n)).length,29);const old=names.filter(n=>!fifthAssetNames.has(n) && !sixthAssetNames.has(n) && !seventhAssetNames.has(n) && !eighthAssetNames.has(n));assert.equal(old.length,2432);const entries=await Promise.all(old.map(async n=>n+':'+sha((await readFile(new URL(n,dir),'utf8')).replace(/\r\n/g,'\n'))));assert.equal(sha(entries.join('\n')),"330047db1a3eefe417661c666e7c414ac98a3e432fe367b802def0cb536e6f2e");
 });

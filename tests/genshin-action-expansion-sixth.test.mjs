@@ -1,3 +1,4 @@
+import { ninthAssetNames } from './helpers/before-ninth-action-expansion.mjs';
 import { eighthAssetNames } from './helpers/before-eighth-action-expansion.mjs';
 import { beforeSeventhIllustrations } from './helpers/before-seventh-action-expansion.mjs';
 import { seventhAssetNames } from './helpers/before-seventh-action-expansion.mjs';
@@ -386,7 +387,7 @@ test('T173 source identities remain character-scoped and new E/Q lines reach bot
 });
 test('T173 adds only 29 safe originals and preserves all 2461 released SVGs byte for byte', async () => {
   const dir = new URL('../public/images/vocab/', import.meta.url),
-    names = (await readdir(dir)).filter((n) => n.endsWith('.svg')).sort();
+    names = (await readdir(dir)).filter((n) => n.endsWith('.svg') && !ninthAssetNames.has(n)).sort();
   assert.equal(sixthAssetNames.size, 29);
   assert.equal(names.filter(n => !seventhAssetNames.has(n) && !eighthAssetNames.has(n)).length, 2490);
   const originals = names.filter((n) => !sixthAssetNames.has(n) && !seventhAssetNames.has(n) && !eighthAssetNames.has(n));

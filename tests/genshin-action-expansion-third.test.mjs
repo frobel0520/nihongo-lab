@@ -1,3 +1,4 @@
+import { ninthAssetNames } from './helpers/before-ninth-action-expansion.mjs';
 import { eighthAssetNames } from './helpers/before-eighth-action-expansion.mjs';
 import { seventhAssetNames } from './helpers/before-seventh-action-expansion.mjs';
 import { sixthAssetNames } from './helpers/before-sixth-action-expansion.mjs';
@@ -39,7 +40,7 @@ test('T170 source-specific additions are reachable in all game practice datasets
 });
 
 test('T170 adds 39 vectors while all 2354 previously published vector bytes remain unchanged', async () => {
- const dir=new URL('../public/images/vocab/',import.meta.url),names=(await readdir(dir)).filter(n=>n.endsWith('.svg')).sort();
+ const dir=new URL('../public/images/vocab/',import.meta.url),names=(await readdir(dir)).filter(n=>n.endsWith('.svg') && !ninthAssetNames.has(n)).sort();
  assert.equal(names.filter(n=>thirdAssetNames.has(n)).length,39);
  const old=names.filter(n=>!thirdAssetNames.has(n)&&!fourthAssetNames.has(n) && !fifthAssetNames.has(n) && !sixthAssetNames.has(n) && !seventhAssetNames.has(n) && !eighthAssetNames.has(n));assert.equal(old.length,2354);
  const entries=await Promise.all(old.map(async n=>n+':'+sha((await readFile(new URL(n,dir),'utf8')).replace(/\r\n/g,'\n'))));

@@ -1,3 +1,4 @@
+import { ninthAssetNames } from './helpers/before-ninth-action-expansion.mjs';
 import { eighthAssetNames } from './helpers/before-eighth-action-expansion.mjs';
 import { seventhAssetNames } from './helpers/before-seventh-action-expansion.mjs';
 import { sixthAssetNames } from './helpers/before-sixth-action-expansion.mjs';
@@ -61,7 +62,7 @@ test('T169 all 120 fixed-source additions reach learning, unique questions, audi
 
 test('T169 adds only its own 67 vectors; every older vector remains byte-identical', async () => {
   const dir = new URL('../public/images/vocab/', import.meta.url);
-  const names = (await readdir(dir)).filter(name => name.endsWith('.svg')).sort();
+  const names = (await readdir(dir)).filter(name => name.endsWith('.svg') && !ninthAssetNames.has(name)).sort();
   const current = names.filter(name => nextAssetNames.has(name));
   const old = names.filter(name => !nextAssetNames.has(name) && !thirdAssetNames.has(name) && !fourthAssetNames.has(name) && !fifthAssetNames.has(name) && !sixthAssetNames.has(name) && !seventhAssetNames.has(name) && !eighthAssetNames.has(name));
   assert.equal(current.length, 67);

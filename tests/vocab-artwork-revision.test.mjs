@@ -1,3 +1,4 @@
+import { ninthAssetNames } from './helpers/before-ninth-action-expansion.mjs';
 import { eighthAssetNames } from './helpers/before-eighth-action-expansion.mjs';
 import { seventhAssetNames } from './helpers/before-seventh-action-expansion.mjs';
 import { sixthAssetNames } from './helpers/before-sixth-action-expansion.mjs';
@@ -84,7 +85,7 @@ test('artwork updates keep all card identities and split only incompatible share
 test('current artwork bytes generate content versions and preserve the approved complete asset set', async () => {
   const dir = new URL('../public/images/vocab/', import.meta.url);
   const files = (await readdir(dir)).filter((f) => f.endsWith('.svg')).sort();
-  const publishedFiles = files.filter(f => !f.startsWith('action') && !nextAssetNames.has(f) && !thirdAssetNames.has(f) && !fourthAssetNames.has(f) && !fifthAssetNames.has(f) && !sixthAssetNames.has(f) && !seventhAssetNames.has(f) && !eighthAssetNames.has(f));
+  const publishedFiles = files.filter(f => !f.startsWith('action') && !nextAssetNames.has(f) && !thirdAssetNames.has(f) && !fourthAssetNames.has(f) && !fifthAssetNames.has(f) && !sixthAssetNames.has(f) && !seventhAssetNames.has(f) && !eighthAssetNames.has(f) && !ninthAssetNames.has(f));
   assert.equal(publishedFiles.length, 2245);
   assert.equal(files.filter(f => f.startsWith('action')).length, 42);
   const entries = [];
@@ -101,7 +102,7 @@ test('current artwork bytes generate content versions and preserve the approved 
     digest(entries.join('\n')),
     '9c51738025666b68ede1e6636b02186db366ffa3e2dd1f56a9819ae0abdb98a8',
   );
-  assert.equal(files.length, 2548);
+  assert.equal(files.length, 2579);
   const rows = await buildVocabImageManifestRows(fileURLToPath(dir));
   assert.equal(rows.length, files.length);
   const actual = new Map(rows.map(([name, version]) => [name, version]));

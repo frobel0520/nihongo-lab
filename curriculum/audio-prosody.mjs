@@ -8,6 +8,189 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T176：本批字面讀音覆寫；原408筆保持。
+"audio/games/genshin/gram-a56ae6a3bb.mp3": {
+  "text": "風刃…！",
+  "reading": "ふうじん…！",
+  "kana": "フウ'ジン",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-782c0af202.mp3": {
+  "text": "荒星！",
+  "reading": "こうせい！",
+  "kana": "コオ'セイ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-193e24700a.mp3": {
+  "text": "天鼓雷音！",
+  "reading": "てんくらいおん！",
+  "kana": "テンクライ'オン",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-874ebed122.mp3": {
+  "text": "新蕾貫土！",
+  "reading": "しんらいかんど！",
+  "kana": "シンライカン'ド",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-ff569f26ca.mp3": {
+  "text": "擬似陽華。",
+  "reading": "ぎじようか。",
+  "kana": "ギジ'ヨウ/カ'",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-97ec21bc73.mp3": {
+  "text": "冥王、顕生へ。",
+  "reading": "めいおう、けんせいへ。",
+  "kana": "メ'イオオ、ケン'セイエ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-602691d64a.mp3": {
+  "text": "鏡閃。",
+  "reading": "きょうせん。",
+  "kana": "キョウ'セン",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-5f036a3d28.mp3": {
+  "text": "岩闘牛！",
+  "reading": "がんとうぎゅう！",
+  "kana": "ガントオ'ギュウ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-6396860e3b.mp3": {
+  "text": "鬼王のお通りだ！",
+  "reading": "きおうのおとおりだ！",
+  "kana": "キオオノ'/オトオリダ'",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-b3f60f6d8b.mp3": {
+  "text": "剣印染氷！",
+  "reading": "けんいんぜんひょう！",
+  "kana": "ケンインゼン'ヒョオ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-e95adf4297.mp3": {
+  "text": "急急如律令。",
+  "reading": "きゅうきゅうにょりつりょう。",
+  "kana": "キュ'ウ/キュウニョ'リツ/リョ'オ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-bb8d2f9127.mp3": {
+  "text": "宝印幻剣！",
+  "reading": "ほういんげんけん！",
+  "kana": "ホウイン'ゲン/ケ'ン",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-2f2be42628.mp3": {
+  "text": "霜降の怨！",
+  "reading": "そうこうのおん！",
+  "kana": "ソ'オ/コ'オノ/オ'ン",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-13d038add6.mp3": {
+  "text": "霜寒化生。",
+  "reading": "そうかんけしょう。",
+  "kana": "ソ'オ/カンケ'ショオ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-160101740b.mp3": {
+  "text": "蒼流水影。",
+  "reading": "そうりゅうすいえい。",
+  "kana": "ソ'オ/リュウスイ'エイ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-9b0a508ff1.mp3": {
+  "text": "祈雷…祓除！",
+  "reading": "きらい…ばつじょ！",
+  "kana": "キライ'、バ'ツジョ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-b28f707307.mp3": {
+  "text": "風刃…！",
+  "reading": "ふうじん…！",
+  "kana": "フウ'ジン",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-c2dd4cc293.mp3": {
+  "text": "荒星！",
+  "reading": "こうせい！",
+  "kana": "コオ'セイ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-75ed5a8a20.mp3": {
+  "text": "天鼓雷音！",
+  "reading": "てんくらいおん！",
+  "kana": "テンクライ'オン",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-e3fe74eb37.mp3": {
+  "text": "新蕾貫土！",
+  "reading": "しんらいかんど！",
+  "kana": "シンライカン'ド",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-8a4ad17aa6.mp3": {
+  "text": "我が名は度厄真君なり。",
+  "reading": "わがなはどあくしんくんなり。",
+  "kana": "ワ'ガ/ナ'ワ/ドア_クシ'ンクンナリ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-acf9f1d8de.mp3": {
+  "text": "仙法開け、顕現せよ。",
+  "reading": "せんぽうひらけ、けんげんせよ。",
+  "kana": "セ'ン/ポオ'ヒラケ、ケン'ゲン/セ'ヨ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-0b21ec1b38.mp3": {
+  "text": "煉気化神！",
+  "reading": "れんきかしん！",
+  "kana": "レ'ンキ/カ'/シ'ン",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-86e93800f4.mp3": {
+  "text": "天真敕奏！",
+  "reading": "てんしんちょくそう！",
+  "kana": "テンシ'ンチョ_ク/ソ'オ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-c94d8726c1.mp3": {
+  "text": "氷霜よ、化神となれ！",
+  "reading": "ひょうそうよ、けしんとなれ！",
+  "kana": "ヒョ'オ/ソ'オヨ、ケシント'/ナ'レ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-0d4e9f4839.mp3": {
+  "text": "裁——！",
+  "reading": "さい——！",
+  "kana": "サ'イ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-a2202c0652.mp3": {
+  "text": "裁雨留虹。",
+  "reading": "さいうるこう。",
+  "kana": "サイウル'コオ",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-364688fe62.mp3": {
+  "text": "岩山破蓄。",
+  "reading": "がんざんはちく。",
+  "kana": "ガンザンハ'_チク",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-bde23e2fbc.mp3": {
+  "text": "堅如磐石。",
+  "reading": "けんにょばんじゃく。",
+  "kana": "ケンニョバン'ジャク",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},"audio/games/genshin/gram-650c1ef943.mp3": {
+  "text": "刃舞。",
+  "reading": "じんぶ。",
+  "kana": "ジ'ン/ブ'",
+  "reason": "T176：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+
 // T175：本批字面讀音明示覆寫，原388筆設定保持。
 "audio/games/genshin/gram-ca1ee9a1d0.mp3": {
   "text": "影の鴉が、幽夜を求めている——",

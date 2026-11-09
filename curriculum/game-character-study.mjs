@@ -19,6 +19,7 @@ import { genshinActionExpansionFifth } from './genshin-action-expansion-fifth.mj
 import { genshinActionExpansionSixth } from './genshin-action-expansion-sixth.mjs';
 import { genshinActionExpansionSeventh } from './genshin-action-expansion-seventh.mjs';
 import { genshinActionExpansionEighth } from './genshin-action-expansion-eighth.mjs';
+import { genshinActionExpansionNinth } from './genshin-action-expansion-ninth.mjs';
 import { genshinQuoteSources } from './genshin-quote-sources.mjs';
 import { audioPath, contentHash } from './author.mjs';
 import { eternalReturnRoster } from './game-character-roster.mjs';
@@ -3734,7 +3735,7 @@ for (const source of genshinSupplement) {
   target.lines = [...target.lines, ...addedLines];
 }
 // Preserve existing entries and progress IDs; each new phrase has its own source ID.
-for (const { characterId, key, choices: _choices, sourceItemId, ...row } of [...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth, ...genshinActionExpansionSixth, ...genshinActionExpansionSeventh, ...genshinActionExpansionEighth]) {
+for (const { characterId, key, choices: _choices, sourceItemId, ...row } of [...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth, ...genshinActionExpansionSixth, ...genshinActionExpansionSeventh, ...genshinActionExpansionEighth, ...genshinActionExpansionNinth]) {
   const target = genshin.characters.find((c) => c.id === characterId);
   if (!target?.voice) throw new Error(`Missing expansion character: ${characterId}`);
   const id = `genshin:${characterId}:${key}`;
