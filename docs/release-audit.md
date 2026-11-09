@@ -1,5 +1,15 @@
 # Release audit — 0.1.0
 
+## T175：第八批正式驗收（2026-11-09）
+
+精確產品`10d388b40f2ef852bad60089858de0b1b53b1f6f`依本批授權正常FF發布，無整合差異；[main必要CI／Worker／Pages引導](https://github.com/frobel0520/nihongo-lab/actions/runs/42609591240)成功。原內容／來源／讀音、32雙尺寸圖與33映射自查、33音檔固定commit讀回、404項測試及有效本機證據沿用，未重做全站歷史。content Windows必要狀態成功，不稱完整Windows UI重跑。未啟動reviewer或排程。
+
+正式HTTPS站80個互斥變更檔大小與SHA一致、失敗0：15個build／版本與public metadata、33新MP3、32新SVG，未重驗全站舊媒體。375寬抽驗茜特菈莉契約、娜維婭傘弾銃與絲柯克社群台詞：3句／3卡各線上及真正離線播放、作答或評分、保存；1倍播放、揭示後空alt、返回長角色清單座標與項目可見、舊有效FSRS與錯答保持、pageerror0且無水平溢位。真正離線採BrowserContext.setOffline(true)、重載及未快取請求ERR_INTERNET_DISCONNECTED，不以快取命中推定。
+
+舊2516圖及3舊MP3以已核真build作隔離cache fixture，不冒UI全量下載；本次32圖由App UI明確增量下載，僅請求32新圖，舊key與3音檔SHA／進度保持、換頁下載持續，離線32圖＋3舊音檔SHA正確。等待確認更新沿用相同產品本機真實舊新版證據，不冒稱正式跨版全流程。precache22,734,212／26,869,829（餘4,135,617）、JS gzip66,106／630,000、CSS5,141／5,800、配圖chunk177,575／183,750（餘6,175）bytes，原統計範圍與門檻不變。
+
+完整正式補充僅Private保存，原工程ZIP不重包；4份掃描隔離原件與1份不受支援patch、歷史Windows403／PNG／未存reviewer原件仍按原清單分列，不冒補回。部署job API與正式產物SHA是不同證據，未另外索取原始job日誌。33句精確對應33個不同既有待補group，正式完成後106→73；六初選不足、9待核、action-0740／action-0762及未知來源保留。人耳0、真機、原生縮放／系統鍵盤、實體SR與學習效果未驗。純文件收尾依docs關卡，產品不變則不重建部署。
+
 ## T175：第八批候選驗證（2026-11-09，未發布）
 
 數量、來源與正式／條件待補狀態以[Progress](../progress.md)為單一現況。原776句、6313卡與映射、388筆讀音設定以開工快照投影核SHA，2516張舊SVG逐位元組及既有音檔Git blobs保持；歷史golden hashes不改，僅排除明確新增cohort。教材、ID、FSRS、同步3、runtime依賴、版面、導航與下載核心未變。
