@@ -2196,5 +2196,89 @@ export const genshinSupplement = [
       "variant": "來源未標示造型差分"
     }
   ]
+},
+{
+  "id": "aino",
+  "name": "愛諾",
+  "nameJa": "アイノ",
+  "gender": "female",
+  "voice": "neko-vy",
+  "referenceUrl": "https://wiki.biligame.com/ys/%E7%88%B1%E8%AF%BA%E8%AF%AD%E9%9F%B3",
+  "sourceSha256": "907bbc08372026aebcd9a758b5350e4f53fb6fc5d560a1cf59142e1aa56632f3",
+  "checkedAt": "2026-11-09",
+  "lines": [
+    {
+      "key": "burst-table-56-0",
+      "category": "元素爆發",
+      "jp": "バシャバシャ水弾だ！",
+      "reading": "バシャバシャすいだんだ！",
+      "ruby": "バシャバシャ{水弾|すいだん}だ！",
+      "zh": "啪沙啪沙，是水彈！",
+      "note": "バシャバシャ模擬水飛濺的聲響，水弾是水彈；だ作宣告，不把水彈誤作燃燒的火球。",
+      "choices": [
+        "安安靜靜，是燃燒的火球！",
+        "這裡完全沒有水，也沒有任何彈體。"
+      ],
+      "sourceTitle": "元素爆发·其二",
+      "sourceCondition": "來源表未細分短按／長按、形態或造型。",
+      "variant": "來源未標示造型差分"
+    }
+  ]
+},
+{
+  "id": "skirk",
+  "name": "絲柯克",
+  "nameJa": "スカーク",
+  "gender": "female",
+  "voice": "sayo",
+  "referenceUrl": "https://wiki.biligame.com/ys/%E4%B8%9D%E6%9F%AF%E5%85%8B%E8%AF%AD%E9%9F%B3",
+  "sourceSha256": "9afc2bd92cc3b940ee173afa04c4cb51e3f0eb7cc9d54fe2835cc07fb7d46987",
+  "checkedAt": "2026-11-09",
+  "lines": [
+    {
+      "key": "skill-table-48-0",
+      "category": "元素技能",
+      "jp": "滅。",
+      "reading": "めつ。",
+      "ruby": "{滅|めつ}。",
+      "zh": "滅。",
+      "note": "單字短喊保留消滅、毀滅的意象；不能因只有一個字就當成沒有語意的出力聲，也不補成已打敗全部對手。",
+      "choices": [
+        "復原。",
+        "今天一切保持原樣。"
+      ],
+      "sourceTitle": "元素战技·其二",
+      "sourceCondition": "來源表未細分短按／長按、形態或造型。",
+      "variant": "來源未標示造型差分"
+    }
+  ]
+},
+{
+  "id": "vesna",
+  "name": "薇斯納",
+  "nameJa": "ヴェスナ",
+  "gender": "female",
+  "voice": "sayo",
+  "referenceUrl": "https://wiki.biligame.com/ys/%E8%96%87%E6%96%AF%E7%BA%B3%E8%AF%AD%E9%9F%B3",
+  "sourceSha256": "eef47b70897f6b3243fd9fcc13cdc52366cd74cce4b5381ad647c1718ea8dc0a",
+  "checkedAt": "2026-11-09",
+  "lines": [
+    {
+      "key": "skill-table-54-0",
+      "category": "元素技能",
+      "jp": "剣を掲げて。",
+      "reading": "けんをかかげて。",
+      "ruby": "{剣|けん}を{掲|かか}げて。",
+      "zh": "舉起劍。",
+      "note": "掲げて是掲げる的て形，在此作要求對方舉起的短句；不表示收劍或已把劍放下。",
+      "choices": [
+        "把劍放下。",
+        "把劍收回劍鞘裡。"
+      ],
+      "sourceTitle": "元素战技·其三",
+      "sourceCondition": "來源表未細分短按／長按、形態或造型。",
+      "variant": "來源未標示造型差分"
+    }
+  ]
 }
 ];

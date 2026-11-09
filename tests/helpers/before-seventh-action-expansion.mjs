@@ -1,7 +1,6 @@
+import { beforeEighthGameCharacterStudy, beforeEighthCards, beforeEighthIllustrations, beforeEighthProsody } from './before-eighth-action-expansion.mjs';
 // T174: explicit new cohort removed only for immutable published snapshot checks.
 import { gameCharacterStudy } from '../../curriculum/lessons.mjs';
-import { VOCAB_ILLUSTRATIONS } from '../../lib/vocab-illustrations.mjs';
-import { AUDIO_PROSODY } from '../../curriculum/audio-prosody.mjs';
 import { gameRecordId } from '../../lib/game-study.mjs';
 export const seventhLineIds = new Set([
   'genshin:baizhu:burst-82052',
@@ -80,7 +79,7 @@ export const seventhCardIds = new Set(
     .filter((l) => seventhLineIds.has(l.id))
     .map((l) => 'game-card:' + gameRecordId(l)),
 );
-export const beforeSeventhGameCharacterStudy = gameCharacterStudy.map((g) => ({
+export const beforeSeventhGameCharacterStudy = beforeEighthGameCharacterStudy.map((g) => ({
   ...g,
   characters: g.characters.map((c) => ({
     ...c,
@@ -88,12 +87,12 @@ export const beforeSeventhGameCharacterStudy = gameCharacterStudy.map((g) => ({
   })),
 }));
 export const beforeSeventhCards = (cards) =>
-  cards.filter((c) => !seventhCardIds.has(c.id));
-export const beforeSeventhIllustrations = VOCAB_ILLUSTRATIONS.filter(
+  beforeEighthCards(cards).filter((c) => !seventhCardIds.has(c.id));
+export const beforeSeventhIllustrations = beforeEighthIllustrations.filter(
   (c) => !seventhCardIds.has(c.id),
 );
 export const beforeSeventhProsody = Object.fromEntries(
-  Object.entries(AUDIO_PROSODY).filter(
+  Object.entries(beforeEighthProsody).filter(
     ([path]) => !seventhProsodyPaths.has(path),
   ),
 );

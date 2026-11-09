@@ -1,3 +1,4 @@
+import { eighthAssetNames } from './helpers/before-eighth-action-expansion.mjs';
 import { beforeSeventhIllustrations } from './helpers/before-seventh-action-expansion.mjs';
 import { seventhAssetNames } from './helpers/before-seventh-action-expansion.mjs';
 import test from 'node:test';
@@ -387,8 +388,8 @@ test('T173 adds only 29 safe originals and preserves all 2461 released SVGs byte
   const dir = new URL('../public/images/vocab/', import.meta.url),
     names = (await readdir(dir)).filter((n) => n.endsWith('.svg')).sort();
   assert.equal(sixthAssetNames.size, 29);
-  assert.equal(names.filter(n => !seventhAssetNames.has(n)).length, 2490);
-  const originals = names.filter((n) => !sixthAssetNames.has(n) && !seventhAssetNames.has(n));
+  assert.equal(names.filter(n => !seventhAssetNames.has(n) && !eighthAssetNames.has(n)).length, 2490);
+  const originals = names.filter((n) => !sixthAssetNames.has(n) && !seventhAssetNames.has(n) && !eighthAssetNames.has(n));
   assert.equal(originals.length, 2461);
   const hashBytes = (v) => createHash('sha256').update(v).digest('hex');
   const entries = await Promise.all(

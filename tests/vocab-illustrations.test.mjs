@@ -11,11 +11,11 @@ import { VOCAB_ILLUSTRATIONS, illustrationFor } from '../lib/vocab-illustrations
 // T163: per-ID composition descriptions are authoring data, not part of the runtime mapping.
 const DESCRIPTIONS = JSON.parse(await readFile(new URL('../docs/vocab-illustration-descriptions.json', import.meta.url), 'utf8'));
 
-test('illustrations resolve all 6313 card identities through exact approved mappings', async () => {
+test('illustrations resolve all 6346 card identities through exact approved mappings', async () => {
   const cards = await collectInventoryCards();
-  assert.equal(VOCAB_ILLUSTRATIONS.length, 6313);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 6313);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 2516);
+  assert.equal(VOCAB_ILLUSTRATIONS.length, 6346);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 6346);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 2548);
   assert.equal(cards.filter(illustrationFor).length, cards.length, 'T162: every card has an approved picture');
   for (const image of VOCAB_ILLUSTRATIONS) {
     const card = cards.find(c => c.id === image.id);

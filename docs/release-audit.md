@@ -1,5 +1,19 @@
 # Release audit — 0.1.0
 
+## T175：第八批候選驗證（2026-11-09，未發布）
+
+數量、來源與正式／條件待補狀態以[Progress](../progress.md)為單一現況。原776句、6313卡與映射、388筆讀音設定以開工快照投影核SHA，2516張舊SVG逐位元組及既有音檔Git blobs保持；歷史golden hashes不改，僅排除明確新增cohort。教材、ID、FSRS、同步3、runtime依賴、版面、導航與下載核心未變。
+
+33個最終MP3逐mora、完整ffmpeg解碼、非靜音及metadata通過，717,420 bytes，人耳0。20個原字查詢不符合字面，使用既有明示profile；敕原字引擎400，無原query可比較者明記不可比較，沒有偽造原音調。ウェンツァイ的ツァ與壁立千仞的ヘ由真正kana API取得，非改mora標籤或checker。兩個小書母音候選不契合則保留原待補；其餘初選保留原因與9組來源待核分開。33句／52個原來源逐項保留各自ID、JP與SHA，繁中專名只作同版本對照，不把中文版增詞搬成日文已說內容。
+
+32張新SVG完成224×168／56×42及33張實卡自查；13張草稿改善輪廓、空間、動作或核心語義，另拒絕將棋盤式規則舊圖套到律令法律義，改畫明確法典圖。原草稿保留，18個未修草稿bytes不變；月桂只在兩句已核同伴語境共用。既有圖品質未擴盤點、不宣稱全站已通過。
+
+375寬逐33句播放／作答、33張卡線上／真正離線各揭示評分共66次，圖片揭示後56×42、空alt、文字同中心線；代表375×667／100%與320×480／150%根字級檢查鍵盤揭示、1倍播放、改評、滑動往返及保存。離線缺圖仍可讀、播、評分，pageerror0、無水平溢位。桌面Chromium／根字級不是原生瀏覽器縮放、真機鍵盤或實體螢幕閱讀器驗收。
+
+真正離線採BrowserContext.setOffline(true)、重載及未快取probe ERR_INTERNET_DISCONNECTED；33 MP3＋32 SVG共65項SHA一致，3代表句確認新native play事件及時間前進。舊T174真實build先對照68個已驗變更檔SHA，等待確認更新後只補32圖，保留2516個舊圖cache keys、3個舊音檔SHA及有效合成進度，角色下載跨頁持續。舊音檔是獨立cache fixture，不冒正式站或全站舊音檔UI重驗。
+
+完整check的404項測試／型別／lint、正式base path build與原門檻通過：precache22,734,212／26,869,829（餘4,135,617）、JS gzip66,106／630,000、CSS5,141／5,800、配圖chunk177,575／183,750（餘6,175）bytes。分類器與T122 Gate未改。精確head適用CI與Private收據依PR交付核對；本批不合併部署，不能以本機／CI冒正式站驗收。人耳0、真機／實體SR／學習效果未驗，原隔離與歷史缺件保持，完整報告／CSV／JSON／畫面僅Private交接。
+
 ## T174：第七批正式驗收（2026-11-09）
 
 產品為`103875e492f5652914df6d1c86b271ae4f7822d3`，[main CI／Worker／Pages](https://github.com/frobel0520/nihongo-lab/actions/runs/42571717173)成功；數量與待補狀態以[Progress](../progress.md)為準。依本批授權正常FF，無整合差異，原工程包與內容自查不重做。content關卡完成check、變更音檔解碼、正式build、原bundle與圖片下載回歸；ux-windows成功不冒稱完整Windows UI重跑。未啟動reviewer或排程。

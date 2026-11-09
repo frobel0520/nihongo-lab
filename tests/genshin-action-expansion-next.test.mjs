@@ -1,3 +1,4 @@
+import { eighthAssetNames } from './helpers/before-eighth-action-expansion.mjs';
 import { seventhAssetNames } from './helpers/before-seventh-action-expansion.mjs';
 import { sixthAssetNames } from './helpers/before-sixth-action-expansion.mjs';
 import { fifthAssetNames } from './helpers/before-fifth-action-expansion.mjs';
@@ -62,7 +63,7 @@ test('T169 adds only its own 67 vectors; every older vector remains byte-identic
   const dir = new URL('../public/images/vocab/', import.meta.url);
   const names = (await readdir(dir)).filter(name => name.endsWith('.svg')).sort();
   const current = names.filter(name => nextAssetNames.has(name));
-  const old = names.filter(name => !nextAssetNames.has(name) && !thirdAssetNames.has(name) && !fourthAssetNames.has(name) && !fifthAssetNames.has(name) && !sixthAssetNames.has(name) && !seventhAssetNames.has(name));
+  const old = names.filter(name => !nextAssetNames.has(name) && !thirdAssetNames.has(name) && !fourthAssetNames.has(name) && !fifthAssetNames.has(name) && !sixthAssetNames.has(name) && !seventhAssetNames.has(name) && !eighthAssetNames.has(name));
   assert.equal(current.length, 67);
   assert.equal(old.length, 2287);
   const entries = await Promise.all(old.map(async name => name + ':' + sha((await readFile(new URL(name, dir), 'utf8')).replace(/\r\n/g, '\n'))));

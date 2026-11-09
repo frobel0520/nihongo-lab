@@ -8,6 +8,147 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T175：本批字面讀音明示覆寫，原388筆設定保持。
+"audio/games/genshin/gram-ca1ee9a1d0.mp3": {
+  "text": "影の鴉が、幽夜を求めている——",
+  "reading": "かげのからすが、ゆうやをもとめている——",
+  "kana": "カ'ゲノ/カ'ラスガ、ユ'ウ/ヤ'オ/モトメテ'/イル'",
+  "reason": "T175：幽夜ゆうや：コトバンク普及版字通；影の鴉かげのからす，文脈為追求幽暗夜晚。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-ced8b949aa.mp3": {
+  "text": "ウェンツァイ、出番だ！",
+  "reading": "ウェンツァイ、でばんだ！",
+  "kana": "ウェンツァ'イ、デバ'ンダ",
+  "reason": "T175：原來源片假名ウェンツァイ保留ツァ的實際mora；出番でばん為出場時機。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-2fbfee5152.mp3": {
+  "text": "岩王帝君のために！",
+  "reading": "がんおうていくんのために！",
+  "kana": "ガンオオ'テイクンノ/タメ'ニ",
+  "reason": "T175：岩王帝君がんおうていくん：GamesInk原神難字表的完整稱號條目，不依引擎拆成岩/王/帝君。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-f112d56855.mp3": {
+  "text": "風の行先よ。",
+  "reading": "かぜのゆくさきよ。",
+  "kana": "カゼノ'/ユ_クサ'キヨ",
+  "reason": "T175：行先選詞典所列ゆくさき的去向義，與風の行先的文語呼喚一致，不改成不同詞義或宣稱原配音人耳驗收。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-12b29b1196.mp3": {
+  "text": "昔日の影よ、我が命を果たせ。",
+  "reading": "せきじつのかげよ、わがめいをはたせ。",
+  "kana": "セ'キジ/ツ'ノ/カ'ゲヨ、ワ'ガ/メ'イオ/ハ'/タセ'",
+  "reason": "T175：命在我が命を果たせ的命令語境取音めい，非生命いのち；昔日せきじつ及果たせはたせ按字面。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-a32aef49fa.mp3": {
+  "text": "鳴草の輪！",
+  "reading": "なぐさのわ！",
+  "kana": "ナ'/グサ'ノワ",
+  "reason": "T175：鳴草なぐさ：chikach.net與GamesInk完整原神讀音表條目，輪わ。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-7f08d377c8.mp3": {
+  "text": "赤焔に葬られよ！",
+  "reading": "せきえんにほうむられよ！",
+  "kana": "セキ'エンニ/ホ'ウムラレヨ",
+  "reason": "T175：赤焔為赤色火焰的漢語，取せきえん；葬られよほうむられよ是被動文語命令，不讀原引擎あかほのお。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-af679d02e0.mp3": {
+  "text": "水中幻願。",
+  "reading": "すいちゅうげんがん。",
+  "kana": "スイチュウゲン'ガン",
+  "reason": "T175：水中幻願すいちゅうげんがん：chikach.net元素スキル讀音表完整條目。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-d083f0f4e5.mp3": {
+  "text": "…運命の虚影。",
+  "reading": "…うんめいのきょえい。",
+  "kana": "ウンメ'イノ/キョ'エイ",
+  "reason": "T175：虚影為虛幻影像的漢語，取きょえい；運命うんめい，非錯切きょかげ。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-11171eba58.mp3": {
+  "text": "これって…「傘弾銃」？",
+  "reading": "これって…「さんだんじゅう」？",
+  "kana": "コレッテ'、サンダン'ジュウ？",
+  "reason": "T175：傘弾銃さんだんじゅう：日本語原神Wikiナヴィア的散弾銃與傘雙關說明，傘在此取さん，非普通雨傘かさ。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-b7dde975b7.mp3": {
+  "text": "ローズクラッカー！「棘薔薇の会」特注版よ。",
+  "reading": "ローズクラッカー！「スピナ・ディ・ロースラ」とくちゅうばんよ。",
+  "kana": "ロ'オズ/クラ'ッカア、ス'ピナ、ディ'、ロオスラ'、ト'_ク/チュ'ウ/バ'ンヨ",
+  "reason": "T175：棘薔薇の会：GamesInk完整條目標スピナ・ディ・ロースラ，使用已核專用讀法與整段ruby；特注版とくちゅうばん。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-0e2c45ffad.mp3": {
+  "text": "集風、孤雲に帰す。",
+  "reading": "しゅうふう、こうんにきす。",
+  "kana": "シュウフウ'、コ'オンニ/キ'/ス'",
+  "reason": "T175：集風しゅうふう、孤雲こうん取漢語音讀；帰すきす為文語歸向義，不誤拆孤/雲的こくも。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-3414375c6f.mp3": {
+  "text": "靖妖儺舞。",
+  "reading": "せいようなぶ。",
+  "kana": "セイヨオナブ'",
+  "reason": "T175：靖妖儺舞せいようなぶ：chikach.net元素爆発完整技能名讀音，不按罕字逐字猜。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-e3bdf0f9e2.mp3": {
+  "text": "響け、壑の音！",
+  "reading": "ひびけ、たにのおと！",
+  "kana": "ヒビ'ケ、タ'ニノ/オ'ト",
+  "reason": "T175：壑たに：漢字ペディア壑的訓讀與山谷義；響けひびけ、音おと，原字查詢漏掉壑須補正。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-4363d2b038.mp3": {
+  "text": "敕。",
+  "reading": "ちょく。",
+  "kana": "チョ'ク",
+  "reason": "T175：敕ちょく：モジディク「ちょく」漢字表列敕，與勅命義一致；原字引擎400，不假稱原查詢可用。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-511a2a07c1.mp3": {
+  "text": "真瞳の顕現。",
+  "reading": "しんどうのけんげん。",
+  "kana": "シンドオノ'/ケン'ゲン",
+  "reason": "T175：真瞳以真しん／瞳どう組成術語しんどう，顕現けんげん為顯露義，非姓名まひとみ。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-e42c7c91e7.mp3": {
+  "text": "飛雲旗！",
+  "reading": "ひうんき！",
+  "kana": "ヒウン'キ",
+  "reason": "T175：飛雲旗為飛ひ／雲うん／旗き組成的旗名ひうんき，非引擎訓讀ひくもき。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-f7cbdbabb6.mp3": {
+  "text": "一鼓作気！",
+  "reading": "いっこさっき！",
+  "kana": "イッ'コ/サ'ッ/キ'",
+  "reason": "T175：一鼓作気いっこさっき：漢字辞典.com完整四字熟語條目，保留促音。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-729b8ab7c5.mp3": {
+  "text": "壁立千仞。",
+  "reading": "へきりつせんじん。",
+  "kana": "ヘキリツセ'ンジン",
+  "reason": "T175：壁立千仞へきりつせんじん：jitenon完整四字熟語條目。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-471fca0891.mp3": {
+  "text": "バシャバシャ水弾だ！",
+  "reading": "バシャバシャすいだんだ！",
+  "kana": "バ'シャバシャ/スイ'ダンダ",
+  "reason": "T175：水弾指水形成的彈體，漢語音讀すいだん；バシャバシャ原片假名保留，不換成引擎混讀みずだん。 字面與句界逐mora核對；音調及停頓選定未經人耳或原配音驗收。",
+  "reference": "voicevox"
+},
 // T174：本批已核字面讀音；原有376筆覆寫保持。
 "audio/games/genshin/gram-0a69d84e21.mp3": {
   "text": "さあ、苦尽甘来です。",

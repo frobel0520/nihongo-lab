@@ -1,5 +1,12 @@
 # 任務拆解
 
+## T175：第八批原神戰技／爆發候選
+
+- Goal／owner：worker沿已正式核驗106組補錄可完整交付候選，不擴普通攻擊／閒聊，不啟動reviewer或排程。
+- Output：22角色33句／33 MP3／32新SVG／33精確映射；原來源52筆與六個初選保留原因僅Private。現況與條件待補數以[Progress](../progress.md)為準。
+- Acceptance：新增來源／分類／讀音／繁中／題答及雙尺寸／實卡逐項自查，舊資料快照、check、正式build、原bundle及適用CI，線上／真正離線／增量下載與舊資料保留。
+- Delivery：Ready PR，未合併未部署，等待本批明確發布授權；完整工程證據Private核驗，不將機械檢查當成人耳或語義驗收。
+
 ## T174：第七批原神戰技／爆發已發布
 
 現況、27個既有group發布結案與106組下一批起點見[Progress](../progress.md)，正式驗收範圍見[發布稽核](release-audit.md)。候選歷史以下保留，不代表仍待本批授權。
