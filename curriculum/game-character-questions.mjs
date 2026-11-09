@@ -3,9 +3,40 @@ import { genshinActionExpansionNext } from './genshin-action-expansion-next.mjs'
 import { genshinActionExpansionThird } from './genshin-action-expansion-third.mjs';
 import { genshinActionExpansionFourth } from './genshin-action-expansion-fourth.mjs';
 import { genshinActionExpansionFifth } from './genshin-action-expansion-fifth.mjs';
+import { genshinActionExpansionSixth } from './genshin-action-expansion-sixth.mjs';
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:aino:skill-table-50-0": ["周圍完全沒有聲音。", "有人正在輕聲唱歌。"],
+"genshin:aino:skill-table-51-0": ["你剛才去了哪裡？", "我已經收到你的答覆了。"],
+"genshin:aino:skill-table-52-0": ["完全不看目標，隨意亂射！", "收起武器，停止瞄準！"],
+"genshin:aino:skill-table-53-0": ["發射已經全部結束！", "取消準備，立刻收隊！"],
+"genshin:aino:burst-table-57-0": ["水已經全部用完了！", "現在絕對不准玩水！"],
+"genshin:alyosha:skill-table-46-0": ["已經確定打中了。", "千萬別打中目標！"],
+"genshin:alyosha:skill-table-47-0": ["重新站起來吧！", "我已經倒下了。"],
+"genshin:alyosha:skill-table-48-0": ["你絕對不准逃走。", "我已經成功逃走了。"],
+"genshin:alyosha:skill-table-49-0": ["目標已經被擊倒了。", "把目標從標記中解除。"],
+"genshin:alyosha:skill-table-50-0": ["我不知道你在哪裡。", "我現在要離開這裡了。"],
+"genshin:lohen:skill-table-51-0": ["已經打完了。", "今天完全禁止交手。"],
+"genshin:lohen:skill-table-52-0": ["我正在因為寒冷發抖。", "不用害怕，別再顫抖了。"],
+"genshin:lohen:skill-table-54-0": ["我們還沒有開始攻擊。", "正面宣戰失敗了。"],
+"genshin:lohen:skill-table-55-0": ["已經來不及了。", "根本沒有合適的時機。"],
+"genshin:lohen:burst-table-57-0": ["繼續吵吧，我打算放你走。", "安靜下來，我們可以放心休息了。"],
+"genshin:skirk:skill-table-49-0": ["全部倒空，別再湧出。", "保持空無一物。"],
+"genshin:skirk:burst-table-54-0": ["萬物啊，永遠停止吧。", "只有這個東西不能動。"],
+"genshin:skirk:burst-table-55-0": ["我已經失去所有力量。", "我早就得到全部力量了。"],
+"genshin:skirk:burst-table-56-0": ["把這隻手藏起來。", "那是別人的手。"],
+"genshin:vesna:skill-table-53-0": ["請大家立刻解散。", "我拒絕向任何人致意。"],
+"genshin:vesna:skill-table-55-0": ["你太失禮了，快道歉。", "我絕對不會打擾任何人。"],
+"genshin:vesna:skill-table-56-0": ["一切早就結束了！", "我們還完全沒有開始！"],
+"genshin:vesna:skill-table-57-0": ["只是表面的敷衍。", "心中充滿了輕蔑。"],
+"genshin:vesna:burst-table-59-0": ["我絕對不會自己逃走。", "你可以放心逃走了。"],
+"genshin:vodyanitsa:skill-table-50-0": ["演出已經全部結束了。", "先從完全不出聲開始吧。"],
+"genshin:vodyanitsa:skill-table-51-0": ["現在還不能登台。", "演出早已結束了。"],
+"genshin:vodyanitsa:skill-table-52-0": ["絕對不應該這樣。", "這和我期待的完全相反。"],
+"genshin:vodyanitsa:burst-table-55-0": ["這是慶祝大家平安歸來的歡歌。", "這是教人清掃灰塵的歌曲。"],
+"genshin:vodyanitsa:burst-table-56-0": ["我要唱一首哀悼逝者的輓歌。", "把所有過往都從歌中抹去。"],
+
 "genshin:manekina:join-ready": ["我還沒準備好。","我已經睡著了。"],
 "genshin:manekina:join-order": ["我已經發出命令。","請取消所有指令。"],
 "genshin:manekina:join-request": ["我會給你指示。","別給我任何指示。"],
@@ -1041,7 +1072,7 @@ export const gameMeaningDistractors = {
   'genshin:keqing:skill': ['禁止對方前進。', '對方已經回來了。'],
 };
 
-for (const line of [...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth]) {
+for (const line of [...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth, ...genshinActionExpansionSixth]) {
   const id = `genshin:${line.characterId}:${line.key}`;
   if (gameMeaningDistractors[id]) throw new Error(`Duplicate question: ${id}`);
   gameMeaningDistractors[id] = /** @type {[string, string]} */ (line.choices);

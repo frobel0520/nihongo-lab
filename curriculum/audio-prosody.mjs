@@ -8,6 +8,14 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T173：只新增本批岩元素字面讀音覆寫，舊設定保持。
+"audio/games/genshin/gram-700ff68461.mp3": {
+  "text": "ファイアー！ま、岩元素なんだけどね。",
+  "reading": "ファイアー！ま、いわげんそなんだけどね。",
+  "kana": "ファ'イアア、マ'、イワゲン'ソナ/ン'ダケドネ",
+  "reason": "T173：原引擎將岩元素切成岩元／そ而錯讀；岩いわ、元素げんそ逐詞辭典核讀後，以讀音文字查詢的句界與重音明確覆寫。字面不改、非原作聲線模仿；機械核對不代替人耳。",
+  "reference": "voicevox"
+},
 // T172：只新增本批五項字面讀音覆寫，原有設定保持。
 "audio/games/genshin/gram-3ee4b52931.mp3": {
   "text": "寒星！",

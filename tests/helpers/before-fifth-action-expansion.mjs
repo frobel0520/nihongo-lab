@@ -1,12 +1,11 @@
 // T172: project only the explicit fifth cohort out of older immutable snapshots.
-import { gameCharacterStudy } from '../../curriculum/lessons.mjs';
+import { beforeSixthGameCharacterStudy as gameCharacterStudy, beforeSixthCards, beforeSixthIllustrations as VOCAB_ILLUSTRATIONS } from './before-sixth-action-expansion.mjs';
 import { genshinActionExpansionFifth } from '../../curriculum/genshin-action-expansion-fifth.mjs';
-import { VOCAB_ILLUSTRATIONS } from '../../lib/vocab-illustrations.mjs';
 import { gameRecordId } from '../../lib/game-study.mjs';
 export const fifthLineIds=new Set(genshinActionExpansionFifth.map(r=>`genshin:${r.characterId}:${r.key}`));
 export const fifthCardIds=new Set(gameCharacterStudy.flatMap(g=>g.characters.flatMap(c=>c.lines)).filter(l=>fifthLineIds.has(l.id)).map(l=>'game-card:'+gameRecordId(l)));
 export const beforeFifthGameCharacterStudy=gameCharacterStudy.map(g=>({...g,characters:g.characters.map(c=>({...c,lines:c.lines.filter(l=>!fifthLineIds.has(l.id))}))}));
-export const beforeFifthCards=cards=>cards.filter(c=>!fifthCardIds.has(c.id));
+export const beforeFifthCards=cards=>beforeSixthCards(cards).filter(c=>!fifthCardIds.has(c.id));
 export const beforeFifthIllustrations=VOCAB_ILLUSTRATIONS.filter(c=>!fifthCardIds.has(c.id));
 export const fifthAssetNames=new Set(["abilityburnall.svg","abilitybutterflyfire.svg","abilitycrycommand.svg","abilitydrilldepart.svg","abilityflameappear.svg","abilitypastglory.svg","abilityremovejob.svg","abilityscornweak.svg","abilityshadowblade.svg","abilitysharkrocket.svg","abilitywisdomhall.svg","battlewithdraw.svg","coldstar.svg","dismisswave.svg","dontshowpain.svg","fireworkcheer.svg","fireworkfish.svg","fortressunyielding.svg","heatrockmusic.svg","icefigure.svg","impermanence.svg","lifecirculation.svg","loudmusic.svg","rebelliousmusic.svg","rudeopponent.svg","shoutchallenge.svg","sparkrod.svg","talkthenpunch.svg","waterarrow.svg"]);
 export const fifthProsodyPaths=new Set(["audio/games/genshin/gram-3ee4b52931.mp3","audio/games/genshin/gram-6a261e2700.mp3","audio/games/genshin/gram-c8fa7cb4c2.mp3","audio/games/genshin/gram-a86f174080.mp3","audio/games/genshin/gram-c095ef34b9.mp3"]);
