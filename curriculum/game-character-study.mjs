@@ -1,7 +1,7 @@
 /**
  * 角色語音教材；ER 僅使用 selected／selected2 來源，不混入武器資料或自編練習。
  * 原音索引與 VOICEVOX 教材音檔分開，不宣稱已公開遊戲原音。
- * @typedef {import('./lessons.mjs').Line & { id: string, category: string, kind: 'quote' | 'practice' | 'reference', note: string, referenceUrl: string, referenceNote: string, voicelineId?: number, sourceTitle?: string, voicefile?: string, variant?: string, pronunciation?: string, sourceType?: 'community-wiki', sourceSha256?: string, checkedAt?: string, sourceCondition?: string, audioReady?: boolean, selectionAssetCount?: number, officialSources?: ReadonlyArray<Readonly<import('./er-fankit-selection.mjs').FankitSource>> }} GameLine
+ * @typedef {import('./lessons.mjs').Line & { id: string, category: string, kind: 'quote' | 'practice' | 'reference', note: string, referenceUrl: string, referenceNote: string, voicelineId?: number, sourceTitle?: string, voicefile?: string, variant?: string, pronunciation?: string, sourceType?: 'community-wiki', sourceSha256?: string, checkedAt?: string, sourceSpeaker?: string, sourcePart?: number, sourcePartCount?: number, sourceCondition?: string, audioReady?: boolean, selectionAssetCount?: number, officialSources?: ReadonlyArray<Readonly<import('./er-fankit-selection.mjs').FankitSource>> }} GameLine
  * @typedef {{ id: string, name: string, nameJa: string, voice?: string, referenceUrl: string, portrait?: string, portraitReferenceUrl?: string, voiceReferenceUrl?: string, lines: GameLine[] }} GameCharacter
  * @typedef {{ id: string, title: string, scope: string, characters: GameCharacter[] }} GameStudy
  * @typedef {[string, string, string, string, string, string, (string | undefined)?, (string | undefined)?]} LineSpec id/category/jp/reading/zh/note/pronunciation/ruby
@@ -20,6 +20,7 @@ import { genshinActionExpansionSixth } from './genshin-action-expansion-sixth.mj
 import { genshinActionExpansionSeventh } from './genshin-action-expansion-seventh.mjs';
 import { genshinActionExpansionEighth } from './genshin-action-expansion-eighth.mjs';
 import { genshinActionExpansionNinth } from './genshin-action-expansion-ninth.mjs';
+import { genshinActionExpansionTenth } from './genshin-action-expansion-tenth.mjs';
 import { genshinQuoteSources } from './genshin-quote-sources.mjs';
 import { audioPath, contentHash } from './author.mjs';
 import { eternalReturnRoster } from './game-character-roster.mjs';
@@ -3735,14 +3736,17 @@ for (const source of genshinSupplement) {
   target.lines = [...target.lines, ...addedLines];
 }
 // Preserve existing entries and progress IDs; each new phrase has its own source ID.
-for (const { characterId, key, choices: _choices, sourceItemId, ...row } of [...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth, ...genshinActionExpansionSixth, ...genshinActionExpansionSeventh, ...genshinActionExpansionEighth, ...genshinActionExpansionNinth]) {
+for (const { characterId, key, choices: _choices, sourceItemId, ...row } of [...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth, ...genshinActionExpansionSixth, ...genshinActionExpansionSeventh, ...genshinActionExpansionEighth, ...genshinActionExpansionNinth, ...genshinActionExpansionTenth]) {
   const target = genshin.characters.find((c) => c.id === characterId);
   if (!target?.voice) throw new Error(`Missing expansion character: ${characterId}`);
   const id = `genshin:${characterId}:${key}`;
   if (target.lines.some((line) => line.id === id)) throw new Error(`Duplicate expansion: ${id}`);
+  // Explicit secondary speakers keep their own checked casting; old rows retain the character voice.
+  const voice = 'voice' in row ? row.voice : target.voice;
+  if (typeof voice !== 'string') throw new Error(`Invalid expansion voice: ${id}`);
   target.lines.push({
-    ...row, id, kind: 'quote', voice: target.voice,
-    audio: audioPath('audio/games/genshin', 'gram', row.jp, target.voice),
+    ...row, id, kind: 'quote', voice,
+    audio: audioPath('audio/games/genshin', 'gram', row.jp, voice),
     voicelineId: sourceItemId,
     referenceNote: '固定版本日文角色語音表；逐句補錄戰技／爆發，不代表所有形態與造型完整。',
   });

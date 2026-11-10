@@ -1,3 +1,4 @@
+import { tenthAssetNames } from './helpers/before-tenth-action-expansion.mjs';
 import { ninthAssetNames } from './helpers/before-ninth-action-expansion.mjs';
 import { fifthAssetNames } from './helpers/before-fifth-action-expansion.mjs';
 import { fourthAssetNames } from './helpers/before-fourth-action-expansion.mjs';
@@ -12,11 +13,11 @@ import { VOCAB_ILLUSTRATIONS, illustrationFor } from '../lib/vocab-illustrations
 // T163: per-ID composition descriptions are authoring data, not part of the runtime mapping.
 const DESCRIPTIONS = JSON.parse(await readFile(new URL('../docs/vocab-illustration-descriptions.json', import.meta.url), 'utf8'));
 
-test('illustrations resolve all 6383 card identities through exact approved mappings', async () => {
+test('illustrations resolve all 6420 card identities through exact approved mappings', async () => {
   const cards = await collectInventoryCards();
-  assert.equal(VOCAB_ILLUSTRATIONS.length, 6383);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 6383);
-  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 2579);
+  assert.equal(VOCAB_ILLUSTRATIONS.length, 6420);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 6420);
+  assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 2613);
   assert.equal(cards.filter(illustrationFor).length, cards.length, 'T162: every card has an approved picture');
   for (const image of VOCAB_ILLUSTRATIONS) {
     const card = cards.find(c => c.id === image.id);
@@ -58,7 +59,7 @@ test('all reviewed images are local compact original vectors with no active or r
     else if (assets.indexOf(image) < 1014) third300Bytes += Buffer.byteLength(svg);
     else if (assets.indexOf(image) < 1314) fourth300Bytes += Buffer.byteLength(svg);
     else if (assets.indexOf(image) < 1614) fifth300Bytes += Buffer.byteLength(svg);
-    else if (!nextAssetNames.has(image.src.split('/').at(-1)) && !thirdAssetNames.has(image.src.split('/').at(-1)) && !fourthAssetNames.has(image.src.split('/').at(-1)) && !fifthAssetNames.has(image.src.split('/').at(-1)) && !ninthAssetNames.has(image.src.split('/').at(-1)) && !image.src.split('/').at(-1).startsWith('action')) t162Bytes += Buffer.byteLength(svg);
+    else if (!nextAssetNames.has(image.src.split('/').at(-1)) && !thirdAssetNames.has(image.src.split('/').at(-1)) && !fourthAssetNames.has(image.src.split('/').at(-1)) && !fifthAssetNames.has(image.src.split('/').at(-1)) && !ninthAssetNames.has(image.src.split('/').at(-1)) && !tenthAssetNames.has(image.src.split('/').at(-1)) && !image.src.split('/').at(-1).startsWith('action')) t162Bytes += Buffer.byteLength(svg);
     assert.match(svg, /viewBox="0 0 224 168"/);
     assert.doesNotMatch(svg, /<(script|foreignObject|text|image)\b|(?:href|onload|onclick)=/i);
   }

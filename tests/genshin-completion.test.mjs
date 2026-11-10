@@ -1,4 +1,6 @@
+import { secondarySpeakerCasting } from './helpers/genshin-secondary-speakers.mjs';
 import { genshinActionExpansionNinth } from '../curriculum/genshin-action-expansion-ninth.mjs';
+import { genshinActionExpansionTenth } from '../curriculum/genshin-action-expansion-tenth.mjs';
 import { genshinActionExpansionEighth } from '../curriculum/genshin-action-expansion-eighth.mjs';
 import { genshinActionExpansionSeventh } from '../curriculum/genshin-action-expansion-seventh.mjs';
 import { genshinActionExpansionFifth } from '../curriculum/genshin-action-expansion-fifth.mjs';
@@ -170,7 +172,7 @@ test('固定來源96位與日文Wiki補錄角色分別核對；缺句角色保�
   );
   assert.equal(
     collected.flatMap((c) => c.lines).length,
-    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length,
+    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length + genshinActionExpansionTenth.length,
   );
   for (const c of collected) {
     const expected = c.id.startsWith('manekin')
@@ -208,7 +210,9 @@ test('固定來源96位與日文Wiki補錄角色分別核對；缺句角色保�
   }
 });
 
-test('原神已收錄角色的聲線與獨立性別資料一致，同角色所有短句使用同一聲線，八種聲線皆使用', () => {
+test('原神角色維持原聲線；明示長生、奧茲與阿喬按發話者固定聲線', () => {
+  const secondary = secondarySpeakerCasting;
+  const speakerGender = { '長生': 'female', 'オズ': 'male', 'アハウ': 'male' };
   const expected = new Map(
     Object.entries(genders).flatMap(([gender, ids]) =>
       ids.map((id) => [id, gender]),
@@ -219,7 +223,17 @@ test('原神已收錄角色的聲線與獨立性別資料一致，同角色所�
   assert.ok(collected.every((c) => expected.has(c.id)));
   for (const c of collected) {
     assert.equal(getVoice(c.voice).gender, expected.get(c.id), c.id);
-    for (const l of c.lines) assert.equal(l.voice, c.voice, l.id);
+    for (const l of c.lines) {
+      const cast = secondary[l.id];
+      if (cast) {
+        assert.equal(l.sourceSpeaker, cast.speaker);
+        assert.equal(l.voice, cast.voice);
+        assert.equal(getVoice(l.voice).gender, speakerGender[cast.speaker]);
+      } else {
+        assert.equal(l.voice, c.voice, l.id);
+        assert.equal(l.sourceSpeaker, undefined, l.id);
+      }
+    }
   }
   assert.deepEqual(
     [...new Set(collected.map((c) => c.voice))].sort(),

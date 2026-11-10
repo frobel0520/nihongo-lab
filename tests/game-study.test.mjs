@@ -1,4 +1,6 @@
+import { secondarySpeakerCasting } from './helpers/genshin-secondary-speakers.mjs';
 import { genshinActionExpansionNinth } from '../curriculum/genshin-action-expansion-ninth.mjs';
+import { genshinActionExpansionTenth } from '../curriculum/genshin-action-expansion-tenth.mjs';
 import { genshinActionExpansionEighth } from '../curriculum/genshin-action-expansion-eighth.mjs';
 import { genshinActionExpansionSeventh } from '../curriculum/genshin-action-expansion-seventh.mjs';
 import { genshinActionExpansionFifth } from '../curriculum/genshin-action-expansion-fifth.mjs';
@@ -52,14 +54,16 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
   // ER 55句官方選角與191句逐字稿，另收錄原神286句。
   assert.equal(
     lines.length,
-    532 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length,
+    532 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length + genshinActionExpansionTenth.length,
   );
   assert.equal(new Set(lines.map((l) => l.id)).size, lines.length);
   assert.equal(new Set(lines.map(gameRecordId)).size, lines.length);
   for (const game of gameCharacterStudy)
     for (const character of game.characters) {
       for (const line of character.lines) {
-        assert.equal(line.voice, character.voice);
+        const cast = secondarySpeakerCasting[line.id];
+        assert.equal(line.voice, cast?.voice ?? character.voice);
+        assert.equal(line.sourceSpeaker, cast?.speaker);
         assert.ok(getVoice(line.voice));
         assert.match(line.referenceUrl, /^https:/);
         assert.ok(line.note && line.zh);

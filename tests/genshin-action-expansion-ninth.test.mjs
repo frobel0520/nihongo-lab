@@ -1,3 +1,5 @@
+import { beforeTenthIllustrations as VOCAB_ILLUSTRATIONS } from './helpers/before-tenth-action-expansion.mjs';
+import { tenthAssetNames } from './helpers/before-tenth-action-expansion.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
@@ -5,7 +7,6 @@ import { readFile, readdir } from 'node:fs/promises';
 import { gameCharacterStudy, loadCategory } from '../curriculum/lessons.mjs';
 import { gameListeningQuestion, gameRecordId } from '../lib/game-study.mjs';
 import {
-  VOCAB_ILLUSTRATIONS,
   illustrationFor,
 } from '../lib/vocab-illustrations.mjs';
 import { collectInventoryCards } from '../scripts/vocab-illustration-inventory.mjs';
@@ -429,7 +430,7 @@ test('T176 source identities remain character-scoped and new E/Q lines reach bot
 });
 test('T176 adds only 31 safe originals and preserves all 2548 released SVGs byte for byte', async () => {
   const dir = new URL('../public/images/vocab/', import.meta.url),
-    names = (await readdir(dir)).filter((n) => n.endsWith('.svg')).sort();
+    names = (await readdir(dir)).filter((n) => n.endsWith('.svg') && !tenthAssetNames.has(n)).sort();
   assert.equal(ninthAssetNames.size, 31);
   assert.equal(names.length, 2579);
   const originals = names.filter(

@@ -8,6 +8,141 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+"audio/games/genshin/gram-71473967cf.mp3": {
+  "text": "聖龍の烈炎で、朽ちゆく汝らを照らそう。",
+  "reading": "せいりゅうのれつえんで、くちゆくなんじらをてらそう。",
+  "kana": "セイリュウノ'/レ'ツエンデ、_ク'/チ'/ユク'/ナンジ'ラオ/テラ'ソオ",
+  "reason": "T177：依同一原來源逐段拆為單句，來源文字與逐mora讀音核對；音調／停頓未經人耳驗收。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-ded4c08821.mp3": {
+  "text": "泡沫となるがいい。",
+  "reading": "ほうまつとなるがいい。",
+  "kana": "ホウ'マ_ツト/ナ'ルガ/イ'イ",
+  "reason": "T177：reading-search-15.json本句Houmatsu對照，修正草稿誤採うたかた；逐mora核對，音調停頓未經人耳驗收。",
+  "reference": "voicevox"
+},
+// T177：本批字面讀音覆寫；原438筆保持。
+"audio/games/genshin/gram-917f247ab0.mp3": {
+  "text": "これが「海山」を滅ぼした力だ！",
+  "reading": "これが「かいざん」をほろぼしたちからだ！",
+  "kana": "コレガ'、カイ'ザン、オ'/ホロ'ボ_シタ/チ'カラダ",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-b43a7ddbf1.mp3": {
+  "text": "紅に染まって散りなさい。",
+  "reading": "くれないにそまってちりなさい。",
+  "kana": "クレナイニ'/ソ'/マ'ッテ/チ'リナサイ",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-603e738a95.mp3": {
+  "text": "夜の幻現！",
+  "reading": "よるのげんげん！",
+  "kana": "ヨ'ルノ/ゲン'ゲン",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-2e48404c14.mp3": {
+  "text": "夜の幻現！",
+  "reading": "よるのげんげん！",
+  "kana": "ヨ'ルノ/ゲン'ゲン",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-9d02998014.mp3": {
+  "text": "採青！",
+  "reading": "ツァイチン！",
+  "kana": "ツァ'イチン",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。採青明示kana保留ツァ單mora，不接受ツア兩mora。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-34c4489781.mp3": {
+  "text": "黄葉を、散らまく惜しみ。",
+  "reading": "もみじばを、ちらまくおしみ。",
+  "kana": "モミジ'バオ、チ'ラ/マク'/オ'シミ",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-b6ec8ee5c4.mp3": {
+  "text": "夜神に報いるために。",
+  "reading": "やがみにむくいるために。",
+  "kana": "ヤ'ガミニ/ム'ク/イル'/タメ'ニ",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-ee23554e88.mp3": {
+  "text": "聖龍降臨！",
+  "reading": "せいりゅうこうりん！",
+  "kana": "セイリュウコオ'リン",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-54491138f1.mp3": {
+  "text": "原霊顕現！",
+  "reading": "げんれいけんげん！",
+  "kana": "ゲン'レイ/ケン'ゲン",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+
+"audio/games/genshin/gram-c9cb3b9b6a.mp3": {
+  "text": "雷閃！",
+  "reading": "らいせん！",
+  "kana": "ライ'セン",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-79ae5bfc39.mp3": {
+  "text": "裁きの雷。",
+  "reading": "さばきのいかずち。",
+  "kana": "サバ'キノ/イカズチ'",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-aca4209ef1.mp3": {
+  "text": "六三〇八式ユニット！",
+  "reading": "ろくさんゼロはちしきユニット！",
+  "kana": "ロ_クサンゼロハ_チシキユ'ニット",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-001080972b.mp3": {
+  "text": "七五式モジュール！",
+  "reading": "ななごしきモジュール！",
+  "kana": "ナナゴシ'キモ/ジュ'ウル",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-96698bf5ac.mp3": {
+  "text": "株連蔓引だよ！",
+  "reading": "しゅれんまんいんだよ！",
+  "kana": "シュレンマン'インダヨ",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-ac2987be90.mp3": {
+  "text": "グゥオパァー、火を噴け！",
+  "reading": "グゥオパァー、ひをふけ！",
+  "kana": "グウオ'パアア、ヒ'オ/フ'ケ",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-320bc18574.mp3": {
+  "text": "律炎、引！",
+  "reading": "りつえん、いん！",
+  "kana": "リツ'エン、イ'ン",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-d8d7f2408a.mp3": {
+  "text": "裂空。",
+  "reading": "れっくう。",
+  "kana": "レックウ'",
+  "reason": "T177：依reading-evidence.md逐句核實字面、術語及發話者；逐mora核對讀音／句界，音調與停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
 // T176：本批字面讀音覆寫；原408筆保持。
 "audio/games/genshin/gram-a56ae6a3bb.mp3": {
   "text": "風刃…！",

@@ -2308,5 +2308,33 @@ export const genshinSupplement = [
       "variant": "來源元素組：冰；其他按法／形態／造型未全量核實。"
     }
   ]
+},
+{
+  "id": "skirk",
+  "name": "絲柯克",
+  "nameJa": "スカーク",
+  "gender": "female",
+  "voice": "sayo",
+  "referenceUrl": "https://wiki.biligame.com/ys/%E4%B8%9D%E6%9F%AF%E5%85%8B%E8%AF%AD%E9%9F%B3",
+  "sourceSha256": "9afc2bd92cc3b940ee173afa04c4cb51e3f0eb7cc9d54fe2835cc07fb7d46987",
+  "checkedAt": "2026-11-10",
+  "lines": [
+    {
+      "key": "skill-table-50-0",
+      "category": "元素技能",
+      "jp": "裂空。",
+      "reading": "れっくう。",
+      "ruby": "{裂空|れっくう}。",
+      "zh": "裂空。",
+      "note": "裂空是撕裂空間意象的技能呼喊，讀れっくう；空不是角色旅行者空的名字，不誤配為攻擊特定角色。",
+      "choices": [
+        "我正在呼喚旅行者空。",
+        "把空間的裂縫完全補好。"
+      ],
+      "sourceTitle": "元素战技·其四",
+      "sourceCondition": "來源表未細分按法／形態與造型。",
+      "variant": "來源元素組：冰；其他按法／形態／造型未全量核實。"
+    }
+  ]
 }
 ];

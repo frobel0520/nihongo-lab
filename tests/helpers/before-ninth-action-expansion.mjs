@@ -1,7 +1,5 @@
 // T176: explicit cohort removed only for immutable published snapshot checks.
-import { gameCharacterStudy } from '../../curriculum/lessons.mjs';
-import { VOCAB_ILLUSTRATIONS } from '../../lib/vocab-illustrations.mjs';
-import { AUDIO_PROSODY } from '../../curriculum/audio-prosody.mjs';
+import { beforeTenthGameCharacterStudy as gameCharacterStudy, beforeTenthCards, beforeTenthIllustrations as VOCAB_ILLUSTRATIONS, beforeTenthProsody as AUDIO_PROSODY } from './before-tenth-action-expansion.mjs';
 import { gameRecordId } from '../../lib/game-study.mjs';
 export const ninthLineIds = new Set([
   'genshin:aether:skill-1064',
@@ -121,7 +119,7 @@ export const beforeNinthGameCharacterStudy = gameCharacterStudy.map((g) => ({
   })),
 }));
 export const beforeNinthCards = (cards) =>
-  cards.filter((c) => !ninthCardIds.has(c.id));
+  beforeTenthCards(cards).filter((c) => !ninthCardIds.has(c.id));
 export const beforeNinthIllustrations = VOCAB_ILLUSTRATIONS.filter(
   (c) => !ninthCardIds.has(c.id),
 );
