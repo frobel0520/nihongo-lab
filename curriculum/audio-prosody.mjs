@@ -8,6 +8,28 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T179：本批字面讀音覆寫；原457筆保持。
+"audio/games/genshin/gram-ea79053f51.mp3": {
+  "text": "起！",
+  "reading": "き！",
+  "kana": "キ'",
+  "reason": "T179：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-6b5fbacb63.mp3": {
+  "text": "崩！",
+  "reading": "ほう！",
+  "kana": "ホウ'",
+  "reason": "T179：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-0825f58db3.mp3": {
+  "text": "威水獣舞！",
+  "reading": "わいすいじゅうぶ！",
+  "kana": "ワイスイ'ジュ/ウ'ブ",
+  "reason": "T179：依reading-evidence.md本句來源羅馬字／術語與詞法文脈核對字面讀音；與原字引擎差異逐mora／句界查核，音調停頓選定未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
 "audio/games/genshin/gram-71473967cf.mp3": {
   "text": "聖龍の烈炎で、朽ちゆく汝らを照らそう。",
   "reading": "せいりゅうのれつえんで、くちゆくなんじらをてらそう。",

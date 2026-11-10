@@ -8,9 +8,11 @@ import { genshinActionExpansionSeventh } from './genshin-action-expansion-sevent
 import { genshinActionExpansionEighth } from './genshin-action-expansion-eighth.mjs';
 import { genshinActionExpansionNinth } from './genshin-action-expansion-ninth.mjs';
 import { genshinActionExpansionTenth } from './genshin-action-expansion-tenth.mjs';
+import { genshinActionExpansionEleventh } from './genshin-action-expansion-eleventh.mjs';
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
+"genshin:lohen:burst-table-59-0": ["我保證你馬上就能安心解脫。", "對方剛剛已經輕鬆逃走了。"],
 "genshin:skirk:skill-table-50-0": ["我正在呼喚旅行者空。", "把空間的裂縫完全補好。"],
 
 "genshin:skirk:skill-table-51-0": ["普通的空手舞蹈。", "刀刃已經全部靜止不動。"],
@@ -1090,7 +1092,7 @@ export const gameMeaningDistractors = {
   'genshin:keqing:skill': ['禁止對方前進。', '對方已經回來了。'],
 };
 
-for (const line of [...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth, ...genshinActionExpansionSixth, ...genshinActionExpansionSeventh, ...genshinActionExpansionEighth, ...genshinActionExpansionNinth, ...genshinActionExpansionTenth]) {
+for (const line of [...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth, ...genshinActionExpansionSixth, ...genshinActionExpansionSeventh, ...genshinActionExpansionEighth, ...genshinActionExpansionNinth, ...genshinActionExpansionTenth, ...genshinActionExpansionEleventh]) {
   const id = `genshin:${line.characterId}:${line.key}`;
   if (gameMeaningDistractors[id]) throw new Error(`Duplicate question: ${id}`);
   gameMeaningDistractors[id] = /** @type {[string, string]} */ (line.choices);

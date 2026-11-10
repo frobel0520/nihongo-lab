@@ -18,7 +18,9 @@ test('illustrations resolve all 6420 card identities through exact approved mapp
   assert.equal(VOCAB_ILLUSTRATIONS.length, 6420);
   assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.id)).size, 6420);
   assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 2613);
-  assert.equal(cards.filter(illustrationFor).length, cards.length, 'T162: every card has an approved picture');
+  const required = cards.filter(c => !c.id.startsWith('game-card:game:genshin:'));
+  assert.equal(required.filter(illustrationFor).length, required.length, 'Non-Genshin cards keep all approved illustrations');
+  assert.equal(cards.filter(c => !illustrationFor(c)).length, 8, 'T179 Genshin-only entries intentionally do not require pictures');
   for (const image of VOCAB_ILLUSTRATIONS) {
     const card = cards.find(c => c.id === image.id);
     assert.ok(card, image.id);
@@ -110,6 +112,9 @@ test('card fronts hide images and revealed auxiliary images do not repeat the ac
       // T161: the source carries its content version, so a revised image never reuses a stale cache entry.
       assert.ok(markup.includes(`src="/${image.src}?v=`), image.src);
       assert.ok(!markup.includes(DESCRIPTIONS[image.id]), 'decorative image must not repeat its description');
+    }
+    for (const card of cards.filter(c => c.id.startsWith('game-card:game:genshin:') && !illustrationFor(c))) {
+      assert.equal(renderToStaticMarkup(createElement(VocabIllustration, { card })), '', 'New Genshin cards remain text/audio only');
     }
   } finally { await server.close(); }
 });

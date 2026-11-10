@@ -2336,5 +2336,33 @@ export const genshinSupplement = [
       "variant": "來源元素組：冰；其他按法／形態／造型未全量核實。"
     }
   ]
+},
+{
+  "id": "lohen",
+  "name": "洛恩",
+  "nameJa": "ローエン",
+  "gender": "male",
+  "voice": "ryusei",
+  "referenceUrl": "https://wiki.biligame.com/ys/%E6%B4%9B%E6%81%A9%E8%AF%AD%E9%9F%B3",
+  "sourceSha256": "e7788440b86cbfbc3db3f6ecfe35dc1371694812b9fce8c760429002792cf209",
+  "checkedAt": "2026-11-10",
+  "lines": [
+    {
+      "key": "burst-table-59-0",
+      "category": "元素爆發",
+      "jp": "ハハッ——楽になれると思うなよ？",
+      "reading": "ハハッ——らくに なれると おもうなよ？",
+      "ruby": "ハハッ——{楽|らく}になれると{思|おも}うなよ？",
+      "zh": "哈哈——別以為能輕鬆解脫喔？",
+      "note": "楽になれる表示能好受或解脫，と思うなよ是否定對方這種期待的強硬語氣；問號不表示友善詢問是否需要幫忙。笑聲只是開頭，句子重點是別以為能輕鬆解脫。",
+      "choices": [
+        "我保證你馬上就能安心解脫。",
+        "對方剛剛已經輕鬆逃走了。"
+      ],
+      "sourceTitle": "元素爆发·其三",
+      "sourceCondition": "來源表未細分短按／長按、形態或造型。",
+      "variant": "來源未標示造型差分"
+    }
+  ]
 }
 ];

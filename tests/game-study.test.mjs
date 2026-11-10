@@ -1,3 +1,4 @@
+import {genshinActionExpansionEleventh} from '../curriculum/genshin-action-expansion-eleventh.mjs';
 import { secondarySpeakerCasting } from './helpers/genshin-secondary-speakers.mjs';
 import { genshinActionExpansionNinth } from '../curriculum/genshin-action-expansion-ninth.mjs';
 import { genshinActionExpansionTenth } from '../curriculum/genshin-action-expansion-tenth.mjs';
@@ -54,7 +55,7 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
   // ER 55句官方選角與191句逐字稿，另收錄原神286句。
   assert.equal(
     lines.length,
-    532 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length + genshinActionExpansionTenth.length,
+    532 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length + genshinActionExpansionTenth.length + genshinActionExpansionEleventh.length,
   );
   assert.equal(new Set(lines.map((l) => l.id)).size, lines.length);
   assert.equal(new Set(lines.map(gameRecordId)).size, lines.length);

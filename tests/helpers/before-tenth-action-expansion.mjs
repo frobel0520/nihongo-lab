@@ -1,7 +1,6 @@
 // T177: explicit cohort removed only for immutable published snapshot checks.
-import { gameCharacterStudy } from '../../curriculum/lessons.mjs';
+import {beforeEleventhGameCharacterStudy as gameCharacterStudy, beforeEleventhCards, beforeEleventhProsody as AUDIO_PROSODY} from './before-eleventh-action-expansion.mjs';
 import { VOCAB_ILLUSTRATIONS } from '../../lib/vocab-illustrations.mjs';
-import { AUDIO_PROSODY } from '../../curriculum/audio-prosody.mjs';
 import { gameRecordId } from '../../lib/game-study.mjs';
 export const tenthLineIds = new Set([
   "genshin:baizhu:skill-82047",
@@ -113,7 +112,7 @@ export const beforeTenthGameCharacterStudy = gameCharacterStudy.map((g) => ({
   })),
 }));
 export const beforeTenthCards = (cards) =>
-  cards.filter((c) => !tenthCardIds.has(c.id));
+  beforeEleventhCards(cards).filter((c) => !tenthCardIds.has(c.id));
 export const beforeTenthIllustrations = VOCAB_ILLUSTRATIONS.filter(
   (c) => !tenthCardIds.has(c.id),
 );
