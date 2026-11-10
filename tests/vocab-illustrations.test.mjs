@@ -100,6 +100,10 @@ test('card fronts hide images and revealed auxiliary images do not repeat the ac
     for (const image of VOCAB_ILLUSTRATIONS) {
       const illustratedCard = cards.find(c => c.id === image.id);
       const markup = renderToStaticMarkup(createElement(VocabIllustration, { card: illustratedCard }));
+      if (illustratedCard.id.startsWith('game-card:game:genshin:')) {
+        assert.equal(markup, '', 'Genshin voice cards stay text/audio only, even with an existing mapping');
+        continue;
+      }
       assert.match(markup, /<img\b/);
       assert.match(markup, /\balt=""/);
       // T161: the source carries its content version, so a revised image never reuses a stale cache entry.

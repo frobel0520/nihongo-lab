@@ -6,7 +6,10 @@ import { vocabImageUrl } from '../lib/offlineImages';
 /** Only mounted on the revealed answer; a failed image never blocks study. */
 export function VocabIllustration({ card }: { card: Card }) {
   const [failed, setFailed] = useState(false);
-  const image = illustrationFor(card);
+  // Genshin voice cards are text/audio only, including previously illustrated cards.
+  const image = card.id.startsWith('game-card:game:genshin:')
+    ? undefined
+    : illustrationFor(card);
   if (!image || failed) return null;
   return (
     <img
