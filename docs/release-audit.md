@@ -1,5 +1,20 @@
 # Release audit — 0.1.0
 
+新批次的驗收段落加在「通用限制」和下方分隔標記之間，每批一段，只寫範圍、結果與證據位置，長度上限見 AGENTS.md「交接文件長度」。分隔標記以下是舊紀錄，保留原文，不受長度檢查。
+
+## 通用限制
+
+以下限制適用於每一批，除非該批段落另外寫明已驗證：
+
+- 人耳逐句審聽 0 句；VOICEVOX 讀音只做機械檢查，不等於原配音或重音、情緒驗收。
+- 真機（iOS／Android）、原生縮放、系統字型與鍵盤、實體螢幕閱讀器、真實帳號與學習效果都未驗。
+- 正式站驗收只比對變更檔案的大小與 SHA，並抽驗代表角色與卡片，不重驗全站舊媒體。
+- 「真正離線」指 `BrowserContext.setOffline(true)`、未快取請求必須失敗後再重載；只命中快取不算。
+- 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
+- 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
+
+<!-- handoff-length: 以下為舊紀錄，不受長度檢查 -->
+
 ## T179：第十一批正式驗收（2026-11-10）
 
 發布版本main `79baa3a046e8c0ae7dab83227aa424be60cbe943`（[PR #222](https://github.com/frobel0520/nihongo-lab/pull/222)），[main適用CI／Worker／Pages引導](https://github.com/frobel0520/nihongo-lab/actions/runs/42829593696)成功。沿用候選的來源、讀音、8檔解碼、413項測試、滑動回程與本機瀏覽器證據，不重跑無關歷史媒體、導航或SRS。

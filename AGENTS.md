@@ -71,9 +71,19 @@ CI範圍與證據沿用規則見docs/project-sd.md的「CI驗證分流（#199）
 素材README等public檔案屬發布資產，應併入教材PR準備；發布後只補必要的進度／驗收紀錄，避免把public變更誤稱純文件。正式驗收詳細結果沿單一紀錄與Private證據定位，不反覆抄寫相同限制。
 
 
+## 交接文件長度
+
+依 Harbor 開發規範 4.5，交接文件要讓接手的人或 agent 讀得完。上限由 `scripts/ci/docs-check.mjs` 的 `HANDOFF_LIMITS` 在 docs 關卡和 `npm test` 檢查，超過就失敗。
+
+- `progress.md` 只放現況、最近批次、規則摘要、待辦與限制。上限 120 行、10,000 字，每個 `## ` 段落 2,000 字；最近批次只留 3 批，每批約 5 行內。
+- 批次發布後，在「最近批次」更新該批，不另外保留候選段落；超過 3 批的舊批次直接移除，由 Git 歷史保存。
+- `docs/release-audit.md` 每批一段，加在「通用限制」與分隔標記之間，每段 1,500 字內，只寫範圍、結果與證據位置（PR、CI、Private 批次 ID）。逐檔 SHA、測試輸出等細節放 Private 存檔。分隔標記以下的舊紀錄保留原文，不受檢查。
+- 每批都相同的限制只寫在 release-audit 的「通用限制」，各批只寫有變動的部分。
+- 用完整句子書寫，少用「人耳0」「SR」這類只有當事人看得懂的縮寫；數字只寫一次，其他地方用連結。
+
 ## Reviewer 啟動規則（僅適用 nihongo-lab）
 
-- 只有使用者明確要求對本次工作做review／審查時，才啟動、指派或交接任務給reviewer。平時由master與worker協作，worker完成開發、自查及適用驗證，不固定每批送reviewer。
+- 只有使用者明確要求對本次工作做review／審查時，才啟動、指派或交接任務給reviewer。平時由master與worker協作（兩者可以是同一個session），worker完成開發、自查及適用驗證，不固定每批送reviewer。
 - 批次完成、PR轉Ready、CI成功、舊prompt、舊待辦或舊排程，都不代表新的review授權；前一批曾要求review也不延伸到下一批。未要求review時不額外等待reviewer放行。
 - Worker自查、來源／讀音／配圖正確性、必要CI、資安與適用發布驗收照常；合併main、部署及設定變更仍依既有授權規則。不把自查寫成獨立reviewer審查。
 - 已完成的審查與放行證據保持有效，歷史紀錄不改寫；使用者要求review後，再明確指定當次範圍、版本及疑點。

@@ -17,10 +17,50 @@ export function localLinks(text) {
     .filter((link) => !/^(?:[a-z][a-z0-9+.-]*:|#|\/\/)/i.test(link));
 }
 
+/** 交接文件長度上限（AGENTS.md「交接文件長度」）。字數以 Unicode 字元計。 */
+export const HANDOFF_LIMITS = {
+  'progress.md': { lines: 120, chars: 10000, sectionChars: 2000 },
+  'docs/release-audit.md': { sectionChars: 1500 },
+};
+export const AUDIT_LEGACY_MARKER = '<!-- handoff-length: 以下為舊紀錄，不受長度檢查 -->';
+
+/** 依 `## ` 標題切段，回傳每段（含標題）的字元數。 @param {string} text */
+export function sections(text) {
+  return text
+    .split(/^(?=## )/m)
+    .filter((part) => part.startsWith('## '))
+    .map((part) => ({ title: part.split('\n')[0], chars: [...part.trim()].length }));
+}
+
+/** @param {string} file @param {string} text @returns {string[]} 違規說明；空陣列代表通過 */
+export function handoffLengthProblems(file, text) {
+  const limit = HANDOFF_LIMITS[/** @type {keyof typeof HANDOFF_LIMITS} */ (file)];
+  if (!limit) return [];
+  const problems = [];
+  let checked = text;
+  if (file === 'docs/release-audit.md') {
+    const at = text.indexOf(AUDIT_LEGACY_MARKER);
+    if (at < 0) return [`${file}: missing legacy marker ${AUDIT_LEGACY_MARKER}`];
+    checked = text.slice(0, at);
+  }
+  const lines = checked.split('\n').length;
+  const chars = [...checked].length;
+  if ('lines' in limit && lines > limit.lines)
+    problems.push(`${file}: ${lines} lines > ${limit.lines}`);
+  if ('chars' in limit && chars > limit.chars)
+    problems.push(`${file}: ${chars} chars > ${limit.chars}`);
+  for (const section of sections(checked))
+    if (section.chars > limit.sectionChars)
+      problems.push(`${file}: section "${section.title}" ${section.chars} chars > ${limit.sectionChars}`);
+  return problems;
+}
+
 /** @param {string} file @param {string} before @param {string} after @param {(p: string) => boolean} exists */
 export function checkDocument(file, before, after, exists) {
   if (after.includes('\0') || /^(?:<{7}|={7}|>{7})(?: |$)/m.test(after))
     throw new Error(`${file}: binary data or conflict marker`);
+  const lengthProblems = handoffLengthProblems(file, after);
+  if (lengthProblems.length) throw new Error(lengthProblems.join('\n'));
   const old = new Set(localLinks(before));
   for (const link of localLinks(after)) {
     if (old.has(link)) continue;
@@ -63,6 +103,6 @@ if (
     checkDocument(file, before, after, existsSync);
   }
   console.log(
-    `Document gate passed: ${paths.length} changed paths; new local links, UTF-8 and conflict markers checked. External links not network-tested.`,
+    `Document gate passed: ${paths.length} changed paths; new local links, UTF-8, conflict markers and handoff length checked. External links not network-tested.`,
   );
 }
