@@ -968,6 +968,18 @@ T155發布收尾（2026-10-23）：使用者確認6bece52產品審查無阻塞�
 
 Rollback：經本次PR的完整回歸及實際main執行驗證後發布；若分流出現漏檢，以revert本PR恢復原完整工作流，再依權威文件核准main操作。產品教材、資料schema、同步與快取契約不變。規則與狀態契約由tests/ci-workflow.test.mjs驗證；完整工程記錄留repo外，不公開附件。
 
+## 2026-11-11 T186 CI 逾時與瀏覽器測試平行化（#239）
+
+原因：完整檢查把 7 組瀏覽器測試排在同一個 job 依序執行，約 25 分鐘；PR #238 又因安裝 ffmpeg 的步驟卡住且沒有逾時，只能人工取消重跑。
+
+- 原本的 `check` 內容搬到 `build` job：分類確認、文件關卡、`npm run check`、依賴稽核、音檔解碼、正式 build、bundle 門檻與圖片下載回歸都照舊。
+- 完整檢查時 `build` 上傳 `site-dist`，新的 `browser` job 以矩陣平行執行 quality、inference、pwa、ux、navigation、srs-layout、pwa:updates，各自下載同一份 build；測試指令與內容沒有增減。
+- `check` 改為彙總關卡，名稱不變：分類與 `build` 必須成功，完整檢查還要求 `browser` 全部成功，其餘範圍要求 `browser` 為未執行。發布仍等待 `check` 與 `ux-windows`。
+- 每個 job 都有 `timeout-minutes`；ffmpeg 安裝步驟 5 分鐘逾時，apt 加上重試與連線逾時。
+- 分類規則、三種範圍的判定、權限與發布條件都沒有改。
+
+Rollback：revert 本 PR 即回到單一 job 依序執行。契約由 `tests/ci-workflow.test.mjs` 驗證。
+
 ## 2026-11-11 T183 遊戲語音已學規則
 
 `lib/game-study.mjs` 的 `markGameHeard(progress, line, now)` 在句子尚未已學時，以既有的 `gameRecordId` 寫入版本 3 通用練習 map；已學時回傳原物件，不產生新的同步變更。`GameStudyView` 在 PlayButton 的 `onPlayed`（audio 的 `playing` 事件，每次掛載只計一次）呼叫它，並移除 StudyLine 的 `onDone` 與按鈕，改顯示「已聽過，計入已學。」或「播放這句後會計入已學。」。紀錄 ID、儲存格式、Worker 與同步合併都不變。

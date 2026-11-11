@@ -298,7 +298,8 @@ function enabled(step, profile, ref = 'refs/heads/main', event = 'push') {
 }
 
 test('actual workflow docs/content/full branches retain the appropriate gates', () => {
-  const steps = workflow.jobs.check.steps;
+  const browser = workflow.jobs.browser;
+  const steps = workflow.jobs.build.steps;
   const runs = (profile) =>
     steps
       .filter((s) => enabled(s, profile))
@@ -324,19 +325,58 @@ test('actual workflow docs/content/full branches retain the appropriate gates', 
     'test:srs-layout',
     'test:pwa:updates',
   ]) {
-    assert.ok(!runs('content').includes('npm run ' + command), command);
-    assert.ok(runs('full').includes('npm run ' + command), command);
+    // Browser suites run in the parallel matrix, never in the shared build job.
+    assert.ok(!runs('full').includes('npm run ' + command), command);
+    assert.ok(browser.strategy.matrix.suite.includes(command.slice(5)), command);
   }
+  assert.equal(browser.strategy.matrix.suite.length, 7);
+  assert.equal(browser.strategy['fail-fast'], false);
+  assert.deepEqual(browser.needs, ['changes', 'build']);
+  for (const profile of ['docs', 'content'])
+    assert.equal(enabled(browser, profile), false);
+  assert.equal(enabled(browser, 'full'), true);
+  assert.ok(
+    browser.steps.some((s) => s.run === 'npm run test:${{ matrix.suite }}'),
+  );
+  const download = browser.steps.find((s) =>
+    s.uses?.startsWith('actions/download-artifact@'),
+  );
+  assert.deepEqual(download.with, { name: 'site-dist', path: 'dist' });
+  const upload = steps.find((s) =>
+    s.uses?.startsWith('actions/upload-artifact@'),
+  );
+  assert.equal(upload.with.name, 'site-dist');
+  assert.equal(enabled(upload, 'full', 'refs/pull/1/merge', 'pull_request'), true);
+  assert.equal(enabled(upload, 'content', 'refs/pull/1/merge', 'pull_request'), false);
+  assert.equal(enabled(upload, 'content'), true);
+  assert.equal(enabled(upload, 'docs'), false);
   assert.ok(
     runs('content').some((s) => s.includes('npm audit --audit-level=high')),
   );
   assert.ok(runs('content').some((s) => s.includes('media-check.mjs')));
-  assert.deepEqual(workflow.jobs.check.needs, 'changes');
-  assert.equal(workflow.jobs.check.if, '${{ !cancelled() }}');
-  const scopeGuard = workflow.jobs.check.steps[0];
+  assert.deepEqual(workflow.jobs.build.needs, 'changes');
+  assert.equal(workflow.jobs.build.if, '${{ !cancelled() }}');
+  const scopeGuard = workflow.jobs.build.steps[0];
   assert.equal(scopeGuard.env.PLAN_RESULT, '${{ needs.changes.result }}');
   assert.ok(scopeGuard.run.includes('test "$PLAN_RESULT" = success'));
   assert.ok(scopeGuard.run.includes('docs|content|full'));
+  // The required check aggregates every gate and cannot pass on a skipped or failed one.
+  const gate = workflow.jobs.check;
+  assert.deepEqual(gate.needs, ['changes', 'build', 'browser']);
+  assert.equal(gate.if, '${{ !cancelled() }}');
+  assert.equal(gate.steps.length, 1);
+  assert.equal(gate.steps[0].env.BUILD_RESULT, '${{ needs.build.result }}');
+  assert.equal(gate.steps[0].env.BROWSER_RESULT, '${{ needs.browser.result }}');
+  for (const line of [
+    'test "$PLAN_RESULT" = success',
+    'test "$BUILD_RESULT" = success',
+    'full) test "$BROWSER_RESULT" = success ;;',
+    'docs|content) test "$BROWSER_RESULT" = skipped ;;',
+    '*) exit 1 ;;',
+  ])
+    assert.ok(gate.steps[0].run.includes(line), line);
+  for (const job of Object.values(workflow.jobs))
+    assert.ok(job['timeout-minutes'] > 0 && job['timeout-minutes'] <= 30);
   assert.deepEqual(workflow.jobs['ux-windows'].needs, 'changes');
   assert.ok(
     workflow.jobs['ux-windows'].steps.some(
@@ -402,7 +442,7 @@ test('deployment needs all gates, docs never publish, and owner/main/permissions
 });
 
 test('changed-audio gate has a decoder on fresh runners before decoding', () => {
-  const steps = workflow.jobs.check.steps;
+  const steps = workflow.jobs.build.steps;
   const install = steps.findIndex(
     (s) => s.name === 'Ensure MP3 decoder is available',
   );
@@ -414,6 +454,8 @@ test('changed-audio gate has a decoder on fresh runners before decoding', () => 
   for (const profile of ['content', 'full'])
     assert.equal(enabled(steps[install], profile), true);
   assert.match(steps[install].run, /command -v ffmpeg/);
-  assert.match(steps[install].run, /apt-get install[^\n]* ffmpeg/);
+  assert.match(steps[install].run, /apt-get [^\n]*install[^\n]* ffmpeg/);
+  assert.equal(steps[install]['timeout-minutes'], 5);
+  assert.match(steps[install].run, /Acquire::Retries=3/);
   assert.match(steps[install].run, /ffmpeg -version/);
 });

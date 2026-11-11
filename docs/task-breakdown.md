@@ -1,5 +1,19 @@
 # 任務拆解
 
+## T186：CI 逾時與瀏覽器測試平行化
+
+- Task ID／Goal：T186（Issue #239）。完整檢查卡住時自動失敗，並把瀏覽器測試改為平行執行以縮短等待。
+- Input contract：現行 `.github/workflows/ci.yml` 與 `tests/ci-workflow.test.mjs`；PR #238 的實際執行時間。
+- Output artifact：`build`／`browser`／`check` 三段式工作流、各 job 逾時、ffmpeg 安裝重試；SD 變更紀錄。
+- depends_on：無。
+- Out of scope：分類規則、測試內容、發布條件與權限。
+- Acceptance checks：`npm test`、typecheck、lint；本 PR 以完整檢查實跑且 `check`、`ux-windows` 成功，記錄總時間。
+- Fixture or test data：本 PR 自身的 CI 執行。
+- Evidence path：PR 的 CI 執行紀錄與 [SD 變更紀錄](project-sd.md)。
+
+- [x] 工作流與契約測試。
+- [ ] PR 完整檢查實跑、合併授權。
+
 ## T185：只有社群來源的角色補錄（最後一批）
 
 - Task ID／Goal：T185（Issue #237）。補完剩下 8 位角色、洛恩 2 句，以及使用者裁定讀音的 5 句。

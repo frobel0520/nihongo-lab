@@ -13,6 +13,7 @@ concurrency:
 jobs:
   changes:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     outputs:
       profile: ${{ steps.plan.outputs.profile }}
       base: ${{ steps.plan.outputs.base }}
@@ -29,11 +30,12 @@ jobs:
       - run: npm ci --ignore-scripts
       - id: plan
         run: node scripts/ci/plan.mjs
-  check:
+  build:
     needs: changes
-    # A failed classifier must fail the stable required check, not skip it.
+    # A failed classifier must fail this job, which fails the required check below.
     if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Require a successful, known validation scope
         env:
@@ -66,10 +68,13 @@ jobs:
         if: needs.changes.outputs.profile != 'docs'
       - name: Ensure MP3 decoder is available
         if: needs.changes.outputs.profile != 'docs'
+        # A stalled package mirror must fail quickly instead of holding the job.
+        timeout-minutes: 5
         run: |
           if ! command -v ffmpeg >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install -y --no-install-recommends ffmpeg
+            apt_options='-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30'
+            sudo apt-get $apt_options update
+            sudo apt-get $apt_options install -y --no-install-recommends ffmpeg
           fi
           ffmpeg -version
       - name: Decode all identified changed audio
@@ -87,31 +92,64 @@ jobs:
       # cards, download/resume and true offline reload for content as well as code.
       - run: npm run test:images
         if: needs.changes.outputs.profile != 'docs'
-      - run: npm run test:quality
-        if: needs.changes.outputs.profile == 'full'
-      - run: npm run test:inference
-        if: needs.changes.outputs.profile == 'full'
-      - run: npm run test:pwa
-        if: needs.changes.outputs.profile == 'full'
-      - run: npm run test:ux
-        if: needs.changes.outputs.profile == 'full'
-      - run: npm run test:navigation
-        if: needs.changes.outputs.profile == 'full'
-      - run: npm run test:srs-layout
-        if: needs.changes.outputs.profile == 'full'
-      - run: npm run test:pwa:updates
-        if: needs.changes.outputs.profile == 'full'
+      # Pull requests need the same build for the parallel browser suites; main also publishes it.
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && needs.changes.outputs.profile != 'docs'
+        if: needs.changes.outputs.profile == 'full' || (github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && needs.changes.outputs.profile != 'docs')
         with:
           name: site-dist
           path: dist
           retention-days: 3
           if-no-files-found: error
+  # Full-profile browser suites run side by side against the one build above.
+  browser:
+    needs: [changes, build]
+    if: needs.changes.outputs.profile == 'full'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [quality, inference, pwa, ux, navigation, srs-layout, 'pwa:updates']
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          name: site-dist
+          path: dist
+      - run: npm run test:${{ matrix.suite }}
+  # Stable required check: passes only when every applicable gate above passed.
+  check:
+    needs: [changes, build, browser]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require every applicable gate
+        env:
+          PLAN_RESULT: ${{ needs.changes.result }}
+          PLAN_PROFILE: ${{ needs.changes.outputs.profile }}
+          BUILD_RESULT: ${{ needs.build.result }}
+          BROWSER_RESULT: ${{ needs.browser.result }}
+        run: |
+          test "$PLAN_RESULT" = success
+          test "$BUILD_RESULT" = success
+          case "$PLAN_PROFILE" in
+            full) test "$BROWSER_RESULT" = success ;;
+            docs|content) test "$BROWSER_RESULT" = skipped ;;
+            *) exit 1 ;;
+          esac
   # Keep the required check name present even when Windows UI is not applicable.
   ux-windows:
     needs: changes
     runs-on: windows-latest
+    timeout-minutes: 30
     steps:
       - name: Report validation scope
         if: needs.changes.outputs.profile != 'full'
@@ -151,6 +189,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && needs.changes.outputs.profile != 'docs'
     needs: [changes, check, ux-windows]
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     environment: production
     concurrency:
       group: nihongo-worker-publication
@@ -197,6 +236,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     needs: deploy-worker
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: read
       pages: write
