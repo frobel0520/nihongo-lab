@@ -10,7 +10,7 @@ import { gameListeningQuestion, gameRecordId } from '../lib/game-study.mjs';
 import { beforeT182GameCharacterStudy, beforeT182Cards, beforeT182Prosody, t182LineIds } from './helpers/before-t182-supplement.mjs';
 
 const hash = (x) => createHash('sha256').update(JSON.stringify(x)).digest('hex');
-const expectedCounts = { varesa: 16, durin: 12, varka: 5, escoffier: 9, flins: 9 };
+const expectedCounts = { varesa: 16, durin: 12, varka: 11, escoffier: 10, flins: 9 };
 
 test('T182 leaves the T181 corpus, cards, mappings and reading overrides unchanged', async () => {
   assert.equal(hash(beforeT182GameCharacterStudy), '60e0247b7cc68361ecfd64ccad1c5f0c24e5c958c5e9f411f3f6fca48e78077d');
@@ -23,7 +23,7 @@ test('T182 community-table lines keep one source row each and reach listening, c
   const game = gameCharacterStudy.find((g) => g.id === 'genshin');
   const catalog = await loadCategory('games');
   assert.deepEqual(Object.fromEntries(genshinSupplementT182.map((c) => [c.id, c.lines.length])), expectedCounts);
-  assert.equal(t182LineIds.size, 51);
+  assert.equal(t182LineIds.size, 58);
   for (const source of genshinSupplementT182) {
     const character = game.characters.find((c) => c.id === source.id);
     assert.equal(character.voice, source.voice);

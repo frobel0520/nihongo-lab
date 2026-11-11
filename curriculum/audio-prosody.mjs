@@ -8,7 +8,42 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
-// T182：本批五句讀音補正；既有覆寫保持。
+// T182：本批十句讀音補正；既有覆寫保持。
+"audio/games/genshin/gram-4195bce4eb.mp3": {
+  "text": "雁のように…羽ばたけ！",
+  "reading": "がんのように…はばたけ！",
+  "kana": "ガ'ンノ/ヨ'オニ、ハバタ'ケ",
+  "reason": "T182：雁依使用者裁定讀がん，引擎原字查詢讀成かり須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-a311166933.mp3": {
+  "text": "氷霜！",
+  "reading": "ひょうそう！",
+  "kana": "ヒョオソオ'",
+  "reason": "T182：氷霜依使用者裁定讀ひょうそう，引擎原字查詢逐字訓讀須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-56b698f2be.mp3": {
+  "text": "北風が制圧する！",
+  "reading": "ほくふうが せいあつする！",
+  "kana": "ホクフウガ'/セエアツ'/スル'",
+  "reason": "T182：北風依使用者裁定讀ほくふう，引擎原字查詢讀成きたかぜ須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-d34c04673c.mp3": {
+  "text": "「北風」の出番か。",
+  "reading": "「ほくふう」の でばんか。",
+  "kana": "ホクフウノ'/デバ'ンカ",
+  "reason": "T182：北風依使用者裁定讀ほくふう，並去掉引號造成的多餘停頓；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-4d597934a4.mp3": {
+  "text": "「北風騎士」——いざ往かん。",
+  "reading": "「ほくふうきし」——いざ ゆかん。",
+  "kana": "ホクフウキ'シ、イ'ザ/ユカ'ン",
+  "reason": "T182：北風騎士依使用者裁定讀ほくふうきし，引擎原字查詢讀成きたかぜきし須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
 "audio/games/genshin/gram-0385f07d7c.mp3": {
   "text": "その間に熟成されて美味しくなるわ。",
   "reading": "そのあいだに じゅくせいされて おいしくなるわ。",

@@ -35,6 +35,12 @@ export const t182LineIds = new Set([
   "genshin:varka:skill-table-68-0",
   "genshin:varka:skill-table-69-0",
   "genshin:varka:skill-table-71-0",
+  "genshin:varka:skill-table-65-0",
+  "genshin:varka:skill-table-67-0",
+  "genshin:varka:burst-table-73-0",
+  "genshin:varka:join-table-91-0",
+  "genshin:varka:join-table-91-1",
+  "genshin:varka:join-table-92-0",
   "genshin:escoffier:skill-table-50-0",
   "genshin:escoffier:skill-table-51-0",
   "genshin:escoffier:skill-table-52-0",
@@ -44,6 +50,7 @@ export const t182LineIds = new Set([
   "genshin:escoffier:join-table-72-0",
   "genshin:escoffier:join-table-74-0",
   "genshin:escoffier:join-table-74-1",
+  "genshin:escoffier:burst-table-55-0",
   "genshin:flins:skill-table-46-0",
   "genshin:flins:skill-table-48-0",
   "genshin:flins:burst-table-50-0",
@@ -76,6 +83,7 @@ const cardIds = new Set([
   "game-card:game:genshin:escoffier:join-table-72-0:c88059aa2c",
   "game-card:game:genshin:escoffier:join-table-74-0:c1fff0d560",
   "game-card:game:genshin:escoffier:join-table-74-1:a928274ac7",
+  "game-card:game:genshin:escoffier:burst-table-55-0:11329207a3",
   "game-card:game:genshin:flins:skill-table-46-0:a79f91c590",
   "game-card:game:genshin:flins:skill-table-48-0:10cd1ab312",
   "game-card:game:genshin:flins:burst-table-50-0:e5e7f13ac2",
@@ -105,9 +113,15 @@ const cardIds = new Set([
   "game-card:game:genshin:varka:skill-table-66-0:be43fe5d31",
   "game-card:game:genshin:varka:skill-table-68-0:2ce5d65790",
   "game-card:game:genshin:varka:skill-table-69-0:a05d78cc68",
-  "game-card:game:genshin:varka:skill-table-71-0:665f56f677"
+  "game-card:game:genshin:varka:skill-table-71-0:665f56f677",
+  "game-card:game:genshin:varka:skill-table-65-0:04794304fb",
+  "game-card:game:genshin:varka:skill-table-67-0:de08aff3cf",
+  "game-card:game:genshin:varka:burst-table-73-0:1a22a82e3d",
+  "game-card:game:genshin:varka:join-table-91-0:19b15de36f",
+  "game-card:game:genshin:varka:join-table-91-1:01b27481cc",
+  "game-card:game:genshin:varka:join-table-92-0:30dd775c46"
 ]);
-const prosodyPaths = new Set(["audio/games/genshin/gram-0385f07d7c.mp3","audio/games/genshin/gram-d001462f9f.mp3","audio/games/genshin/gram-8ce1ed4356.mp3","audio/games/genshin/gram-7f2dd6c2c6.mp3","audio/games/genshin/gram-daf03c690c.mp3"]);
+const prosodyPaths = new Set(["audio/games/genshin/gram-4195bce4eb.mp3","audio/games/genshin/gram-a311166933.mp3","audio/games/genshin/gram-56b698f2be.mp3","audio/games/genshin/gram-d34c04673c.mp3","audio/games/genshin/gram-4d597934a4.mp3","audio/games/genshin/gram-0385f07d7c.mp3","audio/games/genshin/gram-d001462f9f.mp3","audio/games/genshin/gram-8ce1ed4356.mp3","audio/games/genshin/gram-7f2dd6c2c6.mp3","audio/games/genshin/gram-daf03c690c.mp3"]);
 export const beforeT182GameCharacterStudy=gameCharacterStudy.map(g=>({...g,...(g.id==='genshin'?{scope:"固定來源名冊共 124 筆角色條目，包含旅行者與人偶的不同版本。124 位角色收錄 893 句短台詞與 VOICEVOX 朗讀；其餘 0 筆仍待教材。戰技／爆發持續依來源核實，角色已有教材不等於該類台詞完整；來源待確認項目不猜測補錄。未加入劇情。"}:{}),characters:g.characters.map(c=>({...c,lines:c.lines.filter(l=>!t182LineIds.has(l.id))}))}));
 export const beforeT182Cards=cards=>cards.filter(c=>!cardIds.has(c.id));
 export const beforeT182Prosody=Object.fromEntries(Object.entries(AUDIO_PROSODY).filter(([path])=>!prosodyPaths.has(path)));
