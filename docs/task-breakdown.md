@@ -1,5 +1,20 @@
 # 任務拆解
 
+## T184：只有社群來源的角色補錄（第二批）
+
+- Task ID／Goal：T184（Issue #235）。接續 T182，為菈烏瑪、莉奈婭、奈芙爾、布倫妮、葉洛亞、奧黛塔、桑多涅補齊加入隊伍／戰技／爆發的有詞義單句。
+- Input contract：BWIKI 語音頁日文欄位，解析列與頁面 SHA 存於 Private 批次 `98e54a94`。
+- Output artifact：`curriculum/genshin-supplement-t184.mjs` 56 句、56 個 VOICEVOX MP3、2 筆讀音補正、聽力題與單字卡；不製圖。
+- depends_on：T182。
+- Out of scope：其餘 8 位角色、純喊聲 3 句、讀音待使用者裁定的 5 句、其他教材與版面。
+- Acceptance checks：同 T182（逐字比對、`npm test`、typecheck、lint、build 與 bundle 門檻、MP3 解碼、375×812 瀏覽器逐句線上與真正離線、PR 必要 CI、發布後正式站驗收）。
+- Fixture or test data：本機 preview 與全新瀏覽器環境，不代表正式站或真機。
+- Evidence path：[發布稽核](release-audit.md)；原始輸出於發布驗收時存 Private。
+
+- [x] 56 句資料、讀音、音檔、題目、單字卡與本機檢查。
+- [ ] PR 必要 CI、發布授權與正式站驗收。
+- [ ] 使用者裁定 5 句讀音；其餘 8 位角色另開後續批次。
+
 ## T183：遊戲語音聽過就算已學
 
 - Task ID／Goal：T183（Issue #232）。遊戲角色語音頁移除「標記已學」按鈕，實際播放過就記為已學。

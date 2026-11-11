@@ -8,6 +8,21 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T184：本批兩句讀音補正；既有覆寫保持。
+"audio/games/genshin/gram-a051196eb3.mp3": {
+  "text": "光がなくとも、聖者は正しき道を行く。",
+  "reading": "ひかりが なくとも、せいじゃは ただしき みちを いく。",
+  "kana": "ヒカリ'ガ/ナ'クトモ、セ'エジャワ/タダシ'キ/ミチオ'/イク'",
+  "reason": "T184：光在此讀ひかり，引擎原字查詢讀成こう須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-899799d1ca.mp3": {
+  "text": "氷上に舞い描く——",
+  "reading": "ひょうじょうに まいえがく——",
+  "kana": "ヒョオジョオニ'/マイエガ'ク",
+  "reason": "T184：氷上讀ひょうじょう，引擎原字查詢讀成ひかみ須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
 // T182：本批十句讀音補正；既有覆寫保持。
 "audio/games/genshin/gram-4195bce4eb.mp3": {
   "text": "雁のように…羽ばたけ！",

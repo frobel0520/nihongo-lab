@@ -1,6 +1,5 @@
 // T182: remove only this exact cohort for immutable previous-candidate snapshots.
-import {gameCharacterStudy} from '../../curriculum/lessons.mjs';
-import {AUDIO_PROSODY} from '../../curriculum/audio-prosody.mjs';
+import {beforeT184GameCharacterStudy as gameCharacterStudy, beforeT184Cards, beforeT184Prosody as AUDIO_PROSODY} from './before-t184-supplement.mjs';
 export const t182LineIds = new Set([
   "genshin:varesa:skill-table-48-0",
   "genshin:varesa:skill-table-49-0",
@@ -123,5 +122,5 @@ const cardIds = new Set([
 ]);
 const prosodyPaths = new Set(["audio/games/genshin/gram-4195bce4eb.mp3","audio/games/genshin/gram-a311166933.mp3","audio/games/genshin/gram-56b698f2be.mp3","audio/games/genshin/gram-d34c04673c.mp3","audio/games/genshin/gram-4d597934a4.mp3","audio/games/genshin/gram-0385f07d7c.mp3","audio/games/genshin/gram-d001462f9f.mp3","audio/games/genshin/gram-8ce1ed4356.mp3","audio/games/genshin/gram-7f2dd6c2c6.mp3","audio/games/genshin/gram-daf03c690c.mp3"]);
 export const beforeT182GameCharacterStudy=gameCharacterStudy.map(g=>({...g,...(g.id==='genshin'?{scope:"固定來源名冊共 124 筆角色條目，包含旅行者與人偶的不同版本。124 位角色收錄 893 句短台詞與 VOICEVOX 朗讀；其餘 0 筆仍待教材。戰技／爆發持續依來源核實，角色已有教材不等於該類台詞完整；來源待確認項目不猜測補錄。未加入劇情。"}:{}),characters:g.characters.map(c=>({...c,lines:c.lines.filter(l=>!t182LineIds.has(l.id))}))}));
-export const beforeT182Cards=cards=>cards.filter(c=>!cardIds.has(c.id));
+export const beforeT182Cards=cards=>beforeT184Cards(cards).filter(c=>!cardIds.has(c.id));
 export const beforeT182Prosody=Object.fromEntries(Object.entries(AUDIO_PROSODY).filter(([path])=>!prosodyPaths.has(path)));
