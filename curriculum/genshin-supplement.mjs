@@ -1,3 +1,4 @@
+import { genshinSupplementT182 } from './genshin-supplement-t182.mjs';
 /** 日文社群語音表補錄。只收已核對短句；原資料庫缺句不等於無日文配音。 */
 /** @typedef {{key: string, category: string, jp: string, reading: string, ruby: string, zh: string, note: string, sourceTitle: string, sourceCondition: string, variant: string, choices: string[], pronunciation?: string}} SupplementLine */
 /** @typedef {{id: string, name: string, nameJa: string, gender: 'female'|'male', voice: string, referenceUrl: string, sourceSha256: string, checkedAt: string, lines: SupplementLine[]}} SupplementCharacter */
@@ -2364,5 +2365,6 @@ export const genshinSupplement = [
       "variant": "來源未標示造型差分"
     }
   ]
-}
+},
+...genshinSupplementT182,
 ];

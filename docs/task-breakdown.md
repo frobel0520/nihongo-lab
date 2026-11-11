@@ -1,5 +1,20 @@
 # 任務拆解
 
+## T182：只有社群來源的角色補錄（第一批）
+
+- Task ID／Goal：T182。22 位只收 3 句的原神角色中，先為瓦雷莎、杜林、法爾伽、愛可菲、菲林斯補齊加入隊伍／戰技／爆發的有詞義單句。
+- Input contract：BWIKI 各角色語音頁的日文欄位（2026-11-11 擷取，頁面 SHA 記在教材檔）；既有 69 句中 67 句與該來源逐字相同，另 2 句只差標點或送假名寫法。
+- Output artifact：`curriculum/genshin-supplement-t182.mjs` 51 句、49 個 VOICEVOX MP3、5 筆讀音補正、聽力題與單字卡；不製圖。
+- depends_on：T181（分支接在 `feature/T181` 之後）。
+- Out of scope：其餘 15 位角色（後續批次）、純喊聲、讀音待使用者裁定的 6 句（法爾伽 5 句、愛可菲 1 句）、其他教材與版面。
+- Acceptance checks：每句與來源逐字比對；`npm test`、typecheck、lint、正式 base path build 與 bundle 門檻；49 個 MP3 完整解碼；375×812 瀏覽器逐句播放、作答、揭示原文，線上與真正離線；PR 必要 CI；發布後正式站驗收。
+- Fixture or test data：本機 preview 伺服器與全新瀏覽器環境，不代表正式站或真機。
+- Evidence path：公開摘要在[發布稽核](release-audit.md)；原始輸出存 Private `frobel0520/project-archives`（發布驗收時一併存檔）。
+
+- [x] 51 句資料、讀音、音檔、題目、單字卡與本機檢查。
+- [ ] Issue／PR、必要 CI、發布授權與正式站驗收。
+- [ ] 使用者裁定 6 句讀音；其餘 15 位角色另開後續批次。
+
 ## T181：原神剩餘項目裁定與兩句補錄
 
 - [x] 以固定來源重算未收錄的戰技／爆發（73 條），有詞義 4 條交使用者裁定：收 2、不收 2；69 條喊聲不收。

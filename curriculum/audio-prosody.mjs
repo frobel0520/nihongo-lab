@@ -8,6 +8,42 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T182：本批五句讀音補正；既有覆寫保持。
+"audio/games/genshin/gram-0385f07d7c.mp3": {
+  "text": "その間に熟成されて美味しくなるわ。",
+  "reading": "そのあいだに じゅくせいされて おいしくなるわ。",
+  "kana": "ソノアイダニ'/ジュクセエ'/サレテ'/オイシ'クナルワ",
+  "reason": "T182：その間在此讀そのあいだ，引擎原字查詢讀成そのかん須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-d001462f9f.mp3": {
+  "text": "頭突き～！",
+  "reading": "ずつき～！",
+  "kana": "ズツキ'",
+  "reason": "T182：頭突き讀ずつき，引擎原字查詢讀成あたまつき須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-8ce1ed4356.mp3": {
+  "text": "「名を照らす炎よ、闇を滅せよ！」",
+  "reading": "「なを てらす ほのおよ、やみを めっせよ！」",
+  "kana": "ナオ'/テラス'/ホ'ノオヨ、ヤミ'オ/メッセ'ヨ",
+  "reason": "T182：滅せよ是滅する的文語命令形めっせよ，引擎原字查詢讀成ほろぼせよ須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-7f2dd6c2c6.mp3": {
+  "text": "お腹空いてない？",
+  "reading": "おなかすいてない？",
+  "kana": "オナカ'/スイテナ'イ？",
+  "reason": "T182：空いて在此讀すいて（肚子餓），引擎原字查詢讀成あいて須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-daf03c690c.mp3": {
+  "text": "轟雷！",
+  "reading": "ごうらい！",
+  "kana": "ゴオライ'",
+  "reason": "T182：轟雷讀ごうらい，引擎原字查詢逐字訓讀須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
 // T181：本批兩句讀音與重音覆寫；既有覆寫保持。
 "audio/games/genshin/gram-cf5a3d1df4.mp3": {
   "text": "響めく深壑、火淵を刻め。",
