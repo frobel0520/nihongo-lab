@@ -12,6 +12,7 @@ import { genshinActionExpansionEleventh } from './genshin-action-expansion-eleve
 import { genshinActionExpansionTwelfth } from './genshin-action-expansion-twelfth.mjs';
 import { genshinSupplementT182 } from './genshin-supplement-t182.mjs';
 import { genshinSupplementT184 } from './genshin-supplement-t184.mjs';
+import { genshinSupplementT185 } from './genshin-supplement-t185.mjs';
 /** T59：角色短句的大意題干擾選項，解說沿用已核對教材，不增加作品台詞。 */
 /** @type {Record<string, [string, string]>} */
 export const gameMeaningDistractors = {
@@ -1101,7 +1102,7 @@ for (const line of [...genshinActionExpansion, ...genshinActionExpansionNext, ..
   gameMeaningDistractors[id] = /** @type {[string, string]} */ (line.choices);
 }
 // T182 起：社群來源補錄句的選項與教材同檔維護，不在本檔重抄。
-for (const source of [...genshinSupplementT182, ...genshinSupplementT184]) {
+for (const source of [...genshinSupplementT182, ...genshinSupplementT184, ...genshinSupplementT185]) {
   for (const line of source.lines) {
     const id = `genshin:${source.id}:${line.key}`;
     if (gameMeaningDistractors[id]) throw new Error(`Duplicate question: ${id}`);

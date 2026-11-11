@@ -8,6 +8,49 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T185：本批六句讀音補正；既有覆寫保持。
+"audio/games/genshin/gram-29fbb414c7.mp3": {
+  "text": "三月よ、輝け。",
+  "reading": "さんげつよ、かがやけ。",
+  "kana": "サンゲツヨ'、カガヤ'ケ",
+  "reason": "T185：三月在此讀さんげつ，引擎原字查詢讀成さんがつ須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-dd920c083a.mp3": {
+  "text": "水～圧～剣～！",
+  "reading": "すい～あつ～けん～！",
+  "kana": "スイ'、アツ'、ケ'ン",
+  "reason": "T185：水圧剣逐字音讀，引擎原字查詢把水讀成みず須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-dbb95c1705.mp3": {
+  "text": "西風よ、我を守りたまえ！",
+  "reading": "せいふうよ、われを まもりたまえ！",
+  "kana": "セエフウヨ'、ワ'レオ/マモリ'/タマエ'",
+  "reason": "T185：我在此讀われ，引擎原字查詢讀成が須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-c7ec873b3f.mp3": {
+  "text": "灯火の下に、陰りなし！",
+  "reading": "ともしびの もとに、かげりなし！",
+  "kana": "トモシビノ'/モトニ'、カゲリ'/ナ'シ",
+  "reason": "T185：の下に在此讀のもとに，引擎原字查詢讀成したに須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-dc6d7b21b5.mp3": {
+  "text": "蒼樹の加護を。",
+  "reading": "そうじゅの かごを。",
+  "kana": "ソオジュノ'/カ'ゴオ",
+  "reason": "T185：蒼樹依使用者裁定讀そうじゅ，引擎原字查詢逐字訓讀須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-317fd60c7c.mp3": {
+  "text": "雪鳥の礼賛をご覧なさい。",
+  "reading": "ゆきどりの らいさんを ごらんなさい。",
+  "kana": "ユキ'ドリノ/ライサンオ'/ゴラン'/ナサ'イ",
+  "reason": "T185：雪鳥依使用者裁定讀ゆきどり，引擎原字查詢讀成ゆきとり須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
 // T184：本批兩句讀音補正；既有覆寫保持。
 "audio/games/genshin/gram-a051196eb3.mp3": {
   "text": "光がなくとも、聖者は正しき道を行く。",

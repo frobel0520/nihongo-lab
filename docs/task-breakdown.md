@@ -1,5 +1,19 @@
 # 任務拆解
 
+## T185：只有社群來源的角色補錄（最後一批）
+
+- Task ID／Goal：T185（Issue #237）。補完剩下 8 位角色、洛恩 2 句，以及使用者裁定讀音的 5 句。
+- Input contract：BWIKI 語音頁日文欄位，解析列與頁面 SHA 存於 Private 批次 `98e54a94`；使用者 2026-11-11 的讀音裁定。
+- Output artifact：`curriculum/genshin-supplement-t185.mjs` 53 句、53 個 VOICEVOX MP3、6 筆讀音補正、聽力題與單字卡；不製圖。
+- depends_on：T184。
+- Out of scope：純喊聲、次要發話者的台詞、其他教材與版面。
+- Acceptance checks：同 T182；另需使用者確認 3 句自行判斷的讀音後才發布。
+- Fixture or test data：本機 preview 與全新瀏覽器環境，不代表正式站或真機。
+- Evidence path：[發布稽核](release-audit.md)；原始輸出於發布驗收時存 Private。
+
+- [x] 53 句資料、讀音、音檔、題目、單字卡與本機檢查。
+- [ ] 使用者確認 3 句讀音；PR 必要 CI、發布授權與正式站驗收。
+
 ## T184：只有社群來源的角色補錄（第二批）
 
 - Task ID／Goal：T184（Issue #235）。接續 T182，為菈烏瑪、莉奈婭、奈芙爾、布倫妮、葉洛亞、奧黛塔、桑多涅補齊加入隊伍／戰技／爆發的有詞義單句。
@@ -12,8 +26,8 @@
 - Evidence path：[發布稽核](release-audit.md)；原始輸出於發布驗收時存 Private。
 
 - [x] 56 句資料、讀音、音檔、題目、單字卡與本機檢查。
-- [ ] PR 必要 CI、發布授權與正式站驗收。
-- [ ] 使用者裁定 5 句讀音；其餘 8 位角色另開後續批次。
+- [x] PR 必要 CI、發布授權與正式站驗收（2026-11-11）。
+- [x] 5 句讀音已由使用者裁定，連同其餘 8 位角色移到 T185。
 
 ## T183：遊戲語音聽過就算已學
 
