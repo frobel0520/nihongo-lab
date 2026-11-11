@@ -1,4 +1,5 @@
 import {genshinActionExpansionEleventh} from '../curriculum/genshin-action-expansion-eleventh.mjs';
+import {genshinActionExpansionTwelfth} from '../curriculum/genshin-action-expansion-twelfth.mjs';
 import { genshinActionExpansionNinth } from '../curriculum/genshin-action-expansion-ninth.mjs';
 import { genshinActionExpansionTenth } from '../curriculum/genshin-action-expansion-tenth.mjs';
 import { genshinActionExpansionEighth } from '../curriculum/genshin-action-expansion-eighth.mjs';
@@ -166,7 +167,7 @@ test('原神固定名冊 124 筆，已收錄角色有短句，其餘明確待收
   assert.equal(game.characters.filter((c) => c.voiceReferenceUrl).length, 109);
   assert.equal(
     lines.length,
-    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length + genshinActionExpansionTenth.length + genshinActionExpansionEleventh.length,
+    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length + genshinActionExpansionTenth.length + genshinActionExpansionEleventh.length + genshinActionExpansionTwelfth.length,
   );
   for (const c of game.characters) {
     if (/[\p{Script=Han}々]/u.test(c.nameJa)) {
@@ -195,7 +196,7 @@ test('少量台詞保留確切語音識別或獨立Wiki來源，不編造缺失�
       assert.ok(line.sourceTitle && line.checkedAt && line.variant);
       continue;
     }
-    if ([...genshinActionExpansionNinth, ...genshinActionExpansionTenth, ...genshinActionExpansionEleventh].some(row => line.id === `genshin:${row.characterId}:${row.key}`)) assert.match(line.variant, /來源元素組：.+未全量核實|補充社群資料將本句列為長按/);
+    if ([...genshinActionExpansionNinth, ...genshinActionExpansionTenth, ...genshinActionExpansionEleventh, ...genshinActionExpansionTwelfth].some(row => line.id === `genshin:${row.characterId}:${row.key}`)) assert.match(line.variant, /來源元素組：.+未全量核實|補充社群資料將本句列為長按/);
     else if ([...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth, ...genshinActionExpansionSixth, ...genshinActionExpansionSeventh, ...genshinActionExpansionEighth].some(row => line.id === `genshin:${row.characterId}:${row.key}`)) assert.match(line.variant, /按法(?:未細分|、形態及造型未作全量核實)/);
     else assert.equal(line.variant, '預設造型');
     assert.ok(Number.isInteger(line.voicelineId));

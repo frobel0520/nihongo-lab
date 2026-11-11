@@ -1,6 +1,5 @@
 // T179: remove only this exact cohort for immutable previous-candidate snapshots.
-import {gameCharacterStudy} from '../../curriculum/lessons.mjs';
-import {AUDIO_PROSODY} from '../../curriculum/audio-prosody.mjs';
+import {beforeTwelfthGameCharacterStudy as gameCharacterStudy, beforeTwelfthCards, beforeTwelfthProsody as AUDIO_PROSODY} from './before-twelfth-action-expansion.mjs';
 export const eleventhLineIds = new Set([
   "genshin:aether:skill-1127",
   "genshin:hutao:skill-36058",
@@ -23,5 +22,5 @@ const cardIds = new Set([
 ]);
 const prosodyPaths = new Set(["audio/games/genshin/gram-ea79053f51.mp3","audio/games/genshin/gram-6b5fbacb63.mp3","audio/games/genshin/gram-0825f58db3.mp3"]);
 export const beforeEleventhGameCharacterStudy=gameCharacterStudy.map(g=>({...g,...(g.id==='genshin'?{scope:"固定來源名冊共 124 筆角色條目，包含旅行者與人偶的不同版本。124 位角色收錄 883 句短台詞與 VOICEVOX 朗讀；其餘 0 筆仍待教材。戰技／爆發持續依來源核實，角色已有教材不等於該類台詞完整；來源待確認項目不猜測補錄。未加入劇情。"}:{}),characters:g.characters.map(c=>({...c,lines:c.lines.filter(l=>!eleventhLineIds.has(l.id))}))}));
-export const beforeEleventhCards=cards=>cards.filter(c=>!cardIds.has(c.id));
+export const beforeEleventhCards=cards=>beforeTwelfthCards(cards).filter(c=>!cardIds.has(c.id));
 export const beforeEleventhProsody=Object.fromEntries(Object.entries(AUDIO_PROSODY).filter(([path])=>!prosodyPaths.has(path)));

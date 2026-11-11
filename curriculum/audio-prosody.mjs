@@ -8,6 +8,21 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T181：本批兩句讀音與重音覆寫；既有覆寫保持。
+"audio/games/genshin/gram-cf5a3d1df4.mp3": {
+  "text": "響めく深壑、火淵を刻め。",
+  "reading": "どよめくしんがく、かえんをきざめ。",
+  "kana": "ドヨメ'ク/シンガク'、カエンオ'/キザメ'",
+  "reason": "T181：字面讀音依辭書（響めく、深壑、刻む、春風、獏、醒める）與來源文字核對，火淵非辭書詞依字音讀かえん；重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-f3adfd6efa.mp3": {
+  "text": "春風の夢、獏と醒めて。",
+  "reading": "はるかぜのゆめ、ばくとさめて。",
+  "kana": "ハルカゼノ'/ユメ'、バ'クト/サ'メテ",
+  "reason": "T181：字面讀音依辭書（響めく、深壑、刻む、春風、獏、醒める）與來源文字核對，火淵非辭書詞依字音讀かえん；重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
 // T179：本批字面讀音覆寫；原457筆保持。
 "audio/games/genshin/gram-ea79053f51.mp3": {
   "text": "起！",

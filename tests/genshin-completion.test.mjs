@@ -1,4 +1,5 @@
 import {genshinActionExpansionEleventh} from '../curriculum/genshin-action-expansion-eleventh.mjs';
+import {genshinActionExpansionTwelfth} from '../curriculum/genshin-action-expansion-twelfth.mjs';
 import { secondarySpeakerCasting } from './helpers/genshin-secondary-speakers.mjs';
 import { genshinActionExpansionNinth } from '../curriculum/genshin-action-expansion-ninth.mjs';
 import { genshinActionExpansionTenth } from '../curriculum/genshin-action-expansion-tenth.mjs';
@@ -173,7 +174,7 @@ test('固定來源96位與日文Wiki補錄角色分別核對；缺句角色保�
   );
   assert.equal(
     collected.flatMap((c) => c.lines).length,
-    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length + genshinActionExpansionTenth.length + genshinActionExpansionEleventh.length,
+    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length + genshinActionExpansionTenth.length + genshinActionExpansionEleventh.length + genshinActionExpansionTwelfth.length,
   );
   for (const c of collected) {
     const expected = c.id.startsWith('manekin')
