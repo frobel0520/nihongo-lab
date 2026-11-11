@@ -21,9 +21,9 @@
 
 音檔用 VOICEVOX Engine 0.26.1（Docker CPU 版）合成，聲線沿用角色既有的小夜與雨晴はう，重音以覆寫指定；2 個 MP3 可完整解碼，格式與既有檔案相同。`npm test` 419 項、typecheck、lint 與正式 base path build 通過。
 
-正式驗收：main `b8a9bdb`（[PR #228](https://github.com/frobel0520/nihongo-lab/pull/228)、Issue #229），[main CI 與部署](https://github.com/frobel0520/nihongo-lab/actions/runs/42964051995)成功。以同一 commit 的正式 base path build 比對正式站的首頁、`sw.js`、全部 248 個 assets 與 2 個新 MP3，共 252 檔 SHA-256 全部一致。375×812 Chromium 在正式站實測兩句：播放、選對大意、揭示原文，線上與真正離線各一次，4 次全部通過；兩位角色音檔下載失敗 0，頁面錯誤 0。原始輸出待與 T182 驗收一併存入 Private。
+正式驗收：main `b8a9bdb`（[PR #228](https://github.com/frobel0520/nihongo-lab/pull/228)、Issue #229），[main CI 與部署](https://github.com/frobel0520/nihongo-lab/actions/runs/42964051995)成功。以同一 commit 的正式 base path build 比對正式站的首頁、`sw.js`、全部 248 個 assets 與 2 個新 MP3，共 252 檔 SHA-256 全部一致。375×812 Chromium 在正式站實測兩句：播放、選對大意、揭示原文，線上與真正離線各一次，4 次全部通過；兩位角色音檔下載失敗 0，頁面錯誤 0。原始輸出在 Private 批次 `98e54a94-f3f1-4bac-9444-0e98ae624e97`。
 
-## T182：只有社群來源的角色補錄第一批（2026-11-11，候選）
+## T182：只有社群來源的角色補錄第一批（2026-11-11 發布）
 
 原神有 22 位角色在固定來源 genshin-db 沒有語音資料，先前各只從社群語音表收 3 句。本批改以 BWIKI 各角色語音頁的日文欄位為來源（2026-11-11 擷取，頁面 SHA 記在教材檔）。既有 69 句中 67 句與 BWIKI 逐字相同，另 2 句只差標點或送假名寫法，沒有文字出入。
 
@@ -31,13 +31,17 @@
 
 音檔 56 個（兩句與既有同聲線同文字的音檔共用），由 VOICEVOX Engine 0.26.1 與 Nemo Engine 0.26.0 的 Docker CPU 版合成，聲線沿用各角色既有設定；10 句引擎讀法與教材不同，以讀音補正處理。全部可完整解碼，格式與既有檔案相同。
 
-檢查：`npm test` 421 項、typecheck、lint、正式 base path build 與 bundle 門檻通過。本機 preview 以 375×812 Chromium 逐句實測 T181 的 2 句與本批 58 句：播放、選對大意、揭示原文，線上與真正離線各一次，120 次全部通過；角色音檔下載失敗 0，快取中本批 56 個 MP3 的 SHA 與 build 一致，無可見圖片、無水平溢位、頁面錯誤 0。PR 必要 CI 與正式站驗收待執行。
+檢查：`npm test` 421 項、typecheck、lint、正式 base path build 與 bundle 門檻通過。本機 preview 以 375×812 Chromium 逐句實測 T181 的 2 句與本批 58 句：播放、選對大意、揭示原文，線上與真正離線各一次，120 次全部通過；角色音檔下載失敗 0，快取中本批 56 個 MP3 的 SHA 與 build 一致，無可見圖片、無水平溢位、頁面錯誤 0。
 
-## T183：遊戲語音聽過就算已學（2026-11-11，候選）
+正式驗收：main `9c908a0`（[PR #231](https://github.com/frobel0520/nihongo-lab/pull/231)），[main CI 與部署](https://github.com/frobel0520/nihongo-lab/actions/runs/42994787451)成功。同版 build 比對正式站首頁、`sw.js`、全部 assets 與 56 個新 MP3，共 306 檔 SHA-256 全部一致。正式站逐句實測 58 句，線上與真正離線共 116 次全部通過；5 位角色音檔下載失敗 0，快取 73 個 MP3 的 SHA 與 build 一致，頁面錯誤 0。證據在 Private 批次 `98e54a94-f3f1-4bac-9444-0e98ae624e97`（18 件，重新 clone 後逐件 SHA 核對通過），T181 的驗收原始輸出也在同一批。
+
+## T183：遊戲語音聽過就算已學（2026-11-11 發布）
 
 依使用者的 Change Request（Issue #232），遊戲角色語音頁移除「標記已學」按鈕：句子實際開始播放就記為已學，沿用原本的已學紀錄 ID 與版本 3 進度格式，Worker 與同步不變。已學的句子再播放不改寫紀錄，舊版手動標記照常計入；聽力理解紀錄維持獨立。只看原文而沒有播放不算已學。
 
-檢查：`npm test`、typecheck、lint 與正式 base path build 通過。本機 preview 以 375×812 與 1280×800 Chromium 實測菲林斯頁：開啟時已學 0/12 且沒有按鈕；播放第一句後 1/12，重播仍是 1/12；揭示後顯示「已聽過，計入已學。」；第二句只看原文時顯示「播放這句後會計入已學。」且不增加；重新載入後仍是 1/12，角色清單同步顯示；無水平溢位，頁面錯誤 0。真機、真實帳號的跨裝置同步未驗；PR 必要 CI 與正式站驗收待執行。
+檢查：`npm test`、typecheck、lint 與正式 base path build 通過。本機 preview 以 375×812 與 1280×800 Chromium 實測菲林斯頁：開啟時已學 0/12 且沒有按鈕；播放第一句後 1/12，重播仍是 1/12；揭示後顯示「已聽過，計入已學。」；第二句只看原文時顯示「播放這句後會計入已學。」且不增加；重新載入後仍是 1/12，角色清單同步顯示；無水平溢位，頁面錯誤 0。真機、真實帳號的跨裝置同步未驗。
+
+正式驗收：main `9c908a0`（[PR #233](https://github.com/frobel0520/nihongo-lab/pull/233)），與 T182 同一次部署。正式站以 375 與 1280 寬重跑同一流程，結果相同：播放後已學 1/12、重播不增加、只看原文不算、重新載入後保留，頁面錯誤 0。證據在 Private 批次 `98e54a94-f3f1-4bac-9444-0e98ae624e97`（18 件，重新 clone 後逐件 SHA 核對通過）。
 
 <!-- handoff-length: 以下為舊紀錄，不受長度檢查 -->
 
