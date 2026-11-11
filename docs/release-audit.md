@@ -13,13 +13,15 @@
 - 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
 - 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
 
-## T181：原神剩餘項目裁定與兩句補錄（2026-11-11，候選）
+## T181：原神剩餘項目裁定與兩句補錄（2026-11-11 發布）
 
 原 T179 交接清單（待補 3 組、來源待核 3 組、讀音或語意不足 4 項）只存在當時的交接 ZIP，Private repo 只有收據，無法逐項還原。本批改以固定來源 genshin-db `49a6544` 的 109 份日文語音表重算（每份 SHA 與 `genshin-action-coverage.mjs` 一致），比對全部教材的來源 ID 與 voicefile：戰技／爆發尚未收錄 73 條，其中有詞義 4 條，其餘 69 條是無詞義的喊聲。
 
 使用者裁定（2026-11-11）：收錄希諾寧「響めく深壑、火淵を刻め。」與夢見月瑞希「春風の夢、獏と醒めて。」；不收法露珊「毘藍婆重機！」與胡桃「喝！」，69 條喊聲依既有規則不收。兩句讀音依辭書與來源文字核對，「火淵」不在一般辭書，依字音讀かえん；兩句都未經原配音核對。
 
-音檔用 VOICEVOX Engine 0.26.1（Docker CPU 版）合成，聲線沿用角色既有的小夜與雨晴はう，重音以覆寫指定；2 個 MP3 可完整解碼，格式與既有檔案相同。`npm test` 419 項、typecheck、lint 與正式 base path build 通過；PR 必要 CI 與正式站驗收待執行。
+音檔用 VOICEVOX Engine 0.26.1（Docker CPU 版）合成，聲線沿用角色既有的小夜與雨晴はう，重音以覆寫指定；2 個 MP3 可完整解碼，格式與既有檔案相同。`npm test` 419 項、typecheck、lint 與正式 base path build 通過。
+
+正式驗收：main `b8a9bdb`（[PR #228](https://github.com/frobel0520/nihongo-lab/pull/228)、Issue #229），[main CI 與部署](https://github.com/frobel0520/nihongo-lab/actions/runs/42964051995)成功。以同一 commit 的正式 base path build 比對正式站的首頁、`sw.js`、全部 248 個 assets 與 2 個新 MP3，共 252 檔 SHA-256 全部一致。375×812 Chromium 在正式站實測兩句：播放、選對大意、揭示原文，線上與真正離線各一次，4 次全部通過；兩位角色音檔下載失敗 0，頁面錯誤 0。原始輸出待與 T182 驗收一併存入 Private。
 
 ## T182：只有社群來源的角色補錄第一批（2026-11-11，候選）
 
