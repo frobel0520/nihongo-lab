@@ -1,5 +1,19 @@
 # 任務拆解
 
+## T183：遊戲語音聽過就算已學
+
+- Task ID／Goal：T183（Issue #232）。遊戲角色語音頁移除「標記已學」按鈕，實際播放過就記為已學。
+- Input contract：使用者 2026-11-11 的 Change Request；既有 `gameRecordId` 已學紀錄與版本 3 進度格式。
+- Output artifact：`markGameHeard`、`GameStudyView` 的播放事件接線與狀態文字、`tests/game-heard.test.mjs`、SA／SD 變更紀錄。
+- depends_on：無；分支接在 `feature/T182` 之後只為避免文件衝突。
+- Out of scope：課程單字卡、聽寫、動畫特訓的進度規則；Worker 與同步格式。
+- Acceptance checks：單元測試（播放記已學、重播不改寫、舊紀錄保留、不影響聽力理解）；typecheck、lint、build；375 與 1280 寬瀏覽器實測；PR 必要 CI；發布後正式站驗收。
+- Fixture or test data：本機 preview 與全新瀏覽器環境，不代表真機或真實帳號同步。
+- Evidence path：[發布稽核](release-audit.md)；原始輸出發布驗收時存 Private。
+
+- [x] 實作、單元測試與本機瀏覽器實測。
+- [ ] PR 必要 CI、發布授權與正式站驗收。
+
 ## T182：只有社群來源的角色補錄（第一批）
 
 - Task ID／Goal：T182。22 位只收 3 句的原神角色中，先為瓦雷莎、杜林、法爾伽、愛可菲、菲林斯補齊加入隊伍／戰技／爆發的有詞義單句。

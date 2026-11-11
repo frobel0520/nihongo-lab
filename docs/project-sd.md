@@ -967,3 +967,7 @@ T155發布收尾（2026-10-23）：使用者確認6bece52產品審查無阻塞�
 效能與完整性：保留所有現有容量門檻，不以bundle代替權威文件要求的適用正式效能驗收；既有正式載入／API量測缺口仍須追蹤。沒有引入跨run測試成績快取或放寬依賴稽核；內容改動後仍在PR／main執行其適用檢查。此階段先減少不相關回歸與文件重部署。
 
 Rollback：經本次PR的完整回歸及實際main執行驗證後發布；若分流出現漏檢，以revert本PR恢復原完整工作流，再依權威文件核准main操作。產品教材、資料schema、同步與快取契約不變。規則與狀態契約由tests/ci-workflow.test.mjs驗證；完整工程記錄留repo外，不公開附件。
+
+## 2026-11-11 T183 遊戲語音已學規則
+
+`lib/game-study.mjs` 的 `markGameHeard(progress, line, now)` 在句子尚未已學時，以既有的 `gameRecordId` 寫入版本 3 通用練習 map；已學時回傳原物件，不產生新的同步變更。`GameStudyView` 在 PlayButton 的 `onPlayed`（audio 的 `playing` 事件，每次掛載只計一次）呼叫它，並移除 StudyLine 的 `onDone` 與按鈕，改顯示「已聽過，計入已學。」或「播放這句後會計入已學。」。紀錄 ID、儲存格式、Worker 與同步合併都不變。

@@ -26,6 +26,7 @@ import {
   gameListeningQuestion,
   gameListeningRecordId,
   gameListeningDone,
+  markGameHeard,
 } from '../../lib/game-study.mjs';
 import { gameHash, viewHash } from '../../lib/route.mjs';
 import { getVoice } from '../../curriculum/voices.mjs';
@@ -117,7 +118,6 @@ function StudyLine({
   listening,
   scope,
   done,
-  onDone,
   plays,
   onAnswer,
   onRestart,
@@ -127,7 +127,6 @@ function StudyLine({
   listening: boolean;
   scope: string;
   done: boolean;
-  onDone: () => void;
   plays: number;
   onAnswer: (correct: boolean) => void;
   onRestart: () => void;
@@ -264,14 +263,9 @@ function StudyLine({
           <p>
             <RubyText text={line.note} />
           </p>
-          <button
-            type="button"
-            className="btn"
-            disabled={done}
-            onClick={onDone}
-          >
-            {done ? '已標記學過' : '標記已學'}
-          </button>
+          <p className="muted">
+            {done ? '已聽過，計入已學。' : '播放這句後會計入已學。'}
+          </p>
         </>
       )}
       <p className="muted">
@@ -635,16 +629,6 @@ export function GameStudyView({
               ),
             )
           }
-          onDone={() =>
-            update((prevProgress) =>
-              recordDictation(
-                prevProgress,
-                gameRecordId(current.line),
-                true,
-                new Date().toISOString(),
-              ),
-            )
-          }
         />
       )}
       <PageDetails stateKey="game.download" className="card">
@@ -676,12 +660,19 @@ export function GameStudyView({
             key={`${current.line.audio}:${attempt}`}
             audio={current.line.audio}
             label="播放這句"
-            onPlayed={() =>
+            onPlayed={() => {
               setPlays((prev) => ({
                 ...prev,
                 [current.line.id]: (prev[current.line.id] ?? 0) + 1,
-              }))
-            }
+              }));
+              update((prevProgress) =>
+                markGameHeard(
+                  prevProgress,
+                  current.line,
+                  new Date().toISOString(),
+                ),
+              );
+            }}
             caption={false}
           />
         ) : listening && current ? (
