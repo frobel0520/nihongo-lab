@@ -68,15 +68,16 @@ jobs:
         if: needs.changes.outputs.profile != 'docs'
       - name: Ensure MP3 decoder is available
         if: needs.changes.outputs.profile != 'docs'
-        # A stalled package mirror must fail quickly instead of holding the job.
+        # A stalled package mirror must not hold or fail the job: the decode step
+        # falls back to the browser decoder when ffmpeg could not be installed.
         timeout-minutes: 5
         run: |
           if ! command -v ffmpeg >/dev/null 2>&1; then
-            apt_options='-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30'
-            sudo apt-get $apt_options update
-            sudo apt-get $apt_options install -y --no-install-recommends ffmpeg
+            apt_options='-o Acquire::Retries=1 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20'
+            timeout 180 sudo apt-get $apt_options update || true
+            timeout 90 sudo apt-get $apt_options install -y --no-install-recommends ffmpeg || true
           fi
-          ffmpeg -version
+          ffmpeg -version || echo 'ffmpeg unavailable; changed audio will be decoded by the browser.' >> "$GITHUB_STEP_SUMMARY"
       - name: Decode all identified changed audio
         if: needs.changes.outputs.profile != 'docs'
         env:

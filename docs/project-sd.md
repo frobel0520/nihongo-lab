@@ -975,7 +975,7 @@ Rollback：經本次PR的完整回歸及實際main執行驗證後發布；若分
 - 原本的 `check` 內容搬到 `build` job：分類確認、文件關卡、`npm run check`、依賴稽核、音檔解碼、正式 build、bundle 門檻與圖片下載回歸都照舊。
 - 完整檢查時 `build` 上傳 `site-dist`，新的 `browser` job 以矩陣平行執行 quality、inference、pwa、ux、navigation、srs-layout、pwa:updates，各自下載同一份 build；測試指令與內容沒有增減。
 - `check` 改為彙總關卡，名稱不變：分類與 `build` 必須成功，完整檢查還要求 `browser` 全部成功，其餘範圍要求 `browser` 為未執行。發布仍等待 `check` 與 `ux-windows`。
-- 每個 job 都有 `timeout-minutes`；ffmpeg 安裝步驟 5 分鐘逾時，apt 加上重試與連線逾時。
+- 每個 job 都有 `timeout-minutes`。ffmpeg 安裝限時，裝不起來不再讓 job 卡住或失敗：2026-11-11 CI 機器解析不到 Ubuntu 套件站超過一小時，重跑也無效。此時 `scripts/ci/media-check.mjs` 改用 CI 機器上的瀏覽器解碼每個變更的 MP3，解不出來一樣失敗，並在輸出寫明用了哪一種解碼器。有 ffmpeg 時行為不變；瀏覽器解碼對檔尾損壞可能比 ffmpeg 的嚴格模式寬鬆。
 - 分類規則、三種範圍的判定、權限與發布條件都沒有改。
 
 Rollback：revert 本 PR 即回到單一 job 依序執行。契約由 `tests/ci-workflow.test.mjs` 驗證。

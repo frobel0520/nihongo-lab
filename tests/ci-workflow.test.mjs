@@ -456,6 +456,14 @@ test('changed-audio gate has a decoder on fresh runners before decoding', () => 
   assert.match(steps[install].run, /command -v ffmpeg/);
   assert.match(steps[install].run, /apt-get [^\n]*install[^\n]* ffmpeg/);
   assert.equal(steps[install]['timeout-minutes'], 5);
-  assert.match(steps[install].run, /Acquire::Retries=3/);
+  // A dead mirror may not hang or fail the job; decoding then uses the browser.
+  assert.match(steps[install].run, /timeout \d+ sudo apt-get [^\n]*update \|\| true/);
+  assert.match(steps[install].run, /timeout \d+ sudo apt-get [^\n]*install[^\n]* ffmpeg \|\| true/);
+  const script = readFileSync(
+    new URL('../scripts/ci/media-check.mjs', import.meta.url),
+    'utf8',
+  );
+  assert.match(script, /decodeWithBrowser/);
+  assert.match(script, /Undecodable audio/);
   assert.match(steps[install].run, /ffmpeg -version/);
 });
