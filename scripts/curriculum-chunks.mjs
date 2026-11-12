@@ -3,16 +3,23 @@ import { packCurriculumIndex } from '../lib/curriculum-pack.mjs';
 import { serializeCurriculumPayload } from './serialize-curriculum.mjs';
 import {
   stages,
-  gameCharacterStudy,
+  gameCharacterStudy as authoredGameCharacterStudy,
   genshinActionCoverage,
   genshinSupplement,
   gameMeaningDistractors,
-  curriculumSummary,
 } from '../curriculum/lessons.mjs';
+import { createCurriculumIndex } from '../lib/curriculum-index.mjs';
+import {
+  HIDDEN_GAME_CHARACTERS,
+  visibleGameStudy,
+} from '../lib/game-visibility.mjs';
 import { RUBY_NOTES } from '../curriculum/ruby-notes.mjs';
 import { createStudyCatalog } from '../lib/catalog-build.mjs';
 import { allAudioPaths } from '../lib/offline.mjs';
 import { plainText, parseRuby } from '../lib/furigana.mjs';
+// Browser payloads leave out characters that are not offered as voice material (T188).
+const gameCharacterStudy = visibleGameStudy(authoredGameCharacterStudy);
+const curriculumSummary = createCurriculumIndex(stages, gameCharacterStudy);
 const PREFIX = 'virtual:nihongo-curriculum/';
 const root = resolve(import.meta.dirname, '..');
 /** Include only annotations for strings displayed by this payload.
@@ -37,10 +44,14 @@ export function notesFor(value) {
 export function curriculumPayloads() {
   const lessons = stages.flatMap((s) => s.lessons);
   const categories = createStudyCatalog(stages, gameCharacterStudy);
+  const hidden = (/** @type {string} */ id) =>
+    HIDDEN_GAME_CHARACTERS.has('genshin:' + id);
   const games = {
     gameCharacterStudy,
-    genshinActionCoverage,
-    genshinSupplement,
+    genshinActionCoverage: Object.fromEntries(
+      Object.entries(genshinActionCoverage).filter(([id]) => !hidden(id)),
+    ),
+    genshinSupplement: genshinSupplement.filter((c) => !hidden(c.id)),
   };
   /** @type {Map<string,{data:unknown,notes:string[]}>} */
   const payloads = new Map();
@@ -67,6 +78,12 @@ export function curriculumPayloads() {
     });
   return payloads;
 }
+/** Listening options for characters that are offered; hidden ones need none. */
+export const offeredDistractors = Object.fromEntries(
+  Object.entries(gameMeaningDistractors).filter(
+    ([id]) => !HIDDEN_GAME_CHARACTERS.has(id.split(':').slice(0, 2).join(':')),
+  ),
+);
 /** @returns {import('vite').Plugin} */
 export function curriculumChunks() {
   const payloads = curriculumPayloads();
@@ -83,7 +100,7 @@ import {unpackCurriculumIndex} from ${JSON.stringify(resolve(root, 'lib/curricul
 import packedIndex from ${JSON.stringify(PREFIX + 'packed-index')};
 export const curriculumSummary=unpackCurriculumIndex(packedIndex);
 export {generalListeningRoadmap,generalListeningGroupTitle,GENERAL_LISTENING_GROUP_SIZE} from ${JSON.stringify(resolve(root, 'curriculum/general-listening.mjs'))};
-export const gameMeaningDistractors=${JSON.stringify(gameMeaningDistractors)};
+export const gameMeaningDistractors=${JSON.stringify(offeredDistractors)};
 registerRubyNotes(${JSON.stringify(notesFor(curriculumSummary))});
 const loaders={${loaders}};
 const load=createPayloadLoader(loaders,registerRubyNotes);

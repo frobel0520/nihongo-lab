@@ -980,6 +980,14 @@ Rollback：經本次PR的完整回歸及實際main執行驗證後發布；若分
 
 Rollback：revert 本 PR 即回到單一 job 依序執行。契約由 `tests/ci-workflow.test.mjs` 驗證。
 
+## 2026-11-12 T188 奇偶不列入角色語音（#244）
+
+`lib/game-visibility.mjs` 定義 `HIDDEN_GAME_CHARACTERS`（`genshin:manekin`、`genshin:manekina`）與 `visibleGameStudy(study)`：濾掉隱藏角色，並依剩下的角色重算 `scope` 文字裡的角色數與句數。`scripts/curriculum-chunks.mjs` 產生瀏覽器教材時一律先經過這個函式，所以 `games`、`category/games`、`all-audio`、首頁統計索引與聽力題選項都不含奇偶。
+
+`curriculum/lessons.mjs` 的 Node 端匯出維持原始資料，歷史批次的快照測試照舊比對，不需要改寫。仍會隨網站發布但畫面用不到的檔案：6 個 MP3、2 張頭像，以及 `lib/vocab-illustrations.mjs` 裡 6 筆配圖對應。契約由 `tests/game-hidden-characters.test.mjs` 驗證。
+
+Rollback：把兩個 ID 從 `HIDDEN_GAME_CHARACTERS` 移除即恢復顯示，進度紀錄仍在。
+
 ## 2026-11-11 T183 遊戲語音已學規則
 
 `lib/game-study.mjs` 的 `markGameHeard(progress, line, now)` 在句子尚未已學時，以既有的 `gameRecordId` 寫入版本 3 通用練習 map；已學時回傳原物件，不產生新的同步變更。`GameStudyView` 在 PlayButton 的 `onPlayed`（audio 的 `playing` 事件，每次掛載只計一次）呼叫它，並移除 StudyLine 的 `onDone` 與按鈕，改顯示「已聽過，計入已學。」或「播放這句後會計入已學。」。紀錄 ID、儲存格式、Worker 與同步合併都不變。

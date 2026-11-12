@@ -11,6 +11,11 @@ import {
   loadCategory,
 } from '../curriculum/lessons.mjs';
 import { curriculumPayloads } from '../scripts/curriculum-chunks.mjs';
+import { visibleGameStudy } from '../lib/game-visibility.mjs';
+import {
+  stages as currentStages,
+  gameCharacterStudy as currentGameCharacterStudy,
+} from '../curriculum/lessons.mjs';
 import { STUDY_CATALOG } from '../lib/study-catalog.mjs';
 import { createStudyCatalog } from '../lib/catalog-build.mjs';
 import { sceneRecordId } from '../lib/scene-listening.mjs';
@@ -107,8 +112,13 @@ test('T121: browser payloads and public asynchronous loaders preserve lesson/cat
     );
     assert.deepEqual(await loadLesson(l.id), l);
   }
+  // T188: browser payloads leave out hidden characters; the Node API keeps the authored data.
+  const offered = createStudyCatalog(
+    currentStages,
+    visibleGameStudy(currentGameCharacterStudy),
+  );
   for (const [id, c] of Object.entries(STUDY_CATALOG)) {
-    assert.deepEqual(payloads.get('category/' + id).data, c);
+    assert.deepEqual(payloads.get('category/' + id).data, offered[id]);
     assert.deepEqual(await loadCategory(id), c);
   }
   assert.equal(await loadLesson('unknown'), undefined);
