@@ -23,6 +23,7 @@ import { genshinActionExpansionNinth } from './genshin-action-expansion-ninth.mj
 import { genshinActionExpansionTenth } from './genshin-action-expansion-tenth.mjs';
 import { genshinActionExpansionEleventh } from './genshin-action-expansion-eleventh.mjs';
 import { genshinActionExpansionTwelfth } from './genshin-action-expansion-twelfth.mjs';
+import { genshinActionExpansionThirteenth } from './genshin-action-expansion-thirteenth.mjs';
 import { genshinQuoteSources } from './genshin-quote-sources.mjs';
 import { audioPath, contentHash } from './author.mjs';
 import { eternalReturnRoster } from './game-character-roster.mjs';
@@ -3738,7 +3739,7 @@ for (const source of genshinSupplement) {
   target.lines = [...target.lines, ...addedLines];
 }
 // Preserve existing entries and progress IDs; each new phrase has its own source ID.
-for (const { characterId, key, choices: _choices, sourceItemId, ...row } of [...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth, ...genshinActionExpansionSixth, ...genshinActionExpansionSeventh, ...genshinActionExpansionEighth, ...genshinActionExpansionNinth, ...genshinActionExpansionTenth, ...genshinActionExpansionEleventh, ...genshinActionExpansionTwelfth]) {
+for (const { characterId, key, choices: _choices, sourceItemId, ...row } of [...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth, ...genshinActionExpansionSixth, ...genshinActionExpansionSeventh, ...genshinActionExpansionEighth, ...genshinActionExpansionNinth, ...genshinActionExpansionTenth, ...genshinActionExpansionEleventh, ...genshinActionExpansionTwelfth, ...genshinActionExpansionThirteenth]) {
   const target = genshin.characters.find((c) => c.id === characterId);
   if (!target?.voice) throw new Error(`Missing expansion character: ${characterId}`);
   const id = `genshin:${characterId}:${key}`;

@@ -8,6 +8,98 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T187：本批十三句讀音補正；既有覆寫保持。
+"audio/games/genshin/gram-6e3db8981e.mp3": {
+  "text": "依頼主の方？それとも…おっと！違ったか。",
+  "reading": "いらいぬしの かた？それとも…おっと！ちがったか。",
+  "kana": "イライ'ヌシノ/カタ'？、ソレト'モ、オット'、チガッタ'カ",
+  "reason": "T187：方在此指人、讀かた，引擎原字查詢讀成ほう須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-2ec104f4de.mp3": {
+  "text": "へへっ！「巡業する魔術団」だね。",
+  "reading": "へへっ！「じゅんぎょうする まじゅつだん」だね。",
+  "kana": "ヘヘ'ッ、ジュンギョオ'/スル'/マジュツ'ダン、ダネ'",
+  "reason": "T187：句首へへっ是笑聲，引擎把第一個へ當成助詞讀成え須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-b95eb93d47.mp3": {
+  "text": "炎神マーヴィカ、これより参戦する。",
+  "reading": "えんじんマーヴィカ、これより さんせんする。",
+  "kana": "エンジ'ンマアヴィカ、コレヨ'リ/サンセン'/スル'",
+  "reason": "T187：炎神讀えんじん，引擎原字查詢讀成ほのおしん須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-6399c08e8a.mp3": {
+  "text": "必ずあなたをお守りします。",
+  "reading": "かならず あなたを おまもりします。",
+  "kana": "カナラズ'/アナ'タオ/オマモリシマ'ス",
+  "reason": "T187：お守り在此是動詞守る的謙讓形、讀おまもり，引擎原字查詢讀成おもり須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-ffd6adc948.mp3": {
+  "text": "何の御用？",
+  "reading": "なんの ごよう？",
+  "kana": "ナ'ンノ/ゴヨ'オ？",
+  "reason": "T187：何の讀なんの，引擎原字查詢讀成なにの須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-9b5181d7d3.mp3": {
+  "text": "なにか用ですか？",
+  "reading": "なにか ようですか？",
+  "kana": "ナ'ニカ/ヨ'オデスカ？",
+  "reason": "T187：用讀よう，引擎原字查詢讀成もちい須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-e27fd4d206.mp3": {
+  "text": "一致団結…我には理解できない言葉だ。",
+  "reading": "いっちだんけつ…われには りかいできない ことばだ。",
+  "kana": "イッチダ'ンケツ、ワレニワ'/リ'カイ/デキ'ナイ/コトバ'ダ",
+  "reason": "T187：我讀われ，引擎原字查詢讀成が須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-32f8d0ab21.mp3": {
+  "text": "…命に従おう。",
+  "reading": "…めいに したがおう。",
+  "kana": "メ'イニ/シタガ'オオ",
+  "reason": "T187：命在此指命令、讀めい，引擎原字查詢讀成いのち須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-d1efe1b75a.mp3": {
+  "text": "妾は日に千里を駆ける。しかとついてこい。",
+  "reading": "わらわは ひに せんりを かける。しかと ついてこい。",
+  "kana": "ワ'ラワワ/ヒニ'/セ'ンリオ/カケ'ル、シカ'ト/ツ'イテ/コ'イ",
+  "reason": "T187：妾讀わらわ，引擎原字查詢讀成そばめ須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-d18ae2605a.mp3": {
+  "text": "行こっか、ついてくよ。",
+  "reading": "いこっか、ついてくよ。",
+  "kana": "イコ'ッカ、ツ'イテ/クヨ'",
+  "reason": "T187：行こっか讀いこっか，引擎原字查詢讀成くだりこっか須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-feb1867640.mp3": {
+  "text": "最っ高にロックなチョイスだ！",
+  "reading": "さいっこうに ロックな チョイスだ！",
+  "kana": "サイッコオ'ニ/ロ'ックナ/チョ'イスダ",
+  "reason": "T187：最っ高讀さいっこう，引擎原字查詢讀成さいったか須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-b33ae9419b.mp3": {
+  "text": "やっと妾のことを思い出したか？",
+  "reading": "やっと わらわのことを おもいだしたか？",
+  "kana": "ヤット'/ワ'ラワノ/コト'オ/オモイダ'シタカ？",
+  "reason": "T187：妾讀わらわ，引擎原字查詢讀成そばめ須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
+"audio/games/genshin/gram-fe33ee0d3e.mp3": {
+  "text": "網を引きに行きましょう。",
+  "reading": "あみを ひきに いきましょう。",
+  "kana": "アミ'オ/ヒキニ'/イキマショ'オ",
+  "reason": "T187：引き讀ひき，引擎原字查詢連濁讀成びき須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
 // T185：本批六句讀音補正；既有覆寫保持。
 "audio/games/genshin/gram-29fbb414c7.mp3": {
   "text": "三月よ、輝け。",

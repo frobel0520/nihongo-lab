@@ -20,7 +20,7 @@ test('illustrations resolve all 6420 card identities through exact approved mapp
   assert.equal(new Set(VOCAB_ILLUSTRATIONS.map(x => x.src)).size, 2613);
   const required = cards.filter(c => !c.id.startsWith('game-card:game:genshin:'));
   assert.equal(required.filter(illustrationFor).length, required.length, 'Non-Genshin cards keep all approved illustrations');
-  assert.equal(cards.filter(c => !illustrationFor(c)).length, 177, 'T179/T181/T182/T184/T185 Genshin-only entries intentionally do not require pictures');
+  assert.equal(cards.filter(c => !illustrationFor(c)).length, 366, 'T179/T181/T182/T184/T185/T187 Genshin-only entries intentionally do not require pictures');
   for (const image of VOCAB_ILLUSTRATIONS) {
     const card = cards.find(c => c.id === image.id);
     assert.ok(card, image.id);

@@ -10,6 +10,7 @@ import { genshinActionExpansionNinth } from './genshin-action-expansion-ninth.mj
 import { genshinActionExpansionTenth } from './genshin-action-expansion-tenth.mjs';
 import { genshinActionExpansionEleventh } from './genshin-action-expansion-eleventh.mjs';
 import { genshinActionExpansionTwelfth } from './genshin-action-expansion-twelfth.mjs';
+import { genshinActionExpansionThirteenth } from './genshin-action-expansion-thirteenth.mjs';
 import { genshinSupplementT182 } from './genshin-supplement-t182.mjs';
 import { genshinSupplementT184 } from './genshin-supplement-t184.mjs';
 import { genshinSupplementT185 } from './genshin-supplement-t185.mjs';
@@ -1096,7 +1097,7 @@ export const gameMeaningDistractors = {
   'genshin:keqing:skill': ['禁止對方前進。', '對方已經回來了。'],
 };
 
-for (const line of [...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth, ...genshinActionExpansionSixth, ...genshinActionExpansionSeventh, ...genshinActionExpansionEighth, ...genshinActionExpansionNinth, ...genshinActionExpansionTenth, ...genshinActionExpansionEleventh, ...genshinActionExpansionTwelfth]) {
+for (const line of [...genshinActionExpansion, ...genshinActionExpansionNext, ...genshinActionExpansionThird, ...genshinActionExpansionFourth, ...genshinActionExpansionFifth, ...genshinActionExpansionSixth, ...genshinActionExpansionSeventh, ...genshinActionExpansionEighth, ...genshinActionExpansionNinth, ...genshinActionExpansionTenth, ...genshinActionExpansionEleventh, ...genshinActionExpansionTwelfth, ...genshinActionExpansionThirteenth]) {
   const id = `genshin:${line.characterId}:${line.key}`;
   if (gameMeaningDistractors[id]) throw new Error(`Duplicate question: ${id}`);
   gameMeaningDistractors[id] = /** @type {[string, string]} */ (line.choices);

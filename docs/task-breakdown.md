@@ -1,5 +1,19 @@
 # 任務拆解
 
+## T187：補齊固定來源的「加入隊伍」台詞
+
+- Task ID／Goal：T187（Issue #242）。固定來源每位角色 3 句「加入隊伍」台詞，補上站上尚未收錄的句子。
+- Input contract：genshin-db 固定 commit `49a6544` 的日文角色語音檔（96 位角色）。
+- Output artifact：`curriculum/genshin-action-expansion-thirteenth.mjs` 189 句、189 個 VOICEVOX MP3、13 筆讀音補正、聽力題與單字卡；不製圖。
+- depends_on：T185。
+- Out of scope：雙人對話、帶註記與讀音待裁定的 3 句；只有社群來源的角色；其他語音類別。
+- Acceptance checks：`npm test`、typecheck、lint、正式 build、bundle 門檻；MP3 全數解碼；本機 preview 逐句線上／離線實測；使用者確認自行判斷的讀音後才發布，發布後正式站驗收。
+- Fixture or test data：本機 preview 與全新瀏覽器環境，不代表正式站或真機。
+- Evidence path：[發布稽核](release-audit.md)；原始輸出於發布驗收時存 Private。
+
+- [x] 189 句資料、讀音、音檔、題目、單字卡與單元測試。
+- [ ] 本機逐句實測；使用者確認 8 句讀音；PR 必要 CI、發布授權與正式站驗收。
+
 ## T186：CI 逾時與瀏覽器測試平行化
 
 - Task ID／Goal：T186（Issue #239）。完整檢查卡住時自動失敗，並把瀏覽器測試改為平行執行以縮短等待。

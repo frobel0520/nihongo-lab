@@ -1,5 +1,6 @@
 import {genshinActionExpansionEleventh} from '../curriculum/genshin-action-expansion-eleventh.mjs';
 import {genshinActionExpansionTwelfth} from '../curriculum/genshin-action-expansion-twelfth.mjs';
+import { genshinActionExpansionThirteenth } from '../curriculum/genshin-action-expansion-thirteenth.mjs';
 import { secondarySpeakerCasting } from './helpers/genshin-secondary-speakers.mjs';
 import { genshinActionExpansionNinth } from '../curriculum/genshin-action-expansion-ninth.mjs';
 import { genshinActionExpansionTenth } from '../curriculum/genshin-action-expansion-tenth.mjs';
@@ -56,7 +57,7 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
   // ER 55句官方選角與191句逐字稿，另收錄原神286句。
   assert.equal(
     lines.length,
-    532 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length + genshinActionExpansionTenth.length + genshinActionExpansionEleventh.length + genshinActionExpansionTwelfth.length,
+    532 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length + genshinActionExpansionTenth.length + genshinActionExpansionEleventh.length + genshinActionExpansionTwelfth.length + genshinActionExpansionThirteenth.length,
   );
   assert.equal(new Set(lines.map((l) => l.id)).size, lines.length);
   assert.equal(new Set(lines.map(gameRecordId)).size, lines.length);
@@ -136,7 +137,8 @@ test('遊戲區的角色、語音來源、配音、讀音與實際音檔齊全�
       genshinSupplement.reduce(
         (n, c) => n + c.lines.filter((l) => l.category === '編隊加入').length,
         0,
-      ),
+      ) +
+      genshinActionExpansionThirteenth.length,
   );
 });
 
@@ -150,7 +152,7 @@ test('角色及情境篩選不混遊戲，未知分類安全回空；選角與�
   );
   assert.equal(
     gameLines(gameCharacterStudy, 'genshin', 'amber', '編隊加入').length,
-    1,
+    3,
   );
   assert.equal(gameLines(gameCharacterStudy, 'lol', 'missing').length, 0);
   assert.equal(gameLines(gameCharacterStudy, 'missing').length, 0);
