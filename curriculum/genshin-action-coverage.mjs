@@ -1243,42 +1243,6 @@ export const genshinActionCoverage = {
       },
     },
   },
-  manekin: {
-    sourceAvailable: true,
-    sha256: 'f9925f1f3d4675e71019915247e845852c10177e4536cd611231f8a92183a2cc',
-    categories: {
-      join: {
-        entries: 0,
-        voicefiles: 0,
-      },
-      skill: {
-        entries: 0,
-        voicefiles: 0,
-      },
-      burst: {
-        entries: 0,
-        voicefiles: 0,
-      },
-    },
-  },
-  manekina: {
-    sourceAvailable: true,
-    sha256: '98cdbda278fc4b4e7eb602235bf90b9d5e84964b0a9034c8508599d340918e21',
-    categories: {
-      join: {
-        entries: 0,
-        voicefiles: 0,
-      },
-      skill: {
-        entries: 0,
-        voicefiles: 0,
-      },
-      burst: {
-        entries: 0,
-        voicefiles: 0,
-      },
-    },
-  },
   mavuika: {
     sourceAvailable: true,
     sha256: 'a74fc38caa042883562ff17f4fb5f2ecb6832a5cbadede6e788a5e97fab48a99',

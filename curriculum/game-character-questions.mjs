@@ -62,9 +62,6 @@ export const gameMeaningDistractors = {
 "genshin:vodyanitsa:burst-table-55-0": ["這是慶祝大家平安歸來的歡歌。", "這是教人清掃灰塵的歌曲。"],
 "genshin:vodyanitsa:burst-table-56-0": ["我要唱一首哀悼逝者的輓歌。", "把所有過往都從歌中抹去。"],
 
-"genshin:manekina:join-ready": ["我還沒準備好。","我已經睡著了。"],
-"genshin:manekina:join-order": ["我已經發出命令。","請取消所有指令。"],
-"genshin:manekina:join-request": ["我會給你指示。","別給我任何指示。"],
 "genshin:diluc:idle": ["放鬆一下也很糟。","永遠不能休息。"],
 "genshin:hutao:idle": ["不要和我喝茶。","我已經喝完茶。"],
 
@@ -74,9 +71,6 @@ export const gameMeaningDistractors = {
 "genshin:vodyanitsa:join": ["我已經離開了。","不要再呼吸。"],
 "genshin:vodyanitsa:skill": ["把耳朵洗乾淨。","別再聽了。"],
 "genshin:vodyanitsa:burst": ["大家別唱歌。","大家已經唱完。"],
-"genshin:manekin:join-ready": ["還沒準備好。","任務已失敗。"],
-"genshin:manekin:join-order": ["我已經下命令了。","不接受任何命令。"],
-"genshin:manekin:join-request": ["什麼都別說。","我只接受一種要求。"],
 
 "genshin:varesa:join": ["只有比賽，不能出門。","已經比賽完回家。"],
 "genshin:varesa:skill": ["我不會前進。","我已經離開很久。"],

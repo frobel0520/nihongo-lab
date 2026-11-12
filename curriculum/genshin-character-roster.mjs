@@ -815,30 +815,6 @@ export const genshinRoster = [
       'https://github.com/theBowja/genshin-db/blob/49a6544a6c6ae36089cb42fa591fc46f01de8bcf/src/data/Japanese/voiceovers/lyney.json',
   },
   {
-    id: 'manekin',
-    name: '奇偶·男性',
-    nameJa: 'ドール（男）',
-    referenceUrl:
-      'https://github.com/theBowja/genshin-db/blob/49a6544a6c6ae36089cb42fa591fc46f01de8bcf/src/data/Japanese/characters/manekin.json',
-    portrait: 'game-portraits/genshin-manekin.png',
-    portraitReferenceUrl:
-      'https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/10/28/dce3192b30cf478dfe123a28416cb451_6891113533276891360.png',
-    voiceReferenceUrl:
-      'https://github.com/theBowja/genshin-db/blob/49a6544a6c6ae36089cb42fa591fc46f01de8bcf/src/data/Japanese/voiceovers/manekin.json',
-  },
-  {
-    id: 'manekina',
-    name: '奇偶·女性',
-    nameJa: 'ドール（女）',
-    referenceUrl:
-      'https://github.com/theBowja/genshin-db/blob/49a6544a6c6ae36089cb42fa591fc46f01de8bcf/src/data/Japanese/characters/manekina.json',
-    portrait: 'game-portraits/genshin-manekina.png',
-    portraitReferenceUrl:
-      'https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2025/10/28/e45a556519d524e2b14aaaff4104ebe1_558967600629726716.png',
-    voiceReferenceUrl:
-      'https://github.com/theBowja/genshin-db/blob/49a6544a6c6ae36089cb42fa591fc46f01de8bcf/src/data/Japanese/voiceovers/manekina.json',
-  },
-  {
     id: 'mavuika',
     name: '瑪薇卡',
     nameJa: 'マーヴィカ',
