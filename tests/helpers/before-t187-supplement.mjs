@@ -1,6 +1,5 @@
 // T187: remove only this exact cohort for immutable previous-candidate snapshots.
-import {gameCharacterStudy} from '../../curriculum/lessons.mjs';
-import {AUDIO_PROSODY} from '../../curriculum/audio-prosody.mjs';
+import {beforeT188GameCharacterStudy as gameCharacterStudy, beforeT188Cards, beforeT188Prosody as AUDIO_PROSODY} from './before-t188-navia.mjs';
 export const t187LineIds = new Set([
   "genshin:aether:join-1087",
   "genshin:aether:join-1089",
@@ -385,5 +384,5 @@ const cardIds = new Set([
 ]);
 const prosodyPaths = new Set(["audio/games/genshin/gram-6e3db8981e.mp3","audio/games/genshin/gram-2ec104f4de.mp3","audio/games/genshin/gram-b95eb93d47.mp3","audio/games/genshin/gram-6399c08e8a.mp3","audio/games/genshin/gram-ffd6adc948.mp3","audio/games/genshin/gram-9b5181d7d3.mp3","audio/games/genshin/gram-e27fd4d206.mp3","audio/games/genshin/gram-32f8d0ab21.mp3","audio/games/genshin/gram-d1efe1b75a.mp3","audio/games/genshin/gram-d18ae2605a.mp3","audio/games/genshin/gram-feb1867640.mp3","audio/games/genshin/gram-b33ae9419b.mp3","audio/games/genshin/gram-fe33ee0d3e.mp3"]);
 export const beforeT187GameCharacterStudy=gameCharacterStudy.map(g=>({...g,...(g.id==='genshin'?{scope:"固定來源名冊共 124 筆角色條目，包含旅行者與人偶的不同版本。124 位角色收錄 1060 句短台詞與 VOICEVOX 朗讀；其餘 0 筆仍待教材。戰技／爆發持續依來源核實，角色已有教材不等於該類台詞完整；來源待確認項目不猜測補錄。未加入劇情。"}:{}),characters:g.characters.map(c=>({...c,lines:c.lines.filter(l=>!t187LineIds.has(l.id))}))}));
-export const beforeT187Cards=cards=>cards.filter(c=>!cardIds.has(c.id));
+export const beforeT187Cards=cards=>beforeT188Cards(cards).filter(c=>!cardIds.has(c.id));
 export const beforeT187Prosody=Object.fromEntries(Object.entries(AUDIO_PROSODY).filter(([path])=>!prosodyPaths.has(path)));

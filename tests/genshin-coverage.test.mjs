@@ -1,6 +1,7 @@
 import {genshinActionExpansionEleventh} from '../curriculum/genshin-action-expansion-eleventh.mjs';
 import {genshinActionExpansionTwelfth} from '../curriculum/genshin-action-expansion-twelfth.mjs';
 import { genshinActionExpansionThirteenth } from '../curriculum/genshin-action-expansion-thirteenth.mjs';
+import { genshinActionExpansionFourteenth } from '../curriculum/genshin-action-expansion-fourteenth.mjs';
 import { genshinActionExpansionNinth } from '../curriculum/genshin-action-expansion-ninth.mjs';
 import { genshinActionExpansionTenth } from '../curriculum/genshin-action-expansion-tenth.mjs';
 import { genshinActionExpansionEighth } from '../curriculum/genshin-action-expansion-eighth.mjs';
@@ -94,6 +95,6 @@ test('124筆都有三類來源狀態；無來源、空語音表與有來源的�
   );
   assert.equal(
     g.characters.flatMap((c) => c.lines).length,
-    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length + genshinActionExpansionTenth.length + genshinActionExpansionEleventh.length + genshinActionExpansionTwelfth.length + genshinActionExpansionThirteenth.length,
+    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length + genshinActionExpansionTenth.length + genshinActionExpansionEleventh.length + genshinActionExpansionTwelfth.length + genshinActionExpansionThirteenth.length + genshinActionExpansionFourteenth.length,
   );
 });

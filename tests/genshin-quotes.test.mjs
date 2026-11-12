@@ -1,6 +1,7 @@
 import {genshinActionExpansionEleventh} from '../curriculum/genshin-action-expansion-eleventh.mjs';
 import {genshinActionExpansionTwelfth} from '../curriculum/genshin-action-expansion-twelfth.mjs';
 import { genshinActionExpansionThirteenth } from '../curriculum/genshin-action-expansion-thirteenth.mjs';
+import { genshinActionExpansionFourteenth } from '../curriculum/genshin-action-expansion-fourteenth.mjs';
 import { genshinActionExpansionNinth } from '../curriculum/genshin-action-expansion-ninth.mjs';
 import { genshinActionExpansionTenth } from '../curriculum/genshin-action-expansion-tenth.mjs';
 import { genshinActionExpansionEighth } from '../curriculum/genshin-action-expansion-eighth.mjs';
@@ -168,7 +169,7 @@ test('原神固定名冊 124 筆，已收錄角色有短句，其餘明確待收
   assert.equal(game.characters.filter((c) => c.voiceReferenceUrl).length, 109);
   assert.equal(
     lines.length,
-    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length + genshinActionExpansionTenth.length + genshinActionExpansionEleventh.length + genshinActionExpansionTwelfth.length + genshinActionExpansionThirteenth.length,
+    286 + genshinSupplement.reduce((n, c) => n + c.lines.length, 0) + genshinActionExpansion.length + genshinActionExpansionNext.length + genshinActionExpansionThird.length + genshinActionExpansionFourth.length + genshinActionExpansionFifth.length + genshinActionExpansionSixth.length + genshinActionExpansionSeventh.length + genshinActionExpansionEighth.length + genshinActionExpansionNinth.length + genshinActionExpansionTenth.length + genshinActionExpansionEleventh.length + genshinActionExpansionTwelfth.length + genshinActionExpansionThirteenth.length + genshinActionExpansionFourteenth.length,
   );
   for (const c of game.characters) {
     if (/[\p{Script=Han}々]/u.test(c.nameJa)) {

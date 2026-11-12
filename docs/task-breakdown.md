@@ -1,5 +1,20 @@
 # 任務拆解
 
+## T188：奇偶不列入角色語音，並補娜維婭一句
+
+- Task ID／Goal：T188（Issue #244）。依使用者裁定把兩位奇偶從網站隱藏，並補錄娜維婭「加入隊伍」第二句。
+- Input contract：使用者 2026-11-12 的裁定（奇偶採隱藏而非刪除；「棘薔薇の会」讀スピナ・ディ・ロースラ）；固定來源娜維婭語音檔。
+- Output artifact：`lib/game-visibility.mjs`、瀏覽器教材過濾、`curriculum/genshin-action-expansion-fourteenth.mjs` 1 句與 1 個 MP3、SA／SD 變更紀錄。
+- depends_on：T187。
+- Out of scope：從 repo 刪除奇偶的資料、音檔、頭像與配圖對應；其他角色。
+- Acceptance checks：`npm test`、typecheck、lint、正式 build、bundle 門檻；本機 preview 確認角色清單沒有奇偶、娜維婭新句線上與離線可播放；發布後正式站驗收。
+- Fixture or test data：本機 preview 與全新瀏覽器環境，不代表正式站或真機。
+- Evidence path：[發布稽核](release-audit.md)；原始輸出於發布驗收時存 Private。
+
+- [x] 隱藏規則、娜維婭一句、單元測試與 build。
+- [x] 本機實測：隱藏檢查兩種寬度通過，娜維婭新句線上／離線通過。
+- [ ] PR 必要 CI、發布授權與正式站驗收。
+
 ## T187：補齊固定來源的「加入隊伍」台詞
 
 - Task ID／Goal：T187（Issue #242）。固定來源每位角色 3 句「加入隊伍」台詞，補上站上尚未收錄的句子。
@@ -14,7 +29,7 @@
 - [x] 189 句資料、讀音、音檔、題目、單字卡與單元測試。
 - [x] 使用者確認 8 句讀音（2026-11-12）。
 - [x] 本機逐句實測 378 次通過。
-- [ ] PR 必要 CI、發布授權與正式站驗收。
+- [x] PR 必要 CI 通過，2026-11-12 發布，正式站驗收通過。
 
 ## T186：CI 逾時與瀏覽器測試平行化
 

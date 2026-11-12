@@ -8,6 +8,14 @@
 
 /** @type {Record<string, {text: string, reading: string, kana: string, reason: string, reference: 'kanjium' | 'voicevox', articulation?: import('../scripts/pronunciation.mjs').Articulation}>} */
 export const AUDIO_PROSODY = {
+// T188：娜維婭一句讀音補正；既有覆寫保持。
+"audio/games/genshin/gram-d347d32da0.mp3": {
+  "text": "棘薔薇の会の出番よ！",
+  "reading": "スピナ・ディ・ロースラの でばんよ！",
+  "kana": "スピナディロ'オスラノ/デバンヨ'",
+  "reason": "T188：棘薔薇の会照使用者裁定讀スピナ・ディ・ロースラ，引擎原字查詢按字面讀須補正；其餘句節沿用引擎解析，重音取辭書型或平板，音調停頓未經人耳或原配音聽驗。",
+  "reference": "voicevox"
+},
 // T187：本批十三句讀音補正；既有覆寫保持。
 "audio/games/genshin/gram-6e3db8981e.mp3": {
   "text": "依頼主の方？それとも…おっと！違ったか。",
