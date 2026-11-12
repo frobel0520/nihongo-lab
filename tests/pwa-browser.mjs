@@ -7,12 +7,14 @@ import { readFile } from 'node:fs/promises';
 import { resolve, extname } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright-core';
-import { loadAllAudioPaths, loadLesson } from '../curriculum/lessons.mjs';
+import { loadLesson } from '../curriculum/lessons.mjs';
+import { curriculumPayloads } from '../scripts/curriculum-chunks.mjs';
 
 const option = (name, fallback) => process.argv.includes(name)
   ? process.argv[process.argv.indexOf(name) + 1] : fallback;
 const roots = { current: resolve(option('--dist', 'dist')) };
-const paths = await loadAllAudioPaths();
+// The browser downloads what the build offers: hidden characters' audio is left out (T188).
+const paths = curriculumPayloads().get('all-audio').data;
 assert.ok(paths.length > 3000);
 const failPath = paths[1];
 let failOnce = true;
