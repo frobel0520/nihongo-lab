@@ -25,7 +25,8 @@
     "test:inference": "node tests/quality-browser.mjs --inference",
     "test:srs-layout": "node tests/srs-layout-browser.mjs --dist dist && node tests/srs-presentation-browser.mjs --dist dist",
     "test:ux": "node tests/ux-review-browser.mjs --dist dist",
-    "test:navigation": "node tests/navigation-browser.mjs --dist dist"
+    "test:navigation": "node tests/navigation-browser.mjs --dist dist",
+    "perf:runtime": "node scripts/perf-runtime.mjs"
   },
   "dependencies": {
     "react": "19.2.8",

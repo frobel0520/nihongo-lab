@@ -2,6 +2,17 @@
 
 > 批次候選與勾選狀態須依當時日期判讀，不代表今日待辦。現況以[主進度](../progress.md)為入口，協作規則見[AGENTS](../AGENTS.md)；長期需求、分析與架構契約保留，不因本次收尾重寫。
 
+## T191：匿名正式效能基準與驗收工具
+
+- Task ID／Goal：T191（Issue #250），補上可重做且不混淆驗收範圍的時間量測。
+- Input contract：現行 main、已核實產品 revision、匿名／無進度 context、明確正式或本機 URL。
+- Output artifact：`perf-runtime.mjs`、門檻提案、單元與本機 fixture 驗證、私有證據。
+- depends_on：T190；與真實登入驗收分開。
+- Out of scope：登入／成功同步、壓測、產品與部署設定、教材擴充。
+- Acceptance checks：5～10筆、p50／p95與錯誤率、缺值不得通過；TLS不繞過；必要CI及既有bundle守門保持。
+- Fixture or test data：合成計時、loopback匿名API、隔離的本機正式build。
+- Evidence path：repo外私有資料；公開release-audit只保留結論與可用證據定位。
+
 ## T188：奇偶不列入角色語音，並補娜維婭一句
 
 - Task ID／Goal：T188（Issue #244）。依使用者裁定把兩位奇偶從網站隱藏，並補錄娜維婭「加入隊伍」第二句。
