@@ -4,11 +4,11 @@
 
 ## T191：匿名正式效能基準與驗收工具
 
-- Task ID／Goal：T191（Issue #250），補上可重做且不混淆驗收範圍的時間量測。
+- Task ID／Goal：T191（Issue #250），補上可重做的時間量測，並依使用者授權完成瀑布定位、最小載入改善與前後回歸。
 - Input contract：現行 main、已核實產品 revision、匿名／無進度 context、明確正式或本機 URL。
-- Output artifact：`perf-runtime.mjs`、門檻提案、單元與本機 fixture 驗證、私有證據。
+- Output artifact：`perf-runtime.mjs`、門檻提案、課程平行載入及遊戲選項延後載入、前後量測／回歸與私有證據。
 - depends_on：T190；與真實登入驗收分開。
-- Out of scope：登入／成功同步、壓測、產品與部署設定、教材擴充。
+- Out of scope：登入／成功同步、壓測、部署設定、教材擴充、放寬容量或時間門檻。
 - Acceptance checks：5～10筆、p50／p95與錯誤率、缺值不得通過；TLS不繞過；必要CI及既有bundle守門保持。
 - Fixture or test data：合成計時、loopback匿名API、隔離的本機正式build。
 - Evidence path：repo外私有資料；公開release-audit只保留結論與可用證據定位。
