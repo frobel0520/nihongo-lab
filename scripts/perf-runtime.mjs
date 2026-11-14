@@ -2,7 +2,8 @@
 import { parseArgs, promisify } from 'node:util';
 import { execFileSync, execFile } from 'node:child_process';
 import { cpus, totalmem, platform, arch } from 'node:os';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { dirname, resolve } from 'node:path';
 import { chromium } from 'playwright-core';
 import { RUNTIME_BUDGETS, summarizeRun } from './perf-runtime-policy.mjs';
@@ -18,6 +19,7 @@ const { values } = parseArgs({
     'api-only': { type: 'boolean', default: false },
     'pages-only': { type: 'boolean', default: false },
     check: { type: 'boolean', default: false },
+    details: { type: 'boolean', default: false },
   },
 });
 if (!values.url || !values.revision || !values.out)
@@ -69,9 +71,12 @@ const browser = values['api-only']
     });
 /** @typedef {import('./perf-runtime-policy.mjs').RuntimeSample} RuntimeSample */
 /** @typedef {ReturnType<typeof summarizeRun> & {samples: RuntimeSample[]}} RunEvidence */
-/** @typedef {{lcpMs: number | null, tasks: {startTime: number, duration: number}[]}} BrowserMetrics */
+/** @typedef {{lcpMs: number | null, lcpElement?: {tag: string, id: string, className: string, size: number}, tasks: {startTime: number, duration: number}[]}} BrowserMetrics */
 const report = {
   schema: 1,
+  toolSha256: createHash('sha256')
+    .update(await readFile(new URL(import.meta.url)))
+    .digest('hex'),
   at: new Date().toISOString(),
   productRevision: values.revision,
   url: base.href,
@@ -170,6 +175,23 @@ async function measurePage(page, url, selector, repeat = false) {
               .reduce((sum, t) => sum + Math.max(0, t.duration - 50), 0);
       return {
         fcpMs,
+        lcpElement: metrics.lcpElement,
+        waterfall: performance.getEntriesByType('resource').map((entry) => {
+          const r = /** @type {PerformanceResourceTiming} */ (entry);
+          const url = new URL(r.name);
+          return {
+            path: url.pathname,
+            sameOrigin: url.origin === location.origin,
+            initiatorType: r.initiatorType,
+            startMs: r.startTime,
+            requestMs: r.requestStart,
+            responseMs: r.responseStart,
+            endMs: r.responseEnd,
+            transferBytes: r.transferSize,
+            encodedBytes: r.encodedBodySize,
+            decodedBytes: r.decodedBodySize,
+          };
+        }),
         lcpMs: metrics.lcpMs,
         tbtMs,
         navigationType: navigation.type,
@@ -177,8 +199,10 @@ async function measurePage(page, url, selector, repeat = false) {
         resources: performance.getEntriesByType('resource').length,
       };
     });
+    const { waterfall, lcpElement, ...coreTiming } = timing;
     return {
-      ...timing,
+      ...coreTiming,
+      ...(values.details ? { waterfall, lcpElement } : {}),
       contentReadyMs,
       status: response?.status(),
       pageerrors,
@@ -238,8 +262,20 @@ try {
             );
           runtimeWindow.__runtimePerf = { lcpMs: null, tasks: [] };
           new PerformanceObserver((list) => {
-            for (const e of list.getEntries())
+            for (const entry of list.getEntries()) {
+              const e =
+                /** @type {PerformanceEntry & {element?: Element, size: number}} */ (
+                  entry
+                );
               runtimeWindow.__runtimePerf.lcpMs = e.startTime;
+              if (e.element)
+                runtimeWindow.__runtimePerf.lcpElement = {
+                  tag: e.element.tagName,
+                  id: e.element.id,
+                  className: String(e.element.className),
+                  size: e.size,
+                };
+            }
           }).observe({ type: 'largest-contentful-paint', buffered: true });
           new PerformanceObserver((list) => {
             for (const e of list.getEntries())

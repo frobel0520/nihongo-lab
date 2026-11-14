@@ -10,7 +10,7 @@ import {
   loadLesson,
   loadCategory,
 } from '../curriculum/lessons.mjs';
-import { curriculumPayloads } from '../scripts/curriculum-chunks.mjs';
+import { curriculumPayloads, curriculumChunks, offeredDistractors } from '../scripts/curriculum-chunks.mjs';
 import { visibleGameStudy } from '../lib/game-visibility.mjs';
 import {
   stages as currentStages,
@@ -463,4 +463,13 @@ test('T135: preserve all205 published lessons and catalog IDs including149/156 r
   assert.equal(previousStages.flatMap((stage) => stage.lessons).length, snapshot.lessons);
   assert.equal(sha(JSON.stringify(previousStages)), snapshot.stagesSha256);
   assert.equal(sha(JSON.stringify(createStudyCatalog(previousStages, gameCharacterStudy))), snapshot.catalogSha256);
+});
+
+
+test('T191: game-only distractor chunk preserves every offered answer without changing the lesson API', async () => {
+  const plugin = curriculumChunks();
+  const source = plugin.load('\0virtual:nihongo-curriculum/game-distractors');
+  assert.equal(typeof source, 'string');
+  const result = await import('data:text/javascript;base64,' + Buffer.from(source).toString('base64'));
+  assert.deepEqual(result.gameMeaningDistractors, offeredDistractors);
 });

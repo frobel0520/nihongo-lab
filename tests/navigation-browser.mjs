@@ -280,6 +280,99 @@ async function longList(p, label) {
   await assertPosition(p, left);
 }
 try {
+  if (!before) {
+    // Hold the selected payload indefinitely: the view must be requested before
+    // it is released. Disabling SW prevents precache from faking parallelism.
+    result.parallelLessons = [];
+    const n5 = await loadCategory('n5');
+    for (const fromHome of [false, true]) {
+      const c = await browser.newContext({ serviceWorkers: 'block' });
+      let releasePayload;
+      const heldPayload = new Promise((resolve) => {
+        releasePayload = resolve;
+      });
+      try {
+        await c.route('https://**', (r) => r.abort());
+        const initial = serializeProgress(
+          recordDictation(
+            emptyProgress(),
+            n5.sentences[0].id,
+            false,
+            '2026-11-15T00:00:00.000Z',
+          ),
+        );
+        await c.addInitScript(
+          ({ key, initial }) => {
+            if (!localStorage.getItem(key)) localStorage.setItem(key, initial);
+          },
+          { key, initial },
+        );
+        const p = await c.newPage();
+        const requests = [];
+        p.on('request', (r) => requests.push(r.url()));
+        if (fromHome) {
+          await p.goto(base + '#/');
+          await p.locator('main [aria-label="今天的複習"]').waitFor();
+          assert.ok(
+            !requests.some((url) => /\/LessonView-[^/]+\.js/.test(url)),
+            'homepage must not preload lesson view',
+          );
+        }
+        const payload = /\/general-listening-121-[^/]+\.js(?:\?|$)/;
+        await c.route(payload, async (route) => {
+          await heldPayload;
+          await route.continue();
+        });
+        const seenPayload = p.waitForRequest(payload);
+        const seenView = p.waitForRequest(/\/LessonView-[^/]+\.js(?:\?|$)/, {
+          timeout: 10000,
+        });
+        if (fromHome)
+          await p.evaluate(() => {
+            location.hash = '#/lesson/general-listening-121';
+          });
+        else
+          await p.goto(base + '#/lesson/general-listening-121', {
+            waitUntil: 'domcontentloaded',
+          });
+        await Promise.all([seenPayload, seenView]);
+        assert.equal(
+          await p.getByRole('tablist', { name: '課程內容' }).count(),
+          0,
+          'payload is still held, no substitute course content',
+        );
+        releasePayload();
+        await p.getByRole('tablist', { name: '課程內容' }).waitFor();
+        assert.equal(
+          await p.evaluate((key) => localStorage.getItem(key), key),
+          initial,
+        );
+        result.parallelLessons.push({
+          fromHome,
+          viewRequestedWhilePayloadHeld: true,
+          progressPreserved: true,
+        });
+      } finally {
+        releasePayload();
+        await c.close();
+      }
+    }
+    const c = await browser.newContext({ serviceWorkers: 'block' });
+    try {
+      await c.route('https://**', (r) => r.abort());
+      await c.route(/\/LessonView-[^/]+\.js(?:\?|$)/, (r) => r.abort('failed'));
+      const p = await c.newPage();
+      await p.goto(base + '#/lesson/general-listening-121');
+      await p.getByRole('alert').filter({ hasText: '教材載入失敗' }).waitFor();
+      assert.equal(
+        await p.getByRole('tablist', { name: '課程內容' }).count(),
+        0,
+      );
+      result.parallelLessonFailure = 'existing load-error UI';
+    } finally {
+      await c.close();
+    }
+  }
   if (!skipLists)
     for (const [width, height, font] of [
       [375, 667, 100],

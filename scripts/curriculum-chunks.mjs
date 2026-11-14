@@ -100,7 +100,7 @@ import {unpackCurriculumIndex} from ${JSON.stringify(resolve(root, 'lib/curricul
 import packedIndex from ${JSON.stringify(PREFIX + 'packed-index')};
 export const curriculumSummary=unpackCurriculumIndex(packedIndex);
 export {generalListeningRoadmap,generalListeningGroupTitle,GENERAL_LISTENING_GROUP_SIZE} from ${JSON.stringify(resolve(root, 'curriculum/general-listening.mjs'))};
-export const gameMeaningDistractors=${JSON.stringify(offeredDistractors)};
+export {gameMeaningDistractors} from ${JSON.stringify(PREFIX + 'game-distractors')};
 registerRubyNotes(${JSON.stringify(notesFor(curriculumSummary))});
 const loaders={${loaders}};
 const load=createPayloadLoader(loaders,registerRubyNotes);
@@ -125,6 +125,10 @@ export async function loadLessonAudioPaths(id){const l=await loadLesson(id);if(!
     },
     load(id) {
       if (id === '\0' + PREFIX + 'entry') return facade;
+      // A pure re-export lets the bundler keep game-only answers out of the
+      // homepage's shared index, while preserving the public lesson API.
+      if (id === '\0' + PREFIX + 'game-distractors')
+        return `export const gameMeaningDistractors=${JSON.stringify(offeredDistractors)};`;
       if (id === '\0' + PREFIX + 'packed-index')
         return serializeCurriculumPayload(packCurriculumIndex(curriculumSummary));
       if (id.startsWith('\0' + PREFIX)) {

@@ -9,6 +9,7 @@ export function useRouteData(
   key: string,
   lessonId?: string,
   categoryId?: string,
+  prepareLessonView?: () => Promise<unknown>,
 ) {
   const [state, setState] = useState<{
     key: string;
@@ -25,7 +26,11 @@ export function useRouteData(
     }
     setState({ key, error: false, ready: false });
     const request = lessonId
-      ? loadLesson(lessonId).then((lesson) => ({ lesson }))
+      ? // Start the selected lesson's view and payload together, without preloading
+        // other routes. A rejected view follows the existing load-error path.
+        Promise.all([loadLesson(lessonId), prepareLessonView?.()]).then(
+          ([lesson]) => ({ lesson }),
+        )
       : loadCategory(categoryId!).then((catalog) => ({ catalog }));
     request
       .then((data) => {
@@ -37,6 +42,6 @@ export function useRouteData(
     return () => {
       active = false;
     };
-  }, [key, lessonId, categoryId]);
+  }, [key, lessonId, categoryId, prepareLessonView]);
   return state.key === key ? state : { key, error: false, ready: false };
 }

@@ -30,9 +30,9 @@ import {
 const DictationView = lazy(() =>
   import('./views/DictationView').then((m) => ({ default: m.DictationView })),
 );
-const LessonView = lazy(() =>
-  import('./views/LessonView').then((m) => ({ default: m.LessonView })),
-);
+const loadLessonView = () =>
+  import('./views/LessonView').then((m) => ({ default: m.LessonView }));
+const LessonView = lazy(loadLessonView);
 const SettingsView = lazy(() =>
   import('./views/SettingsView').then((m) => ({ default: m.SettingsView })),
 );
@@ -102,6 +102,7 @@ export function App() {
     ['srs', 'dictation', 'shadowing'].includes(route.view)
       ? category?.id
       : undefined,
+    loadLessonView,
   );
   const catalog = data.catalog;
 
