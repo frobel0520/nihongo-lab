@@ -1,5 +1,7 @@
 # 原神角色收錄進度
 
+> **歷史收錄紀錄，不是現行待補清單。** 本檔保留當時的候選、數字與驗收範圍；最新來源覆蓋、使用者排除裁定及待辦以[主進度](../progress.md)為準，結案證據見[發布稽核](release-audit.md)的 T181～T189。不要把下方舊「待審／未發布」文字重新排成任務。
+
 ## T170：第三批已發布（2026-11-01，Asia/Taipei）
 
 [PR #192](https://github.com/frobel0520/nihongo-lab/pull/192) 精確產品版本 `fe1ecd5` 已由reviewer放行，必要Linux／Windows CI及Worker／Pages成功。21角色60句（技能37／爆發23）、60個VOICEVOX MP3、39張SVG與60筆映射已發布；現行原神612句、6149張有圖卡、2393 SVG，8774個教材MP3＋38個聲線預覽分開統計。
