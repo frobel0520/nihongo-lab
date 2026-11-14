@@ -31,8 +31,7 @@ const DictationView = lazy(() =>
   import('./views/DictationView').then((m) => ({ default: m.DictationView })),
 );
 const loadLessonView = () =>
-  import('./views/LessonView').then((m) => ({ default: m.LessonView }));
-const LessonView = lazy(loadLessonView);
+  import('./views/LessonView').then((m) => m.LessonView);
 const SettingsView = lazy(() =>
   import('./views/SettingsView').then((m) => ({ default: m.SettingsView })),
 );
@@ -105,6 +104,7 @@ export function App() {
     loadLessonView,
   );
   const catalog = data.catalog;
+  const ReadyLessonView = data.lessonView;
 
   const backTarget = parentStage
     ? stageHash(parentStage.id)
@@ -232,8 +232,9 @@ export function App() {
             )}
             {route.view === 'lessons' &&
               (lesson ? (
-                data.lesson && (
-                  <LessonView
+                data.lesson &&
+                ReadyLessonView && (
+                  <ReadyLessonView
                     lesson={data.lesson}
                     progress={progress}
                     update={update}

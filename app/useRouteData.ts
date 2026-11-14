@@ -5,15 +5,16 @@ import {
   type Lesson,
 } from '../curriculum/lessons.mjs';
 import type { StudyCatalog } from '../lib/study-catalog.mjs';
-export function useRouteData(
+export function useRouteData<LessonView>(
   key: string,
   lessonId?: string,
   categoryId?: string,
-  prepareLessonView?: () => Promise<unknown>,
+  prepareLessonView?: () => Promise<LessonView>,
 ) {
   const [state, setState] = useState<{
     key: string;
     lesson?: Lesson;
+    lessonView?: LessonView;
     catalog?: StudyCatalog;
     error: boolean;
     ready: boolean;
@@ -29,7 +30,7 @@ export function useRouteData(
       ? // Start the selected lesson's view and payload together, without preloading
         // other routes. A rejected view follows the existing load-error path.
         Promise.all([loadLesson(lessonId), prepareLessonView?.()]).then(
-          ([lesson]) => ({ lesson }),
+          ([lesson, lessonView]) => ({ lesson, lessonView }),
         )
       : loadCategory(categoryId!).then((catalog) => ({ catalog }));
     request
