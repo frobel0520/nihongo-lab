@@ -163,6 +163,34 @@ test('packed progress index keeps exact IDs and key order after build-only names
   assert.ok(Buffer.byteLength(source) < Buffer.byteLength(JSON.stringify(packed)));
 });
 
+test('index transport restores ordered and repeated IDs across range boundaries without aliasing lists', async () => {
+  const { packCurriculumIndex, unpackCurriculumIndex } = await import('../lib/curriculum-pack.mjs');
+  const ids = ['zero', 'one', 'two', 'three', 'four', 'five'];
+  // A hand-written wire fixture exercises mixed references independently of the encoder.
+  const packed = {
+    ids,
+    stages: [{ id: 'stage', title: 'Stage', lessons: [{
+      id: 'lesson', title: 'Lesson', audioReady: false,
+      vocabIds: [[0, 3], 1, 5, [2, 3]],
+      dictationIds: [], listeningIds: [5, 0], grammarIds: [0, 1],
+    }] }],
+    categories: { n5: { cardIds: [[0, 3]], sentenceIds: [[0, 3]] } },
+  };
+  const result = unpackCurriculumIndex(await evaluate(serializeCurriculumPayload(packed)));
+  const lesson = result.stages[0].lessons[0];
+  assert.deepEqual(lesson.vocabIds, ['zero', 'one', 'two', 'one', 'five', 'two', 'three', 'four']);
+  assert.deepEqual(lesson.dictationIds, []);
+  assert.deepEqual(lesson.listeningIds, ['five', 'zero']);
+  assert.deepEqual(lesson.grammarIds, ['zero', 'one']);
+  assert.equal(lesson.audioReady, false);
+  assert.equal(JSON.stringify(unpackCurriculumIndex(await evaluate(
+    serializeCurriculumPayload(packCurriculumIndex(result)),
+  ))), JSON.stringify(result));
+  result.categories.n5.cardIds[0] = 'changed';
+  assert.equal(result.categories.n5.sentenceIds[0], 'zero');
+  assert.equal(lesson.vocabIds[0], 'zero');
+});
+
 test('identifier prefix sharing leaves authored colons, slashes and prototype-like strings literal', async () => {
   const prefix = 'scene:synthetic-long-lesson-name/with\\escape:';
   const data = Array.from({ length: 30 }, (_, i) => ({
