@@ -23,9 +23,11 @@
 
 [PR #251](https://github.com/frobel0520/nihongo-lab/pull/251)已fast-forward合併，產品c23743da；[main CI／Worker／Pages](https://github.com/frobel0520/nihongo-lab/actions/runs/43653175089)成功。正式10檔大小／SHA一致，首頁307跟隨正規化轉址後內容一致；health 200、未登入sync 401及舊網址引導正常，非真實登入或成功同步驗收。
 
-額外瀏覽器權限請求中止、舊版fixture命令未啟動；正式LCP、UI／真正離線及真實跨版快取補驗未執行，沿用有效本機／CI範圍，未宣稱完整正式Gate通過。#180仍待驗；時間門檻已隨本批核准，未放寬。
+正式補驗（同版）：首頁／第121課各5組fresh及HTTP快取重載，20次載入無意外錯誤。LCP p95首頁fresh／repeat為2664／832ms，課程為2264／836ms；首頁fresh超過2500ms，其他LCP、TBT及內容可用門檻通過。保留慢樣本，整體時間Gate未通過，不以本機成績代替。
 
-Private測量批次3b7a22c8-9b42-400d-81ae-f1d12d1058f6核對26件SHA（6份原始長小數JSON隔離，保存標註副本與原SHA，非完整原件備份）；[發布收尾批次3127e174](https://github.com/frobel0520/project-archives/blob/bca36125498235b81e8e09f0043d2a47d2bad030/projects/gh-1395745155/manifests/3127e174-0f44-40a9-ab75-787850e4ebdf.json)另以全新clone核對7件SHA。未公開工程原件，沒有重驗歷史媒體。
+正式375寬以UI下載121課35音檔，另設2圖明確cache fixture，37檔SHA與來源一致；返回清單群組／座標保持。線上及真正斷網重載各完整原生播放6句（1倍）及作答3題，舊合成進度與下載key／SHA保持、pageerror 0。以9b93e5a→c23743da兩個未改寫真實build另外驗證等待確認更新、重載、下載與進度保留及更新後離線播放；不是正式站歷史升級重播，未回退正式版。
+
+前批Private測量3b7a22c8、發布3127e174保持；[本輪補驗ef9beb48](https://github.com/frobel0520/project-archives/blob/dd118b6f6f2219bc37f7bc3718307987568682d0/projects/gh-1395745155/manifests/ef9beb48-5f98-48fc-ac88-d3f5abafdce3.json)以新clone核對9件SHA。原時間長小數JSON誤觸掃描，保存標註副本與原SHA，非完整原件備份。腳本提前判定安裝及本機代理逾時紀錄保留；修正等待及直連後完成。#180真實登入同步仍待驗，門檻未放寬。
 
 ## T189：action-0740 與 action-0762 來源及讀音自查結案（2026-11-14，純文件）
 

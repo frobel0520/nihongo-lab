@@ -1026,7 +1026,7 @@ Release Gate：影響初始載入、路由資料載入或 Worker 時，發布前
 - 必要資料：把虛擬教材入口的 `gameMeaningDistractors` 改為獨立純資料模組再re-export，讓bundler將它與遊戲頁一起載入。Node與瀏覽器的公開匯出名稱、全部選項內容及lesson payload保持。資料仍從 `lessons.mjs` 衍生，沒有第二份手寫教材；本次只是延後遊戲資料，不減少全站離線內容。遊戲頁第一次會承接原本首頁已下載的資料成本。
 - 取捨：選定課程時多提前一個必要的view請求；不做全課程、hover或背景投機預載。新增阻塞payload的瀏覽器回歸須在SW停用下確認view已被請求，避免precache造成假陽性；另覆蓋首頁不預載、匯入失敗及舊進度保持。全部既有導航／真正離線回歸仍適用。
 - 診斷：`--details`額外記錄LCP元素標籤／class／面積及資源瀑布，不保存DOM文字、query、cookie或回應本文。記錄量測腳本SHA，原始JSON只留Private。正式瀏覽器須可正常使用環境NSS信任庫，本輪以該目錄必要的沙箱存取權驗證TLS，沒有使用忽略憑證旗標。
-- 比較：前後均以正式 `/nihongo-lab/` base build及相同preview設定量測，同一工具與限速條件、各5組fresh／repeat；結果見release-audit。先前錯誤preview base設定的中斷結果保留為失敗診斷，不納入前後比較。T191已部署且正式HTTP核對通過；正式頁面時間補驗未做，本機結果不當作正式改善的證據。
+- 比較：前後均以正式 `/nihongo-lab/` base build及相同preview設定量測，同一工具與限速條件、各5組fresh／repeat；結果見release-audit。先前錯誤preview base設定的中斷結果保留為失敗診斷，不納入前後比較。T191已部署且正式HTTP核對通過；正式頁面時間已補驗，首頁fresh LCP超標，其餘通過，見release-audit。本機前後比較不當作正式改善倍數的證據。
 
 
-T191發布紀錄：產品c23743da的主分支CI、Worker及Pages成功，正式HTTP產物已核對；正式瀏覽器LCP／跨版補驗因額外目錄權限請求中止而未執行，保留待驗。已核准的時間門檻不因本次受限而放寬，詳細範圍見release-audit的T191。
+T191發布紀錄：產品c23743da的主分支CI、Worker及Pages成功，正式HTTP產物已核對；正式瀏覽器已補驗頁面時間、原生播放、作答、返回與下載／合成進度保留，首頁fresh LCP仍超標；跨版證據範圍見release-audit。既有權限中止及失敗紀錄保留，時間門檻未放寬。
