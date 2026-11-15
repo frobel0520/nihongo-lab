@@ -4,14 +4,16 @@
 
 ## T192：縮減首頁必要教材索引的傳輸
 
+- Status：已於2026-11-15依使用者授權合併發布；正式頁面時間、實際更新及離線驗收通過，產品2ec418f9。
+
 - Task ID／Goal：T192（Issue #254），依T191正式瀑布改善首頁首次載入，不減少必要內容。
 - Input contract：main `6e1c512`、T191已核驗Private診斷、現行時間及容量門檻。
 - Output artifact：索引連續參照的區間表示、精確還原測試、同條件本機前後比較與定點瀏覽器回歸。
 - depends_on：T191。
-- Out of scope：教材、公開資料API、排程／同步、下載／更新契約、Harbor整合、門檻、合併與部署。
+- Out of scope：教材、公開資料API、排程／同步、下載／更新契約、Harbor整合與門檻；合併部署依後續當次明確授權，已於發布輪完成。
 - Acceptance checks：完整check、正式base build、原bundle門檻及適用CI；每頁5組fresh／HTTP快取重載；首頁統計、課程入口與真正離線。
-- Fixture or test data：混合參照／重複ID的獨立fixture、合成進度、375×667隔離Chromium；非正式站或真機。
-- Evidence path：[本批驗收摘要](release-audit.md#t192首頁索引傳輸改善候選)；完整證據留Private。
+- Fixture or test data：混合參照／重複ID的獨立fixture、合成進度、375×667隔離Chromium；本機前後比較與正式更新／時間分列，非真機。
+- Evidence path：[本批驗收摘要](release-audit.md#t192首頁索引傳輸改善)；完整證據留Private。
 
 ## T191：匿名正式效能基準與驗收工具
 

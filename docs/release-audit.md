@@ -13,19 +13,19 @@
 - 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
 - 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
 
-## T192：首頁索引傳輸改善（候選）
+## T192：首頁索引傳輸改善
 
-Issue #254。沿用T191已核驗Private瀑布：首頁必要索引是最大傳輸請求，慢樣本在索引載入與初次渲染後產生LCP。只將至少三個連續ID表位置寫為起點／筆數，原同步入口完整展開；教材、公開API、順序、重複項、統計與媒體不變，Harbor整合及完整離線／等待確認更新保持。
+Issue #254。沿用T191已核驗瀑布，以連續參照區間縮減首頁必要索引，在原同步入口完整展開；內容、公開API、順序、重複項、ID及媒體保持。代價是線性解碼；Harbor整合、離線／確認更新契約及全部門檻不變。
 
-正式base build的索引487020→400396 bytes，gzip（level 9）155032→110382 bytes；precache維持484項，用量23148201／26869829 bytes，其他原容量門檻通過。增加混合區間、重複ID及獨立清單的還原回歸，全部教材索引與序列化ESM往返檢查保持。
+正式base索引487020→400396 bytes，gzip155032→110382；precache484項、23148201／26869829 bytes，四項容量門檻通過。440 tests、型別、lint、區間還原及完整索引往返檢查通過。每版20次同條件本機載入無意外錯誤；首頁LCP p95 fresh2372→2152ms、repeat572→584ms，121課2360→2236及476→472ms。保留repeat微幅增加及全部慢樣本，不與正式網路混算。
 
-本機基準 `6e1c512` 與產品候選 `1a9eb35`，同一perf:runtime及loopback gzip伺服器，每頁5組fresh／HTTP快取重載，375×667／DPR2、CPU4倍、RTT150ms、下載1.6Mbps／上傳750Kbps、停用SW、單一並行。兩版各20次無意外錯誤。LCP p95首頁fresh 2372→2152ms、repeat 572→584ms；第121課fresh 2360→2236ms、repeat 476→472ms。所有本機時間門檻通過，保留repeat微幅增加、全部慢樣本及相同LCP元素／面積；不與正式2664ms混算。
+2026-11-15發布：[PR #255](https://github.com/frobel0520/nihongo-lab/pull/255)已fast-forward合併，產品2ec418f9；[main CI／Worker／Pages](https://github.com/frobel0520/nihongo-lab/actions/runs/43697417688)成功，正式10個變更／代表檔SHA一致。
 
-440 tests、型別、lint及正式check退出碼0；375寬首頁統計／已開始數、121課分組／25單字及ruby、1倍原生播放、返回2543→2543與舊合成進度通過。等待SW ready後setOffline、未快取probe失敗再重載，相同流程通過，pageerror 0；只用單音檔快取fixture，不冒稱全量下載UI重驗。原媒體、導航／SRS及跨版證據依未變範圍沿用。
+正式375×667／DPR2、CPU4倍、RTT150ms、下載1.6Mbps、SW停用；兩頁各5組fresh／HTTP快取重載，20次載入無意外錯誤。LCP p95首頁2180／856ms、121課2156／788ms；TBT與內容可用亦全部通過。T191失敗樣本保留，不混算不同時段改善倍數。
 
-完整瀑布、版本對照、失敗及成功紀錄在Private批次 `78db7f64-0c20-495b-bbdd-0a9b4bf7d382`，遠端逐件SHA核驗後交付。長小數JSON與3份日誌保存明確加註副本及原SHA，不宣稱完整原件備份。CI依原分類器走full；精確最終head結果見PR。
+正式T191→T192確認更新、重載及舊合成進度／35音檔／2圖保留通過（音檔由UI下載、圖片為明確cache fixture）；37檔與來源SHA一致。返回群組／座標保持；線上及真正斷網重載各完整1倍播放6句／作答3題，pageerror 0。
 
-正式站仍是T191；本批未部署。獲准發布後核對版本／變更JS及SW、原條件兩頁時間、首頁至課程播放／返回及真正離線，確認舊資料保持；不重跑全站歷史媒體。本機通過不代替正式2664ms缺口的複驗。
+本機工程證據在Private批次78db7f64；[發布批次e20717ba](https://github.com/frobel0520/project-archives/blob/624e900d210dd0b9189b6b1f93630f24a61d946a/projects/gh-1395745155/manifests/e20717ba-b1ba-498e-ad88-4442350fc6a4.json)以fresh clone核對12件SHA。長小數誤觸掃描，明列標註副本及原SHA，非完整原件備份。真實登入同步等未驗範圍保持。
 
 ## T191：載入效能工具及最小改善（2026-11-15發布）
 
