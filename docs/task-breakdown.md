@@ -2,6 +2,17 @@
 
 > 批次候選與勾選狀態須依當時日期判讀，不代表今日待辦。現況以[主進度](../progress.md)為入口，協作規則見[AGENTS](../AGENTS.md)；長期需求、分析與架構契約保留，不因本次收尾重寫。
 
+## T192：縮減首頁必要教材索引的傳輸
+
+- Task ID／Goal：T192（Issue #254），依T191正式瀑布改善首頁首次載入，不減少必要內容。
+- Input contract：main `6e1c512`、T191已核驗Private診斷、現行時間及容量門檻。
+- Output artifact：索引連續參照的區間表示、精確還原測試、同條件本機前後比較與定點瀏覽器回歸。
+- depends_on：T191。
+- Out of scope：教材、公開資料API、排程／同步、下載／更新契約、Harbor整合、門檻、合併與部署。
+- Acceptance checks：完整check、正式base build、原bundle門檻及適用CI；每頁5組fresh／HTTP快取重載；首頁統計、課程入口與真正離線。
+- Fixture or test data：混合參照／重複ID的獨立fixture、合成進度、375×667隔離Chromium；非正式站或真機。
+- Evidence path：[本批驗收摘要](release-audit.md#t192首頁索引傳輸改善候選)；完整證據留Private。
+
 ## T191：匿名正式效能基準與驗收工具
 
 - Task ID／Goal：T191（Issue #250），補上可重做的時間量測，並依使用者授權完成瀑布定位、最小載入改善與前後回歸。
