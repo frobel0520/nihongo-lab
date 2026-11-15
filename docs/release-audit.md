@@ -13,7 +13,7 @@
 - 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
 - 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
 
-## T191：載入效能工具及最小改善（2026-11-15，候選未部署）
+## T191：載入效能工具及最小改善（2026-11-15發布）
 
 瀑布確認教材完成後才下載課程畫面，且共用入口包含遊戲專用干擾選項。改平行準備教材／元件後直接渲染，並將選項隨遊戲頁載入；資料、答案、ID、媒體、同步及離線契約保持。未以空殼畫面改善數字，時間及容量門檻未放寬。
 
@@ -21,7 +21,11 @@
 
 439 tests、型別、lint、正式build及bundle通過；新增阻塞payload的負例在舊版重現，新版直入／首頁進入及匯入失敗回歸通過。完整導航、返回、合成進度、真正離線及SRS回歸通過，pageerror 0。首輪未達標、中斷與TLS診斷均保留；以必要的NSS目錄存取權完成TLS驗證及量測；正式舊版量測另存，不混用。
 
-候選尚未部署，正式改善仍待驗，#180的真實登入／成功同步未結案；時間門檻提案見SD的T191。驗證記錄已保存於[Private批次3b7a22c8](https://github.com/frobel0520/project-archives/blob/96bae79b38a9c308067c97e8118888cafa7491fd/projects/gh-1395745155/manifests/3b7a22c8-9b42-400d-81ae-f1d12d1058f6.json)，重新clone核對26件SHA一致；6份長小數原始JSON受掃描誤報隔離，保存標註的三位小數副本與原SHA，並非完整原件備份。追蹤Issue #250。
+[PR #251](https://github.com/frobel0520/nihongo-lab/pull/251)已fast-forward合併，產品c23743da；[main CI／Worker／Pages](https://github.com/frobel0520/nihongo-lab/actions/runs/43653175089)成功。正式10檔大小／SHA一致，首頁307跟隨正規化轉址後內容一致；health 200、未登入sync 401及舊網址引導正常，非真實登入或成功同步驗收。
+
+額外瀏覽器權限請求中止、舊版fixture命令未啟動；正式LCP、UI／真正離線及真實跨版快取補驗未執行，沿用有效本機／CI範圍，未宣稱完整正式Gate通過。#180仍待驗；時間門檻已隨本批核准，未放寬。
+
+Private測量批次3b7a22c8-9b42-400d-81ae-f1d12d1058f6核對26件SHA（6份原始長小數JSON隔離，保存標註副本與原SHA，非完整原件備份）；[發布收尾批次3127e174](https://github.com/frobel0520/project-archives/blob/bca36125498235b81e8e09f0043d2a47d2bad030/projects/gh-1395745155/manifests/3127e174-0f44-40a9-ab75-787850e4ebdf.json)另以全新clone核對7件SHA。未公開工程原件，沒有重驗歷史媒體。
 
 ## T189：action-0740 與 action-0762 來源及讀音自查結案（2026-11-14，純文件）
 

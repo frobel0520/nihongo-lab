@@ -995,16 +995,16 @@ Rollback：把兩個 ID 從 `HIDDEN_GAME_CHARACTERS` 移除即恢復顯示，進
 `lib/game-study.mjs` 的 `markGameHeard(progress, line, now)` 在句子尚未已學時，以既有的 `gameRecordId` 寫入版本 3 通用練習 map；已學時回傳原物件，不產生新的同步變更。`GameStudyView` 在 PlayButton 的 `onPlayed`（audio 的 `playing` 事件，每次掛載只計一次）呼叫它，並移除 StudyLine 的 `onDone` 與按鈕，改顯示「已聽過，計入已學。」或「播放這句後會計入已學。」。紀錄 ID、儲存格式、Worker 與同步合併都不變。
 
 
-## T191：匿名頁面／API 時間效能量測提案（2026-11-15）
+## T191：匿名頁面／API 時間效能 Gate（2026-11-15核准）
 
-背景：T122 移除了頁面計時工具與時間門檻，現有 bundle 檢查不能代替 Harbor 規範要求的效能驗收。本輪先新增獨立的 `npm run perf:runtime`；2026-11-15使用者再授權依瀑布做最小載入改善。登入流程、部署與bundle預算保持；本節為新增指標提案，須隨本 PR 明確核准後採用，不因工具已有數字就宣稱正式 Release Gate 完整通過。
+背景：T122 移除了頁面計時工具與時間門檻，現有 bundle 檢查不能代替 Harbor 規範要求的效能驗收。本輪先新增獨立的 `npm run perf:runtime`；2026-11-15使用者再授權依瀑布做最小載入改善。登入流程、部署與bundle預算保持；本節新增指標已由使用者隨PR #251合併部署授權核准採用；本機、正式、匿名拒絕及成功同步分開認列，不因工具已有數字就宣稱正式Release Gate完整通過。
 
 - 輸入必填 `--url`、經部署紀錄核實的 `--revision`、repo 外私有證據 `--out`；預設涵蓋頁面與匿名 API，可用 `--pages-only`／`--api-only` 限縮，兩者不可同時指定。
 - 頁面：首頁及通用第121課，各5個全新匿名 context；375×667、DPR 2、CPU 4倍降速、150ms延遲、下載1.6Mbps／上傳750Kbps。每個 context 首次載入後再完整 reload 一次，分別記 fresh／repeat；不代表 CDN／Worker 冷啟動。
 - 為避免數百筆背景安裝請求干擾基準，兩種頁面情境均停用 service worker。repeat 僅重用 HTTP 快取，不是已安裝 PWA，首次完整預快取時間另列未驗。LCP 記錄到內容出現後3秒；TBT 計算 FCP 後 long task 超過50ms的部分，不冒稱現場 Core Web Vitals 或 INP。
 - API：curl 保留環境代理與 TLS 驗證，單請求／獨立程序／不保存 cookie；`GET /health` 須200且 `ok:true`，無登入的 `POST /sync` 須401且 `unauthorized`。完整讀完 JSON 才結束計時；記錄代理在內的端到端延遲，不代表 Worker CPU 時間、成功同步或容量壓測。
 
-| 情境 | 指標 p95 上限（提案） | 依據 |
+| 情境 | 指標 p95 上限（已核准） | 依據 |
 | --- | --- | --- |
 | fresh 頁面 | LCP 2500ms、TBT 200ms、內容可用5000ms | 沿用 T120 LCP／TBT 上限；內容可用至少須在5秒內，避免畫面已繪製但教材仍不可讀 |
 | repeat 頁面 | LCP 1500ms、TBT 200ms、內容可用3000ms | 沿用 T120 warm LCP／TBT 上限；本輪改用明確的 HTTP 快取重載條件，與舊 SW 暖啟動不可直接比較 |
@@ -1012,7 +1012,7 @@ Rollback：把兩個 ID 從 `HIDDEN_GAME_CHARACTERS` 移除即恢復顯示，進
 
 統計沿用 `lib/perf-stats.mjs` 的 nearest-rank p50／p95；每情境5～10筆、單一並行。樣本少時 p95 就是最大值，不能當人口分布估計。缺值、任一意外錯誤或少於5筆皆不能通過；失敗樣本保留，不以成功子集取代。`--check` 僅判定此次選定範圍，report 的 coverage 保留真實登入同步、真機、安裝 PWA 等未驗項目，不能藉由 `--api-only` 把 #180 全部結案。
 
-Release Gate 提案：影響初始載入、路由資料載入或 Worker 時，發布前對實際受影響範圍執行 `perf:runtime --check`，本機與正式證據分開；正式候選尚未部署時，只能先記本機結果，部署後補正式驗收。工具變更由 CI 單元測試與本機 fixture 驗證，CI 不對正式站額外發請求。純文件／不影響時間指標的教材變更沿用版本適用的證據，不重跑全站或負載測試。門檻失敗、正式憑證／網路不通時照實記錄並保留待驗，不能降門檻或關閉 TLS 驗證求通過。
+Release Gate：影響初始載入、路由資料載入或 Worker 時，發布前對實際受影響範圍執行 `perf:runtime --check`，本機與正式證據分開；正式候選尚未部署時，只能先記本機結果，部署後補正式驗收。工具變更由 CI 單元測試與本機 fixture 驗證，CI 不對正式站額外發請求。純文件／不影響時間指標的教材變更沿用版本適用的證據，不重跑全站或負載測試。門檻失敗、正式憑證／網路不通時照實記錄並保留待驗，不能降門檻或關閉 TLS 驗證求通過。
 
 零月費：僅使用既有 Chromium、curl、playwright-core 和標準函式庫，沒有新相依套件、排程、付費服務或雲端設定；每次預設20次頁面載入及10次匿名 API，停用預快取，非壓測。回退可revert本輪載入與建置切分、工具及npm指令，不涉及產品資料遷移；已發布的回退仍需依正常PR及部署流程。
 
@@ -1026,4 +1026,7 @@ Release Gate 提案：影響初始載入、路由資料載入或 Worker 時，�
 - 必要資料：把虛擬教材入口的 `gameMeaningDistractors` 改為獨立純資料模組再re-export，讓bundler將它與遊戲頁一起載入。Node與瀏覽器的公開匯出名稱、全部選項內容及lesson payload保持。資料仍從 `lessons.mjs` 衍生，沒有第二份手寫教材；本次只是延後遊戲資料，不減少全站離線內容。遊戲頁第一次會承接原本首頁已下載的資料成本。
 - 取捨：選定課程時多提前一個必要的view請求；不做全課程、hover或背景投機預載。新增阻塞payload的瀏覽器回歸須在SW停用下確認view已被請求，避免precache造成假陽性；另覆蓋首頁不預載、匯入失敗及舊進度保持。全部既有導航／真正離線回歸仍適用。
 - 診斷：`--details`額外記錄LCP元素標籤／class／面積及資源瀑布，不保存DOM文字、query、cookie或回應本文。記錄量測腳本SHA，原始JSON只留Private。正式瀏覽器須可正常使用環境NSS信任庫，本輪以該目錄必要的沙箱存取權驗證TLS，沒有使用忽略憑證旗標。
-- 比較：前後均以正式 `/nihongo-lab/` base build及相同preview設定量測，同一工具與限速條件、各5組fresh／repeat；結果見release-audit。先前錯誤preview base設定的中斷結果保留為失敗診斷，不納入前後比較。正式站仍是舊產品，候選改善須部署後另驗，不把本機結果當作正式驗收。
+- 比較：前後均以正式 `/nihongo-lab/` base build及相同preview設定量測，同一工具與限速條件、各5組fresh／repeat；結果見release-audit。先前錯誤preview base設定的中斷結果保留為失敗診斷，不納入前後比較。T191已部署且正式HTTP核對通過；正式頁面時間補驗未做，本機結果不當作正式改善的證據。
+
+
+T191發布紀錄：產品c23743da的主分支CI、Worker及Pages成功，正式HTTP產物已核對；正式瀏覽器LCP／跨版補驗因額外目錄權限請求中止而未執行，保留待驗。已核准的時間門檻不因本次受限而放寬，詳細範圍見release-audit的T191。
