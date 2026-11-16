@@ -22,6 +22,7 @@
     "test:pwa:update": "node tests/pwa-update-browser.mjs",
     "test:pwa:updates": "node tests/build-pwa-fixtures.mjs && node tests/pwa-update-browser.mjs --old-dist dist --dist .cache/pwa-fixtures/next --next-dist .cache/pwa-fixtures/later",
     "test:quality": "node tests/quality-browser.mjs",
+    "test:scene-focus": "node tests/scene-focus-browser.mjs --dist dist",
     "test:inference": "node tests/quality-browser.mjs --inference",
     "test:srs-layout": "node tests/srs-layout-browser.mjs --dist dist && node tests/srs-presentation-browser.mjs --dist dist",
     "test:ux": "node tests/ux-review-browser.mjs --dist dist",

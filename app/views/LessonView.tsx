@@ -316,6 +316,9 @@ export function LessonView({
           </ul>
         </section>
       )}
+      <p className="muted lesson-practice-scope">
+        「單字卡／聽寫／跟讀」入口會先選教材類別；練習範圍是所選類別的全部課程，不限本課，也不混合其他類別。
+      </p>
     </>
   );
 }

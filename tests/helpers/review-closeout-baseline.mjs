@@ -1,10 +1,11 @@
 import { readFileSync } from 'node:fs';
+import { beforeNoteClarifications } from './note-clarification-baseline.mjs';
 export const reviewBaseline = JSON.parse(readFileSync(new URL('../fixtures/curriculum-edd78cd-review-closeout.json', import.meta.url), 'utf8'));
 
-// Earlier golden checks see only the explicitly reviewed T149 fields restored.
+// Earlier golden checks restore only reviewed T149 fields and later note clarifications.
 // The new scope test compares all current content and identities independently.
 export function beforeReviewCloseout(stages) {
-  const historical = structuredClone(stages);
+  const historical = beforeNoteClarifications(stages);
   const lessons = historical.flatMap(s => s.lessons);
   for (const entry of reviewBaseline.notes)
     lessons.find(l => l.id === entry.lessonId).grammar[entry.index].note = entry.note;

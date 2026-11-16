@@ -1,0 +1,19 @@
+{
+  "commit": "04070cae4b6c357129d351a37e2b276560189b0b",
+  "notes": [
+    {
+      "lessonId": "general-listening-39",
+      "index": 1,
+      "note": "動詞て形接ほしい，表示希望別人做某事；做事的人常以に標示。"
+    },
+    {
+      "lessonId": "general-listening-54",
+      "index": 0,
+      "note": "あげる從自己一方給出，くれる是他人給自己一方，もらう從接受者視角描述收到；人物關係需依主題與助詞判斷。"
+    }
+  ],
+  "contentSha256": "f6cb901c327c2545d3d5e33d4da32a3ab35f1dd75b0e5aeaea43bd4f91519ffe",
+  "summarySha256": "51cb1b3aaf1ab9019e528b2e4c57ed85a14f3198fc10374e28e1b529ed87f9b3",
+  "catalogSha256": "6df421cb9b9a5aa548079ac403625bad7b415b2dbd8e6e6ffdb93cead8db829d",
+  "sceneIdsSha256": "c89cc9f22a4b5ca584edcbb5dcebfdb2c13b90fa7f62a0a969ba538e5cea24ab"
+}

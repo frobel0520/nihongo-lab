@@ -1,5 +1,5 @@
 import { usePageState } from '../lib/pageContext';
-import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { Lesson } from '../../curriculum/lessons.mjs';
 import type { Progress } from '../../lib/progress.mjs';
 import { recordDictation } from '../../lib/progress.mjs';
@@ -72,6 +72,17 @@ export function SceneListening({
   const questionCount = scene.questions.length;
   const question = scene.questions.find((q) => answers[q.id] === undefined);
   const revealed = !question;
+  const resultsHeading = useRef<HTMLHeadingElement>(null);
+  const focusResults = useRef(false);
+
+  // Only the keyboard submission that reveals these results requests focus.
+  // Restored answers, progress updates and pointer actions keep their reading position.
+  useLayoutEffect(() => {
+    if (!revealed || !focusResults.current) return;
+    focusResults.current = false;
+    resultsHeading.current?.focus({ preventScroll: true });
+    resultsHeading.current?.scrollIntoView({ block: 'center', behavior: 'instant' });
+  }, [revealed]);
 
   useEffect(() => {
     const el = audio.current;
@@ -125,8 +136,11 @@ export function SceneListening({
       setHeard(true);
     }
   };
-  const choose = (choice: number) => {
+  const choose = (choice: number, keyboard: boolean) => {
     if (!heard || !question || submitted.current.has(question.id)) return;
+    focusResults.current = keyboard && scene.questions.every(
+      (q) => q.id === question.id || answers[q.id] !== undefined,
+    );
     submitted.current.add(question.id);
     const correct = checkListeningChoice(question, choice);
     update((prev) =>
@@ -198,7 +212,7 @@ export function SceneListening({
                   className="btn block"
                   key={index}
                   disabled={!heard}
-                  onClick={() => choose(index)}
+                  onClick={(event) => choose(index, event.detail === 0)}
                 >
                   {text}
                 </button>
@@ -214,7 +228,7 @@ export function SceneListening({
       )}
       {revealed && (
         <>
-          <h3>答案與解析</h3>
+          <h3 ref={resultsHeading} tabIndex={-1}>答案與解析</h3>
           {scene.questions.map((q) => (
             <div key={q.id} className="grammar-point">
               <p className={answers[q.id] === q.answer ? 'answer' : 'notice'}>

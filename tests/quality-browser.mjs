@@ -134,3 +134,10 @@ try {
   console.log(JSON.stringify({scenario:inference?'inference-production-build':'quality-production-build',remote:!!remote,playedLines,pageerrors:0,width:375,overflow:false}));
   await context.close();
 } finally { await browser.close();if(server)await new Promise(r=>server.close(r)); }
+
+// Keep the focused keyboard/entry regression in the existing local-build quality gate.
+// Remote acceptance and the separate inference suite retain their explicit scope.
+if (!inference && !remote)
+  execFileSync(process.execPath, ['tests/scene-focus-browser.mjs', '--dist', root], {
+    stdio: 'inherit',
+  });
