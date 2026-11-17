@@ -4,6 +4,8 @@
 
 ## T193：通用聽解解析焦點與說明改善
 
+- Status：2026-11-16已依使用者授權發布為0391f988；main CI／部署／正式產物核對通過，正式UI補驗因環境TLS信任受阻，仍待補。
+
 - Task ID／Goal：T193（Issue #257），只處理既有1～60課覆核的四項改善。
 - Input contract：main `04070cae`、已核驗Private覆核批次 `b0e1446f-669e-4b54-8eb5-127a7bdbf6b3`、現行ruby與進度契約。
 - Output artifact：鍵盤完成解析焦點、39／54課兩段note及ruby、課程練習範圍提示、範圍守門與真實build回歸。
@@ -11,7 +13,7 @@
 - Out of scope：例句、對話、題目／答案、ID、媒體、排程／同步、導航、下載／更新、門檻、reviewer與發布。
 - Acceptance checks：check、正式base build、原bundle、適用CI；焦點／Tab／重練／重繪、非本批代表課、兩尺寸、真正離線及類別題庫往返；載入證據按影響沿用或補驗。
 - Fixture or test data：固定開工內容／ID指紋、合成舊進度、375×667與320×480／150%根字級Chromium，非真機或實體螢幕閱讀器。
-- Evidence path：[發布稽核](release-audit.md#t193通用聽解解析焦點與說明改善候選)；完整報告與畫面留Private。
+- Evidence path：[發布稽核](release-audit.md#t193通用聽解解析焦點與說明改善)；完整報告與畫面留Private。
 
 ## T192：縮減首頁必要教材索引的傳輸
 

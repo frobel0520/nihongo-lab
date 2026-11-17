@@ -13,17 +13,21 @@
 - 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
 - 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
 
-## T193：通用聽解解析焦點與說明改善（候選）
+## T193：通用聽解解析焦點與說明改善
 
-Issue #257。基準main `04070cae`與原覆核一致；Private原批次 `b0e1446f`核驗86件／19515724 bytes。30課JPEG仍缺件，不重建或冒稱備份。最後作答原按鈕消失後沒有焦點交接；改為只有鍵盤最後提交才在同次DOM生命週期聚焦解析標題（tabIndex -1），先preventScroll再單次定位。不新增live region、Tab停駐或定時重捲；滑鼠／觸控、一般重繪及返回不搶焦點。
+Issue #257，基準04070cae。原覆核Private批次b0e1446f已核驗86件，30課JPEG缺件保持。最後作答後原按鈕消失，僅鍵盤提交改為同次DOM聚焦解析標題（tabIndex -1），先preventScroll再單次定位；不新增live region、Tab停駐或定時重捲，滑鼠／觸控、重繪及返回不搶焦點。
 
 只補39課に的動作執行者／電話對象文脈，54課以本課視點說明授受且保留第三者用法，依來源核對及ruby契約同步；正確例句、有聲文字與答案不變。課程頁練習入口旁明示所選類別全部課程、不限本課、不混合其他類別；路由與選類別流程不變。
 
 441項測試、型別、lint、正式check及正式base build／原bundle通過。375寬修正前焦點為BODY，後為解析標題，頂端約322px；320×480／150%根字級（實測24px）約224px，皆在固定列間可見。鍵盤重練、滑鼠／觸控、完成後Tab、一般重繪、返回及61課共用代表回歸通過。真正斷網probe失敗後重載，解析、兩段note／ruby與提示正常；三入口各驗兩條流程，通用題庫4500卡／1800句及課程分頁／座標保持，pageerror 0。六個明確音檔cache fixture核對SHA，不冒稱全量下載重驗；開工指紋確認教材僅兩段note變更，全部ID／媒體保持。
 
-首頁初始11資產只換雜湊，解碼大小不變、gzip合計差3 bytes；課程元件增520 bytes，補一次原設定本機20次頁面載入，首頁fresh／repeat LCP p95 2292／628ms，121課2148／536ms，所有時間門檻通過、錯誤0。不與正式結果混算；T193尚未部署。
+首頁初始11資產只換雜湊，解碼大小不變、gzip合計差3 bytes；課程元件增520 bytes，補一次原設定本機20次頁面載入，首頁fresh／repeat LCP p95 2292／628ms，121課2148／536ms，所有時間門檻通過、錯誤0。不與正式結果混算；T193沒有正式效能重測。
 
-precache 23149434／26869829 bytes，484項；JS／CSS及配圖chunk原門檻保持。CI按原分類器full，精確head結果見PR；完整證據在Private批次 `207c052f-1fd4-448d-a290-22c75d306051`，遠端核驗後交付。舊下載、全站媒體、SRS及更新證據僅沿用未變範圍。未驗人耳、真機、實體螢幕閱讀器或學習效果；本批停Ready，不合併部署。
+precache 23149434／26869829 bytes，484項；JS／CSS及配圖chunk原門檻保持。CI按原分類器full，精確head結果見PR；完整證據在Private批次 `207c052f-1fd4-448d-a290-22c75d306051`，遠端核驗後交付。舊下載、全站媒體、SRS及更新證據僅沿用未變範圍。
+
+2026-11-16 [PR #258](https://github.com/frobel0520/nihongo-lab/pull/258)已fast-forward合併，產品0391f988；[main CI／Worker／Pages](https://github.com/frobel0520/nihongo-lab/actions/runs/43835746062)成功。11-17恢復環境後核對正式12個變更／代表檔大小與SHA全部一致。兩次額外目錄權限指令中止，無有效瀏覽器結果；一般權限重試於初始導覽即ERR_CERT_AUTHORITY_INVALID。沒有停用TLS或回退產品，正式UI／更新／離線及時間重測均未列通過，沿用有效本機／CI範圍，保留待補驗。
+
+[Private發布批次5ea476ff](https://github.com/frobel0520/project-archives/blob/bfb24221a9714bc1e3117b8eb2cffe9ac7d7af70/projects/gh-1395745155/manifests/5ea476ff-0b81-4b8c-b9c9-5926d49e6299.json)以fresh clone核對7件SHA，含TLS失敗及未驗範圍。
 
 ## T192：首頁索引傳輸改善
 
