@@ -26,32 +26,39 @@ export function loadActiveExceptions(file, now) {
   return active;
 }
 
+/** @param {unknown} url */
 const ghsaOf = (url) => /GHSA-[a-z0-9-]+/i.exec(String(url ?? ""))?.[0] ?? null;
 
-/** npm audit --json（auditReportVersion 2）→ 每個 high/critical 套件追到根源 advisory。 */
+/** @typedef {{ package: string, severity: string, advisories: string[] }} Finding */
+
+/** npm audit --json（auditReportVersion 2）→ 每個 high/critical 套件追到根源 advisory。
+ * @param {any} report @returns {Finding[]} */
 function npmFindings(report) {
   if (report?.auditReportVersion !== 2 || typeof report.vulnerabilities !== "object") throw new Error("npm audit 輸出格式無效");
   const vulns = report.vulnerabilities;
+  /** @param {string} name @param {Set<string>} [seen] @returns {string[]} */
   const roots = (name, seen = new Set()) => {
     if (seen.has(name) || !vulns[name]) return [];
     seen.add(name);
     // 只看 high/critical 的根源；medium 以下與原本 --audit-level=high 一樣不擋
-    return vulns[name].via.flatMap((v) => (typeof v === "string" ? roots(v, seen) : BLOCKING.has(v.severity) ? [ghsaOf(v.url) ?? `unknown:${v.source}`] : []));
+    return vulns[name].via.flatMap((/** @type {any} */ v) => (typeof v === "string" ? roots(v, seen) : BLOCKING.has(v.severity) ? [ghsaOf(v.url) ?? `unknown:${v.source}`] : []));
   };
   return Object.entries(vulns)
-    .filter(([, v]) => BLOCKING.has(v.severity))
-    .map(([name, v]) => ({ package: name, severity: v.severity, advisories: [...new Set(roots(name))] }));
+    .filter(([, /** @type {any} */ v]) => BLOCKING.has(v.severity))
+    .map(([name, /** @type {any} */ v]) => ({ package: name, severity: v.severity, advisories: [...new Set(roots(name))] }));
 }
 
-/** pnpm audit --json → advisories 物件。 */
+/** pnpm audit --json → advisories 物件。
+ * @param {any} report @returns {Finding[]} */
 function pnpmFindings(report) {
   if (!report || typeof report.advisories !== "object" || !report.metadata) throw new Error("pnpm audit 輸出格式無效");
   return Object.values(report.advisories)
-    .filter((a) => BLOCKING.has(a.severity))
-    .map((a) => ({ package: a.module_name, severity: a.severity, advisories: [a.github_advisory_id ?? ghsaOf(a.url) ?? `unknown:${a.id}`] }));
+    .filter((/** @type {any} */ a) => BLOCKING.has(a.severity))
+    .map((/** @type {any} */ a) => ({ package: a.module_name, severity: a.severity, advisories: [a.github_advisory_id ?? ghsaOf(a.url) ?? `unknown:${a.id}`] }));
 }
 
-/** 純函式：回傳被擋下與被例外放行的項目。 */
+/** 純函式：回傳被擋下與被例外放行的項目。
+ * @param {unknown} report @param {string} tool @param {Map<string, unknown>} active */
 export function evaluate(report, tool, active) {
   const findings = tool === "pnpm" ? pnpmFindings(report) : npmFindings(report);
   // 追不到任何 high/critical 根源時保守擋下，避免把格式異常當成通過
@@ -69,19 +76,19 @@ async function main() {
   let stdout = "";
   try {
     ({ stdout } = await run(bin, ["audit", "--json"], { maxBuffer: 16 * 1024 * 1024, shell: process.platform === "win32" }));
-  } catch (error) {
+  } catch (/** @type {any} */ error) {
     stdout = error.stdout ?? "";
     if (!stdout) throw error;
   }
   const { blocked, excused } = evaluate(JSON.parse(stdout), tool, active);
-  for (const f of excused) console.log(`例外放行 ${f.severity} ${f.package}：${f.advisories.map((id) => `${id}（到 ${active.get(id).expires}）`).join("、")}`);
+  for (const f of excused) console.log(`例外放行 ${f.severity} ${f.package}：${f.advisories.map((id) => `${id}（到 ${/** @type {any} */ (active.get(id)).expires}）`).join("、")}`);
   for (const f of blocked) console.error(`擋下 ${f.severity} ${f.package}：${f.advisories.join("、") || "無法追到 advisory"}`);
   console.log(`依賴稽核：high/critical 擋下 ${blocked.length}、例外放行 ${excused.length}`);
   process.exitCode = blocked.length ? 1 : 0;
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  main().catch((error) => {
+  main().catch((/** @type {any} */ error) => {
     console.error(`依賴稽核未完成：${error.message}`);
     process.exitCode = 2;
   });
