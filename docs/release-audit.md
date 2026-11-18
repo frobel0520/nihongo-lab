@@ -13,6 +13,16 @@
 - 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
 - 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
 
+## T194：四項確認UX修正（候選）
+
+Issue #260。依原覆核50a4271f及Private ea36ba2e核驗取用10件，保留原缺件；整合main的Pages CSP修補。兩項可選改善不處理。教材、所有ID／媒體、FSRS、同步3、導航、快取名稱、下載與確認更新契約保持。
+
+保存失敗提醒固定可見並預留實際高度；未保存的評分／作答與跨頁事件先合併保留，重新儲存只寫現有狀態、不重播評分。確認QuotaExceeded後停止新派發及尚未開始的重試，有限在途收尾；即時區分原因、已存／失敗／待接續，釋放空間只補缺。一般錯誤不冒稱容量不足、不自動清資料。共用捲動留白保護原生Tab／Shift+Tab；聽寫作答後明示「你的答案／正確答案」，作答前不洩題、不改日文或ruby。
+
+check與新增持續配額回歸、型別／lint、正式base build及原bundle通過；瀏覽器與最終head CI結果見PR，完整版本矩陣、失敗／中止、座標及真正離線證據在Private批次42ac9078-d6fa-4573-bc48-f88141189acc。precache 23152502／26869829 bytes；主JS gzip 66471、CSS 5306、配圖chunk 182157 bytes，門檻皆保持。初始程式／CSS有小幅增量；本機原設定20次頁面載入，首頁fresh／repeat LCP p95 2164／628ms，121課2136／484ms，時間門檻全過、意外錯誤0。首輪測試伺服器未壓縮而未達標，瀑布確認後只修正測試壓縮協商再測一次，兩輪樣本均保留；不與正式結果混算或代替發布後正式驗收。Ready後等待明確發布授權。
+
+2026-11-18核驗後續全案覆核Private `ea36ba2e-f85f-46cd-b8e1-9d04e80c554a`（保存commit c74b690d），正式產品0391f988的375×667代表流程已補驗：39／54課note／ruby及題庫範圍提示、01課原生1倍六句／三題鍵盤完成解析（標題約322px，固定列間可見）、UI下載本課35音檔後真正斷網probe失敗／重載／再播再答，以及合成舊進度保留、pageerror 0；正式JS／CSS／SW與對應build SHA一致。此範圍的原TLS待補結案，當時中止紀錄保持；不是全站正式重驗或正式歷史更新重播。T193正式效能未重測；登入同步端到端、WebKit、真機與實體螢幕閱讀器仍未驗。
+
 ## T193：通用聽解解析焦點與說明改善
 
 Issue #257，基準04070cae。原覆核Private批次b0e1446f已核驗86件，30課JPEG缺件保持。最後作答後原按鈕消失，僅鍵盤提交改為同次DOM聚焦解析標題（tabIndex -1），先preventScroll再單次定位；不新增live region、Tab停駐或定時重捲，滑鼠／觸控、重繪及返回不搶焦點。
@@ -28,6 +38,8 @@ precache 23149434／26869829 bytes，484項；JS／CSS及配圖chunk原門檻保
 2026-11-16 [PR #258](https://github.com/frobel0520/nihongo-lab/pull/258)已fast-forward合併，產品0391f988；[main CI／Worker／Pages](https://github.com/frobel0520/nihongo-lab/actions/runs/43835746062)成功。11-17恢復環境後核對正式12個變更／代表檔大小與SHA全部一致。兩次額外目錄權限指令中止，無有效瀏覽器結果；一般權限重試於初始導覽即ERR_CERT_AUTHORITY_INVALID。沒有停用TLS或回退產品，正式UI／更新／離線及時間重測均未列通過，沿用有效本機／CI範圍，保留待補驗。
 
 [Private發布批次5ea476ff](https://github.com/frobel0520/project-archives/blob/bfb24221a9714bc1e3117b8eb2cffe9ac7d7af70/projects/gh-1395745155/manifests/5ea476ff-0b81-4b8c-b9c9-5926d49e6299.json)以fresh clone核對7件SHA，含TLS失敗及未驗範圍。
+
+
 
 ## T192：首頁索引傳輸改善
 

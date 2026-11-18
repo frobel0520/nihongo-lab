@@ -2,9 +2,21 @@
 
 > 批次候選與勾選狀態須依當時日期判讀，不代表今日待辦。現況以[主進度](../progress.md)為入口，協作規則見[AGENTS](../AGENTS.md)；長期需求、分析與架構契約保留，不因本次收尾重寫。
 
+## T194：四項確認UX修正
+
+- Status：候選，未合併／未部署；完成自查與精確head CI後停在Ready，等待使用者發布授權。
+- Task ID／Goal：T194（Issue #260），只修正全案覆核確認的保存提醒、儲存不足派發、焦點遮擋與聽寫正解語意。
+- Input contract：原覆核main 50a4271f及Private ea36ba2e；保留後續main的Pages CSP修補。
+- Output artifact：待存記憶體與真正重新儲存、有限在途收尾／缺漏接續、共用捲動留白、作答後語意標籤。
+- depends_on：T193及既有下載工作／SRS定位；教材、媒體、ID、排程、同步與快取名稱不變。
+- Out of scope：兩項可選入口改善、教材擴充、reviewer、合併／部署及未授權的全站改版。
+- Acceptance checks：check、正式base build、原bundle與適用CI；隔離故障、座標、原生鍵盤、恢復、AX樹與真正斷網重載；舊證據按範圍沿用。
+- Fixture or test data：合成舊進度／Cache API與Storage故障，只用獨立Chromium context；不使用真實帳號或填滿使用者儲存。
+- Evidence path：release-audit T194；完整工程資料Private批次42ac9078-d6fa-4573-bc48-f88141189acc。
+
 ## T193：通用聽解解析焦點與說明改善
 
-- Status：2026-11-16已依使用者授權發布為0391f988；main CI／部署／正式產物核對通過，正式UI補驗因環境TLS信任受阻，仍待補。
+- Status：2026-11-16已依使用者授權發布為0391f988；main CI／部署／正式產物核對通過，後續全案覆核已在正式產品0391f988補完375寬代表UI／真正離線，原TLS中止保留於release-audit；正式時間未重測。
 
 - Task ID／Goal：T193（Issue #257），只處理既有1～60課覆核的四項改善。
 - Input contract：main `04070cae`、已核驗Private覆核批次 `b0e1446f-669e-4b54-8eb5-127a7bdbf6b3`、現行ruby與進度契約。
