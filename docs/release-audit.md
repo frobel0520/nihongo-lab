@@ -13,6 +13,16 @@
 - 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
 - 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
 
+## T194：四項確認 UX 修正（候選）
+
+Issue #260 的四項修正已交付 [PR #262](https://github.com/frobel0520/nihongo-lab/pull/262)，尚未發布。[必要 CI](https://github.com/frobel0520/nihongo-lab/actions/runs/44224592708) 的 Windows UX 成功，Linux 依賴稽核受 GHSA-fc5q-39xc-vjpf 阻擋，後續瀏覽器測試跳過。截至 2026-11-18，公告未列修補版，npm 最新為 4.0.7，仍在影響範圍。沿用 worker 的 [14 條依賴路徑盤點](https://github.com/frobel0520/project-archives/blob/d5d1337a56ef662a76c4107ac0f46b64e58d5c21/projects/gh-1395745155/manifests/671dadcc-0717-4440-a04b-ceeabcfb93c5.json)。產品自查見 [Private 工程證據](https://github.com/frobel0520/project-archives/blob/f98b08805ad7f15493416b7c5efb2693318aa11c/projects/gh-1395745155/manifests/42ac9078-d6fa-4573-bc48-f88141189acc.json)。角色換句定位與圖片下載入口定位留作可選改善。
+
+## T193：正式站代表補驗
+
+在正式部署 `0391f988` 的 375×667 Chromium 補驗第 39／54 課解說、ruby 與練習範圍提示，第 01 課原生 1 倍播放及三題鍵盤作答後的解析焦點。透過介面下載本課 35 檔後斷網，未快取探測失敗，重載後可再次播放、作答及聚焦解析。合成舊進度保留，頁面錯誤為 0，正式 JS／CSS／SW 與對應建置 SHA 一致。此代表範圍結案，原 TLS 中止紀錄保留於 T193 原段落。正式效能重測、真實登入同步、WebKit、真機與實體螢幕閱讀器仍待驗。[Private 原報告與驗收批次](https://github.com/frobel0520/project-archives/blob/c74b690d0684e4c153a3f1873d6f337681390d7a/projects/gh-1395745155/manifests/ea36ba2e-f85f-46cd-b8e1-9d04e80c554a.json)
+
+後續 #261 導引頁 CSP 修正發布後，Worker 與 Pages 最新成功部署版本皆為 `d24e447`。上述瀏覽器補驗綁定 `0391f988`。[後續部署紀錄](https://github.com/frobel0520/nihongo-lab/actions/runs/44092450410)
+
 ## T193：通用聽解解析焦點與說明改善
 
 Issue #257，基準04070cae。原覆核Private批次b0e1446f已核驗86件，30課JPEG缺件保持。最後作答後原按鈕消失，僅鍵盤提交改為同次DOM聚焦解析標題（tabIndex -1），先preventScroll再單次定位；不新增live region、Tab停駐或定時重捲，滑鼠／觸控、重繪及返回不搶焦點。
