@@ -132,10 +132,18 @@ try {
   });
   await q.getByText('下載本課音檔供離線使用', { exact: true }).click();
   await q.getByRole('button', { name: '下載本課音檔', exact: true }).click();
-  await q.getByText(/完成：.*失敗 1 個/).waitFor();
+  await q.getByText(/儲存空間不足，下載已暫停：.*失敗 1 個.*尚未處理/).waitFor();
   assert.equal(await q.getByRole('button', { name: '本課音檔已全部存好', exact: true }).count(), 0);
+  const retainedPaths = await q.evaluate(async () =>
+    (await (await caches.open('lesson-audio-v5')).keys()).map(({ url }) =>
+      new URL(url).pathname.replace(/^\/nihongo-lab\//, ''),
+    ),
+  );
+  const retryCounts = retainedPaths.map(path => [path, downloads.get(path)]);
   await q.getByRole('button', { name: '下載本課音檔', exact: true }).click();
   await q.getByRole('button', { name: '本課音檔已全部存好', exact: true }).waitFor();
+  for (const [path, count] of retryCounts)
+    assert.equal(downloads.get(path), count, 'retry must retain completed audio');
   await quotaContext.setOffline(true);
   await q.reload();
   await q.getByRole('button', { name: '播放完整對話', exact: true }).click();
