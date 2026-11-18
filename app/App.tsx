@@ -20,6 +20,7 @@ import { useSync } from './useSync';
 import { LessonListView } from './views/LessonListView';
 import { STUDY_CATEGORIES } from '../lib/study-categories.mjs';
 import { StudyCategoryPicker } from './components/StudyCategoryPicker';
+import { ProgressSaveNotice } from './components/ProgressSaveNotice';
 import { ImageUpdateHint } from './components/ImageUpdateHint';
 import {
   PageProvider,
@@ -60,8 +61,15 @@ const LESSONS = stages.flatMap((stage) => stage.lessons);
 
 export function App() {
   const { route, entry, back } = usePageNavigation();
-  const { progress, getProgress, update, warning, saveError, dismissWarning } =
-    useProgress();
+  const {
+    progress,
+    getProgress,
+    update,
+    warning,
+    saveError,
+    retrySave,
+    dismissWarning,
+  } = useProgress();
   const sync = useSync({ progress, getProgress, update });
   const [prefs, setPrefs] = useState(loadPrefs);
   const {
@@ -148,6 +156,8 @@ export function App() {
         </h1>
       </header>
 
+      <ProgressSaveNotice error={saveError} retry={retrySave} />
+
       <main
         className={`screen${route.view === 'dictation' && category ? ' dictation-page' : ''}${route.view === 'srs' && category ? ' srs-page' : ''}`}
         key={entry.id}
@@ -206,11 +216,6 @@ export function App() {
           </div>
         )}
         <ImageUpdateHint onSettings={route.view === 'settings'} />
-        {saveError && (
-          <p className="notice" role="alert">
-            {saveError}
-          </p>
-        )}
 
         <PageProvider entry={entry} back={back}>
           <LoadBoundary>
