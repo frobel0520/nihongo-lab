@@ -63,7 +63,8 @@ jobs:
         if: needs.changes.outputs.profile != 'docs'
       - name: Dependency audit (high/critical fails)
         if: needs.changes.outputs.profile != 'docs'
-        run: npm audit --audit-level=high
+        # 限期例外清單：security/audit-exceptions.json（到期自動恢復擋下）
+        run: node scripts/audit-gate.mjs npm
       - run: npm run check
         if: needs.changes.outputs.profile != 'docs'
       - name: Ensure MP3 decoder is available

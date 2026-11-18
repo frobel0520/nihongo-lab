@@ -1,4 +1,4 @@
-/* かなの日本語：手機 App 風格。手機優先，≥641px 時主選單移到頁首。固定亮色。 */
+/* かなの日本語：手機 App 風格。手機優先，≥641px 時主選單移到頁首。預設亮色，系統深色時改用深色色票。 */
 
 :root {
   --bg: #f5f6f3;
@@ -25,7 +25,43 @@
      再靠 lang 屬性讓瀏覽器挑對語言的版本（中文用繁中字型、日文標 lang="ja" 用日文字型，漢字字形才是日本的寫法）。 */
   --sans: system-ui, -apple-system, 'Segoe UI', 'Microsoft JhengHei', sans-serif;
   --sans-ja: system-ui, -apple-system, 'Yu Gothic UI', 'Meiryo', sans-serif;
-  color-scheme: light;
+  --on-brand: #ffffff;
+  --note-bg: #fff4e5;
+  --note-border: #e0b36a;
+  --danger-border: #e3aaa5;
+  --danger-border-strong: #d9a29d;
+  --brand-border: #a5d3c8;
+  --track: #c5cdc9;
+  color-scheme: light dark;
+}
+
+/* 深色：夜間背單字與聽力用。對比依 WCAG AA 選色（內文 ≥ 4.5:1）；單字插圖自帶淺色底板，不另外處理。 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #101513;
+    --surface: #1a211e;
+    --ink: #e7ece9;
+    --ink-2: #a9b6b1;
+    --rule: #2f3a36;
+    --brand: #5cc6ae;
+    --brand-soft: #173530;
+    --danger: #f29a92;
+    --danger-soft: #3b1f1d;
+    --warn-soft: #3a2f16;
+    --warn: #f0c46a;
+    --s0: #93bde6;
+    --s1: #5cc6ae;
+    --s2: #eba774;
+    --s3: #e8a2c4;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 18px rgba(0, 0, 0, 0.35);
+    --on-brand: #0c1412;
+    --note-bg: #33291a;
+    --note-border: #8a6a2e;
+    --danger-border: #7a3b36;
+    --danger-border-strong: #8f4640;
+    --brand-border: #2e6a5d;
+    --track: #4a5551;
+  }
 }
 
 * {
@@ -257,8 +293,8 @@ a {
 .notice {
   margin: 0;
   padding: 12px 14px;
-  background: #fff4e5;
-  border: 1px solid #e0b36a;
+  background: var(--note-bg);
+  border: 1px solid var(--note-border);
   border-radius: 12px;
   font-size: 0.92rem;
 }
@@ -324,7 +360,7 @@ a {
 .btn.primary {
   background: var(--brand);
   border-color: var(--brand);
-  color: #fff;
+  color: var(--on-brand);
 }
 
 .btn.ghost {
@@ -567,7 +603,7 @@ a {
 .section-tabs button[aria-selected='true'] {
   border-color: var(--brand);
   background: var(--brand);
-  color: #fff;
+  color: var(--on-brand);
 }
 
 .section-tabs button[aria-selected='true'] small {
@@ -672,11 +708,11 @@ a {
 .play-icon[aria-pressed='true'] {
   border-color: var(--brand);
   background: var(--brand);
-  color: #fff;
+  color: var(--on-brand);
 }
 
 .play-icon.failed {
-  border-color: #d9a29d;
+  border-color: var(--danger-border-strong);
   color: var(--danger);
 }
 
@@ -728,7 +764,7 @@ a {
   border: 0;
   border-radius: 50%;
   background: var(--brand);
-  color: #fff;
+  color: var(--on-brand);
   box-shadow: 0 6px 16px rgba(11, 107, 92, 0.3);
   cursor: pointer;
   transition: transform 0.1s;
@@ -982,14 +1018,14 @@ a {
 }
 
 .grade-again {
-  border-color: #e3aaa5;
+  border-color: var(--danger-border);
   color: var(--danger);
 }
 
 .grade-good {
   border-color: var(--brand);
   background: var(--brand);
-  color: #fff;
+  color: var(--on-brand);
 }
 
 /* ───────── 聽寫 ───────── */
@@ -1290,12 +1326,12 @@ a {
 }
 
 .feedback.ok {
-  border-color: #a5d3c8;
+  border-color: var(--brand-border);
   background: var(--brand-soft);
 }
 
 .feedback.bad {
-  border-color: #e3aaa5;
+  border-color: var(--danger-border);
   background: var(--danger-soft);
 }
 
@@ -1423,6 +1459,13 @@ a {
 
 /* ───────── 設定 ───────── */
 
+/* 返回連結：觸控熱區至少 40px */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+}
+
 .switch-row {
   display: flex;
   align-items: center;
@@ -1444,7 +1487,7 @@ a {
   height: 32px;
   margin: 0;
   border-radius: 999px;
-  background: #c5cdc9;
+  background: var(--track);
   cursor: pointer;
   transition: background 0.15s;
 }
@@ -1544,7 +1587,7 @@ rt {
   .tabs a[aria-current='page'] {
     border-color: var(--brand);
     background: var(--brand);
-    color: #fff;
+    color: var(--on-brand);
   }
 
   .tabs a[aria-current='page'] svg {
