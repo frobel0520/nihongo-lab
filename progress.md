@@ -14,11 +14,11 @@
 
 ## 最近批次
 
+- **深色模式與 UI 審查 P2**（2026-11-18，候選）：[PR #266](https://github.com/frobel0520/nihongo-lab/pull/266) 跟隨系統的深色色票、返回連結 40px，並以 CR-AUDIT-20261118 限期放行 picomatch 公告到 2026-12-31。深淺色 11 個路由對比達 AA、溢位 0。
+
 - **T193**（2026-11-16，已發布）：[PR #258](https://github.com/frobel0520/nihongo-lab/pull/258)改善解析焦點、39／54課解說及練習範圍提示。441項測試與必要Linux／Windows CI通過，正式12檔SHA一致；教材ID／媒體保持。正式 `0391f988` 的 375 寬代表 UI 與真正離線已補驗，原 TLS 中止保留。詳見[補驗紀錄](docs/release-audit.md#t193正式站代表補驗)。
 
 - **T192**（2026-11-15，已發布）：[PR #255](https://github.com/frobel0520/nihongo-lab/pull/255)縮減必要索引傳輸，內容及ID保持；main CI／Worker／Pages成功。正式首頁fresh LCP p95 2180ms，兩頁全部時間門檻通過；實際跨版進度／下載保留及真正離線通過，詳見[發布稽核](docs/release-audit.md#t192首頁索引傳輸改善)。
-
-- **T191**（2026-11-15，已發布）：[PR #251](https://github.com/frobel0520/nihongo-lab/pull/251)平行準備課程及延後遊戲專用資料，時間Gate隨合併核准。main CI／Worker／Pages成功，正式HTTP核對及瀏覽器離線播放／進度下載保留通過；正式首頁fresh LCP p95 2664ms超過2500ms，其他頁面時間項目通過，範圍及Private記錄見[發布稽核](docs/release-audit.md)。
 
 - 正式站驗收證據（Private，都已重新 clone 逐件 SHA 核對）：T187～T188 批次 `2850d6ed-9853-4a01-8f5c-f169debbe6bc`（18 件），T184～T186 批次 `93397d41-d1ed-468e-942f-65b10e573bca`（15 件），T181～T183 批次 `98e54a94-f3f1-4bac-9444-0e98ae624e97`（18 件）。
 
