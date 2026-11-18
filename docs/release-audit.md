@@ -13,6 +13,14 @@
 - 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
 - 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
 
+## Issue #180：正式舊址遷移與匿名驗收
+
+2026-11-18，以 main `d58b9c60` 核對 Worker／Pages 均部署於 `d24e447`。獨立 Chromium 以正常 TLS 驗證舊站無進度自動導向並保留路由，有合成進度時可匯出並於新站匯入，兩筆 v3 紀錄欄位及重載結果一致，舊同步合成標記清除。歷史 service worker 解除沿用 SEC-P1-20261031 原本機驗收。
+
+正式首頁 200、no-cache、有 CSP。匿名 health 200、未登入同源 sync 401，API 為 no-store。Google 官方登入入口可到達 accounts.google.com。隔離同步共 42 項通過，涵蓋雙向合併、較新紀錄、離線恢復及重複同步一致性。
+
+正式登入、雙向同步、登出與重登一致性及成功同步延遲仍待驗，需瀏覽器接管及獲准寫入合成資料的專用帳號。真機與已安裝 PWA 另列。既有設定與部署維持原狀。[Private 驗收矩陣與證據](https://github.com/frobel0520/project-archives/blob/aa67d4ae192f4c0894b1720267fc99344f7d09eb/projects/gh-1395745155/manifests/b902cf36-e56f-437f-b67d-58187ac2e87d.json)
+
 ## T194：四項確認 UX 修正（候選）
 
 Issue #260 的四項修正已交付 [PR #262](https://github.com/frobel0520/nihongo-lab/pull/262)，尚未發布。[必要 CI](https://github.com/frobel0520/nihongo-lab/actions/runs/44224592708) 的 Windows UX 成功，Linux 依賴稽核受 GHSA-fc5q-39xc-vjpf 阻擋，後續瀏覽器測試跳過。截至 2026-11-18，公告未列修補版，npm 最新為 4.0.7，仍在影響範圍。沿用 worker 的 [14 條依賴路徑盤點](https://github.com/frobel0520/project-archives/blob/d5d1337a56ef662a76c4107ac0f46b64e58d5c21/projects/gh-1395745155/manifests/671dadcc-0717-4440-a04b-ceeabcfb93c5.json)。產品自查見 [Private 工程證據](https://github.com/frobel0520/project-archives/blob/f98b08805ad7f15493416b7c5efb2693318aa11c/projects/gh-1395745155/manifests/42ac9078-d6fa-4573-bc48-f88141189acc.json)。角色換句定位與圖片下載入口定位留作可選改善。
