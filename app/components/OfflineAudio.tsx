@@ -141,13 +141,13 @@ export function OfflineAudio({
         {visibleStatus && `${status.scope.label}：`}
         {visibleStatus &&
           status.kind === 'running' &&
-          `${status.cancelling ? '正在停止' : '音檔下載中'}… 本次已存 ${status.saved} / ${status.total}，失敗 ${status.failed} 個。可以切到其他頁面繼續學習。`}
+          `${status.storageFull ? '儲存空間不足，已停止派發新下載；在途請求正在收尾' : status.cancelling ? '正在停止' : '音檔下載中'}… 本次已存 ${status.saved} / ${status.total}，失敗 ${status.failed} 個${status.storageFull ? `，待處理 ${status.pending} 個（含在途）` : ''}。可以切到其他頁面繼續學習。`}
         {visibleStatus &&
           status.kind === 'done' &&
           `完成：新存 ${status.saved} 個，失敗 ${status.failed} 個。${status.failed ? `（${status.reason}）再按一次補抓失敗與缺少的。` : ''}`}
         {visibleStatus &&
           status.kind === 'paused' &&
-          `${status.why === 'network' ? '網路中斷，下載已暫停' : '已取消音檔下載'}：本次已存 ${status.saved} 個，失敗 ${status.failed} 個；已存的會保留，再按一次從缺少的接續。`}
+          `${status.why === 'quota' ? '儲存空間不足，下載已暫停' : status.why === 'network' ? '網路中斷，下載已暫停' : '已取消音檔下載'}：本次已存 ${status.saved} 個，失敗 ${status.failed} 個${status.why === 'quota' ? `，尚未處理 ${status.pending} 個；請釋放空間後接續` : ''}；已存的會保留，再按一次從缺少的接續。`}
         {visibleStatus &&
           status.kind === 'offline' &&
           '目前沒有網路，無法下載音檔；連線後再按一次。'}
