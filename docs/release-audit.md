@@ -19,7 +19,9 @@
 
 正式首頁 200、no-cache、有 CSP。匿名 health 200、未登入同源 sync 401，API 為 no-store。Google 官方登入入口可到達 accounts.google.com。隔離同步共 42 項通過，涵蓋雙向合併、較新紀錄、離線恢復及重複同步一致性。
 
-正式登入、雙向同步、登出與重登一致性及成功同步延遲仍待驗，需瀏覽器接管及獲准寫入合成資料的專用帳號。真機與已安裝 PWA 另列。既有設定與部署維持原狀。[Private 驗收矩陣與證據](https://github.com/frobel0520/project-archives/blob/aa67d4ae192f4c0894b1720267fc99344f7d09eb/projects/gh-1395745155/manifests/b902cf36-e56f-437f-b67d-58187ac2e87d.json)
+2026-11-18 依擁有者決定關閉 [Issue #180](https://github.com/frobel0520/nihongo-lab/issues/180)。正式 Google 登入、雙向同步、登出／重登、跨裝置同步及同步效能未驗收，已移出待辦。[Private 驗收矩陣與證據](https://github.com/frobel0520/project-archives/blob/aa67d4ae192f4c0894b1720267fc99344f7d09eb/projects/gh-1395745155/manifests/b902cf36-e56f-437f-b67d-58187ac2e87d.json)
+
+同日補測正式部署 `d24e447` 的首頁與第 121 課，Chromium 共 20 次載入，失敗 0。LCP、TBT 與內容可用時間達既有門檻，T193 原部署未重測的紀錄保留。
 
 ## T194：四項確認 UX 修正（候選）
 
