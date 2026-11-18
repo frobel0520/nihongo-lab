@@ -13,6 +13,10 @@
 - 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
 - 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
 
+## 深色模式與 UI 審查 P2（候選）
+
+2026-11-18，[PR #266](https://github.com/frobel0520/nihongo-lab/pull/266)：`app/globals.css` 固定色改 token 並加 `prefers-color-scheme: dark` 色票，按鈕文字改 `--on-brand`；theme-color 分深淺色；返回連結觸控 40px。Headless Chrome 375×812 深淺色各掃 11 個路由，可見文字對比達 WCAG AA、水平溢位 0；設定頁 switch 本體 32px，外層整列可點。依賴稽核以 CR-AUDIT-20261118 限期放行 GHSA-fc5q-39xc-vjpf 到 2026-12-31，其他 high/critical 照常阻擋。深色模式未在真機與已安裝 PWA 驗證，沒有手動切換。
+
 ## Issue #180：正式舊址遷移與匿名驗收
 
 2026-11-18，以 main `d58b9c60` 核對 Worker／Pages 均部署於 `d24e447`。獨立 Chromium 以正常 TLS 驗證舊站無進度自動導向並保留路由，有合成進度時可匯出並於新站匯入，兩筆 v3 紀錄欄位及重載結果一致，舊同步合成標記清除。歷史 service worker 解除沿用 SEC-P1-20261031 原本機驗收。

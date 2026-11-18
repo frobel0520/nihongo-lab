@@ -351,7 +351,8 @@ test('actual workflow docs/content/full branches retain the appropriate gates', 
   assert.equal(enabled(upload, 'content'), true);
   assert.equal(enabled(upload, 'docs'), false);
   assert.ok(
-    runs('content').some((s) => s.includes('npm audit --audit-level=high')),
+    // 依賴稽核改由 audit-gate 執行：high/critical 照常阻擋，只放行 security/audit-exceptions.json 內未到期的 advisory
+    runs('content').some((s) => s.includes('node scripts/audit-gate.mjs npm')),
   );
   assert.ok(runs('content').some((s) => s.includes('media-check.mjs')));
   assert.deepEqual(workflow.jobs.build.needs, 'changes');

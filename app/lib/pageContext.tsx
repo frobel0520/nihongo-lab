@@ -58,6 +58,7 @@ export function BackLink({
   return (
     <a
       {...props}
+      className={['back-link', props.className].filter(Boolean).join(' ')}
       href={href}
       onClick={(event) => {
         onClick?.(event);
