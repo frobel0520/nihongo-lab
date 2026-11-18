@@ -165,3 +165,49 @@ test('adoptExternalProgress：採用另一個分頁寫入的有效進度，壞�
   assert.equal(adoptExternalProgress(JSON.stringify({ version: 99 })), null);
   assert.equal(adoptExternalProgress(null), null);
 });
+
+test('pending grades survive another failed update and retry writes state without replaying ratings', () => {
+  const storage = fakeStorage({ [PROGRESS_KEY]: stored(withCard('old')) });
+  let full = true;
+  const set = storage.setItem;
+  storage.setItem = (key, value) => {
+    if (full) throw new Error('full');
+    set(key, value);
+  };
+  const a = updateProgress(storage, withCard('old'), (p) =>
+    recordReview(p, 'pending-a', 'good', TODAY, NOW),
+  );
+  assert.ok(a.saveError);
+  const b = updateProgress(
+    storage,
+    a.progress,
+    (p) => recordReview(p, 'pending-b', 'again', TODAY, NOW),
+    true,
+  );
+  assert.ok(b.saveError);
+  assert.deepEqual(Object.keys(b.progress.srs).sort(), [
+    'old',
+    'pending-a',
+    'pending-b',
+  ]);
+  assert.equal(
+    JSON.parse(storage.getItem(PROGRESS_KEY)).srs['pending-a'],
+    undefined,
+  );
+  // A different tab saved unrelated work while this tab could not write.
+  storage.data.set(
+    PROGRESS_KEY,
+    stored(recordDictation(withCard('old'), 'other-tab', true, NOW)),
+  );
+  full = false;
+  const retried = updateProgress(storage, b.progress, (p) => p, true);
+  assert.equal(retried.saveError, null);
+  assert.deepEqual(retried.progress.srs, b.progress.srs);
+  assert.equal(retried.progress.dictation['other-tab'].attempts, 1);
+  assert.deepEqual(JSON.parse(storage.getItem(PROGRESS_KEY)), retried.progress);
+  assert.deepEqual(
+    updateProgress(storage, retried.progress, (p) => p).progress,
+    retried.progress,
+    'repeated save does not count another review',
+  );
+});

@@ -14,13 +14,16 @@ type AudioJobResult =
       total: number;
       failed: number;
       cancelling: boolean;
+      storageFull?: boolean;
+      pending?: number;
     }
   | { kind: 'done'; saved: number; failed: number; reason?: string }
   | {
       kind: 'paused';
       saved: number;
       failed: number;
-      why: 'cancelled' | 'network';
+      why: 'cancelled' | 'network' | 'quota';
+      pending?: number;
     }
   | { kind: 'offline' | 'locked' }
   | { kind: 'error'; message: string };
@@ -77,8 +80,16 @@ export async function startAudioDownload(
         isNetworkError: isNetworkFailure,
         networkStopAfter: 4,
         notRetainedMessage: '音檔未保留在快取中，請檢查可用儲存空間後重試。',
-        onProgress: ({ saved = 0, total, failed = 0 }) => {
-          if (state.kind === 'running') set({ ...state, saved, total, failed });
+        onProgress: ({ saved = 0, total, failed = 0, stopped, pending }) => {
+          if (state.kind === 'running')
+            set({
+              ...state,
+              saved,
+              total,
+              failed,
+              storageFull: stopped === 'quota',
+              pending,
+            });
         },
       });
     // 獨立於圖片的鎖；不同分頁／本課與全部音檔也不重複啟動。
@@ -96,13 +107,20 @@ export async function startAudioDownload(
     const saved = result.downloaded,
       failed = result.failed.length;
     const why =
-      stopping ??
+      (result.stopped === 'quota' ? 'quota' : stopping) ??
       (result.stopped === 'network' || (result.deferred ?? 0) > 0
         ? 'network'
         : null);
     set(
       why
-        ? { kind: 'paused', scope, saved, failed, why }
+        ? {
+            kind: 'paused',
+            scope,
+            saved,
+            failed,
+            why,
+            pending: result.total - result.skipped - saved - failed,
+          }
         : {
             kind: 'done',
             scope,

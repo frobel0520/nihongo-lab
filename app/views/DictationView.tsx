@@ -341,7 +341,21 @@ export function DictationView({
                     <span className="choice-num" aria-hidden="true">
                       {i + 1}
                     </span>
-                    <ChoiceText sentence={option} />
+                    <span>
+                      {state === 'correct' && (
+                        <span className="choice-result-label">
+                          {option.id === picked
+                            ? '你的答案（正確）／正確答案'
+                            : '正確答案'}
+                        </span>
+                      )}
+                      {state === 'wrong' && (
+                        <span className="choice-result-label">
+                          你的答案（不正確）
+                        </span>
+                      )}
+                      <ChoiceText sentence={option} />
+                    </span>
                     {state === 'correct' && <CheckIcon />}
                     {state === 'wrong' && <CloseIcon />}
                   </button>
@@ -356,7 +370,7 @@ export function DictationView({
               >
                 <p className="feedback-title">
                   {correct ? <CheckIcon /> : <CloseIcon />}
-                  {correct ? '答對了！' : '不對，綠色的是正確答案'}
+                  {correct ? '答對了！' : '答錯了，請對照你的答案與正確答案。'}
                 </p>
                 <p className="line-zh">
                   <RubyText text={sentence.zh} />

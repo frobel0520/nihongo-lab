@@ -2,15 +2,21 @@
 
 > 批次候選與勾選狀態須依當時日期判讀，不代表今日待辦。現況以[主進度](../progress.md)為入口，協作規則見[AGENTS](../AGENTS.md)；長期需求、分析與架構契約保留，不因本次收尾重寫。
 
-## T194：四項確認 UX 修正
+## T194：四項確認UX修正
 
-- 狀態為 Ready 候選，尚未發布。Issue #260 由 [PR #262](https://github.com/frobel0520/nihongo-lab/pull/262) 交付保存失敗與重試、下載配額與接續、鍵盤焦點、聽寫正解語意。角色換句定位與圖片下載入口定位留作可選改善。
-- 發布待解除 Linux 依賴稽核的 GHSA-fc5q-39xc-vjpf 阻塞，並完成必要 CI。驗收與依賴證據見[發布稽核](release-audit.md#t194四項確認-ux-修正候選)。
-- 整合 #262 時，將 progress 的 T194 候選與 T193 補驗敘述各保留一處。將 #262 在 release-audit 新增的 T194 細節整合進既有 T194 段落，並將其中的 T193 補驗移至既有 T193 補驗段落去重。task-breakdown 合併 T194 任務資料，保留單一 T193 狀態與原 TLS 歷史。
+- Status：已獲發布授權，整合最新 main 後依必要 CI 發布。
+- Task ID／Goal：T194（Issue #260），只修正全案覆核確認的保存提醒、儲存不足派發、焦點遮擋與聽寫正解語意。
+- Input contract：原覆核main 50a4271f及Private ea36ba2e；保留後續main的Pages CSP修補。
+- Output artifact：待存記憶體與真正重新儲存、有限在途收尾／缺漏接續、共用捲動留白、作答後語意標籤。
+- depends_on：T193及既有下載工作／SRS定位；教材、媒體、ID、排程、同步與快取名稱不變。
+- Out of scope：兩項可選入口改善、教材擴充、reviewer 及未授權的全站改版。
+- Acceptance checks：check、正式base build、原bundle與適用CI；隔離故障、座標、原生鍵盤、恢復、AX樹與真正斷網重載；舊證據按範圍沿用。
+- Fixture or test data：合成舊進度／Cache API與Storage故障，只用獨立Chromium context；不使用真實帳號或填滿使用者儲存。
+- Evidence path：release-audit T194；完整工程資料Private批次42ac9078-d6fa-4573-bc48-f88141189acc。
 
 ## T193：通用聽解解析焦點與說明改善
 
-- Status：2026-11-16 發布為 `0391f988`。後續正式 375 寬代表 UI 與真正離線補驗結案，原 TLS 中止保留。正式效能重測、真實登入同步、WebKit、真機及實體螢幕閱讀器仍待驗。見[補驗紀錄](release-audit.md#t193正式站代表補驗)。
+- Status：2026-11-16 發布為 `0391f988`。後續正式 375 寬代表 UI 與真正離線補驗結案，原 TLS 中止保留。原部署未重測正式效能，後續正式版 d24e447 的兩頁 Chromium 效能已達標。WebKit、真機及實體螢幕閱讀器仍待驗。見[補驗紀錄](release-audit.md#t193正式站代表補驗)。
 
 - Task ID／Goal：T193（Issue #257），只處理既有1～60課覆核的四項改善。
 - Input contract：main `04070cae`、已核驗Private覆核批次 `b0e1446f-669e-4b54-8eb5-127a7bdbf6b3`、現行ruby與進度契約。

@@ -29,7 +29,13 @@
 
 ## T194：四項確認 UX 修正（候選）
 
-Issue #260 的四項修正已交付 [PR #262](https://github.com/frobel0520/nihongo-lab/pull/262)，尚未發布。[必要 CI](https://github.com/frobel0520/nihongo-lab/actions/runs/44224592708) 的 Windows UX 成功，Linux 依賴稽核受 GHSA-fc5q-39xc-vjpf 阻擋，後續瀏覽器測試跳過。截至 2026-11-18，公告未列修補版，npm 最新為 4.0.7，仍在影響範圍。沿用 worker 的 [14 條依賴路徑盤點](https://github.com/frobel0520/project-archives/blob/d5d1337a56ef662a76c4107ac0f46b64e58d5c21/projects/gh-1395745155/manifests/671dadcc-0717-4440-a04b-ceeabcfb93c5.json)。產品自查見 [Private 工程證據](https://github.com/frobel0520/project-archives/blob/f98b08805ad7f15493416b7c5efb2693318aa11c/projects/gh-1395745155/manifests/42ac9078-d6fa-4573-bc48-f88141189acc.json)。角色換句定位與圖片下載入口定位留作可選改善。
+[PR #262](https://github.com/frobel0520/nihongo-lab/pull/262)。原 [CI](https://github.com/frobel0520/nihongo-lab/actions/runs/44224592708) 的 Windows UX 成功，Linux 依賴稽核受 GHSA-fc5q-39xc-vjpf 阻擋。整合版沿用 #266 的 CR-AUDIT-20261118 限期例外至 2026-12-31，官方修補版仍未釋出。
+
+Issue #260。依原覆核50a4271f及Private ea36ba2e核驗取用10件，保留原缺件；整合main的Pages CSP修補。兩項可選改善不處理。教材、所有ID／媒體、FSRS、同步3、導航、快取名稱、下載與確認更新契約保持。
+
+保存失敗提醒固定可見並預留實際高度；未保存的評分／作答與跨頁事件先合併保留，重新儲存只寫現有狀態、不重播評分。確認QuotaExceeded後停止新派發及尚未開始的重試，有限在途收尾；即時區分原因、已存／失敗／待接續，釋放空間只補缺。一般錯誤不冒稱容量不足、不自動清資料。共用捲動留白保護原生Tab／Shift+Tab；聽寫作答後明示「你的答案／正確答案」，作答前不洩題、不改日文或ruby。
+
+check與新增持續配額回歸、型別／lint、正式base build及原bundle通過；瀏覽器與最終head CI結果見PR，完整版本矩陣、失敗／中止、座標及真正離線證據在Private批次42ac9078-d6fa-4573-bc48-f88141189acc。precache 23152502／26869829 bytes；主JS gzip 66471、CSS 5306、配圖chunk 182157 bytes，門檻皆保持。初始程式／CSS有小幅增量；本機原設定20次頁面載入，首頁fresh／repeat LCP p95 2164／628ms，121課2136／484ms，時間門檻全過、意外錯誤0。首輪測試伺服器未壓縮而未達標，瀑布確認後只修正測試壓縮協商再測一次，兩輪樣本均保留；不與正式結果混算或代替發布後正式驗收。
 
 ## T193：正式站代表補驗
 

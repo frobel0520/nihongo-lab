@@ -19,17 +19,21 @@ const errorText = (error: unknown) =>
 function jobMessage(job: ImageJobState) {
   switch (job.kind) {
     case 'running':
-      return job.cancelling
-        ? `正在停止…本次已存 ${job.saved} 張。`
-        : `下載中：本次已存 ${job.saved} / ${job.total} 張${job.failed ? `，失敗 ${job.failed} 張` : ''}。可以切到其他頁面繼續學習。`;
+      return job.storageFull
+        ? `儲存空間不足，已停止派發新下載；在途請求正在收尾。本次已存 ${job.saved} 張，失敗 ${job.failed} 張，待處理 ${job.pending} 張（含在途）。`
+        : job.cancelling
+          ? `正在停止…本次已存 ${job.saved} 張。`
+          : `下載中：本次已存 ${job.saved} / ${job.total} 張${job.failed ? `，失敗 ${job.failed} 張` : ''}。可以切到其他頁面繼續學習。`;
     case 'done':
       return job.failed === 0
         ? `完成：新存 ${job.saved} 張。`
         : `新存 ${job.saved} 張，失敗 ${job.failed} 張（${job.reason}）。再按一次只會補抓失敗與缺少的。`;
     case 'paused':
-      return job.why === 'cancelled'
-        ? `已取消：本次已存 ${job.saved} 張，已存的會保留；再按一次從缺少的接續。`
-        : `網路中斷，下載已暫停：本次已存 ${job.saved} 張，已存的會保留。連上網路後再按一次，從缺少的接續。`;
+      return job.why === 'quota'
+        ? `儲存空間不足，下載已暫停：本次已存 ${job.saved} 張，失敗 ${job.failed} 張，尚未處理 ${job.pending} 張。已存的會保留；釋放空間後再按一次從缺少的接續。`
+        : job.why === 'cancelled'
+          ? `已取消：本次已存 ${job.saved} 張，已存的會保留；再按一次從缺少的接續。`
+          : `網路中斷，下載已暫停：本次已存 ${job.saved} 張，已存的會保留。連上網路後再按一次，從缺少的接續。`;
     case 'offline':
       return '目前沒有網路，無法下載圖片。連上網路後再按一次。';
     case 'locked':
@@ -73,7 +77,8 @@ export function OfflineImages() {
       <section className="card">
         <h3>離線單字圖片</h3>
         <p className="muted">
-          這個瀏覽器不支援離線快取（需要 HTTPS 或 localhost），離線時卡片只顯示文字。
+          這個瀏覽器不支援離線快取（需要 HTTPS 或
+          localhost），離線時卡片只顯示文字。
         </p>
       </section>
     );
@@ -82,7 +87,9 @@ export function OfflineImages() {
   // 下載中以「開始時已有＋本次已存」顯示，不在途中反覆掃描快取。
   const live = running && job.images > 0;
   const downloaded = live ? job.before + job.saved : (counts?.downloaded ?? 0);
-  const pending = live ? job.images - job.before - job.saved : (counts?.pending ?? 0);
+  const pending = live
+    ? job.images - job.before - job.saved
+    : (counts?.pending ?? 0);
   const allDone = counts !== null && !running && counts.pending === 0;
   const error = job.kind === 'error' ? job.message : checkError;
 
@@ -96,10 +103,13 @@ export function OfflineImages() {
       </p>
       {counts && (
         <p className="muted">
-          共 {counts.total} 張（{formatMegabytes(counts.totalBytes)}）：已下載 {downloaded} 張，待下載{' '}
-          {pending} 張
+          共 {counts.total} 張（{formatMegabytes(counts.totalBytes)}）：已下載{' '}
+          {downloaded} 張，待下載 {pending} 張
           {!running && `（${formatMegabytes(counts.pendingBytes)}）`}
-          {!running && counts.updates > 0 && `，其中 ${counts.updates} 張是更新過的新版`}。
+          {!running &&
+            counts.updates > 0 &&
+            `，其中 ${counts.updates} 張是更新過的新版`}
+          。
         </p>
       )}
       <div className="row">
@@ -126,7 +136,12 @@ export function OfflineImages() {
                 : '下載全部單字圖片'}
           </button>
         )}
-        <button type="button" className="btn" disabled={running} onClick={() => void refresh()}>
+        <button
+          type="button"
+          className="btn"
+          disabled={running}
+          onClick={() => void refresh()}
+        >
           重新檢查圖片狀態
         </button>
       </div>

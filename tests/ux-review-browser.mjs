@@ -1080,7 +1080,9 @@ try {
         .click();
       await character
         .locator('output')
-        .filter({ hasText: `完成：新存 ${smallAudio.length - 1} 個，失敗 1 個` })
+        .filter({
+          hasText: `完成：新存 ${smallAudio.length - 1} 個，失敗 1 個`,
+        })
         .waitFor();
       failAudio = '';
       const requestsBefore = downloads;
@@ -1185,4 +1187,8 @@ try {
 } finally {
   await browser.close();
   server.close();
+}
+
+if (area === 'all' || area === 'downloads') {
+  await import('./storage-accessibility-browser.mjs');
 }

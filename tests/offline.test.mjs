@@ -7,6 +7,7 @@ import {
   allAudioPaths,
   countCached,
   downloadAudio,
+  downloadMissing,
   downloadUrl,
   lessonAudioPaths,
 } from '../lib/offline.mjs';
@@ -153,4 +154,136 @@ test('沒有要下載的東西時直接完成；中止訊號會停止後續下�
     signal: controller.signal,
   });
   assert.equal(aborted.downloaded, 0);
+});
+
+test('confirmed quota stops dispatch immediately, lets bounded in-flight saves finish, and resumes only missing files', async () => {
+  const paths = Array.from({ length: 12 }, (_, i) => `file-${i}`);
+  const stored = new Set(['file-0']);
+  const calls = [];
+  const snapshots = [];
+  const releases = new Map();
+  const run = downloadMissing(
+    paths,
+    {
+      async has(path) {
+        return stored.has(path);
+      },
+      async save(path) {
+        calls.push(path);
+        await new Promise((resolve) => releases.set(path, resolve));
+        if (path === 'file-1')
+          throw new DOMException('full', 'QuotaExceededError');
+        stored.add(path);
+      },
+    },
+    { concurrency: 3, retries: 2, onProgress: (s) => snapshots.push(s) },
+  );
+  await new Promise(setImmediate);
+  assert.deepEqual(calls, ['file-1', 'file-2', 'file-3']);
+  releases.get('file-1')();
+  await new Promise(setImmediate);
+  assert.equal(
+    snapshots.at(-1).stopped,
+    'quota',
+    'report cause while other writes are in flight',
+  );
+  assert.equal(snapshots.at(-1).failed, 1);
+  assert.equal(snapshots.at(-1).pending, 10);
+  releases.get('file-2')();
+  releases.get('file-3')();
+  const stopped = await run;
+  assert.deepEqual(
+    calls,
+    ['file-1', 'file-2', 'file-3'],
+    'zero new requests after confirmed quota',
+  );
+  assert.equal(stopped.stopped, 'quota');
+  assert.equal(stopped.downloaded, 2);
+  assert.equal(stopped.failed.length, 1, 'unstarted items are not failures');
+  const resumedCalls = [];
+  const resumed = await downloadMissing(paths, {
+    async has(path) {
+      return stored.has(path);
+    },
+    async save(path) {
+      resumedCalls.push(path);
+      stored.add(path);
+    },
+  });
+  assert.equal(resumed.skipped, 3);
+  assert.equal(resumed.downloaded, 9);
+  assert.ok(
+    !resumedCalls.includes('file-0') && !resumedCalls.includes('file-2'),
+  );
+});
+
+test('an unrelated error mentioning quota is not classified as confirmed storage exhaustion', async () => {
+  const calls = [];
+  const stored = new Set();
+  const result = await downloadMissing(
+    ['a', 'b'],
+    {
+      async has(path) {
+        return stored.has(path);
+      },
+      async save(path) {
+        calls.push(path);
+        if (path === 'a') throw new Error('HTTP API quota rate limit');
+        stored.add(path);
+      },
+    },
+    { concurrency: 1 },
+  );
+  assert.equal(result.stopped, undefined);
+  assert.deepEqual(calls, ['a', 'b']);
+  assert.equal(result.downloaded, 1);
+  assert.equal(result.failed[0].message, 'HTTP API quota rate limit');
+});
+
+test('a delayed retry is not dispatched after another worker confirms full storage', async () => {
+  let releaseWait;
+  const calls = [];
+  const result = downloadMissing(
+    ['a', 'b', 'c'],
+    {
+      async has() {
+        return false;
+      },
+      async save(path) {
+        calls.push(path);
+        if (path === 'b') {
+          await new Promise(setImmediate);
+          throw new DOMException('full', 'QuotaExceededError');
+        }
+        throw new Error('HTTP 503');
+      },
+    },
+    {
+      concurrency: 2,
+      retries: 1,
+      wait: () =>
+        new Promise((resolve) => {
+          releaseWait = resolve;
+        }),
+    },
+  );
+  await new Promise(setImmediate);
+  await new Promise(setImmediate);
+  releaseWait();
+  assert.equal((await result).stopped, 'quota');
+  assert.deepEqual(calls, ['a', 'b']);
+});
+
+test('persistent storage exhaustion does not scan the rest of a large batch or count it as failed', async () => {
+  const calls = [];
+  const result = await downloadMissing(Array.from({ length: 100 }, (_, i) => i), {
+    async has(item) { return item === 0; },
+    async save(item) { calls.push(item); throw new DOMException('full', 'QuotaExceededError'); },
+  }, { concurrency: 4, retries: 3 });
+  assert.equal(result.stopped, 'quota');
+  assert.ok(calls.length > 0 && calls.length <= 4);
+  assert.equal(result.skipped, 1);
+  assert.equal(result.downloaded, 0);
+  assert.equal(result.failed.length, calls.length);
+  assert.ok(!calls.includes(0));
 });

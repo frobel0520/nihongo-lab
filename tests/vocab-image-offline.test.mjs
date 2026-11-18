@@ -105,7 +105,7 @@ test('downloads skip saved items, retry transient failures, never retry a full d
     },
   };
   const waits = [];
-  const result = await downloadMissing(['a', 'b', 'c', 'q'], store, { retries: 2, wait: async (n) => { waits.push(n); } });
+  const result = await downloadMissing(['a', 'b', 'c', 'q'], store, { concurrency: 1, retries: 2, wait: async (n) => { waits.push(n); } });
   assert.equal(result.skipped, 1);
   assert.equal(result.downloaded, 1);
   assert.deepEqual(result.failed.map((f) => f.path).sort(), ['c', 'q']);

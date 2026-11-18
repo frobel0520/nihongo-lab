@@ -35,9 +35,17 @@ export type ImageJobState =
       before: number;
       images: number;
       cancelling: boolean;
+      storageFull?: boolean;
+      pending?: number;
     }
   | { kind: 'done'; saved: number; failed: number; reason?: string }
-  | { kind: 'paused'; why: 'network' | 'cancelled'; saved: number; failed: number }
+  | {
+      kind: 'paused';
+      why: 'network' | 'cancelled' | 'quota';
+      saved: number;
+      failed: number;
+      pending?: number;
+    }
   | { kind: 'offline' }
   | { kind: 'locked' }
   | { kind: 'error'; message: string };
@@ -84,7 +92,15 @@ export async function startImageDownload() {
     return;
   }
   // 讀狀態期間也算執行中，避免連按兩次。
-  set({ kind: 'running', total: 0, saved: 0, failed: 0, before: 0, images: 0, cancelling: false });
+  set({
+    kind: 'running',
+    total: 0,
+    saved: 0,
+    failed: 0,
+    before: 0,
+    images: 0,
+    cancelling: false,
+  });
   try {
     const current = await readImageStatus();
     const shortfall = await storageShortfall(current.pendingBytes);
@@ -116,8 +132,15 @@ export async function startImageDownload() {
         isNetworkError: isNetworkFailure,
         networkStopAfter: IMAGE_NETWORK_STOP_AFTER,
         signal: controller!.signal,
-        onProgress: ({ saved = 0, failed = 0 }) => {
-          if (state.kind === 'running') set({ ...state, saved, failed });
+        onProgress: ({ saved = 0, failed = 0, stopped, pending }) => {
+          if (state.kind === 'running')
+            set({
+              ...state,
+              saved,
+              failed,
+              storageFull: stopped === 'quota',
+              pending,
+            });
         },
       }),
     );
@@ -128,9 +151,22 @@ export async function startImageDownload() {
     await pruneImageCache();
     const saved = outcome.downloaded;
     const failed = outcome.failed.length;
-    const why = outcome.stopped === 'network' ? 'network' : abortReason;
-    if (why) set({ kind: 'paused', why, saved, failed });
-    else if ((outcome.deferred ?? 0) > 0) set({ kind: 'paused', why: 'network', saved, failed });
+    const why =
+      outcome.stopped === 'quota'
+        ? 'quota'
+        : outcome.stopped === 'network'
+          ? 'network'
+          : abortReason;
+    if (why)
+      set({
+        kind: 'paused',
+        why,
+        saved,
+        failed,
+        pending: outcome.total - outcome.skipped - saved - failed,
+      });
+    else if ((outcome.deferred ?? 0) > 0)
+      set({ kind: 'paused', why: 'network', saved, failed });
     else {
       if (failed === 0) markImagesComplete();
       set({ kind: 'done', saved, failed, reason: outcome.failed[0]?.message });
@@ -143,4 +179,3 @@ export async function startImageDownload() {
     abortReason = null;
   }
 }
-
