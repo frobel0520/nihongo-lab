@@ -13,7 +13,7 @@
 - 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
 - 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
 
-## 深色模式與 UI 審查 P2（候選）
+## 深色模式與 UI 審查 P2
 
 2026-11-18，[PR #266](https://github.com/frobel0520/nihongo-lab/pull/266)：`app/globals.css` 固定色改 token 並加 `prefers-color-scheme: dark` 色票，按鈕文字改 `--on-brand`；theme-color 分深淺色；返回連結觸控 40px。Headless Chrome 375×812 深淺色各掃 11 個路由，可見文字對比達 WCAG AA、水平溢位 0；設定頁 switch 本體 32px，外層整列可點。依賴稽核以 CR-AUDIT-20261118 限期放行 GHSA-fc5q-39xc-vjpf 到 2026-12-31，其他 high/critical 照常阻擋。深色模式未在真機與已安裝 PWA 驗證，沒有手動切換。
 
@@ -27,7 +27,7 @@
 
 同日補測正式部署 `d24e447` 的首頁與第 121 課，Chromium 共 20 次載入，失敗 0。LCP、TBT 與內容可用時間達既有門檻，T193 原部署未重測的紀錄保留。
 
-## T194：四項確認 UX 修正（候選）
+## T194：四項確認 UX 修正
 
 [PR #262](https://github.com/frobel0520/nihongo-lab/pull/262)。原 [CI](https://github.com/frobel0520/nihongo-lab/actions/runs/44224592708) 的 Windows UX 成功，Linux 依賴稽核受 GHSA-fc5q-39xc-vjpf 阻擋。整合版沿用 #266 的 CR-AUDIT-20261118 限期例外至 2026-12-31，官方修補版仍未釋出。
 
@@ -36,6 +36,8 @@ Issue #260。依原覆核50a4271f及Private ea36ba2e核驗取用10件，保留�
 保存失敗提醒固定可見並預留實際高度；未保存的評分／作答與跨頁事件先合併保留，重新儲存只寫現有狀態、不重播評分。確認QuotaExceeded後停止新派發及尚未開始的重試，有限在途收尾；即時區分原因、已存／失敗／待接續，釋放空間只補缺。一般錯誤不冒稱容量不足、不自動清資料。共用捲動留白保護原生Tab／Shift+Tab；聽寫作答後明示「你的答案／正確答案」，作答前不洩題、不改日文或ruby。
 
 check與新增持續配額回歸、型別／lint、正式base build及原bundle通過；瀏覽器與最終head CI結果見PR，完整版本矩陣、失敗／中止、座標及真正離線證據在Private批次42ac9078-d6fa-4573-bc48-f88141189acc。precache 23152502／26869829 bytes；主JS gzip 66471、CSS 5306、配圖chunk 182157 bytes，門檻皆保持。初始程式／CSS有小幅增量；本機原設定20次頁面載入，首頁fresh／repeat LCP p95 2164／628ms，121課2136／484ms，時間門檻全過、意外錯誤0。首輪測試伺服器未壓縮而未達標，瀑布確認後只修正測試壓縮協商再測一次，兩輪樣本均保留；不與正式結果混算或代替發布後正式驗收。
+
+2026-11-18，[PR #268](https://github.com/frobel0520/nihongo-lab/pull/268) 承接 #262，整合 #266 與文件更新。修正舊 PWA 測試斷言，使其檢查配額暫停及接續保留。整合版正式建置及四項定點瀏覽器回歸通過，預快取 23,153,589 bytes。[main CI／Worker／Pages](https://github.com/frobel0520/nihongo-lab/actions/runs/44263776016) 成功，正式版 `50ec9ce1` 的 15 個代表產物 SHA 一致。正式 Chromium 互動受環境 TLS 信任限制，未列通過。[私有發布驗收](https://github.com/frobel0520/project-archives/blob/3bae930100c6ffe2cf7d7088eb59c955c32bdf41/projects/gh-1395745155/manifests/223d2c35-9f1d-4ebd-be2e-feebbdd46b1f.json)已遠端讀回核驗 5 件。
 
 ## T193：正式站代表補驗
 

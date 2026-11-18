@@ -4,7 +4,7 @@
 
 ## T194：四項確認UX修正
 
-- Status：已獲發布授權，整合最新 main 後依必要 CI 發布。
+- Status：已由 #268 發布為 50ec9ce1。必要 CI 與正式產物核對通過，正式瀏覽器互動補驗待可連線環境。
 - Task ID／Goal：T194（Issue #260），只修正全案覆核確認的保存提醒、儲存不足派發、焦點遮擋與聽寫正解語意。
 - Input contract：原覆核main 50a4271f及Private ea36ba2e；保留後續main的Pages CSP修補。
 - Output artifact：待存記憶體與真正重新儲存、有限在途收尾／缺漏接續、共用捲動留白、作答後語意標籤。
