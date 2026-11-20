@@ -16,6 +16,8 @@ export function encodeMp3(input, output, spawnImpl = spawn) {
       '-y',
       '-i',
       input,
+      '-af',
+      'loudnorm=I=-16:TP=-1.5:LRA=11',
       '-codec:a',
       'libmp3lame',
       '-b:a',
