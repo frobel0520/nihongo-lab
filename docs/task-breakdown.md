@@ -2,6 +2,18 @@
 
 > 批次候選與勾選狀態須依當時日期判讀，不代表今日待辦。現況以[主進度](../progress.md)為入口，協作規則見[AGENTS](../AGENTS.md)；長期需求、分析與架構契約保留，不因本次收尾重寫。
 
+## T197：CSS 容量門檻（CR-PERF-20261121）
+
+- Status：已由 #280 發布為 b1d20bac，正式產物與音檔下載驗收通過。
+- Task ID／Goal：T197（Issue #279），CSS gzip 門檻改以深色模式後的 build 為基準；同批修正音檔下載在空間不足時多派 1 個請求的時序。
+- Input contract：main `991bc859`；`scripts/perf-budget.mjs`、`app/lib/offlineAudio.ts`。
+- Output artifact：`T197_CSS_GZIP_BASELINE_BYTES`＝5,540、門檻 6,648 bytes；版本清單同步取用。
+- depends_on：T120 效能 Gate、T194 派發契約；其他門檻、教材、媒體、ID、同步與快取名稱不變。
+- Out of scope：其他門檻、下載迴圈結構與重試規則。
+- Acceptance checks：check、`perf:bundle`、`test:ux`、`test:pwa` 與完整 CI；正式產物 SHA 與正式站音檔下載。
+- Fixture or test data：既有合成空間不足故障；正式站只下載公開音檔。
+- Evidence path：release-audit T197；Private 批次 09ae8b7f-ed66-469a-bf7c-503d75c428d5。
+
 ## T196：維護——依賴例外、容量餘裕與 Actions 升版
 
 - Status：已由 #278 發布為 991bc859，Worker 與舊址 Pages 以新版 action 部署成功，正式產物與配圖驗收通過。

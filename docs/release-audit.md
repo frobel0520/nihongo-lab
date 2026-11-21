@@ -15,9 +15,9 @@
 
 ## T197：CSS 容量門檻（CR-PERF-20261121）
 
-2026-11-21，[Issue #279](https://github.com/frobel0520/nihongo-lab/issues/279)，候選，尚未發布。使用者授權調整 CSS gzip 門檻、數值由 worker 決定。原 5,800 bytes 是 T120 在深色模式之前訂的；以 T196 後的正式 build 5,540 bytes 為新基準，沿用「基準＋20%」：`ceil(5,540×1.2)`＝6,648 bytes。其他門檻不變，紀錄見 project-sd 的 T197。
+2026-11-21，[Issue #279](https://github.com/frobel0520/nihongo-lab/issues/279)，[PR #280](https://github.com/frobel0520/nihongo-lab/pull/280) 已部署 `b1d20bac`。使用者授權調整 CSS gzip 門檻、數值由 worker 決定。原 5,800 bytes 是 T120 在深色模式之前訂的；以 T196 後的正式 build 5,540 bytes 為新基準，沿用「基準＋20%」：`ceil(5,540×1.2)`＝6,648 bytes。其他門檻不變，紀錄見 project-sd 的 T197。
 
-同批修正一個下載時序：PR CI 的 `browser (ux)` 一次失敗，音檔遇到空間不足後仍多派 1 個新請求。原因是音檔下載在確認可繼續後、送出請求前，還會等一次版本清單；另一筆的空間不足錯誤剛好在這段空檔回報。現在版本清單載過就同步取用，確認與送出之間不再讓出執行權。這個時序在本機舊程式連跑 10 次都沒有重現，新程式連跑 5 次通過；`npm test`、`perf:bundle`、`test:ux` 與 `test:pwa` 在本機通過。
+同批修正一個下載時序：PR CI 的 `browser (ux)` 一次失敗，音檔遇到空間不足後仍多派 1 個新請求。原因是音檔下載在確認可繼續後、送出請求前，還會等一次版本清單；另一筆的空間不足錯誤剛好在這段空檔回報。現在版本清單載過就同步取用，確認與送出之間不再讓出執行權。這個時序在本機舊程式連跑 10 次都沒有重現，新程式連跑 5 次通過。必要 CI 與 [main 部署](https://github.com/frobel0520/nihongo-lab/actions/runs/44926182239) 通過；正式 252 個 App 檔 SHA 與 build 一致，正式站下載可莉 9 支音檔 SHA 一致、真正斷網重載仍顯示已存好，頁面錯誤 0。[Private 證據](https://github.com/frobel0520/project-archives/blob/291d40def6e509dc0820d32ecf3fe217552cd6a8/projects/gh-1395745155/manifests/09ae8b7f-ed66-469a-bf7c-503d75c428d5.json)
 
 ## T196：維護——依賴例外、容量餘裕與 Actions 升版
 
