@@ -15,9 +15,11 @@
 
 ## #270：音檔換檔與離線版本更新
 
-#270 已部署 `2e365af2`，前版為 `50ec9ce1`。9,319 支既有 MP3 同路徑換檔，其中 Stage 1 重錄 422、Stage 2 重錄 382、僅正規化 8,515，91 支 Fankit 位元組保持。Reviewer 抽驗正式三個變更樣本完整 SHA 一致，Fankit 控制檔未變。既有保留快取仍可播放原檔，正式下載面板當時依 URL 略過舊檔。Whisper CER 與人工聽辨分開，207 支 CER > 0.35 為後續抽聽候選，本輪未做人工聽辨。[部署 CI](https://github.com/frobel0520/nihongo-lab/actions/runs/44862701214)
+#270 已部署 `2e365af2`，前版為 `50ec9ce1`。9,319 支既有 MP3 同路徑換檔，其中 Stage 1 重錄 422、Stage 2 重錄 382、僅正規化 8,515，91 支 Fankit 位元組保持。Reviewer 抽驗正式三個變更樣本完整 SHA 一致，Fankit 控制檔未變。既有保留快取仍可播放原檔，正式下載面板當時依 URL 略過舊檔。Whisper CER 與人工聽辨分開，207 支 CER ≥ 0.35 為後續抽聽候選，本輪未做人工聽辨。[部署 CI](https://github.com/frobel0520/nihongo-lab/actions/runs/44862701214)
 
-離線版本修正為候選，尚未部署。面板獨立呈現可離線播放與可下載新版，更新只處理已下載且內容有變的音檔。新版完整 SHA 驗證後，以 Cache API 單筆替換原播放網址的完整回應。版本清單由 build 依實際音檔生成並預快取，純媒體換檔也能觸發既有 App 更新確認。驗證失敗或中斷時保留尚未替換的原檔，接續只補尚未更新項目。音檔與進度 ID 保持。
+[PR #271](https://github.com/frobel0520/nihongo-lab/pull/271) 已部署 `4a7f2e90`。面板獨立呈現可離線播放與可下載新版，更新只處理已下載且內容有變的音檔。新版完整 SHA 驗證後，以 Cache API 單筆替換原播放網址的完整回應。版本清單由 build 依實際音檔生成並預快取，純媒體換檔也能觸發既有 App 更新確認。驗證失敗或中斷時保留尚未替換的原檔，接續只補尚未更新項目。音檔與進度 ID 保持。
+
+[main 必要測試及 Worker 部署](https://github.com/frobel0520/nihongo-lab/actions/runs/44901875827) 通過。舊址 Pages 重發兩次分別遇到 GitHub 產物讀取及同名產物錯誤，現行引導頁與其 service worker 仍與本版模板渲染結果一致。正式 10 個產物 SHA 與固定建置一致，包含版本清單、service worker 與四支走版本化下載網址的樣本。本機兩個真實 build 通過舊下載更新、斷網重載原生 206 及進度保留，預快取 24,282,819 bytes。正式 Chromium 導覽受環境 TLS 信任限制，正式站跨版互動待補驗。[跨版證據](https://github.com/frobel0520/project-archives/blob/5d87e242db54b0d17e847288a0775ff0d0527714/projects/gh-1395745155/manifests/4b69145f-a7f6-4cff-a052-a109417df2da.json)。
 
 ## 深色模式與 UI 審查 P2
 
