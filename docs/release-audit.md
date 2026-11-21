@@ -15,13 +15,13 @@
 
 ## T195：角色換句與圖片下載入口定位
 
-2026-11-21，[Issue #274](https://github.com/frobel0520/nihongo-lab/issues/274)，候選，尚未發布。處理 UX 覆核 Private `ea36ba2e` 的兩項可選改善，並驗證沒有 Web Locks 時的下載行為。
+2026-11-21，[Issue #274](https://github.com/frobel0520/nihongo-lab/issues/274)，[PR #275](https://github.com/frobel0520/nihongo-lab/pull/275) 已部署 `b37f276c`。處理 UX 覆核 Private `ea36ba2e` 的兩項可選改善，並驗證沒有 Web Locks 時的下載行為。
 
 - UX-05：角色語音按上一句或下一句後，新題目的起點停在固定標頭下方，不再回到統計區頂端。來源與統計資訊保留在上方。導覽回歸在各尺寸、字級與線上／真正離線的長清單案例都檢查換句定位，返回、前進與角色清單位置維持原座標。
 - UX-06：圖片更新提醒的「前往下載」會定位到設定頁的離線圖片面板，上一頁再下一頁會回到同一位置。從功能列一般進入設定頁仍停在頂端。
 - Web Locks：用合成環境移除 `navigator.locks`，兩個分頁同時下載同一角色的 10 支音檔與全部 2,613 張單字圖片。兩邊都完成，快取音檔 SHA 與 build 一致，圖片快取 2,613 筆，真正斷網重載仍顯示已存好，頁面錯誤 0。每個分頁對同一檔案最多只請求 1 次，但兩個分頁會各自下載一次，流量加倍。現代瀏覽器都支援 Web Locks，這個退化只影響流量，不影響正確性，因此不另做替代鎖，觀察待辦結案。
 
-驗證：typecheck、lint、正式 base path build、`npm test`、`test:images`、`test:navigation` 與 `test:ux` 在本機通過。教材、媒體、ID、同步與快取名稱不變。
+驗證：必要 CI 與 [main 部署](https://github.com/frobel0520/nihongo-lab/actions/runs/44911476379) 通過。正式 252 個 App 檔 SHA 與 build 一致；正式站 375×667 換句後新題目、「前往下載」後圖片面板都在固定標頭下方 8px，一般進入設定頁停在頂端，頁面錯誤 0。教材、媒體、ID、同步與快取名稱不變。[Private 證據](https://github.com/frobel0520/project-archives/blob/1fc03d6383119e53f11c1664678fa9c699c43dda/projects/gh-1395745155/manifests/ca884132-989b-467a-982a-a8c732b8236e.json)
 
 ## #270：音檔換檔與離線版本更新
 

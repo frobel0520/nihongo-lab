@@ -4,7 +4,7 @@
 
 ## T195：角色換句與圖片下載入口定位
 
-- Status：候選，尚未發布。
+- Status：已由 #275 發布為 b37f276c，正式產物與正式站定位驗收通過。
 - Task ID／Goal：T195（Issue #274），處理 UX 覆核的 UX-05、UX-06，並結案沒有 Web Locks 時的下載觀察。
 - Input contract：main `f8783a07`；UX 覆核 Private `ea36ba2e`。
 - Output artifact：換句後定位到新題目起點；圖片提醒的專屬入口定位到 `#offline-images`；沒有 Web Locks 的雙分頁下載驗證紀錄。
@@ -12,7 +12,7 @@
 - Out of scope：全站導覽重做、移除來源資訊、替代 Web Locks 的跨分頁鎖、進階教材（使用者 2026-11-21 裁定暫緩）。
 - Acceptance checks：check、正式 base build；`test:navigation`、`test:images`、`test:ux`；合成移除 `navigator.locks` 的雙分頁音檔與圖片下載及真正斷網重載。
 - Fixture or test data：合成提醒版本標記與合成進度，只用獨立 Chromium context。
-- Evidence path：release-audit T195；Private 存檔待發布後補上。
+- Evidence path：release-audit T195；Private 批次 ca884132-989b-467a-982a-a8c732b8236e。
 
 ## T194：四項確認UX修正
 
