@@ -6,8 +6,10 @@ export const offlineSupported = () => typeof caches !== 'undefined';
 const HASH_HEADER = 'X-Nihongo-Audio-SHA256';
 const audioType = (response: Response) =>
   (response.headers.get('content-type') ?? '').startsWith('audio/');
-const loadVersions = () =>
-  import('virtual:audio-versions').then((m) => m.default);
+type AudioVersions = Readonly<Partial<Record<string, string>>>;
+let loadedVersions: AudioVersions | undefined;
+const loadVersions = async () =>
+  (loadedVersions ??= (await import('virtual:audio-versions')).default);
 
 async function sha256(bytes: ArrayBuffer) {
   const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', bytes));
@@ -51,7 +53,9 @@ export function createAudioStore(signal?: AbortSignal) {
     async save(path: string) {
       signal?.throwIfAborted();
       const url = audioUrl(path);
-      const expected = (await loadVersions())[path];
+      // 版本清單載過就同步取用：下載迴圈確認可繼續後到送出請求之間不再讓出執行權，
+      // 其他請求回報空間不足時，不會在這段空檔多派一個新下載（T197）。
+      const expected = (loadedVersions ?? (await loadVersions()))[path];
       if (!expected) throw new Error('找不到音檔版本，請確認 App 更新後再試。');
       signal?.throwIfAborted();
       const response = await fetch(`${downloadUrl(url)}&v=${expected}`, {

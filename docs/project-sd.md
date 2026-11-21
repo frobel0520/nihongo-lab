@@ -986,7 +986,9 @@ Rollback：revert 本 PR 即回到單一 job 依序執行。契約由 `tests/ci-
 
 使用者 2026-11-21 授權調整 CSS gzip 門檻，數值由 worker 依既有慣例決定。原門檻 5,800 bytes 是 T120 在深色模式之前訂的；#266 加入系統深色色票後，T196 刪除未使用樣式，仍為 5,540 bytes（main `991bc859`，`perf:bundle` 同一量法），只剩約 260 bytes。新基準取這個 5,540 bytes，沿用 T120「基準＋20%」並向上取整：`ceil(5,540×1.2)`＝6,648 bytes，定義在 `scripts/perf-budget.mjs` 的 `T197_CSS_GZIP_BASELINE_BYTES`。主程式、配圖 chunk 與 precache 門檻不變。契約由 `tests/perf-stats.test.mjs` 驗證邊界。
 
-Rollback：把 `cssGzipBytes` 改回 5,800。
+同批修正 `app/lib/offlineAudio.ts`：版本清單第一次載入後保存在模組內，`save` 之後同步取用。下載迴圈 `downloadMissing` 確認尚未停止後，到送出請求之間不再有 `await`，空間不足一經標記，就不會再派出新請求（T194 的派發契約）。
+
+Rollback：把 `cssGzipBytes` 改回 5,800；版本清單的同步取用可單獨 revert。
 
 ## 2026-11-21 T196 單字卡配圖的瀏覽器精簡對照（#277）
 
