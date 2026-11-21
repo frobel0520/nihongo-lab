@@ -740,7 +740,7 @@ OpenJLPT全階段95課：去重1503詞，N5 670／674（99.4%）、N4 187詞，N
 
 | 層 | 指令 | 何時跑 | 指標與門檻 |
 | --- | --- | --- | --- |
-| Bundle 迴歸 | `npm run perf:bundle` | CI 每次 build 後 | 主程式 gzip ≤ 630,000 bytes、CSS gzip ≤ 5,800 bytes、precache ≤ 21,500,000 bytes（T120 基準加 20%） |
+| Bundle 迴歸 | `npm run perf:bundle` | CI 每次 build 後 | 主程式 gzip ≤ 630,000 bytes、CSS gzip ≤ 5,800 bytes（T197 起改為 6,648）、precache ≤ 21,500,000 bytes（T120 基準加 20%；T153 起改為 26,869,829） |
 | 操作計算 | `npm run perf:logic` | 發布前在本機跑 | 首頁卡片統計、課程進度、排牌組、評分＋存檔、聽寫比對，各 p95 ≤ 50 ms（Node 桌機；約等於 4 倍慢手機 200 ms，INP「良好」上限） |
 | 頁面載入 | `npm run perf:page` | 發布前在本機跑，正式站另跑一次 | 手機情境首頁與課程頁：冷啟動 LCP p95 ≤ 2,500 ms、暖啟動 LCP p95 ≤ 1,500 ms、冷啟動 TBT p95 ≤ 200 ms、單課音檔下載 p95 ≤ 5,000 ms |
 
@@ -981,6 +981,12 @@ Rollback：經本次PR的完整回歸及實際main執行驗證後發布；若分
 - 分類規則、三種範圍的判定、權限與發布條件都沒有改。
 
 Rollback：revert 本 PR 即回到單一 job 依序執行。契約由 `tests/ci-workflow.test.mjs` 驗證。
+
+## 2026-11-21 T197 CSS 容量門檻（CR-PERF-20261121）
+
+使用者 2026-11-21 授權調整 CSS gzip 門檻，數值由 worker 依既有慣例決定。原門檻 5,800 bytes 是 T120 在深色模式之前訂的；#266 加入系統深色色票後，T196 刪除未使用樣式，仍為 5,540 bytes（main `991bc859`，`perf:bundle` 同一量法），只剩約 260 bytes。新基準取這個 5,540 bytes，沿用 T120「基準＋20%」並向上取整：`ceil(5,540×1.2)`＝6,648 bytes，定義在 `scripts/perf-budget.mjs` 的 `T197_CSS_GZIP_BASELINE_BYTES`。主程式、配圖 chunk 與 precache 門檻不變。契約由 `tests/perf-stats.test.mjs` 驗證邊界。
+
+Rollback：把 `cssGzipBytes` 改回 5,800。
 
 ## 2026-11-21 T196 單字卡配圖的瀏覽器精簡對照（#277）
 

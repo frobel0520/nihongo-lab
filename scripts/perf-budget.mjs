@@ -9,12 +9,16 @@ export const T120_PRECACHE_BASELINE_BYTES = 17_913_219;
 // 沿用 T120「基準＋20%」慣例，向上取整至 1 byte；描述若回到 runtime（約 +150 KB gzip）必定超標。
 export const T163_ILLUSTRATION_CHUNK_GZIP_BASELINE_BYTES = 153_125;
 
+// T197（CR-PERF-20261121，使用者 2026-11-21 授權）：CSS 改以深色模式（#266）加入後、T196 移除未使用樣式後的
+// 正式 /nihongo-lab/ build 為基準 5,540 bytes（main 991bc859，perf:bundle 同一量法），沿用「基準＋20%」並向上取整。
+export const T197_CSS_GZIP_BASELINE_BYTES = 5_540;
+
 /** @type {import('../lib/perf-stats.mjs').Budget[]} */
 export const BUNDLE_BUDGETS = [
-  // 主程式／CSS維持T120已核准門檻；2026-10-22 T153只將precache改為同一原始基準＋50%。
+  // 主程式維持T120已核准門檻（CSS 自 T197 改用上方基準）；2026-10-22 T153只將precache改為同一原始基準＋50%。
   // 歷史上限21,500,000為人工約整，未定義通用規則；本次明定向上取整至1 byte：26,869,829。
   { metric: 'mainJsGzipBytes', limit: 630_000, unit: 'bytes' },
-  { metric: 'cssGzipBytes', limit: 5_800, unit: 'bytes' },
+  { metric: 'cssGzipBytes', limit: Math.ceil(T197_CSS_GZIP_BASELINE_BYTES * 1.2), unit: 'bytes' },
   { metric: 'illustrationChunkGzipBytes', limit: Math.ceil(T163_ILLUSTRATION_CHUNK_GZIP_BASELINE_BYTES * 1.2), unit: 'bytes' },
   { metric: 'precacheBytes', limit: Math.ceil(T120_PRECACHE_BASELINE_BYTES * 1.5), unit: 'bytes' },
 ];
