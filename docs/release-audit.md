@@ -19,7 +19,9 @@
 
 [PR #271](https://github.com/frobel0520/nihongo-lab/pull/271) 已部署 `4a7f2e90`。面板獨立呈現可離線播放與可下載新版，更新只處理已下載且內容有變的音檔。新版完整 SHA 驗證後，以 Cache API 單筆替換原播放網址的完整回應。版本清單由 build 依實際音檔生成並預快取，純媒體換檔也能觸發既有 App 更新確認。驗證失敗或中斷時保留尚未替換的原檔，接續只補尚未更新項目。音檔與進度 ID 保持。
 
-[main 必要測試及 Worker 部署](https://github.com/frobel0520/nihongo-lab/actions/runs/44901875827) 通過。舊址 Pages 重發兩次分別遇到 GitHub 產物讀取及同名產物錯誤，現行引導頁與其 service worker 仍與本版模板渲染結果一致。正式 10 個產物 SHA 與固定建置一致，包含版本清單、service worker 與四支走版本化下載網址的樣本。本機兩個真實 build 通過舊下載更新、斷網重載原生 206 及進度保留，預快取 24,282,819 bytes。正式 Chromium 導覽受環境 TLS 信任限制，正式站跨版互動待補驗。[跨版證據](https://github.com/frobel0520/project-archives/blob/5d87e242db54b0d17e847288a0775ff0d0527714/projects/gh-1395745155/manifests/4b69145f-a7f6-4cff-a052-a109417df2da.json)。
+[main 必要測試及 Worker 部署](https://github.com/frobel0520/nihongo-lab/actions/runs/44901875827) 通過。舊址 Pages 重發兩次分別遇到 GitHub 產物讀取及同名產物錯誤，現行引導頁與其 service worker 仍與本版模板渲染結果一致。正式 10 個產物 SHA 與固定建置一致，包含版本清單、service worker 與四支走版本化下載網址的樣本。本機兩個真實 build 通過舊下載更新、斷網重載原生 206 及進度保留，預快取 24,282,819 bytes。[本機跨版證據](https://github.com/frobel0520/project-archives/blob/5d87e242db54b0d17e847288a0775ff0d0527714/projects/gh-1395745155/manifests/4b69145f-a7f6-4cff-a052-a109417df2da.json)。
+
+2026-11-21 正式站跨版補驗：獨立 Chromium 以正常 TLS 開正式站，受正式 service worker 控制，把 `50ec9ce1` 四支樣本原檔寫入同網址快取。設定頁顯示可離線 4 支、有新版 3 支；更新後新存 3 個、失敗 0 個，Fankit 未被請求，四支 SHA 與 main 一致。斷網重載四支原生 206、合成進度不變、頁面錯誤 0。舊快取為以原檔位元組模擬，舊版 App 更新確認與故障注入沿用本機測試。[正式跨版證據](https://github.com/frobel0520/project-archives/blob/b41ab7d943bd5aeee4a3d64b50496c5ea7502ba8/projects/gh-1395745155/manifests/823a34f7-bb5f-4b22-937a-aaeea30ee43f.json)
 
 ## 深色模式與 UI 審查 P2
 
