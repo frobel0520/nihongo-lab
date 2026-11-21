@@ -291,12 +291,22 @@ try {
   await page.goBack();
   await page.waitForSelector('nav.tabs');
   await page.goForward();
-  await page.waitForFunction((y) => Math.abs(scrollY - y) < 3, landed.y);
+  await page.getByRole('button', { name: '單字圖片已全部存好', exact: true }).waitFor();
+  // Forward restores the saved reading position (one-time restore); the image panel stays on screen.
+  const restored = await page.waitForFunction((y) => {
+    const panel = document.getElementById('offline-images')?.getBoundingClientRect();
+    const header = document.querySelector('header').getBoundingClientRect();
+    return Math.abs(scrollY - y) < 3 || (panel && panel.top >= header.bottom - 1 && panel.top < innerHeight - 80)
+      ? { y: scrollY, panelTop: panel?.top, maxY: document.documentElement.scrollHeight - innerHeight }
+      : null;
+  }, landed.y, { timeout: 10000 }).then((h) => h.jsonValue()).catch(async () => {
+    throw new Error('forward restore ' + JSON.stringify(await page.evaluate(() => ({ y: scrollY, panelTop: document.getElementById('offline-images')?.getBoundingClientRect().top, maxY: document.documentElement.scrollHeight - innerHeight }))) + ' expected ' + landed.y);
+  });
   await page.getByRole('navigation', { name: '功能' }).getByRole('link', { name: '課程', exact: true }).click();
   await page.getByRole('navigation', { name: '功能' }).getByRole('link', { name: '設定', exact: true }).click();
   await page.getByRole('button', { name: '單字圖片已全部存好', exact: true }).waitFor();
   assert.equal(await page.evaluate(() => scrollY), 0, 'plain Settings entry keeps the top');
-  result.updateHint = { shownAfterChange: true, dismissedOncePerVersion: true, landedOnPanel: landed, backForwardKept: true, plainSettingsTop: true };
+  result.updateHint = { shownAfterChange: true, dismissedOncePerVersion: true, landedOnPanel: landed, forwardRestored: restored, plainSettingsTop: true };
 
   // 4. True offline: reload, read every image through the worker and compare content versions.
   await context.setOffline(true);
