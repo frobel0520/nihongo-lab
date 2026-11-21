@@ -272,7 +272,27 @@ try {
   await page.goto(base + '#/settings');
   await page.getByRole('button', { name: '單字圖片已全部存好', exact: true }).waitFor();
   assert.notEqual(await page.evaluate(k => localStorage.getItem(k), completeKey), 'older0000000', 'Settings re-confirms the current version');
-  result.updateHint = { shownAfterChange: true, dismissedOncePerVersion: true };
+  // T195 / UX-06: the reminder's own link lands on the image panel; plain Settings stays at the top.
+  await page.evaluate(([k, d]) => { localStorage.setItem(k, 'older0000000'); localStorage.removeItem(d); }, [completeKey, 'nihongo-lab:vocab-images:hint-dismissed']);
+  await page.goto(base + '#/');
+  await page.reload();
+  await page.getByRole('link', { name: '前往下載' }).click();
+  await page.getByRole('button', { name: '單字圖片已全部存好', exact: true }).waitFor();
+  const landed = await page.evaluate(() => {
+    const panel = document.getElementById('offline-images').getBoundingClientRect();
+    const header = document.querySelector('header').getBoundingClientRect();
+    return { top: panel.top, headerBottom: header.bottom, y: scrollY };
+  });
+  assert.ok(landed.y > 0 && landed.top >= landed.headerBottom - 1 && landed.top <= landed.headerBottom + 16, JSON.stringify(landed));
+  await page.goBack();
+  await page.waitForSelector('nav.tabs');
+  await page.goForward();
+  await page.waitForFunction((y) => Math.abs(scrollY - y) < 3, landed.y);
+  await page.getByRole('navigation', { name: '功能' }).getByRole('link', { name: '課程', exact: true }).click();
+  await page.getByRole('navigation', { name: '功能' }).getByRole('link', { name: '設定', exact: true }).click();
+  await page.getByRole('button', { name: '單字圖片已全部存好', exact: true }).waitFor();
+  assert.equal(await page.evaluate(() => scrollY), 0, 'plain Settings entry keeps the top');
+  result.updateHint = { shownAfterChange: true, dismissedOncePerVersion: true, landedOnPanel: landed, backForwardKept: true, plainSettingsTop: true };
 
   // 4. True offline: reload, read every image through the worker and compare content versions.
   await context.setOffline(true);

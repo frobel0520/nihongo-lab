@@ -240,6 +240,25 @@ async function longList(p, label) {
   });
   if (!before) assert.equal(await peek.count(), 1);
   if (await peek.count()) await peek.click();
+  if (!before) {
+    // T195 / UX-05: changing lines lands on the new line, below the fixed header.
+    await p.getByRole('button', { name: '下一句', exact: true }).click();
+    await p.waitForFunction(() => scrollY > 0);
+    const landed = await p.evaluate(() => {
+      const line = document.querySelector('.game-line').getBoundingClientRect();
+      const header = document.querySelector('header').getBoundingClientRect();
+      return { top: line.top, headerBottom: header.bottom, y: scrollY };
+    });
+    assert.ok(
+      landed.top >= landed.headerBottom - 1 &&
+        landed.top <= landed.headerBottom + 16,
+      JSON.stringify(landed),
+    );
+    result.lineChange ??= [];
+    result.lineChange.push({ label, ...landed });
+    await p.getByRole('button', { name: '上一句', exact: true }).click();
+    if (await peek.count()) await peek.click();
+  }
   const download = p
     .locator('details')
     .filter({ has: p.getByText('下載此角色音檔供離線使用', { exact: true }) });

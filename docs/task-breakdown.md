@@ -2,6 +2,18 @@
 
 > 批次候選與勾選狀態須依當時日期判讀，不代表今日待辦。現況以[主進度](../progress.md)為入口，協作規則見[AGENTS](../AGENTS.md)；長期需求、分析與架構契約保留，不因本次收尾重寫。
 
+## T195：角色換句與圖片下載入口定位
+
+- Status：候選，尚未發布。
+- Task ID／Goal：T195（Issue #274），處理 UX 覆核的 UX-05、UX-06，並結案沒有 Web Locks 時的下載觀察。
+- Input contract：main `f8783a07`；UX 覆核 Private `ea36ba2e`。
+- Output artifact：換句後定位到新題目起點；圖片提醒的專屬入口定位到 `#offline-images`；沒有 Web Locks 的雙分頁下載驗證紀錄。
+- depends_on：既有頁面位置還原（`RestorePagePosition`）與下載工作；教材、媒體、ID、排程、同步與快取名稱不變。
+- Out of scope：全站導覽重做、移除來源資訊、替代 Web Locks 的跨分頁鎖、進階教材（使用者 2026-11-21 裁定暫緩）。
+- Acceptance checks：check、正式 base build；`test:navigation`、`test:images`、`test:ux`；合成移除 `navigator.locks` 的雙分頁音檔與圖片下載及真正斷網重載。
+- Fixture or test data：合成提醒版本標記與合成進度，只用獨立 Chromium context。
+- Evidence path：release-audit T195；Private 存檔待發布後補上。
+
 ## T194：四項確認UX修正
 
 - Status：已由 #268 發布為 50ec9ce1。必要 CI 與正式產物核對通過，正式瀏覽器互動補驗待可連線環境。

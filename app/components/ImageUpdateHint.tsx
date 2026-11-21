@@ -4,6 +4,7 @@ import {
   VOCAB_IMAGE_TOTAL,
 } from 'virtual:vocab-image-fingerprint';
 import { viewHash } from '../../lib/route.mjs';
+import { requestArrivalTarget } from '../lib/pageContext';
 import { IMAGE_CACHE_NAME } from '../../lib/vocab-image-offline.mjs';
 import {
   adoptEarlierCompleteDownload,
@@ -45,7 +46,14 @@ export function ImageUpdateHint({ onSettings }: { onSettings: boolean }) {
     <div className="notice notice-row">
       <span>單字圖片有新增或更新；要在離線時看到新圖，可到設定頁補下載。</span>
       <span className="row">
-        <a className="btn primary" href={viewHash('settings')} onClick={dismiss}>
+        <a
+          className="btn primary"
+          href={viewHash('settings')}
+          onClick={() => {
+            requestArrivalTarget(viewHash('settings'), 'offline-images');
+            dismiss();
+          }}
+        >
           前往下載
         </a>
         <button type="button" className="btn" onClick={dismiss}>

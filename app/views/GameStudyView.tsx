@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { BackLink, PageDetails, usePageState } from '../lib/pageContext';
 import { loadGameData } from '../../curriculum/lessons.mjs';
 const { gameCharacterStudy, genshinActionCoverage, genshinSupplement } =
@@ -328,19 +328,29 @@ export function GameStudyView({
     : [];
   const at = Math.min(index, Math.max(0, items.length - 1));
   const current = items[at];
+  const lineMoved = useRef(false);
   const prev = () => {
     if (at > 0) {
+      lineMoved.current = true;
       setIndex(at - 1);
-      window.scrollTo({ top: 0, behavior: 'instant' });
     }
   };
   const next = () => {
     if (at + 1 < items.length) {
+      lineMoved.current = true;
       setIndex(at + 1);
-      window.scrollTo({ top: 0, behavior: 'instant' });
     }
   };
   const swipe = useSwipeNavigation(prev, next);
+  const swipeRef = swipe.ref;
+  // 換句後停在新題目的起點；角色背景與來源保留在上方，不必每句重新捲過（UX-05）。
+  useLayoutEffect(() => {
+    if (!lineMoved.current) return;
+    lineMoved.current = false;
+    swipeRef.current
+      ?.querySelector('.game-line')
+      ?.scrollIntoView({ block: 'start', behavior: 'instant' });
+  }, [at, swipeRef]);
   if (!game)
     return (
       <>

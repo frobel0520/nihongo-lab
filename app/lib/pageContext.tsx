@@ -231,6 +231,13 @@ export function usePageState<T>(
   return [value, setValue];
 }
 
+let arrivalTarget: { hash: string; id: string } | null = null;
+
+/** 專屬入口用：下一次以新頁進入 hash 時，定位到該頁現有的 id 區塊；返回與一般進入不受影響。 */
+export function requestArrivalTarget(hash: string, id: string) {
+  arrivalTarget = { hash, id };
+}
+
 /** 放在Suspense內：教材與元件都已掛載後才還原一次，不在一般重繪時搬動閱讀。 */
 export function RestorePagePosition({ ready }: { ready: boolean }) {
   const entry = useContext(PageContext);
@@ -239,8 +246,18 @@ export function RestorePagePosition({ ready }: { ready: boolean }) {
     // Suspense + route readiness reserve the full content layout (portraits and
     // illustrations have explicit dimensions). One commit-time restoration;
     // SRS subsequent presentations keep their own focus/scroll protocol.
-    const top = entry.returning ? entry.scrollY : 0;
+    const target = arrivalTarget;
+    arrivalTarget = null;
     entry.positioned = true;
+    const anchor =
+      !entry.returning && target?.hash === entry.hash
+        ? document.getElementById(target.id)
+        : null;
+    if (anchor) {
+      anchor.scrollIntoView({ block: 'start', behavior: 'instant' });
+      return;
+    }
+    const top = entry.returning ? entry.scrollY : 0;
     window.scrollTo({ top, behavior: 'instant' });
   }, [entry, ready]);
   return null;

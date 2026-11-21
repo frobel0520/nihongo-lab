@@ -1852,3 +1852,9 @@ rt {
 .screen :is(a, button, input, select, textarea, summary):focus-visible {
   scroll-margin-top: calc(var(--stack-top) + 8px);
 }
+
+/* 換句與專屬下載入口定位時，起點停在固定標頭下方（T195）。 */
+.game-line,
+#offline-images {
+  scroll-margin-top: calc(var(--stack-top) + 8px);
+}
