@@ -885,7 +885,7 @@ try {
       // 才量測真正要雙擊的實體位置，避免點到掃描前的舊座標。
       await section
         .locator('p.muted')
-        .filter({ hasText: '最近檢查已存：' })
+        .filter({ hasText: '可離線播放：' })
         .waitFor();
       await start.scrollIntoViewIfNeeded();
       const box = await start.boundingBox();
