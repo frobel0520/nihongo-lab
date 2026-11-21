@@ -278,12 +278,16 @@ try {
   await page.reload();
   await page.getByRole('link', { name: '前往下載' }).click();
   await page.getByRole('button', { name: '單字圖片已全部存好', exact: true }).waitFor();
+  await page.getByText(/可離線播放：全部課程 \d+ \//).waitFor();
+  await page.waitForTimeout(500);
   const landed = await page.evaluate(() => {
     const panel = document.getElementById('offline-images').getBoundingClientRect();
     const header = document.querySelector('header').getBoundingClientRect();
-    return { top: panel.top, headerBottom: header.bottom, y: scrollY };
+    const maxY = document.documentElement.scrollHeight - innerHeight;
+    return { top: panel.top, headerBottom: header.bottom, y: scrollY, maxY, atBottom: scrollY >= maxY - 1 };
   });
-  assert.ok(landed.y > 0 && landed.top >= landed.headerBottom - 1 && landed.top <= landed.headerBottom + 16, JSON.stringify(landed));
+  // Lands just below the header, or as far as the page can scroll with the panel fully below the header.
+  assert.ok(landed.y > 0 && landed.top >= landed.headerBottom - 1 && (landed.top <= landed.headerBottom + 16 || landed.atBottom), JSON.stringify(landed));
   await page.goBack();
   await page.waitForSelector('nav.tabs');
   await page.goForward();

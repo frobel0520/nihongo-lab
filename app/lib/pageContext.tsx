@@ -233,6 +233,26 @@ export function usePageState<T>(
 
 let arrivalTarget: { hash: string; id: string } | null = null;
 
+/** 上方區塊稍後才載入完（例如音檔數量）時仍對準目標；使用者一操作或逾時就交還捲動。 */
+function holdArrival(anchor: HTMLElement) {
+  const place = () =>
+    anchor.scrollIntoView({ block: 'start', behavior: 'instant' });
+  const inputs = ['wheel', 'touchstart', 'pointerdown', 'keydown'] as const;
+  const observer = new ResizeObserver(place);
+  const stop = () => {
+    observer.disconnect();
+    window.clearTimeout(timer);
+    for (const type of inputs) window.removeEventListener(type, stop, true);
+    window.removeEventListener('hashchange', stop);
+  };
+  const timer = window.setTimeout(stop, 10000);
+  for (const type of inputs)
+    window.addEventListener(type, stop, { capture: true, passive: true });
+  window.addEventListener('hashchange', stop);
+  place();
+  observer.observe(document.body);
+}
+
 /** 專屬入口用：下一次以新頁進入 hash 時，定位到該頁現有的 id 區塊；返回與一般進入不受影響。 */
 export function requestArrivalTarget(hash: string, id: string) {
   arrivalTarget = { hash, id };
@@ -254,7 +274,7 @@ export function RestorePagePosition({ ready }: { ready: boolean }) {
         ? document.getElementById(target.id)
         : null;
     if (anchor) {
-      anchor.scrollIntoView({ block: 'start', behavior: 'instant' });
+      holdArrival(anchor);
       return;
     }
     const top = entry.returning ? entry.scrollY : 0;
