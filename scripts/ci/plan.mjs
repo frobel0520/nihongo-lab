@@ -94,11 +94,15 @@ if (
     throw new Error('Missing workflow event');
   const event = JSON.parse(readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
   const plan = makePlan(process.env.GITHUB_EVENT_NAME, event);
-  if (process.env.GITHUB_OUTPUT)
+  if (process.env.GITHUB_OUTPUT) {
+    const serializedPaths = JSON.stringify(plan.paths);
+    const pathsOutput =
+      serializedPaths.length > 32768 ? '"__git__"' : serializedPaths;
     appendFileSync(
       process.env.GITHUB_OUTPUT,
-      `profile=${plan.profile}\nbase=${plan.base}\npaths=${JSON.stringify(plan.paths)}\n`,
+      `profile=${plan.profile}\nbase=${plan.base}\npaths=${pathsOutput}\n`,
     );
+  }
   const summary = `Validation profile: ${plan.profile}; changed paths: ${plan.paths.length}; ${plan.reasons.join('; ') || 'Verified change scope'}`;
   if (process.env.GITHUB_STEP_SUMMARY)
     appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary + '\n');

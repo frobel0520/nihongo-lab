@@ -24,6 +24,8 @@ test('encodeMp3：呼叫 ffmpeg 轉 96kbps mp3，結束碼 0 就成功', async (
     '-y',
     '-i',
     'in.wav',
+    '-af',
+    'loudnorm=I=-16:TP=-1.5:LRA=11',
     '-codec:a',
     'libmp3lame',
     '-b:a',
