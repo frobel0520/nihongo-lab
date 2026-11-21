@@ -1,6 +1,6 @@
 import { downloadMissing } from '../../lib/offline.mjs';
 import { isNetworkFailure } from '../../lib/vocab-image-offline.mjs';
-import { createAudioStore } from './offlineAudio';
+import { createAudioStore, scanAudio } from './offlineAudio';
 
 /** 同一App的音檔工作；重整／關閉後中斷，已存的仍由原快取保留。 */
 export type AudioJobScope = { id: string; label: string };
@@ -55,6 +55,7 @@ export function cancelAudioDownload() {
 export async function startAudioDownload(
   paths: string[],
   scope: AudioJobScope,
+  mode: 'missing' | 'update' = 'missing',
 ) {
   if (state.kind === 'running') return;
   scope = { ...scope };
@@ -74,24 +75,45 @@ export async function startAudioDownload(
   });
   window.addEventListener('offline', offline);
   try {
-    const run = () =>
-      downloadMissing([...new Set(paths)], createAudioStore(), {
-        signal: controller!.signal,
-        isNetworkError: isNetworkFailure,
-        networkStopAfter: 4,
-        notRetainedMessage: '音檔未保留在快取中，請檢查可用儲存空間後重試。',
-        onProgress: ({ saved = 0, total, failed = 0, stopped, pending }) => {
-          if (state.kind === 'running')
-            set({
-              ...state,
-              saved,
-              total,
-              failed,
-              storageFull: stopped === 'quota',
-              pending,
-            });
+    const signal = controller.signal;
+    const run = async () => {
+      const store = createAudioStore(signal);
+      const unique = [...new Set(paths)];
+      const outdated =
+        mode === 'update' ? await scanAudio(unique, store, signal) : null;
+      const items = outdated
+        ? unique.filter((path) => outdated.get(path)?.outdated)
+        : unique;
+      return downloadMissing(
+        items,
+        mode === 'update'
+          ? {
+              save: store.save,
+              async has(path) {
+                const { playable, outdated } = await store.status(path);
+                return playable && !outdated;
+              },
+            }
+          : store,
+        {
+          signal,
+          isNetworkError: isNetworkFailure,
+          networkStopAfter: 4,
+          notRetainedMessage: '音檔未保留在快取中，請檢查可用儲存空間後重試。',
+          onProgress: ({ saved = 0, total, failed = 0, stopped, pending }) => {
+            if (state.kind === 'running')
+              set({
+                ...state,
+                saved,
+                total,
+                failed,
+                storageFull: stopped === 'quota',
+                pending,
+              });
+          },
         },
-      });
+      );
+    };
     // 獨立於圖片的鎖；不同分頁／本課與全部音檔也不重複啟動。
     const result = navigator.locks
       ? await navigator.locks.request(
@@ -130,6 +152,16 @@ export async function startAudioDownload(
           },
     );
   } catch (error) {
+    if (controller?.signal.aborted) {
+      set({
+        kind: 'paused',
+        scope,
+        saved: 0,
+        failed: 0,
+        why: stopping ?? 'cancelled',
+      });
+      return;
+    }
     set({
       scope,
       kind: 'error',

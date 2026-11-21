@@ -11,3 +11,8 @@ declare module 'virtual:vocab-image-fingerprint' {
   /** 目前清單的圖片張數。 */
   export const VOCAB_IMAGE_TOTAL: number;
 }
+
+declare module 'virtual:audio-versions' {
+  const versions: Readonly<Partial<Record<string, string>>>;
+  export default versions;
+}

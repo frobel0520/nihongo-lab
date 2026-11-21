@@ -13,6 +13,12 @@
 - 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
 - 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
 
+## #270：音檔換檔與離線版本更新
+
+#270 已部署 `2e365af2`，前版為 `50ec9ce1`。9,319 支既有 MP3 同路徑換檔，其中 Stage 1 重錄 422、Stage 2 重錄 382、僅正規化 8,515，91 支 Fankit 位元組保持。Reviewer 抽驗正式三個變更樣本完整 SHA 一致，Fankit 控制檔未變。既有保留快取仍可播放原檔，正式下載面板當時依 URL 略過舊檔。Whisper CER 與人工聽辨分開，207 支 CER > 0.35 為後續抽聽候選，本輪未做人工聽辨。[部署 CI](https://github.com/frobel0520/nihongo-lab/actions/runs/44862701214)
+
+離線版本修正為候選，尚未部署。面板獨立呈現可離線播放與可下載新版，更新只處理已下載且內容有變的音檔。新版完整 SHA 驗證後，以 Cache API 單筆替換原播放網址的完整回應。版本清單由 build 依實際音檔生成並預快取，純媒體換檔也能觸發既有 App 更新確認。驗證失敗或中斷時保留尚未替換的原檔，接續只補尚未更新項目。音檔與進度 ID 保持。
+
 ## 深色模式與 UI 審查 P2
 
 2026-11-18，[PR #266](https://github.com/frobel0520/nihongo-lab/pull/266)：`app/globals.css` 固定色改 token 並加 `prefers-color-scheme: dark` 色票，按鈕文字改 `--on-brand`；theme-color 分深淺色；返回連結觸控 40px。Headless Chrome 375×812 深淺色各掃 11 個路由，可見文字對比達 WCAG AA、水平溢位 0；設定頁 switch 本體 32px，外層整列可點。依賴稽核以 CR-AUDIT-20261118 限期放行 GHSA-fc5q-39xc-vjpf 到 2026-12-31，其他 high/critical 照常阻擋。深色模式未在真機與已安裝 PWA 驗證，沒有手動切換。

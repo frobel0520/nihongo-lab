@@ -6,6 +6,7 @@ import { AUDIO_CACHE_NAME, AUDIO_ROUTE_PATTERN } from './lib/offline.mjs';
 import { downloadCachePolicy } from './lib/download-cache-policy.mjs';
 import { imageCachePolicy } from './lib/image-cache-policy.mjs';
 import { IMAGE_CACHE_NAME, IMAGE_ROUTE_PATTERN } from './lib/vocab-image-offline.mjs';
+import { audioVersionManifest } from './scripts/audio-version-manifest.mjs';
 import { vocabImageManifest } from './scripts/vocab-image-manifest.mjs';
 
 export default defineConfig({
@@ -13,6 +14,7 @@ export default defineConfig({
   plugins: [
     curriculumChunks(),
     vocabImageManifest(),
+    audioVersionManifest(),
     react(),
     VitePWA({
       registerType: 'prompt',
