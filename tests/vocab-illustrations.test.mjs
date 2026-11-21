@@ -83,7 +83,8 @@ test('card fronts hide images and revealed auxiliary images do not repeat the ac
   const { createServer } = await import('vite');
   const { default: react } = await import('@vitejs/plugin-react');
   const { vocabImageManifest } = await import('../scripts/vocab-image-manifest.mjs');
-  const server = await createServer({ configFile: false, plugins: [react(), vocabImageManifest()], appType: 'custom', logLevel: 'silent', server: { middlewareMode: true, hmr: false, watch: null }, optimizeDeps: { noDiscovery: true } });
+  const { vocabIllustrationIndex } = await import('../scripts/vocab-illustration-index-plugin.mjs');
+  const server = await createServer({ configFile: false, plugins: [react(), vocabImageManifest(), vocabIllustrationIndex()], appType: 'custom', logLevel: 'silent', server: { middlewareMode: true, hmr: false, watch: null }, optimizeDeps: { noDiscovery: true } });
   try {
     const { SrsView } = await server.ssrLoadModule('/app/views/SrsView.tsx');
     const { VocabIllustration } = await server.ssrLoadModule('/app/components/VocabIllustration.tsx');

@@ -16,3 +16,8 @@ declare module 'virtual:audio-versions' {
   const versions: Readonly<Partial<Record<string, string>>>;
   export default versions;
 }
+
+declare module 'virtual:vocab-illustration-index' {
+  /** [卡片 ID, 內容雜湊, 圖檔名]，由 scripts/vocab-illustration-index-plugin.mjs 於 build 時產生（T196）。 */
+  export const VOCAB_ILLUSTRATION_ROWS: import('./lib/vocab-illustration-index.mjs').IllustrationRow[];
+}

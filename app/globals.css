@@ -1079,14 +1079,6 @@ a {
   line-height: 1.4;
 }
 
-.listen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 0;
-}
-
 .dictation-form {
   display: flex;
   flex-direction: column;
@@ -1652,16 +1644,6 @@ rt {
 }
 
 /* ───────── 單字卡複習／新卡分區（T52） ───────── */
-
-.hero-actions {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 8px;
-}
-
-.hero-actions .btn {
-  margin-top: 0;
-}
 
 .srs-modes {
   align-self: center;

@@ -2,6 +2,18 @@
 
 > 批次候選與勾選狀態須依當時日期判讀，不代表今日待辦。現況以[主進度](../progress.md)為入口，協作規則見[AGENTS](../AGENTS.md)；長期需求、分析與架構契約保留，不因本次收尾重寫。
 
+## T196：維護——依賴例外、容量餘裕與 Actions 升版
+
+- Status：候選，尚未發布。
+- Task ID／Goal：T196（Issue #277），移除已撤回公告的依賴例外、恢復配圖與 CSS 容量餘裕、GitHub Actions 改用 Node 24 版本。
+- Input contract：main `b4fc66c8`；`security/audit-exceptions.json`、`lib/vocab-illustrations.mjs`、`app/globals.css`、`.github/workflows/ci.yml`。
+- Output artifact：空的例外清單；`lib/vocab-illustration-index.mjs` 與 build 時虛擬模組 `virtual:vocab-illustration-index`；刪除未使用樣式；Actions 主版本升級。
+- depends_on：T163 配圖映射與容量門檻、T178 原神語音卡不顯示圖片、#199 CI 分流；教材、媒體、ID、同步與快取名稱不變。
+- Out of scope：調整任何容量門檻、`vite-plugin-pwa` 2.0 與其他依賴大版本升級、作者資料格式。
+- Acceptance checks：check、正式 base build、`perf:bundle`、`test:srs-layout`、`test:images` 與完整 CI；發布時 Worker 與舊址 Pages 部署成功，正式產物 SHA 一致。
+- Fixture or test data：全部正式卡片與合成的詞面／讀音／翻譯變更。
+- Evidence path：release-audit T196。
+
 ## T195：角色換句與圖片下載入口定位
 
 - Status：已由 #275 發布為 b37f276c，正式產物與正式站定位驗收通過。

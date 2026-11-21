@@ -982,6 +982,12 @@ Rollback：經本次PR的完整回歸及實際main執行驗證後發布；若分
 
 Rollback：revert 本 PR 即回到單一 job 依序執行。契約由 `tests/ci-workflow.test.mjs` 驗證。
 
+## 2026-11-21 T196 單字卡配圖的瀏覽器精簡對照（#277）
+
+作者資料 `lib/vocab-illustrations.mjs` 保持原格式，Node 端的 `illustrationFor` 與歷史測試照舊使用。瀏覽器改由 build 時的虛擬模組 `virtual:vocab-illustration-index`（`scripts/vocab-illustration-index-plugin.mjs`）提供 `[卡片 ID, 內容雜湊, 圖檔名]`。內容雜湊是詞面、讀音與翻譯的 FNV-1a 32 位元值（`lib/vocab-illustration-index.mjs`），只用來偵測卡片內容改變，不作安全用途。原神語音卡依 T178 不顯示圖片，不送到瀏覽器。`perf:bundle` 仍以第一筆映射 ID 找配圖 chunk，構圖描述外洩檢查不變。契約由 `tests/vocab-illustration-index.test.mjs` 逐張比對全部卡片。
+
+Rollback：`VocabIllustration` 改回從 `lib/vocab-illustrations.mjs` 匯入 `illustrationFor`，並移除 Vite plugin。
+
 ## 2026-11-12 T188 奇偶不列入角色語音（#244）
 
 `lib/game-visibility.mjs` 定義 `HIDDEN_GAME_CHARACTERS`（`genshin:manekin`、`genshin:manekina`）與 `visibleGameStudy(study)`：濾掉隱藏角色，並依剩下的角色重算 `scope` 文字裡的角色數與句數。`scripts/curriculum-chunks.mjs` 產生瀏覽器教材時一律先經過這個函式，所以 `games`、`category/games`、`all-audio`、首頁統計索引與聽力題選項都不含奇偶。

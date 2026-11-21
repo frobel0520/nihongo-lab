@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import type { Card } from '../../lib/srs.mjs';
-import { illustrationFor } from '../../lib/vocab-illustrations.mjs';
+import { VOCAB_ILLUSTRATION_ROWS } from 'virtual:vocab-illustration-index';
+import { createIllustrationLookup } from '../../lib/vocab-illustration-index.mjs';
 import { vocabImageUrl } from '../lib/offlineImages';
+
+const illustrationFor = createIllustrationLookup(VOCAB_ILLUSTRATION_ROWS);
 
 /** Only mounted on the revealed answer; a failed image never blocks study. */
 export function VocabIllustration({ card }: { card: Card }) {

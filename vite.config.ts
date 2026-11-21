@@ -8,12 +8,14 @@ import { imageCachePolicy } from './lib/image-cache-policy.mjs';
 import { IMAGE_CACHE_NAME, IMAGE_ROUTE_PATTERN } from './lib/vocab-image-offline.mjs';
 import { audioVersionManifest } from './scripts/audio-version-manifest.mjs';
 import { vocabImageManifest } from './scripts/vocab-image-manifest.mjs';
+import { vocabIllustrationIndex } from './scripts/vocab-illustration-index-plugin.mjs';
 
 export default defineConfig({
   base: process.env.VITE_BASE_PATH || '/',
   plugins: [
     curriculumChunks(),
     vocabImageManifest(),
+    vocabIllustrationIndex(),
     audioVersionManifest(),
     react(),
     VitePWA({

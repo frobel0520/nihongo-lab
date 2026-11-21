@@ -13,6 +13,17 @@
 - 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
 - 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
 
+## T196：維護——依賴例外、容量餘裕與 Actions 升版
+
+2026-11-21，[Issue #277](https://github.com/frobel0520/nihongo-lab/issues/277)，候選，尚未發布。
+
+- 依賴稽核：GHSA-fc5q-39xc-vjpf 已於 2026-11-18 由 GitHub 撤回（不是安全問題），`npm audit` 不再列出。移除 `security/audit-exceptions.json` 的 CR-AUDIT-20261118 例外，稽核關卡擋下 0、放行 0。其餘 4 項中等風險來自 `vite-plugin-pwa` → `workbox-build`，不擋 CI。
+- 單字卡配圖：瀏覽器改用 build 時產生的精簡對照（卡片 ID、詞面／讀音／翻譯的內容雜湊、圖檔名），作者資料 `lib/vocab-illustrations.mjs` 不變。原神語音卡本來就不顯示圖片，不再送到瀏覽器。新測試逐張比對全部卡片，顯示結果與原比對完全相同，詞面、讀音或翻譯任一改變都不顯示圖。配圖 chunk gzip 182,158 → 76,924 bytes（門檻 183,750），precache 24,283,201 → 23,718,391 bytes。
+- CSS：移除沒有任何元件使用的 `.listen` 與 `.hero-actions`，gzip 5,575 → 5,540 bytes（門檻 5,800）。其他規則都有使用，剩餘空間約 260 bytes；門檻未調整。
+- GitHub Actions：`setup-node` v7、`upload-artifact` v7、`download-artifact` v8、`upload-pages-artifact` v5、`deploy-pages` v5，皆為 Node 24。官方 action 依 Harbor 部署手冊釘主版本。
+
+驗證：typecheck、lint、正式 base path build、`perf:bundle`、`npm test`、`test:srs-layout` 與 `test:images` 在本機通過。部署與舊址 Pages 兩個 job 只在 main 執行，新版 action 要在發布時才實際跑到。教材、媒體、ID、同步與快取名稱不變。
+
 ## T195：角色換句與圖片下載入口定位
 
 2026-11-21，[Issue #274](https://github.com/frobel0520/nihongo-lab/issues/274)，[PR #275](https://github.com/frobel0520/nihongo-lab/pull/275) 已部署 `b37f276c`。處理 UX 覆核 Private `ea36ba2e` 的兩項可選改善，並驗證沒有 Web Locks 時的下載行為。
