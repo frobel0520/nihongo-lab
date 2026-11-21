@@ -82,6 +82,7 @@ jobs:
       - name: Decode all identified changed audio
         if: needs.changes.outputs.profile != 'docs'
         env:
+          CI_BASE_SHA: ${{ needs.changes.outputs.base }}
           CI_CHANGED_PATHS: ${{ needs.changes.outputs.paths }}
         run: node scripts/ci/media-check.mjs
       - run: npm run build

@@ -102,7 +102,22 @@ if (
   process.argv[1] &&
   import.meta.url === pathToFileURL(process.argv[1]).href
 ) {
-  const paths = JSON.parse(process.env.CI_CHANGED_PATHS || '[]');
+  const parsed = JSON.parse(process.env.CI_CHANGED_PATHS || '[]');
+  let paths = Array.isArray(parsed) ? parsed : [];
+  if (parsed === '__git__' && process.env.CI_BASE_SHA) {
+    const base = process.env.CI_BASE_SHA;
+    try {
+      execFileSync('git', ['cat-file', '-e', `${base}^{commit}`], { stdio: 'ignore' });
+    } catch {
+      execFileSync('git', ['fetch', '--no-tags', '--depth=1', 'origin', base], { stdio: 'ignore' });
+    }
+    paths = execFileSync('git', ['diff', '--name-only', '-z', base, 'HEAD'], {
+      maxBuffer: 32 * 1024 * 1024,
+    })
+      .toString('utf8')
+      .split('\0')
+      .filter(Boolean);
+  }
   const ffmpeg = hasFfmpeg();
   const rows = ffmpeg ? checkChangedAudio(paths) : checkChangedAudio(paths, '.', () => {});
   if (!ffmpeg && rows.length)
