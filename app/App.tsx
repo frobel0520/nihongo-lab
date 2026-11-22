@@ -1,4 +1,10 @@
-import { lazy, useState, type MouseEvent, type ReactNode } from 'react';
+import {
+  lazy,
+  useEffect,
+  useState,
+  type MouseEvent,
+  type ReactNode,
+} from 'react';
 import { curriculumSummary } from '../curriculum/lessons.mjs';
 import { LoadBoundary } from './components/LoadBoundary';
 import { useRouteData } from './useRouteData';
@@ -14,6 +20,7 @@ import {
 } from './components/Icons';
 import { PrefsContext, loadPrefs, savePrefs } from './prefs';
 import { RubyText } from './components/Ruby';
+import { getStorage } from './lib/storage';
 import { useProgress } from './useProgress';
 import { useSwUpdate } from './useSwUpdate';
 import { useSync } from './useSync';
@@ -45,6 +52,8 @@ const GameStudyView = lazy(() =>
 const SrsView = lazy(() =>
   import('./views/SrsView').then((m) => ({ default: m.SrsView })),
 );
+
+const RECENT_LESSON_KEY = 'nihongo-lab.recent-lesson';
 
 const APP_NAME = 'かなの日本語';
 
@@ -111,11 +120,32 @@ export function App() {
       : undefined,
     loadLessonView,
   );
+  const [recentLessonId, setRecentLessonId] = useState(() => {
+    try {
+      return getStorage()?.getItem(RECENT_LESSON_KEY) ?? null;
+    } catch {
+      return null;
+    }
+  });
+  const openedLessonId =
+    lesson?.id === data.lesson?.id ? lesson?.id : undefined;
+  useEffect(() => {
+    if (!openedLessonId) return;
+    setRecentLessonId(openedLessonId);
+    try {
+      getStorage()?.setItem(RECENT_LESSON_KEY, openedLessonId);
+    } catch {
+      // 同一分頁仍可依記憶體中的最近課程接續。
+    }
+  }, [openedLessonId]);
+
   const catalog = data.catalog;
   const ReadyLessonView = data.lessonView;
 
   const backTarget = parentStage
-    ? stageHash(parentStage.id)
+    ? entry.parentHash === '#/' || entry.parentHash === ''
+      ? viewHash('lessons')
+      : stageHash(parentStage.id)
     : ['srs', 'dictation', 'shadowing'].includes(route.view) && category
       ? route.view === 'srs'
         ? srsHash(route.srsMode ?? 'review')
@@ -246,7 +276,11 @@ export function App() {
                   />
                 )
               ) : (
-                <LessonListView progress={progress} stageId={stage?.id} />
+                <LessonListView
+                  progress={progress}
+                  stageId={stage?.id}
+                  recentLessonId={recentLessonId}
+                />
               ))}
             {route.view === 'games' && (
               <GameStudyView

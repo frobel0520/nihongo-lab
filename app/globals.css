@@ -1,13 +1,16 @@
 /* かなの日本語：手機 App 風格。手機優先，≥641px 時主選單移到頁首。預設亮色，系統深色時改用深色色票。 */
 
 :root {
-  --bg: #f5f6f3;
+  --bg: #f8f6f0;
   --surface: #ffffff;
-  --ink: #17201d;
-  --ink-2: #5a6762;
-  --rule: #e2e7e4;
-  --brand: #0b6b5c;
-  --brand-soft: #e2f1ed;
+  --ink: #251f17;
+  --ink-2: #615648;
+  --rule: #e5dbca;
+  --brand: #705022;
+  --brand-soft: #efe6d4;
+  --action: #d0b47c;
+  --success: #0b6b5c;
+  --success-soft: #e2f1ed;
   --danger: #b3261e;
   --danger-soft: #fdecea;
   --warn-soft: #fff1d6;
@@ -19,7 +22,7 @@
   --shadow: 0 1px 2px rgba(20, 30, 28, 0.06), 0 6px 18px rgba(20, 30, 28, 0.06);
   --save-notice-h: 0px;
   --appbar-h: 56px;
-  --tabbar-h: 64px;
+  --tabbar-h: max(64px, 3rem);
   --stack-top: calc(var(--appbar-h) + env(safe-area-inset-top));
   /* 字型：用裝置自己的系統字型，不載入網頁字型。網頁字型（原本的 Noto Sans TC）被切成上百個片段按需下載，
      沒載好或離線時有些字會暫時換成系統字型，同一行字的粗細就不一致。系統字型整行都是同一套；
@@ -27,12 +30,12 @@
   --sans:
     system-ui, -apple-system, 'Segoe UI', 'Microsoft JhengHei', sans-serif;
   --sans-ja: system-ui, -apple-system, 'Yu Gothic UI', 'Meiryo', sans-serif;
-  --on-brand: #ffffff;
+  --on-brand: #251f17;
   --note-bg: #fff4e5;
   --note-border: #e0b36a;
   --danger-border: #e3aaa5;
   --danger-border-strong: #d9a29d;
-  --brand-border: #a5d3c8;
+  --success-border: #a5d3c8;
   --track: #c5cdc9;
   color-scheme: light dark;
 }
@@ -40,13 +43,16 @@
 /* 深色：夜間背單字與聽力用。對比依 WCAG AA 選色（內文 ≥ 4.5:1）；單字插圖自帶淺色底板，不另外處理。 */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #101513;
-    --surface: #1a211e;
-    --ink: #e7ece9;
-    --ink-2: #a9b6b1;
-    --rule: #2f3a36;
-    --brand: #5cc6ae;
-    --brand-soft: #173530;
+    --bg: #201e1a;
+    --surface: #2a261f;
+    --ink: #f3eadc;
+    --ink-2: #c8bcaa;
+    --rule: #4a4132;
+    --brand: #e2c58f;
+    --brand-soft: #3f3626;
+    --action: #d8ba81;
+    --success: #5cc6ae;
+    --success-soft: #173530;
     --danger: #f29a92;
     --danger-soft: #3b1f1d;
     --warn-soft: #3a2f16;
@@ -56,12 +62,11 @@
     --s2: #eba774;
     --s3: #e8a2c4;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 18px rgba(0, 0, 0, 0.35);
-    --on-brand: #0c1412;
     --note-bg: #33291a;
     --note-border: #8a6a2e;
     --danger-border: #7a3b36;
     --danger-border-strong: #8f4640;
-    --brand-border: #2e6a5d;
+    --success-border: #2e6a5d;
     --track: #4a5551;
   }
 }
@@ -365,8 +370,8 @@ a {
 }
 
 .btn.primary {
-  background: var(--brand);
-  border-color: var(--brand);
+  background: var(--action);
+  border-color: var(--action);
   color: var(--on-brand);
 }
 
@@ -449,6 +454,38 @@ a {
 }
 
 /* ───────── 課程清單 ───────── */
+
+.home-continue {
+  background: var(--brand-soft);
+}
+
+.home-continue h2,
+.home-continue p,
+.home-reviews-heading {
+  margin: 0;
+}
+
+.home-continue .btn {
+  align-self: start;
+}
+
+.home-reviews {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-reviews .btn {
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  gap: 2px;
+  text-align: center;
+}
 
 .hero {
   align-items: center;
@@ -608,8 +645,8 @@ a {
 }
 
 .section-tabs button[aria-selected='true'] {
-  border-color: var(--brand);
-  background: var(--brand);
+  border-color: var(--action);
+  background: var(--action);
   color: var(--on-brand);
 }
 
@@ -713,8 +750,8 @@ a {
 }
 
 .play-icon[aria-pressed='true'] {
-  border-color: var(--brand);
-  background: var(--brand);
+  border-color: var(--action);
+  background: var(--action);
   color: var(--on-brand);
 }
 
@@ -770,9 +807,9 @@ a {
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: var(--brand);
+  background: var(--action);
   color: var(--on-brand);
-  box-shadow: 0 6px 16px rgba(11, 107, 92, 0.3);
+  box-shadow: 0 6px 16px rgba(112, 80, 34, 0.24);
   cursor: pointer;
   transition: transform 0.1s;
 }
@@ -1041,10 +1078,11 @@ a {
   color: var(--danger);
 }
 
-.grade-good {
-  border-color: var(--brand);
-  background: var(--brand);
-  color: var(--on-brand);
+.grade-good,
+.choice[data-state='correct'] {
+  border-color: var(--success);
+  background: var(--success-soft);
+  color: var(--success);
 }
 
 /* ───────── 聽寫 ───────── */
@@ -1174,11 +1212,6 @@ a {
 .choice-reading {
   color: var(--ink-2);
   font-size: 0.85rem;
-}
-
-.choice[data-state='correct'] {
-  border-color: var(--brand);
-  background: var(--brand-soft);
 }
 
 .choice[data-state='wrong'] {
@@ -1338,8 +1371,8 @@ a {
 }
 
 .feedback.ok {
-  border-color: var(--brand-border);
-  background: var(--brand-soft);
+  border-color: var(--success-border);
+  background: var(--success-soft);
 }
 
 .feedback.bad {
@@ -1359,7 +1392,7 @@ a {
 }
 
 .feedback.ok .feedback-title {
-  color: var(--brand);
+  color: var(--success);
 }
 
 .feedback.bad .feedback-title {
@@ -1597,8 +1630,8 @@ rt {
   }
 
   .tabs a[aria-current='page'] {
-    border-color: var(--brand);
-    background: var(--brand);
+    border-color: var(--action);
+    background: var(--action);
     color: var(--on-brand);
   }
 

@@ -32,8 +32,8 @@ export default defineConfig({
         lang: 'zh-Hant',
         start_url: '.',
         display: 'standalone',
-        background_color: '#f5f6f3',
-        theme_color: '#f5f6f3',
+        background_color: '#f8f6f0',
+        theme_color: '#f8f6f0',
         icons: [
           { src: 'jinwoo-pwa-64x64.png', sizes: '64x64', type: 'image/png' },
           {

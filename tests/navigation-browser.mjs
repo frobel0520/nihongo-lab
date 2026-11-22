@@ -6,7 +6,11 @@ import { resolve, extname } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright-core';
 import { assetPath, staticFile } from './helpers/static-file.mjs';
-import { loadCategory, loadGameData } from '../curriculum/lessons.mjs';
+import {
+  curriculumSummary,
+  loadCategory,
+  loadGameData,
+} from '../curriculum/lessons.mjs';
 import {
   emptyProgress,
   recordDictation,
@@ -298,7 +302,141 @@ async function longList(p, label) {
   await p.getByRole('link', { name: /返回.*角色清單/ }).click();
   await assertPosition(p, left);
 }
+async function homeContinuation() {
+  const stage = curriculumSummary.stages.find((s) => s.id === 'stage-0');
+  const [first, next] = stage.lessons;
+  const target = (p) => p.locator('.home-continue .btn');
+  const expectLesson = async (p, lesson) => {
+    assert.equal(await target(p).getAttribute('href'), '#/lesson/' + lesson.id);
+    const title = await p
+      .locator('.home-continue .lesson-title')
+      .evaluate((node) => {
+        const label = node.cloneNode(true);
+        label.querySelectorAll('rt, rp').forEach((reading) => reading.remove());
+        return label.textContent;
+      });
+    assert.equal(title, lesson.title);
+  };
+
+  const { c, p } = await create();
+  try {
+    await goto(p, '');
+    await expectLesson(p, first);
+    assert.equal(await target(p).textContent(), '開始學習');
+    await target(p).click();
+    await p.getByRole('tablist', { name: '課程內容' }).waitFor();
+    await shot(p, 't198-lesson-light');
+    await p.getByRole('link', { name: '返回課程清單' }).click();
+    await p.waitForURL((u) => !u.hash);
+    await expectLesson(p, first);
+    assert.equal(await target(p).textContent(), '繼續這一課');
+    await p.reload();
+    await expectLesson(p, first);
+    await shot(p, 't198-home-light');
+    await p.emulateMedia({ colorScheme: 'dark' });
+    await shot(p, 't198-home-dark');
+  } finally {
+    await c.close();
+  }
+
+  const small = await create(320, 480, 150);
+  try {
+    const { c, p } = small;
+    await goto(p, '#/');
+    const progress = emptyProgress();
+    const today = toDateString();
+    const now = new Date().toISOString();
+    const complete = (lesson) => {
+      for (const id of lesson.vocabIds)
+        progress.srs[id] = {
+          ...schedule(null, 'good', today, now),
+          due: today,
+        };
+      for (const id of [
+        ...lesson.dictationIds,
+        ...lesson.listeningIds,
+        ...lesson.grammarIds,
+      ])
+        progress.dictation[id] = { passed: true, attempts: 1, lastAt: now };
+    };
+    const seed = (id) =>
+      p.evaluate(
+        ({ key, payload, id }) => {
+          localStorage.setItem(key, payload);
+          localStorage.setItem('nihongo-lab.recent-lesson', id);
+        },
+        { key, payload: serializeProgress(progress), id },
+      );
+    complete(first);
+    await seed(first.id);
+    await p.reload();
+    await expectLesson(p, next);
+    assert.equal(await target(p).textContent(), '開始下一課');
+    const reviews = p.getByRole('region', { name: '今天的複習' });
+    for (const [id, category] of Object.entries(curriculumSummary.categories)) {
+      const count = category.cardIds.filter(
+        (card) => progress.srs[card]?.due === today,
+      ).length;
+      const link = reviews.locator(`a[href="#/srs?category=${id}"]`);
+      assert.match(await link.textContent(), new RegExp(`到期 ${count} 張`));
+    }
+
+    // Change the retained visit to a stale ID. Keyboard selection advances to
+    // the first real course direction without creating a new history entry.
+    await seed('invalid-lesson');
+    await p.reload();
+    await p.getByRole('button', { name: '選擇課程' }).press('Enter');
+    await p.waitForFunction(
+      () => document.activeElement?.id === 'home-directions',
+    );
+    await p.keyboard.press('Tab');
+    assert.equal(
+      await p.evaluate(() => document.activeElement?.getAttribute('href')),
+      '#/courses/stage-0',
+    );
+    await p.getByText('學習方向怎麼選？', { exact: true }).focus();
+    await p.keyboard.press('Enter');
+    assert.ok(
+      await p.evaluate(() => {
+        window.scrollTo(0, document.documentElement.scrollHeight);
+        const end = [...document.querySelectorAll('main details p')].at(-1);
+        return (
+          end.getBoundingClientRect().bottom <=
+            document.querySelector('.tabs').getBoundingClientRect().top &&
+          document.documentElement.scrollWidth <= innerWidth
+        );
+      }),
+      '最後一段內容須位於底欄上方，且不能有水平溢位',
+    );
+    await shot(p, 't198-home-320-large');
+
+    // A completed route stops at its own course list.
+    stage.lessons.forEach(complete);
+    await seed(stage.lessons.at(-1).id);
+    await p.reload();
+    assert.match(await p.locator('.home-continue').textContent(), /已完成/);
+    assert.equal(await target(p).getAttribute('href'), '#/courses/stage-0');
+
+    // Exercise the same direct entry after an actual disconnected reload.
+    delete progress.dictation[next.dictationIds[0]];
+    assert.ok(next.dictationIds[0], '新版的下一課應有聽寫題');
+    await seed(next.id);
+    await disconnect(c, p);
+    await expectLesson(p, next);
+    await target(p).click();
+    await p.getByRole('tablist', { name: '課程內容' }).waitFor();
+    await p.getByRole('link', { name: '返回課程清單' }).click();
+    await p.waitForURL((u) => u.hash === '#/');
+    await expectLesson(p, next);
+    result.homeContinuation =
+      '首次、最近課程、下一課、整路線完成、失效紀錄、四類到期數、大字鍵盤、離線直達及返回';
+  } finally {
+    await small.c.close();
+  }
+}
+
 try {
+  if (!before) await homeContinuation();
   if (!before) {
     // Hold the selected payload indefinitely: the view must be requested before
     // it is released. Disabling SW prevents precache from faking parallelism.
