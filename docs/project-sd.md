@@ -233,6 +233,7 @@ VOICEVOX（本機工具，不進 repo）產生 wav → `scripts/synthesize.mjs` 
 - **做法**：網頁改由 `nihongo-sync` Worker 的 static assets 提供（免費的 `*.workers.dev` 網址，不購買網域），session 改 HttpOnly cookie；前端 build 約 11,400 檔／213MB，在 Workers 免費方案每版 20,000 檔、單檔 25 MiB 上限內，靜態檔請求不計費，符合零月費。
 - **舊網址**：GitHub Pages 只發布引導頁（`pages-redirect/`）：清除舊 token；本機沒有進度就直接轉到新網址，有進度則提供與 App 匯出相同格式的進度檔下載，到新網址設定頁「匯入進度」。另發布替換用 `sw.js`，讓舊版 service worker 自行清快取、解除註冊並重新載入，使用者才看得到引導頁。
 - **上線順序**：CI 先 `deploy-worker`，成功後 `deploy-pages-redirect` 才換掉舊站；缺 secrets 或 `NIHONGO_APP_URL` 時對應 job 失敗，舊站維持原樣。
+- **退役（2026-11-22）**：Owner 確認進度已備份、使用者已轉移後，移除 `pages-redirect/` 與 `deploy-pages-redirect` job，並關閉 GitHub Pages；舊網址回 404，`NIHONGO_APP_URL` 變數不再使用。
 - **使用者影響**：需重新登入同步、重新加入主畫面；離線音檔與圖片快取、顯示偏好存在舊來源，需在新網址重新下載／設定。
 - **Rollback**：`wrangler rollback` 回上一版 Worker，並 revert 本變更讓 CI 重新以舊流程發布 GitHub Pages。
 

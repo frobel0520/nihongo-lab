@@ -416,7 +416,8 @@ test('deployment needs all gates, docs never publish, and owner/main/permissions
     guard.includes('test "$GITHUB_ACTOR" = "$GITHUB_REPOSITORY_OWNER"'),
   );
   assert.ok(guard.includes('test "$GITHUB_REF" = refs/heads/main'));
-  assert.equal(workflow.jobs['deploy-pages-redirect'].needs, 'deploy-worker');
+  // 舊 GitHub Pages 引導頁已於 2026-11-22 退役，不再有 deploy-pages-redirect job。
+  assert.equal(workflow.jobs['deploy-pages-redirect'], undefined);
   assert.deepEqual(workflow.permissions, { contents: 'read' });
   for (const job of Object.values(workflow.jobs))
     for (const step of job.steps)
