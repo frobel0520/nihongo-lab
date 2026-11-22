@@ -13,6 +13,12 @@
 - 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
 - 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
 
+## T199：學習畫面視覺調整
+
+2026-11-22，[PR #285](https://github.com/frobel0520/nihongo-lab/pull/285) 已合併並部署至 `2f298a8f`。首頁、整段聽解與單字卡採用香檳金視覺調整。[部署 CI](https://github.com/frobel0520/nihongo-lab/actions/runs/45029837908) 通過，正式抽查 13 檔與同提交建置一致。
+
+隔離 Chromium 通過淺深色、首頁進課、播放及停止、單字卡揭示和真正離線重載。320px／150% 字級下聽解與單字卡無水平溢位。正式效能 20 次載入無失敗，首頁首次／快取重載 LCP p95 為 2,056／792 ms，通用第 121 課為 2,208／780 ms，LCP、TBT 與內容可用時間均達門檻。
+
 ## T198：首頁接續與香檳金
 
 2026-11-22，[PR #284](https://github.com/frobel0520/nihongo-lab/pull/284) 已合併並部署至 `e299dab9`。[CI 與部署](https://github.com/frobel0520/nihongo-lab/actions/runs/45004700562) 成功。正式抽查 13 個檔案與同提交重建逐位元組一致。

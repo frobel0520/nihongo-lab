@@ -8,7 +8,7 @@ import {
 import { curriculumSummary } from '../curriculum/lessons.mjs';
 import { LoadBoundary } from './components/LoadBoundary';
 import { useRouteData } from './useRouteData';
-import type { DictationMode } from '../lib/prefs.mjs';
+import type { DictationMode, Theme } from '../lib/prefs.mjs';
 import { srsHash, stageHash, viewHash, type ViewId } from '../lib/route.mjs';
 import {
   BackIcon,
@@ -18,7 +18,7 @@ import {
   MicIcon,
   SlidersIcon,
 } from './components/Icons';
-import { PrefsContext, loadPrefs, savePrefs } from './prefs';
+import { PrefsContext, loadPrefs, savePrefs, useTheme } from './prefs';
 import { RubyText } from './components/Ruby';
 import { getStorage } from './lib/storage';
 import { useProgress } from './useProgress';
@@ -81,6 +81,7 @@ export function App() {
   } = useProgress();
   const sync = useSync({ progress, getProgress, update });
   const [prefs, setPrefs] = useState(loadPrefs);
+  useTheme(prefs.theme);
   const {
     updated,
     changed,
@@ -90,6 +91,11 @@ export function App() {
     reload,
   } = useSwUpdate();
 
+  const setTheme = (theme: Theme) => {
+    const next = { ...prefs, theme };
+    setPrefs(next);
+    savePrefs(next);
+  };
   const setFurigana = (furigana: boolean) => {
     const next = { ...prefs, furigana };
     setPrefs(next);
@@ -341,6 +347,7 @@ export function App() {
                 sync={sync}
                 prefs={prefs}
                 setFurigana={setFurigana}
+                setTheme={setTheme}
               />
             )}
             <RestorePagePosition ready={data.ready} />

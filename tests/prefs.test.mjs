@@ -15,12 +15,22 @@ test('讀得到布林值就採用，包含關閉', () => {
 test('聽寫作答方式：預設選擇題，讀得到合法值才採用，其他退回預設', () => {
   assert.equal(defaultPrefs().dictationMode, 'choice');
   assert.equal(parsePrefs('{"dictationMode":"type"}').dictationMode, 'type');
-  assert.equal(parsePrefs('{"dictationMode":"choice"}').dictationMode, 'choice');
+  assert.equal(
+    parsePrefs('{"dictationMode":"choice"}').dictationMode,
+    'choice',
+  );
   for (const bad of ['"voice"', '1', 'null', '[]']) {
-    assert.equal(parsePrefs(`{"dictationMode":${bad}}`).dictationMode, 'choice');
+    assert.equal(
+      parsePrefs(`{"dictationMode":${bad}}`).dictationMode,
+      'choice',
+    );
   }
   // 沒存聽寫方式的舊偏好：讀音設定照舊，聽寫用預設
-  assert.deepEqual(parsePrefs('{"furigana":false}'), { furigana: false, dictationMode: 'choice' });
+  assert.deepEqual(parsePrefs('{"furigana":false}'), {
+    furigana: false,
+    dictationMode: 'choice',
+    theme: 'system',
+  });
 });
 
 test('壞掉的 JSON 或型別不對時退回預設值，不丟錯', () => {
@@ -28,4 +38,17 @@ test('壞掉的 JSON 或型別不對時退回預設值，不丟錯', () => {
   assert.deepEqual(parsePrefs('{"furigana":"no"}'), defaultPrefs());
   assert.deepEqual(parsePrefs('null'), defaultPrefs());
   assert.deepEqual(parsePrefs('[]'), defaultPrefs());
+});
+
+test('theme defaults to system and old preferences round-trip with manual themes', () => {
+  const previous = { furigana: false, dictationMode: 'type' };
+  assert.deepEqual(parsePrefs(JSON.stringify(previous)), {
+    ...previous,
+    theme: 'system',
+  });
+  for (const theme of ['system', 'light', 'dark']) {
+    const stored = { ...previous, theme };
+    assert.deepEqual(parsePrefs(JSON.stringify(stored)), stored);
+  }
+  assert.deepEqual(parsePrefs('{"theme":"invalid"}'), defaultPrefs());
 });

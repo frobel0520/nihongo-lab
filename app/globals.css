@@ -39,38 +39,37 @@
   --danger-border-strong: #d9a29d;
   --success-border: #a5d3c8;
   --track: #c5cdc9;
-  color-scheme: light dark;
+  color-scheme: light;
 }
 
 /* 深色：夜間背單字與聽力用。對比依 WCAG AA 選色（內文 ≥ 4.5:1）；單字插圖自帶淺色底板，不另外處理。 */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #201e1a;
-    --surface: #2a261f;
-    --ink: #f3eadc;
-    --ink-2: #c8bcaa;
-    --rule: #4a4132;
-    --brand: #e2c58f;
-    --brand-soft: #3f3626;
-    --action: #d8ba81;
-    --success: #5cc6ae;
-    --success-soft: #173530;
-    --danger: #f29a92;
-    --danger-soft: #3b1f1d;
-    --warn-soft: #3a2f16;
-    --warn: #f0c46a;
-    --s0: #93bde6;
-    --s1: #5cc6ae;
-    --s2: #eba774;
-    --s3: #e8a2c4;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 18px rgba(0, 0, 0, 0.35);
-    --note-bg: #33291a;
-    --note-border: #8a6a2e;
-    --danger-border: #7a3b36;
-    --danger-border-strong: #8f4640;
-    --success-border: #2e6a5d;
-    --track: #4a5551;
-  }
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #201e1a;
+  --surface: #2a261f;
+  --ink: #f3eadc;
+  --ink-2: #c8bcaa;
+  --rule: #4a4132;
+  --brand: #e2c58f;
+  --brand-soft: #3f3626;
+  --action: #d8ba81;
+  --success: #5cc6ae;
+  --success-soft: #173530;
+  --danger: #f29a92;
+  --danger-soft: #3b1f1d;
+  --warn-soft: #3a2f16;
+  --warn: #f0c46a;
+  --s0: #93bde6;
+  --s1: #5cc6ae;
+  --s2: #eba774;
+  --s3: #e8a2c4;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 18px rgba(0, 0, 0, 0.35);
+  --note-bg: #33291a;
+  --note-border: #8a6a2e;
+  --danger-border: #7a3b36;
+  --danger-border-strong: #8f4640;
+  --success-border: #2e6a5d;
+  --track: #4a5551;
 }
 
 * {
@@ -1985,4 +1984,23 @@ section:has(> #home-directions) .lesson-card {
   .scene-listening {
     transition: border-color 0.16s ease-out;
   }
+}
+
+
+.theme-setting {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+}
+
+.theme-setting select {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
 }

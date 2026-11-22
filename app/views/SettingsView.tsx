@@ -3,13 +3,19 @@ import { useState } from 'react';
 import { loadAllAudioPaths } from '../../curriculum/lessons.mjs';
 import { voices } from '../../curriculum/voices.mjs';
 import type { Progress } from '../../lib/progress.mjs';
-import type { Prefs } from '../../lib/prefs.mjs';
+import { THEMES, type Prefs, type Theme } from '../../lib/prefs.mjs';
 import { CACHE_CLEARED_FLAG, ClearCache } from '../components/ClearCache';
 import { OfflineAudio } from '../components/OfflineAudio';
 import { OfflineImages } from '../components/OfflineImages';
 import { ProgressTransfer } from '../components/ProgressTransfer';
 import { SyncPanel } from '../components/SyncPanel';
 import type { SyncApi } from '../useSync';
+
+const THEME_LABELS: Record<Theme, string> = {
+  system: '跟隨系統',
+  light: '淺色',
+  dark: '深色',
+};
 
 const ALL_AUDIO_PATHS = await loadAllAudioPaths();
 /** 設定頁只提供「全部課程」下載；模組層級的固定陣列，避免每次渲染都換新參考而重跑下載計數。 */
@@ -32,12 +38,14 @@ export function SettingsView({
   sync,
   prefs,
   setFurigana,
+  setTheme,
 }: {
   progress: Progress;
   update: (change: (prev: Progress) => Progress) => void;
   sync: SyncApi;
   prefs: Prefs;
   setFurigana: (furigana: boolean) => void;
+  setTheme: (theme: Theme) => void;
 }) {
   const [justCleared, setJustCleared] = useState(readClearedFlag);
 
@@ -62,6 +70,24 @@ export function SettingsView({
 
       <section className="card">
         <h3>顯示</h3>
+        <label className="theme-setting">
+          <span>佈景主題</span>
+          <select
+            value={prefs.theme}
+            onChange={(event) => {
+              const theme = THEMES.find(
+                (value) => value === event.target.value,
+              );
+              if (theme) setTheme(theme);
+            }}
+          >
+            {THEMES.map((theme) => (
+              <option key={theme} value={theme}>
+                {THEME_LABELS[theme]}
+              </option>
+            ))}
+          </select>
+        </label>
         <label className="switch-row">
           <span>
             漢字上方標讀音（ふりがな）

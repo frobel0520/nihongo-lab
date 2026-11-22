@@ -244,6 +244,99 @@ const count = (p) =>
     async () => (await (await caches.open('lesson-audio-v5')).keys()).length,
   );
 try {
+  if (!before && (area === 'all' || area === 'theme')) {
+    const c = await context(320, 480, 150);
+    try {
+      await c.addInitScript(() => {
+        const key = 'nihongo-lab:prefs:v1';
+        if (!localStorage.getItem(key)) {
+          localStorage.setItem(
+            key,
+            JSON.stringify({ furigana: false, dictationMode: 'type' }),
+          );
+        }
+      });
+      const p = await c.newPage();
+      errors(p);
+      await p.emulateMedia({ colorScheme: 'dark' });
+      await goto(p, '#/settings');
+      const picker = p.getByRole('combobox', { name: '佈景主題', exact: true });
+      await picker.waitFor();
+      const skin = async (theme, mode) => {
+        const bg = theme === 'dark' ? '#201e1a' : '#f8f6f0';
+        await p.waitForFunction(
+          ({ theme, bg }) => {
+            const root = document.documentElement;
+            const style = getComputedStyle(root);
+            return (
+              root.dataset.theme === theme &&
+              style.colorScheme === theme &&
+              style.getPropertyValue('--bg').trim() === bg
+            );
+          },
+          { theme, bg },
+        );
+        assert.equal(await picker.inputValue(), mode);
+        const toolbar = p.locator('#app-theme-color');
+        assert.equal(
+          await toolbar.getAttribute('media'),
+          mode === 'system' ? 'not all' : 'all',
+        );
+        if (mode !== 'system')
+          assert.equal(await toolbar.getAttribute('content'), bg);
+        assert.ok(
+          await p.evaluate(
+            () => document.documentElement.scrollWidth <= innerWidth,
+          ),
+        );
+      };
+
+      await skin('dark', 'system');
+      await picker.selectOption('light');
+      await skin('light', 'light');
+      await screenshot(p, 'settings-theme-light');
+      await p.reload();
+      await skin('light', 'light');
+      await picker.selectOption('dark');
+      await p.emulateMedia({ colorScheme: 'light' });
+      await skin('dark', 'dark');
+      await screenshot(p, 'settings-theme-dark');
+      assert.deepEqual(
+        await p.evaluate(() =>
+          JSON.parse(localStorage.getItem('nihongo-lab:prefs:v1')),
+        ),
+        {
+          furigana: false,
+          dictationMode: 'type',
+          theme: 'dark',
+        },
+      );
+
+      await tab(p, '課程').click();
+      await p.locator('.home-continue').waitFor();
+      assert.equal(await p.locator('html').getAttribute('data-theme'), 'dark');
+      await tab(p, '設定').click();
+      await skin('dark', 'dark');
+      await picker.selectOption('system');
+      await skin('light', 'system');
+      await p.emulateMedia({ colorScheme: 'dark' });
+      await skin('dark', 'system');
+      await picker.selectOption('light');
+      await warm(p);
+      await offline(c, p);
+      await skin('light', 'light');
+      await picker.selectOption('dark');
+      await skin('dark', 'dark');
+      result.theme = {
+        systemChange: true,
+        preservesPreferences: true,
+        manualOfflineReload: true,
+      };
+    } finally {
+      await c.close();
+    }
+  }
+
   // U1: both modes, actual reading/clicking, long game choices and keyboard-height reflow.
   if (area === 'all' || area === 'layout')
     for (const [width, height, font] of [
