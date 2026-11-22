@@ -13,6 +13,12 @@
 - 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
 - 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
 
+## T198：首頁接續與香檳金
+
+2026-11-22，[PR #284](https://github.com/frobel0520/nihongo-lab/pull/284) 已合併並部署至 `e299dab9`。[CI 與部署](https://github.com/frobel0520/nihongo-lab/actions/runs/45004700562) 成功。正式抽查 13 個檔案與同提交重建逐位元組一致。
+
+隔離 Chromium 確認首頁接續、四類到期數、明暗色、底欄、320px／150% 字級與真正離線重載。正式效能重測 20 次載入無失敗，首頁首次／快取重載 LCP p95 為 2,148／784 ms，通用第 121 課為 2,156／832 ms，LCP、TBT 與內容可用時間均達門檻。首輪遭環境代理憑證錯誤，限定測試瀏覽器信任已核對的來源後重測。
+
 ## T197：CSS 容量門檻（CR-PERF-20261121）
 
 2026-11-21，[Issue #279](https://github.com/frobel0520/nihongo-lab/issues/279)，[PR #280](https://github.com/frobel0520/nihongo-lab/pull/280) 已部署 `b1d20bac`。使用者授權調整 CSS gzip 門檻、數值由 worker 決定。原 5,800 bytes 是 T120 在深色模式之前訂的；以 T196 後的正式 build 5,540 bytes 為新基準，沿用「基準＋20%」：`ceil(5,540×1.2)`＝6,648 bytes。其他門檻不變，紀錄見 project-sd 的 T197。

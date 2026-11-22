@@ -155,7 +155,10 @@ export function SceneListening({
   };
 
   return (
-    <section className="card scene-listening">
+    <section
+      className="card scene-listening"
+      data-playing={lineIndex !== null ? '' : undefined}
+    >
       <h2>整段聽解：先聽，再理解</h2>
       <p>
         <RubyText text={scene.goal} />

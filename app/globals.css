@@ -9,6 +9,8 @@
   --brand: #705022;
   --brand-soft: #efe6d4;
   --action: #d0b47c;
+  --study-radius: 20px;
+  --study-tint: color-mix(in srgb, var(--brand-soft) 52%, var(--surface));
   --success: #0b6b5c;
   --success-soft: #e2f1ed;
   --danger: #b3261e;
@@ -456,7 +458,8 @@ a {
 /* ───────── 課程清單 ───────── */
 
 .home-continue {
-  background: var(--brand-soft);
+  border-radius: var(--study-radius);
+  background: linear-gradient(154deg, var(--brand-soft), var(--study-tint));
 }
 
 .home-continue h2,
@@ -646,8 +649,8 @@ a {
 
 .section-tabs button[aria-selected='true'] {
   border-color: var(--action);
-  background: var(--action);
-  color: var(--on-brand);
+  background: var(--brand-soft);
+  color: var(--brand);
 }
 
 .section-tabs button[aria-selected='true'] small {
@@ -858,10 +861,9 @@ a {
   gap: 16px;
   min-height: 320px;
   padding: 32px 20px;
-  border: 2px solid transparent;
-  border-radius: 24px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
+  border: 1px solid var(--rule);
+  border-radius: var(--study-radius);
+  background: linear-gradient(180deg, var(--study-tint), var(--surface) 70%);
   text-align: center;
   touch-action: pan-y;
   transition:
@@ -872,6 +874,7 @@ a {
 
 .flash-word {
   font-size: clamp(2.4rem, 12vw, 3.4rem);
+  font-weight: 650;
   line-height: 1.3;
 }
 
@@ -1872,4 +1875,114 @@ rt {
 .game-line,
 #offline-images {
   scroll-margin-top: calc(var(--stack-top) + 8px);
+}
+
+/* ───────── 首頁與核心學習畫面 ───────── */
+
+.home-continue,
+section:has(> .home-reviews),
+section:has(> #home-directions) .lesson-card {
+  box-shadow: none;
+}
+.home-continue h2 {
+  color: var(--brand);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.home-continue .lesson-title {
+  font-size: 1.25rem;
+  line-height: 1.42;
+}
+.home-continue .btn {
+  width: 100%;
+  max-width: 22rem;
+  min-height: 44px;
+  border-radius: 12px;
+}
+.home-reviews-heading,
+#home-directions {
+  font-size: 1.125rem;
+}
+.home-reviews .btn {
+  min-height: 52px;
+  align-items: flex-start;
+  text-align: start;
+  border-radius: 10px;
+  padding: 7px 10px;
+}
+.home-reviews .btn > span:first-child {
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+.home-reviews .btn .muted {
+  font-size: 0.8125rem;
+}
+.home-direction-description {
+  color: var(--ink-2);
+  font-size: 0.875rem;
+}
+
+.home-continue .btn.primary,
+.scene-listening .row > .primary,
+.srs-screen .actions > .btn.primary {
+  font-weight: 700;
+  border-radius: 12px;
+}
+.scene-listening {
+  padding: clamp(15px, 5vw, 22px);
+  gap: 10px;
+  border-radius: var(--study-radius);
+  box-shadow: none;
+  background: linear-gradient(160deg, var(--study-tint), var(--surface) 230px);
+}
+.scene-listening > h2 {
+  font-size: 1.25rem;
+  line-height: 1.35;
+  margin: 0;
+}
+.scene-listening > p {
+  margin: 0;
+}
+.scene-listening .row > .primary {
+  width: 100%;
+  min-height: 44px;
+}
+.scene-listening .scene-status {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  min-height: 1.25em;
+}
+.scene-listening[data-playing] {
+  border-color: color-mix(in srgb, var(--brand) 42%, var(--rule));
+}
+.scene-listening[data-playing] .scene-status {
+  color: var(--brand);
+  font-weight: 650;
+}
+.scene-listening .scene-question {
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+.scene-listening .anime-options .btn {
+  border-radius: 12px;
+  justify-content: flex-start;
+}
+.flashcard.is-revealed .flash-zh {
+  font-size: 1.25rem;
+}
+.srs-screen .grade {
+  box-shadow: none;
+  border-width: 1px;
+  border-radius: 14px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .home-continue .btn.primary:active,
+  .scene-listening .row > .primary:active,
+  .srs-screen .actions > .btn.primary:active {
+    transform: scale(0.985);
+  }
+  .scene-listening {
+    transition: border-color 0.16s ease-out;
+  }
 }

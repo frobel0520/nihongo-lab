@@ -214,7 +214,9 @@ export function LessonListView({
                       <span className="lesson-title">
                         {track?.title ?? stage.title}
                       </span>
-                      <span>{track?.description}</span>
+                      <span className="home-direction-description">
+                        {track?.description}
+                      </span>
                       <span className="muted">
                         {stage.lessons.length} 課 · 已開始 {started} 課
                       </span>
@@ -228,7 +230,9 @@ export function LessonListView({
               <a className="card lesson-card" href={viewHash('games')}>
                 <span className="lesson-card-body">
                   <span className="lesson-title">遊戲角色語音</span>
-                  <span>依作品與角色選擇台詞，學單字、句型並練聽解。</span>
+                  <span className="home-direction-description">
+                    依作品與角色選擇台詞，學單字、句型並練聽解。
+                  </span>
                   <span className="muted">永恆輪迴 · 原神</span>
                 </span>
                 <ChevronRightIcon />
