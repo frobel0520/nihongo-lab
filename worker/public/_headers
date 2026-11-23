@@ -6,9 +6,11 @@
 
 /nihongo-lab/
   Cache-Control: no-cache
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
 
 /nihongo-lab/index.html
   Cache-Control: no-cache
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
 
 /nihongo-lab/sw.js
   Cache-Control: no-cache

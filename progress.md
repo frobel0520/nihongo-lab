@@ -13,6 +13,10 @@
 - 人耳審聽、真機與 WebKit（Safari）效能驗收不列專案待辦（2026-11-21 使用者裁定）：由使用者實際使用時遇到問題再回報，回報後依問題開 task；未做的驗收仍不寫成通過。正式效能驗收為桌面 Chromium 模擬，已核對 `d24e447` 與 T198、T199 版本的首頁及通用第 121 課。
 - 奇偶不列入角色語音（2026-11-12 使用者裁定）：資料與音檔留在 repo 供歷史核對，網站不顯示也不計數，見 docs/project-sd.md 的 T188。
 
+## 2026-11-23 資安維護
+
+- 同源 Worker 的首頁與 index.html 設定 `Cross-Origin-Opener-Policy: same-origin-allow-popups`，保留 Google 登入所需的彈窗關係。正式部署與登入後驗收待核准。
+
 ## 最近批次
 
 - **T199**（2026-11-22，已發布）：[#285](https://github.com/frobel0520/nihongo-lab/pull/285) 細化首頁、整段聽解與單字卡。正式淺深色、播放、離線及兩頁效能驗收通過。見[發布稽核](docs/release-audit.md#t199學習畫面視覺調整)。
