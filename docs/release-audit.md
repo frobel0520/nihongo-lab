@@ -13,6 +13,16 @@
 - 工程檢查與 CI 通過不代替來源、語意或人耳驗收；原神覆蓋不宣稱全量完成。
 - 完整工程證據只放 Private repo `frobel0520/project-archives`，公開文件只寫摘要與批次 ID。
 
+## #287：Worker 首頁安全標頭
+
+[PR #287](https://github.com/frobel0520/nihongo-lab/pull/287) 已部署 `d91db8c`，[CI 與 Worker](https://github.com/frobel0520/nihongo-lab/actions/runs/45132929009) 成功。正式首頁回 200，index.html 回 307 導向首頁。兩個回應均含 `Cross-Origin-Opener-Policy: same-origin-allow-popups`。正式 Google 登入與同步維持 Issue #180 已記載的驗收範圍。
+
+## T200：佈景主題設定
+
+2026-11-22，[PR #286](https://github.com/frobel0520/nihongo-lab/pull/286) 已部署 `8399cbb9`。[CI 與 Worker](https://github.com/frobel0520/nihongo-lab/actions/runs/45034983735) 成功，正式抽查 13 個建置檔與同提交重建一致。
+
+隔離 Chromium 通過跟隨系統、手動明暗、舊偏好保存、跨頁、320px／150% 字級與真正離線重載後切換。正式效能 20 次載入無失敗，首頁首次／快取重載 LCP p95 2,076／788 ms，通用第 121 課 2,204／836 ms。兩頁 LCP、TBT 與內容可用時間均達原門檻。
+
 ## T199：學習畫面視覺調整
 
 2026-11-22，[PR #285](https://github.com/frobel0520/nihongo-lab/pull/285) 已合併並部署至 `2f298a8f`。首頁、整段聽解與單字卡採用香檳金視覺調整。[部署 CI](https://github.com/frobel0520/nihongo-lab/actions/runs/45029837908) 通過，正式抽查 13 檔與同提交建置一致。
