@@ -11,8 +11,32 @@ import {
 } from '../lib/progress.mjs';
 import { mergeProgress } from '../lib/progress-merge.mjs';
 import { getVoice } from '../curriculum/voices.mjs';
+import { alignFurigana } from '../lib/furigana.mjs';
+import { crossSentenceFixture } from './fixtures/cross-sentence-scene.mjs';
 
 const lessons = stages.find((s) => s.id === 'stage-1').lessons;
+test('跨句試作的兩位同伴、讀音與三道線索題不改動公開教材或舊紀錄 ID', () => {
+  const { dialogue, scene } = crossSentenceFixture;
+  assert.equal(dialogue.length, 9);
+  assert.equal(new Set(dialogue.map(({ voice }) => voice)).size, 2);
+  assert.equal(new Set(dialogue.map(({ audio }) => audio)).size, dialogue.length);
+  for (const line of dialogue) assert.ok(alignFurigana(line.jp, line.reading), line.jp);
+  assert.equal(scene.questions.length, 3);
+  assert.equal(new Set(scene.questions.map(({ id }) => id)).size, 3);
+  const original = lessons.find(({ id }) => id === crossSentenceFixture.id);
+  assert.equal(original.dialogue.length, 6);
+  const previous = new Set(original.scene.questions.map((question) => sceneRecordId(original, question)));
+  for (const question of scene.questions) {
+    assert.equal(new Set(question.options).size, 3);
+    assert.ok(question.options[question.answer]);
+    assert.ok(new Set(question.evidenceLines).size >= 2);
+    assert.ok(question.evidenceLines.every((line) => Number.isInteger(line) && line >= 1 && line <= dialogue.length));
+    const id = sceneRecordId(crossSentenceFixture, question);
+    assert.equal(previous.has(id), false);
+    assert.equal(sceneRecordId(crossSentenceFixture, { ...question, evidenceLines: [1, 9] }), id);
+  }
+});
+
 test('通用聽解完成六階段180課原創教材；每課密度與同伴聲線保持', () => {
   assert.equal(lessons.length, 180);
   assert.equal(

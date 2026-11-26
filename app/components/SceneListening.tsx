@@ -59,6 +59,7 @@ export function SceneListening({
     false,
   );
   const scene = lesson.scene!;
+  const hasEvidence = scene.questions.some((q) => q.evidenceLines?.length);
   const lessonPaths = useMemo(() => lessonAudioPaths(lesson), [lesson]);
   const speakers = useMemo(
     () => sceneSpeakerLabels(lesson.dialogue, getVoice),
@@ -242,13 +243,19 @@ export function SceneListening({
               <p>
                 <RubyText text={q.explanation} />
               </p>
+              {q.evidenceLines?.length ? (
+                <p className="muted">線索句：{q.evidenceLines.join('、')}</p>
+              ) : null}
             </div>
           ))}
           <h3>原文、翻譯與逐句跟讀</h3>
           <ul className="list">
             {lesson.dialogue.map((line, i) => (
               <li key={line.audio}>
-                <p className="muted">{speakers[i]}</p>
+                <p className="muted">
+                  {hasEvidence ? `第 ${i + 1} 句 · ` : ''}
+                  {speakers[i]}
+                </p>
                 <AudioLine {...line} />
               </li>
             ))}
