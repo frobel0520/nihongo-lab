@@ -1,6 +1,7 @@
 import { historicalGameCharacterStudy as gameCharacterStudy } from './helpers/before-action-expansion.mjs';
 import { test } from 'node:test';
 import { beforeInference } from './helpers/inference-baseline.mjs';
+import { beforeCrossSentence, crossSentenceIds } from './helpers/cross-sentence-scope.mjs';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
@@ -472,4 +473,26 @@ test('T191: game-only distractor chunk preserves every offered answer without ch
   assert.equal(typeof source, 'string');
   const result = await import('data:text/javascript;base64,' + Buffer.from(source).toString('base64'));
   assert.deepEqual(result.gameMeaningDistractors, offeredDistractors);
+});
+
+test('跨句 B：保留 A 確認的所有課程內容與既有動畫聽寫 ID，另外加入三段', () => {
+  const prior = beforeCrossSentence(stages);
+  assert.equal(prior.find(s => s.id === 'stage-1').lessons.length, 180);
+  // Captured from A head 2ef1bc80 before projecting in the B lessons.
+  assert.equal(sha(JSON.stringify(prior)), '67449526b397def1071e05f815c370fb08f48264fae875d3674ba872ffc39581');
+  const animeIds = curriculumSummary.categories.anime.sentenceIds;
+  assert.equal(animeIds.length, 151 + 27);
+  assert.equal(sha(JSON.stringify(animeIds.slice(0, 151))), '1f75f9de34b88ba31a0084b990b8c5eebfda6b871c2ab65e75d7ae600ddcf940');
+  const added = stages.find(s => s.id === 'stage-2').lessons.slice(-3);
+  assert.deepEqual(added.map(l => l.id), crossSentenceIds);
+  for (const lesson of added) {
+    assert.equal(new Set(lesson.dialogue.map(line => line.voice)).size, 2);
+    assert.ok(lesson.dialogue.length >= 8 && lesson.dialogue.length <= 12);
+    assert.equal(lesson.scene.questions.length, 3);
+    for (const question of lesson.scene.questions) {
+      const references = new Set(question.evidenceLines);
+      assert.ok(references.size >= 2);
+      assert.ok([...references].every(line => Number.isInteger(line) && line >= 1 && line <= lesson.dialogue.length));
+    }
+  }
 });

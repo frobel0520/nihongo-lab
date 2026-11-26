@@ -17,6 +17,10 @@
 
 2026-11-26 隔離 Chromium 375px 通過九句原生播放、停止或缺音檔時鎖題、離開聽解區塊停播、三題作答後才揭示原文與線索、明確下載與真正斷網重載。回歸比對既有進度資料，v3 舊紀錄保留，試作答題各自寫入。瀏覽器證據可由 `node tests/cross-sentence-browser.mjs` 重現。產物只用於測試，正式建置無試作素材。正式語音、發音與教學效果留待後續階段。
 
+## 跨句聽解 B 階段：三段原創教材（候選）
+
+[#291](https://github.com/frobel0520/nihongo-lab/issues/291) 新增三段九句、九題與 27 支正式 VOICEVOX MP3，總 1,955,556 bytes。每題在答完三題後顯示實際引用的句號及解析。通用 180 課、既有課程內容與進度 ID 以原快照核對。實測時長和各題線索見[教材紀錄](anime-listening-course.md#b-階段正式教材候選)。音檔發布核對用正式路徑 build，語音機械檢查與人耳聽辨分開紀錄。
+
 ## T199：學習畫面視覺調整
 
 2026-11-22，[PR #285](https://github.com/frobel0520/nihongo-lab/pull/285) 已合併並部署至 `2f298a8f`。首頁、整段聽解與單字卡採用香檳金視覺調整。[部署 CI](https://github.com/frobel0520/nihongo-lab/actions/runs/45029837908) 通過，正式抽查 13 檔與同提交建置一致。

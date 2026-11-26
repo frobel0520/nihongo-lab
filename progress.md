@@ -38,7 +38,7 @@
 
 ## 待辦
 
-- [ ] 【低】動畫進階長片段／跨句教材：2026-11-26 完成 A 階段九句原創情境的隔離播放、鎖題、線索與離線回歸。正式三段教材、自製語音與發布仍待 B／C 階段。[首批規劃與試作](docs/anime-listening-course.md#進階長片段與跨句教材規劃)
+- [ ] 【低】動畫進階長片段／跨句教材：A 階段的隔離播放契約見 [PR #290](https://github.com/frobel0520/nihongo-lab/pull/290)。B 階段三段原創教材及 27 支 VOICEVOX 音檔已編入候選分支，跟進 [#291](https://github.com/frobel0520/nihongo-lab/issues/291)。C 階段發布與正式驗收待授權。[教材與驗收方式](docs/anime-listening-course.md#進階長片段與跨句教材規劃)
 
 ## 通用限制
 

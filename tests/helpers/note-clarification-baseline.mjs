@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { beforeCrossSentence } from './cross-sentence-scope.mjs';
 export const noteClarificationBaseline = JSON.parse(
   readFileSync(new URL('../fixtures/curriculum-04070ca-notes.json', import.meta.url), 'utf8'),
 );
@@ -6,7 +7,7 @@ export const noteClarificationBaseline = JSON.parse(
 // Restore only the two authorized T193 notes for immutable earlier golden checks.
 // The current scope test independently checks all authored data, IDs and catalogs.
 export function beforeNoteClarifications(stages) {
-  const historical = structuredClone(stages);
+  const historical = structuredClone(beforeCrossSentence(stages));
   for (const entry of noteClarificationBaseline.notes)
     historical.flatMap((s) => s.lessons)
       .find((l) => l.id === entry.lessonId).grammar[entry.index].note = entry.note;

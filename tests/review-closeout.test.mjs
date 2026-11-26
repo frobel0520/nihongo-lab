@@ -3,13 +3,14 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { stages } from '../curriculum/lessons.mjs';
+import { beforeCrossSentence } from './helpers/cross-sentence-scope.mjs';
 import { sceneRecordId } from '../lib/scene-listening.mjs';
 import { grammarRecordId } from '../lib/grammar-study.mjs';
 import { listeningRecordId, trainingClips } from '../lib/anime-training.mjs';
 import { gameRecordId, gameListeningRecordId } from '../lib/game-study.mjs';
 import { beforeReviewCloseout, reviewBaseline as baseline } from './helpers/review-closeout-baseline.mjs';
 const sha = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
-const lessons = stages.flatMap(s => s.lessons);
+const lessons = beforeCrossSentence(stages).flatMap(s => s.lessons);
 
 test('T149: only five reviewed notes, one translation and the explicit metadata field may change', () => {
   assert.equal(sha({ stages: beforeReviewCloseout(stages), gameCharacterStudy }), baseline.contentSha256);
