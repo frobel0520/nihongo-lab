@@ -3,7 +3,7 @@ import { collectInventoryCards } from './vocab-illustration-inventory.mjs';
 import { chromium } from 'playwright-core';
 import { createServer } from 'node:http';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
-import { resolve, extname } from 'node:path';
+import { resolve, relative, isAbsolute, sep, extname } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { emptyProgress, serializeProgress } from '../lib/progress.mjs';
 import { schedule, toDateString } from '../lib/srs.mjs';
@@ -19,13 +19,28 @@ const phase = arg('--label', 'after'),
 if (!['before', 'after'].includes(phase))
   throw Error('label must be before or after');
 const server = createServer(async (req, res) => {
+  let decodedPathname;
   try {
-    const p = new URL(req.url ?? '/', 'http://localhost').pathname.replace(
-      /^\/nihongo-lab\//,
-      '',
-    );
+    const rawPath = (req.url ?? '/').split('?')[0].split('#')[0];
+    decodedPathname = decodeURIComponent(rawPath);
+  } catch {
+    res.writeHead(400).end();
+    return;
+  }
+  try {
+    if (
+      decodedPathname.includes('\0') ||
+      decodedPathname.includes('\\') ||
+      !decodedPathname.startsWith('/nihongo-lab/')
+    ) {
+      throw Error();
+    }
+    const p = decodedPathname.slice('/nihongo-lab/'.length);
     const file = resolve(root, p || 'index.html');
-    if (!file.startsWith(root + '/')) throw Error();
+    const rel = relative(root, file);
+    if (!rel || rel === '..' || rel.startsWith('..' + sep) || isAbsolute(rel)) {
+      throw Error();
+    }
     res.setHeader(
       'content-type',
       {
