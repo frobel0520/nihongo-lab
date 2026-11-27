@@ -16,7 +16,7 @@ import {
 export const SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000;
 /** 剩餘不到這麼久就在回應裡換發新的，常用的裝置不用重新登入。 */
 export const RENEW_BELOW_MS = 15 * 24 * 60 * 60 * 1000;
-const MIN_SECRET_LENGTH = 16;
+const MIN_SECRET_LENGTH = 32;
 
 /** @param {string} secret */
 function importKey(secret) {

@@ -6,7 +6,7 @@ import { signSession, SESSION_TTL_MS } from '../worker/session.mjs';
 import { emptyProgress, recordDictation, recordReview } from '../lib/progress.mjs';
 
 const NOW = Date.UTC(2026, 9, 1, 12, 0, 0);
-const SECRET = 'a-long-enough-secret-value';
+const SECRET = 'a-long-enough-session-secret-value-32c';
 const CLIENT_ID = 'client-123.apps.googleusercontent.com';
 // 網頁與 API 同源（Worker 也提供 /nihongo-lab/ 網頁）
 const ORIGIN = 'https://sync.example.workers.dev';
@@ -249,6 +249,31 @@ test('/sync：版本 1 的進度（舊版 App 匯出）也收，自動轉成目�
   assert.equal((await call(env, '/sync', { token, body: '{壞掉' })).status, 400);
   const huge = await call(env, '/sync', { token, body: `{"progress":"${'x'.repeat(MAX_SYNC_BYTES)}"}` });
   assert.equal(huge.status, 413);
+
+  let pulls = 0;
+  let streamCancelled = false;
+  const chunked = new ReadableStream({
+    pull(controller) {
+      pulls++;
+      controller.enqueue(new Uint8Array(600 * 1024));
+    },
+    cancel() {
+      streamCancelled = true;
+    },
+  });
+  const streamed = await handleRequest(
+    new Request('https://sync.example.workers.dev/sync', {
+      method: 'POST',
+      headers: { Origin: ORIGIN, Cookie: `${SESSION_COOKIE}=${token}`, 'Content-Type': 'application/json' },
+      body: chunked,
+      duplex: 'half',
+    }),
+    env,
+    deps(NOW),
+  );
+  assert.equal(streamed.status, 413);
+  assert.equal(streamCancelled, true);
+  assert.ok(pulls <= 5, `expected bounded reads, got ${pulls}`);
 });
 
 test('/sync：雲端存檔壞掉時不覆蓋它，回 500', async () => {

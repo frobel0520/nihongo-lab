@@ -127,7 +127,7 @@ test('Google 憑證：找不到 kid 時重抓一次金鑰（金鑰輪換），�
 });
 
 test('session：簽發後可驗證，內容原樣取回，到期時間是簽發時間加 30 天', async () => {
-  const secret = 'a-long-enough-secret-value';
+  const secret = 'a-long-enough-session-secret-value-32c';
   const token = await signSession({ sub: 'u1', email: 'me@example.com' }, secret, NOW);
   assert.deepEqual(await verifySession(token, secret, NOW + 1000), {
     sub: 'u1',
@@ -137,11 +137,11 @@ test('session：簽發後可驗證，內容原樣取回，到期時間是簽發�
 });
 
 test('session：過期、換了金鑰、被竄改、格式不對都回 null', async () => {
-  const secret = 'a-long-enough-secret-value';
+  const secret = 'a-long-enough-session-secret-value-32c';
   const token = await signSession({ sub: 'u1', email: 'me@example.com' }, secret, NOW);
   assert.equal(await verifySession(token, secret, NOW + SESSION_TTL_MS), null);
   assert.equal(await verifySession(token, secret, NOW + SESSION_TTL_MS + 1), null);
-  assert.equal(await verifySession(token, 'another-long-enough-secret', NOW), null);
+  assert.equal(await verifySession(token, 'another-long-enough-session-secret-32c', NOW), null);
 
   const [body, sig] = token.split('.');
   const forgedBody = encodeJson({ sub: 'admin', email: 'x@example.com', exp: NOW + 10 ** 12 });
@@ -154,7 +154,9 @@ test('session：過期、換了金鑰、被竄改、格式不對都回 null', as
 test('session：金鑰太短或沒設定時，簽發丟錯、驗證一律失敗（不會用空金鑰放行）', async () => {
   await assert.rejects(signSession({ sub: 'u', email: 'e' }, '', NOW), /SESSION_SECRET/);
   await assert.rejects(signSession({ sub: 'u', email: 'e' }, 'short', NOW), /SESSION_SECRET/);
-  const token = await signSession({ sub: 'u', email: 'e' }, 'a-long-enough-secret-value', NOW);
+  await assert.rejects(signSession({ sub: 'u', email: 'e' }, 'x'.repeat(31), NOW), /SESSION_SECRET/);
+  const token = await signSession({ sub: 'u', email: 'e' }, 'a-long-enough-session-secret-value-32c', NOW);
   assert.equal(await verifySession(token, '', NOW), null);
+  assert.equal(await verifySession(token, 'x'.repeat(31), NOW), null);
   assert.equal(await verifySession(token, /** @type {any} */ (undefined), NOW), null);
 });
