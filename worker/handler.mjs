@@ -115,10 +115,36 @@ function json(body, status, headers) {
  * @param {number} limit
  */
 async function readBody(request, limit) {
-  const declared = Number(request.headers.get('Content-Length'));
-  if (Number.isFinite(declared) && declared > limit) return null;
-  const text = await request.text();
-  return new TextEncoder().encode(text).length > limit ? null : text;
+  const rawLength = request.headers.get('Content-Length');
+  if (rawLength !== null) {
+    const declared = Number(rawLength);
+    if (!Number.isFinite(declared) || declared < 0 || declared > limit) {
+      await request.body?.cancel();
+      return null;
+    }
+  }
+  if (!request.body) return '';
+  const reader = request.body.getReader();
+  /** @type {Uint8Array[]} */
+  const chunks = [];
+  let total = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > limit) {
+      await reader.cancel();
+      return null;
+    }
+    chunks.push(value);
+  }
+  const bytes = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    bytes.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return new TextDecoder('utf-8').decode(bytes);
 }
 
 /**
